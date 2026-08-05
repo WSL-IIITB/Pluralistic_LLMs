@@ -165,3 +165,27 @@
     color: var(--color-foreground);
   }
 }
+
+@utility panel-surface {
+  background-color: var(--panel);
+  border: 1px solid var(--panel-border);
+  backdrop-filter: blur(16px) saturate(140%);
+  box-shadow: 0 24px 60px -24px oklch(0 0 0 / 70%);
+}
+
+@utility label-micro {
+  font-size: 0.625rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+
+@utility hatched {
+  background-image: repeating-linear-gradient(
+    45deg,
+    oklch(1 0 0 / 22%) 0px,
+    oklch(1 0 0 / 22%) 2px,
+    transparent 2px,
+    transparent 5px
+  );
+}
