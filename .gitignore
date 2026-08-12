@@ -15,6 +15,18 @@ dist-ssr
 .tanstack/**
 .nitro
 *.local
+.env
+.env.*
+!.env.example
+
+# Python backend
+backend/.venv/
+backend/**/__pycache__/
+backend/**/*.pyc
+
+# Runtime-generated caches (research_cache.py) -- not source, regenerated per-run
+backend/app/data/chroma_cache/
+backend/app/data/research_cache.db
 
 # Wrangler / Cloudflare
 .wrangler/

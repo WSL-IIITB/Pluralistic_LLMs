@@ -1,0 +1,167 @@
+"""
+Connector interfaces — the frozen contract every source/LLM connector
+implements. Each has a `Stub*` implementation (deterministic fixture data, zero
+external calls) and a real implementation gated by `config.Settings.has_*`;
+`connectors/__init__.py` picks the real one automatically when credentials are
+present and falls back to the stub otherwise.
+"""
+
+from __future__ import annotations
+
+from typing import Protocol, TypedDict
+
+from ..reasoning_modes import ResearchMode
+
+
+class SourcedPost(TypedDict):
+    id: str
+    platform: str  # "reddit" | "youtube"
+    text: str
+    source_hint: str  # subreddit name, or "channel · video title" for YouTube
+    permalink: str | None
+
+
+class SourceConnector(Protocol):
+    """A post source (Reddit, YouTube, ...)."""
+
+    async def search(self, query: str, limit: int) -> list[SourcedPost]:
+        """Return up to `limit` posts/comments relevant to `query`."""
+        ...
+
+
+class LLMClient(Protocol):
+    """
+    Every LLM-touching operation the pipeline needs, behind one seam so the
+    provider (OpenAI today) or a deterministic stub can be swapped freely.
+    Confidence values returned must be one of ConfidenceTier ("high"|"medium"|"low").
+    """
+
+    async def classify_query_type(self, query: str) -> str:
+        """Return "descriptive" or "policy"."""
+        ...
+
+    async def suggest_framings(self, query: str, max_count: int) -> list[str]:
+        """
+        Return up to `max_count` short, search-friendly phrases capturing the
+        distinct, well-known regional/cultural/ideological framings or
+        interpretations of `query` in the Indian context -- e.g. for "Diwali":
+        ["Ram Ayodhya return", "Narakasura Krishna", "Kali Puja Bengal",
+        "Lakshmi puja Gujarat new year", "Bandi Chhor Divas Sikh", "Mahavira
+        nirvana Jain"]. This is what makes the sourcing stage search for the
+        SUBSTANCE of regional variation, not just the bare topic + a place
+        name -- without it, a generic query mostly surfaces generic reactions/
+        opinions rather than content that actually articulates why regions
+        differ. Return an empty list if the topic has no well-known distinct
+        regional framings (the caller then falls back to the bare query).
+        """
+        ...
+
+    async def extract_place_mentions(self, text: str) -> list[str]:
+        """Return place names mentioned in `text` (district/city/state names)."""
+        ...
+
+    async def geolocate(self, text: str, source_hint: str) -> tuple[str | None, str]:
+        """
+        Last-resort LLM geolocation. Returns (district_id_or_none, confidence).
+        `district_id_or_none` should be a real id from the gazetteer, or None.
+        """
+        ...
+
+    async def embed(self, texts: list[str]) -> list[list[float]]:
+        """Embeddings for clustering, one vector per input text."""
+        ...
+
+    async def label_cluster(self, sample_texts: list[str]) -> tuple[str, str]:
+        """Return (label, one-line summary) for a cluster given sample post texts."""
+        ...
+
+    async def paraphrase(self, text: str) -> str:
+        """Paraphrase a post for safe display (never show verbatim user text)."""
+        ...
+
+    async def research(
+        self,
+        query: str,
+        known_framings: list[str],
+        breadth: int,
+        mode: ResearchMode,
+    ) -> tuple[str, list[dict]]:
+        """
+        Web-search-grounded research on `query`. Runs before clustering so the
+        synthesis stage can ground its answer in citable external sources
+        (essential for policy queries where social-media chatter alone is
+        thin: e.g. "high-school dropouts: where should government intervene?"
+        has almost no rich signal in Reddit/YouTube comments, but has a wealth
+        of government reports, news articles, and NGO briefs on the open web).
+
+        `known_framings` (from suggest_framings, possibly empty) act as
+        angles/subqueries -- if non-empty, the implementation should fire one
+        research call per framing; if empty, it should decompose `query`
+        internally into `breadth` search-friendly sub-questions first.
+
+        `mode` (basic/medium/high, see reasoning_modes.py) does NOT change how
+        many angles get searched (that's `breadth`/`known_framings`) -- it
+        scales how thorough each individual angle's write-up is asked to be
+        (reasoning_modes.RESEARCH_WORDCOUNT_HINT), since longer requested
+        write-ups correlate with more sources actually read and cited.
+
+        Returns (findings_summary, documents) where `documents` is a list of
+        ResearchDocument-shaped dicts {id, url, title, domain, snippet}, with
+        `id` a 1-based ordering within this call. The findings_summary is a
+        compact plaintext digest the synthesis stage can ground on directly
+        without re-reading every source; documents carry the URL citations
+        the UI renders.
+
+        Stub implementations MUST return ("", []) — do not fabricate URLs
+        (that would be far more misleading than empty research for a stub).
+        """
+        ...
+
+    async def extract_deflection(
+        self,
+        cluster_a_label: str,
+        cluster_a_texts: list[str],
+        cluster_b_label: str,
+        cluster_b_texts: list[str],
+    ) -> tuple[str, str]:
+        """Return (point_of_deflection, confidence) for a co-occurring cluster pair."""
+        ...
+
+    async def synthesize_answer(
+        self,
+        query: str,
+        query_type: str,
+        clusters: list[dict],
+        deflections: list[dict],
+        known_framings: list[str],
+        research_findings: str,
+        research_documents: list[dict],
+        mode: ResearchMode = "medium",
+    ) -> list[dict]:
+        """
+        `known_framings` (from suggest_framings, possibly empty) are well-known
+        regional/cultural framings of the topic -- ground the answer in these
+        where they're consistent with what the clusters actually found, so the
+        synthesis can state real regional/religious substance directly rather
+        than only whatever hedged phrasing the noisy scraped clusters produced.
+        Never state a framing the clustered data contradicts or that has no
+        support in `clusters`/`deflections`.
+
+        `research_findings` is a plaintext digest from the web-search stage;
+        `research_documents` is the ordered list of ResearchDocument-shaped
+        dicts (with 1-based `id`s) that produced it. When a claim comes
+        primarily from web research, set `citations` on the AnswerSegment to
+        the relevant document ids so the UI can render them. Prefer answering
+        from BOTH the clustered social-media viewpoints AND the researched
+        sources: the clusters tell you what people actually SAY, the sources
+        tell you what's TRUE / OFFICIAL / MEASURED -- combine them.
+
+        `mode` is additive/defaulted so every implementation keeps working
+        without overriding this method -- "extrahigh" clusters carry a
+        `stateCode` key (None for every other mode) and implementations may
+        use `mode` to ask for a broader, more region-explicit answer shape.
+
+        Return a list of AnswerSegment-shaped dicts:
+        {"text": str, "kind": "heading"|"body"|"recommendation", "clusterId"?: str, "region"?: str, "citations"?: list[int]}
+        """
+        ...

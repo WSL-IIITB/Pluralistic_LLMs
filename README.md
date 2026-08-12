@@ -1,90 +1,159 @@
-# India Worldview Explorer
+# Pluralistic India — Worldview Explorer
 
-Build the front-end UI shell for a data-visualization dashboard called "Pluralistic India — Worldview Explorer." This is UI ONLY: no real functionality, no data fetching, no API calls, no backend, no map library. Use hardcoded placeholder/mock content everywhere. A separate engineer will wire up all functionality later, so build clean, well-named, easily-extendable React components.
+A dark, cartographic "data-instrument" dashboard that shows how different regions of
+India hold different viewpoints on a shared topic. Enter a topic and a backend agent
+graph (LangGraph) streams results in real time: it sources social-media posts (Reddit +
+YouTube), resolves each to an Indian **district**, clusters the posts into distinct
+**viewpoints**, extracts the **point of deflection** between co-occurring viewpoints, and
+synthesizes an all-views-inclusive **consolidated answer**. The map builds progressively
+as each stage streams in.
 
-TECH: React + TypeScript + Tailwind CSS + shadcn/ui. Dark theme. Do not install mapping libraries — the map is a static placeholder for now (see below).
+This repo started as a static UI shell (built in Lovable) and is now the real, functional
+product: a live 3D map, a typed streaming layer, and fully wired panels. It ships with a
+self-contained **offline mock run** so the whole thing is demoable with no backend, no
+Mapbox token, and no external data.
 
-OVERALL AESTHETIC (very important — match this mood):
+> Preserve the visual language when editing: dark theme, floating glass panels
+> (`panel-surface`), small uppercase labels (`label-micro`), warm categorical data palette
+> (`--cluster-1..6`), cool-neutral chrome.
 
-A dark, cartographic, "data-instrument" look inspired by the Manhattan Population Explorer / Uber deck.gl dashboards. Full-bleed dark charcoal background (#0d0d0f to #1a1a1d). Floating semi-transparent panels with subtle borders (rgba white ~8% borders, panel bg ~#16161a at 85% opacity, backdrop-blur). Clean sans-serif (Inter). Restrained, technical, elegant — lots of dark negative space, small uppercase labels, thin rules. Warm accent palette for data (ambers/oranges through reds), cool neutral greys for chrome.
-
-LAYOUT (full-screen, map fills the entire viewport behind floating panels):
-
-1. TOP BAR (fixed, full width, ~56px, dark, thin bottom border):
-
-   - Left: product title "Pluralistic India" in medium weight, with a small subtitle "Worldview Explorer".
-
-   - Center: tab navigation with 4 tabs — "Map", "Deflections", "Answer", "About". "Map" active by default (active tab has a subtle filled pill background).
-
-   - Right: a small circular "info" icon button.
-
-2. QUERY BAR (floating, top-center just below the top bar, prominent):
-
-   - A wide search input with placeholder text "Enter a topic — e.g. Diwali, or 'high-school dropouts: where should government intervene?'"
-
-   - A primary "Explore" button to its right (amber accent).
-
-   - Directly under it, a thin status ticker line showing mock live status text: "Collected 1,240 posts · resolved 380 to districts · found 5 viewpoint clusters · analyzing deflections…" with a subtle animated pulse dot. This is static mock text, just style it to look live.
-
-3. MAP PLACEHOLDER (fills the whole background behind the panels):
-
-   - A dark full-viewport container representing where an interactive 3D map of India will go.
-
-   - Put a faint centered label "3D map of India renders here" in low-opacity text, and optionally a very subtle dark topographic/grid texture or a faint SVG silhouette of India outline. Keep it dark and unobtrusive — it must read as "map area," not a finished map.
-
-   - Add a small "mapbox"-style attribution chip bottom-left and a zoom-level indicator chip bottom-right reading "State view" (mock).
-
-4. LEFT FLOATING PANEL — "Consolidated Answer" (top-left, ~380px wide, scrollable, floating with margin from edges):
-
-   - Header: "Consolidated View" with a small "descriptive / policy" toggle badge.
-
-   - Body: mock consolidated answer text about Diwali — 2–3 short paragraphs describing that Diwali is celebrated nationwide with shared rituals (lamps, sweets, family) but that regions commemorate different underlying events, then a short bulleted list of regional viewpoints (North: Rama's return to Ayodhya; South: Krishna defeating Narakasura; East/Bengal: Kali Puja; West/Gujarat: new-year & Lakshmi; Sikh: Bandi Chhor Divas; Jain: Mahavira's nirvana). Use placeholder text, clearly attributed by region.
-
-   - Each viewpoint bullet has a small colored dot matching the legend palette.
-
-5. RIGHT FLOATING PANEL — Legend + Layers (top-right, ~260px wide):
-
-   - Section "Viewpoint Clusters": a vertical list of 6 mock clusters each with a colored swatch and label (use a categorical warm palette: amber, orange, red, rose, gold, coral). Labels: "Rama / Ayodhya", "Krishna / Narakasura", "Kali Puja", "New Year / Lakshmi", "Bandi Chhor Divas", "Mahavira Nirvana".
-
-   - Section "Data Confidence": three swatches — "High" (solid), "Low" (semi-transparent), "No data → state fallback" (hatched/greyed pattern).
-
-   - Section "Layers": a checklist (shadcn checkboxes, all checked) — "Show 3D columns", "Show deflection links", "Highlight split states". These are visual only, no behavior needed.
-
-6. BOTTOM BAR — Collection Progress (floating bottom-center, ~560px wide):
-
-   - A labeled progress bar at ~70% fill labeled "Live collection".
-
-   - To its right, a secondary "Go deeper" button (outline style) and a small note "sampling bounded — extend for more coverage".
-
-7. DEFLECTION PANEL (build it but hidden by default — show it as a bottom drawer/card that appears when the "Deflections" tab is active):
-
-   - Two dropdown selectors labeled "Region A" and "Region B" (mock options: North, South, East, West, Sikh, Jain).
-
-   - Below: a card showing a mock deflection: A = "Rama / Ayodhya", B = "Krishna / Narakasura", with a one-line "Point of deflection: which divine figure and which liberation event is being commemorated," and a small tag "level: inter-region".
-
-STATE (minimal, UI-only):
-
-- Tab switching should work (switch which panel/content is visible) — that's the only interactivity. Everything else is static mock data. No data logic, no fetching, no map SDK.
-
-Make it responsive enough to look good on a laptop screen (1440px). Prioritize matching the dark, floating-panel, cartographic aesthetic above all else. Structure components cleanly: TopBar, QueryBar, MapPlaceholder, ConsolidatedPanel, LegendPanel, ProgressBar, DeflectionPanel.
-
-This project was built with [Lovable](https://lovable.dev).
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/87235be6-ff58-4173-b56c-51692cde5023).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+## Quick start
 
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+npm install
 npm run dev
 ```
+
+Open the dashboard, and the offline **Diwali** demo plays automatically. Type a topic and
+press **Explore** to run again; type a policy-style question (e.g. _"high-school dropouts:
+where should government intervene?"_) to see the **policy** answer mode.
+
+## Wiring it to real data — the three plug points
+
+Everything runs offline by default. There are exactly three seams to make it live:
+
+### 1. Mapbox basemap (optional) — `VITE_MAPBOX_TOKEN`
+
+Set a token in `.env` (see `.env.example`) to render a Mapbox **dark** basemap _under_ the
+deck.gl columns. **Without a token the map still works** — deck.gl draws the districts and
+columns on the dark canvas alone. The token is read in
+[`WorldviewMap.tsx`](src/components/dashboard/map/WorldviewMap.tsx) (`readMapboxToken`) and
+passed to `react-map-gl` in [`DeckMap.tsx`](src/components/dashboard/map/DeckMap.tsx).
+
+### 2. District boundaries — `public/geo/india-districts.geojson`
+
+A simplified Census-2011 district GeoJSON (760 districts, ~0.5 MB) ships in
+[`public/geo/`](public/geo/). To use official Survey of India / Datameet boundaries, drop
+in a replacement whose feature properties expose `st_code`, `dt_code`, `st_nm`, `district`
+(LGD/Census codes) — **no code changes needed**. The typed loader
+([`geo/districts.ts`](src/lib/worldview/geo/districts.ts)) recomputes centroids/bboxes on
+load and keys each district as `${st_code}-${dt_code}`. If the file is missing, the map
+degrades to the backdrop and the rest of the dashboard keeps working. See
+[`public/geo/README.md`](public/geo/README.md).
+
+After replacing the district file, regenerate the dissolved state-boundary layer (the bold,
+always-visible state borders + solid landmass backing that keep the map reading as one
+continuous piece rather than a translucent patchwork of district polygons):
+
+```sh
+node scripts/build-state-boundaries.mjs
+```
+
+This runs `turf.union` once, offline, per state and writes `public/geo/india-states.geojson`
+(~80 KB). It's purely additive — `turf` is a devDependency only (never shipped to the
+client), and if this file is absent the map still works, just without the dedicated
+state-border/backing layers ([`geo/states.ts`](src/lib/worldview/geo/states.ts)).
+
+### 3. Backend stream — `src/lib/worldview/stream/config.ts`
+
+Flip **one line** to go from mock to a real backend:
+
+```ts
+// stream/config.ts
+const DEFAULT_SOURCE: SourceKind = "mock"; // change to "sse"
+```
+
+…or set env vars without editing code: `VITE_WORLDVIEW_STREAM=sse` and
+`VITE_WORLDVIEW_API_URL=https://your-api/worldview/stream`.
+
+The real endpoint should accept `?q=<query>&depth=<n>` and emit a **Server-Sent-Events**
+stream of JSON [`WorldviewEvent`](src/lib/worldview/types.ts)s — one event object per
+`data:` line, ideally mirroring the event `type` in the SSE `event:` field, ending with a
+`done` (or `error`) event. The SSE client is
+[`stream/sseStream.ts`](src/lib/worldview/stream/sseStream.ts); it already handles
+reconnect and cancellation. To use WebSockets instead, implement one more `StreamSource`
+against the same interface ([`stream/source.ts`](src/lib/worldview/stream/source.ts)) and
+return it from `createStreamSource()`.
+
+## Streaming event schema
+
+All event types are defined in one place — [`src/lib/worldview/types.ts`](src/lib/worldview/types.ts).
+Every event carries a `queryRunId` (multiple passes of "Go deeper" share one run).
+
+| `type`              | payload (key fields)                                                        | drives                                  |
+| ------------------- | -------------------------------------------------------------------------- | --------------------------------------- |
+| `query_started`     | `query`, `queryType` (`descriptive`\|`policy`), `depth`                     | run identity + answer mode              |
+| `status`            | `ticker`, `phase`, `counts`, `progress` (0–1)                              | query-bar ticker + progress bar         |
+| `cluster_defined`   | `clusterId`, `label`, `color` (RGB), `summary`, `representativePosts`       | legend, column colours, click-through   |
+| `district_resolved` | `districtId`, `stateCode`, `clusterId`, `confidence`, `volume`, `method`   | 3D columns, choropleth, split-state calc |
+| `deflection`        | `clusterA/B`, `level`, `unitA/B`, `point`, `confidence`                    | deflection panel + map arcs             |
+| `answer_chunk`      | `segment` (`{ text, kind?, clusterId?, region? }`)                          | streamed consolidated answer            |
+| `done` / `error`    | `counts` / `message`                                                        | terminal state / reconnect              |
+
+## Architecture
+
+```
+src/lib/worldview/
+  types.ts          — event + data schema (single source of truth)
+  palette.ts        — cluster colours (match --cluster-1..6), confidence, camera consts
+  store.ts          — Zustand run store; applyEvent reducer; "Go deeper" MERGES
+  selectors.ts      — legend, per-state entropy (split-state metric)
+  useQueryStream.ts — the hook the UI calls: run() / cancel() / retry()
+  geo/districts.ts  — typed GeoJSON loader (centroids/bboxes, graceful failure)
+  geo/states.ts     — typed loader for the precomputed dissolved state boundaries
+  stream/
+    source.ts        — StreamSource interface
+    config.ts        — mock↔real swap (the one place)
+    mockStream.ts    — timed offline replay (Diwali + policy)
+    sseStream.ts     — real SSE backend client (reconnect/cancel)
+    mockContent.ts   — authored clusters/deflections/answer
+    generatedDistricts.ts — frozen realistic district→viewpoint distribution
+src/components/dashboard/
+  map/WorldviewMap.tsx — SSR-safe wrapper (backdrop + client-gated lazy map + chips)
+  map/DeckMap.tsx      — client-only deck.gl + react-map-gl (columns/arcs/drill-down)
+  map/layers.ts        — builds the deck.gl layer stack from live store data
+  map/useStateGeo.ts   — loads public/geo/india-states.geojson (client, cached)
+  QueryBar / ConsolidatedPanel / LegendPanel / DeflectionPanel / ProgressBar /
+  DistrictInfoPanel    — panels, all bound to the store
+scripts/
+  generate-mock-districts.mjs — rebuilds the offline demo's district→cluster mock data
+  build-state-boundaries.mjs  — dissolves districts → india-states.geojson (turf, dev-only)
+```
+
+**State model.** A single Zustand store holds the current run keyed by `queryRunId`
+(posts→districts, clusters, deflections, answer, progress, layer toggles, selection).
+`prepareRun({ deeper: true })` keeps the accumulated data so **"Go deeper" merges** more
+districts and higher-confidence refinements into the existing view rather than wiping it.
+
+**SSR safety.** deck.gl / mapbox-gl (which need `window`/WebGL) are `lazy`-imported and
+only mounted on the client after `useEffect`, wrapped in an error boundary. The server
+renders just the dark backdrop, so there is no `window is not defined` crash and no map
+code in the SSR path.
+
+**Regenerating the mock distribution.** `node scripts/generate-mock-districts.mjs` rebuilds
+`generatedDistricts.ts` from whatever GeoJSON is in `public/geo/`.
+
+## Scripts
+
+```sh
+npm run dev       # dev server (SSR)
+npm run build     # production build
+npm run lint      # eslint
+npm run format    # prettier --write
+```
+
+---
+
+This project was built with [Lovable](https://lovable.dev). Commits pushed to the connected
+branch sync back into the Lovable editor, so keep the branch in a working state and avoid
+rewriting published history.

@@ -1,0 +1,15 @@
+fastapi>=0.115
+uvicorn[standard]>=0.30
+sse-starlette>=2.1
+pydantic>=2.8
+pydantic-settings>=2.4
+langgraph>=0.2
+openai>=1.40
+anthropic>=0.121
+sentence-transformers>=3.0
+httpx>=0.28
+praw>=7.7
+google-api-python-client>=2.140
+scikit-learn>=1.5
+numpy>=1.26
+chromadb>=0.5

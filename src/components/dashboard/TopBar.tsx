@@ -41,6 +41,7 @@ export function TopBar({ activeTab, onTabChange }: TopBarProps) {
       <button
         type="button"
         aria-label="About this explorer"
+        onClick={() => onTabChange("About")}
         className="flex size-8 items-center justify-center rounded-full border border-panel-border text-muted-foreground transition-colors hover:text-foreground"
       >
         <Info className="size-4" />
