@@ -1,4 +1,5 @@
 config/secrets.json
+*.pdf
 data/
 logs/
 __pycache__/
