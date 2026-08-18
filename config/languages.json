@@ -1,0 +1,30 @@
+{
+  "languages": [
+    { "name": "Assamese", "code": "as-IN" },
+    { "name": "Bengali", "code": "bn-IN" },
+    { "name": "Bodo", "code": "brx-IN" },
+    { "name": "Dogri", "code": "doi-IN" },
+    { "name": "Gujarati", "code": "gu-IN" },
+    { "name": "Hindi", "code": "hi-IN" },
+    { "name": "Kannada", "code": "kn-IN" },
+    { "name": "Kashmiri", "code": "ks-IN" },
+    { "name": "Konkani", "code": "kok-IN" },
+    { "name": "Maithili", "code": "mai-IN" },
+    { "name": "Malayalam", "code": "ml-IN" },
+    { "name": "Manipuri", "code": "mni-IN" },
+    { "name": "Marathi", "code": "mr-IN" },
+    { "name": "Nepali", "code": "ne-IN" },
+    {
+      "name": "Odia",
+      "code": "od-IN",
+      "notes": "FLAGGED: official Sarvam API docs (docs.sarvam.ai/models/sarvam-translate) list od-IN, but sarvam.ai's marketing page and the HuggingFace model card use or-IN. Verify against live API before Phase 2."
+    },
+    { "name": "Punjabi", "code": "pa-IN" },
+    { "name": "Sanskrit", "code": "sa-IN" },
+    { "name": "Santali", "code": "sat-IN" },
+    { "name": "Sindhi", "code": "sd-IN" },
+    { "name": "Tamil", "code": "ta-IN" },
+    { "name": "Telugu", "code": "te-IN" },
+    { "name": "Urdu", "code": "ur-IN" }
+  ]
+}
