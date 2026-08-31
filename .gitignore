@@ -1,6 +1,32 @@
+# Secrets
 config/secrets.json
+
+# Large / generated artifacts
 *.pdf
+*.ftz
+*.gguf
+*.safetensors
+*.bin
+models/
 data/
 logs/
+*.ipynb_checkpoints/
+
+# Virtual environments
+.venv/
+.venv-it2/
+
+# Python
 __pycache__/
 *.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
