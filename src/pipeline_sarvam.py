@@ -47,7 +47,15 @@ def _load_language_names() -> dict[str, str]:
     return names
 
 
+def _load_language_scripts() -> dict[str, str]:
+    data = json.loads((PROJECT_ROOT / "config" / "languages.json").read_text(encoding="utf-8"))
+    scripts = {entry["code"]: entry.get("script", "") for entry in data["languages"]}
+    scripts["en"] = "the Latin script"
+    return scripts
+
+
 LANGUAGE_NAMES = _load_language_names()
+LANGUAGE_SCRIPTS = _load_language_scripts()
 
 
 def _post_json(endpoint: str, payload: dict, api_key: str) -> dict:
@@ -182,12 +190,23 @@ def get_native_answer(
 ) -> str:
     if system_prompt is None:
         language_name = LANGUAGE_NAMES.get(lang_code, lang_code)
-        system_prompt = (
-            f"Answer the user's question entirely in {language_name}, "
-            f"using {language_name}'s native script. "
-            f"Do not use English, Hindi, or any other language "
-            f"unless {language_name} IS that language."
-        )
+        script = LANGUAGE_SCRIPTS.get(lang_code, "")
+        if script:
+            system_prompt = (
+                f"Answer the user's question entirely in {language_name}, "
+                f"using {script} only. "
+                f"Do NOT use English, Hindi (Devanagari), or any other script or language, "
+                f"and do NOT mix scripts within a single sentence. "
+                f"Every character you write must be in {language_name}'s {script}, "
+                f"unless {language_name} IS that language."
+            )
+        else:
+            system_prompt = (
+                f"Answer the user's question entirely in {language_name}, "
+                f"using {language_name}'s native script. "
+                f"Do not use English, Hindi, or any other language "
+                f"unless {language_name} IS that language."
+            )
     if use_ollama:
         return _get_native_answer_ollama(
             query_text, lang_code, system_prompt, enable_thinking,
