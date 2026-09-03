@@ -96,3 +96,12 @@ npm run tail
 
 Streams live logs, including a line for every request rejected with a bad passphrase —
 useful if you suspect the shared value leaked and want to confirm before rotating it.
+
+## Troubleshooting: "Found both a user configuration file... and a deploy configuration file"
+
+Building the *frontend* (`npm run build` at the repo root) generates its own
+`../.wrangler/deploy/config.json` for its unrelated Cloudflare Pages/Workers deploy
+target, which can confuse `wrangler deploy` run from here. `npm run deploy` and `npm run
+dev` already pass `--config ./wrangler.toml` to avoid this; if you run `wrangler`
+directly and hit this error, add that same flag (or delete the stray `../.wrangler/`
+directory — it's just a build cache, safe to remove).
