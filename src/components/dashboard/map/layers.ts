@@ -40,6 +40,16 @@ import {
 } from "@/lib/worldview";
 import type { DistrictFeatureProps, DistrictGeo } from "@/lib/worldview/geo/districts";
 import type { StateFeatureCollection } from "@/lib/worldview/geo/states";
+import { interventionColor, numericColor, type NumericDomain } from "@/lib/dataview/palette";
+import type { DataViewColorMode } from "@/lib/dataview/store";
+
+export interface DataViewLayerParams {
+  /** False (or this whole param omitted) falls through to the existing cluster-mode logic unchanged. */
+  active: boolean;
+  colorMode: DataViewColorMode;
+  values: Record<DistrictId, number>;
+  domain: NumericDomain;
+}
 
 export interface BuildLayersParams {
   geo: DistrictGeo;
@@ -58,6 +68,8 @@ export interface BuildLayersParams {
    * on `[districts, geo]` — see that function's doc comment for why this
    * must not be recomputed here on every hover. */
   representativeCentroids: Map<ClusterId, [number, number]>;
+  /** Data View's numeric choropleth mode — see {@link DataViewLayerParams}. Omitted/inactive for Story View. */
+  dataView?: DataViewLayerParams;
 }
 
 interface ColumnDatum {
@@ -134,6 +146,7 @@ export function buildLayers(params: BuildLayersParams): Layer[] {
     deflections,
     deflectionPair,
     representativeCentroids,
+    dataView,
   } = params;
 
   const layers: Layer[] = [];
@@ -176,6 +189,19 @@ export function buildLayers(params: BuildLayersParams): Layer[] {
       getLineColor: [255, 255, 255, 28],
       getFillColor: (f: Feature): RGBAColor => {
         const p = props(f);
+
+        // Data View's numeric choropleth mode takes over entirely when active —
+        // falls through to the untouched cluster-mode logic below otherwise.
+        if (dataView?.active) {
+          const value = dataView.values[p.districtId];
+          if (value === undefined) return [0, 0, 0, 0];
+          const rgb =
+            dataView.colorMode === "dropoutRate"
+              ? numericColor(value, dataView.domain)
+              : interventionColor(value);
+          return withAlpha(rgb, 150);
+        }
+
         const d = districts[p.districtId];
         if (d && d.clusterId) {
           if (d.isStateFallback) return withAlpha(stateAggColor(p.stateCode), 70);
@@ -189,7 +215,15 @@ export function buildLayers(params: BuildLayersParams): Layer[] {
       },
       updateTriggers: {
         stroked: [tier],
-        getFillColor: [districtsSig, clustersSig, stateDiversity],
+        getFillColor: [
+          districtsSig,
+          clustersSig,
+          stateDiversity,
+          dataView?.active,
+          dataView?.colorMode,
+          dataView?.values,
+          dataView?.domain,
+        ],
       },
     }),
   );

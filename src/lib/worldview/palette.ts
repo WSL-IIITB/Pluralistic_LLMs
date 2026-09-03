@@ -29,12 +29,14 @@ export function paletteColor(index: number): RGBAColor {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Per-state palette (extrahigh mode only)
+// Per-state palette (extrahigh mode's LEGACY path — superseded by
+// paletteColorForRegion below for any run with region-inference data; kept
+// only so older saved runs predating it still render sensibly)
 // ─────────────────────────────────────────────────────────────────────────────
 //
-// extrahigh clusters each state's posts independently, so a single run can
-// produce 60-190 total clusters instead of today's 2-6 — CLUSTER_PALETTE's
-// fixed 6 hues would collide constantly at that scale (two unrelated states'
+// extrahigh used to cluster each state's posts independently, producing
+// 60-190 total clusters instead of today's 2-6 — CLUSTER_PALETTE's fixed 6
+// hues would collide constantly at that scale (two unrelated states'
 // clusters rendering the literal same colour). paletteColorForState below
 // gives every state its own deterministic hue, with successive clusters
 // WITHIN one state spaced out by lightness instead. basic/medium/high are
@@ -114,6 +116,51 @@ export function paletteColorForState(
   const { minLightness = 0.4, maxLightness = 0.74, saturation = 0.62 } = options ?? {};
   const stepIndex =
     ((indexWithinState % LIGHTNESS_STEPS.length) + LIGHTNESS_STEPS.length) % LIGHTNESS_STEPS.length;
+  const t = LIGHTNESS_STEPS[stepIndex] ?? 0.5;
+  const lightness = minLightness + (maxLightness - minLightness) * t;
+  return hslToRgb(hue, saturation, lightness);
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Per-region palette (extrahigh mode only, post region-inference)
+// ─────────────────────────────────────────────────────────────────────────────
+//
+// Unlike a state code (a small, roughly-contiguous Census/LGD integer —
+// stateHue above steps that directly), a RegionId is an agent-generated
+// string ("r0", "r1", ..., "UNK-REGION") with no numeric structure to step
+// through — hashing it would reintroduce the exact collision risk stateHue's
+// own doc comment warns about (hash outputs land at effectively random
+// positions, not a low-discrepancy sequence). Instead, regions are keyed by
+// their DISCOVERY-ORDER index: an incrementing integer assigned the first
+// time a region is seen (its regionOrder position in the store), which is a
+// genuine low-discrepancy sequence the golden-angle trick needs.
+
+/** Deterministic hue (0-360) for the `regionIndexOfDiscovery`-th region seen
+ * in a run. Same golden-angle-stepping trick as `stateHue`, just keyed on
+ * discovery order instead of a state's own numeric code. */
+function regionHue(regionIndexOfDiscovery: number): number {
+  return (((regionIndexOfDiscovery * GOLDEN_ANGLE_DEG) % 360) + 360) % 360;
+}
+
+/**
+ * Colour for the `indexWithinRegion`-th (0-based) cluster discovered so far
+ * in the `regionIndexOfDiscovery`-th region — extrahigh mode only, once
+ * region-inference has run. Every region gets its own deterministic hue (via
+ * `regionHue`) so two different regions' clusters never collide; successive
+ * clusters within one region are spaced out by lightness instead (via
+ * `LIGHTNESS_STEPS`), exactly mirroring `paletteColorForState`'s own
+ * within-group spacing.
+ */
+export function paletteColorForRegion(
+  regionIndexOfDiscovery: number,
+  indexWithinRegion: number,
+  options?: { minLightness?: number; maxLightness?: number; saturation?: number },
+): RGBAColor {
+  const hue = regionHue(regionIndexOfDiscovery);
+  const { minLightness = 0.4, maxLightness = 0.74, saturation = 0.62 } = options ?? {};
+  const stepIndex =
+    ((indexWithinRegion % LIGHTNESS_STEPS.length) + LIGHTNESS_STEPS.length) %
+    LIGHTNESS_STEPS.length;
   const t = LIGHTNESS_STEPS[stepIndex] ?? 0.5;
   const lightness = minLightness + (maxLightness - minLightness) * t;
   return hslToRgb(hue, saturation, lightness);

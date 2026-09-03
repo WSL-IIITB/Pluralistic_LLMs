@@ -71,6 +71,18 @@ async def resolve_posts_geography(
     for batch_start in range(0, total, _BATCH_SIZE):
         batch = posts[batch_start : batch_start + _BATCH_SIZE]
 
+        # Posts that already carry a district arrive pre-resolved and are
+        # passed straight through: research-derived posts (see
+        # research.py's _posts_from_research_documents) resolve their own
+        # geography at creation time, because one source document can name
+        # SEVERAL states and is fanned out into one post per place --
+        # re-running `_resolve_post` here would collapse each of those back
+        # to its single first match, undoing the fan-out. They use the same
+        # gazetteer and the same "place_ner" method this node would apply
+        # anyway, so nothing is lost by trusting them; it also saves a
+        # redundant LLM call per post.
+        pending = [post for post in batch if not post.get("district_id")]
+
         # Read-only lookups (including any LLM calls) run concurrently within
         # a batch -- same reasoning as resolve_district.py's resolve_districts.
         resolutions = await asyncio.gather(
@@ -84,17 +96,19 @@ async def resolve_posts_geography(
                     district_by_id,
                     first_district_for_state,
                 )
-                for post in batch
+                for post in pending
             )
         )
 
-        for post, resolution in zip(batch, resolutions):
+        for post, resolution in zip(pending, resolutions):
             if resolution is not None:
                 district_id, state_code, method, confidence = resolution
                 post["district_id"] = district_id
                 post["state_code"] = state_code
                 post["resolution_method"] = method
                 post["resolution_confidence"] = confidence
+
+        for post in batch:
             posts_by_state.setdefault(post["state_code"] or UNKNOWN_STATE, []).append(post["id"])
 
         processed += len(batch)

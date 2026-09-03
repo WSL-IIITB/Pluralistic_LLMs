@@ -17,11 +17,11 @@ Two stores, linked by one uuid per cached query:
 Cache-hit decision is an LLM judgment call, not a fixed similarity cutoff --
 same reasoning as graph/build.py's `_filter_by_relevance`: a threshold could
 not cleanly separate "close enough to reuse" from "similar wording, different
-intent" in testing there, so this asks a small LOCAL model the actual
-question in words. The judge is always gemma3:4b via Ollama, independent of
-whichever provider is selected for the run's actual reasoning -- same as the
-relevance filter, and for the same reason (a per-post/per-query utility check
-run on every single request shouldn't multiply the paid-provider cost).
+intent" in testing there, so this asks the actual question in words. The
+judge runs through the run's OWN LLMClient (llm.judge_text_relevance),
+same as the relevance filter and for the same reason -- see that function's
+own docstring in graph/build.py for why this used to hardcode a separate
+local model and no longer does.
 
 Wraps `llm.research()` rather than changing the LLMClient protocol -- cache
 logic lives in one place regardless of which provider is active. Every
@@ -37,8 +37,6 @@ import json
 import sqlite3
 import uuid
 from datetime import datetime, timedelta, timezone
-
-import httpx
 
 from .config import DATA_DIR
 from .connectors.base import LLMClient
@@ -58,9 +56,6 @@ _CANDIDATE_COUNT = 3
 # A cache hit still runs a small top-up search (not zero) to catch anything
 # new since the cached run, at a fraction of the full per-mode breadth.
 _TOPUP_BREADTH = 2
-
-_OLLAMA_URL = "http://localhost:11434/api/chat"
-_JUDGE_MODEL = "gemma3:4b"
 
 _collection = None  # lazily-created chromadb collection handle, module-level singleton
 
@@ -101,46 +96,43 @@ def _get_db() -> sqlite3.Connection:
         """
     )
     conn.execute("CREATE INDEX IF NOT EXISTS idx_cached_documents_query_id ON cached_documents(query_id)")
+    # Added after the table shipped, so existing databases need the column
+    # backfilled rather than just a widened CREATE above. `geo_text` is the
+    # longer body text used for geography extraction (see connectors/llm.py's
+    # _GEO_TEXT_CHARS) -- without persisting it, a cache HIT would silently
+    # lose it and every cached document would fall back to its short display
+    # snippet, which is exactly the too-little-text problem it exists to fix.
+    existing_columns = {row[1] for row in conn.execute("PRAGMA table_info(cached_documents)")}
+    if "geo_text" not in existing_columns:
+        conn.execute("ALTER TABLE cached_documents ADD COLUMN geo_text TEXT")
+        conn.commit()
     return conn
 
 
-async def _judge_reusable(new_query: str, candidate_query: str) -> bool:
+async def _judge_reusable(llm: LLMClient, new_query: str, candidate_query: str) -> bool:
     """Would sources already gathered for `candidate_query` still usefully
-    answer `new_query`? Fails CLOSED (treated as not reusable) on any error --
-    the opposite of _filter_by_relevance's fail-open, because a false "hit"
-    here would silently serve stale/wrong sources, whereas a false miss just
-    costs one ordinary `research()` call (today's default behavior anyway)."""
-    prompt = (
+    answer `new_query`? Routed through the run's own LLMClient
+    (llm.judge_text_relevance) rather than a separately-hardcoded local
+    model -- see graph/build.py's _filter_by_relevance for the identical
+    reasoning (a hardcoded model tag not being pulled locally silently broke
+    this gate in practice). Fails CLOSED (treated as not reusable) on any
+    error, per judge_text_relevance's own documented contract -- the opposite
+    of _filter_by_relevance's fail-open, because a false "hit" here would
+    silently serve stale/wrong sources, whereas a false miss just costs one
+    ordinary `research()` call (today's default behavior anyway)."""
+    question = (
         f'Query A (new): "{new_query}"\n'
         f'Query B (already researched): "{candidate_query}"\n\n'
         "Would web sources already gathered for query B still usefully and accurately "
         "answer query A? Answer \"yes\" only if B's sources would substantively cover "
-        "A's actual topic/intent, not just similar wording. Answer with exactly one "
-        "word: yes or no."
+        "A's actual topic/intent, not just similar wording."
     )
-    try:
-        async with httpx.AsyncClient() as client:
-            resp = await client.post(
-                _OLLAMA_URL,
-                json={
-                    "model": _JUDGE_MODEL,
-                    "messages": [{"role": "user", "content": prompt}],
-                    "stream": False,
-                    "options": {"temperature": 0},
-                },
-                timeout=30.0,
-            )
-            resp.raise_for_status()
-            answer = resp.json()["message"]["content"].strip().lower()
-            return answer.startswith("y")
-    except Exception as exc:  # noqa: BLE001
-        print(f"[research_cache] cache-hit judge failed, treating as miss: {exc}", flush=True)
-        return False
+    return await llm.judge_text_relevance(question)
 
 
 def _doc_rows(query_id: str, documents: list[dict]) -> list[tuple]:
     return [
-        (query_id, d["url"], d.get("title", ""), d.get("domain", ""), d.get("snippet", ""))
+        (query_id, d["url"], d.get("title", ""), d.get("domain", ""), d.get("snippet", ""), d.get("geo_text", ""))
         for d in documents
         if d.get("url")
     ]
@@ -155,7 +147,8 @@ def _persist_new(query_id: str, query_text: str, mode: ResearchMode, findings: s
             (query_id, query_text, findings, mode, datetime.now(timezone.utc).isoformat()),
         )
         conn.executemany(
-            "INSERT INTO cached_documents (query_id, url, title, domain, snippet) VALUES (?, ?, ?, ?, ?)",
+            "INSERT INTO cached_documents (query_id, url, title, domain, snippet, geo_text) "
+            "VALUES (?, ?, ?, ?, ?, ?)",
             _doc_rows(query_id, documents),
         )
         conn.commit()
@@ -170,7 +163,8 @@ def _append_documents(query_id: str, documents: list[dict]) -> None:
     conn = _get_db()
     try:
         conn.executemany(
-            "INSERT INTO cached_documents (query_id, url, title, domain, snippet) VALUES (?, ?, ?, ?, ?)",
+            "INSERT INTO cached_documents (query_id, url, title, domain, snippet, geo_text) "
+            "VALUES (?, ?, ?, ?, ?, ?)",
             rows,
         )
         conn.commit()
@@ -185,9 +179,13 @@ def _load_cached(query_id: str) -> tuple[str, list[dict]] | None:
         if row is None:
             return None
         doc_rows = conn.execute(
-            "SELECT url, title, domain, snippet FROM cached_documents WHERE query_id = ?", (query_id,)
+            "SELECT url, title, domain, snippet, geo_text FROM cached_documents WHERE query_id = ?",
+            (query_id,),
         ).fetchall()
-        documents = [{"url": u, "title": t, "domain": d, "snippet": s} for u, t, d, s in doc_rows]
+        documents = [
+            {"url": u, "title": t, "domain": d, "snippet": s, "geo_text": g or ""}
+            for u, t, d, s, g in doc_rows
+        ]
         return row[0], documents
     finally:
         conn.close()
@@ -263,7 +261,7 @@ async def get_research(
 
     if candidate is not None:
         candidate_id, candidate_query_text = candidate
-        if await _judge_reusable(query, candidate_query_text):
+        if await _judge_reusable(llm, query, candidate_query_text):
             cached = _load_cached(candidate_id)
             if cached is not None:
                 cached_findings, cached_documents = cached

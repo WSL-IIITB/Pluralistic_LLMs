@@ -21,6 +21,7 @@ const EVENT_TYPES: WorldviewEventType[] = [
   "status",
   "district_resolved",
   "cluster_defined",
+  "region_defined",
   "deflection",
   "answer_chunk",
   "research_document",
@@ -34,7 +35,7 @@ function buildUrl(query: string, opts: StreamOptions): string {
   const params = new URLSearchParams({
     q: query,
     mode: opts.mode ?? "medium",
-    provider: opts.provider ?? "azure_anthropic",
+    provider: opts.provider ?? "gemma_remote",
   });
   if (opts.deeper) params.set("deeper", "1");
   return `${base}${sep}${params.toString()}`;

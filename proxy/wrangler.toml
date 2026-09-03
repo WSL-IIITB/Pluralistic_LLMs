@@ -1,0 +1,11 @@
+name = "worldview-model-proxy"
+main = "src/worker.ts"
+compatibility_date = "2026-09-01"
+
+# Secrets are NOT set here -- wrangler.toml is committed to the repo, and
+# anything in it would be exactly the leak this proxy exists to prevent. Set
+# them with `wrangler secret put <NAME>` instead (see ../README.md):
+#   SHARED_PASSPHRASE            the passphrase you hand out to the lab
+#   GEMMA_UPSTREAM_URL           real self-hosted Gemma base URL, e.g. http://<ip>:<port>
+#   AZURE_ANTHROPIC_UPSTREAM_URL real Azure AI Foundry endpoint for Claude
+#   AZURE_ANTHROPIC_API_KEY      real Azure AI Foundry API key

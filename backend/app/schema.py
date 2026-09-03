@@ -43,7 +43,7 @@ ResolutionMethod = Literal[
     "unresolved",
 ]
 DeflectionLevel = Literal[
-    "intra-district", "inter-district", "intra-state", "inter-state", "inter-region"
+    "intra-district", "inter-district", "intra-state", "inter-state", "intra-region", "inter-region"
 ]
 RunPhase = Literal[
     "sourcing",
@@ -60,7 +60,11 @@ RunPhase = Literal[
 # "detail" — long-form prose, collapsed behind a "Full analysis" toggle in the
 #            UI so the panel stays small by default without losing depth.
 AnswerSegmentKind = Literal["tldr", "heading", "body", "recommendation", "detail"]
-Platform = Literal["reddit", "youtube"]
+# "research" -- see graph/nodes/research.py's _posts_from_research_documents:
+# a ResearchDocument (NITI Aayog/data.gov.in/PIB/etc.) turned into a RawPost
+# so official sources flow through the same geo-resolution + clustering
+# pipeline real social posts do, not just the synthesis stage's citations.
+Platform = Literal["reddit", "youtube", "research"]
 
 RGBAColor = Annotated[list[int], Field(min_length=3, max_length=4)]
 
@@ -87,6 +91,9 @@ class CollectionCounts(Camel):
     clusters_found: int = Field(alias="clustersFound")
     deflections_found: int = Field(alias="deflectionsFound")
     sources_gathered: int = Field(default=0, alias="sourcesGathered")
+    # extrahigh mode only (0 for basic/medium/high) -- how many agent-inferred
+    # regions this run produced (graph/nodes/infer_regions.py).
+    regions_found: int = Field(default=0, alias="regionsFound")
 
 
 class ResearchDocument(Camel):
@@ -110,6 +117,22 @@ class AnswerSegment(Camel):
     text: str
     cluster_id: Optional[str] = Field(default=None, alias="clusterId")
     region: Optional[str] = None
+    # extrahigh mode only -- which agent-inferred region produced this
+    # segment (set by graph/nodes/deflection_and_synthesis.py's
+    # condition_regions, never by the LLM itself). None for the region-blind
+    # pass-1 baseline segments and for every non-extrahigh mode.
+    region_id: Optional[str] = Field(default=None, alias="regionId")
+    # Administrative-state label for extrahigh's per-state-conditioned
+    # segments (see state_code below) -- deliberately independent, new
+    # fields, NOT reusing region/region_id: a region can span multiple
+    # states, so this codebase keeps those two meanings distinct everywhere
+    # else too (ClusterState, ClusterDefinedEvent).
+    state: Optional[str] = None
+    # extrahigh mode only -- which administrative state produced this segment
+    # (set by graph/nodes/deflection_and_synthesis.py's condition_states,
+    # never by the LLM itself). None for the baseline and region-conditioned
+    # segments and for every non-extrahigh mode.
+    state_code: Optional[str] = Field(default=None, alias="stateCode")
     kind: Optional[AnswerSegmentKind] = None
     citations: Optional[list[int]] = None  # 1-based indices into the run's ResearchDocument list
 
@@ -151,6 +174,13 @@ class DistrictResolvedEvent(EventBase):
     method: ResolutionMethod
     is_state_fallback: Optional[bool] = Field(default=None, alias="isStateFallback")
     sample_posts: Optional[list[SamplePost]] = Field(default=None, alias="samplePosts")
+    # extrahigh mode only (None for basic/medium/high, and for extrahigh runs
+    # predating region-inference) -- which agent-inferred region this district
+    # was grouped into (graph/nodes/infer_regions.py). Unlike state_code above
+    # (a district's real, single state -- always correct, no shim needed),
+    # this is the new, purely additive field; excluded from the wire payload
+    # entirely when None (Camel serializes with exclude_none).
+    region_id: Optional[str] = Field(default=None, alias="regionId")
 
 
 class ClusterDefinedEvent(EventBase):
@@ -168,7 +198,35 @@ class ClusterDefinedEvent(EventBase):
     # cluster id string. excluded from the wire payload entirely when None
     # (Camel serializes with exclude_none), so existing modes' payloads are
     # byte-identical to before this field existed.
+    #
+    # Region-mode transitional shim: for region-scoped extrahigh clusters (see
+    # infer_regions.py/cluster_viewpoints_per_region), a cluster's region can
+    # span multiple states, so there is no longer one single "correct" value
+    # here -- this is populated with a REPRESENTATIVE state (the region's
+    # highest-post-volume district's state) purely so existing state-keyed
+    # frontend grouping/coloring (legendGroups/paletteColorForState) doesn't
+    # silently break before the region-aware frontend work lands. `region_id`
+    # below is the new authoritative field for region-mode clusters.
     state_code: Optional[str] = Field(default=None, alias="stateCode")
+    region_id: Optional[str] = Field(default=None, alias="regionId")
+
+
+class RegionDefinedEvent(EventBase):
+    """extrahigh mode only -- emitted once per agent-inferred region, right
+    after graph/nodes/infer_regions.py computes it (before per-region
+    clustering starts). Unlike a state code (a fixed, well-known enum the
+    frontend can name from a static lookup), a region's name/membership is
+    agent-generated fresh every run -- ClusterDefinedEvent/DistrictResolvedEvent
+    only carry the bare `regionId`, so the frontend needs this event to learn
+    what that id actually means at all."""
+
+    type: Literal["region_defined"] = "region_defined"
+    region_id: str = Field(alias="regionId")
+    name: str
+    justification: str
+    district_ids: list[str] = Field(alias="districtIds")
+    state_codes: list[str] = Field(alias="stateCodes")
+    confidence: ConfidenceTier
 
 
 class DeflectionEvent(EventBase):
@@ -215,6 +273,7 @@ WorldviewEvent = Annotated[
         StatusEvent,
         DistrictResolvedEvent,
         ClusterDefinedEvent,
+        RegionDefinedEvent,
         DeflectionEvent,
         AnswerChunkEvent,
         ResearchDocumentEvent,

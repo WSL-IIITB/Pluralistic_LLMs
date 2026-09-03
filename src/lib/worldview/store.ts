@@ -22,6 +22,8 @@ import {
   type LlmProvider,
   type QueryRunId,
   type QueryType,
+  type RegionDatum,
+  type RegionId,
   type ResearchDocument,
   type ResearchMode,
   type RunPhase,
@@ -29,7 +31,7 @@ import {
   type WorldviewEvent,
   resolveClusterStateCode,
 } from "./types";
-import { paletteColor, paletteColorForState } from "./palette";
+import { paletteColor, paletteColorForRegion, paletteColorForState } from "./palette";
 
 export type RunState = "idle" | "connecting" | "streaming" | "done" | "error" | "empty";
 
@@ -57,10 +59,32 @@ export interface RunSnapshot {
   districts: Record<DistrictId, DistrictDatum>;
   clusters: Record<ClusterId, ClusterDatum>;
   clusterOrder: ClusterId[];
+  /** extrahigh mode only (empty for basic/medium/high). Order is discovery
+   *  order — the first region's clusters get index 0's hue, etc. — see
+   *  {@link paletteColorForRegion}. */
+  regions: Record<RegionId, RegionDatum>;
+  regionOrder: RegionId[];
   deflections: DeflectionDatum[];
   answer: AnswerSegment[];
   researchDocuments: ResearchDocument[];
   status: StatusSnapshot;
+}
+
+/**
+ * Everything needed to redisplay a completed run later, exactly as it looked
+ * when the run finished — the same accumulated-data slice `RunSnapshot`
+ * already captures, plus the run's identity fields (which `RunSnapshot`
+ * deliberately omits, since reconnect-rewind never changes them). Defined
+ * here rather than in types.ts to avoid types.ts importing back from this
+ * file. POSTed verbatim to the backend on completion (see runHistory.ts) and
+ * fetched back verbatim to reopen — the backend never inspects this shape.
+ */
+export interface SavedRunData extends RunSnapshot {
+  id: QueryRunId;
+  query: string;
+  queryType: QueryType;
+  mode: ResearchMode;
+  provider: LlmProvider;
 }
 
 const EMPTY_COUNTS: CollectionCounts = {
@@ -69,6 +93,7 @@ const EMPTY_COUNTS: CollectionCounts = {
   clustersFound: 0,
   deflectionsFound: 0,
   sourcesGathered: 0,
+  regionsFound: 0,
 };
 
 const IDLE_STATUS: StatusSnapshot = {
@@ -93,6 +118,9 @@ export interface WorldviewStore {
   districts: Record<DistrictId, DistrictDatum>;
   clusters: Record<ClusterId, ClusterDatum>;
   clusterOrder: ClusterId[];
+  /** extrahigh mode only (empty for basic/medium/high) — see {@link RunSnapshot.regions}. */
+  regions: Record<RegionId, RegionDatum>;
+  regionOrder: RegionId[];
   deflections: DeflectionDatum[];
   answer: AnswerSegment[];
   /** Web-search-grounded sources gathered by the research stage, in id order,
@@ -117,6 +145,9 @@ export interface WorldviewStore {
   snapshotRun(): RunSnapshot;
   /** Rewind to a prior snapshot (discarding whatever the failed pass had applied) and reconnect. */
   restoreRun(snapshot: RunSnapshot): void;
+  /** Redisplay a previously-saved, already-completed run — unlike `restoreRun`
+   *  (reconnect-rewind, mid-stream), this settles into a terminal "done" state. */
+  loadSavedRun(data: SavedRunData): void;
   setLayer(key: keyof LayerToggles, value: boolean): void;
   toggleLayer(key: keyof LayerToggles): void;
   select(selection: Selection): void;
@@ -159,31 +190,63 @@ function countForState(
   return count;
 }
 
+/** Same role as `countForState`, but for regions — how many clusters already
+ * exist for `regionId` (extrahigh only), used to pick the next lightness
+ * step for a newly-discovered cluster within that region. */
+function countForRegion(
+  clusters: Record<ClusterId, ClusterDatum>,
+  order: readonly ClusterId[],
+  regionId: RegionId,
+): number {
+  let count = 0;
+  for (const id of order) {
+    if (clusters[id]?.regionId === regionId) count++;
+  }
+  return count;
+}
+
 /** Ensure a cluster stub exists so events can arrive in any order. `mode`
- * gates whether a resolvable state code should get its own per-state colour
- * (extrahigh) or the shared global palette (basic/medium/high) — mode as a
- * safety gate, the resolved state code as the actual data source, so a
+ * gates whether a resolvable state/region should get its own per-group
+ * colour (extrahigh) or the shared global palette (basic/medium/high) —
+ * mode as a safety gate, the resolved id as the actual data source, so a
  * stray colon in a non-extrahigh id can never accidentally trigger
- * per-state colouring. */
+ * per-state colouring. A resolvable `regionId` takes priority over
+ * `stateCode` (region is the authoritative extrahigh grouping — see
+ * ClusterDatum's doc comments — `stateCode` is now just a representative,
+ * transitional value on a region-scoped cluster). */
 function ensureCluster(
   clusters: Record<ClusterId, ClusterDatum>,
   order: ClusterId[],
+  regionOrder: readonly RegionId[],
   id: ClusterId,
   mode: ResearchMode,
   explicitStateCode?: StateCode,
+  explicitRegionId?: RegionId,
 ): ClusterDatum {
   const existing = clusters[id];
   if (existing) return existing;
   const stateCode =
     mode === "extrahigh" ? resolveClusterStateCode(explicitStateCode, id) : undefined;
-  const color = stateCode
-    ? paletteColorForState(stateCode, countForState(clusters, order, stateCode))
-    : paletteColor(order.length);
+  const regionId = mode === "extrahigh" ? explicitRegionId : undefined;
+
+  let color: ReturnType<typeof paletteColor>;
+  if (regionId) {
+    // Discovery-order index, not a hash of the id string — see
+    // paletteColorForRegion's doc comment for why.
+    const regionIndex = Math.max(0, regionOrder.indexOf(regionId));
+    color = paletteColorForRegion(regionIndex, countForRegion(clusters, order, regionId));
+  } else if (stateCode) {
+    color = paletteColorForState(stateCode, countForState(clusters, order, stateCode));
+  } else {
+    color = paletteColor(order.length);
+  }
+
   const stub: ClusterDatum = {
     id,
     label: id,
     color,
     ...(stateCode ? { stateCode } : {}),
+    ...(regionId ? { regionId } : {}),
     representativePosts: [],
     postCount: 0,
   };
@@ -197,7 +260,7 @@ export const useWorldviewStore = create<WorldviewStore>((set, get) => ({
   query: null,
   queryType: "descriptive",
   mode: "medium",
-  provider: "azure_anthropic",
+  provider: "gemma_remote",
   runState: "idle",
   error: null,
   status: IDLE_STATUS,
@@ -205,6 +268,8 @@ export const useWorldviewStore = create<WorldviewStore>((set, get) => ({
   districts: {},
   clusters: {},
   clusterOrder: [],
+  regions: {},
+  regionOrder: [],
   deflections: [],
   answer: [],
   researchDocuments: [],
@@ -226,11 +291,13 @@ export const useWorldviewStore = create<WorldviewStore>((set, get) => ({
       error: null,
       queryRunId: null,
       mode: "medium",
-      provider: "azure_anthropic",
+      provider: "gemma_remote",
       status: { ...IDLE_STATUS, ticker: `Sourcing posts for “${query}”…`, progress: 0.01 },
       districts: {},
       clusters: {},
       clusterOrder: [],
+      regions: {},
+      regionOrder: [],
       deflections: [],
       answer: [],
       researchDocuments: [],
@@ -268,18 +335,47 @@ export const useWorldviewStore = create<WorldviewStore>((set, get) => ({
         return;
       }
 
+      case "region_defined": {
+        set((s) => {
+          if (s.regions[evt.regionId]) return {};
+          const region: RegionDatum = {
+            id: evt.regionId,
+            name: evt.name,
+            justification: evt.justification,
+            districtIds: evt.districtIds,
+            stateCodes: evt.stateCodes,
+            confidence: evt.confidence,
+          };
+          return {
+            regions: { ...s.regions, [evt.regionId]: region },
+            regionOrder: [...s.regionOrder, evt.regionId],
+          };
+        });
+        return;
+      }
+
       case "cluster_defined": {
         set((s) => {
           const clusters = { ...s.clusters };
           const order = [...s.clusterOrder];
-          const prev = ensureCluster(clusters, order, evt.clusterId, s.mode, evt.stateCode);
+          const prev = ensureCluster(
+            clusters,
+            order,
+            s.regionOrder,
+            evt.clusterId,
+            s.mode,
+            evt.stateCode,
+            evt.regionId,
+          );
           clusters[evt.clusterId] = {
             ...prev,
             label: evt.label,
             // Backend colour stays authoritative for basic/medium/high;
-            // extrahigh keeps the frontend-computed per-state colour instead
-            // (the backend's own 6-color-cycle-per-state value would collide
-            // across different states — see palette.ts's paletteColorForState).
+            // extrahigh keeps the frontend-computed per-region (or per-state,
+            // for older saved runs predating region-inference) colour instead
+            // (the backend's own 6-color-cycle-per-scope value would collide
+            // across different regions/states — see palette.ts's
+            // paletteColorForRegion/paletteColorForState).
             color: s.mode === "extrahigh" ? prev.color : evt.color,
             ...(evt.summary !== undefined ? { summary: evt.summary } : {}),
             representativePosts: evt.representativePosts ?? prev.representativePosts,
@@ -294,7 +390,15 @@ export const useWorldviewStore = create<WorldviewStore>((set, get) => ({
           const districts = { ...s.districts };
           const clusters = { ...s.clusters };
           const order = [...s.clusterOrder];
-          ensureCluster(clusters, order, evt.clusterId, s.mode, evt.stateCode);
+          ensureCluster(
+            clusters,
+            order,
+            s.regionOrder,
+            evt.clusterId,
+            s.mode,
+            evt.stateCode,
+            evt.regionId,
+          );
 
           const prev = districts[evt.districtId];
           const clusterVolumes: Record<ClusterId, number> = { ...(prev?.clusterVolumes ?? {}) };
@@ -312,6 +416,14 @@ export const useWorldviewStore = create<WorldviewStore>((set, get) => ({
           districts[evt.districtId] = {
             districtId: evt.districtId,
             stateCode: evt.stateCode,
+            // Fixed for the whole run (a district belongs to exactly one
+            // region, unlike confidence/method below) — no dominant-cluster
+            // gating needed.
+            ...(evt.regionId
+              ? { regionId: evt.regionId }
+              : prev?.regionId
+                ? { regionId: prev.regionId }
+                : {}),
             clusterId: dominant,
             confidence: describesDominant ? evt.confidence : (prev?.confidence ?? evt.confidence),
             volume: (prev?.volume ?? 0) + evt.volume,
@@ -403,6 +515,8 @@ export const useWorldviewStore = create<WorldviewStore>((set, get) => ({
       districts: s.districts,
       clusters: s.clusters,
       clusterOrder: s.clusterOrder,
+      regions: s.regions,
+      regionOrder: s.regionOrder,
       deflections: s.deflections,
       answer: s.answer,
       researchDocuments: s.researchDocuments,
@@ -410,6 +524,32 @@ export const useWorldviewStore = create<WorldviewStore>((set, get) => ({
     };
   },
   restoreRun: (snapshot) => set({ ...snapshot, runState: "connecting", error: null }),
+  loadSavedRun: (data) =>
+    set({
+      queryRunId: data.id,
+      query: data.query,
+      queryType: data.queryType,
+      mode: data.mode,
+      provider: data.provider,
+      runState: "done",
+      error: null,
+      districts: data.districts,
+      clusters: data.clusters,
+      clusterOrder: data.clusterOrder,
+      // Older saved runs predate region-inference and won't have these
+      // fields in their persisted JSON at all (backend never validates the
+      // payload shape it stores — see run_history.py) — default rather than
+      // let `undefined` slip through the store's Record<...>/array types.
+      regions: data.regions ?? {},
+      regionOrder: data.regionOrder ?? [],
+      deflections: data.deflections,
+      answer: data.answer,
+      researchDocuments: data.researchDocuments,
+      status: data.status,
+      selection: NO_SELECTION,
+      hoveredClusterId: null,
+      deflectionPair: { a: null, b: null },
+    }),
 
   setLayer: (key, value) => set((s) => ({ layers: { ...s.layers, [key]: value } })),
   toggleLayer: (key) => set((s) => ({ layers: { ...s.layers, [key]: !s.layers[key] } })),
@@ -425,13 +565,15 @@ export const useWorldviewStore = create<WorldviewStore>((set, get) => ({
       query: null,
       queryType: "descriptive",
       mode: "medium",
-      provider: "azure_anthropic",
+      provider: "gemma_remote",
       runState: "idle",
       error: null,
       status: IDLE_STATUS,
       districts: {},
       clusters: {},
       clusterOrder: [],
+      regions: {},
+      regionOrder: [],
       deflections: [],
       answer: [],
       researchDocuments: [],

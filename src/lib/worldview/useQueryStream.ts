@@ -12,6 +12,7 @@
 
 import { useCallback, useEffect, useMemo, useRef } from "react";
 
+import { saveRun } from "./runHistory";
 import {
   createStreamSource,
   type StreamHandle,
@@ -81,7 +82,25 @@ export function useQueryStream(): QueryStreamApi {
   const open = useCallback(
     (query: string, options: StreamOptions) => {
       handleRef.current = source(query, options, {
-        onEvent: (event) => useWorldviewStore.getState().applyEvent(event),
+        onEvent: (event) => {
+          useWorldviewStore.getState().applyEvent(event);
+          // Auto-save every completed run (done OR empty — never error, there's
+          // nothing meaningful to redisplay from a failed run) — no explicit
+          // "save" step, per the History feature's design.
+          if (event.type === "done") {
+            const s = useWorldviewStore.getState();
+            if ((s.runState === "done" || s.runState === "empty") && s.queryRunId && s.query) {
+              void saveRun({
+                id: s.queryRunId,
+                query: s.query,
+                queryType: s.queryType,
+                mode: s.mode,
+                provider: s.provider,
+                ...s.snapshotRun(),
+              });
+            }
+          }
+        },
         onError: (message, recoverable) => {
           useWorldviewStore.getState().failRun(message);
           const canRetry =
@@ -130,7 +149,7 @@ export function useQueryStream(): QueryStreamApi {
       const mode = deeper ? escalateMode(store.mode) : (options.initialMode ?? "medium");
       // "Go deeper" carries forward whichever provider ran the current pass
       // rather than resetting it -- mirrors mode's escalate-in-place semantics.
-      const provider = deeper ? store.provider : (options.initialProvider ?? "azure_anthropic");
+      const provider = deeper ? store.provider : (options.initialProvider ?? "gemma_remote");
 
       const streamOpts: StreamOptions = { deeper, mode, provider, signal: controller.signal };
       if (deeper) streamOpts.priorCounts = store.status.counts;

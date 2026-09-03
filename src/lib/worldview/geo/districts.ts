@@ -172,7 +172,25 @@ export function indexFeatures(raw: RawFeatureCollection): DistrictGeo {
     const p = f.properties ?? {};
     const stateCode = (p.st_code ?? "00").toString();
     const stateName = (p.st_nm ?? "Unknown").toString();
-    const districtName = (p.district ?? "").toString() || `District ${i}`;
+    const districtName = (p.district ?? "").toString();
+    // The shipped india-districts.geojson carries exactly one extra feature
+    // per state/UT with no `district` (and no `dt_code`) property at all —
+    // empirically its geometry's bbox spans the ENTIRE state (verified for
+    // multiple states), i.e. a dissolved whole-state outline that ended up
+    // duplicated into the per-district file, always sorted after that
+    // state's real district features. Since deck.gl's GeoJsonLayer picks
+    // the topmost (last-drawn) feature at a point, keeping it in the
+    // pickable set means it silently swallows EVERY click anywhere in that
+    // state — no real, smaller district underneath it is ever reachable by
+    // clicking, in Story View or Data View alike. This used to be kept
+    // under a synthesized `District ${i}` label instead of a real name,
+    // which is what made every such click show a meaningless "District
+    // {number}" no matter which real district the user pointed at. Skipping
+    // the feature entirely — rather than keeping it under a synthesized
+    // label — drops this duplicate from both the choropleth and the
+    // pickable layer, so the real per-district polygons beneath it (which
+    // already fully tile the state) become clickable again.
+    if (!districtName) return;
     const districtCode = (p.dt_code ?? "").toString() || slug(districtName) || `x${i}`;
     const districtId = makeDistrictId(stateCode, districtCode);
 

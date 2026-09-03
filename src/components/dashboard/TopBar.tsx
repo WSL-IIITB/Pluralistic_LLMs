@@ -1,6 +1,6 @@
 import { Info } from "lucide-react";
 
-export const DASHBOARD_TABS = ["Map", "Deflections", "Answer", "About"] as const;
+export const DASHBOARD_TABS = ["Map", "Data", "Deflections", "Answer", "History", "About"] as const;
 export type DashboardTab = (typeof DASHBOARD_TABS)[number];
 
 type TopBarProps = {

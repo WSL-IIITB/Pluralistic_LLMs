@@ -9,6 +9,8 @@ import type {
   ClusterId,
   DistrictDatum,
   DistrictId,
+  RegionDatum,
+  RegionId,
   RGBAColor,
   StateCode,
 } from "./types";
@@ -79,6 +81,57 @@ export function legendGroups(
   for (const [stateCode, list] of byState) {
     groups.push({
       stateCode,
+      clusters: list,
+      totalPostCount: list.reduce((sum, c) => sum + c.postCount, 0),
+    });
+  }
+  groups.sort((a, b) => b.totalPostCount - a.totalPostCount);
+  return groups;
+}
+
+export interface LegendGroupByRegion {
+  regionId: RegionId;
+  /** Resolved directly from `RegionDatum` (unlike `LegendGroup.stateCode`,
+   *  which callers must resolve to a display name via external geo data — a
+   *  region's name is agent-generated per run, so there's no static lookup
+   *  to defer to; it's already known here). */
+  regionName: string;
+  clusters: ClusterDatum[];
+  totalPostCount: number;
+}
+
+/**
+ * Legend entries grouped by AGENT-INFERRED REGION — extrahigh mode only,
+ * post region-inference (see infer_regions.py). The primary grouping for
+ * extrahigh's Legend/Deflection panels, replacing `legendGroups()` (state)
+ * above as of the region-inference redesign — kept alongside, not replacing,
+ * `legendGroups()` itself, since a district's own state is still a
+ * meaningful secondary fact even when regions are the primary lens (a region
+ * can span several states). Clusters with no resolvable `regionId` (older
+ * saved runs predating region-inference, or basic/medium/high's global
+ * clusters) are excluded entirely; callers should fall back to
+ * `legendGroups()` when no cluster in the run has a `regionId` at all.
+ * Groups are sorted by total post count descending, same as `legendGroups()`.
+ */
+export function legendGroupsByRegion(
+  clusters: Record<ClusterId, ClusterDatum>,
+  order: readonly ClusterId[],
+  regions: Record<RegionId, RegionDatum>,
+): LegendGroupByRegion[] {
+  const byRegion = new Map<RegionId, ClusterDatum[]>();
+  for (const id of order) {
+    const c = clusters[id];
+    if (!c || !c.regionId) continue;
+    const list = byRegion.get(c.regionId);
+    if (list) list.push(c);
+    else byRegion.set(c.regionId, [c]);
+  }
+
+  const groups: LegendGroupByRegion[] = [];
+  for (const [regionId, list] of byRegion) {
+    groups.push({
+      regionId,
+      regionName: regions[regionId]?.name ?? regionId,
       clusters: list,
       totalPostCount: list.reduce((sum, c) => sum + c.postCount, 0),
     });

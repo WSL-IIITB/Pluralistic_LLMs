@@ -1,7 +1,6 @@
 import { ExternalLink, X } from "lucide-react";
 import { useMemo } from "react";
 
-import { ScrollArea } from "@/components/ui/scroll-area";
 import {
   clusterColor,
   computeStateDiversity,
@@ -34,6 +33,7 @@ export function DistrictInfoPanel() {
   const selection = useWorldviewStore((s) => s.selection);
   const districts = useWorldviewStore((s) => s.districts);
   const clusters = useWorldviewStore((s) => s.clusters);
+  const regions = useWorldviewStore((s) => s.regions);
   const clearSelection = useWorldviewStore((s) => s.clearSelection);
   const { geo } = useDistrictGeo();
 
@@ -42,12 +42,16 @@ export function DistrictInfoPanel() {
 
   if (!selection.kind) return null;
 
+  const selectedRegionId =
+    selection.kind === "district" ? districts[selection.id]?.regionId : undefined;
+  const selectedRegionName = selectedRegionId ? regions[selectedRegionId]?.name : undefined;
+
   return (
     <section className="panel-surface pointer-events-auto flex max-h-[46vh] w-[340px] flex-col rounded-xl">
       <header className="flex items-start justify-between gap-2 border-b border-panel-border px-4 py-3">
         <div className="min-w-0">
           <p className="label-micro">{selection.kind === "district" ? "District" : "State"}</p>
-          <h2 className="truncate text-sm font-medium text-foreground">
+          <h2 className="text-sm leading-snug font-medium text-foreground">
             {selection.kind === "district"
               ? (geo?.districts[selection.id]?.name ?? selection.id)
               : (geo?.states[selection.id]?.stateName ?? selection.id)}
@@ -55,6 +59,7 @@ export function DistrictInfoPanel() {
           {selection.kind === "district" && (
             <p className="text-[11px] text-muted-foreground/70">
               {geo?.districts[selection.id]?.stateName ?? ""}
+              {selectedRegionName ? ` · ${selectedRegionName}` : ""}
             </p>
           )}
         </div>
@@ -68,7 +73,16 @@ export function DistrictInfoPanel() {
         </button>
       </header>
 
-      <ScrollArea className="min-h-0 flex-1">
+      {/* A plain scrolling div, not shadcn's <ScrollArea>: Radix's ScrollArea
+          Viewport wraps its child in an internal `display: table` element to
+          measure scrollable content, which sizes that wrapper to its content's
+          natural (unwrapped) width instead of the panel's — long labels then
+          overflow past `w-[340px]` and get hard-clipped by the ancestor's
+          `overflow-hidden`, with no ellipsis. Plain `overflow-y-auto` has no
+          such wrapper, so text wraps normally. See ConsolidatedPanel.tsx for
+          the same fix (that one's for a different, height-related bug, but
+          the "skip ScrollArea" remedy is identical). */}
+      <div className="min-h-0 flex-1 overflow-y-auto [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-border [&::-webkit-scrollbar-track]:bg-transparent">
         <div className="space-y-3 px-4 py-4">
           {selection.kind === "district" ? (
             <DistrictBody districtId={selection.id} clusters={clusters} districts={districts} />
@@ -81,7 +95,7 @@ export function DistrictInfoPanel() {
             />
           )}
         </div>
-      </ScrollArea>
+      </div>
     </section>
   );
 }
@@ -171,16 +185,21 @@ function StateBody({
           {mix.map(({ id, vol }) => {
             const share = div.totalVolume > 0 ? Math.round((vol / div.totalVolume) * 100) : 0;
             return (
-              <li key={id} className="flex items-center gap-2">
+              <li key={id} className="flex items-start gap-2">
                 <span
-                  className="size-2 shrink-0 rounded-full"
+                  className="mt-[5px] size-2 shrink-0 rounded-full"
                   style={{ backgroundColor: rgbaCss(clusterColor(clusters, id)) }}
                   aria-hidden
                 />
-                <span className="flex-1 truncate text-[12px] text-muted-foreground">
+                <span
+                  className="flex-1 text-[12px] leading-snug text-muted-foreground"
+                  title={clusters[id]?.label ?? id}
+                >
                   {clusters[id]?.label ?? id}
                 </span>
-                <span className="text-[11px] tabular-nums text-muted-foreground/60">{share}%</span>
+                <span className="mt-[2px] text-[11px] tabular-nums text-muted-foreground/60">
+                  {share}%
+                </span>
               </li>
             );
           })}

@@ -12,6 +12,9 @@ export {
   type StatusSnapshot,
   type LayerToggles,
   type Selection,
+  type RunSnapshot,
+  type SavedRunData,
 } from "./store";
 export { useQueryStream, type QueryStreamApi, type RunOptions } from "./useQueryStream";
 export { STREAM_SOURCE } from "./stream";
+export { saveRun, listSavedRuns, fetchSavedRun, deleteSavedRun } from "./runHistory";

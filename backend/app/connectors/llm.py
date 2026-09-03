@@ -13,6 +13,7 @@ call on any OpenAI error so a single transient failure never crashes a run.
 
 from __future__ import annotations
 
+import asyncio
 import hashlib
 import json
 import re
@@ -21,6 +22,47 @@ from collections import Counter
 from ..config import DATA_DIR, Settings
 from ..reasoning_modes import OLLAMA_MODEL_TAGS, RESEARCH_WORDCOUNT_HINT, LlmProvider, ResearchMode
 from .base import LLMClient
+
+# Shared across every research()/_research_one() prompt (OpenAI, LocalOllama,
+# RemoteGemma) so "prefer official sources" doesn't drift out of sync between
+# them. Named Indian government/statistical sources are called out explicitly
+# rather than left as a vague "government reports" -- a search/summarization
+# model reliably recognizes and prioritizes concrete institution names
+# (NITI Aayog, data.gov.in, PIB, Census/NSSO/NFHS/UDISE+) far better than an
+# abstract instruction to prefer "official" content, which under-specifies
+# what counts.
+# How much of a search result's body text to retain for GEOGRAPHY extraction
+# (research.py's _posts_from_research_documents), as opposed to the ~220-char
+# `snippet` the UI renders. A source's state/district is often named in its
+# body rather than its title -- an official "Dropout Rate of School Children"
+# PIB release names the states in its table, not its headline -- so extracting
+# places from a 220-char snippet finds nothing for most documents. Capped
+# rather than unbounded: this text is fed to a per-document LLM call, so it
+# needs to stay a sane prompt size.
+_GEO_TEXT_CHARS = 1500
+
+# Results requested per web_search call, shared by every provider's
+# `_web_search`. Raised from Ollama's own default of 5: each research angle
+# makes a fixed, small number of search CALLS, so asking for more results per
+# call is the one lever that materially increases the gathered-source (and
+# therefore mapped-post -- see research.py's _posts_from_research_documents)
+# count WITHOUT adding requests. That matters specifically because this API
+# rate-limits on request count (observed 429s), so widening each call is
+# strictly cheaper than making more of them. Documents are deduped by URL
+# downstream, so overlap between angles costs nothing but is not wasted
+# either.
+_WEB_SEARCH_MAX_RESULTS = 10
+
+_OFFICIAL_SOURCE_BIAS = (
+    "Prioritize OFFICIAL Indian government and statistical sources when they cover the topic: "
+    "NITI Aayog (niti.gov.in), the Open Government Data platform (data.gov.in), the Press "
+    "Information Bureau (pib.gov.in), central/state ministry websites (*.gov.in), state "
+    "government portals, and official statistical releases (Census, NSSO, NFHS, UDISE+, RBI, "
+    "parliamentary reports/Lok Sabha or Rajya Sabha replies). These are authoritative and "
+    "citable by name -- prefer them over generic news coverage or blog commentary whenever they "
+    "exist for the topic; fall back to reputable news/NGO/academic sources only when no official "
+    "source covers it."
+)
 
 # ── Shared stub fixtures ──────────────────────────────────────────────────────
 
@@ -85,14 +127,35 @@ def _hash_embed(text: str, dim: int = 32) -> list[float]:
 
 _local_embedder = None  # lazily-loaded sentence-transformers model, module-level singleton
 
+# Serializes ALL access to _local_embedder -- both its lazy construction and
+# every .encode() call. Verified empirically (independent repro during this
+# feature's review) that firing several concurrent FIRST-ever calls into this
+# model via asyncio.to_thread (multiple background threads racing the lazy
+# singleton init / the native backend's own one-time thread-pool/BLAS setup
+# on their first encode()) reliably crashes the process (SIGSEGV/SIGABRT) --
+# not merely slow or racy, an outright process-ending native crash. Before
+# gather_research_per_state's per-state fan-out (research.py), nothing in
+# this codebase ever called this function concurrently with itself (every
+# prior caller issued one embed() per gather_research invocation); the new
+# per-state research chain fires up to _MAX_CONCURRENT_STATE_RESEARCH of
+# these at once, so this lock is required for extrahigh mode to be safe, not
+# just theoretical. Embedding a single short query string is a few
+# milliseconds once warm (measured independently), so fully serializing this
+# one call site costs negligible wall-clock time against the LLM/web-search
+# calls actually dominating gather_research_per_state's latency.
+_local_embedder_lock = asyncio.Lock()
+
 
 def _get_local_embedder():
     """Loaded once per process -- constructing a SentenceTransformer parses
-    model weights from disk and is too slow to redo per call. Used by
-    AzureAnthropicLLMClient.embed() since Anthropic has no embeddings
-    endpoint of its own; running the model locally means clustering has no
+    model weights from disk and is too slow to redo per call. Used by every
+    provider with no hosted embeddings endpoint of its own (LocalOllamaLLMClient,
+    RemoteGemmaLLMClient); running the model locally means clustering has no
     dependency on any provider's API being up or funded, unlike routing
-    embeddings through a second LLM provider's account."""
+    embeddings through a second LLM provider's account.
+
+    MUST be called only while holding `_local_embedder_lock` -- see that
+    lock's own docstring for why (concurrent first-use crashes the process)."""
     global _local_embedder
     if _local_embedder is None:
         from sentence_transformers import SentenceTransformer  # local import: keep this optional dep lazy
@@ -103,16 +166,23 @@ def _get_local_embedder():
 
 async def _local_semantic_embed(texts: list[str]) -> list[list[float]]:
     """Shared body for every embed() override with no hosted embeddings
-    endpoint of its own (Claude, and now the local Ollama providers) -- one
-    lazy-loaded sentence-transformers singleton (_get_local_embedder) instead
-    of duplicating this per class. Raises on failure; callers catch and fall
-    back to `_hash_embed`."""
-    import asyncio as _asyncio
+    endpoint of its own (the local Ollama providers, and RemoteGemmaLLMClient)
+    -- one lazy-loaded sentence-transformers singleton (_get_local_embedder)
+    instead of duplicating this per class. Raises on failure; callers catch
+    and fall back to `_hash_embed`.
 
-    model = _get_local_embedder()
-    # .encode() is a synchronous, CPU-bound call -- run it off the event loop
-    # rather than blocking every other in-flight request.
-    vectors = await _asyncio.to_thread(model.encode, texts)
+    Holds `_local_embedder_lock` for the model's entire lifetime of use here
+    (construction AND every .encode() call) -- see that lock's docstring.
+    This serializes concurrent callers (e.g. gather_research_per_state's
+    per-state fan-out) rather than running their encode() calls in parallel,
+    trading a small amount of parallelism for not crashing the process."""
+    async with _local_embedder_lock:
+        model = _get_local_embedder()
+        # .encode() is a synchronous, CPU-bound call -- run it off the event
+        # loop rather than blocking every other in-flight request. Safe to
+        # do while holding an asyncio.Lock (unlike a threading.Lock, it only
+        # blocks other COROUTINES, not this thread-pool thread).
+        vectors = await asyncio.to_thread(model.encode, texts)
     return [vec.tolist() for vec in vectors]
 
 
@@ -198,6 +268,184 @@ class StubLLMClient:
         point = f"Whether the core driver is best framed as '{cluster_a_label}' or '{cluster_b_label}'."
         return (point, "medium")
 
+    async def propose_regions(self, groups: list[dict]) -> list[dict]:
+        # Deterministic auto-name per group, identical in shape to what
+        # infer_regions.py's own fallback path produces on a malformed real
+        # call -- a stub run and a fallback-triggered real run should look
+        # the same to a caller, not diverge in shape.
+        proposals: list[dict] = []
+        for group in groups:
+            districts = group.get("districts") or []
+            state_names = []
+            seen_states: set[str] = set()
+            for d in districts:
+                name = d.get("state_name")
+                if name and name not in seen_states:
+                    seen_states.add(name)
+                    state_names.append(name)
+            label = ", ".join(state_names[:3]) or "Unresolved geography"
+            proposals.append(
+                {
+                    "group_index": group.get("group_index"),
+                    "name": f"Region {group.get('group_index', 0) + 1} ({label})",
+                    "justification": (
+                        f"Districts grouped by embedding similarity across {len(districts)} "
+                        f"district(s) in {label}."
+                    ),
+                }
+            )
+        return proposals
+
+    async def critique_regions(self, regions: list[dict]) -> dict:
+        # A stub has no real judgment to offer -- always approve, matching
+        # every other stub method's "honest, inert default" contract rather
+        # than fabricating plausible-looking criticism.
+        return {"approved": True, "notes": "", "flagged_district_ids": []}
+
+    async def revise_regions(self, regions: list[dict], critique: dict) -> list[dict]:
+        # Identity passthrough -- never called in practice (critique_regions
+        # above always approves), but implemented for completeness/interface
+        # parity, and to give callers a safe no-op to test their own
+        # validation logic against.
+        return [
+            {
+                "region_id": r.get("region_id"),
+                "name": r.get("name"),
+                "justification": r.get("justification"),
+                "district_ids": [d.get("district_id") for d in (r.get("districts") or [])],
+            }
+            for r in regions
+        ]
+
+    async def judge_text_relevance(self, question: str) -> bool:
+        # A stub has no real judgment to offer -- fail closed (False), same
+        # "honest, inert default" contract every other stub method follows
+        # rather than fabricating a plausible-looking "yes".
+        return False
+
+    async def condition_answer_for_region(
+        self,
+        query: str,
+        query_type: str,
+        baseline_segments: list[dict],
+        region_name: str,
+        region_clusters: list[dict],
+        region_deflections: list[dict],
+        past_worldview: str | None,
+        mode: ResearchMode = "extrahigh",
+    ) -> list[dict]:
+        segments: list[dict] = []
+        if not region_clusters:
+            return segments
+
+        dominant = max(region_clusters, key=lambda c: c.get("postCount") or 0, default=None)
+        if dominant:
+            label = dominant.get("label") or "a distinct viewpoint"
+            summary = dominant.get("summary") or "a locally distinct take on this topic."
+            segments.append(
+                {
+                    "text": f"In {region_name}, the dominant viewpoint is '{label}': {summary}",
+                    "kind": "body",
+                    "clusterId": dominant.get("id"),
+                }
+            )
+
+        if region_deflections:
+            point = region_deflections[0].get("point") or ""
+            if point:
+                segments.append(
+                    {"text": f"Within {region_name}, opinion splits: {point}", "kind": "body"}
+                )
+
+        if past_worldview:
+            segments.append(
+                {
+                    "text": f"{region_name} has historically prioritized: {past_worldview[:140]}",
+                    "kind": "body",
+                }
+            )
+
+        return segments
+
+    async def condition_answer_for_state(
+        self,
+        query: str,
+        query_type: str,
+        baseline_segments: list[dict],
+        state_name: str,
+        state_research_documents: list[dict],
+        state_clusters: list[dict],
+        state_deflections: list[dict],
+        state_districts: list[dict],
+        mode: ResearchMode = "extrahigh",
+    ) -> list[dict]:
+        segments: list[dict] = []
+
+        # Mainstream/official-source part -- grounded ONLY in
+        # state_research_documents, kept as its own segment(s) rather than
+        # blended with the social-media part below (per the two-source-
+        # separation requirement -- see condition_answer_for_region's
+        # equivalent shape for the region-scoped, single-source precedent).
+        if state_research_documents:
+            titles = [
+                str(d.get("title")).strip()
+                for d in state_research_documents[:3]
+                if isinstance(d, dict) and d.get("title")
+            ]
+            summary = "; ".join(titles) if titles else f"{len(state_research_documents)} source(s) gathered."
+            citation_ids = [
+                d["id"]
+                for d in state_research_documents[:3]
+                if isinstance(d, dict) and isinstance(d.get("id"), int)
+            ]
+            seg: dict = {
+                "text": f"Mainstream/official sources on {state_name}: {summary}",
+                "kind": "body",
+            }
+            if citation_ids:
+                seg["citations"] = citation_ids
+            segments.append(seg)
+
+        # Social-media (UGC) part -- grounded ONLY in state_clusters/
+        # state_deflections, never citing state_research_documents.
+        dominant = max(state_clusters, key=lambda c: c.get("postCount") or 0, default=None)
+        if dominant:
+            label = dominant.get("label") or "a distinct viewpoint"
+            cluster_summary = dominant.get("summary") or "a locally distinct take on this topic."
+            segments.append(
+                {
+                    "text": f"Social media discussion in {state_name}: '{label}' -- {cluster_summary}",
+                    "kind": "body",
+                    "clusterId": dominant.get("id"),
+                }
+            )
+
+        if state_deflections:
+            point = state_deflections[0].get("point") or ""
+            if point:
+                segments.append(
+                    {
+                        "text": f"Within {state_name}'s online discussion, opinion splits: {point}",
+                        "kind": "body",
+                    }
+                )
+
+        if state_districts:
+            names = [
+                d.get("districtName")
+                for d in state_districts[:3]
+                if isinstance(d, dict) and d.get("districtName")
+            ]
+            if names:
+                segments.append(
+                    {
+                        "text": f"Within {state_name}, activity concentrates in: {', '.join(names)}.",
+                        "kind": "body",
+                    }
+                )
+
+        return segments
+
     async def synthesize_answer(
         self,
         query: str,
@@ -247,6 +495,24 @@ class StubLLMClient:
             segments.append(seg)
 
         return segments
+
+    async def generate_verdict(
+        self,
+        area_kind: str,
+        area_name: str,
+        state_name: str,
+        context: str,
+    ) -> str:
+        # No real narrative generation to offer -- honest, inert default:
+        # hand back the real computed digest itself (never fabricated prose)
+        # under a short, deterministic framing sentence, same "here is the
+        # real data, plainly" contract every other stub method follows.
+        label = f"{area_name}, {state_name}" if area_kind == "district" else area_name
+        return (
+            f"{label}'s dropout drivers, from its own fitted regression model (no live "
+            "narrative model configured for this run -- showing the underlying computed "
+            f"data directly):\n\n{context}"
+        )
 
 
 class OpenAILLMClient:
@@ -381,9 +647,8 @@ class OpenAILLMClient:
                 input=(
                     "You are researching an Indian public-affairs / cultural topic for a "
                     "dashboard that will cite your sources back to the user. Use the web_search "
-                    "tool to gather substantive, current, ideally India-specific information "
-                    "from reputable sources (government reports, major news outlets, NGO briefs, "
-                    f"academic sources). Write a concise, factual summary ({wordcount_hint}) "
+                    "tool to gather substantive, current, ideally India-specific information. "
+                    f"{_OFFICIAL_SOURCE_BIAS} Write a concise, factual summary ({wordcount_hint}) "
                     "grounded in what you found. Cite specific numbers, dates, and sources.\n\n"
                     f"Topic / angle: {subquery}"
                 ),
@@ -653,6 +918,365 @@ class OpenAILLMClient:
                 cluster_a_label, cluster_a_texts, cluster_b_label, cluster_b_texts
             )
 
+    async def propose_regions(self, groups: list[dict]) -> list[dict]:
+        try:
+            lines = []
+            for group in groups:
+                districts = group.get("districts") or []
+                district_lines = "; ".join(
+                    f"{d.get('district_name')} ({d.get('state_name')})" for d in districts
+                )
+                samples = "; ".join(group.get("sample_texts") or [])
+                lines.append(
+                    f"Group {group.get('group_index')}: districts=[{district_lines}]"
+                    + (f" | sample posts: {samples}" if samples else "")
+                )
+            data = await self._chat_json(
+                "You name groups of Indian districts that were clustered together by shared "
+                "embedding similarity of what people there post about online. For EACH group, "
+                "propose a short, evocative region name (2-5 words, geographic or cultural, e.g. "
+                "'Coastal Konkan belt', 'Hindi-heartland industrial corridor') and a one-sentence "
+                "justification grounded in the districts/sample posts given — not just 'these are "
+                "close together'. A region may legitimately span multiple states; do not treat "
+                'that as a problem. Respond with JSON: {"regions": [{"group_index": int, "name": '
+                'str, "justification": str}, ...]} with EXACTLY one entry per group given, using '
+                "the same group_index values.",
+                "\n".join(lines),
+            )
+            proposals = data.get("regions")
+            if not isinstance(proposals, list):
+                raise ValueError(f"unexpected regions value: {proposals!r}")
+            input_indices = {g.get("group_index") for g in groups}
+            output_indices = {p.get("group_index") for p in proposals if isinstance(p, dict)}
+            if output_indices != input_indices:
+                raise ValueError(
+                    f"propose_regions group_index mismatch: expected {input_indices}, got {output_indices}"
+                )
+            cleaned = []
+            for p in proposals:
+                name = p.get("name")
+                if not isinstance(name, str) or not name.strip():
+                    raise ValueError(f"malformed region name: {name!r}")
+                cleaned.append(
+                    {
+                        "group_index": p["group_index"],
+                        "name": name.strip(),
+                        "justification": str(p.get("justification") or "").strip(),
+                    }
+                )
+            return cleaned
+        except Exception as exc:  # noqa: BLE001
+            print(f"[OpenAILLMClient] propose_regions failed, falling back to stub: {exc}", flush=True)
+            return await self._stub.propose_regions(groups)
+
+    async def critique_regions(self, regions: list[dict]) -> dict:
+        try:
+            lines = []
+            for r in regions:
+                districts = r.get("districts") or []
+                district_names = ", ".join(d.get("district_name", "") for d in districts)
+                lines.append(
+                    f'Region {r.get("region_id")} — "{r.get("name")}": {r.get("justification")} '
+                    f"| districts: {district_names}"
+                )
+            data = await self._chat_json(
+                "You review a proposed partition of Indian districts into regions (grouped by "
+                "shared online-discourse similarity). Check three things: (1) THEMATIC COHERENCE "
+                "— does each region's justification track real shared content, not just "
+                "proximity; (2) GEOGRAPHIC SANITY — regions spanning multiple states are EXPECTED "
+                "and fine, only flag genuinely implausible scatter (e.g. one state's coast "
+                "grouped with a landlocked state 1500km away with no stated shared theme); "
+                "(3) GRANULARITY — flag if any region is a fragment with no real distinctness, or "
+                "if one region has swallowed nearly every district leaving others empty. Respond "
+                'with JSON: {"approved": bool, "notes": str (1-2 sentences), '
+                '"flagged_district_ids": [str, ...]} (empty list if approved or nothing specific '
+                "stood out).",
+                "\n".join(lines),
+            )
+            approved = data.get("approved")
+            if not isinstance(approved, bool):
+                raise ValueError(f"unexpected approved value: {approved!r}")
+            flagged = data.get("flagged_district_ids")
+            if not isinstance(flagged, list):
+                flagged = []
+            return {
+                "approved": approved,
+                "notes": str(data.get("notes") or "").strip(),
+                "flagged_district_ids": [str(x) for x in flagged if isinstance(x, (str, int))],
+            }
+        except Exception as exc:  # noqa: BLE001
+            print(f"[OpenAILLMClient] critique_regions failed, falling back to stub: {exc}", flush=True)
+            return await self._stub.critique_regions(regions)
+
+    async def revise_regions(self, regions: list[dict], critique: dict) -> list[dict]:
+        try:
+            lines = []
+            for r in regions:
+                districts = r.get("districts") or []
+                district_ids = ", ".join(d.get("district_id", "") for d in districts)
+                lines.append(
+                    f'Region {r.get("region_id")} — "{r.get("name")}": {r.get("justification")} '
+                    f"| district_ids: [{district_ids}]"
+                )
+            payload = (
+                "\n".join(lines)
+                + f"\n\nCritique notes: {critique.get('notes', '')}"
+                + f"\nFlagged district ids: {critique.get('flagged_district_ids', [])}"
+            )
+            data = await self._chat_json(
+                "Revise the proposed region partition below based on the critique. You may ONLY: "
+                "rename a region, MERGE two regions into one, or MOVE a flagged district to a "
+                "different existing region. You must NEVER invent a new region, drop a district, "
+                "or leave any region with zero districts — every district_id present in the input "
+                "must appear in EXACTLY ONE region of your output. If the critique doesn't clearly "
+                "call for a change, return the regions unchanged. Respond with JSON: {\"regions\": "
+                '[{"region_id": str, "name": str, "justification": str, "district_ids": [str, '
+                "...]}, ...]}.",
+                payload,
+            )
+            revised = data.get("regions")
+            if not isinstance(revised, list) or not revised:
+                raise ValueError(f"unexpected regions value: {revised!r}")
+            cleaned = []
+            for r in revised:
+                if not isinstance(r, dict):
+                    raise ValueError(f"malformed region entry: {r!r}")
+                district_ids = r.get("district_ids")
+                name = r.get("name")
+                if not isinstance(district_ids, list) or not district_ids:
+                    raise ValueError(f"region with no districts: {r!r}")
+                if not isinstance(name, str) or not name.strip():
+                    raise ValueError(f"malformed region name: {name!r}")
+                cleaned.append(
+                    {
+                        "region_id": str(r.get("region_id") or ""),
+                        "name": name.strip(),
+                        "justification": str(r.get("justification") or "").strip(),
+                        "district_ids": [str(d) for d in district_ids],
+                    }
+                )
+            return cleaned
+        except Exception as exc:  # noqa: BLE001
+            print(f"[OpenAILLMClient] revise_regions failed, falling back to stub: {exc}", flush=True)
+            return await self._stub.revise_regions(regions, critique)
+
+    async def judge_text_relevance(self, question: str) -> bool:
+        try:
+            data = await self._chat_json(
+                'Answer the user\'s yes/no question. Respond with JSON: {"answer": "yes" | "no"}.',
+                question,
+            )
+            answer = data.get("answer")
+            if isinstance(answer, str) and answer.strip().lower() in ("yes", "no"):
+                return answer.strip().lower() == "yes"
+            raise ValueError(f"unexpected answer value: {answer!r}")
+        except Exception as exc:  # noqa: BLE001
+            print(f"[OpenAILLMClient] judge_text_relevance failed, failing closed (False): {exc}", flush=True)
+            return False
+
+    async def condition_answer_for_region(
+        self,
+        query: str,
+        query_type: str,
+        baseline_segments: list[dict],
+        region_name: str,
+        region_clusters: list[dict],
+        region_deflections: list[dict],
+        past_worldview: str | None,
+        mode: ResearchMode = "extrahigh",
+    ) -> list[dict]:
+        try:
+            baseline_text = "\n".join(
+                f"- [{seg.get('kind', 'body')}] {seg.get('text', '')}"
+                for seg in baseline_segments
+                if isinstance(seg, dict) and seg.get("text")
+            )
+            payload = {
+                "query": query,
+                "query_type": query_type,
+                "region_name": region_name,
+                "baseline_answer": baseline_text,
+                "region_clusters": region_clusters,
+                "region_deflections": region_deflections,
+                "past_worldview": past_worldview,
+            }
+            data = await self._chat_json(
+                "You refine a NATIONAL baseline answer (already synthesized, region-blind) with "
+                "region-specific nuance for one Indian region. Inputs: the query, its type, "
+                "`baseline_answer` (the national answer, plain text bullets), `region_name`, "
+                "`region_clusters` (this region's own actual viewpoint clusters -- an "
+                "agent-inferred region that may span multiple districts and states), "
+                "`region_deflections` (points of disagreement within this region), and "
+                "`past_worldview` (a digest of this region's previously-inferred worldview/"
+                "priorities from a past query, or null if none).\n\n"
+                "Your job: state SPECIFICALLY how this region's real discourse DIFFERS from -- or "
+                "notably reinforces -- the national baseline, and WHY, grounded in "
+                "region_clusters/region_deflections/past_worldview. Frame each segment as an "
+                "explicit contrast: \"Nationally, X -- but in {region_name}, Y, because Z.\" Do "
+                "NOT just restate the baseline. Do NOT invent a difference with no support in the "
+                "given data -- if this region genuinely agrees with the baseline, return fewer "
+                "segments (even one, or zero) rather than manufacturing contrast.\n\n"
+                'Respond with JSON: {"segments": [...]}. Each segment: {"text": str (max ~40 '
+                'words), "kind": "body"|"recommendation", "clusterId": str (optional)}. Return '
+                "0-5 segments -- only as many as the data genuinely supports. Do NOT invent "
+                "citation markers or source numbers -- this call has no source list to cite; "
+                "ground claims in region_clusters/region_deflections/past_worldview by content, "
+                "not by citation.\n\n"
+                "FORMATTING: PLAIN TEXT ONLY, no markdown, no bare URLs, do not restate the region "
+                f"name from `region_name` in every segment (\"{region_name}\") -- the UI already "
+                "labels these segments with the region, so only name it inline when the contrast "
+                "phrasing itself calls for it.",
+                json.dumps(payload),
+                timeout=90.0,
+            )
+            segments = data.get("segments")
+            if not isinstance(segments, list):
+                raise ValueError(f"unexpected segments value: {segments!r}")
+            valid_kinds = ("body", "recommendation")
+            cleaned: list[dict] = []
+            for seg in segments:
+                if not isinstance(seg, dict):
+                    continue
+                text, kind = seg.get("text"), seg.get("kind")
+                if not isinstance(text, str) or not text.strip():
+                    continue
+                text = self._strip_markdown_noise(text)
+                if not text:
+                    continue
+                out: dict = {"text": text, "kind": kind if kind in valid_kinds else "body"}
+                if isinstance(seg.get("clusterId"), str):
+                    out["clusterId"] = seg["clusterId"]
+                # Deliberately no "citations" pass-through: this call is never
+                # given a research_documents list to validate against (unlike
+                # synthesize_answer's own valid_ids check), so any citation
+                # number the model emits here would be unverifiable by
+                # construction -- drop it rather than risk a dead/fabricated
+                # [n] marker in the UI.
+                cleaned.append(out)
+            return cleaned
+        except Exception as exc:  # noqa: BLE001
+            print(f"[OpenAILLMClient] condition_answer_for_region failed, falling back to stub: {exc}", flush=True)
+            return await self._stub.condition_answer_for_region(
+                query,
+                query_type,
+                baseline_segments,
+                region_name,
+                region_clusters,
+                region_deflections,
+                past_worldview,
+                mode=mode,
+            )
+
+    async def condition_answer_for_state(
+        self,
+        query: str,
+        query_type: str,
+        baseline_segments: list[dict],
+        state_name: str,
+        state_research_documents: list[dict],
+        state_clusters: list[dict],
+        state_deflections: list[dict],
+        state_districts: list[dict],
+        mode: ResearchMode = "extrahigh",
+    ) -> list[dict]:
+        try:
+            baseline_text = "\n".join(
+                f"- [{seg.get('kind', 'body')}] {seg.get('text', '')}"
+                for seg in baseline_segments
+                if isinstance(seg, dict) and seg.get("text")
+            )
+            # Real ids from state["research_documents"] (this state's own
+            # filtered slice, NOT renumbered) -- see this method's own
+            # Protocol docstring for why citations here must reference those
+            # same ids, not a fresh 1-based range local to this call.
+            doc_index = [
+                {"id": d.get("id"), "title": d.get("title"), "domain": d.get("domain")}
+                for d in state_research_documents
+                if isinstance(d, dict) and d.get("id") is not None
+            ]
+            payload = {
+                "query": query,
+                "query_type": query_type,
+                "state_name": state_name,
+                "baseline_answer": baseline_text,
+                "state_research_documents": doc_index,
+                "state_clusters": state_clusters,
+                "state_deflections": state_deflections,
+                "state_districts": state_districts,
+            }
+            data = await self._chat_json(
+                "You refine a NATIONAL baseline answer (already synthesized, geography-blind) with "
+                "STATE-specific nuance for one Indian administrative state. Inputs: the query, its "
+                "type, `baseline_answer` (the national answer, plain text bullets), `state_name`, "
+                "`state_research_documents` (mainstream/official media and government web sources "
+                "gathered SPECIFICALLY for this state -- {id, title, domain}), `state_clusters` "
+                "(this state's own social-media / User-Generated-Content viewpoint clusters), "
+                "`state_deflections` (points of disagreement among this state's social clusters), "
+                "and `state_districts` (per-district post-volume breakdown, for naming specific "
+                "districts when the data supports it).\n\n"
+                "CRITICAL REQUIREMENT -- keep the two source types EXPLICITLY SEPARATE. Never blend "
+                "official/mainstream findings and social-media sentiment into one undifferentiated "
+                "paragraph. Produce them as SEPARATE segments: first, zero or more segments "
+                "grounded ONLY in `state_research_documents`, each beginning with 'Mainstream "
+                "sources:' or 'Official data:'; then, zero or more segments grounded ONLY in "
+                "`state_clusters`/`state_deflections`, each beginning with 'Social media:' or "
+                "'Online discussion:'. Name specific districts from `state_districts` where the "
+                "data supports it. State SPECIFICALLY how each source's picture of this state "
+                "differs from -- or reinforces -- the national baseline, and why; do not just "
+                "restate the baseline. Do NOT invent a difference with no support in the given "
+                "data -- if a source type genuinely agrees with the baseline, or is thin/empty for "
+                "this state, return fewer segments for it (even zero) rather than manufacturing "
+                "contrast.\n\n"
+                'Respond with JSON: {"segments": [...]}. Each segment: {"text": str (max ~40 '
+                'words), "kind": "body"|"recommendation", "clusterId": str (optional), "citations": '
+                'int[] (optional, ONLY on mainstream-source segments -- use each cited source\'s '
+                "own `id` field from `state_research_documents` verbatim, never a renumbered "
+                "index)}. Return 0-6 segments total -- only as many as the data genuinely supports. "
+                "Never attach citations to a social-media-grounded segment.\n\n"
+                "FORMATTING: PLAIN TEXT ONLY, no markdown, no bare URLs, do not restate the state "
+                f"name from `state_name` (\"{state_name}\") beyond the required leading label -- "
+                "the UI already labels these segments with the state.",
+                json.dumps(payload),
+                timeout=90.0,
+            )
+            segments = data.get("segments")
+            if not isinstance(segments, list):
+                raise ValueError(f"unexpected segments value: {segments!r}")
+            valid_kinds = ("body", "recommendation")
+            valid_ids = {d["id"] for d in doc_index}
+            cleaned: list[dict] = []
+            for seg in segments:
+                if not isinstance(seg, dict):
+                    continue
+                text, kind = seg.get("text"), seg.get("kind")
+                if not isinstance(text, str) or not text.strip():
+                    continue
+                text = self._strip_markdown_noise(text)
+                if not text:
+                    continue
+                out: dict = {"text": text, "kind": kind if kind in valid_kinds else "body"}
+                if isinstance(seg.get("clusterId"), str):
+                    out["clusterId"] = seg["clusterId"]
+                if isinstance(seg.get("citations"), list):
+                    kept = [int(c) for c in seg["citations"] if isinstance(c, int) and c in valid_ids]
+                    if kept:
+                        out["citations"] = kept
+                cleaned.append(out)
+            return cleaned
+        except Exception as exc:  # noqa: BLE001
+            print(f"[OpenAILLMClient] condition_answer_for_state failed, falling back to stub: {exc}", flush=True)
+            return await self._stub.condition_answer_for_state(
+                query,
+                query_type,
+                baseline_segments,
+                state_name,
+                state_research_documents,
+                state_clusters,
+                state_deflections,
+                state_districts,
+                mode=mode,
+            )
+
     async def synthesize_answer(
         self,
         query: str,
@@ -804,6 +1428,62 @@ class OpenAILLMClient:
                 mode=mode,
             )
 
+    async def generate_verdict(
+        self,
+        area_kind: str,
+        area_name: str,
+        state_name: str,
+        context: str,
+    ) -> str:
+        try:
+            label = f"{area_name}, {state_name}" if area_kind == "district" else area_name
+            data = await self._chat_json(
+                "You write the 'Verdict' narrative for an Indian secondary-school-dropout data "
+                "dashboard, read by education policymakers. You are given a plaintext digest of "
+                "REAL, already-computed statistics for ONE specific district or state -- "
+                "regression-based factor sensitivities (each factor's real share of modeled "
+                "dropout impact, or its own fit quality), a prescriptive what-if scenario (what "
+                "moving which factors by how much would take to hit a modeled target reduction), "
+                "and budget-priority context for its state. Ground your narrative STRICTLY in "
+                "this given data -- never invent demographic, cultural, historical, or causal "
+                "claims that go beyond what the given numbers actually show; if the data is thin "
+                "for some point, say less rather than fabricate more.\n\n"
+                "Write 3 to 5 real paragraphs of plain prose (NOT bullet points, NOT a list, NOT "
+                "markdown -- no **bold**, no # headings, no bullet characters), each paragraph "
+                "separated by exactly one blank line. Structure:\n"
+                "1. Open by naming this specific area and stating, in plain language, what the "
+                "data shows are the leading real drivers of secondary-school dropout here -- name "
+                "the actual top factors given and what they represent (you may phrase a given "
+                "column-style factor name in natural English, e.g. treat "
+                "'total_girls_func_toilet (%)' as roughly 'the share of schools with functioning "
+                "girls' toilets', but do not change what it measures or invent a factor that "
+                "isn't given).\n"
+                "2. Explain WHY these factors plausibly drive dropout for children in this kind of "
+                "area, reasoning from the factor categories given (infrastructure, digital/ICT, "
+                "teacher profile, socio-economic) -- stay grounded in the given factors, do not "
+                "introduce unrelated social/cultural narratives with no support in the data.\n"
+                "3. Explain the prescriptive implication: what the data shows it would take (which "
+                "factors, roughly how much movement) to meaningfully reduce dropout here.\n"
+                "4. Close with the budget/intervention priority context given for this area's "
+                "state -- where relative funding priority should concentrate and why, per the "
+                "given numbers.\n\n"
+                "Be specific and quantitative where the data supports it (cite real percentages, "
+                "R-squared values, or rupee figures from what's given) rather than vague hedges "
+                'like "various factors contribute". Respond with JSON: {"verdict": "<the full '
+                'narrative, paragraphs separated by \\n\\n>"}.',
+                f"Area: {label}\nArea kind: {area_kind}\n\n{context}",
+                timeout=150.0,  # generous, not a fast-fail -- a real gemma_remote call for this much reasoning/text can legitimately take 15-40+s
+            )
+            verdict = data.get("verdict")
+            if isinstance(verdict, str) and verdict.strip():
+                cleaned = self._strip_markdown_noise(verdict.strip())
+                if cleaned:
+                    return cleaned
+            raise ValueError(f"malformed verdict value: {verdict!r}")
+        except Exception as exc:  # noqa: BLE001
+            print(f"[OpenAILLMClient] generate_verdict failed, falling back to stub: {exc}", flush=True)
+            return await self._stub.generate_verdict(area_kind, area_name, state_name, context)
+
 
 class AzureAnthropicLLMClient(OpenAILLMClient):
     """LLMClient backed by Claude (via Azure AI Foundry) instead of OpenAI.
@@ -894,8 +1574,7 @@ class AzureAnthropicLLMClient(OpenAILLMClient):
                             "You are researching an Indian public-affairs / cultural topic for a "
                             "dashboard that will cite your sources back to the user. Use the "
                             "web_search tool to gather substantive, current, ideally India-specific "
-                            "information from reputable sources (government reports, major news "
-                            "outlets, NGO briefs, academic sources). Write a concise, factual "
+                            f"information. {_OFFICIAL_SOURCE_BIAS} Write a concise, factual "
                             f"summary ({wordcount_hint}) grounded in what you found. Cite specific "
                             f"numbers, dates, and sources.\n\nTopic / angle: {subquery}"
                         ),
@@ -921,6 +1600,13 @@ class AzureAnthropicLLMClient(OpenAILLMClient):
                             "url": clean_url,
                             "title": title[:200],
                             "domain": self._domain_of(clean_url),
+                            # No page body available: Claude's citation objects
+                            # carry only url/title, unlike the search-API
+                            # providers whose results include `content`. So
+                            # there's no `geo_text` to emit here (see
+                            # _GEO_TEXT_CHARS) -- research-derived posts from
+                            # this provider fall back to title+snippet for
+                            # place extraction, which resolves fewer of them.
                             "snippet": "",  # filled in by the caller from `text` if needed
                         }
                     )
@@ -928,7 +1614,6 @@ class AzureAnthropicLLMClient(OpenAILLMClient):
         except Exception as exc:  # noqa: BLE001
             print(f"[AzureAnthropicLLMClient] research call for {subquery!r} failed: {exc}", flush=True)
             return "", []
-
 
 # One function-tool offered to local models during research() -- executed
 # against Ollama's own hosted web-search API (see _web_search below), since
@@ -961,10 +1646,10 @@ class LocalOllamaLLMClient(OpenAILLMClient):
     API. Zero per-call cost, but needs a locally-running `ollama serve` and
     the model tag already pulled.
 
-    Subclasses OpenAILLMClient for the same reason AzureAnthropicLLMClient
-    does -- every _chat_json-based method (classify_query_type,
-    suggest_framings, extract_place_mentions, geolocate, label_cluster,
-    paraphrase, extract_deflection, synthesize_answer) is reused unchanged.
+    Subclasses OpenAILLMClient for the same reason RemoteGemmaLLMClient does
+    -- every _chat_json-based method (classify_query_type, suggest_framings,
+    extract_place_mentions, geolocate, label_cluster, paraphrase,
+    extract_deflection, synthesize_answer) is reused unchanged.
 
     Uses Ollama's NATIVE `/api/chat` endpoint throughout, not its
     OpenAI-compatible `/v1/chat/completions` shim: (1) the native `format`
@@ -1028,14 +1713,14 @@ class LocalOllamaLLMClient(OpenAILLMClient):
 
     async def embed(self, texts: list[str]) -> list[list[float]]:
         """Local models have no embeddings endpoint wired up here either --
-        same local sentence-transformers path as AzureAnthropicLLMClient."""
+        same local sentence-transformers path as RemoteGemmaLLMClient."""
         try:
             return await _local_semantic_embed(texts)
         except Exception as exc:  # noqa: BLE001
             print(f"[LocalOllamaLLMClient] local embedding failed, falling back to hash: {exc}", flush=True)
             return [_hash_embed(t) for t in texts]
 
-    async def _web_search(self, query: str, max_results: int = 5) -> list[dict]:
+    async def _web_search(self, query: str, max_results: int = _WEB_SEARCH_MAX_RESULTS) -> list[dict]:
         """Ollama's own hosted web-search API -- the "real, free, reliable"
         search backend local models need since they have no built-in search
         tool. Passing an absolute URL to a client with a different base_url
@@ -1070,8 +1755,7 @@ class LocalOllamaLLMClient(OpenAILLMClient):
                         "You are researching an Indian public-affairs / cultural topic for a "
                         "dashboard that will cite your sources back to the user. Use the "
                         "web_search tool (one or more times) to gather substantive, current, "
-                        "ideally India-specific information from reputable sources (government "
-                        "reports, major news outlets, NGO briefs, academic sources). Once you "
+                        f"ideally India-specific information. {_OFFICIAL_SOURCE_BIAS} Once you "
                         "have enough, respond in plain text (no more tool calls) with a concise, "
                         f"factual summary ({wordcount_hint}) grounded in what you found, citing "
                         "specific numbers, dates, and sources by name."
@@ -1138,6 +1822,14 @@ class LocalOllamaLLMClient(OpenAILLMClient):
                                 "title": (r.get("title") or url)[:200],
                                 "domain": self._domain_of(url),
                                 "snippet": (r.get("content") or "")[:220],
+                                # Longer copy of the same content, used ONLY
+                                # for geography extraction (see research.py's
+                                # _posts_from_research_documents) -- `snippet`
+                                # stays short because it's what the UI renders
+                                # under each source. Not part of the
+                                # ResearchDocument wire model, which ignores
+                                # extra keys, so this never reaches the client.
+                                "geo_text": (r.get("content") or "")[:_GEO_TEXT_CHARS],
                             }
                         )
                     messages.append(
@@ -1158,6 +1850,246 @@ class LocalOllamaLLMClient(OpenAILLMClient):
             return "", []
 
 
+class RemoteGemmaLLMClient(OpenAILLMClient):
+    """LLMClient backed by a self-hosted, genuinely OpenAI-compatible Gemma
+    server (see config.Settings.remote_gemma_base_url) -- NOT Ollama-native,
+    unlike LocalOllamaLLMClient above. Confirmed live: POST /v1/chat/completions
+    with response_format={"type": "json_object"} returns clean, parseable JSON,
+    so _chat_json below is a near-verbatim copy of OpenAILLMClient's own (just
+    a different client/model) -- no fence-stripping workaround needed.
+
+    One confirmed, structural (not transient) gap on this server, designed
+    around rather than retried: POST /v1/embeddings fails server-side
+    regardless of input shape ("Embedding generation failed: 'query'") --
+    embed() goes straight to the same local sentence-transformers fallback
+    LocalOllamaLLMClient uses, never attempting the doomed network call first.
+
+    Also confirmed: this server itself has NO built-in web-search tool (POST
+    /v1/responses 404s) -- but unlike the embeddings gap, that's not a dead
+    end for research(). _research_one below runs a manual tool-use loop
+    (confirmed live: this server returns well-formed OpenAI-style
+    `tool_calls`, unlike the embeddings gap which is a genuine dead end) --
+    same shape as LocalOllamaLLMClient's own loop, offering one `web_search`
+    tool executed against Ollama's hosted web-search API (already configured
+    via settings.ollama_web_search_api_key for LocalOllamaLLMClient, reused
+    here verbatim) each time the model calls it, biased toward official
+    Indian government/statistical sources via _OFFICIAL_SOURCE_BIAS in the
+    system prompt. Capped at _RESEARCH_TOOL_ROUND_CAP rounds, same reasoning
+    as LocalOllamaLLMClient's identical cap.
+
+    Does NOT read settings.openai_chat_model / settings.openai_api_key --
+    Settings is an @lru_cache singleton shared across concurrent requests, so
+    a provider swap must never mutate a shared field; the model tag is an
+    instance attribute instead, same as LocalOllamaLLMClient's model_tag.
+    """
+
+    # Single-box concurrency at this remote server was flagged as unvalidated
+    # risk when this class was first built and left unaddressed -- research()
+    # fanning out up to `breadth` (10 at extrahigh) concurrent _research_one
+    # calls, layered on top of the pipeline's other per-batch/per-cluster
+    # fan-outs already hitting this same box, makes that risk concrete now.
+    # Bounds how many of THIS client's requests are in flight at once;
+    # starts conservative, tune up once real load-tested against this box.
+    _MAX_CONCURRENT_REQUESTS = 6
+
+    def __init__(self, settings: Settings):
+        import asyncio as _asyncio
+
+        import httpx  # local import: keep this optional dep lazy, same pattern as openai/anthropic SDKs above
+        from openai import AsyncOpenAI
+
+        if not settings.remote_gemma_base_url:
+            raise RuntimeError(
+                "REMOTE_GEMMA_BASE_URL is not set in backend/.env. This must point "
+                "at your own self-hosted, OpenAI-compatible Gemma server -- ask a "
+                "team member for the address (it is intentionally not committed "
+                "anywhere, since the server requires no auth)."
+            )
+
+        self.settings = settings
+        self.client = AsyncOpenAI(
+            base_url=f"{settings.remote_gemma_base_url}/v1",
+            # Direct-to-server: any value is fine, it takes no auth. Via
+            # proxy/: must be the shared passphrase (remote_gemma_api_key),
+            # sent as this Bearer token and checked there.
+            api_key=settings.remote_gemma_api_key or "not-needed",
+            timeout=30.0,
+            max_retries=1,
+        )
+        self._model = settings.remote_gemma_chat_model
+        self._semaphore = _asyncio.Semaphore(self._MAX_CONCURRENT_REQUESTS)
+        # Separate plain httpx client for Ollama's hosted web-search API --
+        # unrelated host/auth scheme from self.client's AsyncOpenAI, which is
+        # pinned at remote_gemma_base_url.
+        self._http = httpx.AsyncClient()
+        self._stub = StubLLMClient()
+        self._gazetteer = self._load_gazetteer()
+
+    async def _chat_json(self, system: str, user: str, timeout: float | None = None) -> dict:
+        client = self.client if timeout is None else self.client.with_options(timeout=timeout)
+        async with self._semaphore:
+            resp = await client.chat.completions.create(
+                model=self._model,
+                response_format={"type": "json_object"},
+                messages=[
+                    {"role": "system", "content": system},
+                    {"role": "user", "content": user},
+                ],
+            )
+        return json.loads(resp.choices[0].message.content)
+
+    async def embed(self, texts: list[str]) -> list[list[float]]:
+        try:
+            return await _local_semantic_embed(texts)
+        except Exception as exc:  # noqa: BLE001
+            print(f"[RemoteGemmaLLMClient] local embedding failed, falling back to hash: {exc}", flush=True)
+            return [_hash_embed(t) for t in texts]
+
+    async def _web_search(self, query: str, max_results: int = _WEB_SEARCH_MAX_RESULTS) -> list[dict]:
+        """Ollama's own hosted web-search API -- see LocalOllamaLLMClient's
+        identical method for the full rationale. Uses this class's own httpx
+        client (self._http), not Ollama's native /api/chat base_url, since
+        this class has no local Ollama connection at all otherwise."""
+        resp = await self._http.post(
+            "https://ollama.com/api/web_search",
+            json={"query": query, "max_results": max_results},
+            headers={"Authorization": f"Bearer {self.settings.ollama_web_search_api_key}"},
+            timeout=30.0,
+        )
+        resp.raise_for_status()
+        results = resp.json().get("results")
+        return results if isinstance(results, list) else []
+
+    async def _research_one(self, subquery: str, wordcount_hint: str) -> tuple[str, list[dict]]:
+        """Manual tool-use loop via native OpenAI-SDK tool-calling (confirmed
+        live against this server: a `tools=[...]` request returns a
+        well-formed `tool_calls` array, finish_reason="tool_calls") --
+        structurally the same loop as LocalOllamaLLMClient._research_one, just
+        driven through the OpenAI SDK's message/tool_call shapes instead of
+        Ollama's native ones. Reuses _OLLAMA_WEB_SEARCH_TOOL/
+        _RESEARCH_TOOL_ROUND_CAP (module-level, defined above
+        LocalOllamaLLMClient) verbatim -- same tool, same round cap, same
+        reasoning for both."""
+        if not self.settings.has_ollama_web_search:
+            # No hosted-search credential configured -- same honest-empty
+            # behavior as every other missing-credential path in this codebase
+            # (never fabricate a summary/citations).
+            return "", []
+        try:
+            messages: list[dict] = [
+                {
+                    "role": "system",
+                    "content": (
+                        "You are researching an Indian public-affairs / cultural topic for a "
+                        "dashboard that will cite your sources back to the user. Use the "
+                        "web_search tool (one or more times) to gather substantive, current, "
+                        f"ideally India-specific information. {_OFFICIAL_SOURCE_BIAS} Once you "
+                        "have enough, respond in plain text (no more tool calls) with a concise, "
+                        f"factual summary ({wordcount_hint}) grounded in what you found, citing "
+                        "specific numbers, dates, and sources by name."
+                    ),
+                },
+                {
+                    "role": "user",
+                    "content": (
+                        f"Topic / angle: {subquery}\n\n"
+                        "Call the web_search tool now to research this topic."
+                    ),
+                },
+            ]
+            docs: list[dict] = []
+            seen_urls: set[str] = set()
+            text = ""
+            research_client = self.client.with_options(timeout=90.0)
+            for round_num in range(_RESEARCH_TOOL_ROUND_CAP + 1):
+                forced_final = round_num == _RESEARCH_TOOL_ROUND_CAP
+                if forced_final:
+                    messages.append(
+                        {
+                            "role": "user",
+                            "content": (
+                                "Answer in plain text now, summarizing what you found so far. "
+                                "Do not call any more tools."
+                            ),
+                        }
+                    )
+                async with self._semaphore:
+                    resp = await research_client.chat.completions.create(
+                        model=self._model,
+                        messages=messages,
+                        tools=[] if forced_final else [_OLLAMA_WEB_SEARCH_TOOL],
+                    )
+                message = resp.choices[0].message
+                tool_calls = message.tool_calls or []
+                content = (message.content or "").strip()
+
+                if not tool_calls:
+                    text = content
+                    break
+
+                messages.append(
+                    {
+                        "role": "assistant",
+                        "content": message.content,
+                        "tool_calls": [
+                            {
+                                "id": call.id,
+                                "type": "function",
+                                "function": {
+                                    "name": call.function.name,
+                                    "arguments": call.function.arguments,
+                                },
+                            }
+                            for call in tool_calls
+                        ],
+                    }
+                )
+                for call in tool_calls:
+                    try:
+                        args = json.loads(call.function.arguments or "{}")
+                    except json.JSONDecodeError:
+                        args = {}
+                    search_query = args.get("query") or subquery
+                    results = await self._web_search(search_query)
+                    for r in results:
+                        url = r.get("url")
+                        if not url or url in seen_urls:
+                            continue
+                        seen_urls.add(url)
+                        docs.append(
+                            {
+                                "url": self._strip_tracking_params(url),
+                                "title": (r.get("title") or url)[:200],
+                                "domain": self._domain_of(url),
+                                "snippet": (r.get("content") or "")[:220],
+                                # Longer copy of the same content, used ONLY
+                                # for geography extraction (see research.py's
+                                # _posts_from_research_documents) -- `snippet`
+                                # stays short because it's what the UI renders
+                                # under each source. Not part of the
+                                # ResearchDocument wire model, which ignores
+                                # extra keys, so this never reaches the client.
+                                "geo_text": (r.get("content") or "")[:_GEO_TEXT_CHARS],
+                            }
+                        )
+                    messages.append(
+                        {
+                            "role": "tool",
+                            "tool_call_id": call.id,
+                            "content": json.dumps(results)[:4000],
+                        }
+                    )
+            if not text:
+                # The model never produced usable plain text (e.g. a
+                # tool-call-only turn even on the forced-final round) -- same
+                # honest-empty fallback as every other research failure path.
+                return "", []
+            return text, docs
+        except Exception as exc:  # noqa: BLE001
+            print(f"[RemoteGemmaLLMClient] research call for {subquery!r} failed: {exc}", flush=True)
+            return "", []
+
+
 def get_llm_client(settings: Settings, provider: LlmProvider | None = None) -> LLMClient:
     """`provider` overrides `settings.llm_provider` for this one call --
     constructs a fresh client instance every time (no singleton/caching), so
@@ -1166,9 +2098,27 @@ def get_llm_client(settings: Settings, provider: LlmProvider | None = None) -> L
     resolved = provider or settings.llm_provider
     if resolved in OLLAMA_MODEL_TAGS:
         return LocalOllamaLLMClient(settings, OLLAMA_MODEL_TAGS[resolved])
-    if settings.has_llm:
-        if resolved == "azure_anthropic":
+    if resolved == "gemma_remote":
+        # Checked before has_llm below on purpose -- this provider needs no
+        # credential (has_llm only checks the OpenAI key), so a fresh install
+        # with zero keys configured must still be able to select it.
+        return RemoteGemmaLLMClient(settings)
+    if resolved == "azure_anthropic":
+        # Gated on has_azure_anthropic, NOT the generic has_llm: has_llm
+        # resolves against settings.llm_provider (the env DEFAULT), not the
+        # per-request `resolved` provider, so with a non-Claude default it
+        # reports on the OpenAI key instead -- selecting Claude per-request
+        # would then be admitted (or refused) based on entirely the wrong
+        # credential. Check this provider's own credential directly.
+        if settings.has_azure_anthropic:
             return AzureAnthropicLLMClient(settings)
+        if settings.allow_stub_fallback:
+            return StubLLMClient()
+        raise RuntimeError(
+            "Provider 'azure_anthropic' was selected but AZURE_ANTHROPIC_API_KEY / "
+            "AZURE_ANTHROPIC_ENDPOINT are not both set in backend/.env."
+        )
+    if settings.has_llm:
         return OpenAILLMClient(settings)
     if settings.allow_stub_fallback:
         return StubLLMClient()

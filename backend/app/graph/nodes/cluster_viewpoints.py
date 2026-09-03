@@ -142,6 +142,8 @@ async def cluster_viewpoints(state: PipelineState, emit: EmitFn, llm: LLMClient)
             "summary": summary,
             "representative_posts": representative_posts_dicts,
             "post_ids": [posts[idx]["id"] for idx in idxs],
+            "state_code": None,
+            "region_id": None,
         }
         state["clusters"][cluster_id] = cluster_state
         state["cluster_order"].append(cluster_id)
@@ -196,10 +198,18 @@ _CLUSTER_PROGRESS_END = 0.68
 # score deceptively well by chance. This floor is the fallback: if even the
 # BEST k the sweep found scores below it, treat that as "no real structure
 # found" and collapse to a single cluster rather than accepting a weak,
-# likely-spurious split. 0.15 is a permissive threshold (a well-separated
-# real split typically scores well above this) chosen to only catch clearly
-# weak cases, not to second-guess genuine-but-modest separation.
-_MIN_SILHOUETTE_FOR_SPLIT = 0.15
+# likely-spurious split.
+#
+# 0.15 was the original choice, framed as "permissive" -- in practice it was
+# too conservative for short social-media text embeddings (sentence-
+# transformers on brief, template-y posts rarely separates as cleanly as
+# long-form documents do), and was observed collapsing genuinely
+# geographically-diverse runs (15 real districts across 11 different states)
+# to a single cluster. Lowered to let real-but-modest separation through --
+# still strictly positive (a negative/near-zero score is genuine noise, not
+# signal worth splitting on), just no longer demanding near-textbook
+# cluster separation from inherently short, noisy text.
+_MIN_SILHOUETTE_FOR_SPLIT = 0.03
 
 
 def _choose_k_and_labels(matrix: np.ndarray) -> tuple[int, list[int]]:
@@ -344,6 +354,7 @@ async def cluster_viewpoints_per_state(state: PipelineState, emit: EmitFn, llm: 
                 "representative_posts": representative_posts_dicts,
                 "post_ids": [posts[idx]["id"] for idx in group_idxs],
                 "state_code": state_code,
+                "region_id": None,
             }
             state["clusters"][cluster_id] = cluster_state
             state["cluster_order"].append(cluster_id)
@@ -397,6 +408,221 @@ async def cluster_viewpoints_per_state(state: PipelineState, emit: EmitFn, llm: 
             ticker=(
                 f"Grouped {n} posts into {state['clusters_found']} distinct viewpoints "
                 f"across {total_states} states."
+            ),
+            phase="clustering",
+            counts=CollectionCounts(
+                posts_collected=state["posts_collected"],
+                districts_resolved=state["districts_resolved"],
+                clusters_found=state["clusters_found"],
+                deflections_found=state["deflections_found"],
+            ),
+            progress=_CLUSTER_PROGRESS_END,
+        )
+    )
+
+    return state
+
+
+def _representative_state_code(
+    posts: list, id_to_index: dict[str, int], post_ids: list[str]
+) -> str | None:
+    """The region's highest-post-volume district's state -- see
+    ClusterState's state_code docstring for why region-mode clusters need a
+    representative single-state value instead of their own true (possibly
+    multi-state) membership."""
+    volume_by_district: dict[str, int] = {}
+    state_of_district: dict[str, str] = {}
+    for pid in post_ids:
+        idx = id_to_index.get(pid)
+        if idx is None:
+            continue
+        post = posts[idx]
+        district_id = post.get("district_id")
+        if not district_id:
+            continue
+        volume_by_district[district_id] = volume_by_district.get(district_id, 0) + 1
+        if district_id not in state_of_district and post.get("state_code"):
+            state_of_district[district_id] = post["state_code"]
+    if not volume_by_district:
+        return None
+    top_district_id = max(volume_by_district.items(), key=lambda kv: kv[1])[0]
+    return state_of_district.get(top_district_id)
+
+
+async def cluster_viewpoints_per_region(state: PipelineState, emit: EmitFn, llm: LLMClient) -> PipelineState:
+    """extrahigh-mode counterpart to `cluster_viewpoints_per_state`, scoped to
+    AGENT-INFERRED REGIONS (state["posts_by_region"], populated by
+    graph/nodes/infer_regions.py, which must run first) instead of fixed
+    administrative states -- a region can span several districts and cross
+    multiple state boundaries. Straight copy-and-rename of
+    `cluster_viewpoints_per_state`'s body (this module's own established
+    pattern: independently-evolving per-scope variants stay decoupled rather
+    than sharing code), with one efficiency difference: reuses
+    `state["post_embeddings"]` (already computed by infer_regions.py's own
+    `llm.embed()` call over the same corpus) instead of embedding a second
+    time.
+
+    Every ClusterState/ClusterDefinedEvent produced here carries BOTH the new
+    authoritative `region_id` AND a transitional, representative `state_code`
+    (the region's highest-post-volume district's state) -- see ClusterState's
+    state_code docstring for why that backward-compat shim exists."""
+    posts = state["posts"]
+    n = len(posts)
+
+    if n == 0:
+        state["phase"] = "clustering"
+        counts = CollectionCounts(
+            posts_collected=state["posts_collected"],
+            districts_resolved=state["districts_resolved"],
+            clusters_found=state["clusters_found"],
+            deflections_found=state["deflections_found"],
+        )
+        await emit(
+            StatusEvent(
+                query_run_id=state["query_run_id"],
+                ticker="No posts collected to cluster.",
+                phase="clustering",
+                counts=counts,
+                progress=_CLUSTER_PROGRESS_END,
+            )
+        )
+        return state
+
+    texts = [p["text"] for p in posts]
+    embeddings = state.get("post_embeddings")
+    if not embeddings:
+        # Defensive fallback -- infer_regions.py should always have set this
+        # by the time this node runs, but never block clustering on that
+        # invariant holding.
+        embeddings = await llm.embed(texts)
+    matrix_all = np.array(embeddings, dtype=float)
+    id_to_index = {p["id"]: i for i, p in enumerate(posts)}
+
+    semaphore = asyncio.Semaphore(_MAX_CONCURRENT_STATE_CLUSTERING)
+    regions_done = 0
+    total_regions = len(state["posts_by_region"])
+
+    async def _cluster_one_region(region_id: str, post_ids: list[str]) -> None:
+        idxs = [id_to_index[pid] for pid in post_ids if pid in id_to_index]
+        if not idxs:
+            return
+        sub_matrix = matrix_all[idxs]
+        representative_state_code = _representative_state_code(posts, id_to_index, post_ids)
+
+        async with semaphore:
+            # KMeans + a silhouette sweep is synchronous CPU work; run it off
+            # the event loop since this now runs concurrently across regions,
+            # unlike the single global call above.
+            k, local_labels = await asyncio.to_thread(_choose_k_and_labels, sub_matrix)
+
+        groups: dict[int, list[int]] = {}
+        for local_idx, lbl in zip(idxs, local_labels):
+            groups.setdefault(lbl, []).append(local_idx)
+
+        async def _process_cluster(cluster_index: int, group_idxs: list[int]) -> tuple[
+            str, list[int], str, str, list[int], list[SamplePost]
+        ]:
+            cluster_id = f"{region_id}:c{cluster_index}"
+            color = _PALETTE[cluster_index % len(_PALETTE)]
+            sample_texts = [texts[idx] for idx in group_idxs[:_MAX_LABEL_SAMPLES]]
+            label, summary = await llm.label_cluster(sample_texts)
+
+            representative_sample_posts: list[SamplePost] = []
+            for idx in group_idxs[:_MAX_REPRESENTATIVE_POSTS]:
+                post = posts[idx]
+                paraphrase = await llm.paraphrase(post["text"])
+                representative_sample_posts.append(
+                    SamplePost(
+                        id=post["id"],
+                        platform=post["platform"],  # type: ignore[arg-type]
+                        paraphrase=paraphrase,
+                        cluster_id=cluster_id,
+                        url=post.get("permalink"),
+                    )
+                )
+            return cluster_id, group_idxs, label, summary, color, representative_sample_posts
+
+        cluster_tasks = [
+            asyncio.ensure_future(_process_cluster(cluster_index, groups[raw_label]))
+            for cluster_index, raw_label in enumerate(sorted(groups.keys()))
+        ]
+
+        for finished in asyncio.as_completed(cluster_tasks):
+            cluster_id, group_idxs, label, summary, color, representative_sample_posts = await finished
+            representative_posts_dicts = [
+                sp.model_dump(by_alias=True, exclude_none=True) for sp in representative_sample_posts
+            ]
+
+            for idx in group_idxs:
+                posts[idx]["cluster_id"] = cluster_id
+
+            cluster_state: ClusterState = {
+                "id": cluster_id,
+                "label": label,
+                "color": color,
+                "summary": summary,
+                "representative_posts": representative_posts_dicts,
+                "post_ids": [posts[idx]["id"] for idx in group_idxs],
+                "state_code": representative_state_code,
+                "region_id": region_id,
+            }
+            state["clusters"][cluster_id] = cluster_state
+            state["cluster_order"].append(cluster_id)
+
+            await emit(
+                ClusterDefinedEvent(
+                    query_run_id=state["query_run_id"],
+                    cluster_id=cluster_id,
+                    label=label,
+                    color=color,
+                    summary=summary,
+                    representative_posts=representative_sample_posts,
+                    state_code=representative_state_code,
+                    region_id=region_id,
+                )
+            )
+
+        nonlocal regions_done
+        regions_done += 1
+        progress = (
+            _CLUSTER_PROGRESS_START
+            + (_CLUSTER_PROGRESS_END - _CLUSTER_PROGRESS_START) * (regions_done / total_regions)
+        )
+        region_name = state["regions"].get(region_id, {}).get("name", region_id)
+        await emit(
+            StatusEvent(
+                query_run_id=state["query_run_id"],
+                ticker=(
+                    f"Clustered {regions_done}/{total_regions} regions "
+                    f"({len(groups)} viewpoints in {region_name})…"
+                ),
+                phase="clustering",
+                counts=CollectionCounts(
+                    posts_collected=state["posts_collected"],
+                    districts_resolved=state["districts_resolved"],
+                    clusters_found=len(state["clusters"]),
+                    deflections_found=state["deflections_found"],
+                ),
+                progress=progress,
+            )
+        )
+
+    region_tasks = [
+        asyncio.ensure_future(_cluster_one_region(region_id, post_ids))
+        for region_id, post_ids in state["posts_by_region"].items()
+    ]
+    for finished in asyncio.as_completed(region_tasks):
+        await finished
+
+    state["clusters_found"] = len(state["clusters"])
+    state["phase"] = "clustering"
+
+    await emit(
+        StatusEvent(
+            query_run_id=state["query_run_id"],
+            ticker=(
+                f"Grouped {n} posts into {state['clusters_found']} distinct viewpoints "
+                f"across {total_regions} regions."
             ),
             phase="clustering",
             counts=CollectionCounts(

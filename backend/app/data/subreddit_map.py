@@ -177,6 +177,28 @@ def _build_region_interleaved_state_order() -> list[str]:
 STATE_PRIORITY_ORDER: list[str] = _build_region_interleaved_state_order()
 
 
+def _state_names_from_gazetteer(gazetteer: dict) -> dict[str, str]:
+    """state_code -> state_name, derived from the same district gazetteer
+    every other geo-aware stage reads (see resolve_district.py's
+    _build_indices for the identical "derive a lookup from the raw gazetteer
+    once" pattern) -- avoids a second, potentially-drifting static state-name
+    table. Relocated here (from graph/build.py, its original home) so
+    graph/nodes/research.py can use it too, alongside graph/build.py's own
+    source_posts -- this module already owns STATE_PRIORITY_ORDER, the other
+    half of "which states, and what are they called" that both call sites
+    need, so putting both in one place avoids a research.py <-> build.py
+    import cycle (research.py cannot import from build.py, which itself
+    imports graph/nodes/research.py)."""
+    names: dict[str, str] = {}
+    for candidates in gazetteer.values():
+        for cand in candidates:
+            code = cand.get("stateCode")
+            name = cand.get("stateName")
+            if code and name and code not in names:
+                names[code] = name
+    return names
+
+
 def lookup_subreddit(name: str) -> SubredditEntry | None:
     """
     Normalize a subreddit reference (case-insensitive, optional "r/" prefix,

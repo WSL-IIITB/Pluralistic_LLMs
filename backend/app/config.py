@@ -24,9 +24,14 @@ class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
     # ── LLM provider selector ────────────────────────────────────────────────────
-    # Which backend get_llm_client() wires up. "azure_anthropic" is a same-shape
-    # swap-in for testing/comparison — see connectors/llm.py's AzureAnthropicLLMClient.
-    llm_provider: Literal["openai", "azure_anthropic"] = Field(default="openai")
+    # Which backend get_llm_client() wires up by default (a request can still
+    # override per-call via ?provider=). Matches reasoning_modes.LlmProvider's
+    # full set. "azure_anthropic" (Claude via Azure AI Foundry) is selectable
+    # again after having been removed and then restored on request;
+    # gemma_remote (self-hosted, no credential needed) remains the DEFAULT.
+    llm_provider: Literal[
+        "openai", "azure_anthropic", "gemma_local", "mistral_local", "gemma_remote"
+    ] = Field(default="gemma_remote")
 
     # ── LLM (OpenAI) ───────────────────────────────────────────────────────────
     openai_api_key: str | None = Field(default=None)
@@ -43,7 +48,7 @@ class Settings(BaseSettings):
     # Foundry's Claude endpoint is the Anthropic Messages API surface (not an
     # OpenAI-compatible one) — reached via the `anthropic` SDK's AnthropicFoundry
     # client. Anthropic has no embeddings endpoint, so embed() falls back to the
-    # same deterministic hash embedding the stub uses regardless of provider.
+    # same local sentence-transformers model the other no-embeddings providers use.
     azure_anthropic_api_key: str | None = Field(default=None)
     azure_anthropic_endpoint: str | None = Field(default=None)
     azure_anthropic_deployment: str = Field(default="claude-sonnet-4-5")
@@ -55,6 +60,32 @@ class Settings(BaseSettings):
     # Claude/OpenAI do. Ollama's own hosted web-search API fills that gap.
     ollama_base_url: str = Field(default="http://localhost:11434")
     ollama_web_search_api_key: str | None = Field(default=None)
+
+    # ── LLM (self-hosted Gemma, OpenAI-compatible) ───────────────────────────────
+    # A separate self-hosted inference server (confirmed genuinely OpenAI-
+    # compatible at /v1/chat/completions, including response_format=json_object
+    # -- unlike Ollama's native-only providers above). Needs no API key. Its
+    # /v1/embeddings route is confirmed broken server-side (a 'query' KeyError
+    # regardless of input shape) and it has no /v1/responses endpoint at all
+    # (confirmed 404) -- see RemoteGemmaLLMClient, which never attempts either
+    # network call and goes straight to the same local-embedding/no-research
+    # fallbacks the other credential-free providers use.
+    # No default on purpose: this is an internal, unauthenticated server --
+    # anyone who has the address can use it for free, so it must never be
+    # hardcoded or committed. Two ways to reach it, both via this same
+    # setting: (1) direct, for whoever owns the server -- the real
+    # http://host:port, no API key needed; (2) through proxy/ (see its
+    # README), for anyone else -- the proxy's own URL + "/gemma", paired with
+    # remote_gemma_api_key set to the shared passphrase the proxy checks.
+    # Direct access has moved before (host and port both changed on
+    # 2026-09-03) without notice, so don't assume a value you have is still
+    # current -- re-verify via GET /v1/models if unsure.
+    remote_gemma_base_url: str | None = Field(default=None)
+    # Sent as this client's OpenAI-style api_key -- ignored (server takes no
+    # auth) when talking to the real server directly; when remote_gemma_base_url
+    # instead points at proxy/, this must be the shared passphrase it checks.
+    remote_gemma_api_key: str | None = Field(default=None)
+    remote_gemma_chat_model: str = Field(default="Firworks/gemma-4-26B-A4B-it-fp8")
 
     # ── Reddit (PRAW) ────────────────────────────────────────────────────────────
     reddit_client_id: str | None = Field(default=None)
@@ -68,7 +99,7 @@ class Settings(BaseSettings):
     allow_stub_fallback: bool = Field(default=False)
 
     # ── Server ────────────────────────────────────────────────────────────────────
-    cors_origins: list[str] = Field(default_factory=lambda: ["http://localhost:8080"])
+    cors_origins: list[str] = Field(default_factory=lambda: ["http://localhost:8080", "http://localhost:3000"])
     host: str = Field(default="0.0.0.0")
     port: int = Field(default=8001)
 
@@ -94,6 +125,13 @@ class Settings(BaseSettings):
     def has_ollama_web_search(self) -> bool:
         return bool(self.ollama_web_search_api_key)
 
+    @property
+    def has_remote_gemma(self) -> bool:
+        # Unlike has_llm, this provider needs no API key -- only a reachable
+        # base_url, which has no default (see remote_gemma_base_url) and so
+        # must be set explicitly in each developer's own untracked .env.
+        return bool(self.remote_gemma_base_url)
+
 
 @lru_cache
 def get_settings() -> Settings:
@@ -103,7 +141,7 @@ def get_settings() -> Settings:
 def is_stub_mode() -> bool:
     """True if every external credential is absent — pure fixture-data mode."""
     s = get_settings()
-    return not (s.has_llm or s.has_reddit or s.has_youtube)
+    return not (s.has_llm or s.has_reddit or s.has_youtube or s.has_remote_gemma)
 
 
 # Repo-relative paths to the frontend's own geo files, so the district

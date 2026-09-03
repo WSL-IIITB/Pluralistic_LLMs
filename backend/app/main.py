@@ -13,13 +13,15 @@ import asyncio
 import traceback
 import uuid
 
-from fastapi import FastAPI, Query
+from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from sse_starlette.sse import EventSourceResponse
 
 from .config import get_settings
+from .dataview.router import router as dataview_router
 from .graph.build import counts_from_state, run_pipeline
 from .reasoning_modes import parse_mode, parse_provider
+from .run_history import delete_run, get_run, list_runs, save_run
 from .schema import DoneEvent, QueryStartedEvent, StreamErrorEvent, WorldviewEvent, event_to_sse_data
 
 settings = get_settings()
@@ -31,6 +33,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+app.include_router(dataview_router)
 
 
 @app.get("/healthz")
@@ -38,8 +41,10 @@ def healthz() -> dict:
     return {
         "ok": True,
         "has_llm": settings.has_llm,
+        "has_azure_anthropic": settings.has_azure_anthropic,
         "has_reddit": settings.has_reddit,
         "has_youtube": settings.has_youtube,
+        "has_remote_gemma": settings.has_remote_gemma,
     }
 
 
@@ -102,3 +107,33 @@ async def stream(
             task.cancel()
 
     return EventSourceResponse(event_generator())
+
+
+@app.post("/api/worldview/runs")
+async def create_saved_run(payload: dict) -> dict:
+    """Persist a completed run's fully-rendered frontend state, verbatim, so
+    it can be reopened later — see run_history.py's module docstring for why
+    this endpoint deliberately doesn't validate/transform the payload shape."""
+    if not payload.get("id"):
+        raise HTTPException(status_code=400, detail="payload.id is required")
+    return save_run(payload)
+
+
+@app.get("/api/worldview/runs")
+async def get_saved_runs(limit: int = Query(50, ge=1, le=200)) -> list[dict]:
+    return list_runs(limit)
+
+
+@app.get("/api/worldview/runs/{run_id}")
+async def get_saved_run(run_id: str) -> dict:
+    run = get_run(run_id)
+    if run is None:
+        raise HTTPException(status_code=404, detail="run not found")
+    return run
+
+
+@app.delete("/api/worldview/runs/{run_id}")
+async def remove_saved_run(run_id: str) -> dict:
+    if not delete_run(run_id):
+        raise HTTPException(status_code=404, detail="run not found")
+    return {"ok": True}

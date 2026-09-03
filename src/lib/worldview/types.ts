@@ -28,6 +28,15 @@ export type StateCode = string;
 /** Stable slug for a viewpoint cluster, e.g. `"rama"`. */
 export type ClusterId = string;
 
+/**
+ * Agent-inferred region identifier (extrahigh mode only), e.g. `"r3"`, or the
+ * `"UNK-REGION"` sentinel for geography-unresolvable posts. Unlike
+ * {@link StateCode}, a region is NOT a fixed administrative unit — it can
+ * span several districts and cross multiple state boundaries, and its exact
+ * membership/name is inferred fresh per run (see {@link RegionDatum}).
+ */
+export type RegionId = string;
+
 /** deck.gl RGB(A) colour, channels 0–255. Alpha optional (defaults opaque). */
 export type RGBAColor = [number, number, number] | [number, number, number, number];
 
@@ -36,14 +45,16 @@ export type QueryType = "descriptive" | "policy";
 
 /**
  * How thorough a run is. Geographic coverage is always full regardless of
- * mode (every Indian state/region gets surveyed) — for basic/medium/high,
- * mode instead controls the VOLUME of sources gathered per state/framing and
- * how much effort the research stage spends per angle. "extrahigh" is
- * qualitatively different, not just "more of the same": the backend clusters
- * each state's posts independently instead of pooling every state into one
- * global clustering pass, so a single run can produce 60-190 distinct
- * viewpoint clusters instead of today's 2-6. Mirrors the backend's
- * `reasoning_modes.ResearchMode`.
+ * mode (every Indian state gets surveyed) — for basic/medium/high, mode
+ * instead controls the VOLUME of sources gathered per state/framing and how
+ * much effort the research stage spends per angle. "extrahigh" is
+ * qualitatively different, not just "more of the same": the backend infers
+ * AGENT-DEFINED REGIONS from the data (each can span several districts and
+ * cross multiple state boundaries — see {@link RegionDatum}) and clusters
+ * each region's posts independently instead of pooling everything into one
+ * global clustering pass, so a single run can produce dozens of distinct
+ * viewpoint clusters instead of today's 2-6, each traceable to the specific
+ * region it came from. Mirrors the backend's `reasoning_modes.ResearchMode`.
  */
 export type ResearchMode = "basic" | "medium" | "high" | "extrahigh";
 
@@ -57,7 +68,7 @@ export const RESEARCH_MODES: readonly ResearchMode[] = [
 /**
  * "Go deeper"'s escalation ladder — deliberately capped at "high", NOT the
  * full {@link RESEARCH_MODES} list. extrahigh is a qualitatively different
- * pipeline (per-state clustering, ~3x the LLM call volume, see ResearchMode's
+ * pipeline (region-inference + per-region clustering, ~3x the LLM call volume, see ResearchMode's
  * doc comment), not just "more of the same," so it must only be reached by
  * deliberate manual selection in the mode toggle group — never as a side
  * effect of repeatedly clicking "Go deeper" from a "high" run.
@@ -73,18 +84,28 @@ export function escalateMode(mode: ResearchMode): ResearchMode {
 }
 
 /**
- * Which LLM backend answers a run. "openai" is selectable in the type but the
- * UI keeps it disabled (that account is out of credits); "gemma_local" and
- * "mistral_local" run entirely on-device via Ollama, zero per-call cost.
+ * Which LLM backend answers a run. "azure_anthropic" is Claude via Azure AI
+ * Foundry — removed at one point and since restored, so it is selectable
+ * again (but not the default). "openai" is selectable in the type but the UI
+ * keeps it disabled (that account is out of credits);
+ * "gemma_local"/"mistral_local" run entirely on-device via Ollama, zero
+ * per-call cost; "gemma_remote" is a self-hosted, OpenAI-compatible Gemma
+ * server needing no credential, and is the DEFAULT.
  * Mirrors the backend's `reasoning_modes.LlmProvider`.
  */
-export type LlmProvider = "azure_anthropic" | "openai" | "gemma_local" | "mistral_local";
+export type LlmProvider =
+  | "azure_anthropic"
+  | "openai"
+  | "gemma_local"
+  | "mistral_local"
+  | "gemma_remote";
 
 export const LLM_PROVIDERS: readonly LlmProvider[] = [
   "azure_anthropic",
   "openai",
   "gemma_local",
   "mistral_local",
+  "gemma_remote",
 ] as const;
 
 /** Confidence in a district's geolocation + cluster assignment. */
@@ -105,7 +126,12 @@ export type ResolutionMethod =
 
 /** The two viewpoints in a deflection can co-occur at different scales. */
 export type DeflectionLevel =
-  "intra-district" | "inter-district" | "intra-state" | "inter-state" | "inter-region";
+  | "intra-district"
+  | "inter-district"
+  | "intra-state"
+  | "inter-state"
+  | "intra-region"
+  | "inter-region";
 
 /** Coarse stage of the run, drives the ticker and progress semantics. */
 export type RunPhase =
@@ -126,7 +152,11 @@ export const CONFIDENCE_TIERS: readonly ConfidenceTier[] = ["high", "medium", "l
 /** A paraphrased sample post. We never surface verbatim user content. */
 export interface SamplePost {
   id: string;
-  platform: "reddit" | "youtube";
+  /** "research" — an official/statistical source (NITI Aayog, data.gov.in,
+   *  PIB, etc.) turned into a post-like entry so it can be geo-resolved and
+   *  clustered alongside real social posts — see the backend's
+   *  research.py module docstring. */
+  platform: "reddit" | "youtube" | "research";
   /** Paraphrased gist — safe to display, not the original text. */
   paraphrase: string;
   clusterId?: ClusterId;
@@ -152,14 +182,45 @@ export interface ClusterDatum {
    * stub-creation time, from the id-scoping convention (see
    * {@link parseStateScopedClusterId}) or an explicit event field; never
    * recomputed afterward.
+   *
+   * Region-mode transitional value: for a region-scoped cluster (regionId
+   * set below), this is a REPRESENTATIVE state (the region's highest-volume
+   * district's state), not the cluster's one true state — a region-mode
+   * cluster can genuinely span multiple states. Still useful for the
+   * district card's own state label; {@link regionId} is the authoritative
+   * grouping key for region-mode clusters.
    */
   stateCode?: StateCode;
+  /** extrahigh mode only (undefined for basic/medium/high, and for older
+   *  saved runs predating region-inference) — which agent-inferred region
+   *  this cluster belongs to. See {@link RegionDatum} for the region's name/
+   *  membership, delivered separately via a `region_defined` event. */
+  regionId?: RegionId;
+}
+
+/**
+ * An agent-inferred region (extrahigh mode only) — see {@link RegionId}.
+ * Delivered once per region via `region_defined`, before any cluster/
+ * district event references its id.
+ */
+export interface RegionDatum {
+  id: RegionId;
+  name: string;
+  /** One-sentence rationale for why these districts were grouped together. */
+  justification: string;
+  districtIds: DistrictId[];
+  stateCodes: StateCode[];
+  confidence: ConfidenceTier;
 }
 
 /** A district's resolved state: which viewpoint dominates and how sure we are. */
 export interface DistrictDatum {
   districtId: DistrictId;
   stateCode: StateCode;
+  /** extrahigh mode only — which agent-inferred region this district was
+   *  grouped into (see {@link RegionDatum}); undefined for basic/medium/high
+   *  and for older saved runs predating region-inference. */
+  regionId?: RegionId;
   /** Dominant cluster for the district (null while still unresolved). */
   clusterId: ClusterId | null;
   confidence: ConfidenceTier;
@@ -195,8 +256,24 @@ export interface DeflectionDatum {
 export interface AnswerSegment {
   text: string;
   clusterId?: ClusterId;
-  /** Region label for policy-mode differentiated recommendations. */
+  /** Region label for policy-mode differentiated recommendations. For
+   *  extrahigh's region-conditioned segments (see {@link regionId}), this is
+   *  the agent-inferred region's name. */
   region?: string;
+  /** extrahigh mode only — which agent-inferred region produced this segment
+   *  (set by the backend's condition_regions node, never by the LLM itself).
+   *  Undefined for the region-blind national-baseline segments and for every
+   *  non-extrahigh mode. */
+  regionId?: RegionId;
+  /** Administrative-state label for extrahigh's per-state-conditioned
+   *  segments (see {@link stateCode}) — deliberately independent of
+   *  {@link region}/{@link regionId}: a region can span multiple states, so
+   *  the two are never collapsed into one field. */
+  state?: string;
+  /** extrahigh mode only — which administrative state produced this segment
+   *  (set by the backend's condition_states node, never by the LLM itself).
+   *  Undefined for the baseline and region-conditioned segments. */
+  stateCode?: StateCode;
   /**
    * How this segment renders:
    *  - `tldr`           one-sentence takeaway, pinned at the top of the panel
@@ -229,6 +306,29 @@ export interface CollectionCounts {
   deflectionsFound: number;
   /** Total web sources gathered so far by the research stage (0 if not run yet). */
   sourcesGathered: number;
+  /** extrahigh mode only (0 for basic/medium/high) — how many agent-inferred
+   *  regions this run produced. */
+  regionsFound: number;
+}
+
+/**
+ * Lightweight list-view entry for a saved run — everything needed to render
+ * one row in the History panel without fetching the full run (districts/
+ * clusters/answer, which can be large, especially for extrahigh mode). The
+ * full payload for a given `id` is fetched separately, on demand, via
+ * `fetchSavedRun` — see {@link SavedRunData} in store.ts for that shape.
+ */
+export interface SavedRunSummary {
+  id: QueryRunId;
+  query: string;
+  queryType: QueryType;
+  mode: ResearchMode;
+  provider: LlmProvider;
+  /** ISO timestamp, stamped server-side at save time. */
+  createdAt: string;
+  districtsCount: number;
+  clustersCount: number;
+  deflectionsCount: number;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -274,6 +374,8 @@ export interface DistrictResolvedEvent extends EventBase {
   method: ResolutionMethod;
   isStateFallback?: boolean;
   samplePosts?: SamplePost[];
+  /** extrahigh mode only — see {@link DistrictDatum.regionId}. */
+  regionId?: RegionId;
 }
 
 /** A new viewpoint cluster was defined (or an existing one refined). */
@@ -286,6 +388,20 @@ export interface ClusterDefinedEvent extends EventBase {
   representativePosts?: SamplePost[];
   /** extrahigh mode only — see {@link ClusterDatum.stateCode}. */
   stateCode?: StateCode;
+  /** extrahigh mode only — see {@link ClusterDatum.regionId}. */
+  regionId?: RegionId;
+}
+
+/** An agent-inferred region was defined — see {@link RegionDatum}. Emitted
+ *  once per region, before any cluster/district event references its id. */
+export interface RegionDefinedEvent extends EventBase {
+  type: "region_defined";
+  regionId: RegionId;
+  name: string;
+  justification: string;
+  districtIds: DistrictId[];
+  stateCodes: StateCode[];
+  confidence: ConfidenceTier;
 }
 
 /** A point of deflection between two co-occurring clusters. */
@@ -333,6 +449,7 @@ export type WorldviewEvent =
   | StatusEvent
   | DistrictResolvedEvent
   | ClusterDefinedEvent
+  | RegionDefinedEvent
   | DeflectionEvent
   | AnswerChunkEvent
   | ResearchDocumentEvent

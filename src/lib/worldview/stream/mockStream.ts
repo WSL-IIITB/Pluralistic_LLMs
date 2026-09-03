@@ -152,7 +152,7 @@ export const mockStreamSource: StreamSource = (query, opts, handlers) => {
   const timers: ReturnType<typeof setTimeout>[] = [];
   const runId = newRunId();
   const mode: ResearchMode = opts.mode ?? "medium";
-  const provider: LlmProvider = opts.provider ?? "azure_anthropic";
+  const provider: LlmProvider = opts.provider ?? "gemma_remote";
   const deeper = opts.deeper ?? false;
   const durationFactor = MODE_DURATION_FACTOR[mode];
   const volumeFactor = MODE_VOLUME_FACTOR[mode];
@@ -166,6 +166,7 @@ export const mockStreamSource: StreamSource = (query, opts, handlers) => {
     clustersFound: opts.priorCounts?.clustersFound ?? (deeper ? content.clusters.length : 0),
     deflectionsFound: opts.priorCounts?.deflectionsFound ?? 0,
     sourcesGathered: opts.priorCounts?.sourcesGathered ?? 0,
+    regionsFound: opts.priorCounts?.regionsFound ?? 0,
   };
 
   const emit = (draft: EventDraft) => {

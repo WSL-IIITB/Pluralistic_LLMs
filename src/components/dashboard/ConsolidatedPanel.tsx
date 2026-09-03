@@ -1,6 +1,8 @@
 import { ChevronDown, ExternalLink } from "lucide-react";
 import { useMemo, useState } from "react";
 
+import { CollapseButton, CollapsedPill } from "@/components/dashboard/CollapseToggle";
+import { useCollapsible } from "@/hooks/use-collapsible";
 import {
   clusterColor,
   rgbaCss,
@@ -22,6 +24,12 @@ interface Prose {
   text: string;
   clusterId?: ClusterId;
   citations?: number[];
+  /** extrahigh's region-conditioned segments (see AnswerSegment.regionId) —
+   *  mostly land here (kind "body"), not in `bullets`, since
+   *  condition_answer_for_region's own segments use "body"/"recommendation"
+   *  interchangeably. Carried through so the region name still renders
+   *  (matching `Bullet.region`'s existing prefix), not just for bullets. */
+  region?: string;
   /** Legacy `heading` segments keep their small-caps label styling. */
   isHeading?: boolean;
 }
@@ -48,6 +56,7 @@ function layoutSegments(segments: AnswerSegment[]): AnswerLayout {
     const kind = seg.kind ?? "body";
     const cites = seg.citations && seg.citations.length > 0 ? { citations: seg.citations } : {};
     const cluster = seg.clusterId ? { clusterId: seg.clusterId } : {};
+    const region = seg.region ? { region: seg.region } : {};
 
     if (kind === "tldr") {
       // Concatenate if the stream chunked one takeaway across events.
@@ -55,12 +64,13 @@ function layoutSegments(segments: AnswerSegment[]): AnswerLayout {
     } else if (kind === "recommendation") {
       layout.bullets.push({ region: seg.region ?? "", text: seg.text, ...cluster, ...cites });
     } else if (kind === "detail") {
-      layout.details.push({ text: seg.text, ...cluster, ...cites });
+      layout.details.push({ text: seg.text, ...cluster, ...cites, ...region });
     } else {
       layout.inline.push({
         text: seg.text,
         ...cluster,
         ...cites,
+        ...region,
         ...(kind === "heading" ? { isHeading: true } : {}),
       });
     }
@@ -95,16 +105,28 @@ export function ConsolidatedPanel() {
   const setHoveredCluster = useWorldviewStore((s) => s.setHoveredCluster);
   const researchDocuments = useWorldviewStore((s) => s.researchDocuments);
   const [detailsOpen, setDetailsOpen] = useState(false);
+  const { collapsed, expand, collapse } = useCollapsible();
 
   const { tldr, inline, bullets, details } = useMemo(() => layoutSegments(answer), [answer]);
   const isStreaming = runState === "streaming" || runState === "connecting";
   const hasAnswer = answer.length > 0;
 
+  if (collapsed) {
+    return (
+      <CollapsedPill onClick={expand} label="Show consolidated view">
+        {tldr || "Consolidated View"}
+      </CollapsedPill>
+    );
+  }
+
   return (
     <section className="panel-surface pointer-events-auto flex max-h-[calc(100vh-13rem)] w-[380px] flex-col rounded-xl">
-      <header className="flex items-center justify-between border-b border-panel-border px-4 py-3">
+      <header className="flex items-center justify-between gap-2 border-b border-panel-border px-4 py-3">
         <h2 className="text-xs font-medium tracking-wide text-foreground">Consolidated View</h2>
-        <ModeBadge queryType={queryType} />
+        <div className="flex shrink-0 items-center gap-2">
+          <ModeBadge queryType={queryType} />
+          <CollapseButton onClick={collapse} label="Collapse consolidated view" />
+        </div>
       </header>
 
       {/* A plain scrolling div, not shadcn's <ScrollArea>: Radix's ScrollArea
@@ -136,6 +158,7 @@ export function ConsolidatedPanel() {
                 }
                 onMouseLeave={p.clusterId ? () => setHoveredCluster(null) : undefined}
               >
+                {p.region && <span className="font-medium text-foreground">{p.region}: </span>}
                 {p.text}
                 {p.citations && <CitationMarks ids={p.citations} />}
               </p>
@@ -205,6 +228,9 @@ export function ConsolidatedPanel() {
                       }
                       onMouseLeave={p.clusterId ? () => setHoveredCluster(null) : undefined}
                     >
+                      {p.region && (
+                        <span className="font-medium text-foreground">{p.region}: </span>
+                      )}
                       {p.text}
                       {p.citations && <CitationMarks ids={p.citations} />}
                     </p>

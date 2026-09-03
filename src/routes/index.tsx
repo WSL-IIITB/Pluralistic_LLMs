@@ -1,12 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { RotateCw } from "lucide-react";
+import { ExternalLink, RotateCw } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 import { ConsolidatedPanel } from "@/components/dashboard/ConsolidatedPanel";
 import { DeflectionPanel } from "@/components/dashboard/DeflectionPanel";
 import { DistrictInfoPanel } from "@/components/dashboard/DistrictInfoPanel";
+import { HistoryPanel } from "@/components/dashboard/HistoryPanel";
 import { LegendPanel } from "@/components/dashboard/LegendPanel";
 import { WorldviewMap } from "@/components/dashboard/map/WorldviewMap";
+import { DataViewPanels } from "@/components/dataview/DataViewPanels";
 import { ProgressBar } from "@/components/dashboard/ProgressBar";
 import { QueryBar } from "@/components/dashboard/QueryBar";
 import { TopBar, type DashboardTab } from "@/components/dashboard/TopBar";
@@ -34,9 +36,9 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   const [activeTab, setActiveTab] = useState<DashboardTab>("Map");
-  const [query, setQuery] = useState("Diwali");
+  const [query, setQuery] = useState("");
   const [reasoningMode, setReasoningMode] = useState<ResearchMode>("medium");
-  const [provider, setProvider] = useState<LlmProvider>("azure_anthropic");
+  const [provider, setProvider] = useState<LlmProvider>("gemma_remote");
 
   const { run, cancel, retry, isStreaming, runState, error } = useQueryStream();
   const storeQuery = useWorldviewStore((s) => s.query);
@@ -61,7 +63,7 @@ function Index() {
 
   return (
     <main className="relative h-screen w-screen overflow-hidden bg-background">
-      <WorldviewMap />
+      <WorldviewMap dataViewActive={activeTab === "Data"} />
 
       <TopBar activeTab={activeTab} onTabChange={setActiveTab} />
 
@@ -94,6 +96,10 @@ function Index() {
             <LegendPanel />
           </div>
         )}
+
+        {activeTab === "History" && <HistoryPanel onOpenRun={() => setActiveTab("Map")} />}
+
+        {activeTab === "Data" && <DataViewPanels />}
 
         {activeTab === "About" && <AboutPanel />}
 
@@ -171,6 +177,26 @@ function AboutPanel() {
           state. This build ships an offline demo run — point it at a live backend in{" "}
           <code className="rounded bg-white/5 px-1 py-0.5 text-[11px]">stream/config.ts</code>.
         </p>
+        <div className="mt-4 flex flex-wrap gap-4 border-t border-panel-border pt-4">
+          <a
+            href="https://claude.ai/code/artifact/60b8c77a-4431-41a8-8013-f944fc231ed2"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-[12px] text-muted-foreground transition-colors hover:text-foreground"
+          >
+            <ExternalLink className="size-3" />
+            How it works (for stakeholders)
+          </a>
+          <a
+            href="https://claude.ai/code/artifact/88669c91-6498-45aa-93ed-d6faf9fe06a1"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-[12px] text-muted-foreground transition-colors hover:text-foreground"
+          >
+            <ExternalLink className="size-3" />
+            Full architecture diagram
+          </a>
+        </div>
       </section>
     </div>
   );

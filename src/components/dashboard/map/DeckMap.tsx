@@ -34,13 +34,20 @@ import {
   type ViewTier,
 } from "@/lib/worldview";
 import type { BBox, DistrictGeo } from "@/lib/worldview/geo/districts";
-import { buildLayers, computeRepresentativeCentroids } from "./layers";
+import { useDataViewStore } from "@/lib/dataview/store";
+import type { NumericDomain } from "@/lib/dataview/palette";
+import { buildLayers, computeRepresentativeCentroids, type DataViewLayerParams } from "./layers";
 import { useStateGeo } from "./useStateGeo";
 
 interface DeckMapProps {
   geo: DistrictGeo;
   mapboxToken: string | null;
   onViewTierChange: (tier: ViewTier) => void;
+  /** True when the "Data" tab is active — see routes/index.tsx. Switches the
+   * choropleth to Data View's numeric scale and routes selection to
+   * useDataViewStore instead of useWorldviewStore. Defaults to false so
+   * Story View's own map usage needs no changes. */
+  dataViewActive?: boolean;
 }
 
 type ViewState = MapViewState & {
@@ -82,7 +89,12 @@ function pickDistrict(info: PickingInfo): PickedDistrict | null {
   return null;
 }
 
-export default function DeckMap({ geo, mapboxToken, onViewTierChange }: DeckMapProps) {
+export default function DeckMap({
+  geo,
+  mapboxToken,
+  onViewTierChange,
+  dataViewActive = false,
+}: DeckMapProps) {
   const [viewState, setViewState] = useState<ViewState>(INDIA_VIEW);
   const sizeRef = useRef<{ width: number; height: number }>({ width: 1280, height: 800 });
   const tierRef = useRef<ViewTier>(viewTierForZoom(INDIA_VIEW.zoom));
@@ -95,6 +107,50 @@ export default function DeckMap({ geo, mapboxToken, onViewTierChange }: DeckMapP
   const selection = useWorldviewStore((s) => s.selection);
   const hoveredClusterId = useWorldviewStore((s) => s.hoveredClusterId);
   const deflectionPair = useWorldviewStore((s) => s.deflectionPair);
+
+  // Data View slices — only actually read/computed when dataViewActive, but
+  // subscribing unconditionally keeps hook order stable across the toggle.
+  const dvDistricts = useDataViewStore((s) => s.districts);
+  const dvStateScores = useDataViewStore((s) => s.stateScores);
+  const dvColorMode = useDataViewStore((s) => s.colorMode);
+
+  const dataViewValues = useMemo<Record<string, number>>(() => {
+    if (!dataViewActive) return {};
+    const values: Record<string, number> = {};
+    for (const districtId of Object.keys(dvDistricts)) {
+      const d = dvDistricts[districtId];
+      if (!d) continue;
+      if (dvColorMode === "dropoutRate") {
+        values[districtId] = d.outcomeValue;
+      } else {
+        const stateScore = dvStateScores[d.stateCode];
+        if (stateScore) values[districtId] = stateScore.interventionIndex;
+      }
+    }
+    return values;
+  }, [dataViewActive, dvDistricts, dvStateScores, dvColorMode]);
+
+  // Actual min/max across whatever's currently populated — recomputed
+  // reactively as district_scored/state_scored events stream in.
+  const dataViewDomain = useMemo<NumericDomain>(() => {
+    let lo = Infinity;
+    let hi = -Infinity;
+    for (const v of Object.values(dataViewValues)) {
+      if (v < lo) lo = v;
+      if (v > hi) hi = v;
+    }
+    return Number.isFinite(lo) && Number.isFinite(hi) ? [lo, hi] : [0, 1];
+  }, [dataViewValues]);
+
+  const dataViewParams: DataViewLayerParams = useMemo(
+    () => ({
+      active: dataViewActive,
+      colorMode: dvColorMode,
+      values: dataViewValues,
+      domain: dataViewDomain,
+    }),
+    [dataViewActive, dvColorMode, dataViewValues, dataViewDomain],
+  );
 
   const stateGeo = useStateGeo();
   const tier = viewTierForZoom(viewState.zoom);
@@ -127,6 +183,7 @@ export default function DeckMap({ geo, mapboxToken, onViewTierChange }: DeckMapP
         deflections,
         deflectionPair,
         representativeCentroids,
+        dataView: dataViewParams,
       }),
     [
       geo,
@@ -142,6 +199,7 @@ export default function DeckMap({ geo, mapboxToken, onViewTierChange }: DeckMapP
       deflections,
       deflectionPair,
       representativeCentroids,
+      dataViewParams,
     ],
   );
 
@@ -172,6 +230,32 @@ export default function DeckMap({ geo, mapboxToken, onViewTierChange }: DeckMapP
   );
 
   useEffect(() => reportTier(viewState.zoom), [reportTier, viewState.zoom]);
+
+  // Reset the shared camera + clear any stale Data View selection every time
+  // the "Data" tab is entered (dataViewActive's false->true edge only — see
+  // routes/index.tsx). The map instance/viewState is shared between Story
+  // View and Data View (mounted once, never unmounted per tab — see
+  // WorldviewMap.tsx), and `handleClick` below decides district-vs-state
+  // selection purely from the CURRENT camera zoom. Without this, drilling
+  // into a state/district in either tab leaves the shared camera zoomed past
+  // ZOOM_TIERS.country, so every subsequent click anywhere resolves to a
+  // district — making it impossible to ever select a state in Data View
+  // once the camera has zoomed in even once. A ref (not a dependency on the
+  // previous prop value, which React doesn't give us directly) tracks the
+  // prior value so this only fires on the actual transition, not every
+  // render while dataViewActive stays true. Deliberately does NOT run on the
+  // reverse edge (leaving Data View) — Story View's own zoom/selection is
+  // left exactly as the user set it, matching this prop's "defaults to
+  // false so Story View needs no changes" contract.
+  const wasDataViewActiveRef = useRef(dataViewActive);
+  useEffect(() => {
+    const wasActive = wasDataViewActiveRef.current;
+    wasDataViewActiveRef.current = dataViewActive;
+    if (!wasActive && dataViewActive) {
+      setViewState(INDIA_VIEW);
+      useDataViewStore.getState().clearSelection();
+    }
+  }, [dataViewActive]);
 
   const flyToBBox = useCallback((bbox: BBox, fallbackZoom: number) => {
     const { width, height } = sizeRef.current;
@@ -207,7 +291,7 @@ export default function DeckMap({ geo, mapboxToken, onViewTierChange }: DeckMapP
   const handleClick = useCallback(
     (info: PickingInfo) => {
       const picked = pickDistrict(info);
-      const store = useWorldviewStore.getState();
+      const store = dataViewActive ? useDataViewStore.getState() : useWorldviewStore.getState();
       if (!picked) {
         store.clearSelection();
         return;
@@ -233,7 +317,7 @@ export default function DeckMap({ geo, mapboxToken, onViewTierChange }: DeckMapP
         }
       }
     },
-    [geo, viewState.zoom, flyToBBox],
+    [geo, viewState.zoom, flyToBBox, dataViewActive],
   );
 
   const getTooltip = useCallback(

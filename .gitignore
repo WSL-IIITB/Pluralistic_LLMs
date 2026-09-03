@@ -24,9 +24,12 @@ backend/.venv/
 backend/**/__pycache__/
 backend/**/*.pyc
 
-# Runtime-generated caches (research_cache.py) -- not source, regenerated per-run
+# Runtime-generated caches (research_cache.py, region_kb.py, run_history.py) -- not source, regenerated per-run
 backend/app/data/chroma_cache/
 backend/app/data/research_cache.db
+backend/app/data/chroma_region_kb/
+backend/app/data/region_kb.db
+backend/app/data/run_history.db
 
 # Wrangler / Cloudflare
 .wrangler/

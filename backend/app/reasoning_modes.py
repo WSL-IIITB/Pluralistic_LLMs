@@ -51,17 +51,29 @@ def escalate(mode: ResearchMode) -> ResearchMode:
     return MODE_ORDER[min(idx + 1, len(MODE_ORDER) - 1)]
 
 
-# Which LLM backend answers this run. "openai" is kept as a selectable value
-# (the UI shows it, greyed out, since that account is out of credits) even
-# though nothing currently prevents selecting it server-side -- the frontend
-# is what enforces "disabled." "gemma_local"/"mistral_local" route through
-# LocalOllamaLLMClient (see connectors/llm.py) instead of a hosted API.
-LlmProvider = Literal["azure_anthropic", "openai", "gemma_local", "mistral_local"]
+# Which LLM backend answers this run. "azure_anthropic" is Claude via Azure AI
+# Foundry (AzureAnthropicLLMClient) -- it was removed at one point and then
+# restored on request, so it is once again a fully selectable provider; it is
+# NOT the default, though (see parse_provider below). "openai" is kept as a
+# selectable value (the UI shows it, greyed out, since that account is out of
+# credits) even though nothing currently prevents selecting it server-side --
+# the frontend is what enforces "disabled." "gemma_local"/"mistral_local"
+# route through LocalOllamaLLMClient (see connectors/llm.py) instead of a
+# hosted API. "gemma_remote" routes through RemoteGemmaLLMClient -- a
+# self-hosted, OpenAI-compatible Gemma server (not Ollama-native), needs no
+# credential -- and is the DEFAULT provider for this app.
+LlmProvider = Literal["azure_anthropic", "openai", "gemma_local", "mistral_local", "gemma_remote"]
 
-PROVIDER_ORDER: tuple[LlmProvider, ...] = ("azure_anthropic", "openai", "gemma_local", "mistral_local")
+PROVIDER_ORDER: tuple[LlmProvider, ...] = (
+    "azure_anthropic",
+    "openai",
+    "gemma_local",
+    "mistral_local",
+    "gemma_remote",
+)
 
 
-def parse_provider(raw: str | None, default: LlmProvider = "azure_anthropic") -> LlmProvider:
+def parse_provider(raw: str | None, default: LlmProvider = "gemma_remote") -> LlmProvider:
     """Validate a provider string from a query param; unknown/missing -> default."""
     if raw and raw.lower() in PROVIDER_ORDER:
         return raw.lower()  # type: ignore[return-value]
@@ -144,3 +156,43 @@ EXTRAHIGH_MIN_POSTS_PER_CLUSTER = 3
 # a 3rd-ranked, low-combined-volume pair the existing global cap already
 # treats as below the signal threshold.
 EXTRAHIGH_DEFLECTIONS_PER_STATE_CAP = 2
+
+# extrahigh-only: region-inference bounds (see graph/nodes/infer_regions.py).
+# A region is inferred from DISTRICT-averaged embeddings (one level up from
+# EXTRAHIGH_CLUSTER_* above, which sweeps over POST embeddings within one
+# state) via the exact same silhouette-sweep k-selection pattern -- so region
+# *count* is bounded by this sweep, never by how many groups an LLM decides
+# to invent. K_MAX is deliberately smaller than a raw district count would
+# allow: a "region" is meant to be a handful of broad clusters spanning many
+# districts/states, not a district-count-sized partition.
+REGION_CLUSTER_K_MIN = 2
+REGION_CLUSTER_K_MAX = 12
+# Mirrors EXTRAHIGH_MIN_POSTS_PER_CLUSTER's reasoning one level up: a k that
+# would average fewer than 2 districts per region isn't a real "spans several
+# districts" region, just an echo of one district.
+REGION_MIN_DISTRICTS_PER_REGION = 2
+# Same role as cluster_viewpoints.py's _MIN_SILHOUETTE_FOR_SPLIT -- collapse
+# to a single region if even the sweep's best k scores below this (no
+# genuine district-level structure found). Lowered alongside that constant
+# for the same reason: too conservative in practice for short social-media
+# text embeddings, observed collapsing genuinely multi-state runs to one
+# region -- see that constant's own comment for the full rationale.
+_MIN_SILHOUETTE_FOR_REGION_SPLIT = 0.03
+# Hard cap on propose->critique->revise rounds -- mirrors connectors/llm.py's
+# _RESEARCH_TOOL_ROUND_CAP: convergence must be code-enforced (the round after
+# this cap force-accepts whatever the current best partition is), never
+# dependent on an LLM choosing to stop critiquing.
+REGION_REVISION_ROUND_CAP = 1
+
+# extrahigh-only: deflection-extraction caps for extract_deflections_per_region
+# (graph/nodes/deflection_and_synthesis.py), mirroring
+# EXTRAHIGH_DEFLECTIONS_PER_STATE_CAP one level up. Two separate caps because
+# this stage now runs TWO passes: intra-region (pairs of dominant clusters
+# within the SAME region -- can legitimately span states) and inter-region (a
+# smaller top-K pass across different regions' single most-dominant cluster
+# each, finally using DeflectionLevel's "inter-region" value). The
+# inter-region cap is a flat top-K over ALL region pairs (not per-region)
+# since it's meant to surface only the handful of most striking cross-region
+# contrasts, mirroring the pre-extrahigh flat top-6 global cap.
+EXTRAHIGH_DEFLECTIONS_PER_REGION_CAP = 2
+EXTRAHIGH_INTER_REGION_DEFLECTIONS_CAP = 6

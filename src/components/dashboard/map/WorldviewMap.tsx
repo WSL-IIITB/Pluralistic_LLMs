@@ -92,7 +92,13 @@ class MapErrorBoundary extends Component<
 }
 
 // ── Client-only map subtree (geo load + deck) ──────────────────────────────────
-function ClientMap({ onViewTierChange }: { onViewTierChange: (tier: ViewTier) => void }) {
+function ClientMap({
+  onViewTierChange,
+  dataViewActive,
+}: {
+  onViewTierChange: (tier: ViewTier) => void;
+  dataViewActive: boolean;
+}) {
   const { geo, status } = useDistrictGeo();
   const [failed, setFailed] = useState(false);
   const token = readMapboxToken();
@@ -107,13 +113,24 @@ function ClientMap({ onViewTierChange }: { onViewTierChange: (tier: ViewTier) =>
   return (
     <MapErrorBoundary onError={() => setFailed(true)}>
       <Suspense fallback={null}>
-        <DeckMap geo={geo} mapboxToken={token} onViewTierChange={onViewTierChange} />
+        <DeckMap
+          geo={geo}
+          mapboxToken={token}
+          onViewTierChange={onViewTierChange}
+          dataViewActive={dataViewActive}
+        />
       </Suspense>
     </MapErrorBoundary>
   );
 }
 
-export function WorldviewMap() {
+interface WorldviewMapProps {
+  /** True when the "Data" tab is active — see routes/index.tsx. Threaded down
+   * to DeckMap; defaults to false so every existing Story View caller is unaffected. */
+  dataViewActive?: boolean;
+}
+
+export function WorldviewMap({ dataViewActive = false }: WorldviewMapProps) {
   const [mounted, setMounted] = useState(false);
   const [tier, setTier] = useState<ViewTier>(viewTierForZoom(INDIA_VIEW.zoom));
 
@@ -124,7 +141,7 @@ export function WorldviewMap() {
       <MapBackdrop />
 
       {mounted ? (
-        <ClientMap onViewTierChange={setTier} />
+        <ClientMap onViewTierChange={setTier} dataViewActive={dataViewActive} />
       ) : (
         <MapEmptyHint label="3D map of India" />
       )}

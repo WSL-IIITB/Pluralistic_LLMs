@@ -173,10 +173,14 @@ async def _apply_resolution(
     method: str,
     confidence: str,
     post: RawPost,
+    region_id: str | None = None,
 ) -> None:
     """Accumulate one resolved post into state["resolved"][district_id],
     mirroring the exact dominant-cluster nuance described in the module
-    docstring."""
+    docstring. `region_id` (extrahigh-only, None for basic/medium/high) is
+    set once at entry creation only -- unlike confidence/method/
+    is_state_fallback, a district belongs to exactly one region for the
+    whole run, so there's no per-cluster-update nuance to apply here."""
     resolved = state["resolved"]
     entry = resolved.get(district_id)
     if entry is None:
@@ -189,6 +193,7 @@ async def _apply_resolution(
             confidence=confidence,
             is_state_fallback=_is_state_fallback_method(method),
             sample_posts=[],
+            region_id=region_id,
         )
         resolved[district_id] = entry
 
@@ -246,6 +251,7 @@ def _district_event_for(state: PipelineState, district_id: str, volume: int) -> 
         method=entry["method"],
         is_state_fallback=entry["is_state_fallback"],
         sample_posts=sample_posts,
+        region_id=entry.get("region_id"),
     )
 
 
@@ -385,6 +391,7 @@ async def finalize_districts(state: PipelineState, emit: EmitFn, llm: LLMClient)
                 post["resolution_method"],
                 post["resolution_confidence"],
                 post,
+                region_id=post.get("region_id"),
             )
             touched[district_id] = touched.get(district_id, 0) + 1
 
