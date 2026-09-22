@@ -54,8 +54,8 @@ from langgraph.graph import END, StateGraph
 
 from ..config import DATA_DIR, Settings
 from ..connectors.base import LLMClient, SourceConnector, SourcedPost
-from ..connectors.llm import get_llm_client
-from ..connectors.sources import get_reddit_connector, get_youtube_connector
+from ..connectors.llm import StubLLMClient, get_llm_client
+from ..connectors.sources import get_niti_connector, get_reddit_connector, get_youtube_connector
 from ..data.language_regions import detect_script_region
 from ..data.subreddit_map import (
     STATE_PRIORITY_ORDER,
@@ -64,6 +64,7 @@ from ..data.subreddit_map import (
     lookup_subreddit,
 )
 from ..reasoning_modes import (
+    CSV_POSTS_PER_FRAMING_CAP,
     FRAMING_COUNT,
     REDDIT_PER_STATE_LIMIT,
     YOUTUBE_POSTS_PER_FRAMING_CAP,
@@ -155,6 +156,15 @@ _MAX_CONCURRENT_FETCHES = 6
 _MIN_SIGNAL_WORDS = 4
 _WORD_RE = re.compile(r"\w{2,}", re.UNICODE)
 
+# Curated/official-source platforms that skip the per-post relevance gate (see
+# _filter_by_relevance). These are structured data or carefully sourced
+# documents, not free-form social chatter: the connector's own keyword scoring
+# already gated them on the topic, and a yes/no LLM judge on a statistics row
+# both misses the point and — under a stub or failing LLM, which fails CLOSED
+# to False — would silently wipe real data the run was explicitly asked to
+# fetch (a stub-mode CSV run would collect 0 posts without this).
+_STRUCTURED_SOURCE_PLATFORMS = frozenset({"research", "niti"})
+
 
 def _is_low_signal(text: str) -> bool:
     return len(_WORD_RE.findall(text)) < _MIN_SIGNAL_WORDS
@@ -217,7 +227,11 @@ async def _is_relevant(llm: LLMClient, text: str, query: str, framings: list[str
 
 
 async def _filter_by_relevance(posts: list[RawPost], query: str, framings: list[str], llm: LLMClient) -> list[RawPost]:
-    """Drop posts the run's own LLM judges off-topic. Two things slip past
+    """Drop posts the run's own LLM judges off-topic. Platforms in
+    _STRUCTURED_SOURCE_PLATFORMS ("research", "niti") are skipped outright —
+    they arrived pre-gated by the sourcing logic that produced them, and a
+    yes/no judge on a curated statistics row is both redundant and, under a
+    fail-closed stub/outage, destructive to real data. Two things slip past
     the word-count check in `_is_low_signal` and land here instead: unrelated
     comment-thread noise on an otherwise on-topic video (real words, wrong
     topic), and garbled/corrupted text (real word-shaped tokens, no actual
@@ -244,6 +258,8 @@ async def _filter_by_relevance(posts: list[RawPost], query: str, framings: list[
     semaphore = asyncio.Semaphore(_RELEVANCE_CONCURRENCY)
 
     async def check(post: RawPost) -> bool:
+        if post["platform"] in _STRUCTURED_SOURCE_PLATFORMS:
+            return True
         async with semaphore:
             try:
                 return await _is_relevant(llm, post["text"], query, framings)
@@ -265,6 +281,7 @@ async def source_posts(
     emit: EmitFn,
     reddit: SourceConnector,
     youtube: SourceConnector,
+    csv: SourceConnector,
     llm: LLMClient,
     gazetteer: dict,
 ) -> PipelineState:
@@ -298,11 +315,19 @@ async def source_posts(
     the clustering stage remain the sole sources of truth for where a post
     resolves and what viewpoint it actually expresses -- this only widens
     what gets a chance to be sourced in the first place.
+
+    The NITI CSV source rides the same per-framing axis as YouTube -- its
+    connector's state round-robin already guarantees every state appears in a
+    framing search's result (see connectors/sources.py's NitiCsvConnector), so
+    like YouTube it needs no separate per-state pass; `fetch_csv` below runs
+    one search per framing, and its posts (platform "niti") skip the relevance
+    gate like research documents (see _STRUCTURED_SOURCE_PLATFORMS).
     """
     mode: ResearchMode = state["mode"]
     target_states = STATE_PRIORITY_ORDER
     reddit_limit = REDDIT_PER_STATE_LIMIT[mode]
     youtube_limit = YOUTUBE_POSTS_PER_FRAMING_CAP[mode]
+    csv_limit = CSV_POSTS_PER_FRAMING_CAP[mode]
     state_names = _state_names_from_gazetteer(gazetteer)
 
     known_framings = await llm.suggest_framings(state["query"], FRAMING_COUNT[mode])
@@ -376,6 +401,16 @@ async def source_posts(
                 print(f"[source_posts] youtube-state/{name!r} failed: {exc}", flush=True)
                 return []
 
+    async def fetch_csv(framing: str) -> list[SourcedPost]:
+        """One framing-keyed NITI CSV pass (its own round-robin covers the
+        per-state spread -- see the NitiCsvConnector section comment)."""
+        async with semaphore:
+            try:
+                return await csv.search(framing, csv_limit)
+            except Exception as exc:  # noqa: BLE001
+                print(f"[source_posts] csv/{framing!r} failed: {exc}", flush=True)
+                return []
+
     # The per-state YouTube pass costs a flat 100 quota units PER STATE
     # (search.list's cost doesn't scale with maxResults -- see
     # connectors/sources.py's own comment) -- 36 states is 3600 units on top
@@ -389,16 +424,38 @@ async def source_posts(
         [fetch_youtube_state(code) for code in target_states] if mode == "extrahigh" else []
     )
 
-    fetched = await asyncio.gather(
-        *(fetch_reddit(i, code) for i, code in enumerate(target_states)),
-        *(fetch_youtube(framing) for framing in framings),
-        *state_youtube_tasks,
-    )
+    # Under the stub LLM the relevance judge fails CLOSED, so every social
+    # (reddit/youtube) post is deterministically dropped before clustering --
+    # earlier runs kept only 'niti' rows (243 off-topic drops, 0 social kept).
+    # Crawling live YouTube then is pure wall-clock waste: users get the same
+    # CSV-only answer whether or not it runs. Skip the social fan-out
+    # entirely in stub mode; the moment a real LLM is configured the crawl
+    # returns and its posts actually survive the judge.
+    stub_mode = isinstance(llm, StubLLMClient)
+    if stub_mode:
+        print(
+            "[source_posts] stub LLM: skipping social crawl (fail-closed relevance would "
+            "drop every reddit/youtube post); CSV rows are the only source this run.",
+            flush=True,
+        )
 
+    fetched = await asyncio.gather(
+        *([] if stub_mode else (fetch_reddit(i, code) for i, code in enumerate(target_states))),
+        *([] if stub_mode else (fetch_youtube(framing) for framing in framings)),
+        *(fetch_csv(framing) for framing in framings),
+        *([] if stub_mode else state_youtube_tasks),
+    )
     posts: list[RawPost] = []
     dropped = 0
     for i, p in enumerate(itertools.chain.from_iterable(fetched)):
-        if _is_low_signal(p["text"]):
+        # The low-signal gate is tuned for free-form social chatter (a 4-word
+        # minimum guarantees a cluster has an actual stance to summarize). A
+        # curated stats row is never "low signal" in that sense — and the
+        # word regex counts digits only in whole tokens, so a short row like
+        # "Delhi, Delhi — dropout_rate 8.9%" can tokenize to 3 words and get
+        # wrongly dropped. Structured-platform rows bypass the gate, same as
+        # they bypass the relevance filter (see _STRUCTURED_SOURCE_PLATFORMS).
+        if p["platform"] not in _STRUCTURED_SOURCE_PLATFORMS and _is_low_signal(p["text"]):
             dropped += 1
             continue
         posts.append(
@@ -481,12 +538,13 @@ def build_graph(emit: EmitFn, llm: LLMClient, settings: Settings, mode: Research
     so this is a one-time branch at construction, not a runtime predicate."""
     reddit = get_reddit_connector(settings)
     youtube = get_youtube_connector(settings)
+    csv = get_niti_connector(settings)
     gazetteer = load_gazetteer()
 
     graph = StateGraph(PipelineState)
     graph.add_node(
         "source",
-        _bind(source_posts, emit=emit, reddit=reddit, youtube=youtube, llm=llm, gazetteer=gazetteer),
+        _bind(source_posts, emit=emit, reddit=reddit, youtube=youtube, csv=csv, llm=llm, gazetteer=gazetteer),
     )
     graph.add_node("research", _bind(gather_research, emit=emit, llm=llm, gazetteer=gazetteer))
 

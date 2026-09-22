@@ -51,6 +51,19 @@ name to improve *recall* of state-relevant content — that augmentation does
 NOT itself certify a post's origin; `resolve_district`'s hierarchy is still
 the sole source of truth for where a post actually resolves.
 
+### YouTube via yt-dlp (default, no quota)
+
+yt-dlp scraping is now the default YouTube source (since 2026-09-06). It needs
+`pip install yt-dlp` and no API key, has no 10k/day quota, and reply threads
+are included (the API path only gets top-level comments). Costs: ~5-7s per
+search and per video-comment crawl (vs sub-second API calls), no native
+`regionCode="IN"` geo-filter (relies on the per-state query-suffixing above),
+and scraping YouTube's public endpoints is ToS-gray — fine for this internal
+tool, a real concern before any public deployment. An exhaustive (`extrahigh`)
+run's sourcing stage is slow (~6 min measured) — see `decisions.md` (2026-09-06)
+for the speedup plan. The Data API path is kept as an opt-in fallback: set
+`YOUTUBE_PROVIDER=api` (and a `YOUTUBE_API_KEY`) to return to it.
+
 ## Substance-aware sourcing (`suggest_framings`)
 
 A bare keyword search mostly surfaces generic reactions/opinions, not content

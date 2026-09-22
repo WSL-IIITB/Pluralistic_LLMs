@@ -1,11 +1,19 @@
 """
-Source connectors: Reddit and YouTube.
+Source connectors: Reddit, YouTube, and NITI district-indicator CSVs.
 
 Each platform gets a `Stub*` implementation (deterministic fixture data, zero
 external calls or credentials) and a real implementation gated by
-`config.Settings.has_reddit` / `has_youtube`. `get_reddit_connector()` /
-`get_youtube_connector()` pick the right one automatically — nodes in the
-graph should call those factories rather than instantiating a class directly.
+`config.Settings.has_reddit` / `has_youtube` / `has_niti_csv`.
+`get_reddit_connector()` / `get_youtube_connector()` / `get_niti_connector()`
+pick the right one automatically — nodes in the graph should call those
+factories rather than instantiating a class directly.
+
+The NITI CSV connector is REAL data (no stub) — it ships in the repo's /niti
+folder and needs no credentials, so "stub" for it would mean fabricating
+government statistics, which is exactly what the stub variants are for the
+noisy social sources and deliberately NOT done here. If the folder is
+missing it simply contributes zero posts (NullSourceConnector), same as any
+other unconfigured source.
 
 Both stub connectors share one template bank (`FRAMINGS`) so a topic fed
 through either source comes back with the same handful of recurring
@@ -27,9 +35,12 @@ pure function of (query, index) and doesn't depend on `limit` itself.
 from __future__ import annotations
 
 import asyncio
+import csv
 import hashlib
+import os
 import random
 import re
+from dataclasses import dataclass
 
 import praw
 from googleapiclient.discovery import build
@@ -466,9 +477,446 @@ class YouTubeConnector:
         return posts
 
 
+def _ytdlp_client(get_comments: bool = False, max_comments: int | None = None):
+    """Fresh YoutubeDL instance per operation.
+
+    Deliberately NOT cached on `self`, for the same reason as the other real
+    connectors' `_new_client()` (the balanced multi-state sourcing pass runs
+    many of these concurrently via asyncio.to_thread, and a YoutubeDL is not
+    safe to share across threads). yt-dlp is imported lazily so this module
+    still imports -- and the API path still works -- without it installed;
+    only the ytdlp path reports the missing dependency.
+
+    `getcomments` must be a constructor OPTION on current yt-dlp (2026.08.x+)
+    -- passing it to extract_info() as a keyword now raises TypeError. A fresh
+    instance with `getcomments` off is used for the search pass so that pass
+    doesn't crawl every result's comments.
+    """
+    try:
+        import yt_dlp  # noqa: PLC0415
+    except ImportError as exc:  # pragma: no cover - env setup, not a code path
+        raise RuntimeError("youtube_provider=ytdlp requires yt-dlp: `pip install yt-dlp`") from exc
+
+    opts: dict[str, object] = {
+        "quiet": True,
+        "no_warnings": True,
+        "skip_download": True,
+        "socket_timeout": 30,
+        "retries": 2,
+        # A single dead/unavailable entry in a ytsearch playlist makes
+        # extract_info RAISE out of the whole call otherwise (verified live:
+        # "[youtube] <id>: This video is not available") -- skip it instead.
+        "ignoreerrors": True,
+    }
+    if get_comments:
+        opts["getcomments"] = True
+    if max_comments:
+        # Per-video TOTAL (top-level + replies), matching the API path's cap.
+        opts["extractor_args"] = {"youtube": {"max_comments": [str(max_comments)]}}
+    return yt_dlp.YoutubeDL(opts)
+
+
+class YouTubeDlpConnector:
+    """Real YouTube connector backed by yt-dlp — no API key, no daily quota.
+
+    Selected via Settings.youtube_provider == "ytdlp" (see get_youtube_connector
+    and config.py). Every quota-expensive Data-API call is replaced by scraping
+    YouTube's public endpoints: `ytsearchN:{query}` for the video pass, then a
+    per-video crawl with `getcomments`. Reply threads are included (the API
+    path drops them — see the Data-API connector above).
+
+    Trade-offs, accepted deliberately (see decisions.md 2026-09-06):
+      * slower — each search is ~5-7s and each video's comment crawl ~5-7s (vs
+        sub-second API calls); volume is bounded by _YOUTUBE_SEARCH_MAX_RESULTS
+        videos and _YOUTUBE_COMMENTS_PER_VIDEO comments, same caps as the API
+        path;
+      * no native regionCode="IN" geo-targeting — relies on the pipeline's
+        per-state query-suffixing (build.py source_posts) to bias recall, which
+        the API connector already does for the state pass;
+      * scraping YouTube's public endpoints violates ToS — acceptable for this
+        internal research/demo tool, a real legal concern before any public use.
+    """
+
+    def __init__(self, settings: Settings) -> None:
+        self._settings = settings
+
+    async def search(self, query: str, limit: int) -> list[SourcedPost]:
+        # yt-dlp is synchronous/blocking — keep it off the event loop.
+        return await asyncio.to_thread(self._search_sync, query, limit)
+
+    def _search_sync(self, query: str, limit: int) -> list[SourcedPost]:
+        with _ytdlp_client() as ydl:
+            info = ydl.extract_info(
+                f"ytsearch{_YOUTUBE_SEARCH_MAX_RESULTS}:{query}", download=False
+            )
+            # ignoreerrors=True leaves None placeholders for skipped entries.
+            entries = [e for e in (info or {}).get("entries", []) if e and e.get("id")]
+
+        posts: list[SourcedPost] = []
+        videos_with_comments = 0
+        for item in entries:
+            if len(posts) >= limit:
+                break
+            video_id = item["id"]
+            source_hint = (
+                f"{item.get('channel') or item.get('uploader') or 'Unknown Channel'} · "
+                f"{item.get('title') or 'Untitled'}"
+            )
+            video_url = f"https://www.youtube.com/watch?v={video_id}"
+
+            comments = self._get_comments(video_id)
+            if comments is None:
+                continue  # comments disabled / removed / blocked — next video
+            videos_with_comments += 1
+            for c in comments:
+                if len(posts) >= limit:
+                    break
+                text = (c.get("text") or "").strip()
+                if not text:
+                    continue
+                cid = c.get("id")
+                post_id = (
+                    f"ytdlp_{cid}" if cid else f"ytdlp_{_short_hash('ytdlp', video_id, text)}"
+                )
+                posts.append(
+                    SourcedPost(
+                        id=post_id,
+                        platform="youtube",
+                        text=text,
+                        source_hint=source_hint,
+                        permalink=video_url,
+                    )
+                )
+
+        if not posts and entries:
+            # Either every video disabled comments, or this yt-dlp is too old to
+            # support getcomments-as-option — an empty result can't tell them
+            # apart, and silent corpus-weakening is the worst outcome. A run
+            # with all-comments-disabled videos is normal; a stale yt-dlp is not.
+            print(
+                "[ytdlp] search found videos but collected zero comments — if all "
+                "sampled videos genuinely disabled comments this is fine, but if "
+                "suspicion falls on the install: `pip install -U yt-dlp` "
+                "(getcomments-as-option needs a recent version).",
+                flush=True,
+            )
+        return posts
+
+    def _get_comments(self, video_id: str) -> list[dict] | None:
+        """Comments for one video, or None when the video has none/blocked —
+        None (not []) so the caller can tell "no comment section" from
+        "crawled, genuinely empty", which the zero-posts warning depends on."""
+        try:
+            with _ytdlp_client(get_comments=True, max_comments=_YOUTUBE_COMMENTS_PER_VIDEO) as ydl:
+                info = ydl.extract_info(
+                    f"https://www.youtube.com/watch?v={video_id}", download=False
+                )
+        except Exception:  # noqa: BLE001 — one video's failure must not kill the search
+            return None
+        if not info or "comments" not in info:
+            return None
+        return info.get("comments") or []
+
+
 def get_youtube_connector(settings: Settings) -> SourceConnector:
+    if settings.youtube_provider == "ytdlp":
+        # yt-dlp needs no credentials — this branch deliberately comes FIRST so
+        # it wins even when YOUTUBE_API_KEY is absent (which is the whole point).
+        return YouTubeDlpConnector(settings)
     if settings.has_youtube:
         return YouTubeConnector(settings)
     if settings.allow_stub_fallback:
         return StubYouTubeConnector()
     return NullSourceConnector()
+
+
+# ── NITI Aayog district-indicator CSVs (repo /niti folder) ────────────────────
+# A credential-free, REAL-data "source" the way yt-dlp is for YouTube: the two
+# RUN00{676,677}_ALL_INDIA_CASEFILE_MATCHING.csv case files ship in the repo's
+# /niti folder, one row per district (~776 rows), with a `state`, `district`,
+# a `dropout_rate` headline column, and ~70 sparse numeric indicator columns.
+#
+# It implements the exact same SourceConnector.search(query, limit) protocol as
+# Reddit/YouTube, so the graph treats it identically and no pipeline details
+# leak in here. The connector-specific choices all live in this section:
+#
+#   - scoring:    query tokens get +5 per state-name word match, +7 per
+#                 district-name word match, +4 per indicator column whose name
+#                 the token matches (word-exact, or substring for tokens of
+#                 length >= 3 so "dropout" hits "dropout_rate" but "in" hits
+#                 nothing). A row with score 0 is never returned — the query
+#                 must genuinely touch the data, which is also the honest gate
+#                 a "relevance filter" would otherwise have to duplicate.
+#   - diversity:  matched rows are interleaved ROUND-ROBIN across states (each
+#                 state's best row first, states ordered by their top score) so
+#                 the corpus always spans India instead of one dominant state,
+#                 mirroring the pipeline's per-state fan-out guarantee.
+#   - rendering:  a post's text is `District, State — indicator value; ...`,
+#                 up to 3 indicators (matched columns first, the headline
+#                 dropout_rate column as the fill), which the geo-resolver can
+#                 place (district + state names are literally in the text) and
+#                 a reader can quote as a real statistic.
+#
+# `platform` is "niti" so the frontend can label a curated statistics row
+# differently from a web source ("research") or a social post — see schema.py's
+# Platform literal, kept in sync with src/lib/worldview/types.ts.
+
+_CSV_STOP_TOKENS = frozenset(
+    {
+        "the", "a", "an", "and", "or", "of", "for", "to", "with", "in", "on",
+        "has", "have", "had", "is", "are", "was", "were", "be", "been", "this",
+        "that", "these", "those", "there", "where", "what", "who", "how", "why",
+        "which", "when", "do", "does", "did", "it", "its", "they", "them", "we",
+        "you", "your", "how", "much", "many", "about", "should", "across",
+    }
+)
+
+# Fill-in column shown when the query matched nothing else to quote: the
+# dataset's headline statistic. Kept explicit (not "any column") because the
+# ~70 indicator columns are sparse and most carry no meaningful headline value.
+_CSV_HEADLINE_COLUMNS = ("dropout_rate",)
+
+
+def _words(text: str) -> set[str]:
+    """Lowercased alphanumeric word tokens (2+ chars, skips stopwords)."""
+    return {
+        w for w in re.findall(r"[a-z0-9]+", text.lower())
+        if len(w) >= 2 and w not in _CSV_STOP_TOKENS
+    }
+
+
+def _to_number(value: str) -> float | None:
+    s = (value or "").strip().replace(",", "")
+    if not s:
+        return None
+    try:
+        return float(s)
+    except ValueError:
+        return None
+
+
+def _format_value(value: float) -> str:
+    """7.5 -> "7.5", 30.0 -> "30", 0.0 -> "0" — no floating-point artefacts."""
+    return f"{value:.2f}".rstrip("0").rstrip(".")
+
+
+def _value_unit(column: str) -> str:
+    low = column.lower()
+    if low == "dropout_rate" or "%" not in low and "percent" not in low:
+        return "%"
+    # The column name already carries the unit (e.g. "... (%)").
+    return ""
+
+
+def _title_case(name: str) -> str:
+    return name.strip().title()
+
+
+@dataclass
+class _CsvRow:
+    state_code: str  # e.g. "SIKKIM"
+    district: str  # e.g. "gangtok"
+    indicators: dict[str, float]  # column name -> value (only non-empty cells)
+
+
+class _CsvCorpus:
+    """In-memory index over every *.csv in the configured directory.
+
+    Loaded once and cached per directory path (module-level) — the files are
+    static and small (~1550 rows total), so per-request connector construction
+    must not pay the parse cost. Determinism matters here (see sources.py's
+    module docstring): iteration order comes from dicts/lists built in file
+    and row order, never sets, so equal scores resolve identically across
+    processes.
+    """
+
+    def __init__(self, dirpath: str):
+        self.dirpath = dirpath
+        self.rows: list[_CsvRow] = []
+        self.state_tokens: dict[str, set[str]] = {}
+        self.district_tokens: dict[str, set[str]] = {}
+        self.column_tokens: dict[str, set[str]] = {}
+        self.column_order: list[str] = []  # deterministic first-seen column order
+        self.column_by_lower: dict[str, str] = {}
+        self.source_hint = "NITI Aayog district indicators"
+        self._load()
+
+    def _load(self) -> None:
+        try:
+            entries = sorted(
+                f for f in os.listdir(self.dirpath) if f.lower().endswith(".csv")
+            )
+        except OSError:
+            return
+        # The two shipped case files cover THE SAME districts (677 is a
+        # column-superset of 676) — so the corpus MERGES per (state, district):
+        # union of every file's indicator columns, later file winning on a
+        # shared column. 776 rows, not 1552, and no duplicated district can
+        # ever bloat a search's round-robin again. Iteration order is file
+        # (sorted) then row order — repositories for state/district tokens and
+        # column order are built from this same deterministic pass.
+        merged: dict[tuple[str, str], dict[str, float]] = {}
+        order: list[tuple[str, str]] = []
+        for fname in entries:
+            with open(
+                os.path.join(self.dirpath, fname), newline="", encoding="utf-8-sig"
+            ) as fh:
+                for raw in csv.DictReader(fh):
+                    state = (raw.get("state") or "").strip().upper()
+                    district = (raw.get("district") or "").strip()
+                    if not state or not district:
+                        continue
+                    key = (state, district)
+                    if key not in merged:
+                        merged[key] = {}
+                        order.append(key)
+                    indicators = merged[key]
+                    for column, cell in raw.items():
+                        if column in ("state", "district"):
+                            continue
+                        num = _to_number(cell)
+                        if num is None:
+                            continue
+                        indicators[column] = num  # later file wins on overlap
+                        if column not in self.column_by_lower:
+                            self.column_by_lower[column.lower()] = column
+                            self.column_order.append(column)
+        for key in order:
+            state, district = key
+            self.rows.append(
+                _CsvRow(state_code=state, district=district, indicators=merged[key])
+            )
+            self.state_tokens.setdefault(state, set()).update(_words(state))
+            self.district_tokens.setdefault(district, set()).update(_words(district))
+        for col in self.column_order:
+            self.column_tokens[col] = set(_words(col))
+
+    def best(self, tokens: list[str], limit: int) -> list[tuple[_CsvRow, list[str]]]:
+        """Score every row against the token list, then round-robin across
+        states to `limit`. Returns (row, matched_columns_in_score_order)."""
+        rank: dict[int, int] = {}  # row index -> score
+        matched_cols: dict[int, list[str]] = {}
+
+        for tok in tokens:
+            if len(tok) < 2 or tok in _CSV_STOP_TOKENS:
+                continue
+            # Columns this token touches, in deterministic first-seen order.
+            col_hits: list[str] = []
+            seen: set[str] = set()
+
+            def add(orig: str) -> None:
+                if orig not in seen:
+                    seen.add(orig)
+                    col_hits.append(orig)
+
+            if len(tok) >= 3:
+                for low, orig in self.column_by_lower.items():
+                    if tok in low:
+                        add(orig)
+            for orig, tset in self.column_tokens.items():
+                if tok in tset:
+                    add(orig)
+
+            for i, row in enumerate(self.rows):
+                score = rank.get(i, 0)
+                if tok in self.state_tokens.get(row.state_code, ()):
+                    score += 5
+                if tok in self.district_tokens.get(row.district, ()):
+                    score += 7
+                row_hits = [c for c in col_hits if c in row.indicators]
+                if row_hits:
+                    score += 4 * len(row_hits)
+                    have = matched_cols.get(i, [])
+                    matched_cols[i] = have + [c for c in row_hits if c not in have]
+                rank[i] = score
+
+        ranked = sorted(rank.items(), key=lambda kv: (-kv[1], kv[0]))
+        by_state: dict[str, list[tuple[int, list[str]]]] = {}
+        for i, score in ranked:
+            if score <= 0:
+                break  # ranked desc — everything left scores 0 too (no token touched it)
+            by_state.setdefault(self.rows[i].state_code, []).append((i, matched_cols.get(i, [])))
+
+        # Round-robin: each state contributes its best remaining row before any
+        # state gets a second; states lead with their best-scoring row.
+        pools = [list(v) for v in by_state.values()]
+        pools.sort(key=lambda pool: -rank[pool[0][0]])
+
+        chosen: list[tuple[_CsvRow, list[str]]] = []
+        while pools and len(chosen) < limit:
+            advanced = False
+            for pool in pools:
+                if not pool:
+                    continue
+                i, cols = pool.pop(0)
+                chosen.append((self.rows[i], cols))
+                advanced = True
+                if len(chosen) >= limit:
+                    break
+            if not advanced:
+                break
+        return chosen
+
+
+_corpus_cache: dict[str, _CsvCorpus] = {}
+
+
+def _get_corpus(dirpath: str) -> _CsvCorpus | None:
+    if not os.path.isdir(dirpath):
+        return None
+    if dirpath not in _corpus_cache:
+        _corpus_cache[dirpath] = _CsvCorpus(dirpath)
+    return _corpus_cache[dirpath]
+
+
+def get_niti_connector(settings: Settings) -> SourceConnector:
+    if settings.has_niti_csv:
+        return NitiCsvConnector(settings)
+    # Deliberately no stub: fabricating government statistics would be worse
+    # than nothing. Absent data => this source contributes zero posts.
+    return NullSourceConnector()
+
+
+class NitiCsvConnector:
+    """Real district-level NITI indicator data over the SourceConnector seam —
+    see the section comment above the corpus classes for scoring, round-robin
+    spread, and text rendering. Posts carry platform "niti"."""
+
+    def __init__(self, settings: Settings):
+        self.dirpath = settings.niti_csv_dir()
+        self._corpus = _get_corpus(self.dirpath)
+
+    async def search(self, query: str, limit: int) -> list[SourcedPost]:
+        corpus = self._corpus
+        if corpus is None or not corpus.rows:
+            return []
+        tokens = re.findall(r"[a-z0-9]+", query.lower())
+        if not tokens:
+            return []
+        chosen = corpus.best(tokens, max(limit, 1))
+        posts: list[SourcedPost] = []
+        for row, cols in chosen[:limit]:
+            posts.append(
+                SourcedPost(
+                    id=f"niti_{_short_hash(row.state_code, row.district)}",
+                    platform="niti",
+                    text=self._render(corpus, row, cols),
+                    source_hint=corpus.source_hint,
+                    permalink=None,
+                )
+            )
+        return posts
+
+    @staticmethod
+    def _render(corpus: _CsvCorpus, row: _CsvRow, matched: list[str]) -> str:
+        shown: list[str] = matched[:3]
+        for col in _CSV_HEADLINE_COLUMNS:
+            if len(shown) >= 3:
+                break
+            if col in row.indicators and col not in shown:
+                shown.append(col)
+        bits = [
+            f"{col} {_format_value(row.indicators[col])}{_value_unit(col)}" for col in shown
+        ]
+        parts = "; ".join(bits) if bits else "no indicator values"
+        return f"{_title_case(row.district)}, {_title_case(row.state_code)} — {parts}"

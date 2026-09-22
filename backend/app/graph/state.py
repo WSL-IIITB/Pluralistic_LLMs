@@ -18,7 +18,7 @@ from ..schema import WorldviewEvent
 
 class RawPost(TypedDict):
     id: str
-    platform: str  # "reddit" | "youtube"
+    platform: str  # "reddit" | "youtube" | "niti" (raw CSV connector output is SourcedPost; RawPost is the stage's own copy)
     text: str
     # Subreddit name (reddit) or channel/video title (youtube) — the strongest
     # single signal the district resolver has before falling back to NER/LLM.

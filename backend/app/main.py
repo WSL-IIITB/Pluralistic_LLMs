@@ -44,6 +44,8 @@ def healthz() -> dict:
         "has_azure_anthropic": settings.has_azure_anthropic,
         "has_reddit": settings.has_reddit,
         "has_youtube": settings.has_youtube,
+        "youtube_provider": settings.youtube_provider,
+        "has_niti_csv": settings.has_niti_csv,
         "has_remote_gemma": settings.has_remote_gemma,
     }
 

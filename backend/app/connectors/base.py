@@ -15,9 +15,9 @@ from ..reasoning_modes import ResearchMode
 
 class SourcedPost(TypedDict):
     id: str
-    platform: str  # "reddit" | "youtube"
+    platform: str  # "reddit" | "youtube" | "niti"
     text: str
-    source_hint: str  # subreddit name, or "channel · video title" for YouTube
+    source_hint: str  # subreddit name, "channel · video title" for YouTube, or the NITI dataset label
     permalink: str | None
 
 

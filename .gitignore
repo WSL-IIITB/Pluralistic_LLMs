@@ -45,3 +45,8 @@ backend/app/data/run_history.db
 *.njsproj
 *.sln
 *.sw?
+
+# Local dev scratch / vendored tool checkouts -- never source
+.smoke-venv/
+yt-dlp/
+ytdlp-trial.html

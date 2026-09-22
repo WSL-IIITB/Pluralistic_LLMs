@@ -121,6 +121,21 @@ YOUTUBE_POSTS_PER_FRAMING_CAP: dict[ResearchMode, int] = {
     "extrahigh": 150,
 }
 
+# NITI CSV: posts kept per framing search, mirroring the YouTube cap's shape.
+# The corpus is finite (two ~776-row case files, one row per district's
+# indicator set) and every row is data worth keeping, so this cap only bounds
+# how many rows a single framing search returns — and the connector's
+# round-robin spread means each state's best row(s) count before any state can
+# flood the list, so the numbers here steer diversity, not noise. Sized like
+# YouTube's cap: extrahigh deliberately doesn't escalate (a framing search
+# already returns its best cross-state spread at "high"'s value).
+CSV_POSTS_PER_FRAMING_CAP: dict[ResearchMode, int] = {
+    "basic": 25,
+    "medium": 60,
+    "high": 150,
+    "extrahigh": 150,
+}
+
 # Web research: how thorough a write-up to ask gpt-4o's web_search call for,
 # per angle. Longer asks correlate with more sources actually being read and
 # cited, not just more words — this is the "how long it looks for sources"

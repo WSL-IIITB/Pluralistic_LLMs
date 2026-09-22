@@ -2101,8 +2101,23 @@ def get_llm_client(settings: Settings, provider: LlmProvider | None = None) -> L
     if resolved == "gemma_remote":
         # Checked before has_llm below on purpose -- this provider needs no
         # credential (has_llm only checks the OpenAI key), so a fresh install
-        # with zero keys configured must still be able to select it.
-        return RemoteGemmaLLMClient(settings)
+        # with zero keys configured must still be able to select it. BUT with
+        # no base_url there is nothing to talk to: REMOTE_GEMMA_BASE_URL has
+        # no default. With allow_stub_fallback set, a missing base_url degrades
+        # to the deterministic stub (the credential-free offline/dev flow), so
+        # the frontend's default "gemma_remote" provider works on a machine
+        # with zero config; with stub fallback OFF, fail loudly right here
+        # rather than inside RemoteGemmaLLMClient's constructor.
+        if settings.has_remote_gemma:
+            return RemoteGemmaLLMClient(settings)
+        if settings.allow_stub_fallback:
+            return StubLLMClient()
+        raise RuntimeError(
+            "Provider 'gemma_remote' was selected but REMOTE_GEMMA_BASE_URL is not set "
+            "in backend/.env. Point it at a Gemini OpenAI-compatible endpoint "
+            "(https://generativelanguage.googleapis.com/v1beta/openai/ works), or set "
+            "ALLOW_STUB_FALLBACK=true to run on the deterministic stub LLM."
+        )
     if resolved == "azure_anthropic":
         # Gated on has_azure_anthropic, NOT the generic has_llm: has_llm
         # resolves against settings.llm_provider (the env DEFAULT), not the

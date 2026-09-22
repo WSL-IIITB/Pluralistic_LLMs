@@ -95,6 +95,25 @@ class Settings(BaseSettings):
     # ── YouTube Data API v3 ──────────────────────────────────────────────────────
     youtube_api_key: str | None = Field(default=None)
 
+    # ── YouTube provider selector ───────────────────────────────────────────────
+    # "ytdlp" (default since 2026-09-06): yt-dlp scraping — no key, no daily quota,
+    # reply threads included. Costs: ~5-7s per search plus per-video comment crawl
+    # (extrahigh's 42-search fan-out measured at ~6 min sourcing; see decisions.md
+    # 2026-09-06 for the speedup plan: max_comments 100->50 + dead-ID seen-set),
+    # and no native regionCode geo-filter. "api": YouTube Data API v3 — needs
+    # YOUTUBE_API_KEY, burns daily quota (search.list = flat 100 units/call; quota
+    # exhaustion was the dominant real-world failure mode) — kept as opt-in fallback.
+    youtube_provider: Literal["api", "ytdlp"] = Field(default="ytdlp")
+
+    # ── NITI Aayog district-indicator CSVs ─────────────────────────────────────
+    # Directory containing the CSVs NitiCsvConnector sources (the two
+    # RUN00{676,677}_ALL_INDIA_CASEFILE_MATCHING.csv files ship in the repo's
+    # /niti folder). Searched as-is -- every *.csv in the directory becomes
+    # part of the searchable corpus. Override per-deployment to point at a
+    # different export; leave unset to use the repo's own /niti folder.
+    # Needs no key -- the data is local.
+    csv_data_dir: str | None = Field(default=None)
+
     # ── Stub behavior ─────────────────────────────────────────────────────────
     allow_stub_fallback: bool = Field(default=False)
 
@@ -131,6 +150,19 @@ class Settings(BaseSettings):
         # base_url, which has no default (see remote_gemma_base_url) and so
         # must be set explicitly in each developer's own untracked .env.
         return bool(self.remote_gemma_base_url)
+
+    def niti_csv_dir(self) -> str:
+        """Resolved path to the NITI CSV directory (env override, else the
+        repo's checked-out /niti folder -- see the csv_data_dir field)."""
+        return self.csv_data_dir or os.path.join(REPO_ROOT, "niti")
+
+    @property
+    def has_niti_csv(self) -> bool:
+        """True if the NITI CSV directory exists and holds at least one .csv.
+        Mirrors the has_reddit/has_youtube contract: the connector is only
+        constructed when data is actually present."""
+        d = self.niti_csv_dir()
+        return os.path.isdir(d) and any(name.lower().endswith(".csv") for name in os.listdir(d))
 
 
 @lru_cache

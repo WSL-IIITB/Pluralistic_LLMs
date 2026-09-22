@@ -155,8 +155,11 @@ export interface SamplePost {
   /** "research" — an official/statistical source (NITI Aayog, data.gov.in,
    *  PIB, etc.) turned into a post-like entry so it can be geo-resolved and
    *  clustered alongside real social posts — see the backend's
-   *  research.py module docstring. */
-  platform: "reddit" | "youtube" | "research";
+   *  research.py module docstring. "niti" — a real district-level indicator
+   *  row from the /niti CSVs (backend's NitiCsvConnector); kept distinct from
+   *  "research" so a curated statistics row is labelled differently from a
+   *  web-sourced document. */
+  platform: "reddit" | "youtube" | "research" | "niti";
   /** Paraphrased gist — safe to display, not the original text. */
   paraphrase: string;
   clusterId?: ClusterId;

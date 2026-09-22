@@ -64,7 +64,11 @@ AnswerSegmentKind = Literal["tldr", "heading", "body", "recommendation", "detail
 # a ResearchDocument (NITI Aayog/data.gov.in/PIB/etc.) turned into a RawPost
 # so official sources flow through the same geo-resolution + clustering
 # pipeline real social posts do, not just the synthesis stage's citations.
-Platform = Literal["reddit", "youtube", "research"]
+# "niti" -- see connectors/sources.py's NitiCsvConnector: a real
+# district-level indicator row from the /niti CSVs. Distinct from "research"
+# so the frontend can label a curated statistics row differently from a
+# web-sourced document or a social post.
+Platform = Literal["reddit", "youtube", "research", "niti"]
 
 RGBAColor = Annotated[list[int], Field(min_length=3, max_length=4)]
 
