@@ -78,21 +78,23 @@ async def answer_regions(state: PipelineState, emit: EmitFn, llm: LLMClient) -> 
         region_id = spec["id"]
         evidence = build_region_evidence(state, region_id)
         state["region_evidence"][region_id] = evidence
-        try:
-            async with semaphore:
-                segments = await llm.answer_for_region(
-                    state["query"],
-                    state["query_type"],
-                    spec["name"],
-                    build_persona_prompt(region_id),
-                    evidence["research_documents"],
-                    evidence["clusters"],
-                    evidence["deflections"],
-                    mode=state["mode"],
-                )
-        except Exception as exc:  # noqa: BLE001 -- one region must not kill the others
-            print(f"[answer_regions] {region_id} persona reply failed: {exc}", flush=True)
-            segments = []
+        segments: list[dict] = []
+        for attempt in range(2):  # one retry: provider refusals/timeouts are intermittent
+            try:
+                async with semaphore:
+                    segments = await llm.answer_for_region(
+                        state["query"],
+                        state["query_type"],
+                        spec["name"],
+                        build_persona_prompt(region_id),
+                        evidence["research_documents"],
+                        evidence["clusters"],
+                        evidence["deflections"],
+                        mode=state["mode"],
+                    )
+                break
+            except Exception as exc:  # noqa: BLE001 -- one region must not kill the others
+                print(f"[answer_regions] {region_id} persona reply attempt {attempt + 1} failed: {exc}", flush=True)
 
         for seg in segments:
             kwargs: dict = {"text": seg["text"], "kind": seg.get("kind"), "region": spec["short_name"], "region_id": region_id}

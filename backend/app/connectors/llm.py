@@ -189,6 +189,34 @@ async def _local_semantic_embed(texts: list[str]) -> list[list[float]]:
     return [vec.tolist() for vec in vectors]
 
 
+# Ollama's hosted web-search API rate-limits bursts (HTTP 429) -- a research
+# fan-out of a dozen-plus angles hits it routinely. Back off and retry rather
+# than silently returning no sources.
+_WEB_SEARCH_RETRY_DELAYS = (2.0, 5.0, 12.0)
+
+
+async def _ollama_web_search(client, api_key: str | None, query: str, max_results: int) -> list[dict]:
+    import httpx
+
+    for attempt, delay in enumerate((0.0, *_WEB_SEARCH_RETRY_DELAYS)):
+        if delay:
+            await asyncio.sleep(delay)
+        try:
+            resp = await client.post(
+                "https://ollama.com/api/web_search",
+                json={"query": query, "max_results": max_results},
+                headers={"Authorization": f"Bearer {api_key}"},
+                timeout=30.0,
+            )
+            resp.raise_for_status()
+            results = resp.json().get("results")
+            return results if isinstance(results, list) else []
+        except httpx.HTTPStatusError as exc:
+            if exc.response.status_code != 429 or attempt == len(_WEB_SEARCH_RETRY_DELAYS):
+                raise
+    return []
+
+
 class StubLLMClient:
     """Zero-external-call, fully deterministic LLMClient."""
 
@@ -1314,15 +1342,9 @@ class LocalOllamaLLMClient(OpenAILLMClient):
         search backend local models need since they have no built-in search
         tool. Passing an absolute URL to a client with a different base_url
         works fine in httpx (it bypasses base_url join for absolute URLs)."""
-        resp = await self._client.post(
-            "https://ollama.com/api/web_search",
-            json={"query": query, "max_results": max_results},
-            headers={"Authorization": f"Bearer {self.settings.ollama_web_search_api_key}"},
-            timeout=30.0,
+        return await _ollama_web_search(
+            self._client, self.settings.ollama_web_search_api_key, query, max_results
         )
-        resp.raise_for_status()
-        results = resp.json().get("results")
-        return results if isinstance(results, list) else []
 
     async def _research_one(self, subquery: str, wordcount_hint: str) -> tuple[str, list[dict]]:
         """Manual tool-use loop against Ollama's native /api/chat, offering
@@ -1539,15 +1561,9 @@ class RemoteGemmaLLMClient(OpenAILLMClient):
         identical method for the full rationale. Uses this class's own httpx
         client (self._http), not Ollama's native /api/chat base_url, since
         this class has no local Ollama connection at all otherwise."""
-        resp = await self._http.post(
-            "https://ollama.com/api/web_search",
-            json={"query": query, "max_results": max_results},
-            headers={"Authorization": f"Bearer {self.settings.ollama_web_search_api_key}"},
-            timeout=30.0,
+        return await _ollama_web_search(
+            self._http, self.settings.ollama_web_search_api_key, query, max_results
         )
-        resp.raise_for_status()
-        results = resp.json().get("results")
-        return results if isinstance(results, list) else []
 
     async def _research_one(self, subquery: str, wordcount_hint: str) -> tuple[str, list[dict]]:
         """Manual tool-use loop via native OpenAI-SDK tool-calling (confirmed

@@ -343,7 +343,7 @@ def build_graph(emit: EmitFn, llm: LLMClient, settings: Settings, mode: Research
 
     graph = StateGraph(PipelineState)
     graph.add_node("source", _bind(source_posts, emit=emit, reddit=reddit, youtube=youtube, llm=llm))
-    graph.add_node("research", _bind(gather_research, emit=emit, llm=llm, gazetteer=gazetteer))
+    graph.add_node("research", _bind(gather_research, emit=emit, llm=llm, gazetteer=gazetteer, settings=settings))
     graph.add_node(
         "resolve_regions",
         _bind(resolve_regions, emit=emit, llm=llm, gazetteer=gazetteer, subreddit_lookup=lookup_subreddit),

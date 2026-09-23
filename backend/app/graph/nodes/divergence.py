@@ -203,16 +203,23 @@ async def measure_divergence(
     async def _reply(model: str, spec: dict, persona: bool) -> list[dict]:
         ev = state["region_evidence"][spec["id"]]
         async with semaphores[model]:
-            return await clients[model].answer_for_region(
-                state["query"],
-                state["query_type"],
-                spec["name"],
-                build_persona_prompt(spec["id"]) if persona else None,
-                ev["research_documents"],
-                ev["clusters"],
-                ev["deflections"],
-                mode=state["mode"],
-            )
+            # One retry: provider-side refusals/timeouts on a single call are intermittent.
+            for attempt in range(2):
+                try:
+                    return await clients[model].answer_for_region(
+                        state["query"],
+                        state["query_type"],
+                        spec["name"],
+                        build_persona_prompt(spec["id"]) if persona else None,
+                        ev["research_documents"],
+                        ev["clusters"],
+                        ev["deflections"],
+                        mode=state["mode"],
+                    )
+                except Exception:  # noqa: BLE001
+                    if attempt == 1:
+                        raise
+        raise AssertionError("unreachable")
 
     async def _one(model: str, spec: dict) -> None:
         nonlocal done

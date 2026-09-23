@@ -18,7 +18,9 @@ from __future__ import annotations
 
 import asyncio
 
+from ...config import Settings
 from ...connectors.base import LLMClient
+from ...connectors.llm import get_llm_client
 from ...karnataka import (
     karnataka_state_code,
     load_karnataka_gazetteer,
@@ -150,7 +152,9 @@ async def _posts_from_research_documents(documents: list[dict], llm: LLMClient, 
     return posts
 
 
-async def gather_research(state: PipelineState, emit: EmitFn, llm: LLMClient, gazetteer: dict) -> PipelineState:
+async def gather_research(
+    state: PipelineState, emit: EmitFn, llm: LLMClient, gazetteer: dict, settings: Settings
+) -> PipelineState:
     state["phase"] = "researching"
     mode = state["mode"]
     query = state["query"]
@@ -184,10 +188,24 @@ async def gather_research(state: PipelineState, emit: EmitFn, llm: LLMClient, ga
     )
 
     semaphore = asyncio.Semaphore(_MAX_CONCURRENT_RESEARCH)
+    # Web research goes through Claude's native web search whenever Claude is
+    # configured -- the free Ollama search backend other models rely on
+    # rate-limits (HTTP 429) a fan-out this size and silently yields almost
+    # nothing. The run's own model stays the fallback, and does everything else.
+    researcher = (
+        get_llm_client(settings, "azure_anthropic")
+        if state["provider"] != "azure_anthropic" and settings.has_azure_anthropic
+        else llm
+    )
+    fallbacks_used = 0
 
     async def _run(region_id: str, label: str, angle: str) -> tuple[str, list[dict], str]:
+        nonlocal fallbacks_used
         async with semaphore:
-            findings, docs = await get_research(llm, angle, [angle], 1, mode)
+            findings, docs = await get_research(researcher, angle, [angle], 1, mode)
+            if not docs and researcher is not llm:
+                fallbacks_used += 1
+                findings, docs = await get_research(llm, angle, [angle], 1, mode)
         return findings, [{**d, "source_region_id": region_id} for d in docs], label
 
     findings_parts: list[str] = []
@@ -232,7 +250,8 @@ async def gather_research(state: PipelineState, emit: EmitFn, llm: LLMClient, ga
             query_run_id=state["query_run_id"],
             ticker=(
                 f"Gathered {len(docs)} source{'s' if len(docs) != 1 else ''} from the web "
-                f"({len(research_posts)} mapped to regions) · resolving regions…"
+                f"({len(research_posts)} mapped to regions"
+                f"{f', {fallbacks_used} fell back to the run model' if fallbacks_used else ''}) · resolving regions…"
             ),
             phase="researching",
             counts=_counts_from_state(state),
