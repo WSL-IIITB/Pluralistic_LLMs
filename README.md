@@ -1,21 +1,25 @@
-# Pluralistic India — Worldview Explorer
+# Pluralistic Karnataka — Worldview Explorer
 
-A dark, cartographic "data-instrument" dashboard that shows how different regions of
-India hold different viewpoints on a shared topic. Enter a topic and a backend agent
-graph (LangGraph) streams results in real time: it sources social-media posts (Reddit +
-YouTube), resolves each to an Indian **district**, clusters the posts into distinct
-**viewpoints**, extracts the **point of deflection** between co-occurring viewpoints, and
-synthesizes an all-views-inclusive **consolidated answer**. The map builds progressively
-as each stage streams in.
+A dark, cartographic dashboard that shows how Karnataka's four regions —
+**Mysuru-Bengaluru**, **North Karnataka**, **Karavali** and **Malnad** — hold different
+viewpoints on a shared topic, and how much answering *as each region* changes an LLM's reply.
 
-This repo started as a static UI shell (built in Lovable) and is now the real, functional
-product: a live 3D map, a typed streaming layer, and fully wired panels. It ships with a
-self-contained **offline mock run** so the whole thing is demoable with no backend, no
-Mapbox token, and no external data.
+Enter a topic and a LangGraph backend streams results in real time: it gathers social
+posts (YouTube, Reddit) and mainstream/official web sources region by region, places each
+in its region, clusters each region's viewpoints, extracts the **point of deflection**
+between co-occurring viewpoints, writes a Karnataka-wide answer, and then writes **one
+reply per region in that region's persona** (built from its persona description,
+`backend/app/data/personas/`).
+
+The **Divergence** tab then re-asks every region the same question with the same
+evidence but *no persona*, and measures how far the two replies diverge: semantic
+similarity (primary indicator) against a sampling-noise floor, the specific points that
+were added, dropped or reframed, a reply-similarity heatmap, and a t-SNE map of every
+extracted point. The **Data** tab (India-wide secondary-school dropout data) is separate
+and unchanged.
 
 > Preserve the visual language when editing: dark theme, floating glass panels
-> (`panel-surface`), small uppercase labels (`label-micro`), warm categorical data palette
-> (`--cluster-1..6`), cool-neutral chrome.
+> (`panel-surface`), small uppercase labels (`label-micro`), cool-neutral chrome.
 
 ## Quick start
 
@@ -24,9 +28,25 @@ npm install
 npm run dev
 ```
 
-Open the dashboard, and the offline **Diwali** demo plays automatically. Type a topic and
-press **Explore** to run again; type a policy-style question (e.g. _"high-school dropouts:
-where should government intervene?"_) to see the **policy** answer mode.
+With no backend configured the app replays one recorded real run (`high school dropouts`),
+divergence view included. For live runs, start the backend (`backend/`, see
+`backend/.env.example`) and set `VITE_WORLDVIEW_STREAM=sse`.
+
+## Regions and personas
+
+- **Membership** — `backend/app/data/karnataka_regions.json` maps all 30 map districts to
+  the four regions (Uttara Kannada → Karavali; the seven districts no persona names are
+  folded into the nearest region), plus region-name aliases and a town/alt-spelling
+  lexicon (Mangaluru, Manipal, Hubballi, Coorg…) used to place posts. Posts about
+  Karnataka as a whole go to a non-persona **statewide** bucket; posts about elsewhere are
+  dropped.
+- **Geometry** — `public/geo/karnataka-regions.geojson` is generated from that file:
+  `python -m app.data.build_karnataka_regions_geo` (from `backend/`, needs `shapely`).
+- **Personas** — `backend/app/karnataka.py` builds each region's persona prompt
+  deterministically from its description file; the prompt's hash is shown with every
+  divergence score. `GET /api/personas` serves them.
+- **Divergence** — `backend/app/graph/nodes/divergence.py`. Embeddings are always the
+  local `all-MiniLM-L6-v2` model (never a provider API), so scores compare across LLMs.
 
 ## Wiring it to real data — the three plug points
 
@@ -76,7 +96,7 @@ const DEFAULT_SOURCE: SourceKind = "mock"; // change to "sse"
 …or set env vars without editing code: `VITE_WORLDVIEW_STREAM=sse` and
 `VITE_WORLDVIEW_API_URL=https://your-api/worldview/stream`.
 
-The real endpoint should accept `?q=<query>&depth=<n>` and emit a **Server-Sent-Events**
+The real endpoint accepts `?q=<query>&mode=basic|medium|high|extrahigh&provider=...` and emits a **Server-Sent-Events**
 stream of JSON [`WorldviewEvent`](src/lib/worldview/types.ts)s — one event object per
 `data:` line, ideally mirroring the event `type` in the SSE `event:` field, ending with a
 `done` (or `error`) event. The SSE client is
@@ -87,61 +107,52 @@ return it from `createStreamSource()`.
 
 ## Streaming event schema
 
-All event types are defined in one place — [`src/lib/worldview/types.ts`](src/lib/worldview/types.ts).
-Every event carries a `queryRunId` (multiple passes of "Go deeper" share one run).
+All event types are defined in [`src/lib/worldview/types.ts`](src/lib/worldview/types.ts)
+(mirrored by `backend/app/schema.py`). Every event carries a `queryRunId`.
 
-| `type`              | payload (key fields)                                                        | drives                                  |
-| ------------------- | -------------------------------------------------------------------------- | --------------------------------------- |
-| `query_started`     | `query`, `queryType` (`descriptive`\|`policy`), `depth`                     | run identity + answer mode              |
-| `status`            | `ticker`, `phase`, `counts`, `progress` (0–1)                              | query-bar ticker + progress bar         |
-| `cluster_defined`   | `clusterId`, `label`, `color` (RGB), `summary`, `representativePosts`       | legend, column colours, click-through   |
-| `district_resolved` | `districtId`, `stateCode`, `clusterId`, `confidence`, `volume`, `method`   | 3D columns, choropleth, split-state calc |
-| `deflection`        | `clusterA/B`, `level`, `unitA/B`, `point`, `confidence`                    | deflection panel + map arcs             |
-| `answer_chunk`      | `segment` (`{ text, kind?, clusterId?, region? }`)                          | streamed consolidated answer            |
-| `done` / `error`    | `counts` / `message`                                                        | terminal state / reconnect              |
+| `type`               | payload (key fields)                                                  | drives                               |
+| -------------------- | --------------------------------------------------------------------- | ------------------------------------ |
+| `query_started`      | `query`, `queryType` (`descriptive`\|`policy`), `mode`, `provider`   | run identity + answer mode           |
+| `status`             | `ticker`, `phase`, `counts`, `progress` (0–1)                         | ticker + progress bar                |
+| `region_defined`     | `regionId`, `name`, `justification`, `districtIds`                    | region names                         |
+| `cluster_defined`    | `clusterId`, `label`, `summary`, `representativePosts`, `regionId`    | legend, column colours               |
+| `region_resolved`    | `regionId`, `clusterId`, `volume`, `confidence`, `method`             | region fills, 3D columns             |
+| `deflection`         | `clusterA/B`, `level`, `unitA/B`, `point`                             | deflection panel + map arcs          |
+| `answer_chunk`       | `segment` (`{ text, kind?, clusterId?, regionId?, citations? }`)      | overview + per-region persona replies |
+| `research_document`  | `document` (`{ id, url, title, domain, snippet }`)                    | numbered sources                     |
+| `divergence_region`  | similarity, noise floor, points only-with / only-without / reframed   | Divergence tab                       |
+| `divergence_summary` | reply-similarity matrix, cross-region similarity, t-SNE points        | Divergence tab                       |
+| `done` / `error`     | `counts` / `message`                                                  | terminal state / reconnect           |
 
 ## Architecture
 
 ```
+backend/app/
+  karnataka.py              — regions, place lexicon, persona builder
+  graph/build.py            — source → research → resolve_regions → cluster → aggregate
+                              → deflect → synthesize → answer_regions → divergence
+  graph/nodes/              — one module per stage
 src/lib/worldview/
-  types.ts          — event + data schema (single source of truth)
-  palette.ts        — cluster colours (match --cluster-1..6), confidence, camera consts
-  store.ts          — Zustand run store; applyEvent reducer; "Go deeper" MERGES
-  selectors.ts      — legend, per-state entropy (split-state metric)
-  useQueryStream.ts — the hook the UI calls: run() / cancel() / retry()
-  geo/districts.ts  — typed GeoJSON loader (centroids/bboxes, graceful failure)
-  geo/states.ts     — typed loader for the precomputed dissolved state boundaries
-  stream/
-    source.ts        — StreamSource interface
-    config.ts        — mock↔real swap (the one place)
-    mockStream.ts    — timed offline replay (Diwali + policy)
-    sseStream.ts     — real SSE backend client (reconnect/cancel)
-    mockContent.ts   — authored clusters/deflections/answer
-    generatedDistricts.ts — frozen realistic district→viewpoint distribution
-src/components/dashboard/
-  map/WorldviewMap.tsx — SSR-safe wrapper (backdrop + client-gated lazy map + chips)
-  map/DeckMap.tsx      — client-only deck.gl + react-map-gl (columns/arcs/drill-down)
-  map/layers.ts        — builds the deck.gl layer stack from live store data
-  map/useStateGeo.ts   — loads public/geo/india-states.geojson (client, cached)
-  QueryBar / ConsolidatedPanel / LegendPanel / DeflectionPanel / ProgressBar /
-  DistrictInfoPanel    — panels, all bound to the store
+  types.ts / store.ts       — event schema + Zustand run store (applyEvent reducer)
+  karnataka.ts              — region ids, names, validated colours, camera
+  selectors.ts / palette.ts — legend grouping, split-region metric, colours
+  stream/                   — mock (replays stream/demoRun.json) ↔ SSE swap
+src/components/
+  dashboard/map/            — deck.gl map: Karnataka regions (Story) / India districts (Data)
+  dashboard/                — query bar, answer, legend, region, deflection, history panels
+  divergence/               — Divergence tab: scores, point diffs, heatmap, t-SNE
 scripts/
-  generate-mock-districts.mjs — rebuilds the offline demo's district→cluster mock data
-  build-state-boundaries.mjs  — dissolves districts → india-states.geojson (turf, dev-only)
+  build-demo-run.mjs        — rebuilds the offline demo from an SSE capture
+  build-state-boundaries.mjs — dissolves districts → india-states.geojson (turf, dev-only)
 ```
-
-**State model.** A single Zustand store holds the current run keyed by `queryRunId`
-(posts→districts, clusters, deflections, answer, progress, layer toggles, selection).
-`prepareRun({ deeper: true })` keeps the accumulated data so **"Go deeper" merges** more
-districts and higher-confidence refinements into the existing view rather than wiping it.
 
 **SSR safety.** deck.gl / mapbox-gl (which need `window`/WebGL) are `lazy`-imported and
 only mounted on the client after `useEffect`, wrapped in an error boundary. The server
 renders just the dark backdrop, so there is no `window is not defined` crash and no map
 code in the SSR path.
 
-**Regenerating the mock distribution.** `node scripts/generate-mock-districts.mjs` rebuilds
-`generatedDistricts.ts` from whatever GeoJSON is in `public/geo/`.
+**Regenerating the offline demo.** Capture a real run and rebuild the fixture:
+`curl -sN "http://localhost:8001/api/worldview/stream?q=...&mode=medium" > run.sse && node scripts/build-demo-run.mjs run.sse`.
 
 ## Scripts
 

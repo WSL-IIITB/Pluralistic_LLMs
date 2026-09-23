@@ -1,6 +1,14 @@
 import { Info } from "lucide-react";
 
-export const DASHBOARD_TABS = ["Map", "Data", "Deflections", "Answer", "History", "About"] as const;
+export const DASHBOARD_TABS = [
+  "Map",
+  "Divergence",
+  "Data",
+  "Deflections",
+  "Answer",
+  "History",
+  "About",
+] as const;
 export type DashboardTab = (typeof DASHBOARD_TABS)[number];
 
 type TopBarProps = {
@@ -12,7 +20,9 @@ export function TopBar({ activeTab, onTabChange }: TopBarProps) {
   return (
     <header className="fixed inset-x-0 top-0 z-40 flex h-14 items-center justify-between border-b border-panel-border bg-background/80 px-5 backdrop-blur-xl">
       <div className="flex items-baseline gap-3">
-        <h1 className="text-sm font-medium tracking-tight text-foreground">Pluralistic India</h1>
+        <h1 className="text-sm font-medium tracking-tight text-foreground">
+          Pluralistic Karnataka
+        </h1>
         <span className="label-micro">Worldview Explorer</span>
       </div>
 

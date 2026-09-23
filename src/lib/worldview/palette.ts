@@ -28,54 +28,12 @@ export function paletteColor(index: number): RGBAColor {
   return c ?? [249, 183, 63];
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Per-state palette (extrahigh mode's LEGACY path — superseded by
-// paletteColorForRegion below for any run with region-inference data; kept
-// only so older saved runs predating it still render sensibly)
-// ─────────────────────────────────────────────────────────────────────────────
-//
-// extrahigh used to cluster each state's posts independently, producing
-// 60-190 total clusters instead of today's 2-6 — CLUSTER_PALETTE's fixed 6
-// hues would collide constantly at that scale (two unrelated states'
-// clusters rendering the literal same colour). paletteColorForState below
-// gives every state its own deterministic hue, with successive clusters
-// WITHIN one state spaced out by lightness instead. basic/medium/high are
-// unaffected — CLUSTER_PALETTE/paletteColor above are untouched.
-
-const GOLDEN_ANGLE_DEG = 137.50776;
-
-/** Fallback only for a non-numeric/malformed state code — real StateCodes are
- * the small ~1-38 Census/LGD integers stateHue is designed around. */
-function hashStringToInt(s: string): number {
-  let h = 0;
-  for (let i = 0; i < s.length; i++) {
-    h = (h * 31 + s.charCodeAt(i)) | 0;
-  }
-  return Math.abs(h);
-}
-
-/**
- * Deterministic hue (0-360) for a state, stable across runs. Steps the
- * state's own numeric Census/LGD code (see StateCode's doc comment — already
- * a small, roughly-contiguous integer, not an arbitrary string) by the golden
- * angle (≈137.508°) — the standard "N maximally-spread hues with no upfront
- * N" trick. Hashing the string instead would reintroduce collision risk:
- * hash outputs land at effectively random positions, not a low-discrepancy
- * sequence, so two states could easily land on near-identical hues by chance.
- */
-function stateHue(stateCode: StateCode): number {
-  const n = Number(stateCode);
-  const seed = Number.isFinite(n) ? n : hashStringToInt(stateCode);
-  return (((seed * GOLDEN_ANGLE_DEG) % 360) + 360) % 360;
-}
-
 /**
  * Bit-reversal ("van der Corput") sequence over [0, 1) — whatever prefix has
  * been consumed so far is already maximally spread, regardless of how many
- * more entries are eventually needed. Used to space out one state's
- * successive clusters' lightness: index-only, not index/total, since
- * clusters arrive incrementally over the stream and a state's eventual
- * cluster count isn't known until the run completes.
+ * more entries are eventually needed. Used to space out one region's
+ * successive clusters' lightness, since a region's eventual cluster count
+ * isn't known until the run completes.
  */
 const LIGHTNESS_STEPS: readonly number[] = [0.5, 1, 0, 0.75, 0.25, 0.875, 0.125, 0.625];
 
@@ -98,72 +56,35 @@ function hslToRgb(h: number, s: number, l: number): RGBAColor {
   return [toByte(r1), toByte(g1), toByte(b1)];
 }
 
-/**
- * Colour for the `indexWithinState`-th (0-based) cluster discovered so far in
- * `stateCode` — extrahigh mode only. Every state gets its own deterministic
- * hue (via `stateHue`) so two different states' clusters never collide;
- * successive clusters within one state are spaced out by lightness instead
- * (via `LIGHTNESS_STEPS`), wrapping past 8 exactly like `CLUSTER_PALETTE`
- * already wraps past 6 today — same graceful-degrade philosophy, not a new
- * failure mode.
- */
-export function paletteColorForState(
-  stateCode: StateCode,
-  indexWithinState: number,
-  options?: { minLightness?: number; maxLightness?: number; saturation?: number },
-): RGBAColor {
-  const hue = stateHue(stateCode);
-  const { minLightness = 0.4, maxLightness = 0.74, saturation = 0.62 } = options ?? {};
-  const stepIndex =
-    ((indexWithinState % LIGHTNESS_STEPS.length) + LIGHTNESS_STEPS.length) % LIGHTNESS_STEPS.length;
-  const t = LIGHTNESS_STEPS[stepIndex] ?? 0.5;
-  const lightness = minLightness + (maxLightness - minLightness) * t;
-  return hslToRgb(hue, saturation, lightness);
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
-// Per-region palette (extrahigh mode only, post region-inference)
-// ─────────────────────────────────────────────────────────────────────────────
-//
-// Unlike a state code (a small, roughly-contiguous Census/LGD integer —
-// stateHue above steps that directly), a RegionId is an agent-generated
-// string ("r0", "r1", ..., "UNK-REGION") with no numeric structure to step
-// through — hashing it would reintroduce the exact collision risk stateHue's
-// own doc comment warns about (hash outputs land at effectively random
-// positions, not a low-discrepancy sequence). Instead, regions are keyed by
-// their DISCOVERY-ORDER index: an incrementing integer assigned the first
-// time a region is seen (its regionOrder position in the store), which is a
-// genuine low-discrepancy sequence the golden-angle trick needs.
-
-/** Deterministic hue (0-360) for the `regionIndexOfDiscovery`-th region seen
- * in a run. Same golden-angle-stepping trick as `stateHue`, just keyed on
- * discovery order instead of a state's own numeric code. */
-function regionHue(regionIndexOfDiscovery: number): number {
-  return (((regionIndexOfDiscovery * GOLDEN_ANGLE_DEG) % 360) + 360) % 360;
+function rgbToHsl([r, g, b]: RGBAColor): [number, number, number] {
+  const rn = r / 255;
+  const gn = g / 255;
+  const bn = b / 255;
+  const max = Math.max(rn, gn, bn);
+  const min = Math.min(rn, gn, bn);
+  const l = (max + min) / 2;
+  const d = max - min;
+  if (d === 0) return [0, 0, l];
+  const s = d / (1 - Math.abs(2 * l - 1));
+  let h: number;
+  if (max === rn) h = ((gn - bn) / d) % 6;
+  else if (max === gn) h = (bn - rn) / d + 2;
+  else h = (rn - gn) / d + 4;
+  return [(h * 60 + 360) % 360, s, l];
 }
 
 /**
- * Colour for the `indexWithinRegion`-th (0-based) cluster discovered so far
- * in the `regionIndexOfDiscovery`-th region — extrahigh mode only, once
- * region-inference has run. Every region gets its own deterministic hue (via
- * `regionHue`) so two different regions' clusters never collide; successive
- * clusters within one region are spaced out by lightness instead (via
- * `LIGHTNESS_STEPS`), exactly mirroring `paletteColorForState`'s own
- * within-group spacing.
+ * Colour for the `indexWithinRegion`-th cluster of a Karnataka region: the
+ * region's own identity hue (see karnataka.ts), stepped by lightness so a
+ * region's viewpoints read as one family and never collide with another region's.
  */
-export function paletteColorForRegion(
-  regionIndexOfDiscovery: number,
-  indexWithinRegion: number,
-  options?: { minLightness?: number; maxLightness?: number; saturation?: number },
-): RGBAColor {
-  const hue = regionHue(regionIndexOfDiscovery);
-  const { minLightness = 0.4, maxLightness = 0.74, saturation = 0.62 } = options ?? {};
+export function paletteColorForRegionHue(base: RGBAColor, indexWithinRegion: number): RGBAColor {
+  const [h, s] = rgbToHsl(base);
   const stepIndex =
     ((indexWithinRegion % LIGHTNESS_STEPS.length) + LIGHTNESS_STEPS.length) %
     LIGHTNESS_STEPS.length;
   const t = LIGHTNESS_STEPS[stepIndex] ?? 0.5;
-  const lightness = minLightness + (maxLightness - minLightness) * t;
-  return hslToRgb(hue, saturation, lightness);
+  return hslToRgb(h, Math.max(0.35, Math.min(s, 0.85)), 0.38 + 0.34 * t);
 }
 
 /** Opacity applied to columns / swatches by confidence tier (0–1). */

@@ -58,7 +58,10 @@ _OFFICIAL_SOURCE_BIAS = (
     "NITI Aayog (niti.gov.in), the Open Government Data platform (data.gov.in), the Press "
     "Information Bureau (pib.gov.in), central/state ministry websites (*.gov.in), state "
     "government portals, and official statistical releases (Census, NSSO, NFHS, UDISE+, RBI, "
-    "parliamentary reports/Lok Sabha or Rajya Sabha replies). These are authoritative and "
+    "parliamentary reports/Lok Sabha or Rajya Sabha replies), and for Karnataka specifically "
+    "karnataka.gov.in department portals, the Karnataka Economic Survey, Karnataka Human "
+    "Development Reports, Samagra Shikshana Karnataka, and district NIC portals (*.nic.in). These "
+    "are authoritative and "
     "citable by name -- prefer them over generic news coverage or blog commentary whenever they "
     "exist for the topic; fall back to reputable news/NGO/academic sources only when no official "
     "source covers it."
@@ -134,7 +137,7 @@ _local_embedder = None  # lazily-loaded sentence-transformers model, module-leve
 # singleton init / the native backend's own one-time thread-pool/BLAS setup
 # on their first encode()) reliably crashes the process (SIGSEGV/SIGABRT) --
 # not merely slow or racy, an outright process-ending native crash. Before
-# gather_research_per_state's per-state fan-out (research.py), nothing in
+# research.py's concurrent per-region research fan-out, nothing in
 # this codebase ever called this function concurrently with itself (every
 # prior caller issued one embed() per gather_research invocation); the new
 # per-state research chain fires up to _MAX_CONCURRENT_STATE_RESEARCH of
@@ -142,7 +145,7 @@ _local_embedder = None  # lazily-loaded sentence-transformers model, module-leve
 # just theoretical. Embedding a single short query string is a few
 # milliseconds once warm (measured independently), so fully serializing this
 # one call site costs negligible wall-clock time against the LLM/web-search
-# calls actually dominating gather_research_per_state's latency.
+# calls actually dominating the research stage's latency.
 _local_embedder_lock = asyncio.Lock()
 
 
@@ -173,7 +176,7 @@ async def _local_semantic_embed(texts: list[str]) -> list[list[float]]:
 
     Holds `_local_embedder_lock` for the model's entire lifetime of use here
     (construction AND every .encode() call) -- see that lock's docstring.
-    This serializes concurrent callers (e.g. gather_research_per_state's
+    This serializes concurrent callers (e.g. research.py's per-region
     per-state fan-out) rather than running their encode() calls in parallel,
     trading a small amount of parallelism for not crashing the process."""
     async with _local_embedder_lock:
@@ -268,183 +271,11 @@ class StubLLMClient:
         point = f"Whether the core driver is best framed as '{cluster_a_label}' or '{cluster_b_label}'."
         return (point, "medium")
 
-    async def propose_regions(self, groups: list[dict]) -> list[dict]:
-        # Deterministic auto-name per group, identical in shape to what
-        # infer_regions.py's own fallback path produces on a malformed real
-        # call -- a stub run and a fallback-triggered real run should look
-        # the same to a caller, not diverge in shape.
-        proposals: list[dict] = []
-        for group in groups:
-            districts = group.get("districts") or []
-            state_names = []
-            seen_states: set[str] = set()
-            for d in districts:
-                name = d.get("state_name")
-                if name and name not in seen_states:
-                    seen_states.add(name)
-                    state_names.append(name)
-            label = ", ".join(state_names[:3]) or "Unresolved geography"
-            proposals.append(
-                {
-                    "group_index": group.get("group_index"),
-                    "name": f"Region {group.get('group_index', 0) + 1} ({label})",
-                    "justification": (
-                        f"Districts grouped by embedding similarity across {len(districts)} "
-                        f"district(s) in {label}."
-                    ),
-                }
-            )
-        return proposals
-
-    async def critique_regions(self, regions: list[dict]) -> dict:
-        # A stub has no real judgment to offer -- always approve, matching
-        # every other stub method's "honest, inert default" contract rather
-        # than fabricating plausible-looking criticism.
-        return {"approved": True, "notes": "", "flagged_district_ids": []}
-
-    async def revise_regions(self, regions: list[dict], critique: dict) -> list[dict]:
-        # Identity passthrough -- never called in practice (critique_regions
-        # above always approves), but implemented for completeness/interface
-        # parity, and to give callers a safe no-op to test their own
-        # validation logic against.
-        return [
-            {
-                "region_id": r.get("region_id"),
-                "name": r.get("name"),
-                "justification": r.get("justification"),
-                "district_ids": [d.get("district_id") for d in (r.get("districts") or [])],
-            }
-            for r in regions
-        ]
-
     async def judge_text_relevance(self, question: str) -> bool:
         # A stub has no real judgment to offer -- fail closed (False), same
         # "honest, inert default" contract every other stub method follows
         # rather than fabricating a plausible-looking "yes".
         return False
-
-    async def condition_answer_for_region(
-        self,
-        query: str,
-        query_type: str,
-        baseline_segments: list[dict],
-        region_name: str,
-        region_clusters: list[dict],
-        region_deflections: list[dict],
-        past_worldview: str | None,
-        mode: ResearchMode = "extrahigh",
-    ) -> list[dict]:
-        segments: list[dict] = []
-        if not region_clusters:
-            return segments
-
-        dominant = max(region_clusters, key=lambda c: c.get("postCount") or 0, default=None)
-        if dominant:
-            label = dominant.get("label") or "a distinct viewpoint"
-            summary = dominant.get("summary") or "a locally distinct take on this topic."
-            segments.append(
-                {
-                    "text": f"In {region_name}, the dominant viewpoint is '{label}': {summary}",
-                    "kind": "body",
-                    "clusterId": dominant.get("id"),
-                }
-            )
-
-        if region_deflections:
-            point = region_deflections[0].get("point") or ""
-            if point:
-                segments.append(
-                    {"text": f"Within {region_name}, opinion splits: {point}", "kind": "body"}
-                )
-
-        if past_worldview:
-            segments.append(
-                {
-                    "text": f"{region_name} has historically prioritized: {past_worldview[:140]}",
-                    "kind": "body",
-                }
-            )
-
-        return segments
-
-    async def condition_answer_for_state(
-        self,
-        query: str,
-        query_type: str,
-        baseline_segments: list[dict],
-        state_name: str,
-        state_research_documents: list[dict],
-        state_clusters: list[dict],
-        state_deflections: list[dict],
-        state_districts: list[dict],
-        mode: ResearchMode = "extrahigh",
-    ) -> list[dict]:
-        segments: list[dict] = []
-
-        # Mainstream/official-source part -- grounded ONLY in
-        # state_research_documents, kept as its own segment(s) rather than
-        # blended with the social-media part below (per the two-source-
-        # separation requirement -- see condition_answer_for_region's
-        # equivalent shape for the region-scoped, single-source precedent).
-        if state_research_documents:
-            titles = [
-                str(d.get("title")).strip()
-                for d in state_research_documents[:3]
-                if isinstance(d, dict) and d.get("title")
-            ]
-            summary = "; ".join(titles) if titles else f"{len(state_research_documents)} source(s) gathered."
-            citation_ids = [
-                d["id"]
-                for d in state_research_documents[:3]
-                if isinstance(d, dict) and isinstance(d.get("id"), int)
-            ]
-            seg: dict = {
-                "text": f"Mainstream/official sources on {state_name}: {summary}",
-                "kind": "body",
-            }
-            if citation_ids:
-                seg["citations"] = citation_ids
-            segments.append(seg)
-
-        # Social-media (UGC) part -- grounded ONLY in state_clusters/
-        # state_deflections, never citing state_research_documents.
-        dominant = max(state_clusters, key=lambda c: c.get("postCount") or 0, default=None)
-        if dominant:
-            label = dominant.get("label") or "a distinct viewpoint"
-            cluster_summary = dominant.get("summary") or "a locally distinct take on this topic."
-            segments.append(
-                {
-                    "text": f"Social media discussion in {state_name}: '{label}' -- {cluster_summary}",
-                    "kind": "body",
-                    "clusterId": dominant.get("id"),
-                }
-            )
-
-        if state_deflections:
-            point = state_deflections[0].get("point") or ""
-            if point:
-                segments.append(
-                    {
-                        "text": f"Within {state_name}'s online discussion, opinion splits: {point}",
-                        "kind": "body",
-                    }
-                )
-
-        if state_districts:
-            names = [
-                d.get("districtName")
-                for d in state_districts[:3]
-                if isinstance(d, dict) and d.get("districtName")
-            ]
-            if names:
-                segments.append(
-                    {
-                        "text": f"Within {state_name}, activity concentrates in: {', '.join(names)}.",
-                        "kind": "body",
-                    }
-                )
-
-        return segments
 
     async def synthesize_answer(
         self,
@@ -496,6 +327,38 @@ class StubLLMClient:
 
         return segments
 
+    async def answer_for_region(
+        self,
+        query: str,
+        query_type: str,
+        region_name: str,
+        persona_prompt: str | None,
+        research_documents: list[dict],
+        clusters: list[dict],
+        deflections: list[dict],
+        mode: ResearchMode = "medium",
+    ) -> list[dict]:
+        top = sorted(clusters, key=lambda c: c.get("postCount") or 0, reverse=True)
+        voice = "this region's own" if persona_prompt else "the collected"
+        segments: list[dict] = [
+            {
+                "text": f"For '{query}', {voice} evidence centres on "
+                + (top[0].get("label") or "no clear viewpoint")
+                if top
+                else f"No regional evidence was collected for '{query}'.",
+                "kind": "tldr",
+            }
+        ]
+        for c in top[:3]:
+            seg: dict = {"text": f"{c.get('label')}: {c.get('summary') or ''}".strip(), "kind": "recommendation"}
+            if c.get("id"):
+                seg["clusterId"] = c["id"]
+            segments.append(seg)
+        return segments
+
+    async def extract_points(self, text: str) -> list[str]:
+        return [p.strip() for p in re.split(r"(?<=[.!?])\s+", text) if len(p.strip()) > 12][:12]
+
     async def generate_verdict(
         self,
         area_kind: str,
@@ -535,10 +398,12 @@ class OpenAILLMClient:
     def _load_gazetteer() -> dict:
         import os
 
+        from ..karnataka import load_karnataka_gazetteer
+
         path = os.path.join(DATA_DIR, "district_gazetteer.json")
         try:
             with open(path, "r", encoding="utf-8") as f:
-                return json.load(f)
+                return load_karnataka_gazetteer(json.load(f))
         except Exception as exc:  # noqa: BLE001 - defensive, gazetteer is optional here
             print(f"[OpenAILLMClient] could not load district gazetteer ({exc}); geolocate will fall back to stub")
             return {}
@@ -580,13 +445,14 @@ class OpenAILLMClient:
     async def suggest_framings(self, query: str, max_count: int) -> list[str]:
         try:
             data = await self._chat_json(
-                "You know Indian regional, cultural, and religious variation well. Given a "
-                "topic, list the distinct, well-known regional/cultural/religious framings or "
-                "interpretations of it across India -- the kind of substantive differences a "
-                "well-informed person from each region would actually state (e.g. for 'Diwali': "
-                "Rama's return to Ayodhya in the North, Krishna defeating Narakasura in the "
-                "South, Kali Puja in Bengal, Lakshmi puja marking the new year in Gujarat, "
-                "Bandi Chhor Divas for Sikhs, Mahavira's nirvana for Jains). Each phrase should "
+                "You know Karnataka's regional, cultural, and linguistic variation well -- the "
+                "Mysuru-Bengaluru (Old Mysore) plateau, the Karavali coast, the Malnad hills, and "
+                "North Karnataka (Kittur and Kalyana Karnataka). Given a topic, list the distinct, "
+                "well-known framings or interpretations of it ACROSS KARNATAKA'S REGIONS -- the "
+                "substantive differences a well-informed person from each region would actually "
+                "state (e.g. for 'Dasara': the Mysuru Dasara royal procession, Navaratri Sharada "
+                "worship at Sringeri, Mangaluru Dasara with tiger dances, Hampi's Vijayanagara "
+                "Mahanavami heritage). Each phrase should "
                 "be short and search-engine-friendly (a few words, naming the specific figure/"
                 "event/community, not a generic sentence). If the topic genuinely has no such "
                 "well-known regional variation (e.g. a narrow local news item, a made-up word), "
@@ -802,9 +668,10 @@ class OpenAILLMClient:
     async def extract_place_mentions(self, text: str) -> list[str]:
         try:
             data = await self._chat_json(
-                "Extract every Indian place name mentioned in the user's text — city, district, "
-                'or state names only. Respond with JSON: {"places": ["...", ...]}. Return an '
-                "empty list if none are mentioned.",
+                "Extract every Indian place name mentioned in the user's text — city, town, "
+                "taluk, district, or state names, and named regions such as 'Malnad', "
+                "'Karavali', 'Tulu Nadu', or 'Kalyana Karnataka'. Respond with JSON: "
+                '{"places": ["...", ...]}. Return an empty list if none are mentioned.',
                 text,
             )
             places = data.get("places")
@@ -918,148 +785,6 @@ class OpenAILLMClient:
                 cluster_a_label, cluster_a_texts, cluster_b_label, cluster_b_texts
             )
 
-    async def propose_regions(self, groups: list[dict]) -> list[dict]:
-        try:
-            lines = []
-            for group in groups:
-                districts = group.get("districts") or []
-                district_lines = "; ".join(
-                    f"{d.get('district_name')} ({d.get('state_name')})" for d in districts
-                )
-                samples = "; ".join(group.get("sample_texts") or [])
-                lines.append(
-                    f"Group {group.get('group_index')}: districts=[{district_lines}]"
-                    + (f" | sample posts: {samples}" if samples else "")
-                )
-            data = await self._chat_json(
-                "You name groups of Indian districts that were clustered together by shared "
-                "embedding similarity of what people there post about online. For EACH group, "
-                "propose a short, evocative region name (2-5 words, geographic or cultural, e.g. "
-                "'Coastal Konkan belt', 'Hindi-heartland industrial corridor') and a one-sentence "
-                "justification grounded in the districts/sample posts given — not just 'these are "
-                "close together'. A region may legitimately span multiple states; do not treat "
-                'that as a problem. Respond with JSON: {"regions": [{"group_index": int, "name": '
-                'str, "justification": str}, ...]} with EXACTLY one entry per group given, using '
-                "the same group_index values.",
-                "\n".join(lines),
-            )
-            proposals = data.get("regions")
-            if not isinstance(proposals, list):
-                raise ValueError(f"unexpected regions value: {proposals!r}")
-            input_indices = {g.get("group_index") for g in groups}
-            output_indices = {p.get("group_index") for p in proposals if isinstance(p, dict)}
-            if output_indices != input_indices:
-                raise ValueError(
-                    f"propose_regions group_index mismatch: expected {input_indices}, got {output_indices}"
-                )
-            cleaned = []
-            for p in proposals:
-                name = p.get("name")
-                if not isinstance(name, str) or not name.strip():
-                    raise ValueError(f"malformed region name: {name!r}")
-                cleaned.append(
-                    {
-                        "group_index": p["group_index"],
-                        "name": name.strip(),
-                        "justification": str(p.get("justification") or "").strip(),
-                    }
-                )
-            return cleaned
-        except Exception as exc:  # noqa: BLE001
-            print(f"[OpenAILLMClient] propose_regions failed, falling back to stub: {exc}", flush=True)
-            return await self._stub.propose_regions(groups)
-
-    async def critique_regions(self, regions: list[dict]) -> dict:
-        try:
-            lines = []
-            for r in regions:
-                districts = r.get("districts") or []
-                district_names = ", ".join(d.get("district_name", "") for d in districts)
-                lines.append(
-                    f'Region {r.get("region_id")} — "{r.get("name")}": {r.get("justification")} '
-                    f"| districts: {district_names}"
-                )
-            data = await self._chat_json(
-                "You review a proposed partition of Indian districts into regions (grouped by "
-                "shared online-discourse similarity). Check three things: (1) THEMATIC COHERENCE "
-                "— does each region's justification track real shared content, not just "
-                "proximity; (2) GEOGRAPHIC SANITY — regions spanning multiple states are EXPECTED "
-                "and fine, only flag genuinely implausible scatter (e.g. one state's coast "
-                "grouped with a landlocked state 1500km away with no stated shared theme); "
-                "(3) GRANULARITY — flag if any region is a fragment with no real distinctness, or "
-                "if one region has swallowed nearly every district leaving others empty. Respond "
-                'with JSON: {"approved": bool, "notes": str (1-2 sentences), '
-                '"flagged_district_ids": [str, ...]} (empty list if approved or nothing specific '
-                "stood out).",
-                "\n".join(lines),
-            )
-            approved = data.get("approved")
-            if not isinstance(approved, bool):
-                raise ValueError(f"unexpected approved value: {approved!r}")
-            flagged = data.get("flagged_district_ids")
-            if not isinstance(flagged, list):
-                flagged = []
-            return {
-                "approved": approved,
-                "notes": str(data.get("notes") or "").strip(),
-                "flagged_district_ids": [str(x) for x in flagged if isinstance(x, (str, int))],
-            }
-        except Exception as exc:  # noqa: BLE001
-            print(f"[OpenAILLMClient] critique_regions failed, falling back to stub: {exc}", flush=True)
-            return await self._stub.critique_regions(regions)
-
-    async def revise_regions(self, regions: list[dict], critique: dict) -> list[dict]:
-        try:
-            lines = []
-            for r in regions:
-                districts = r.get("districts") or []
-                district_ids = ", ".join(d.get("district_id", "") for d in districts)
-                lines.append(
-                    f'Region {r.get("region_id")} — "{r.get("name")}": {r.get("justification")} '
-                    f"| district_ids: [{district_ids}]"
-                )
-            payload = (
-                "\n".join(lines)
-                + f"\n\nCritique notes: {critique.get('notes', '')}"
-                + f"\nFlagged district ids: {critique.get('flagged_district_ids', [])}"
-            )
-            data = await self._chat_json(
-                "Revise the proposed region partition below based on the critique. You may ONLY: "
-                "rename a region, MERGE two regions into one, or MOVE a flagged district to a "
-                "different existing region. You must NEVER invent a new region, drop a district, "
-                "or leave any region with zero districts — every district_id present in the input "
-                "must appear in EXACTLY ONE region of your output. If the critique doesn't clearly "
-                "call for a change, return the regions unchanged. Respond with JSON: {\"regions\": "
-                '[{"region_id": str, "name": str, "justification": str, "district_ids": [str, '
-                "...]}, ...]}.",
-                payload,
-            )
-            revised = data.get("regions")
-            if not isinstance(revised, list) or not revised:
-                raise ValueError(f"unexpected regions value: {revised!r}")
-            cleaned = []
-            for r in revised:
-                if not isinstance(r, dict):
-                    raise ValueError(f"malformed region entry: {r!r}")
-                district_ids = r.get("district_ids")
-                name = r.get("name")
-                if not isinstance(district_ids, list) or not district_ids:
-                    raise ValueError(f"region with no districts: {r!r}")
-                if not isinstance(name, str) or not name.strip():
-                    raise ValueError(f"malformed region name: {name!r}")
-                cleaned.append(
-                    {
-                        "region_id": str(r.get("region_id") or ""),
-                        "name": name.strip(),
-                        "justification": str(r.get("justification") or "").strip(),
-                        "district_ids": [str(d) for d in district_ids],
-                    }
-                )
-            return cleaned
-        except Exception as exc:  # noqa: BLE001
-            print(f"[OpenAILLMClient] revise_regions failed, falling back to stub: {exc}", flush=True)
-            return await self._stub.revise_regions(regions, critique)
-
     async def judge_text_relevance(self, question: str) -> bool:
         try:
             data = await self._chat_json(
@@ -1073,209 +798,6 @@ class OpenAILLMClient:
         except Exception as exc:  # noqa: BLE001
             print(f"[OpenAILLMClient] judge_text_relevance failed, failing closed (False): {exc}", flush=True)
             return False
-
-    async def condition_answer_for_region(
-        self,
-        query: str,
-        query_type: str,
-        baseline_segments: list[dict],
-        region_name: str,
-        region_clusters: list[dict],
-        region_deflections: list[dict],
-        past_worldview: str | None,
-        mode: ResearchMode = "extrahigh",
-    ) -> list[dict]:
-        try:
-            baseline_text = "\n".join(
-                f"- [{seg.get('kind', 'body')}] {seg.get('text', '')}"
-                for seg in baseline_segments
-                if isinstance(seg, dict) and seg.get("text")
-            )
-            payload = {
-                "query": query,
-                "query_type": query_type,
-                "region_name": region_name,
-                "baseline_answer": baseline_text,
-                "region_clusters": region_clusters,
-                "region_deflections": region_deflections,
-                "past_worldview": past_worldview,
-            }
-            data = await self._chat_json(
-                "You refine a NATIONAL baseline answer (already synthesized, region-blind) with "
-                "region-specific nuance for one Indian region. Inputs: the query, its type, "
-                "`baseline_answer` (the national answer, plain text bullets), `region_name`, "
-                "`region_clusters` (this region's own actual viewpoint clusters -- an "
-                "agent-inferred region that may span multiple districts and states), "
-                "`region_deflections` (points of disagreement within this region), and "
-                "`past_worldview` (a digest of this region's previously-inferred worldview/"
-                "priorities from a past query, or null if none).\n\n"
-                "Your job: state SPECIFICALLY how this region's real discourse DIFFERS from -- or "
-                "notably reinforces -- the national baseline, and WHY, grounded in "
-                "region_clusters/region_deflections/past_worldview. Frame each segment as an "
-                "explicit contrast: \"Nationally, X -- but in {region_name}, Y, because Z.\" Do "
-                "NOT just restate the baseline. Do NOT invent a difference with no support in the "
-                "given data -- if this region genuinely agrees with the baseline, return fewer "
-                "segments (even one, or zero) rather than manufacturing contrast.\n\n"
-                'Respond with JSON: {"segments": [...]}. Each segment: {"text": str (max ~40 '
-                'words), "kind": "body"|"recommendation", "clusterId": str (optional)}. Return '
-                "0-5 segments -- only as many as the data genuinely supports. Do NOT invent "
-                "citation markers or source numbers -- this call has no source list to cite; "
-                "ground claims in region_clusters/region_deflections/past_worldview by content, "
-                "not by citation.\n\n"
-                "FORMATTING: PLAIN TEXT ONLY, no markdown, no bare URLs, do not restate the region "
-                f"name from `region_name` in every segment (\"{region_name}\") -- the UI already "
-                "labels these segments with the region, so only name it inline when the contrast "
-                "phrasing itself calls for it.",
-                json.dumps(payload),
-                timeout=90.0,
-            )
-            segments = data.get("segments")
-            if not isinstance(segments, list):
-                raise ValueError(f"unexpected segments value: {segments!r}")
-            valid_kinds = ("body", "recommendation")
-            cleaned: list[dict] = []
-            for seg in segments:
-                if not isinstance(seg, dict):
-                    continue
-                text, kind = seg.get("text"), seg.get("kind")
-                if not isinstance(text, str) or not text.strip():
-                    continue
-                text = self._strip_markdown_noise(text)
-                if not text:
-                    continue
-                out: dict = {"text": text, "kind": kind if kind in valid_kinds else "body"}
-                if isinstance(seg.get("clusterId"), str):
-                    out["clusterId"] = seg["clusterId"]
-                # Deliberately no "citations" pass-through: this call is never
-                # given a research_documents list to validate against (unlike
-                # synthesize_answer's own valid_ids check), so any citation
-                # number the model emits here would be unverifiable by
-                # construction -- drop it rather than risk a dead/fabricated
-                # [n] marker in the UI.
-                cleaned.append(out)
-            return cleaned
-        except Exception as exc:  # noqa: BLE001
-            print(f"[OpenAILLMClient] condition_answer_for_region failed, falling back to stub: {exc}", flush=True)
-            return await self._stub.condition_answer_for_region(
-                query,
-                query_type,
-                baseline_segments,
-                region_name,
-                region_clusters,
-                region_deflections,
-                past_worldview,
-                mode=mode,
-            )
-
-    async def condition_answer_for_state(
-        self,
-        query: str,
-        query_type: str,
-        baseline_segments: list[dict],
-        state_name: str,
-        state_research_documents: list[dict],
-        state_clusters: list[dict],
-        state_deflections: list[dict],
-        state_districts: list[dict],
-        mode: ResearchMode = "extrahigh",
-    ) -> list[dict]:
-        try:
-            baseline_text = "\n".join(
-                f"- [{seg.get('kind', 'body')}] {seg.get('text', '')}"
-                for seg in baseline_segments
-                if isinstance(seg, dict) and seg.get("text")
-            )
-            # Real ids from state["research_documents"] (this state's own
-            # filtered slice, NOT renumbered) -- see this method's own
-            # Protocol docstring for why citations here must reference those
-            # same ids, not a fresh 1-based range local to this call.
-            doc_index = [
-                {"id": d.get("id"), "title": d.get("title"), "domain": d.get("domain")}
-                for d in state_research_documents
-                if isinstance(d, dict) and d.get("id") is not None
-            ]
-            payload = {
-                "query": query,
-                "query_type": query_type,
-                "state_name": state_name,
-                "baseline_answer": baseline_text,
-                "state_research_documents": doc_index,
-                "state_clusters": state_clusters,
-                "state_deflections": state_deflections,
-                "state_districts": state_districts,
-            }
-            data = await self._chat_json(
-                "You refine a NATIONAL baseline answer (already synthesized, geography-blind) with "
-                "STATE-specific nuance for one Indian administrative state. Inputs: the query, its "
-                "type, `baseline_answer` (the national answer, plain text bullets), `state_name`, "
-                "`state_research_documents` (mainstream/official media and government web sources "
-                "gathered SPECIFICALLY for this state -- {id, title, domain}), `state_clusters` "
-                "(this state's own social-media / User-Generated-Content viewpoint clusters), "
-                "`state_deflections` (points of disagreement among this state's social clusters), "
-                "and `state_districts` (per-district post-volume breakdown, for naming specific "
-                "districts when the data supports it).\n\n"
-                "CRITICAL REQUIREMENT -- keep the two source types EXPLICITLY SEPARATE. Never blend "
-                "official/mainstream findings and social-media sentiment into one undifferentiated "
-                "paragraph. Produce them as SEPARATE segments: first, zero or more segments "
-                "grounded ONLY in `state_research_documents`, each beginning with 'Mainstream "
-                "sources:' or 'Official data:'; then, zero or more segments grounded ONLY in "
-                "`state_clusters`/`state_deflections`, each beginning with 'Social media:' or "
-                "'Online discussion:'. Name specific districts from `state_districts` where the "
-                "data supports it. State SPECIFICALLY how each source's picture of this state "
-                "differs from -- or reinforces -- the national baseline, and why; do not just "
-                "restate the baseline. Do NOT invent a difference with no support in the given "
-                "data -- if a source type genuinely agrees with the baseline, or is thin/empty for "
-                "this state, return fewer segments for it (even zero) rather than manufacturing "
-                "contrast.\n\n"
-                'Respond with JSON: {"segments": [...]}. Each segment: {"text": str (max ~40 '
-                'words), "kind": "body"|"recommendation", "clusterId": str (optional), "citations": '
-                'int[] (optional, ONLY on mainstream-source segments -- use each cited source\'s '
-                "own `id` field from `state_research_documents` verbatim, never a renumbered "
-                "index)}. Return 0-6 segments total -- only as many as the data genuinely supports. "
-                "Never attach citations to a social-media-grounded segment.\n\n"
-                "FORMATTING: PLAIN TEXT ONLY, no markdown, no bare URLs, do not restate the state "
-                f"name from `state_name` (\"{state_name}\") beyond the required leading label -- "
-                "the UI already labels these segments with the state.",
-                json.dumps(payload),
-                timeout=90.0,
-            )
-            segments = data.get("segments")
-            if not isinstance(segments, list):
-                raise ValueError(f"unexpected segments value: {segments!r}")
-            valid_kinds = ("body", "recommendation")
-            valid_ids = {d["id"] for d in doc_index}
-            cleaned: list[dict] = []
-            for seg in segments:
-                if not isinstance(seg, dict):
-                    continue
-                text, kind = seg.get("text"), seg.get("kind")
-                if not isinstance(text, str) or not text.strip():
-                    continue
-                text = self._strip_markdown_noise(text)
-                if not text:
-                    continue
-                out: dict = {"text": text, "kind": kind if kind in valid_kinds else "body"}
-                if isinstance(seg.get("clusterId"), str):
-                    out["clusterId"] = seg["clusterId"]
-                if isinstance(seg.get("citations"), list):
-                    kept = [int(c) for c in seg["citations"] if isinstance(c, int) and c in valid_ids]
-                    if kept:
-                        out["citations"] = kept
-                cleaned.append(out)
-            return cleaned
-        except Exception as exc:  # noqa: BLE001
-            print(f"[OpenAILLMClient] condition_answer_for_state failed, falling back to stub: {exc}", flush=True)
-            return await self._stub.condition_answer_for_state(
-                query,
-                query_type,
-                baseline_segments,
-                state_name,
-                state_research_documents,
-                state_clusters,
-                state_deflections,
-                state_districts,
-                mode=mode,
-            )
 
     async def synthesize_answer(
         self,
@@ -1311,45 +833,20 @@ class OpenAILLMClient:
                 "research_findings": research_findings,
                 "research_documents": doc_index,
             }
-            if mode == "extrahigh":
-                # Each cluster entry in `clusters` now carries a `stateCode`
-                # (None for every other mode) since extrahigh clusters each
-                # state's posts independently instead of pooling them into one
-                # global set — widen the requested structure accordingly so
-                # the answer actually reflects that much larger, state-grouped
-                # input instead of collapsing it into today's ~3-5 bullets.
-                structure_instructions = (
-                    "REQUIRED STRUCTURE — exactly this shape, in this order:\n"
-                    "1. EXACTLY ONE `tldr` segment: a single sentence (max ~30 words) giving the "
-                    "core takeaway. This is the headline answer — make it specific and substantive, "
-                    "not a restatement of the question.\n"
-                    "2. SIX to TWELVE `recommendation` segments: tight, scannable bullets, each ONE "
-                    "sentence (max ~35 words). Each cluster below carries a `stateCode` — name "
-                    "specific states/regions directly (e.g. 'In Kerala...', 'In Punjab...') rather "
-                    "than defaulting to one national-average framing; prioritize genuinely "
-                    "different positions across regions over repeating a dominant one, since this "
-                    "mode exists to surface the broadest plural view, not a condensed summary. Set "
-                    "`region` to the relevant state/region name, `clusterId` when it maps to a "
-                    "specific cluster.\n"
-                    "3. FOUR to SIX `detail` segments: the fuller analysis, one paragraph each "
-                    "(~60–90 words). These are collapsed behind a 'Full analysis' toggle, so this "
-                    "is where depth, numbers, and regional nuance belong.\n\n"
-                )
-            else:
-                structure_instructions = (
-                    "REQUIRED STRUCTURE — exactly this shape, in this order:\n"
-                    "1. EXACTLY ONE `tldr` segment: a single sentence (max ~30 words) giving the "
-                    "core takeaway. This is the headline answer — make it specific and substantive, "
-                    "not a restatement of the question.\n"
-                    "2. THREE to FIVE `recommendation` segments: tight, scannable bullets, each ONE "
-                    "sentence (max ~35 words). For policy queries these are concrete actions or "
-                    "findings; for descriptive queries these are the distinct viewpoints/regional "
-                    "positions. Set `region` when a bullet is region-specific, `clusterId` when it "
-                    "maps to a specific viewpoint cluster.\n"
-                    "3. TWO to FOUR `detail` segments: the fuller analysis, one paragraph each "
-                    "(~60–90 words). These are collapsed behind a 'Full analysis' toggle, so this "
-                    "is where depth, numbers, and nuance belong.\n\n"
-                )
+            structure_instructions = (
+                "REQUIRED STRUCTURE — exactly this shape, in this order:\n"
+                "1. EXACTLY ONE `tldr` segment: a single sentence (max ~30 words) giving the "
+                "core takeaway. This is the headline answer — make it specific and substantive, "
+                "not a restatement of the question.\n"
+                "2. THREE to FIVE `recommendation` segments: tight, scannable bullets, each ONE "
+                "sentence (max ~35 words). For policy queries these are concrete actions or "
+                "findings; for descriptive queries these are the distinct viewpoints/regional "
+                "positions. Set `region` when a bullet is region-specific, `clusterId` when it "
+                "maps to a specific viewpoint cluster.\n"
+                "3. TWO to FOUR `detail` segments: the fuller analysis, one paragraph each "
+                "(~60–90 words). These are collapsed behind a 'Full analysis' toggle, so this "
+                "is where depth, numbers, and nuance belong.\n\n"
+            )
             data = await self._chat_json(
                 "You synthesize a consolidated answer from clustered social-media viewpoints, "
                 "their points of deflection, and web-search-grounded research, for a compact "
@@ -1427,6 +924,98 @@ class OpenAILLMClient:
                 research_documents,
                 mode=mode,
             )
+
+    async def answer_for_region(
+        self,
+        query: str,
+        query_type: str,
+        region_name: str,
+        persona_prompt: str | None,
+        research_documents: list[dict],
+        clusters: list[dict],
+        deflections: list[dict],
+        mode: ResearchMode = "medium",
+    ) -> list[dict]:
+        doc_index = [
+            {"id": d.get("id"), "title": d.get("title"), "domain": d.get("domain"), "snippet": d.get("snippet")}
+            for d in research_documents
+            if isinstance(d, dict) and d.get("id") is not None
+        ]
+        payload = {
+            "query": query,
+            "query_type": query_type,
+            "region": region_name,
+            "research_documents": doc_index,
+            "viewpoint_clusters": clusters,
+            "deflections": deflections,
+        }
+        task = (
+            f"You answer a user's question about Karnataka, India, for ONE region: {region_name}. "
+            "Ground the reply in the supplied evidence: `research_documents` (mainstream and "
+            "official web sources gathered for this region -- {id, title, domain, snippet}), "
+            "`viewpoint_clusters` (what is being said about the topic in this region on social "
+            "media and in the news -- label, summary, postCount, sources), and `deflections` "
+            "(points where this region's viewpoints disagree). If the evidence is thin, say less "
+            "rather than inventing.\n\n"
+            "REQUIRED STRUCTURE, in this order:\n"
+            "1. EXACTLY ONE `tldr` segment: the region's one-sentence answer (max ~30 words).\n"
+            "2. TWO to FOUR `recommendation` segments: the core of the reply, one sentence each "
+            "(max ~40 words) -- concrete actions for policy questions, distinct positions for "
+            "descriptive ones.\n"
+            "3. Evidence, keeping the two source types SEPARATE: zero to two `body` segments "
+            "that begin 'Official & mainstream sources:' and draw ONLY on research_documents "
+            "(attach their ids as `citations`), then zero to two `body` segments that begin "
+            "'Social media:' and draw ONLY on viewpoint_clusters (never cite these).\n\n"
+            'Respond with JSON: {"segments": [{"text": str, "kind": "tldr"|"recommendation"|'
+            '"body", "clusterId": str (optional), "citations": int[] (optional)}]}. PLAIN TEXT '
+            "ONLY: no markdown, no URLs, no source names inline -- use `citations`. Only cite ids "
+            "present in research_documents. Do not restate the region's name as a label; the UI "
+            "already shows it."
+        )
+        system = f"{persona_prompt}\n\n{task}" if persona_prompt else task
+        data = await self._chat_json(system, json.dumps(payload), timeout=120.0)
+        segments = data.get("segments")
+        if not isinstance(segments, list) or not segments:
+            raise ValueError(f"malformed segments: {segments!r}")
+        valid_ids = {d["id"] for d in doc_index}
+        cleaned: list[dict] = []
+        for seg in segments:
+            if not isinstance(seg, dict) or not isinstance(seg.get("text"), str):
+                continue
+            text = self._strip_markdown_noise(seg["text"])
+            if not text:
+                continue
+            kind = seg.get("kind")
+            out: dict = {"text": text, "kind": kind if kind in ("tldr", "recommendation", "body") else "body"}
+            if isinstance(seg.get("clusterId"), str):
+                out["clusterId"] = seg["clusterId"]
+            if isinstance(seg.get("citations"), list):
+                kept = [int(c) for c in seg["citations"] if isinstance(c, int) and c in valid_ids]
+                if kept:
+                    out["citations"] = kept
+            cleaned.append(out)
+        if not cleaned:
+            raise ValueError("no usable segments")
+        return cleaned
+
+    async def extract_points(self, text: str) -> list[str]:
+        data = await self._chat_json(
+            "Split the user's text into its distinct substantive points: each a short, "
+            "self-contained sentence stating exactly one claim, recommendation, or fact from the "
+            "text. Keep the text's own specifics (names, places, numbers); do not add anything "
+            "that is not in the text, do not merge unrelated ideas, and skip filler. Respond with "
+            'JSON: {"points": ["...", ...]} with 3 to 12 points.',
+            text,
+            timeout=60.0,
+        )
+        points = data.get("points")
+        if not isinstance(points, list):
+            raise ValueError(f"malformed points: {points!r}")
+        cleaned = [self._strip_markdown_noise(str(p)) for p in points if str(p).strip()]
+        cleaned = [p for p in cleaned if p]
+        if not cleaned:
+            raise ValueError("no points extracted")
+        return cleaned[:12]
 
     async def generate_verdict(
         self,
@@ -1664,7 +1253,7 @@ class LocalOllamaLLMClient(OpenAILLMClient):
     # Ollama serves each local model from ONE process with concurrency 1 by
     # default -- unlike the hosted providers this class stands in for, a
     # local model can't fan out. Pipeline stages fire several _chat_json
-    # calls concurrently per batch (e.g. resolve_district's per-post
+    # calls concurrently per batch (e.g. resolve_regions' per-post
     # extract_place_mentions/geolocate, up to 10 at once) -- without a
     # client-side limit, all of them start their own httpx call (and their
     # own timeout clock) at once, so calls queued behind others on the Ollama

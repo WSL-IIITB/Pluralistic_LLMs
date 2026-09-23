@@ -21,14 +21,9 @@ interface QueryBarProps {
 }
 
 /**
- * Every mode always surveys the full set of Indian states/regions — see
- * backend/app/reasoning_modes.py. These labels describe how much SOURCE
- * VOLUME and research effort each mode spends, not geographic coverage --
- * except "extrahigh", which is qualitatively different: it clusters each
- * state's posts independently instead of pooling them into one global pass,
- * so it also changes HOW granular the resulting viewpoints are, not just how
- * many sources feed them. Only reachable by picking it here directly -- "Go
- * deeper" is deliberately capped at "high" (see types.ts's escalateMode).
+ * Every mode covers all four Karnataka persona regions (see
+ * backend/app/reasoning_modes.py); mode scales how many targeted searches run
+ * per region and how many posts each keeps.
  */
 const REASONING_MODES: { value: ResearchMode; label: string }[] = [
   { value: "basic", label: "Basic" },
@@ -38,10 +33,10 @@ const REASONING_MODES: { value: ResearchMode; label: string }[] = [
 ];
 
 const REASONING_HINTS: Record<ResearchMode, string> = {
-  basic: "Fewer sources, fast",
-  medium: "Balanced",
-  high: "Most sources, slower",
-  extrahigh: "Region clustering, most granular",
+  basic: "1 search per region, fast",
+  medium: "2 searches per region",
+  high: "3 searches per region, slower",
+  extrahigh: "4 searches per region, most sources",
 };
 
 const LOCAL_PROVIDERS: readonly LlmProvider[] = ["gemma_local", "mistral_local"];
@@ -110,20 +105,10 @@ export function QueryBar({
   const isError = runState === "error";
   const activeHint = REASONING_HINTS[reasoningMode];
   const activeProviderOption = LLM_PROVIDER_OPTIONS.find((opt) => opt.value === provider);
-  // extrahigh replaces the usual angle-based research with a dedicated,
-  // state-targeted research call per Indian state/UT (~32 of them), on top
-  // of its existing region-inference + per-region pipeline (~3x "high"'s LLM
-  // call volume by itself) -- combined, this realistically runs 25 min to
-  // well over an hour end to end, for EVERY provider, not just local ones
-  // (no load test exists yet to narrow that range further). Local providers
-  // (capped at 2 concurrent requests internally, see LocalOllamaLLMClient)
-  // stretch further still. Surface both up front rather than let a run
-  // silently take far longer than basic/medium/high ever would.
-  const extrahighWarning =
-    reasoningMode === "extrahigh"
-      ? LOCAL_PROVIDERS.includes(provider)
-        ? " · per-state research chain, can take 40-90+ min with local models"
-        : " · per-state research chain, can take 25 min-1 hr+"
+  const localWarning =
+    LOCAL_PROVIDERS.includes(provider) &&
+    (reasoningMode === "high" || reasoningMode === "extrahigh")
+      ? " · slow with local models"
       : "";
 
   const handleSubmit = (e: FormEvent) => {
@@ -155,7 +140,7 @@ export function QueryBar({
         <Input
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          placeholder="Enter a topic — e.g. Diwali, or 'high-school dropouts: where should government intervene?'"
+          placeholder="Enter a topic — e.g. Dasara, or 'high-school dropouts: where should government intervene?'"
           className="h-10 border-0 bg-transparent text-sm shadow-none focus-visible:ring-0"
           aria-label="Topic to explore"
         />
@@ -225,7 +210,7 @@ export function QueryBar({
           value={reasoningMode}
           onValueChange={(v) => v && onReasoningModeChange(v as ResearchMode)}
           disabled={isStreaming}
-          aria-label="Reasoning mode — always covers every state; controls source volume and, for Extra High, per-region clustering granularity"
+          aria-label="Reasoning mode — always covers all four Karnataka regions; controls how many sources are gathered per region"
           className="shrink-0 justify-start gap-1"
         >
           {REASONING_MODES.map((m) => (
@@ -240,8 +225,8 @@ export function QueryBar({
         </ToggleGroup>
         <span className="min-w-0 text-[11px] text-muted-foreground">
           <span className="text-muted-foreground/50">
-            {activeHint} · all states
-            {extrahighWarning}
+            {activeHint} · all 4 regions + persona divergence
+            {localWarning}
           </span>
         </span>
       </div>

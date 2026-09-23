@@ -18,3 +18,4 @@ export {
 export { useQueryStream, type QueryStreamApi, type RunOptions } from "./useQueryStream";
 export { STREAM_SOURCE } from "./stream";
 export { saveRun, listSavedRuns, fetchSavedRun, deleteSavedRun } from "./runHistory";
+export * from "./karnataka";

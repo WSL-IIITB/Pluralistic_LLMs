@@ -1,12 +1,12 @@
 /**
  * Worldview run store (Zustand).
  *
- * Holds everything derived from one query run — posts→districts, clusters,
+ * Holds everything derived from one query run — posts→Karnataka regions, clusters,
  * deflections, the consolidated answer, and progress — keyed by `queryRunId`.
  *
  * The store is designed so a re-run ("Go deeper") MERGES into the existing
  * state rather than replacing it: call `prepareRun({ deeper: true })` and the
- * accumulated districts/clusters/answer are kept while new events refine them.
+ * accumulated regions/clusters/answer are kept while new events refine them.
  */
 
 import { create } from "zustand";
@@ -17,21 +17,21 @@ import {
   type ClusterId,
   type CollectionCounts,
   type DeflectionDatum,
-  type DistrictDatum,
-  type DistrictId,
+  type DivergenceRegion,
+  type DivergenceSummary,
   type LlmProvider,
   type QueryRunId,
   type QueryType,
   type RegionDatum,
   type RegionId,
+  type RegionStatsDatum,
   type ResearchDocument,
   type ResearchMode,
   type RunPhase,
-  type StateCode,
   type WorldviewEvent,
-  resolveClusterStateCode,
 } from "./types";
-import { paletteColor, paletteColorForRegion, paletteColorForState } from "./palette";
+import { regionColor } from "./karnataka";
+import { paletteColor, paletteColorForRegionHue } from "./palette";
 
 export type RunState = "idle" | "connecting" | "streaming" | "done" | "error" | "empty";
 
@@ -46,27 +46,26 @@ export interface StatusSnapshot {
 export interface LayerToggles {
   columns: boolean;
   links: boolean;
-  splitStates: boolean;
+  /** Outline regions whose viewpoints are genuinely split (see splitRegionIds). */
+  splitRegions: boolean;
 }
 
-export type Selection =
-  | { kind: "district"; id: DistrictId }
-  | { kind: "state"; id: StateCode }
-  | { kind: null; id: null };
+export type Selection = { kind: "region"; id: RegionId } | { kind: null; id: null };
 
 /** Accumulated-data slice, captured before a pass starts so a reconnect can rewind to it. */
 export interface RunSnapshot {
-  districts: Record<DistrictId, DistrictDatum>;
+  /** Per Karnataka region (plus the statewide bucket). */
+  regionStats: Record<RegionId, RegionStatsDatum>;
   clusters: Record<ClusterId, ClusterDatum>;
   clusterOrder: ClusterId[];
-  /** extrahigh mode only (empty for basic/medium/high). Order is discovery
-   *  order — the first region's clusters get index 0's hue, etc. — see
-   *  {@link paletteColorForRegion}. */
   regions: Record<RegionId, RegionDatum>;
   regionOrder: RegionId[];
   deflections: DeflectionDatum[];
   answer: AnswerSegment[];
   researchDocuments: ResearchDocument[];
+  /** Persona vs. no-persona divergence, per region, as each is measured. */
+  divergence: Record<RegionId, DivergenceRegion>;
+  divergenceSummary: DivergenceSummary | null;
   status: StatusSnapshot;
 }
 
@@ -113,12 +112,13 @@ export interface WorldviewStore {
   runState: RunState;
   error: string | null;
   status: StatusSnapshot;
+  /** True when the loaded saved run predates the Karnataka pivot (India-wide, district-level). */
+  legacyRun: boolean;
 
   // ── accumulated data ────────────────────────────────────────────────────────
-  districts: Record<DistrictId, DistrictDatum>;
+  regionStats: Record<RegionId, RegionStatsDatum>;
   clusters: Record<ClusterId, ClusterDatum>;
   clusterOrder: ClusterId[];
-  /** extrahigh mode only (empty for basic/medium/high) — see {@link RunSnapshot.regions}. */
   regions: Record<RegionId, RegionDatum>;
   regionOrder: RegionId[];
   deflections: DeflectionDatum[];
@@ -127,6 +127,8 @@ export interface WorldviewStore {
    *  deduped by URL. Rendered as the "Sources" section of the consolidated
    *  answer panel; also referenced from AnswerSegment.citations (1-based ids). */
   researchDocuments: ResearchDocument[];
+  divergence: Record<RegionId, DivergenceRegion>;
+  divergenceSummary: DivergenceSummary | null;
 
   // ── view state ──────────────────────────────────────────────────────────────
   layers: LayerToggles;
@@ -173,26 +175,6 @@ function dominantCluster(volumes: Record<ClusterId, number>): ClusterId | null {
   return best;
 }
 
-/** How many clusters already exist for `stateCode` (extrahigh only) — used to
- * pick the next lightness step for a newly-discovered cluster within that
- * state. O(order.length), but only runs once per newly-discovered cluster
- * id (ensureCluster early-returns for known ids), not per event — negligible
- * even at extrahigh's ~190-total-cluster scale. */
-function countForState(
-  clusters: Record<ClusterId, ClusterDatum>,
-  order: readonly ClusterId[],
-  stateCode: StateCode,
-): number {
-  let count = 0;
-  for (const id of order) {
-    if (clusters[id]?.stateCode === stateCode) count++;
-  }
-  return count;
-}
-
-/** Same role as `countForState`, but for regions — how many clusters already
- * exist for `regionId` (extrahigh only), used to pick the next lightness
- * step for a newly-discovered cluster within that region. */
 function countForRegion(
   clusters: Record<ClusterId, ClusterDatum>,
   order: readonly ClusterId[],
@@ -205,47 +187,24 @@ function countForRegion(
   return count;
 }
 
-/** Ensure a cluster stub exists so events can arrive in any order. `mode`
- * gates whether a resolvable state/region should get its own per-group
- * colour (extrahigh) or the shared global palette (basic/medium/high) —
- * mode as a safety gate, the resolved id as the actual data source, so a
- * stray colon in a non-extrahigh id can never accidentally trigger
- * per-state colouring. A resolvable `regionId` takes priority over
- * `stateCode` (region is the authoritative extrahigh grouping — see
- * ClusterDatum's doc comments — `stateCode` is now just a representative,
- * transitional value on a region-scoped cluster). */
+/** Ensure a cluster stub exists so events can arrive in any order. A cluster
+ * with a region takes that region's fixed identity hue (lightness-stepped per
+ * cluster); the backend's own colour is only used for region-less clusters. */
 function ensureCluster(
   clusters: Record<ClusterId, ClusterDatum>,
   order: ClusterId[],
-  regionOrder: readonly RegionId[],
   id: ClusterId,
-  mode: ResearchMode,
-  explicitStateCode?: StateCode,
-  explicitRegionId?: RegionId,
+  regionId?: RegionId,
 ): ClusterDatum {
   const existing = clusters[id];
   if (existing) return existing;
-  const stateCode =
-    mode === "extrahigh" ? resolveClusterStateCode(explicitStateCode, id) : undefined;
-  const regionId = mode === "extrahigh" ? explicitRegionId : undefined;
-
-  let color: ReturnType<typeof paletteColor>;
-  if (regionId) {
-    // Discovery-order index, not a hash of the id string — see
-    // paletteColorForRegion's doc comment for why.
-    const regionIndex = Math.max(0, regionOrder.indexOf(regionId));
-    color = paletteColorForRegion(regionIndex, countForRegion(clusters, order, regionId));
-  } else if (stateCode) {
-    color = paletteColorForState(stateCode, countForState(clusters, order, stateCode));
-  } else {
-    color = paletteColor(order.length);
-  }
-
+  const color = regionId
+    ? paletteColorForRegionHue(regionColor(regionId), countForRegion(clusters, order, regionId))
+    : paletteColor(order.length);
   const stub: ClusterDatum = {
     id,
     label: id,
     color,
-    ...(stateCode ? { stateCode } : {}),
     ...(regionId ? { regionId } : {}),
     representativePosts: [],
     postCount: 0,
@@ -254,6 +213,25 @@ function ensureCluster(
   order.push(id);
   return stub;
 }
+
+/** Region-id prefix of a region-scoped cluster id (`"malnad:c0"` -> `"malnad"`). */
+function regionIdFromClusterId(id: ClusterId): RegionId | undefined {
+  const i = id.indexOf(":");
+  return i > 0 ? id.slice(0, i) : undefined;
+}
+
+const EMPTY_DATA = {
+  regionStats: {},
+  clusters: {},
+  clusterOrder: [],
+  regions: {},
+  regionOrder: [],
+  deflections: [],
+  answer: [],
+  researchDocuments: [],
+  divergence: {},
+  divergenceSummary: null,
+} satisfies Omit<RunSnapshot, "status">;
 
 export const useWorldviewStore = create<WorldviewStore>((set, get) => ({
   queryRunId: null,
@@ -264,17 +242,11 @@ export const useWorldviewStore = create<WorldviewStore>((set, get) => ({
   runState: "idle",
   error: null,
   status: IDLE_STATUS,
+  legacyRun: false,
 
-  districts: {},
-  clusters: {},
-  clusterOrder: [],
-  regions: {},
-  regionOrder: [],
-  deflections: [],
-  answer: [],
-  researchDocuments: [],
+  ...EMPTY_DATA,
 
-  layers: { columns: true, links: true, splitStates: true },
+  layers: { columns: true, links: true, splitRegions: true },
   selection: NO_SELECTION,
   hoveredClusterId: null,
   deflectionPair: { a: null, b: null },
@@ -292,15 +264,9 @@ export const useWorldviewStore = create<WorldviewStore>((set, get) => ({
       queryRunId: null,
       mode: "medium",
       provider: "gemma_remote",
+      legacyRun: false,
       status: { ...IDLE_STATUS, ticker: `Sourcing posts for “${query}”…`, progress: 0.01 },
-      districts: {},
-      clusters: {},
-      clusterOrder: [],
-      regions: {},
-      regionOrder: [],
-      deflections: [],
-      answer: [],
-      researchDocuments: [],
+      ...EMPTY_DATA,
       selection: NO_SELECTION,
       hoveredClusterId: null,
       deflectionPair: { a: null, b: null },
@@ -358,25 +324,12 @@ export const useWorldviewStore = create<WorldviewStore>((set, get) => ({
         set((s) => {
           const clusters = { ...s.clusters };
           const order = [...s.clusterOrder];
-          const prev = ensureCluster(
-            clusters,
-            order,
-            s.regionOrder,
-            evt.clusterId,
-            s.mode,
-            evt.stateCode,
-            evt.regionId,
-          );
+          const regionId = evt.regionId ?? regionIdFromClusterId(evt.clusterId);
+          const prev = ensureCluster(clusters, order, evt.clusterId, regionId);
           clusters[evt.clusterId] = {
             ...prev,
             label: evt.label,
-            // Backend colour stays authoritative for basic/medium/high;
-            // extrahigh keeps the frontend-computed per-region (or per-state,
-            // for older saved runs predating region-inference) colour instead
-            // (the backend's own 6-color-cycle-per-scope value would collide
-            // across different regions/states — see palette.ts's
-            // paletteColorForRegion/paletteColorForState).
-            color: s.mode === "extrahigh" ? prev.color : evt.color,
+            color: prev.regionId ? prev.color : evt.color,
             ...(evt.summary !== undefined ? { summary: evt.summary } : {}),
             representativePosts: evt.representativePosts ?? prev.representativePosts,
           };
@@ -385,62 +338,46 @@ export const useWorldviewStore = create<WorldviewStore>((set, get) => ({
         return;
       }
 
-      case "district_resolved": {
+      case "region_resolved": {
         set((s) => {
-          const districts = { ...s.districts };
           const clusters = { ...s.clusters };
           const order = [...s.clusterOrder];
-          ensureCluster(
-            clusters,
-            order,
-            s.regionOrder,
-            evt.clusterId,
-            s.mode,
-            evt.stateCode,
-            evt.regionId,
-          );
-
-          const prev = districts[evt.districtId];
-          const clusterVolumes: Record<ClusterId, number> = { ...(prev?.clusterVolumes ?? {}) };
+          ensureCluster(clusters, order, evt.clusterId, evt.regionId);
+          const prev = s.regionStats[evt.regionId];
+          const clusterVolumes = { ...(prev?.clusterVolumes ?? {}) };
           clusterVolumes[evt.clusterId] = (clusterVolumes[evt.clusterId] ?? 0) + evt.volume;
-          const dominant = dominantCluster(clusterVolumes) ?? evt.clusterId;
-          // Only adopt this event's confidence/method/fallback when it describes
-          // the (possibly newly-recomputed) dominant cluster — otherwise a small
-          // update to a minority cluster would overwrite the dominant reading's stats.
-          const describesDominant = evt.clusterId === dominant;
-
-          const samplePosts = evt.samplePosts
-            ? [...(prev?.samplePosts ?? []), ...evt.samplePosts].slice(-6)
-            : prev?.samplePosts;
-
-          districts[evt.districtId] = {
-            districtId: evt.districtId,
-            stateCode: evt.stateCode,
-            // Fixed for the whole run (a district belongs to exactly one
-            // region, unlike confidence/method below) — no dominant-cluster
-            // gating needed.
-            ...(evt.regionId
-              ? { regionId: evt.regionId }
-              : prev?.regionId
-                ? { regionId: prev.regionId }
-                : {}),
-            clusterId: dominant,
-            confidence: describesDominant ? evt.confidence : (prev?.confidence ?? evt.confidence),
-            volume: (prev?.volume ?? 0) + evt.volume,
-            method: describesDominant ? evt.method : (prev?.method ?? evt.method),
-            isStateFallback: describesDominant
-              ? (evt.isStateFallback ?? evt.method === "state_fallback")
-              : (prev?.isStateFallback ?? false),
-            clusterVolumes,
-            ...(samplePosts ? { samplePosts } : {}),
+          const samplePosts = [...(prev?.samplePosts ?? []), ...(evt.samplePosts ?? [])].slice(
+            0,
+            8,
+          );
+          const regionStats = {
+            ...s.regionStats,
+            [evt.regionId]: {
+              regionId: evt.regionId,
+              clusterId: dominantCluster(clusterVolumes),
+              clusterVolumes,
+              volume: (prev?.volume ?? 0) + evt.volume,
+              confidence: evt.confidence,
+              method: evt.method,
+              samplePosts,
+            },
           };
-
-          // Accrue post volume onto the cluster total.
           const cl = clusters[evt.clusterId];
           if (cl) clusters[evt.clusterId] = { ...cl, postCount: cl.postCount + evt.volume };
-
-          return { districts, clusters, clusterOrder: order };
+          return { regionStats, clusters, clusterOrder: order };
         });
+        return;
+      }
+
+      case "divergence_region": {
+        const { type: _t, queryRunId: _q, t: _time, ...region } = evt;
+        set((s) => ({ divergence: { ...s.divergence, [evt.regionId]: region } }));
+        return;
+      }
+
+      case "divergence_summary": {
+        const { type: _t, queryRunId: _q, t: _time, ...summary } = evt;
+        set({ divergenceSummary: summary });
         return;
       }
 
@@ -487,7 +424,7 @@ export const useWorldviewStore = create<WorldviewStore>((set, get) => ({
 
       case "done": {
         set((s) => ({
-          runState: s.districts && Object.keys(s.districts).length > 0 ? "done" : "empty",
+          runState: Object.keys(s.regionStats).length > 0 || s.answer.length > 0 ? "done" : "empty",
           status: { ...s.status, phase: "complete", counts: evt.counts, progress: 1 },
         }));
         return;
@@ -505,14 +442,14 @@ export const useWorldviewStore = create<WorldviewStore>((set, get) => ({
   stop: () =>
     set((s) => {
       if (s.runState !== "streaming" && s.runState !== "connecting") return {};
-      const hasData = Object.keys(s.districts).length > 0;
+      const hasData = Object.keys(s.regionStats).length > 0 || s.answer.length > 0;
       return { runState: hasData ? "done" : "idle" };
     }),
 
   snapshotRun: () => {
     const s = get();
     return {
-      districts: s.districts,
+      regionStats: s.regionStats,
       clusters: s.clusters,
       clusterOrder: s.clusterOrder,
       regions: s.regions,
@@ -520,6 +457,8 @@ export const useWorldviewStore = create<WorldviewStore>((set, get) => ({
       deflections: s.deflections,
       answer: s.answer,
       researchDocuments: s.researchDocuments,
+      divergence: s.divergence,
+      divergenceSummary: s.divergenceSummary,
       status: s.status,
     };
   },
@@ -533,18 +472,19 @@ export const useWorldviewStore = create<WorldviewStore>((set, get) => ({
       provider: data.provider,
       runState: "done",
       error: null,
-      districts: data.districts,
+      legacyRun: !data.regionStats,
+      // Older (India-wide, district-level) saved runs have none of the
+      // region/divergence fields — default rather than let `undefined` in.
+      regionStats: data.regionStats ?? {},
       clusters: data.clusters,
       clusterOrder: data.clusterOrder,
-      // Older saved runs predate region-inference and won't have these
-      // fields in their persisted JSON at all (backend never validates the
-      // payload shape it stores — see run_history.py) — default rather than
-      // let `undefined` slip through the store's Record<...>/array types.
       regions: data.regions ?? {},
       regionOrder: data.regionOrder ?? [],
       deflections: data.deflections,
       answer: data.answer,
       researchDocuments: data.researchDocuments,
+      divergence: data.divergence ?? {},
+      divergenceSummary: data.divergenceSummary ?? null,
       status: data.status,
       selection: NO_SELECTION,
       hoveredClusterId: null,
@@ -569,14 +509,8 @@ export const useWorldviewStore = create<WorldviewStore>((set, get) => ({
       runState: "idle",
       error: null,
       status: IDLE_STATUS,
-      districts: {},
-      clusters: {},
-      clusterOrder: [],
-      regions: {},
-      regionOrder: [],
-      deflections: [],
-      answer: [],
-      researchDocuments: [],
+      legacyRun: false,
+      ...EMPTY_DATA,
       selection: NO_SELECTION,
       hoveredClusterId: null,
       deflectionPair: { a: null, b: null },
@@ -600,9 +534,11 @@ function mergeAnswer(prev: AnswerSegment[], seg: AnswerSegment): AnswerSegment[]
     (last.kind ?? "body") === "body" &&
     last.clusterId === seg.clusterId &&
     last.region === seg.region &&
+    last.regionId === seg.regionId &&
     !startsNewPara
   ) {
-    const merged: AnswerSegment = { ...last, text: last.text + cleaned.text };
+    const joiner = /\s$/.test(last.text) || /^\s/.test(cleaned.text) ? "" : " ";
+    const merged: AnswerSegment = { ...last, text: last.text + joiner + cleaned.text };
     return [...prev.slice(0, -1), merged];
   }
   return [...prev, cleaned];

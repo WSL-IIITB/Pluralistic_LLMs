@@ -1,0 +1,252 @@
+{
+  "region_name": "Mysuru-Bengaluru Region",
+  "region_definition": "The Southern Plateau of Karnataka, encompassing the Mysuru-Bengaluru corridor: the hyper-urbanized, technology-driven metropolis of Bengaluru Urban district in the east, transitioning through the industrialized peri-urban belts of Ramanagara and the agrarian, canal-irrigated heartlands of Mandya, to the heritage-centric secondary urban hub of Mysuru in the west — an integrated economic system bound together by the Cauvery River basin, interconnected logistical corridors, and the shared historical legacy of the princely state of Mysore.",
+  "topics": {
+    "culture": {
+      "topic_label": "Culture",
+      "definition": "The customs, languages, religious practices, cuisine, arts, festivals, and social norms that characterize the way of life of a region's inhabitants.",
+      "regional_profile": "The cultural identity of the Mysuru-Bengaluru corridor is anchored in the historical legacy of the princely state of Mysore. The Wadiyar dynasty drives immense domestic and international tourist footfall centred on the opulent Mysore Palace — a structural blend of Hindu, Islamic, Gothic, and Rajput architectural styles — with tourism peaking dramatically during the annual Mysuru Dasara festival. The broader heritage circuit encompasses the Chamundeshwari Temple atop the Chamundi Hills (featuring its 1,008-step ancient stairway and monolithic Nandi statue), the Brindavan Gardens, and the nearby Hoysala temple ruins, sustaining tens of thousands of formal and informal hospitality jobs across the region.\n\nRunning parallel to this heritage is a deeply entrenched traditional economy of craftsmanship protected by Geographical Indication (GI) tags. Ramanagara is universally recognized as the 'Silk Town' of India, hosting the largest silk cocoon market in Asia and trading upward of 50 tonnes of cocoons daily, which feeds the production of the globally renowned, GI-tagged Mysore Silk anchored by the state-owned Karnataka Silk Industries Corporation (KSIC). The town of Channapatna is internationally renowned for its GI-tagged turnwood lac-ware toys made from locally sourced ivory wood (Wrightia tinctoria) and finished with natural vegetable dyes — though this artisan cluster operates under severe duress from raw material supply chain issues, GST compliance burdens, and competition from mass-produced synthetic imports.\n\nCulturally, the region is defined by an extreme spatial dichotomy: the hyper-cosmopolitan, migrant-driven core of Bengaluru stands in contrast to the deeply traditional, agrarian populations of the interior. Ramanagara city's uniquely balanced religious demography — 51.04% Hindus and 47.65% Muslims — heavily influences the local cultural fabric and the traditional artisanal trades native to the district.",
+      "sources": [
+        {
+          "title": "Karnataka Tour Packages | GT Holidays",
+          "year": null,
+          "url": "https://www.gtholidays.in/packages/india/south-india/karnataka-tour-packages/"
+        },
+        {
+          "title": "KSIC Silk Weaving Factory Mysuru - Mysore Silk Heritage Tour",
+          "year": null,
+          "url": "https://travelsmysuru.com/ksic-silk-weaving-factory/"
+        },
+        {
+          "title": "Ramanagara - Wikipedia",
+          "year": null,
+          "url": "https://en.wikipedia.org/wiki/Ramanagara"
+        }
+      ]
+    },
+    "education": {
+      "topic_label": "Education",
+      "definition": "The formal and informal systems of learning in a region, including schools, higher education, vocational training, literacy levels, and education policy implementation.",
+      "regional_profile": "Education has been a deliberate, state-backed driver of the region's trajectory. Bengaluru's transformation into India's Silicon Valley was predicated on an extensive, mid-20th-century network of engineering and technical institutions, of which the Indian Institute of Science is the emblem. This institutional density is reflected in outcomes: Bengaluru Urban district records a literacy rate of 87.67%, supported by an unparalleled concentration of educational and research institutions.\n\nMysuru operates as a premier counterweight to Bengaluru's dominance in software and IT, anchoring the region's life-sciences and health-education ecosystem. The JSS Academy of Higher Education & Research (JSS AHER), a deemed-to-be university established in 2008 under the aegis of the JSS Mahavidyapeetha, serves as the region's flagship institution. It holds an NAAC A+ grade (3.47 CGPA) and a QS 4-Star rating, and in the 2025 National Institutional Ranking Framework it secured 38th position nationwide in the 'Overall' category, while ranking in the absolute top echelons for Pharmacy (#91 globally in the QS World University Rankings 2026) and Medical Sciences. The institution is heavily engaged in molecular biology and natural product research, contributing to drug development, clinical therapies, and deep-tech patents.\n\nDespite these institutional peaks, human capital across the plateau remains unevenly developed. Multidimensional inequality analyses show that while Bengaluru Urban and coastal districts boast high literacy and HDI scores, interior districts like Mandya and rural Ramanagara suffer structural deficits in secondary education access and modern skill acquisition. This disparity translates into lower employability in the high-paying services sector, trapping large segments of the population in precarious, low-yield agrarian livelihoods. The drain is stark: an estimated 21.73% of Karnataka's total youth population (aged 15-29) resides in Bengaluru, reflecting a systemic lack of planned economic drives outside the capital.",
+      "sources": [
+        {
+          "title": "Demographic Profile of the District - bengaluruurban.nic.in",
+          "year": 2011,
+          "url": "https://bengaluruurban.nic.in/en/demography/"
+        },
+        {
+          "title": "About Us - JSS Academy of Higher Education & Research",
+          "year": null,
+          "url": "https://jssuni.edu.in/jssaher/jssaher-about-us/about-us.html"
+        },
+        {
+          "title": "JSS Mysore Ranking 2025: NIRF, QS, India Today, Outlook",
+          "year": 2025,
+          "url": "https://www.shiksha.com/university/jss-academy-of-higher-education-and-research-mysore-42940/ranking"
+        },
+        {
+          "title": "India Rankings 2025: University - NIRF",
+          "year": 2025,
+          "url": "https://www.nirfindia.org/Rankings/2025/UniversityRanking.html"
+        },
+        {
+          "title": "Population Karnataka | Literacy Rate Karnataka",
+          "year": null,
+          "url": "https://www.karnataka.com/profile/population/"
+        },
+        {
+          "title": "Multidimensional Inequality in Karnataka: An Intra-Regional Analysis",
+          "year": null,
+          "url": "https://www.researchgate.net/publication/350750612_Multidimensional_Inequality_in_Karnataka_An_Intra-Regional_Analysis"
+        }
+      ]
+    },
+    "agriculture": {
+      "topic_label": "Agriculture",
+      "definition": "The cultivation of crops, animal husbandry, fisheries, and allied rural livelihood activities, including land use, irrigation, major produce, and farming communities.",
+      "regional_profile": "Agriculture on the Southern Plateau is dictated by its position in the rain shadow of the Western Ghats and by the hydrology of the Cauvery basin. While coastal and Malnad regions receive up to 7,000 mm of orographic rainfall annually, the interior plateau is comparatively dry and semi-arid, with precipitation declining sharply eastward from Mysuru toward Bengaluru. The agricultural calendar follows a distinct meteorological rhythm: dry summers punctuated by severe 'Kalabaisaki' thunderstorms and pre-monsoon 'mango showers' vital for early horticulture; the primary Southwest Monsoon (June-September); and the Retreating Northeast Monsoon (October-November), whose cyclonic downpours are critical for post-monsoon soil moisture and the Rabi cycle. Soils grade from leached laterites near the Ghats, through red and black soils in the central plateau of Mandya and Mysuru, to highly fertile alluvial tracts along the Cauvery and its tributaries (Arkavathi, Vrushabhavathi, Shimsha).\n\nThe region's agrarian character was permanently transformed by the Krishnarajasagara (KRS) Dam. Following the 1875-76 drought that killed an estimated one-fifth of the Kingdom of Mysore's population, Sir M. Visvesvaraya designed a monumental masonry structure (124 feet high, 8,600 feet long), built between 1911 and 1932 under Maharaja Krishna Raja Wadiyar IV, with the dowager queen-regent reportedly pledging personal jewelry to secure financing. The associated Visvesvaraya Canal network introduced perennial irrigation — initially targeting 150,000 acres — converting Mandya from a barren expanse into the 'Sugar and Paddy Bowl' of Karnataka, structurally supported by agro-processing entities such as the state-run Mysore Sugar Company (MySugar).\n\nThis transformation, however, created a brittle agricultural economy. Mandya's rural livelihoods are structurally dependent on water-intensive monoculture, so any monsoon failure or reduction in KRS water releases translates directly into catastrophic crop failure, severe financial distress, and pervasive rural indebtedness — affecting 77% of Karnataka's farmers — alongside tragically high rates of farmer suicide in the district. In 2023-24, drought-induced crop failures contracted the state's agricultural growth to -1.8%, even as the region's urban economy boomed.",
+      "sources": [
+        {
+          "title": "Karnataka Geography Overview Notes | PDF | Monsoon | Rain - Scribd",
+          "year": null,
+          "url": "https://www.scribd.com/document/754388632/Karnataka-Geography-Qrn"
+        },
+        {
+          "title": "Overview of Mandya District, Karnataka | PDF | Geology - Scribd",
+          "year": null,
+          "url": "https://www.scribd.com/document/96400803/Chapter-1"
+        },
+        {
+          "title": "Krishna Raja Sagara - Wikipedia",
+          "year": null,
+          "url": "https://en.wikipedia.org/wiki/Krishna_Raja_Sagara"
+        },
+        {
+          "title": "A Rural Manifesto: Realizing India's Future Through Her Villages",
+          "year": null,
+          "url": "https://dokumen.pub/a-rural-manifesto-realizing-indias-future-through-her-villages-9353333091-9789353333096.html"
+        },
+        {
+          "title": "Karnataka Economic Survey 2023-24",
+          "year": 2024,
+          "url": "https://www.scribd.com/document/725142622/Economic-Survey-2023-24-Finalenglish-Compressed"
+        }
+      ]
+    },
+    "health": {
+      "topic_label": "Health",
+      "definition": "The healthcare systems, public health conditions, disease burden, and health-related environmental risks affecting a region's population.",
+      "regional_profile": "The region's health ecosystem is anchored in Mysuru's role as a centre for health-sciences education and research. The JSS Academy of Higher Education & Research integrates medical, dental, and pharmaceutical colleges into a cohesive research ecosystem engaged in high-impact molecular biology and natural product research, contributing directly to novel drug development and clinical therapies.\n\nThe most acute public-health findings in the region, however, concern environmental contamination of its waterways. The Vrushabhavathi River, originating in northwestern Bengaluru, has been systematically reduced to an open industrial and municipal sewer, collecting an estimated 500 MLD of untreated or partially treated sewage before entering Ramanagara district, where it is compounded by effluent from silk-reeling and processing units and toxic waste from the Peenya Industrial Area. All of this flows into the Byramangala Reservoir, whose water and sediments carry concentrations of Cadmium, Lead, and Chromium far exceeding WHO permissible limits for aquatic ecosystems. Studies of local bottom-feeder fish species show bioaccumulation that wildly surpasses USEPA safe reference doses, posing profound carcinogenic and systemic health risks to the impoverished populations relying on these fisheries. The toxic water then flows into the Arkavathi and ultimately the Cauvery at Sangama — the region's primary drinking water source.\n\nUrban water stress compounds these risks: because piped supply lags demand, Bengaluru ruthlessly extracts groundwater (estimated between 800 and 1,392 MLD), and a 2025 IISc assessment commissioned by the BWSSB identified 80 of 198 municipal wards as critically over-exploited, while vast swaths of the peripheral city remain disconnected from the piped grid and dependent on an unregulated private tanker market. The persona document's coverage of conventional healthcare infrastructure (hospitals, primary care, insurance) is limited; the health picture here is dominated by these environmental and water-related risks.",
+      "sources": [
+        {
+          "title": "About Us - JSS Academy of Higher Education & Research",
+          "year": null,
+          "url": "https://jssuni.edu.in/jssaher/jssaher-about-us/about-us.html"
+        },
+        {
+          "title": "Arkavathi River Rejuvenation Action Plan | PDF | Sewage - Scribd",
+          "year": null,
+          "url": "https://www.scribd.com/document/821117212/Arkavathi"
+        },
+        {
+          "title": "Assessment of heavy metal pollution in water, sediment, and fish of the river Ganga at Varanasi, India",
+          "year": null,
+          "url": "https://www.researchgate.net/publication/355962362_Assessment_of_heavy_metal_pollution_in_water_sediment_and_fish_of_the_river_Ganga_at_Varanasi_India"
+        },
+        {
+          "title": "Bengaluru Water Clock | Neer Vazhvu",
+          "year": null,
+          "url": "https://neervazhvu.org/bangalore"
+        }
+      ]
+    },
+    "economy": {
+      "topic_label": "Economy",
+      "definition": "The production, employment, income, and wealth structure of a region, including industry, services, agriculture, trade, and key economic institutions.",
+      "regional_profile": "The economic architecture of the Southern Plateau is defined by an extreme dualism. Karnataka's Gross State Domestic Product for 2023-24 was estimated at Rs 25.01 lakh crore, growing at 10.2% and outpacing national GDP growth; the state economy is overwhelmingly dominated by services (67% of Gross State Value Added, fuelled by IT, biotechnology, fintech, and the gig economy concentrated in Bengaluru), with industry contributing roughly 20% and agriculture a mere 13% despite employing a massive segment of the population.\n\nWealth is starkly concentrated: Bengaluru Urban district single-handedly generates 37.8% of the state's GDP, with a per capita income of Rs 7,60,362 against a state average of Rs 3,32,926 — and while interior plateau districts like Mandya and Ramanagara struggle between agrarian stagnation and industrial integration, districts in the Kalaburagi revenue region record per capita incomes as low as Rs 1,66,797. To counter this concentration, the state launched the 'Beyond Bengaluru' policy, establishing sub-sector specific 'plug and play' industrial clusters, incentivizing MSMEs, and promoting IT, ESDM, and deep-tech in secondary agglomerations like Mysuru, which is slowly gaining traction as a secondary IT and manufacturing cluster.\n\nThe physical corridor between the two anchor cities has evolved into a contiguous industrial belt of KIADB nodes: Bidadi (Ramanagara) hosts Toyota Kirloskar Motor and its integrated Tier-1/Tier-2 automotive ecosystem; Harohalli spans medical devices, printing and packaging, bulk pharmaceuticals, plastics, and chemical processing; and Nanjangud (Mysuru) specializes in textiles, pharmaceutical formulations, and large-scale agro-processing linked to the plateau's agricultural output.\n\nLayered over modern manufacturing is a heritage economy of sericulture, GI-tagged crafts, and tourism: Asia's largest silk cocoon market at Ramanagara, the KSIC-anchored Mysore Silk value chain, Channapatna's lac-ware toys, and the Dasara-driven tourism economy centred on Mysore Palace. At the other pole, the water-intensive agrarian economy of Mandya remains brittle, indebted, and distress-prone — the internal contradiction of the region's dual economic structure.",
+      "sources": [
+        {
+          "title": "Karnataka Economic Survey 2023-24",
+          "year": 2024,
+          "url": "https://www.scribd.com/document/725142622/Economic-Survey-2023-24-Finalenglish-Compressed"
+        },
+        {
+          "title": "Karnataka Economic Survey 2022-23 English.pdf - Invest India",
+          "year": 2023,
+          "url": "https://static.investindia.gov.in/s3fs-public/2023-03/Karnataka%20Economic%20Survey%202022-23%20English.pdf"
+        },
+        {
+          "title": "Companies in Bidadi Industrial Area | PDF | Toyota - Scribd",
+          "year": null,
+          "url": "https://www.scribd.com/document/823254866/Bididi-Industries"
+        },
+        {
+          "title": "PLOT NO 325 Y HAROHALLI PHASE II KIADB INDUSTRIAL AREA",
+          "year": null,
+          "url": "https://www.zaubacorp.com/company-by-address/PLOT-NO--325-Y--HAROHALLI-PHASE-II-KIADB-INDUSTRIAL-AREA-HAROHALLI--KANAKAP-URA-TALUK----RAMANAGARA--KARNATAKA--INDIA---562112"
+        },
+        {
+          "title": "Karnataka Tour Packages | GT Holidays",
+          "year": null,
+          "url": "https://www.gtholidays.in/packages/india/south-india/karnataka-tour-packages/"
+        }
+      ]
+    },
+    "transport": {
+      "topic_label": "Transport",
+      "definition": "The mobility and logistics infrastructure of a region, including roads, railways, aviation, transit systems, and freight networks.",
+      "regional_profile": "The region carries a legacy of infrastructure innovation under geographic constraint. In 1902, Shivanasamudra Falls on the Cauvery hosted Asia's first major hydroelectric power station — driven by Dewan K. Seshadri Iyer and engineered by Major Alain Chartier Joly de Lotbiniere with GE generators and Escher Wyss turbines — transmitting 30,000 volts over a 92-mile line through malarial jungles to the Kolar Gold Fields, and enabling Bengaluru to become the first city in Asia with electric street lighting in 1905. Today, infrastructure development struggles to keep pace with hyper-urbanization.\n\nThe arterial spine of the plateau is National Highway 275, upgraded into a 10-lane access-controlled economic corridor linking Bengaluru directly to Mysuru. While it drastically reduced point-to-point commute times, it catalyzed chaotic, unregulated land-use conversion; the paving of agricultural wetlands and blockage of natural drainage channels have caused severe, recurring inundation of the highway near Ramanagara during intense monsoon events, resulting in multi-vehicle collisions.\n\nTo integrate the peri-urban fringe with the core city, the state and the Ministry of Railways formed K-RIDE to execute the Bengaluru Suburban Rail Project (BSRP): a 149-kilometre commuter network in four corridors named after regional flowers — Sampige (KSR Bengaluru City-Devanahalli, 41.40 km), Mallige (Baiyyappanahalli-Chikkabanavara, 25.01 km), Parijaata (Kengeri-Whitefield, 35.52 km), and Kanaka (Heelalige-Rajankunte, 46.24 km). As of 2026, exactly zero kilometres of the BSRP are operational; the project remains mired in land-acquisition bottlenecks, compensation disputes, and chronic inter-agency coordination failures, despite being absolutely critical for workforce mobility and affordable housing in the peri-urban fringe.\n\nAt the corridor's western terminus, Mysuru Airport (Mandakalli) — originally a 1948 airstrip famous for Dakota newspaper drops — is undergoing an Rs 1,820 crore expansion to extend its 1,740-metre runway (limiting operations to ATR-72 turboprops) to 2,300 metres, with a final target of 2,750 by 45 metres, enabling Boeing 737 and Airbus A320 operations. The state released Rs 319.13 crore to acquire 240 acres, and the NHAI is spending roughly Rs 700 crore on a structural underpass routing the Mysuru-Nanjangud Highway beneath the active runway. The expansion will enable high-volume air freight of agro-industrial output, medical devices, and GI-tagged crafts, complementing the nearby CONCOR Multi-Modal Logistics Park at Kadakola.",
+      "sources": [
+        {
+          "title": "Shivanasamudra: when India outpaced Niagara - The Dossier",
+          "year": null,
+          "url": "https://thedossier.in/india-outpaced-niagara/"
+        },
+        {
+          "title": "7 Years On, Flood-Damaged Roads Still Bad Nearly... - Udayavani (Facebook)",
+          "year": null,
+          "url": "https://www.facebook.com/udayavani.webnews/posts/7-%E0%B2%B5%E0%B2%B0%E0%B3%8D%E0%B2%B7%E0%B2%97%E0%B2%B3%E0%B2%BF%E0%B2%82%E0%B2%A6-%E0%B2%B0%E0%B2%B8%E0%B3%8D%E0%B2%A4%E0%B3%86%E0%B2%97%E0%B2%BE%E0%B2%97%E0%B2%BF-%E0%B2%95%E0%B2%BE%E0%B2%AF%E0%B3%81%E0%B2%A4%E0%B3%8D%E0%B2%A4%E0%B2%BF%E0%B2%B0%E0%B3%81%E0%B2%B5-%E0%B2%AE%E0%B2%B2%E0%B3%86%E0%B2%A8%E0%B2%BE%E0%B2%A1%E0%B2%BF%E0%B2%A8-%E0%B2%9C%E0%B2%A8-7-years-on-flood-damaged-roads-sti/1483657670463258/"
+        },
+        {
+          "title": "Mysore Airport runway expansion project to start",
+          "year": null,
+          "url": "https://airport-information.com/data/news/mysore-airport-runway-expansion-project-to-start-67427.html"
+        },
+        {
+          "title": "Bengaluru Suburban Rail 2026: Status, Corridors & Land Guide",
+          "year": 2026,
+          "url": "https://www.talkinglands.com/blogs/bengaluru-suburban-rail-status-corridors"
+        },
+        {
+          "title": "About - KRIDE",
+          "year": null,
+          "url": "https://kride.in/about/"
+        }
+      ]
+    },
+    "demographics": {
+      "topic_label": "Demographics",
+      "definition": "The size, distribution, composition, growth, and migration patterns of a region's population.",
+      "regional_profile": "The corridor's demographic profile is defined by extreme spatial concentration, rapid economic in-migration, and profound stratification — a demographic gradient sloping from the hyper-dense, cosmopolitan core of Bengaluru down into the deeply traditional, agrarian populations of the interior.\n\nBengaluru Urban district stands as the demographic behemoth: a 2011 Census population of approximately 9.62 million with an extraordinary decadal growth rate of 47.18%, driven almost entirely by structural migration tied to the technology, services, and construction sectors. This in-migration — heavily skewed toward male workers — depresses the district's sex ratio to 916 females per 1,000 males, against a literacy rate of 87.67%. Bengaluru's gravitational pull on human capital is severe: an estimated 21.73% of Karnataka's youth population (aged 15-29) resides in the city, and 2026 projections estimate the population has swollen well beyond 14 million.\n\nRamanagara district (carved out of Bangalore Rural in September 2007) is a transitional zone: approximately 1.08 million people (2011), a subdued decadal growth of 5.05%, a balanced sex ratio of 976, and a significantly lower literacy rate of 69.22% (76.76% for males, 61.50% for females) — underscoring its semi-rural, artisanal character despite its proximity to the IT capital. Ramanagara city's religious demography is uniquely balanced at 51.04% Hindus and 47.65% Muslims.\n\nFurther west, Mandya (population ~1.8 million, growth ~2.5%, literacy ~70%, sex ratio 990) is the agrarian, irrigation-dependent hinterland, while Mysuru (population ~3 million, growth 13.39%, literacy 72.79%, sex ratio 985) operates as a secondary urban centre absorbing more localized migration driven by education, heritage tourism, and medium-scale industry.",
+      "sources": [
+        {
+          "title": "Demographic Profile of the District - bengaluruurban.nic.in",
+          "year": 2011,
+          "url": "https://bengaluruurban.nic.in/en/demography/"
+        },
+        {
+          "title": "Ramanagara District - Population 2011-2026",
+          "year": 2011,
+          "url": "https://www.census2011.co.in/census/district/265-ramanagara.html"
+        },
+        {
+          "title": "Population Karnataka | Literacy Rate Karnataka",
+          "year": null,
+          "url": "https://www.karnataka.com/profile/population/"
+        },
+        {
+          "title": "India: Karnataka State (Districts and Subdistricts) - City Population",
+          "year": null,
+          "url": "https://www.citypopulation.de/en/india/karnataka/admin"
+        },
+        {
+          "title": "Overview of Mandya District, Karnataka | PDF | Geology - Scribd",
+          "year": null,
+          "url": "https://www.scribd.com/document/96400803/Chapter-1"
+        }
+      ]
+    },
+    "governance": {
+      "topic_label": "Governance",
+      "definition": "The administrative, civic, and institutional structures through which a region is governed, including municipal bodies, policy frameworks, and inter-governmental mechanisms.",
+      "regional_profile": "Bengaluru's unchecked expansion has fundamentally outpaced its municipal capacity. For decades, the Bruhat Bengaluru Mahanagara Palike (BBMP) operated as a monolithic civic entity managing over 700 square kilometres, with the distinct infrastructural needs of the legacy core versus the expanding periphery rendering this centralized model inefficient, producing severe deficits in service delivery.\n\nIn a radical restructuring, the Karnataka legislature passed the Greater Bengaluru Governance Bill in 2024, dissolving the monolithic BBMP into up to ten smaller municipal corporations, each with an independently elected mayor, under a supervisory Greater Bengaluru Authority (GBA) responsible for coordinating master planning, transit, and environmental management. The bill expands Bengaluru's official boundaries to roughly 1,000 square kilometres, annexing 24 heavily urbanized villages and peri-urban tracts — a dynamic exemplified by Bagaluru in Bengaluru North taluk, where the 2008 establishment of Kempegowda International Airport triggered rapid land sales, converting agrarian self-sufficiency into reliance on the informal service economy. Urban planners, however, warn that fragmenting zoning powers across mayoralties risks fracturing land-use and transport integration and destroying sensitive ecological buffer zones unless the GBA asserts binding authority.\n\nWater governance is the region's most volatile administrative arena. The distribution of Cauvery waters — contested since the colonial-era agreements of 1892 and 1924 between Madras Presidency and princely Mysore — was restructured by the Cauvery Water Disputes Tribunal (constituted 1990, final award 2007) and a landmark 2018 Supreme Court judgment that augmented Karnataka's share to 284.75 TMC, with an additional 4.75 TMC specifically for Bengaluru's drinking water. During monsoon failures, the Cauvery Water Management Authority must arbitrate contentious distress-sharing formulas — ordering releases of, e.g., 3,500 cusecs daily even as the KRS reservoir approaches dead storage — routinely triggering protests and highway blockades by Mandya farmers. The proposed Mekedatu Balancing Reservoir (67 TMC, Rs 9,000-14,000 crore, near Kanakapura) has drawn unanimous opposition resolutions from the Tamil Nadu legislature, though the Union Jal Shakti Ministry clarified to Parliament that Karnataka does not explicitly require Tamil Nadu's permission for an in-state drinking water project; the matter remains before the Supreme Court.",
+      "sources": [
+        {
+          "title": "How will Greater Bengaluru Governance Bill impact the real estate sector in the IT capital - Hindustan Times",
+          "year": 2025,
+          "url": "https://www.hindustantimes.com/real-estate/how-will-greater-bengaluru-governance-bill-impact-the-real-estate-sector-in-the-it-capital-101746123445365.html"
+        },
+        {
+          "title": "Karnataka Assembly passes Greater Bengaluru Governance Bill to decentralise Bengaluru's civic body - Hindustan Times",
+          "year": 2025,
+          "url": "https://www.hindustantimes.com/real-estate/karnataka-assembly-passes-greater-bengaluru-governance-bill-to-decentralise-bengaluru-s-civic-body-101755615303521.html"
+        },
+        {
+          "title": "The Cauvery River Water Dispute: A Human Rights Perspective",
+          "year": 2025,
+          "url": "https://www.sciencepublishinggroup.com/article/10.11648/j.jppa.20250901.12"
+        },
+        {
+          "title": "THE CAUVERY WATER DISPUTE: POLITICAL AND SOCIAL",
+          "year": null,
+          "url": "https://ijiemr.org/public/uploads/paper/572301731302565.pdf"
+        },
+        {
+          "title": "The many questions about Mekedatu - The Statesman",
+          "year": null,
+          "url": "https://www.thestatesman.com/opinion/many-questions-mekedatu-1502997260.html"
+        }
+      ]
+    }
+  }
+}

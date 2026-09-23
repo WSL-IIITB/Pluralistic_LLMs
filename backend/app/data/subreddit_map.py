@@ -123,72 +123,9 @@ SUBREDDIT_DISTRICT_MAP: dict[str, SubredditEntry] = {
 }
 
 
-def _build_state_subreddit_index() -> dict[str, str]:
-    """
-    Reverse index: state_code -> the single best subreddit to target for a
-    state-scoped Reddit search. Prefers the whole-state subreddit (covers the
-    whole state, not just one city) when one exists; falls back to the first
-    city subreddit found for that state_code otherwise (covers Delhi, Goa,
-    Puducherry, J&K and other UTs/states that only have city-tier entries).
-    """
-    index: dict[str, str] = {}
-    # Pass 1: whole-state entries (district_id is None, state_code is set).
-    for name, entry in SUBREDDIT_DISTRICT_MAP.items():
-        state_code = entry.get("state_code")
-        if state_code and entry.get("district_id") is None:
-            index.setdefault(state_code, name)
-    # Pass 2: fill any remaining state_codes from city-tier entries.
-    for name, entry in SUBREDDIT_DISTRICT_MAP.items():
-        state_code = entry.get("state_code")
-        if state_code and state_code not in index:
-            index[state_code] = name
-    return index
-
-
-STATE_SUBREDDIT: dict[str, str] = _build_state_subreddit_index()
-
-# Census/LGD state-code prefixes grouped into rough geographic regions, used
-# only to INTERLEAVE the state query order below so that even a small
-# "reasoning level" surveys multiple regions rather than sweeping through one
-# corner of the country first.
-_REGION_CODES: dict[str, list[str]] = {
-    "north": ["01", "02", "03", "04", "05", "06", "07", "08", "09"],
-    "east_northeast": ["10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"],
-    "central": ["21", "22", "23"],
-    "west": ["24", "25", "26", "27"],
-    "south": ["28", "29", "30", "31", "32", "33", "34", "35", "36", "37"],
-}
-
-
-def _build_region_interleaved_state_order() -> list[str]:
-    """All state_codes we have subreddit coverage for, round-robin ordered
-    across regions (one state per region per pass) for balanced, region-
-    diverse sourcing at every "reasoning level", not just the highest one."""
-    available = set(STATE_SUBREDDIT.keys())
-    buckets = [[code for code in codes if code in available] for codes in _REGION_CODES.values()]
-    order: list[str] = []
-    while any(buckets):
-        for bucket in buckets:
-            if bucket:
-                order.append(bucket.pop(0))
-    return order
-
-
-STATE_PRIORITY_ORDER: list[str] = _build_region_interleaved_state_order()
-
-
 def _state_names_from_gazetteer(gazetteer: dict) -> dict[str, str]:
-    """state_code -> state_name, derived from the same district gazetteer
-    every other geo-aware stage reads (see resolve_district.py's
-    _build_indices for the identical "derive a lookup from the raw gazetteer
-    once" pattern) -- avoids a second, potentially-drifting static state-name
-    table. Relocated here (from graph/build.py, its original home) so
-    graph/nodes/research.py can use it too, alongside graph/build.py's own
-    source_posts -- this module already owns STATE_PRIORITY_ORDER, the other
-    half of "which states, and what are they called" that both call sites
-    need, so putting both in one place avoids a research.py <-> build.py
-    import cycle (research.py cannot import from build.py, which itself
-    imports graph/nodes/research.py)."""
+    """state_code -> state_name, derived from the district gazetteer (used by
+    the Data View's router)."""
     names: dict[str, str] = {}
     for candidates in gazetteer.values():
         for cand in candidates:

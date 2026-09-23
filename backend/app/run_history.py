@@ -47,6 +47,10 @@ def _get_db() -> sqlite3.Connection:
         """
     )
     conn.execute("CREATE INDEX IF NOT EXISTS idx_saved_runs_created_at ON saved_runs(created_at)")
+    # Runs saved before the Karnataka pivot are India-wide, district-level.
+    columns = {row[1] for row in conn.execute("PRAGMA table_info(saved_runs)")}
+    if "scope" not in columns:
+        conn.execute("ALTER TABLE saved_runs ADD COLUMN scope TEXT NOT NULL DEFAULT 'india-districts'")
     return conn
 
 
@@ -65,8 +69,8 @@ def save_run(payload: dict) -> dict:
             """
             INSERT OR REPLACE INTO saved_runs
                 (id, query, query_type, mode, provider, created_at,
-                 districts_count, clusters_count, deflections_count, data)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                 districts_count, clusters_count, deflections_count, data, scope)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """,
             (
                 run_id,
@@ -75,10 +79,11 @@ def save_run(payload: dict) -> dict:
                 payload["mode"],
                 payload["provider"],
                 created_at,
-                len(payload.get("districts") or {}),
+                len(payload.get("regionStats") or payload.get("districts") or {}),
                 len(payload.get("clusters") or {}),
                 len(payload.get("deflections") or []),
                 json.dumps(payload),
+                "karnataka-regions" if "regionStats" in payload else "india-districts",
             ),
         )
         conn.commit()
@@ -94,7 +99,7 @@ def list_runs(limit: int = 50) -> list[dict]:
         rows = conn.execute(
             """
             SELECT id, query, query_type, mode, provider, created_at,
-                   districts_count, clusters_count, deflections_count
+                   districts_count, clusters_count, deflections_count, scope
             FROM saved_runs ORDER BY created_at DESC LIMIT ?
             """,
             (limit,),
@@ -109,9 +114,10 @@ def list_runs(limit: int = 50) -> list[dict]:
             "mode": r[3],
             "provider": r[4],
             "createdAt": r[5],
-            "districtsCount": r[6],
+            "areasCount": r[6],
             "clustersCount": r[7],
             "deflectionsCount": r[8],
+            "scope": r[9],
         }
         for r in rows
     ]

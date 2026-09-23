@@ -5,10 +5,12 @@ import { CollapseButton, CollapsedPill } from "@/components/dashboard/CollapseTo
 import { useCollapsible } from "@/hooks/use-collapsible";
 import {
   clusterColor,
+  KARNATAKA_REGIONS,
   rgbaCss,
   useWorldviewStore,
   type AnswerSegment,
   type ClusterId,
+  type KarnatakaRegionMeta,
   type QueryType,
   type ResearchDocument,
 } from "@/lib/worldview";
@@ -107,7 +109,16 @@ export function ConsolidatedPanel() {
   const [detailsOpen, setDetailsOpen] = useState(false);
   const { collapsed, expand, collapse } = useCollapsible();
 
-  const { tldr, inline, bullets, details } = useMemo(() => layoutSegments(answer), [answer]);
+  const overview = useMemo(() => answer.filter((a) => !a.regionId), [answer]);
+  const { tldr, inline, bullets, details } = useMemo(() => layoutSegments(overview), [overview]);
+  const regionReplies = useMemo(
+    () =>
+      KARNATAKA_REGIONS.map((meta) => ({
+        meta,
+        segments: answer.filter((a) => a.regionId === meta.id),
+      })).filter((r) => r.segments.length > 0),
+    [answer],
+  );
   const isStreaming = runState === "streaming" || runState === "connecting";
   const hasAnswer = answer.length > 0;
 
@@ -240,6 +251,17 @@ export function ConsolidatedPanel() {
             </div>
           )}
 
+          {regionReplies.length > 0 && (
+            <div className="mt-4 border-t border-panel-border pt-3">
+              <p className="label-micro">Persona replies by region</p>
+              <div className="mt-2.5 space-y-3">
+                {regionReplies.map((r) => (
+                  <RegionReply key={r.meta.id} meta={r.meta} segments={r.segments} />
+                ))}
+              </div>
+            </div>
+          )}
+
           {isStreaming && hasAnswer && (
             <span
               className="mt-2 inline-block h-3.5 w-[2px] animate-pulse bg-primary align-middle"
@@ -251,6 +273,59 @@ export function ConsolidatedPanel() {
         </div>
       </div>
     </section>
+  );
+}
+
+function RegionReply({ meta, segments }: { meta: KarnatakaRegionMeta; segments: AnswerSegment[] }) {
+  const [open, setOpen] = useState(true);
+  const tldr = segments.find((s) => s.kind === "tldr");
+  const rest = segments.filter((s) => s !== tldr);
+  return (
+    <div className="rounded-lg border border-panel-border bg-background/30 px-3 py-2.5">
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        aria-expanded={open}
+        className="flex w-full items-center gap-2 text-left"
+      >
+        <span
+          className="size-2.5 shrink-0 rounded-[3px]"
+          style={{ backgroundColor: rgbaCss(meta.color) }}
+          aria-hidden
+        />
+        <span className="flex-1 text-[12px] font-medium text-foreground">{meta.shortName}</span>
+        <ChevronDown
+          className={
+            "size-3 text-muted-foreground transition-transform " + (open ? "" : "-rotate-90")
+          }
+          aria-hidden
+        />
+      </button>
+      {tldr && (
+        <p className="mt-1.5 text-[12.5px] leading-relaxed text-foreground/90">{tldr.text}</p>
+      )}
+      {open && rest.length > 0 && (
+        <ul className="mt-2 space-y-1.5">
+          {rest.map((seg, i) => (
+            <li
+              key={i}
+              className={
+                "text-[12px] leading-snug " +
+                (seg.kind === "recommendation"
+                  ? "text-muted-foreground"
+                  : "text-muted-foreground/75")
+              }
+            >
+              {seg.kind === "recommendation" && (
+                <span className="mr-1.5 text-muted-foreground/50">•</span>
+              )}
+              {seg.text}
+              {seg.citations && <CitationMarks ids={seg.citations} />}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
   );
 }
 
@@ -326,7 +401,7 @@ function EmptyState({ isStreaming }: { isStreaming: boolean }) {
     return (
       <div className="space-y-2.5 py-1" aria-live="polite">
         <p className="text-[13px] text-muted-foreground/70">
-          Synthesizing the consolidated answer…
+          Synthesizing the Karnataka-wide answer…
         </p>
         <div className="space-y-2">
           <div className="h-2.5 w-[92%] animate-pulse rounded bg-white/5" />
@@ -338,9 +413,10 @@ function EmptyState({ isStreaming }: { isStreaming: boolean }) {
   }
   return (
     <p className="text-[13px] leading-relaxed text-muted-foreground/70">
-      Enter a topic and press <span className="text-foreground">Explore</span>. As posts are sourced
-      and clustered, an all-views-inclusive answer is synthesized here — each viewpoint traceable to
-      the region it came from, with citations to the sources used.
+      Enter a topic and press <span className="text-foreground">Explore</span>. Posts and sources
+      are gathered across Karnataka's four regions, then a Karnataka-wide answer and one persona
+      reply per region — Mysuru-Bengaluru, North Karnataka, Karavali and Malnad — are written here,
+      with citations to the sources used.
     </p>
   );
 }

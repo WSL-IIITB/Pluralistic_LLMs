@@ -39,3 +39,10 @@ GeoJSON is in this folder with:
 ```sh
 node scripts/generate-mock-districts.mjs
 ```
+
+## `karnataka-regions.geojson`
+
+Story View's map: Karnataka's four persona regions, dissolved from the Karnataka
+districts above using the membership in `backend/app/data/karnataka_regions.json`.
+Regenerate after changing either: `python -m app.data.build_karnataka_regions_geo`
+(from `backend/`, needs `shapely`).

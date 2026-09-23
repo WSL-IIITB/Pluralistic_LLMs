@@ -97,8 +97,11 @@ export function HistoryPanel({ onOpenRun }: HistoryPanelProps) {
                   <p className="truncate text-[13px] text-foreground">{run.query}</p>
                   <p className="mt-0.5 truncate text-[11px] text-muted-foreground/60">
                     {new Date(run.createdAt).toLocaleString()} · {MODE_LABEL[run.mode] ?? run.mode}{" "}
-                    · {PROVIDER_LABEL[run.provider] ?? run.provider} · {run.districtsCount}{" "}
-                    districts · {run.clustersCount} clusters
+                    · {PROVIDER_LABEL[run.provider] ?? run.provider} ·{" "}
+                    {run.scope === "india-districts"
+                      ? `India-wide (legacy) · ${run.areasCount} districts`
+                      : `${run.areasCount} regions`}{" "}
+                    · {run.clustersCount} clusters
                     {run.deflectionsCount > 0 ? ` · ${run.deflectionsCount} deflections` : ""}
                   </p>
                 </div>

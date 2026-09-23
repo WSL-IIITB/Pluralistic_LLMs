@@ -15,17 +15,12 @@ import {
 import {
   clusterColor,
   legendClusters,
-  legendGroups,
   legendGroupsByRegion,
   rgbaCss,
   useWorldviewStore,
   type ClusterDatum,
   type ClusterId,
 } from "@/lib/worldview";
-import { useDistrictGeo } from "./map/useDistrictGeo";
-
-/** Unifies `legendGroups()` (state) and `legendGroupsByRegion()` (region) —
- * same shape/rationale as LegendPanel.tsx's own `Group`. */
 interface Group {
   key: string;
   label: string;
@@ -40,29 +35,17 @@ export function DeflectionPanel() {
   const pair = useWorldviewStore((s) => s.deflectionPair);
   const setDeflectionPair = useWorldviewStore((s) => s.setDeflectionPair);
   const setHoveredCluster = useWorldviewStore((s) => s.setHoveredCluster);
-  const { geo } = useDistrictGeo();
   const { collapsed, expand, collapse } = useCollapsible();
 
   const items = legendClusters(clusters, order);
-  // Data-driven, not mode-driven — see LegendPanel.tsx's identical check.
-  // Region is preferred whenever present; state is the fallback for older
-  // saved runs predating region-inference.
-  const isRegionGrouped = items.some((c) => c.regionId != null);
-  const isStateGrouped = !isRegionGrouped && items.some((c) => c.stateCode != null);
-  const isGrouped = isRegionGrouped || isStateGrouped;
-  const groups: Group[] = isRegionGrouped
+  const isGrouped = items.some((c) => c.regionId != null);
+  const groups: Group[] = isGrouped
     ? legendGroupsByRegion(clusters, order, regions).map((g) => ({
         key: g.regionId,
         label: g.regionName,
         clusters: g.clusters,
       }))
-    : isStateGrouped
-      ? legendGroups(clusters, order).map((g) => ({
-          key: g.stateCode,
-          label: geo?.states[g.stateCode]?.stateName ?? g.stateCode,
-          clusters: g.clusters,
-        }))
-      : [];
+    : [];
 
   // Preselect the first discovered deflection so the panel + arc show something.
   useEffect(() => {

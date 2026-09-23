@@ -127,208 +127,10 @@ class LLMClient(Protocol):
         """Return (point_of_deflection, confidence) for a co-occurring cluster pair."""
         ...
 
-    async def propose_regions(self, groups: list[dict]) -> list[dict]:
-        """
-        extrahigh-mode-only, region-inference stage (see
-        graph/nodes/infer_regions.py). `groups` are NUMERIC partitions of
-        resolved districts (silhouette-swept district-averaged-embedding
-        clusters, computed with zero LLM involvement) -- this call's ONLY job
-        is to name and justify each group, never to repartition districts
-        itself. Each entry: {"group_index": int, "districts": [{"district_id",
-        "district_name", "state_name", "state_code", "centroid": [lng, lat]},
-        ...], "sample_texts": [str, ...]}.
-
-        Return exactly one entry per input group (same group_index set, no
-        additions/omissions): {"group_index": int, "name": str (short,
-        e.g. "Deccan Plateau belt"), "justification": str (one sentence,
-        grounded in sample_texts and/or shared geography, not just
-        "these districts are near each other")}.
-
-        The caller code-validates the group_index set matches exactly and
-        falls back to an auto-generated name for any group this call drops or
-        can't be matched back to -- never trust this call alone to account
-        for every district.
-        """
-        ...
-
-    async def critique_regions(self, regions: list[dict]) -> dict:
-        """
-        Holistic pass over the FULL proposed region set (not one call per
-        region -- cheaper, and lets the model compare regions against each
-        other for e.g. "region X is basically empty next to region Y").
-        `regions`: [{"region_id": str, "name": str, "justification": str,
-        "districts": [{"district_id", "district_name", "state_name"}, ...]},
-        ...].
-
-        Check three things: (1) thematic coherence -- does the justification
-        actually track shared content, not just proximity; (2) geographic
-        sanity -- cross-state regions are EXPECTED and fine, but flag wild,
-        implausible scatter; (3) granularity -- no singleton-fragmented
-        regions, no one region swallowing nearly every district.
-
-        Return {"approved": bool, "notes": str (brief reasoning either way),
-        "flagged_district_ids": list[str] (districts that seem misplaced --
-        empty if approved or if nothing specific stood out)}.
-        """
-        ...
-
-    async def revise_regions(self, regions: list[dict], critique: dict) -> list[dict]:
-        """
-        Called only when critique_regions returned approved=False, and only
-        once (see reasoning_modes.REGION_REVISION_ROUND_CAP) -- the caller
-        never re-critiques a revision, so this is the one chance to act on
-        `critique`. May ONLY rename a region, merge two regions together, or
-        move a `flagged_district_ids` district to a different existing
-        region -- must NEVER invent a new region or drop a district; the
-        caller code-validates that the returned district-id set exactly
-        equals the input's (same districts, just possibly regrouped/renamed/
-        merged) and that no region ends up empty, discarding the whole
-        revision (keeping the pre-revision `regions`) if that invariant is
-        violated.
-
-        Return the full revised region list, same shape as `regions` but with
-        `district_ids: list[str]` in place of the fuller `districts` list:
-        [{"region_id": str, "name": str, "justification": str,
-        "district_ids": list[str]}, ...].
-        """
-        ...
-
     async def judge_text_relevance(self, question: str) -> bool:
         """Generic yes/no judgment call, phrased as a plain question expecting
-        exactly "yes" or "no". Used by region_kb.py to decide whether a past
-        region's inferred worldview still usefully conditions reasoning about
-        a new region/query -- kept generic (not region-specific) rather than
-        a region_kb-only method, in case a later caller needs the same
-        yes/no-judgment shape for something else.
-
-        Implementations should fail CLOSED (return False) on any error -- a
-        false "yes" risks conditioning reasoning on stale/irrelevant context,
-        whereas a false "no" only costs one skipped (but harmless) reuse
-        opportunity. Mirrors research_cache.py's `_judge_reusable` in spirit,
-        but goes through the run's own LLMClient instead of a hardcoded local
-        model, since callers here already have `llm` in hand.
-        """
-        ...
-
-    async def condition_answer_for_region(
-        self,
-        query: str,
-        query_type: str,
-        baseline_segments: list[dict],
-        region_name: str,
-        region_clusters: list[dict],
-        region_deflections: list[dict],
-        past_worldview: str | None,
-        mode: ResearchMode = "extrahigh",
-    ) -> list[dict]:
-        """
-        Two-pass synthesis, PASS 2 (see synthesize_answer for pass 1, which
-        graph/nodes/deflection_and_synthesis.py calls in a region-BLIND way
-        for extrahigh runs -- clusters_payload has state/region fields
-        stripped and `mode` downgraded to a non-extrahigh value specifically
-        so pass 1 can't condition on region at all). `baseline_segments` is
-        that region-blind pass-1 output (AnswerSegment-shaped dicts).
-
-        Given THIS region's own actual clusters/deflections (which may agree
-        with or diverge from the baseline) and, if graph/region_kb.py found a
-        match, `past_worldview` -- a blended digest of this region's
-        previously-inferred worldview/priorities from past runs on OTHER
-        queries -- produce a SMALL set of segments stating specifically how
-        this region's real discourse differs from (or notably reinforces)
-        the national baseline, and why. Frame each as an explicit contrast:
-        "Nationally X, but in {region_name}, Y, because Z." This is a
-        targeted diff, not an independent full re-synthesis -- cheaper and
-        more focused than resynthesizing from scratch per region.
-
-        Never invent a difference that isn't supported by region_clusters/
-        region_deflections/past_worldview -- if this region's discourse
-        genuinely agrees with the baseline, returning fewer segments (even
-        just one, or none) is correct; do not manufacture contrast for its
-        own sake.
-
-        `past_worldview` is None when no knowledge-base match was found or
-        the lookup failed -- must degrade gracefully (condition purely off
-        region_clusters/region_deflections in that case), never treat it as
-        required.
-
-        Return AnswerSegment-shaped dicts: {"text": str, "kind": "body"|
-        "recommendation" (optional), "clusterId": str (optional),
-        "citations": int[] (optional)}. The caller (not this method) attaches
-        `region`/`regionId` -- there's no need to restate which region this
-        is inside the segment text or fields.
-        """
-        ...
-
-    async def condition_answer_for_state(
-        self,
-        query: str,
-        query_type: str,
-        baseline_segments: list[dict],
-        state_name: str,
-        state_research_documents: list[dict],
-        state_clusters: list[dict],
-        state_deflections: list[dict],
-        state_districts: list[dict],
-        mode: ResearchMode = "extrahigh",
-    ) -> list[dict]:
-        """
-        Two-pass synthesis, PASS 3 (extrahigh-mode only) -- runs AFTER
-        `condition_answer_for_region` (pass 2) in
-        graph/nodes/deflection_and_synthesis.py's `condition_states` node.
-        `baseline_segments` is the SAME region-blind pass-1 baseline
-        `condition_answer_for_region` was given (from
-        `state["baseline_answer_segments"]`, a stable snapshot -- NOT the
-        ever-growing `answer_segments`, which by this point also holds pass
-        2's region-conditioned output).
-
-        Unlike `condition_answer_for_region`, this call is given TWO
-        DISTINCT, SEPARATELY-SOURCED inputs rather than one blended context,
-        per the product requirement that a state's narrative keep these
-        visibly apart, never blended into one undifferentiated paragraph:
-          - `state_research_documents`: mainstream/official media and
-            government web sources gathered SPECIFICALLY for this state (from
-            graph/nodes/research.py's `gather_research_per_state`, filtered by
-            each document's `source_state_code` -- these carry the SAME `id`s
-            as the run's overall Sources list, since they're a filtered slice
-            of `state["research_documents"]`, not a re-numbered one).
-          - `state_clusters` / `state_deflections`: this state's own
-            User-Generated, social-media viewpoint clusters and the points of
-            disagreement among them (from
-            graph/nodes/deflection_and_synthesis.py's
-            `_state_clusters_payload`/`_state_deflections_payload` -- a
-            cluster's `postCount` here is this state's own TRUE share of that
-            cluster's volume, re-aggregated from each district's real
-            state_code, not a cluster's own only-representative-in-region-mode
-            one).
-        `state_districts` is a per-district volume breakdown for this state,
-        for naming specific districts when the source data supports it.
-
-        Your job: produce SEPARATE segments for each source type -- one or
-        more grounded ONLY in `state_research_documents` (citing them), then
-        one or more grounded ONLY in `state_clusters`/`state_deflections` --
-        each stating specifically how that source's picture of this state
-        differs from, or reinforces, the national baseline, and why. Never
-        blend the two source types into one segment. Never invent a
-        difference with no support in the given data -- if a source type
-        genuinely agrees with the baseline (or is empty/thin for this state),
-        return fewer segments for it (even zero) rather than manufacturing
-        contrast.
-
-        `state_research_documents`/`state_clusters` may each independently be
-        empty (a state can have social-media signal with thin research
-        coverage, or vice versa) -- degrade gracefully, producing segments
-        only for whichever source type actually has content, never fail or
-        fabricate the missing side.
-
-        Return AnswerSegment-shaped dicts: {"text": str, "kind": "body"|
-        "recommendation" (optional), "clusterId": str (optional), "citations":
-        int[] (optional -- only for segments grounded in
-        state_research_documents, using THOSE documents' own `id` fields; do
-        NOT invent ids, and never attach citations to a social-media-grounded
-        segment, which has no source list to cite). The caller (not this
-        method) attaches `state`/`stateCode` -- there's no need to restate
-        which state this is inside the segment text or fields.
-        """
+        exactly "yes" or "no" (build.py's per-post relevance gate). Fails
+        CLOSED (returns False) on any error."""
         ...
 
     async def synthesize_answer(
@@ -368,6 +170,33 @@ class LLMClient(Protocol):
         Return a list of AnswerSegment-shaped dicts:
         {"text": str, "kind": "heading"|"body"|"recommendation", "clusterId"?: str, "region"?: str, "citations"?: list[int]}
         """
+        ...
+
+    async def answer_for_region(
+        self,
+        query: str,
+        query_type: str,
+        region_name: str,
+        persona_prompt: str | None,
+        research_documents: list[dict],
+        clusters: list[dict],
+        deflections: list[dict],
+        mode: ResearchMode = "medium",
+    ) -> list[dict]:
+        """One Karnataka region's reply to `query`, grounded in that region's
+        evidence. `persona_prompt` (data/personas via karnataka.build_persona_prompt)
+        is the ONLY input that differs between the persona reply and the
+        divergence stage's no-persona reply -- implementations must keep
+        everything else identical. Returns AnswerSegment-shaped dicts
+        ({text, kind: "tldr"|"recommendation"|"body", clusterId?, citations?}).
+        Raises on failure instead of falling back to stub text: a fabricated
+        reply would silently corrupt the divergence measurement."""
+        ...
+
+    async def extract_points(self, text: str) -> list[str]:
+        """Split a reply into its distinct substantive points (short standalone
+        sentences, the text's own specifics kept). Raises on failure, for the
+        same reason as answer_for_region."""
         ...
 
     async def generate_verdict(

@@ -20,6 +20,7 @@ from sse_starlette.sse import EventSourceResponse
 from .config import get_settings
 from .dataview.router import router as dataview_router
 from .graph.build import counts_from_state, run_pipeline
+from .karnataka import persona_payload, persona_regions
 from .reasoning_modes import parse_mode, parse_provider
 from .run_history import delete_run, get_run, list_runs, save_run
 from .schema import DoneEvent, QueryStartedEvent, StreamErrorEvent, WorldviewEvent, event_to_sse_data
@@ -46,6 +47,12 @@ def healthz() -> dict:
         "has_youtube": settings.has_youtube,
         "has_remote_gemma": settings.has_remote_gemma,
     }
+
+
+@app.get("/api/personas")
+def personas() -> list[dict]:
+    """The four Karnataka persona regions, as built from data/personas/*.json."""
+    return [persona_payload(r["id"]) for r in persona_regions()]
 
 
 @app.get("/api/worldview/stream")

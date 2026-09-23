@@ -2,10 +2,9 @@
  * Client-only deck.gl map. Lazy-loaded by WorldviewMap so none of this — deck.gl,
  * mapbox-gl, or the mapbox CSS — is ever imported during SSR.
  *
- * Renders extruded 3D viewpoint columns over India, a subtle district choropleth
- * floor, deflection arcs, split-state highlights, and (optionally) a Mapbox dark
- * basemap when VITE_MAPBOX_TOKEN is set. With no token it draws on the dark
- * canvas alone — fully functional, just without street-level context.
+ * Story View: Karnataka's four persona regions — region fills, per-viewpoint 3D
+ * columns, deflection arcs. Data View: the India-wide district choropleth.
+ * Optional Mapbox dark basemap when VITE_MAPBOX_TOKEN is set.
  */
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
@@ -23,9 +22,10 @@ import Map from "react-map-gl/mapbox";
 import "mapbox-gl/dist/mapbox-gl.css";
 
 import {
-  computeStateDiversity,
   INDIA_VIEW,
-  splitStateCodes,
+  KARNATAKA_VIEW,
+  regionShortName,
+  splitRegionIds,
   useWorldviewStore,
   viewTierForZoom,
   ZOOM_TIERS,
@@ -36,7 +36,8 @@ import {
 import type { BBox, DistrictGeo } from "@/lib/worldview/geo/districts";
 import { useDataViewStore } from "@/lib/dataview/store";
 import type { NumericDomain } from "@/lib/dataview/palette";
-import { buildLayers, computeRepresentativeCentroids, type DataViewLayerParams } from "./layers";
+import { buildLayers, computeColumnPositions, type DataViewLayerParams } from "./layers";
+import { useRegionGeo, type RegionFeatureProps } from "./useRegionGeo";
 import { useStateGeo } from "./useStateGeo";
 
 interface DeckMapProps {
@@ -75,6 +76,15 @@ function escapeHtml(input: string): string {
   return input.replace(/[&<>"']/g, (ch) => HTML_ESCAPES[ch] ?? ch);
 }
 
+/** Story View picking: a region polygon, or a viewpoint column (carries regionId). */
+function pickRegion(info: PickingInfo): string | null {
+  const o = info.object as unknown;
+  if (!o || typeof o !== "object") return null;
+  if ("regionId" in o) return (o as { regionId: string }).regionId;
+  const p = (o as { properties?: Partial<RegionFeatureProps> }).properties;
+  return p?.regionId ?? null;
+}
+
 function pickDistrict(info: PickingInfo): PickedDistrict | null {
   const o = info.object as unknown;
   if (!o || typeof o !== "object") return null;
@@ -95,12 +105,14 @@ export default function DeckMap({
   onViewTierChange,
   dataViewActive = false,
 }: DeckMapProps) {
-  const [viewState, setViewState] = useState<ViewState>(INDIA_VIEW);
+  const [viewState, setViewState] = useState<ViewState>(
+    dataViewActive ? INDIA_VIEW : KARNATAKA_VIEW,
+  );
   const sizeRef = useRef<{ width: number; height: number }>({ width: 1280, height: 800 });
   const tierRef = useRef<ViewTier>(viewTierForZoom(INDIA_VIEW.zoom));
 
   // Store slices (each change re-renders the map, which is what we want live).
-  const districts = useWorldviewStore((s) => s.districts);
+  const regionStats = useWorldviewStore((s) => s.regionStats);
   const clusters = useWorldviewStore((s) => s.clusters);
   const deflections = useWorldviewStore((s) => s.deflections);
   const toggles = useWorldviewStore((s) => s.layers);
@@ -153,52 +165,49 @@ export default function DeckMap({
   );
 
   const stateGeo = useStateGeo();
+  const regionGeo = useRegionGeo();
   const tier = viewTierForZoom(viewState.zoom);
 
-  const stateDiversity = useMemo(() => computeStateDiversity(districts), [districts]);
-  const splitStates = useMemo(() => splitStateCodes(stateDiversity), [stateDiversity]);
-  // Deliberately keyed only on [districts, geo] -- NOT hoveredClusterId/
-  // selection/deflectionPair, which `layers` below also depends on. Hoisted
-  // out of buildLayers() specifically so hovering a Legend/Deflection row
-  // doesn't re-scan every district per cluster on each hover event; see
-  // computeRepresentativeCentroids's doc comment in layers.ts.
-  const representativeCentroids = useMemo(
-    () => computeRepresentativeCentroids(districts, geo),
-    [districts, geo],
+  const splitRegions = useMemo(() => splitRegionIds(regionStats), [regionStats]);
+  // Keyed only on [regionStats, regionGeo], NOT hover/selection — hovering a
+  // legend row must not recompute every column position.
+  const columnPositions = useMemo(
+    () => computeColumnPositions(regionStats, regionGeo),
+    [regionStats, regionGeo],
   );
 
   const layers = useMemo(
     () =>
       buildLayers({
         geo,
-        stateGeo,
         tier,
-        districts,
+        stateGeo,
+        regionGeo,
+        regionStats,
         clusters,
-        stateDiversity,
-        splitStates,
+        splitRegions,
         toggles,
         selection,
         hoveredClusterId,
         deflections,
         deflectionPair,
-        representativeCentroids,
+        columnPositions,
         dataView: dataViewParams,
       }),
     [
       geo,
-      stateGeo,
       tier,
-      districts,
+      stateGeo,
+      regionGeo,
+      regionStats,
       clusters,
-      stateDiversity,
-      splitStates,
+      splitRegions,
       toggles,
       selection,
       hoveredClusterId,
       deflections,
       deflectionPair,
-      representativeCentroids,
+      columnPositions,
       dataViewParams,
     ],
   );
@@ -254,6 +263,8 @@ export default function DeckMap({
     if (!wasActive && dataViewActive) {
       setViewState(INDIA_VIEW);
       useDataViewStore.getState().clearSelection();
+    } else if (wasActive && !dataViewActive) {
+      setViewState(KARNATAKA_VIEW);
     }
   }, [dataViewActive]);
 
@@ -290,8 +301,20 @@ export default function DeckMap({
 
   const handleClick = useCallback(
     (info: PickingInfo) => {
+      if (!dataViewActive) {
+        const regionId = pickRegion(info);
+        const store = useWorldviewStore.getState();
+        if (!regionId) {
+          store.clearSelection();
+          return;
+        }
+        store.select({ kind: "region", id: regionId });
+        const feature = regionGeo?.features.find((f) => f.properties.regionId === regionId);
+        if (feature) flyToBBox(feature.properties.bbox, 7);
+        return;
+      }
       const picked = pickDistrict(info);
-      const store = dataViewActive ? useDataViewStore.getState() : useWorldviewStore.getState();
+      const store = useDataViewStore.getState();
       if (!picked) {
         store.clearSelection();
         return;
@@ -317,27 +340,38 @@ export default function DeckMap({
         }
       }
     },
-    [geo, viewState.zoom, flyToBBox, dataViewActive],
+    [geo, regionGeo, viewState.zoom, flyToBBox, dataViewActive],
   );
 
   const getTooltip = useCallback(
     (info: PickingInfo): { html: string; style: Record<string, string> } | null => {
-      const picked = pickDistrict(info);
-      if (!picked) return null;
-      const store = useWorldviewStore.getState();
-      const d = store.districts[picked.districtId];
-      const loaded = geo.districts[picked.districtId];
-      const name = loaded?.name ?? picked.districtId;
-      const stateName = loaded?.stateName ?? "";
-      const clusterId: ClusterId | null = d?.clusterId ?? null;
-      const label = clusterId ? (store.clusters[clusterId]?.label ?? clusterId) : "no data yet";
-      const conf = d ? d.confidence : "—";
-      const vol = d ? d.volume : 0;
-      return {
-        html: `<div style="font-weight:600">${escapeHtml(name)}</div>
-               <div style="opacity:.7">${escapeHtml(stateName)}</div>
+      let html: string | null = null;
+      if (!dataViewActive) {
+        const regionId = pickRegion(info);
+        if (!regionId) return null;
+        const store = useWorldviewStore.getState();
+        const stats = store.regionStats[regionId];
+        const columnCluster =
+          info.object && typeof info.object === "object" && "clusterId" in info.object
+            ? (info.object as { clusterId: ClusterId }).clusterId
+            : null;
+        const clusterId = columnCluster ?? stats?.clusterId ?? null;
+        const label = clusterId ? (store.clusters[clusterId]?.label ?? clusterId) : "no data yet";
+        const posts = columnCluster
+          ? (stats?.clusterVolumes[columnCluster] ?? 0)
+          : (stats?.volume ?? 0);
+        html = `<div style="font-weight:600">${escapeHtml(regionShortName(regionId))}</div>
                <div style="margin-top:4px">${escapeHtml(label)}</div>
-               <div style="opacity:.7">confidence: ${escapeHtml(conf)}${vol ? ` · ${vol} posts` : ""}</div>`,
+               <div style="opacity:.7">${posts ? `${posts} posts` : ""}${stats ? ` · ${escapeHtml(stats.confidence)} confidence` : ""}</div>`;
+      } else {
+        const picked = pickDistrict(info);
+        if (!picked) return null;
+        const loaded = geo.districts[picked.districtId];
+        html = `<div style="font-weight:600">${escapeHtml(loaded?.name ?? picked.districtId)}</div>
+               <div style="opacity:.7">${escapeHtml(loaded?.stateName ?? "")}</div>`;
+      }
+      return {
+        html,
         style: {
           background: "rgba(20,20,24,0.92)",
           color: "#f4f2ee",
@@ -349,7 +383,7 @@ export default function DeckMap({
         },
       };
     },
-    [geo],
+    [geo, dataViewActive],
   );
 
   return (

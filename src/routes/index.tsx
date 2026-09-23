@@ -4,21 +4,23 @@ import { useEffect, useRef, useState } from "react";
 
 import { ConsolidatedPanel } from "@/components/dashboard/ConsolidatedPanel";
 import { DeflectionPanel } from "@/components/dashboard/DeflectionPanel";
-import { DistrictInfoPanel } from "@/components/dashboard/DistrictInfoPanel";
+import { RegionInfoPanel } from "@/components/dashboard/RegionInfoPanel";
 import { HistoryPanel } from "@/components/dashboard/HistoryPanel";
 import { LegendPanel } from "@/components/dashboard/LegendPanel";
 import { WorldviewMap } from "@/components/dashboard/map/WorldviewMap";
 import { DataViewPanels } from "@/components/dataview/DataViewPanels";
+import { DivergenceView } from "@/components/divergence/DivergenceView";
 import { ProgressBar } from "@/components/dashboard/ProgressBar";
 import { QueryBar } from "@/components/dashboard/QueryBar";
 import { TopBar, type DashboardTab } from "@/components/dashboard/TopBar";
 import { Button } from "@/components/ui/button";
 import { STREAM_SOURCE, useQueryStream, useWorldviewStore } from "@/lib/worldview";
+import { DEMO_QUERY } from "@/lib/worldview/stream/mockStream";
 import type { LlmProvider, ResearchMode } from "@/lib/worldview/types";
 
-const TITLE = "Pluralistic India — Worldview Explorer";
+const TITLE = "Pluralistic Karnataka — Worldview Explorer";
 const DESCRIPTION =
-  "A dark cartographic dashboard exploring how regions of India hold different viewpoints on shared topics.";
+  "How Karnataka's four regions — Mysuru-Bengaluru, North Karnataka, Karavali and Malnad — hold different viewpoints on shared topics, answered in each region's persona.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -43,13 +45,17 @@ function Index() {
   const { run, cancel, retry, isStreaming, runState, error } = useQueryStream();
   const storeQuery = useWorldviewStore((s) => s.query);
   const selection = useWorldviewStore((s) => s.selection);
+  const legacyRun = useWorldviewStore((s) => s.legacyRun);
 
-  // Auto-play the offline Diwali demo once on mount (mock source only).
+  // Auto-play the offline demo (a replayed real run) once on mount — mock source only.
   const startedRef = useRef(false);
   useEffect(() => {
     if (startedRef.current) return;
     startedRef.current = true;
-    if (STREAM_SOURCE === "mock") run("Diwali");
+    if (STREAM_SOURCE === "mock") {
+      setQuery(DEMO_QUERY);
+      run(DEMO_QUERY);
+    }
   }, [run]);
 
   const handleExplore = (q: string) => {
@@ -82,7 +88,16 @@ function Index() {
             onProviderChange={setProvider}
           />
           {runState === "error" && <ErrorCard message={error} onRetry={retry} />}
-          {runState === "empty" && <NoResultsCard />}
+          {runState === "empty" && !legacyRun && <NoResultsCard />}
+          {legacyRun && (
+            <div className="panel-surface pointer-events-auto w-[min(720px,calc(100vw-3rem))] rounded-xl px-4 py-2.5">
+              <p className="text-[12px] text-muted-foreground">
+                <span className="text-foreground">Legacy run.</span> This was saved by the earlier
+                India-wide, district-level version — its answer and sources are shown, but it has no
+                Karnataka region map or divergence data.
+              </p>
+            </div>
+          )}
         </div>
 
         {(activeTab === "Map" || activeTab === "Answer") && (
@@ -101,10 +116,12 @@ function Index() {
 
         {activeTab === "Data" && <DataViewPanels />}
 
+        {activeTab === "Divergence" && <DivergenceView />}
+
         {activeTab === "About" && <AboutPanel />}
 
         <div className="absolute bottom-6 left-1/2 flex w-max -translate-x-1/2 flex-col items-center gap-3">
-          {activeTab === "Map" && selection.kind && <DistrictInfoPanel />}
+          {activeTab === "Map" && selection.kind && <RegionInfoPanel />}
           {activeTab === "Deflections" && <DeflectionPanel />}
           <ProgressBar onGoDeeper={handleGoDeeper} />
         </div>
@@ -142,8 +159,8 @@ function NoResultsCard() {
     return (
       <div className="panel-surface pointer-events-auto w-[min(720px,calc(100vw-3rem))] rounded-xl px-4 py-2.5">
         <p className="text-[12px] text-muted-foreground">
-          <span className="text-foreground">Research-only result.</span> Too little India-specific
-          social-media discussion on this topic to map by district — the answer is built from{" "}
+          <span className="text-foreground">Research-only result.</span> Too little
+          Karnataka-specific discussion on this topic to map by region — the answer is built from{" "}
           {sourceCount} web source{sourceCount === 1 ? "" : "s"} instead.
         </p>
       </div>
@@ -165,16 +182,21 @@ function AboutPanel() {
       <section className="panel-surface pointer-events-auto rounded-xl p-5">
         <p className="label-micro">About</p>
         <p className="mt-3 text-[13px] leading-relaxed text-muted-foreground">
-          Worldview Explorer samples public conversation on a topic across Reddit and YouTube,
-          resolves each post to an Indian district, and clusters the underlying viewpoints so that
-          regional differences become legible on the map. For each pair of co-occurring viewpoints
-          it extracts the <span className="text-foreground">point of deflection</span> — the single
-          proposition they fork on — and synthesizes an all-views-inclusive answer.
+          Worldview Explorer gathers public conversation (YouTube, Reddit) and mainstream/official
+          web sources on a topic across Karnataka's four regions — Mysuru-Bengaluru, North
+          Karnataka, Karavali and Malnad — places each in its region, and clusters the viewpoints
+          within each region. For each pair of co-occurring viewpoints it extracts the{" "}
+          <span className="text-foreground">point of deflection</span>, then writes a Karnataka-wide
+          answer plus one reply per region in that region's persona, built from its persona
+          description.
         </p>
         <p className="mt-3 text-[13px] leading-relaxed text-muted-foreground">
-          The map builds progressively as the agent graph streams results. District colour is the
-          dominant viewpoint; column height is post volume; dimmed areas fell back to their parent
-          state. This build ships an offline demo run — point it at a live backend in{" "}
+          The <span className="text-foreground">Divergence</span> tab re-asks each region the same
+          question with the same evidence but no persona, and measures how far the two replies
+          diverge: semantic similarity against a sampling-noise floor, the specific points that
+          differ, and a t-SNE map of every point. Region colour on the map is its dominant
+          viewpoint; column height is post volume. Without a backend the app replays one recorded
+          run — point it at a live backend in{" "}
           <code className="rounded bg-white/5 px-1 py-0.5 text-[11px]">stream/config.ts</code>.
         </p>
         <div className="mt-4 flex flex-wrap gap-4 border-t border-panel-border pt-4">

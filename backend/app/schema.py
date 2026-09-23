@@ -40,6 +40,9 @@ ResolutionMethod = Literal[
     "script_language",
     "llm_geolocation",
     "state_fallback",
+    # No place signal in the post itself, attributed to the region whose
+    # targeted search surfaced it (always "low" confidence).
+    "search_context",
     "unresolved",
 ]
 DeflectionLevel = Literal[
@@ -91,8 +94,7 @@ class CollectionCounts(Camel):
     clusters_found: int = Field(alias="clustersFound")
     deflections_found: int = Field(alias="deflectionsFound")
     sources_gathered: int = Field(default=0, alias="sourcesGathered")
-    # extrahigh mode only (0 for basic/medium/high) -- how many agent-inferred
-    # regions this run produced (graph/nodes/infer_regions.py).
+    # How many Karnataka regions (incl. the statewide bucket) received posts.
     regions_found: int = Field(default=0, alias="regionsFound")
 
 
@@ -117,22 +119,9 @@ class AnswerSegment(Camel):
     text: str
     cluster_id: Optional[str] = Field(default=None, alias="clusterId")
     region: Optional[str] = None
-    # extrahigh mode only -- which agent-inferred region produced this
-    # segment (set by graph/nodes/deflection_and_synthesis.py's
-    # condition_regions, never by the LLM itself). None for the region-blind
-    # pass-1 baseline segments and for every non-extrahigh mode.
+    # Which persona region's reply this segment belongs to (set by
+    # persona_answers.py, never by the LLM). None for the Karnataka-wide overview.
     region_id: Optional[str] = Field(default=None, alias="regionId")
-    # Administrative-state label for extrahigh's per-state-conditioned
-    # segments (see state_code below) -- deliberately independent, new
-    # fields, NOT reusing region/region_id: a region can span multiple
-    # states, so this codebase keeps those two meanings distinct everywhere
-    # else too (ClusterState, ClusterDefinedEvent).
-    state: Optional[str] = None
-    # extrahigh mode only -- which administrative state produced this segment
-    # (set by graph/nodes/deflection_and_synthesis.py's condition_states,
-    # never by the LLM itself). None for the baseline and region-conditioned
-    # segments and for every non-extrahigh mode.
-    state_code: Optional[str] = Field(default=None, alias="stateCode")
     kind: Optional[AnswerSegmentKind] = None
     citations: Optional[list[int]] = None  # 1-based indices into the run's ResearchDocument list
 
@@ -164,23 +153,18 @@ class StatusEvent(EventBase):
     progress: float
 
 
-class DistrictResolvedEvent(EventBase):
-    type: Literal["district_resolved"] = "district_resolved"
-    district_id: str = Field(alias="districtId")
-    state_code: str = Field(alias="stateCode")
+class RegionResolvedEvent(EventBase):
+    """Posts resolved into one Karnataka persona region (or the non-persona
+    statewide bucket) for one viewpoint cluster. `volume` is incremental --
+    the frontend accumulates per (region, cluster)."""
+
+    type: Literal["region_resolved"] = "region_resolved"
+    region_id: str = Field(alias="regionId")
     cluster_id: str = Field(alias="clusterId")
-    confidence: ConfidenceTier
     volume: int
+    confidence: ConfidenceTier
     method: ResolutionMethod
-    is_state_fallback: Optional[bool] = Field(default=None, alias="isStateFallback")
     sample_posts: Optional[list[SamplePost]] = Field(default=None, alias="samplePosts")
-    # extrahigh mode only (None for basic/medium/high, and for extrahigh runs
-    # predating region-inference) -- which agent-inferred region this district
-    # was grouped into (graph/nodes/infer_regions.py). Unlike state_code above
-    # (a district's real, single state -- always correct, no shim needed),
-    # this is the new, purely additive field; excluded from the wire payload
-    # entirely when None (Camel serializes with exclude_none).
-    region_id: Optional[str] = Field(default=None, alias="regionId")
 
 
 class ClusterDefinedEvent(EventBase):
@@ -192,33 +176,13 @@ class ClusterDefinedEvent(EventBase):
     representative_posts: Optional[list[SamplePost]] = Field(
         default=None, alias="representativePosts"
     )
-    # extrahigh mode only (None for basic/medium/high, whose clusters are
-    # global/unscoped) -- which state this cluster belongs to. Lets the
-    # frontend group/color per-state clusters without parsing it out of the
-    # cluster id string. excluded from the wire payload entirely when None
-    # (Camel serializes with exclude_none), so existing modes' payloads are
-    # byte-identical to before this field existed.
-    #
-    # Region-mode transitional shim: for region-scoped extrahigh clusters (see
-    # infer_regions.py/cluster_viewpoints_per_region), a cluster's region can
-    # span multiple states, so there is no longer one single "correct" value
-    # here -- this is populated with a REPRESENTATIVE state (the region's
-    # highest-post-volume district's state) purely so existing state-keyed
-    # frontend grouping/coloring (legendGroups/paletteColorForState) doesn't
-    # silently break before the region-aware frontend work lands. `region_id`
-    # below is the new authoritative field for region-mode clusters.
     state_code: Optional[str] = Field(default=None, alias="stateCode")
     region_id: Optional[str] = Field(default=None, alias="regionId")
 
 
 class RegionDefinedEvent(EventBase):
-    """extrahigh mode only -- emitted once per agent-inferred region, right
-    after graph/nodes/infer_regions.py computes it (before per-region
-    clustering starts). Unlike a state code (a fixed, well-known enum the
-    frontend can name from a static lookup), a region's name/membership is
-    agent-generated fresh every run -- ClusterDefinedEvent/DistrictResolvedEvent
-    only carry the bare `regionId`, so the frontend needs this event to learn
-    what that id actually means at all."""
+    """Emitted once per Karnataka persona region (and the statewide bucket)
+    before any cluster references its id."""
 
     type: Literal["region_defined"] = "region_defined"
     region_id: str = Field(alias="regionId")
@@ -256,6 +220,71 @@ class ResearchDocumentEvent(EventBase):
     document: ResearchDocument
 
 
+class DivergencePointMatch(Camel):
+    persona: str
+    baseline: str
+    similarity: float
+
+
+class DivergenceRegionEvent(EventBase):
+    """Persona vs. no-persona reply for one region: same question, same
+    evidence, same prompt -- only the persona is removed. `status` "failed"
+    carries only `error`; every metric field is then absent."""
+
+    type: Literal["divergence_region"] = "divergence_region"
+    region_id: str = Field(alias="regionId")
+    region_name: str = Field(alias="regionName")
+    status: Literal["ok", "failed"]
+    error: Optional[str] = None
+    persona_version: Optional[str] = Field(default=None, alias="personaVersion")
+    persona_reply: Optional[str] = Field(default=None, alias="personaReply")
+    baseline_reply: Optional[str] = Field(default=None, alias="baselineReply")
+    # Primary indicator: cosine similarity of the two replies' sentence-mean
+    # embeddings; divergence = 1 - similarity.
+    semantic_similarity: Optional[float] = Field(default=None, alias="semanticSimilarity")
+    divergence: Optional[float] = None
+    # Same similarity between two independent no-persona samples -- the
+    # run-to-run variation a persona effect has to exceed to mean anything.
+    noise_floor: Optional[float] = Field(default=None, alias="noiseFloor")
+    # Point-level agreement (BERTScore-style F1 of best-match similarities).
+    point_alignment: Optional[float] = Field(default=None, alias="pointAlignment")
+    persona_points: Optional[list[str]] = Field(default=None, alias="personaPoints")
+    baseline_points: Optional[list[str]] = Field(default=None, alias="baselinePoints")
+    shared: Optional[list[DivergencePointMatch]] = None
+    reframed: Optional[list[DivergencePointMatch]] = None
+    persona_only: Optional[list[str]] = Field(default=None, alias="personaOnly")
+    baseline_only: Optional[list[str]] = Field(default=None, alias="baselineOnly")
+
+
+class DivergenceEmbeddingPoint(Camel):
+    x: float
+    y: float
+    region_id: str = Field(alias="regionId")
+    condition: Literal["persona", "baseline"]
+    text: str
+
+
+class DivergenceSummaryEvent(EventBase):
+    """Cross-region view once every region is measured. `matrix` is cosine
+    similarity between whole replies, ordered by `labels`; `points` are the
+    t-SNE projection of every extracted point from every reply."""
+
+    type: Literal["divergence_summary"] = "divergence_summary"
+    embedding_model: str = Field(alias="embeddingModel")
+    labels: list[dict]
+    matrix: list[list[float]]
+    # Mean pairwise similarity between the four regions' replies, per condition
+    # -- lower means the regions' answers differ more from each other.
+    persona_cross_region_similarity: Optional[float] = Field(
+        default=None, alias="personaCrossRegionSimilarity"
+    )
+    baseline_cross_region_similarity: Optional[float] = Field(
+        default=None, alias="baselineCrossRegionSimilarity"
+    )
+    points: list[DivergenceEmbeddingPoint]
+    perplexity: Optional[float] = None
+
+
 class DoneEvent(EventBase):
     type: Literal["done"] = "done"
     counts: CollectionCounts
@@ -271,12 +300,14 @@ WorldviewEvent = Annotated[
     Union[
         QueryStartedEvent,
         StatusEvent,
-        DistrictResolvedEvent,
+        RegionResolvedEvent,
         ClusterDefinedEvent,
         RegionDefinedEvent,
         DeflectionEvent,
         AnswerChunkEvent,
         ResearchDocumentEvent,
+        DivergenceRegionEvent,
+        DivergenceSummaryEvent,
         DoneEvent,
         StreamErrorEvent,
     ],

@@ -94,11 +94,7 @@ export function escalateMode(mode: ResearchMode): ResearchMode {
  * Mirrors the backend's `reasoning_modes.LlmProvider`.
  */
 export type LlmProvider =
-  | "azure_anthropic"
-  | "openai"
-  | "gemma_local"
-  | "mistral_local"
-  | "gemma_remote";
+  "azure_anthropic" | "openai" | "gemma_local" | "mistral_local" | "gemma_remote";
 
 export const LLM_PROVIDERS: readonly LlmProvider[] = [
   "azure_anthropic",
@@ -122,6 +118,8 @@ export type ResolutionMethod =
   | "script_language"
   | "llm_geolocation"
   | "state_fallback"
+  /** No place in the post itself; attributed to the region whose targeted search found it. */
+  | "search_context"
   | "unresolved";
 
 /** The two viewpoints in a deflection can co-occur at different scales. */
@@ -213,25 +211,65 @@ export interface RegionDatum {
   confidence: ConfidenceTier;
 }
 
-/** A district's resolved state: which viewpoint dominates and how sure we are. */
-export interface DistrictDatum {
-  districtId: DistrictId;
-  stateCode: StateCode;
-  /** extrahigh mode only — which agent-inferred region this district was
-   *  grouped into (see {@link RegionDatum}); undefined for basic/medium/high
-   *  and for older saved runs predating region-inference. */
-  regionId?: RegionId;
-  /** Dominant cluster for the district (null while still unresolved). */
+/** One Karnataka persona region's (or the statewide bucket's) accumulated reading. */
+export interface RegionStatsDatum {
+  regionId: RegionId;
+  /** Dominant cluster (argmax of clusterVolumes). */
   clusterId: ClusterId | null;
-  confidence: ConfidenceTier;
-  /** Post volume — drives 3D column height. */
+  clusterVolumes: Record<ClusterId, number>;
   volume: number;
+  confidence: ConfidenceTier;
   method: ResolutionMethod;
-  /** True when the reading fell back to the parent state's aggregate. */
-  isStateFallback: boolean;
-  /** Optional per-cluster breakdown for richer click-through / entropy. */
-  clusterVolumes?: Record<ClusterId, number>;
-  samplePosts?: SamplePost[];
+  samplePosts: SamplePost[];
+}
+
+export interface DivergencePointMatch {
+  persona: string;
+  baseline: string;
+  similarity: number;
+}
+
+/** Persona vs. no-persona reply for one region (same question, same evidence). */
+export interface DivergenceRegion {
+  regionId: RegionId;
+  regionName: string;
+  status: "ok" | "failed";
+  error?: string;
+  personaVersion?: string;
+  personaReply?: string;
+  baselineReply?: string;
+  /** Primary indicator: cosine similarity of the two replies (0–1, higher = more alike). */
+  semanticSimilarity?: number;
+  divergence?: number;
+  /** Similarity between two independent no-persona samples — sampling noise. */
+  noiseFloor?: number;
+  pointAlignment?: number;
+  personaPoints?: string[];
+  baselinePoints?: string[];
+  shared?: DivergencePointMatch[];
+  reframed?: DivergencePointMatch[];
+  personaOnly?: string[];
+  baselineOnly?: string[];
+}
+
+export type DivergenceCondition = "persona" | "baseline";
+
+export interface DivergenceEmbeddingPoint {
+  x: number;
+  y: number;
+  regionId: RegionId;
+  condition: DivergenceCondition;
+  text: string;
+}
+
+export interface DivergenceSummary {
+  embeddingModel: string;
+  labels: { regionId: RegionId; regionName: string; condition: DivergenceCondition }[];
+  matrix: number[][];
+  personaCrossRegionSimilarity?: number;
+  baselineCrossRegionSimilarity?: number;
+  points: DivergenceEmbeddingPoint[];
+  perplexity?: number;
 }
 
 /** The single load-bearing proposition two viewpoints fork on. */
@@ -256,24 +294,11 @@ export interface DeflectionDatum {
 export interface AnswerSegment {
   text: string;
   clusterId?: ClusterId;
-  /** Region label for policy-mode differentiated recommendations. For
-   *  extrahigh's region-conditioned segments (see {@link regionId}), this is
-   *  the agent-inferred region's name. */
+  /** Region label shown with the segment. */
   region?: string;
-  /** extrahigh mode only — which agent-inferred region produced this segment
-   *  (set by the backend's condition_regions node, never by the LLM itself).
-   *  Undefined for the region-blind national-baseline segments and for every
-   *  non-extrahigh mode. */
+  /** Which persona region's reply this segment belongs to (set by the backend,
+   *  never by the LLM). Undefined for the Karnataka-wide overview. */
   regionId?: RegionId;
-  /** Administrative-state label for extrahigh's per-state-conditioned
-   *  segments (see {@link stateCode}) — deliberately independent of
-   *  {@link region}/{@link regionId}: a region can span multiple states, so
-   *  the two are never collapsed into one field. */
-  state?: string;
-  /** extrahigh mode only — which administrative state produced this segment
-   *  (set by the backend's condition_states node, never by the LLM itself).
-   *  Undefined for the baseline and region-conditioned segments. */
-  stateCode?: StateCode;
   /**
    * How this segment renders:
    *  - `tldr`           one-sentence takeaway, pinned at the top of the panel
@@ -326,9 +351,11 @@ export interface SavedRunSummary {
   provider: LlmProvider;
   /** ISO timestamp, stamped server-side at save time. */
   createdAt: string;
-  districtsCount: number;
+  /** Regions for Karnataka runs; districts for legacy India-wide runs (see `scope`). */
+  areasCount: number;
   clustersCount: number;
   deflectionsCount: number;
+  scope: "karnataka-regions" | "india-districts";
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -362,20 +389,23 @@ export interface StatusEvent extends EventBase {
   progress: number;
 }
 
-/** A post batch resolved to a district with a dominant cluster + confidence. */
-export interface DistrictResolvedEvent extends EventBase {
-  type: "district_resolved";
-  districtId: DistrictId;
-  stateCode: StateCode;
+/** Posts resolved into a Karnataka region for one cluster (incremental volume). */
+export interface RegionResolvedEvent extends EventBase {
+  type: "region_resolved";
+  regionId: RegionId;
   clusterId: ClusterId;
-  confidence: ConfidenceTier;
-  /** Incremental volume added by this event (store accumulates). */
   volume: number;
+  confidence: ConfidenceTier;
   method: ResolutionMethod;
-  isStateFallback?: boolean;
   samplePosts?: SamplePost[];
-  /** extrahigh mode only — see {@link DistrictDatum.regionId}. */
-  regionId?: RegionId;
+}
+
+export interface DivergenceRegionEvent extends EventBase, DivergenceRegion {
+  type: "divergence_region";
+}
+
+export interface DivergenceSummaryEvent extends EventBase, DivergenceSummary {
+  type: "divergence_summary";
 }
 
 /** A new viewpoint cluster was defined (or an existing one refined). */
@@ -447,12 +477,14 @@ export interface StreamErrorEvent extends EventBase {
 export type WorldviewEvent =
   | QueryStartedEvent
   | StatusEvent
-  | DistrictResolvedEvent
+  | RegionResolvedEvent
   | ClusterDefinedEvent
   | RegionDefinedEvent
   | DeflectionEvent
   | AnswerChunkEvent
   | ResearchDocumentEvent
+  | DivergenceRegionEvent
+  | DivergenceSummaryEvent
   | DoneEvent
   | StreamErrorEvent;
 
@@ -468,31 +500,4 @@ export type WorldviewEventType = WorldviewEvent["type"];
  */
 export function makeDistrictId(stateCode: StateCode, districtCode: string): DistrictId {
   return `${stateCode}-${districtCode}`;
-}
-
-/**
- * extrahigh mode only: parse the state code out of a state-scoped cluster id
- * (backend scheme: `f"{state_code}:c{i}"`, e.g. `"27:c0"`, or `"UNK:c0"` for
- * posts geography couldn't resolve). Returns null for basic/medium/high's
- * unscoped ids (`"c0"`, no colon) or the "UNK" sentinel (not a real state).
- * Fallback path only — prefer an explicit `stateCode` field on the event when
- * one is present (see {@link resolveClusterStateCode}).
- */
-export function parseStateScopedClusterId(id: ClusterId): StateCode | null {
-  const sepIndex = id.indexOf(":");
-  if (sepIndex <= 0) return null;
-  const stateCode = id.slice(0, sepIndex);
-  return stateCode === "UNK" ? null : stateCode;
-}
-
-/**
- * Resolve a cluster's state code: prefer an explicit field carried on the
- * event (authoritative, no parsing needed), falling back to parsing it out of
- * the id's own scoping convention for events that don't carry one yet.
- */
-export function resolveClusterStateCode(
-  explicit: StateCode | undefined,
-  id: ClusterId,
-): StateCode | undefined {
-  return explicit ?? parseStateScopedClusterId(id) ?? undefined;
 }

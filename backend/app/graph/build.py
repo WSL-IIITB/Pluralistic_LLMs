@@ -1,46 +1,17 @@
 """
-Wires the pipeline stages into a LangGraph StateGraph. Two topologies,
-selected by `mode` at graph-construction time in `build_graph()`:
+Wires the pipeline stages into a LangGraph StateGraph -- one topology for every
+reasoning mode, working region by region across Karnataka's four persona
+regions (see ../karnataka.py):
 
-    basic/medium/high (unchanged): source -> research -> cluster -> resolve -> deflect -> synthesize -> END
-    extrahigh: source -> research -> geo_resolve -> infer_regions -> cluster -> resolve -> deflect -> deflect_states -> synthesize -> condition_regions -> condition_states -> END
+    source -> research -> resolve_regions -> cluster -> aggregate -> deflect
+           -> synthesize -> answer_regions -> divergence -> END
 
-`source` is small enough (fan out to the two connectors, flatten into
-`state["posts"]`) that it's defined here rather than as its own node file.
-Every other stage lives in graph/nodes/ and was built to the exact
-`(state, emit, ...)` signature this module calls. extrahigh's `infer_regions`/
-`cluster`/`resolve`/`deflect` bind to functions that group posts into
-AGENT-INFERRED REGIONS (which can span several districts and cross multiple
-state boundaries — see graph/nodes/infer_regions.py's module docstring) and
-cluster/extract deflections PER REGION instead of once globally or per fixed
-administrative state. `deflect_states` runs right after (the same
-region-mode clusters, re-grouped by each district's own TRUE administrative
-state rather than a region's representative one -- see
-extract_deflections_per_state's own docstring). `synthesize` is the same
-function either way, but behaves differently under the hood in extrahigh: it
-produces a region-BLIND national baseline instead of the final answer,
-snapshotting it to `state["baseline_answer_segments"]` for both trailing
-conditioning passes to read. extrahigh's trailing `condition_regions` (two-
-pass synthesis pass 2) adds region-specific contrast on top, and the new
-`condition_states` (pass 3, dual-source-separated: mainstream/official
-research vs. social-media clusters, per administrative state) runs after
-it and now owns the run's true completion event -- see
-deflection_and_synthesis.py's module docstring. Neither trailing node exists
-in the basic/medium/high topology.
+`synthesize` writes the Karnataka-wide overview; `answer_regions` writes one
+persona reply per region; `divergence` re-asks each region without its persona
+and measures how far the two replies diverge.
 
-extrahigh's `research` node ALSO behaves differently under the hood: instead
-of the angle-based `get_research` call every other mode uses, it fires one
-targeted research call PER STATE (`gather_research_per_state`, see
-graph/nodes/research.py) -- geographic sweep, not topical-angle sweep, for
-this mode only.
-
-The graph is rebuilt per request (cheap — this isn't a compiled model) so each
-request gets its own `emit` closure without threading dependency-injection
-through LangGraph's config machinery. Building two different topologies in
-that same per-request construction is consistent with, not a departure from,
-that existing cost model — `mode` is already known before `ainvoke` runs, so
-this is a graph-construction-time choice, not something that needs LangGraph's
-`add_conditional_edges` runtime-predicate machinery.
+The graph is rebuilt per request (cheap) so each request gets its own `emit`
+closure.
 """
 
 from __future__ import annotations
@@ -56,42 +27,26 @@ from ..config import DATA_DIR, Settings
 from ..connectors.base import LLMClient, SourceConnector, SourcedPost
 from ..connectors.llm import get_llm_client
 from ..connectors.sources import get_reddit_connector, get_youtube_connector
-from ..data.language_regions import detect_script_region
-from ..data.subreddit_map import (
-    STATE_PRIORITY_ORDER,
-    STATE_SUBREDDIT,
-    _state_names_from_gazetteer,
-    lookup_subreddit,
-)
+from ..data.subreddit_map import lookup_subreddit
+from ..karnataka import persona_regions, statewide_region_id
 from ..reasoning_modes import (
     FRAMING_COUNT,
     REDDIT_PER_STATE_LIMIT,
+    REGION_YOUTUBE_LIMIT,
     YOUTUBE_POSTS_PER_FRAMING_CAP,
     LlmProvider,
     ResearchMode,
 )
 from ..schema import CollectionCounts, StatusEvent
-from .nodes.cluster_viewpoints import (
-    cluster_viewpoints,
-    cluster_viewpoints_per_region,
-    cluster_viewpoints_per_state,
-)
-from .nodes.deflection_and_synthesis import (
-    condition_regions,
-    condition_states,
-    extract_deflections,
-    extract_deflections_per_region,
-    extract_deflections_per_state,
-    synthesize_answer,
-)
-from .nodes.geo_resolve import resolve_posts_geography
-from .nodes.infer_regions import infer_regions
+from .nodes.cluster_viewpoints import cluster_viewpoints_per_region
+from .nodes.deflection_and_synthesis import extract_region_deflections, synthesize_answer
+from .nodes.divergence import measure_divergence
+from .nodes.persona_answers import answer_regions
 from .nodes.research import gather_research
-from .nodes.resolve_district import finalize_districts, resolve_districts
+from .nodes.resolve_regions import aggregate_regions, resolve_regions
 from .state import EmitFn, PipelineState, RawPost, new_pipeline_state
 
 _gazetteer_cache: dict | None = None
-_district_centroids_cache: dict | None = None
 
 
 def load_gazetteer() -> dict:
@@ -102,29 +57,6 @@ def load_gazetteer() -> dict:
     return _gazetteer_cache
 
 
-def load_district_centroids() -> dict:
-    """district_id -> [lng, lat], generated by data/build_district_centroids.py
-    from the same source GeoJSON load_gazetteer() reads -- see that script's
-    module docstring. Consumed by infer_regions.py's propose_regions prompt
-    (a coarse geographic-sanity signal for the LLM, not a required input --
-    an empty/missing file just means every group's districts carry
-    centroid=None, which propose_regions already tolerates)."""
-    global _district_centroids_cache
-    if _district_centroids_cache is None:
-        try:
-            with open(f"{DATA_DIR}/district_centroids.json", encoding="utf-8") as f:
-                _district_centroids_cache = json.load(f)
-        except FileNotFoundError:
-            print(
-                "[build] district_centroids.json not found -- run "
-                "`python -m app.data.build_district_centroids` to generate it; "
-                "region-inference will proceed without centroid data",
-                flush=True,
-            )
-            _district_centroids_cache = {}
-    return _district_centroids_cache
-
-
 def counts_from_state(state: PipelineState) -> CollectionCounts:
     return CollectionCounts(
         postsCollected=state["posts_collected"],
@@ -132,18 +64,10 @@ def counts_from_state(state: PipelineState) -> CollectionCounts:
         clustersFound=state["clusters_found"],
         deflectionsFound=state["deflections_found"],
         sourcesGathered=len(state.get("research_documents", [])),
-        regionsFound=len(state.get("regions") or {}),
+        regionsFound=len(state.get("region_stats") or {}),
     )
 
 
-# ── Reasoning mode -> volume/thoroughness, NOT geographic coverage ──────────
-# Geographic coverage is always the full STATE_PRIORITY_ORDER regardless of
-# mode (see reasoning_modes.py's module docstring for why: partial state
-# coverage would directly undermine the product's cross-India-representation
-# point). What mode actually controls: how many distinct regional/cultural
-# framings get searched for (FRAMING_COUNT), how many posts each state's
-# Reddit search asks for (REDDIT_PER_STATE_LIMIT), and how many posts each
-# YouTube framing-search keeps (YOUTUBE_POSTS_PER_FRAMING_CAP).
 _MAX_CONCURRENT_FETCHES = 6
 
 # Below this many substantive "words" (Unicode-aware — covers Hindi/Bengali/
@@ -192,7 +116,7 @@ def _is_quota_exceeded(exc: Exception) -> bool:
 # gemma_remote, that's free and always available, so the original cost
 # concern doesn't even apply; for a genuinely metered provider, this is one
 # extra call per post same as any other per-post LLM step already in this
-# pipeline (e.g. resolve_district.py's extract_place_mentions).
+# pipeline (e.g. resolve_regions.py's extract_place_mentions).
 #
 # An embedding-similarity threshold was tried first and rejected: real
 # on-topic posts and genuinely off-topic ones didn't separate cleanly at any
@@ -230,8 +154,7 @@ async def _filter_by_relevance(posts: list[RawPost], query: str, framings: list[
     (keeps the post rather than dropping it) -- a quality gate shouldn't cost
     real data over one bad call. Note `llm.judge_text_relevance` itself fails
     CLOSED (False, not a raise) on its own internal errors per that method's
-    documented contract (region_kb.py's cache-judge use of the same method
-    depends on that), so a systemic provider outage here reads as "nothing is
+    documented contract, so a systemic provider outage here reads as "nothing is
     relevant" rather than tripping this function's own except-branch --
     already-logged inside judge_text_relevance either way, and the pipeline's
     zero-posts path (see source_posts) handles the resulting empty corpus
@@ -260,67 +183,44 @@ async def _filter_by_relevance(posts: list[RawPost], query: str, framings: list[
     return kept
 
 
+# Karnataka subreddits worth searching per region (Reddit is only used when
+# credentials are configured -- see connectors/sources.py).
+REGION_SUBREDDITS: dict[str, list[str]] = {
+    "mysuru-bengaluru": ["bangalore", "mysore"],
+    "karavali": ["mangalore"],
+    "malnad": [],
+    "north-karnataka": [],
+}
+STATEWIDE_SUBREDDITS = ["karnataka"]
+
+
 async def source_posts(
     state: PipelineState,
     emit: EmitFn,
     reddit: SourceConnector,
     youtube: SourceConnector,
     llm: LLMClient,
-    gazetteer: dict,
 ) -> PipelineState:
-    """First pipeline stage: a BALANCED multi-state, multi-framing fan-out,
-    not one flat keyword search. Geographic coverage is always the full
-    region-interleaved state list (see data/subreddit_map.py's
-    STATE_PRIORITY_ORDER) -- the "reasoning mode" (state["mode"],
-    basic/medium/high) instead scales how many distinct regional/cultural
-    framings of the topic get searched for (see llm.suggest_framings) and how
-    many posts get pulled per state/framing, so the corpus is a deliberate
-    cross-India sample of the topic's actual substantive variation, not an
-    emergent, population/activity-biased one, and not just whatever generic
-    reactions a bare keyword search happens to surface.
-
-    Reddit is targeted directly at each state's subreddit (a real geographic
-    signal), one search per state -- but WITHOUT real Reddit credentials
-    configured (see connectors/sources.py's NullSourceConnector), this
-    contributes zero posts, silently leaving YouTube as the only real source.
-    YouTube search has no native per-state filter, so it also runs one search
-    per FRAMING (the axis it can actually discriminate on) -- but framing-only
-    search has no structural guarantee of reaching every region: a bare
-    topic's real-world YouTube index tends to skew toward whichever
-    language/region already dominates that platform for it (observed in
-    practice: a plain "Diwali" search returns almost entirely North-Indian/
-    Hindi-centric results, silently starving South India and the Northeast of
-    any real signal to cluster on, no matter how the clustering stage is
-    tuned downstream). So YouTube ALSO gets an explicit per-state search pass
-    below (query + state name), restoring the same "every state gets an
-    actual attempt" guarantee Reddit's per-state design already intended, on
-    the one source that's actually working. resolve_district's hierarchy plus
-    the clustering stage remain the sole sources of truth for where a post
-    resolves and what viewpoint it actually expresses -- this only widens
-    what gets a chance to be sourced in the first place.
-    """
+    """Karnataka-targeted social sourcing: one YouTube search per persona
+    region (query + that region's own place terms -- the geographic guarantee
+    that every region gets an actual attempt), one per Karnataka-scoped
+    framing, and each region's subreddits when Reddit is configured. Posts
+    from a region-targeted search carry `source_region_id` so a post naming no
+    place can still be weakly attributed (resolve_regions.py)."""
     mode: ResearchMode = state["mode"]
-    target_states = STATE_PRIORITY_ORDER
-    reddit_limit = REDDIT_PER_STATE_LIMIT[mode]
-    youtube_limit = YOUTUBE_POSTS_PER_FRAMING_CAP[mode]
-    state_names = _state_names_from_gazetteer(gazetteer)
+    regions = persona_regions()
+    statewide = statewide_region_id()
 
     known_framings = await llm.suggest_framings(state["query"], FRAMING_COUNT[mode])
-    state["framings"] = known_framings  # kept empty if the LLM found none — used later to
-    # ground synthesis in real-world knowledge; do NOT fall back to [query] here, that
-    # would misrepresent "no known regional variation" as if it were one.
+    state["framings"] = known_framings
     framings = known_framings or [state["query"]]
-
-    def framing_for(i: int) -> str:
-        return framings[i % len(framings)]
 
     await emit(
         StatusEvent(
             queryRunId=state["query_run_id"],
             ticker=(
-                f"Surveying {len(target_states)} states across "
-                f"{len(framings)} angle{'s' if len(framings) != 1 else ''} for "
-                f"“{state['query']}” ({mode} mode)…"
+                f"Surveying Karnataka's {len(regions)} regions across {len(framings)} "
+                f"angle{'s' if len(framings) != 1 else ''} for “{state['query']}” ({mode} mode)…"
             ),
             phase="sourcing",
             counts=counts_from_state(state),
@@ -329,81 +229,53 @@ async def source_posts(
     )
 
     semaphore = asyncio.Semaphore(_MAX_CONCURRENT_FETCHES)
-    # Set the first time any YouTube call fails with a quota-exceeded error --
-    # checked after sourcing so a fully-empty result reads as "quota hit"
-    # rather than a silent, unexplained "0 posts" (see the check right after
-    # the gather below, and _is_quota_exceeded's own docstring).
     youtube_quota_hit = False
 
-    async def fetch_reddit(index: int, state_code: str) -> list[SourcedPost]:
-        subreddit = STATE_SUBREDDIT.get(state_code)
+    async def fetch_youtube(term: str, limit: int, source_region_id: str | None) -> list[tuple[SourcedPost, str | None]]:
+        nonlocal youtube_quota_hit
+        async with semaphore:
+            try:
+                return [(p, source_region_id) for p in await youtube.search(term, limit)]
+            except Exception as exc:  # noqa: BLE001 — one search's failure must not kill the run
+                if _is_quota_exceeded(exc):
+                    youtube_quota_hit = True
+                print(f"[source_posts] youtube/{term!r} failed: {exc}", flush=True)
+                return []
+
+    async def fetch_reddit(subreddit: str, source_region_id: str | None) -> list[tuple[SourcedPost, str | None]]:
         search_subreddit = getattr(reddit, "search_subreddit", None)
-        if not subreddit or search_subreddit is None:
+        if search_subreddit is None:
             return []
         async with semaphore:
             try:
-                return await search_subreddit(subreddit, framing_for(index), reddit_limit)
-            except Exception as exc:  # noqa: BLE001 — one state's failure must not kill the run
+                posts = await search_subreddit(subreddit, state["query"], REDDIT_PER_STATE_LIMIT[mode])
+                return [(p, source_region_id) for p in posts]
+            except Exception as exc:  # noqa: BLE001
                 print(f"[source_posts] reddit/{subreddit} failed: {exc}", flush=True)
                 return []
 
-    async def fetch_youtube(framing: str) -> list[SourcedPost]:
-        nonlocal youtube_quota_hit
-        async with semaphore:
-            try:
-                return await youtube.search(framing, youtube_limit)
-            except Exception as exc:  # noqa: BLE001
-                if _is_quota_exceeded(exc):
-                    youtube_quota_hit = True
-                print(f"[source_posts] youtube/{framing!r} failed: {exc}", flush=True)
-                return []
-
-    async def fetch_youtube_state(state_code: str) -> list[SourcedPost]:
-        """Complementary to fetch_youtube above -- see source_posts' own
-        docstring for why this exists now. `reddit_limit` (not youtube_limit)
-        on purpose: this stands in for the per-state volume Reddit's own
-        design intended to contribute, not another framing-scale pull."""
-        nonlocal youtube_quota_hit
-        name = state_names.get(state_code)
-        if not name:
-            return []
-        async with semaphore:
-            try:
-                return await youtube.search(f"{state['query']} {name}", reddit_limit)
-            except Exception as exc:  # noqa: BLE001
-                if _is_quota_exceeded(exc):
-                    youtube_quota_hit = True
-                print(f"[source_posts] youtube-state/{name!r} failed: {exc}", flush=True)
-                return []
-
-    # The per-state YouTube pass costs a flat 100 quota units PER STATE
-    # (search.list's cost doesn't scale with maxResults -- see
-    # connectors/sources.py's own comment) -- 36 states is 3600 units on top
-    # of the framing-based searches, which exhausted a real day's YouTube
-    # quota in practice once several runs stacked up. Scoped to extrahigh
-    # only: that's the mode this exists for (the qualitatively-different,
-    # every-viewpoint-traceable-to-a-region pipeline), not basic/medium/high,
-    # which don't need the same exhaustive guarantee and shouldn't pay for it
-    # on every single test query.
-    state_youtube_tasks = (
-        [fetch_youtube_state(code) for code in target_states] if mode == "extrahigh" else []
-    )
-
-    fetched = await asyncio.gather(
-        *(fetch_reddit(i, code) for i, code in enumerate(target_states)),
-        *(fetch_youtube(framing) for framing in framings),
-        *state_youtube_tasks,
-    )
+    tasks = [
+        fetch_youtube(f"{state['query']} {r['search_terms']}", REGION_YOUTUBE_LIMIT[mode], r["id"]) for r in regions
+    ]
+    tasks += [fetch_youtube(f"{f} Karnataka", YOUTUBE_POSTS_PER_FRAMING_CAP[mode], None) for f in framings]
+    tasks += [fetch_reddit(sub, r["id"]) for r in regions for sub in REGION_SUBREDDITS.get(r["id"], [])]
+    tasks += [fetch_reddit(sub, statewide) for sub in STATEWIDE_SUBREDDITS]
+    fetched = await asyncio.gather(*tasks)
 
     posts: list[RawPost] = []
+    seen_ids: set[str] = set()
     dropped = 0
-    for i, p in enumerate(itertools.chain.from_iterable(fetched)):
+    for i, (p, source_region_id) in enumerate(itertools.chain.from_iterable(fetched)):
+        post_id = p.get("id") or f"p{i}"
+        if post_id in seen_ids:
+            continue
+        seen_ids.add(post_id)
         if _is_low_signal(p["text"]):
             dropped += 1
             continue
         posts.append(
             RawPost(
-                id=p.get("id") or f"p{i}",
+                id=post_id,
                 platform=p["platform"],
                 text=p["text"],
                 source_hint=p["source_hint"],
@@ -414,6 +286,7 @@ async def source_posts(
                 resolution_method=None,
                 resolution_confidence=None,
                 region_id=None,
+                source_region_id=source_region_id,
             )
         )
     if dropped:
@@ -424,27 +297,12 @@ async def source_posts(
     state["posts_collected"] = len(posts)
 
     if not posts and youtube_quota_hit:
-        # Distinct from an ordinary "no relevant content found" empty result
-        # -- this means sourcing never got a real chance to run at all. Every
-        # downstream stage already degrades gracefully on zero posts (this is
-        # a StatusEvent, not a StreamErrorEvent, specifically so the run still
-        # completes and the answer panel can still show research-grounded
-        # content), but a bare "0 posts" ticker at the very end reads as "no
-        # relevant content" rather than "the API couldn't even be asked" --
-        # say the real reason up front instead of leaving it to be inferred.
-        print(
-            "[source_posts] YouTube quota exhausted and no other real source configured "
-            "(has_reddit=false) -- this run will have zero real posts to cluster.",
-            flush=True,
-        )
         await emit(
             StatusEvent(
                 queryRunId=state["query_run_id"],
                 ticker=(
-                    "YouTube's daily API quota is exhausted, and no Reddit credentials are "
-                    "configured — no real posts could be collected this run. Resolved "
-                    "content and the map will be empty; the answer panel may still show "
-                    "research-grounded findings. Try again after the quota resets."
+                    "YouTube's daily API quota is exhausted and no Reddit credentials are configured — "
+                    "continuing with mainstream and official web sources only…"
                 ),
                 phase="sourcing",
                 counts=counts_from_state(state),
@@ -456,10 +314,7 @@ async def source_posts(
     await emit(
         StatusEvent(
             queryRunId=state["query_run_id"],
-            ticker=(
-                f"Collected {len(posts)} posts across {len(target_states)} states · "
-                "resolving districts…"
-            ),
+            ticker=f"Collected {len(posts)} social posts · researching the open web…",
             phase="sourcing",
             counts=counts_from_state(state),
             progress=0.1,
@@ -476,87 +331,45 @@ def _bind(fn, **extra):
 
 
 def build_graph(emit: EmitFn, llm: LLMClient, settings: Settings, mode: ResearchMode):
-    """Constructs and compiles the pipeline graph for one request. `mode`
-    selects the topology (see module docstring) — known before `ainvoke` runs,
-    so this is a one-time branch at construction, not a runtime predicate."""
+    """One topology for every mode (mode only scales volume -- see
+    reasoning_modes.py):
+
+      source -> research -> resolve_regions -> cluster -> aggregate -> deflect
+             -> synthesize -> answer_regions -> divergence -> END
+    """
     reddit = get_reddit_connector(settings)
     youtube = get_youtube_connector(settings)
     gazetteer = load_gazetteer()
 
     graph = StateGraph(PipelineState)
-    graph.add_node(
-        "source",
-        _bind(source_posts, emit=emit, reddit=reddit, youtube=youtube, llm=llm, gazetteer=gazetteer),
-    )
+    graph.add_node("source", _bind(source_posts, emit=emit, reddit=reddit, youtube=youtube, llm=llm))
     graph.add_node("research", _bind(gather_research, emit=emit, llm=llm, gazetteer=gazetteer))
+    graph.add_node(
+        "resolve_regions",
+        _bind(resolve_regions, emit=emit, llm=llm, gazetteer=gazetteer, subreddit_lookup=lookup_subreddit),
+    )
+    graph.add_node("cluster", _bind(cluster_viewpoints_per_region, emit=emit, llm=llm))
+    graph.add_node("aggregate", _bind(aggregate_regions, emit=emit))
+    graph.add_node("deflect", _bind(extract_region_deflections, emit=emit, llm=llm))
+    graph.add_node("synthesize", _bind(synthesize_answer, emit=emit, llm=llm))
+    graph.add_node("answer_regions", _bind(answer_regions, emit=emit, llm=llm))
+    graph.add_node("divergence", _bind(measure_divergence, emit=emit, llm=llm))
 
-    if mode == "extrahigh":
-        district_centroids = load_district_centroids()
-        graph.add_node(
-            "geo_resolve",
-            _bind(
-                resolve_posts_geography,
-                emit=emit,
-                llm=llm,
-                gazetteer=gazetteer,
-                subreddit_lookup=lookup_subreddit,
-                script_region_detect=detect_script_region,
-            ),
-        )
-        graph.add_node(
-            "infer_regions",
-            _bind(
-                infer_regions,
-                emit=emit,
-                llm=llm,
-                gazetteer=gazetteer,
-                district_centroids=district_centroids,
-            ),
-        )
-        graph.add_node("cluster", _bind(cluster_viewpoints_per_region, emit=emit, llm=llm))
-        graph.add_node("resolve", _bind(finalize_districts, emit=emit, llm=llm))
-        graph.add_node("deflect", _bind(extract_deflections_per_region, emit=emit, llm=llm))
-        graph.add_node("deflect_states", _bind(extract_deflections_per_state, emit=emit, llm=llm))
-        graph.add_node("synthesize", _bind(synthesize_answer, emit=emit, llm=llm))
-        graph.add_node("condition_regions", _bind(condition_regions, emit=emit, llm=llm))
-        graph.add_node("condition_states", _bind(condition_states, emit=emit, llm=llm))
-
-        graph.set_entry_point("source")
-        graph.add_edge("source", "research")
-        graph.add_edge("research", "geo_resolve")
-        graph.add_edge("geo_resolve", "infer_regions")
-        graph.add_edge("infer_regions", "cluster")
-        graph.add_edge("cluster", "resolve")
-        graph.add_edge("resolve", "deflect")
-        graph.add_edge("deflect", "deflect_states")
-        graph.add_edge("deflect_states", "synthesize")
-        graph.add_edge("synthesize", "condition_regions")
-        graph.add_edge("condition_regions", "condition_states")
-        graph.add_edge("condition_states", END)
-    else:
-        graph.add_node("cluster", _bind(cluster_viewpoints, emit=emit, llm=llm))
-        graph.add_node(
-            "resolve",
-            _bind(
-                resolve_districts,
-                emit=emit,
-                llm=llm,
-                gazetteer=gazetteer,
-                subreddit_lookup=lookup_subreddit,
-                script_region_detect=detect_script_region,
-            ),
-        )
-        graph.add_node("deflect", _bind(extract_deflections, emit=emit, llm=llm))
-        graph.add_node("synthesize", _bind(synthesize_answer, emit=emit, llm=llm))
-
-        graph.set_entry_point("source")
-        graph.add_edge("source", "research")
-        graph.add_edge("research", "cluster")
-        graph.add_edge("cluster", "resolve")
-        graph.add_edge("resolve", "deflect")
-        graph.add_edge("deflect", "synthesize")
-        graph.add_edge("synthesize", END)
-
+    order = [
+        "source",
+        "research",
+        "resolve_regions",
+        "cluster",
+        "aggregate",
+        "deflect",
+        "synthesize",
+        "answer_regions",
+        "divergence",
+    ]
+    graph.set_entry_point(order[0])
+    for a, b in zip(order, order[1:]):
+        graph.add_edge(a, b)
+    graph.add_edge(order[-1], END)
     return graph.compile()
 
 

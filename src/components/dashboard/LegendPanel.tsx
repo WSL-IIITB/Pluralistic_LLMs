@@ -7,20 +7,15 @@ import { Input } from "@/components/ui/input";
 import { useCollapsible } from "@/hooks/use-collapsible";
 import {
   legendClusters,
-  legendGroups,
   legendGroupsByRegion,
+  regionColor,
   rgbaCss,
   useWorldviewStore,
   type ClusterDatum,
   type ClusterId,
   type LayerToggles,
 } from "@/lib/worldview";
-import { useDistrictGeo } from "./map/useDistrictGeo";
 
-/** Unifies `legendGroups()` (state) and `legendGroupsByRegion()` (region)
- * into one shape so the collapsible-list UI below doesn't need two near-
- * identical copies. Region is preferred whenever any cluster in the run
- * carries a `regionId` — see `LegendPanel`'s `groups` computation. */
 interface Group {
   key: string;
   label: string;
@@ -31,7 +26,7 @@ interface Group {
 const LAYER_ITEMS: { id: keyof LayerToggles; label: string }[] = [
   { id: "columns", label: "Show 3D columns" },
   { id: "links", label: "Show deflection links" },
-  { id: "splitStates", label: "Highlight split states" },
+  { id: "splitRegions", label: "Highlight split regions" },
 ];
 
 function ClusterRow({
@@ -64,14 +59,7 @@ function ClusterRow({
   );
 }
 
-/**
- * extrahigh mode's cluster list: grouped (by region — the primary lens post
- * region-inference — or, for older saved runs predating it, by state),
- * collapsible (dozens to ~190 total entries would otherwise overflow the
- * panel as a flat list). basic/medium/high never reach this — see the
- * `isGrouped` branch in `LegendPanel` below, which renders today's exact
- * flat markup unchanged for them.
- */
+/** Cluster list grouped by Karnataka region, collapsible per region. */
 function GroupedClusterList({
   groups,
   activeGroupKey,
@@ -124,6 +112,11 @@ function GroupedClusterList({
                 ) : (
                   <ChevronRight className="mt-[3px] size-3 shrink-0 text-muted-foreground/60" />
                 )}
+                <span
+                  className="mt-[3px] size-2.5 shrink-0 rounded-[3px]"
+                  style={{ backgroundColor: rgbaCss(regionColor(group.key)) }}
+                  aria-hidden
+                />
                 <span
                   className="flex-1 text-[12px] leading-snug font-medium text-foreground/90"
                   title={group.label}
@@ -181,57 +174,35 @@ export function LegendPanel() {
   const clusters = useWorldviewStore((s) => s.clusters);
   const order = useWorldviewStore((s) => s.clusterOrder);
   const regions = useWorldviewStore((s) => s.regions);
-  const districts = useWorldviewStore((s) => s.districts);
   const selection = useWorldviewStore((s) => s.selection);
   const hoveredClusterId = useWorldviewStore((s) => s.hoveredClusterId);
   const layers = useWorldviewStore((s) => s.layers);
   const setLayer = useWorldviewStore((s) => s.setLayer);
   const setHoveredCluster = useWorldviewStore((s) => s.setHoveredCluster);
-  const { geo } = useDistrictGeo();
   const [isWide, setIsWide] = useState(false);
   const { collapsed, expand, collapse } = useCollapsible();
 
   const items = legendClusters(clusters, order);
-  // Data-driven, not mode-driven. Region is preferred whenever present
-  // (the primary lens post region-inference); state is the fallback for
-  // older saved runs predating it. basic/medium/high's clusters carry
-  // neither, so this is false for every mode except extrahigh.
-  const isRegionGrouped = items.some((c) => c.regionId != null);
-  const isStateGrouped = !isRegionGrouped && items.some((c) => c.stateCode != null);
-  const isGrouped = isRegionGrouped || isStateGrouped;
+  const isGrouped = items.some((c) => c.regionId != null);
 
-  const groups = useMemo<Group[]>(() => {
-    if (isRegionGrouped) {
-      return legendGroupsByRegion(clusters, order, regions).map((g) => ({
-        key: g.regionId,
-        label: g.regionName,
-        clusters: g.clusters,
-        totalPostCount: g.totalPostCount,
-      }));
-    }
-    if (isStateGrouped) {
-      return legendGroups(clusters, order).map((g) => ({
-        key: g.stateCode,
-        label: geo?.states[g.stateCode]?.stateName ?? g.stateCode,
-        clusters: g.clusters,
-        totalPostCount: g.totalPostCount,
-      }));
-    }
-    return [];
-  }, [isRegionGrouped, isStateGrouped, clusters, order, regions, geo]);
+  const groups = useMemo<Group[]>(
+    () =>
+      isGrouped
+        ? legendGroupsByRegion(clusters, order, regions).map((g) => ({
+            key: g.regionId,
+            label: g.regionName,
+            clusters: g.clusters,
+            totalPostCount: g.totalPostCount,
+          }))
+        : [],
+    [isGrouped, clusters, order, regions],
+  );
 
   const activeGroupKey = useMemo<string | null>(() => {
-    if (hoveredClusterId) {
-      const c = clusters[hoveredClusterId];
-      return (isRegionGrouped ? c?.regionId : c?.stateCode) ?? null;
-    }
-    if (selection.kind === "state" && isStateGrouped) return selection.id;
-    if (selection.kind === "district") {
-      const d = districts[selection.id];
-      return (isRegionGrouped ? d?.regionId : d?.stateCode) ?? null;
-    }
+    if (hoveredClusterId) return clusters[hoveredClusterId]?.regionId ?? null;
+    if (selection.kind === "region") return selection.id;
     return null;
-  }, [hoveredClusterId, selection, clusters, districts, isRegionGrouped, isStateGrouped]);
+  }, [hoveredClusterId, selection, clusters]);
 
   if (collapsed) {
     return (
@@ -259,9 +230,7 @@ export function LegendPanel() {
           <GroupedClusterList
             groups={groups}
             activeGroupKey={activeGroupKey}
-            filterPlaceholder={
-              isRegionGrouped ? "Filter regions or viewpoints…" : "Filter states or viewpoints…"
-            }
+            filterPlaceholder="Filter regions or viewpoints…"
             onHover={setHoveredCluster}
           />
         </div>
@@ -299,7 +268,7 @@ export function LegendPanel() {
           </li>
           <li className="flex items-center gap-2.5">
             <span className="hatched size-2.5 rounded-[3px] bg-muted" aria-hidden />
-            <span className="text-[12px] text-muted-foreground">No data → state fallback</span>
+            <span className="text-[12px] text-muted-foreground">Statewide only (no region)</span>
           </li>
         </ul>
       </div>

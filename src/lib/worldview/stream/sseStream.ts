@@ -19,12 +19,14 @@ import type { StreamHandle, StreamOptions, StreamSource } from "./source";
 const EVENT_TYPES: WorldviewEventType[] = [
   "query_started",
   "status",
-  "district_resolved",
+  "region_resolved",
   "cluster_defined",
   "region_defined",
   "deflection",
   "answer_chunk",
   "research_document",
+  "divergence_region",
+  "divergence_summary",
   "done",
   "error",
 ];
