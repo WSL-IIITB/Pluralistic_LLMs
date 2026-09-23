@@ -14,8 +14,10 @@ import {
   regionShortName,
   rgbaCss,
   useWorldviewStore,
+  type DivergenceModels,
   type DivergenceRegion,
   type DivergenceSummary,
+  type LlmProvider,
   type RegionId,
 } from "@/lib/worldview";
 import { TsneScatter } from "./TsneScatter";
@@ -33,12 +35,28 @@ function effectRatio(d: DivergenceRegion): number | null {
   return (1 - d.semanticSimilarity) / noise;
 }
 
+const MODEL_LABEL: Record<LlmProvider, string> = {
+  azure_anthropic: "Claude",
+  openai: "OpenAI",
+  gemma_local: "Gemma (local)",
+  mistral_local: "Mistral (local)",
+  gemma_remote: "Gemma",
+};
+
 export function DivergenceView() {
   const divergence = useWorldviewStore((s) => s.divergence);
-  const summary = useWorldviewStore((s) => s.divergenceSummary);
+  const summaries = useWorldviewStore((s) => s.divergenceSummary);
+  const crossModel = useWorldviewStore((s) => s.divergenceModels);
   const runState = useWorldviewStore((s) => s.runState);
   const query = useWorldviewStore((s) => s.query);
-  const measured = KARNATAKA_REGIONS.map((r) => divergence[r.id]).filter(
+  const runProvider = useWorldviewStore((s) => s.provider);
+  const models = Object.keys(divergence) as LlmProvider[];
+  models.sort((a, b) => (a === runProvider ? -1 : b === runProvider ? 1 : a.localeCompare(b)));
+  const [pickedModel, setPickedModel] = useState<LlmProvider | null>(null);
+  const model = pickedModel && divergence[pickedModel] ? pickedModel : models[0];
+  const byRegion = model ? (divergence[model] ?? {}) : {};
+  const summary = model ? summaries[model] : undefined;
+  const measured = KARNATAKA_REGIONS.map((r) => byRegion[r.id]).filter(
     (d): d is DivergenceRegion => !!d,
   );
   const [selected, setSelected] = useState<RegionId | null>(null);
@@ -57,8 +75,31 @@ export function DivergenceView() {
             Semantic similarity is the primary indicator (cosine of sentence-embedding means,
             all-MiniLM-L6-v2): lower means the persona changed the reply more. The noise floor is
             the similarity of two persona-free samples — the run-to-run variation a persona effect
-            has to exceed.
+            has to exceed. Every model gets the same prompt and evidence; points are extracted and
+            embedded with the same tools for all of them.
           </p>
+          {models.length > 1 && (
+            <div className="mt-3 flex items-center gap-1" role="tablist" aria-label="Model">
+              {models.map((m) => (
+                <button
+                  key={m}
+                  type="button"
+                  role="tab"
+                  aria-selected={m === model}
+                  onClick={() => setPickedModel(m)}
+                  className={
+                    "rounded-full px-3 py-1 text-[11px] font-medium transition-colors " +
+                    (m === model
+                      ? "bg-secondary text-foreground"
+                      : "text-muted-foreground hover:text-foreground")
+                  }
+                >
+                  {MODEL_LABEL[m] ?? m}
+                  {m === runProvider ? " · ran this query" : ""}
+                </button>
+              ))}
+            </div>
+          )}
         </header>
 
         <div className="min-h-0 flex-1 overflow-y-auto px-5 py-4 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-border">
@@ -80,6 +121,8 @@ export function DivergenceView() {
                   />
                 ))}
               </div>
+
+              {crossModel && crossModel.agreements.length > 0 && <CrossModel data={crossModel} />}
 
               {summary && <CrossRegion summary={summary} />}
 
@@ -148,6 +191,66 @@ function ScoreTile({
         </>
       )}
     </button>
+  );
+}
+
+function CrossModel({ data }: { data: DivergenceModels }) {
+  const label = (m: LlmProvider) => data.models.find((x) => x.id === m)?.label ?? m;
+  const pair = data.agreements[0];
+  if (!pair) return null;
+  return (
+    <div className="mt-4 rounded-lg border border-panel-border px-3.5 py-3">
+      <p className="text-[12px] font-medium text-foreground">Across models</p>
+      <p className="mt-0.5 text-[11px] leading-snug text-muted-foreground">
+        Same persona, same evidence, different model. “Models agree” is the similarity between the
+        two models' replies; divergence is how far each model's persona reply moved from its own
+        persona-free reply.
+      </p>
+      <div className="mt-2 overflow-x-auto">
+        <table className="w-full border-collapse text-[11.5px]">
+          <thead>
+            <tr className="text-left text-muted-foreground">
+              <th className="py-1.5 pr-3 font-normal">Region</th>
+              <th className="py-1.5 pr-3 font-normal">Models agree · with persona</th>
+              <th className="py-1.5 pr-3 font-normal">Models agree · without</th>
+              <th className="py-1.5 pr-3 font-normal">Divergence · {label(pair.modelA)}</th>
+              <th className="py-1.5 pr-3 font-normal">Divergence · {label(pair.modelB)}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {data.agreements.map((a) => (
+              <tr
+                key={`${a.regionId}-${a.modelA}-${a.modelB}`}
+                className="border-t border-panel-border"
+              >
+                <td className="py-1.5 pr-3 text-foreground">
+                  <span className="inline-flex items-center gap-1.5">
+                    <span
+                      className="size-2 rounded-[2px]"
+                      style={{ backgroundColor: rgbaCss(regionColor(a.regionId)) }}
+                      aria-hidden
+                    />
+                    {regionShortName(a.regionId)}
+                  </span>
+                </td>
+                <td className="py-1.5 pr-3 tabular-nums text-foreground/85">
+                  {a.persona.toFixed(2)}
+                </td>
+                <td className="py-1.5 pr-3 tabular-nums text-foreground/85">
+                  {a.baseline.toFixed(2)}
+                </td>
+                <td className="py-1.5 pr-3 tabular-nums text-foreground/85">
+                  {a.divergenceA.toFixed(2)}
+                </td>
+                <td className="py-1.5 pr-3 tabular-nums text-foreground/85">
+                  {a.divergenceB.toFixed(2)}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
   );
 }
 

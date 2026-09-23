@@ -231,6 +231,8 @@ export interface DivergencePointMatch {
 
 /** Persona vs. no-persona reply for one region (same question, same evidence). */
 export interface DivergenceRegion {
+  /** Which LLM wrote both replies. */
+  model: LlmProvider;
   regionId: RegionId;
   regionName: string;
   status: "ok" | "failed";
@@ -263,6 +265,7 @@ export interface DivergenceEmbeddingPoint {
 }
 
 export interface DivergenceSummary {
+  model: LlmProvider;
   embeddingModel: string;
   labels: { regionId: RegionId; regionName: string; condition: DivergenceCondition }[];
   matrix: number[][];
@@ -270,6 +273,24 @@ export interface DivergenceSummary {
   baselineCrossRegionSimilarity?: number;
   points: DivergenceEmbeddingPoint[];
   perplexity?: number;
+}
+
+/** Two models answering the same region with the same prompt and evidence. */
+export interface ModelAgreement {
+  regionId: RegionId;
+  modelA: LlmProvider;
+  modelB: LlmProvider;
+  /** Similarity between the two models' persona replies. */
+  persona: number;
+  /** Similarity between the two models' no-persona replies. */
+  baseline: number;
+  divergenceA: number;
+  divergenceB: number;
+}
+
+export interface DivergenceModels {
+  models: { id: LlmProvider; label: string }[];
+  agreements: ModelAgreement[];
 }
 
 /** The single load-bearing proposition two viewpoints fork on. */
@@ -408,6 +429,10 @@ export interface DivergenceSummaryEvent extends EventBase, DivergenceSummary {
   type: "divergence_summary";
 }
 
+export interface DivergenceModelsEvent extends EventBase, DivergenceModels {
+  type: "divergence_models";
+}
+
 /** A new viewpoint cluster was defined (or an existing one refined). */
 export interface ClusterDefinedEvent extends EventBase {
   type: "cluster_defined";
@@ -485,6 +510,7 @@ export type WorldviewEvent =
   | ResearchDocumentEvent
   | DivergenceRegionEvent
   | DivergenceSummaryEvent
+  | DivergenceModelsEvent
   | DoneEvent
   | StreamErrorEvent;
 

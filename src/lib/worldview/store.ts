@@ -17,6 +17,7 @@ import {
   type ClusterId,
   type CollectionCounts,
   type DeflectionDatum,
+  type DivergenceModels,
   type DivergenceRegion,
   type DivergenceSummary,
   type LlmProvider,
@@ -63,9 +64,10 @@ export interface RunSnapshot {
   deflections: DeflectionDatum[];
   answer: AnswerSegment[];
   researchDocuments: ResearchDocument[];
-  /** Persona vs. no-persona divergence, per region, as each is measured. */
-  divergence: Record<RegionId, DivergenceRegion>;
-  divergenceSummary: DivergenceSummary | null;
+  /** Persona vs. no-persona divergence, per model then per region, as each is measured. */
+  divergence: Partial<Record<LlmProvider, Record<RegionId, DivergenceRegion>>>;
+  divergenceSummary: Partial<Record<LlmProvider, DivergenceSummary>>;
+  divergenceModels: DivergenceModels | null;
   status: StatusSnapshot;
 }
 
@@ -127,8 +129,9 @@ export interface WorldviewStore {
    *  deduped by URL. Rendered as the "Sources" section of the consolidated
    *  answer panel; also referenced from AnswerSegment.citations (1-based ids). */
   researchDocuments: ResearchDocument[];
-  divergence: Record<RegionId, DivergenceRegion>;
-  divergenceSummary: DivergenceSummary | null;
+  divergence: Partial<Record<LlmProvider, Record<RegionId, DivergenceRegion>>>;
+  divergenceSummary: Partial<Record<LlmProvider, DivergenceSummary>>;
+  divergenceModels: DivergenceModels | null;
 
   // ── view state ──────────────────────────────────────────────────────────────
   layers: LayerToggles;
@@ -230,7 +233,8 @@ const EMPTY_DATA = {
   answer: [],
   researchDocuments: [],
   divergence: {},
-  divergenceSummary: null,
+  divergenceSummary: {},
+  divergenceModels: null,
 } satisfies Omit<RunSnapshot, "status">;
 
 export const useWorldviewStore = create<WorldviewStore>((set, get) => ({
@@ -371,13 +375,24 @@ export const useWorldviewStore = create<WorldviewStore>((set, get) => ({
 
       case "divergence_region": {
         const { type: _t, queryRunId: _q, t: _time, ...region } = evt;
-        set((s) => ({ divergence: { ...s.divergence, [evt.regionId]: region } }));
+        set((s) => ({
+          divergence: {
+            ...s.divergence,
+            [evt.model]: { ...s.divergence[evt.model], [evt.regionId]: region },
+          },
+        }));
         return;
       }
 
       case "divergence_summary": {
         const { type: _t, queryRunId: _q, t: _time, ...summary } = evt;
-        set({ divergenceSummary: summary });
+        set((s) => ({ divergenceSummary: { ...s.divergenceSummary, [evt.model]: summary } }));
+        return;
+      }
+
+      case "divergence_models": {
+        const { type: _t, queryRunId: _q, t: _time, ...models } = evt;
+        set({ divergenceModels: models });
         return;
       }
 
@@ -459,6 +474,7 @@ export const useWorldviewStore = create<WorldviewStore>((set, get) => ({
       researchDocuments: s.researchDocuments,
       divergence: s.divergence,
       divergenceSummary: s.divergenceSummary,
+      divergenceModels: s.divergenceModels,
       status: s.status,
     };
   },
@@ -483,8 +499,7 @@ export const useWorldviewStore = create<WorldviewStore>((set, get) => ({
       deflections: data.deflections,
       answer: data.answer,
       researchDocuments: data.researchDocuments,
-      divergence: data.divergence ?? {},
-      divergenceSummary: data.divergenceSummary ?? null,
+      ...normalizeSavedDivergence(data),
       status: data.status,
       selection: NO_SELECTION,
       hoveredClusterId: null,
@@ -516,6 +531,25 @@ export const useWorldviewStore = create<WorldviewStore>((set, get) => ({
       deflectionPair: { a: null, b: null },
     }),
 }));
+
+/** Saved runs from before per-model divergence stored one model's results unkeyed. */
+function normalizeSavedDivergence(
+  data: Partial<RunSnapshot> & { provider: LlmProvider },
+): Pick<RunSnapshot, "divergence" | "divergenceSummary" | "divergenceModels"> {
+  const raw = (data.divergence ?? {}) as Record<string, unknown>;
+  const flat = Object.values(raw).some((v) => v && typeof v === "object" && "regionId" in v);
+  const rawSummary = data.divergenceSummary as unknown;
+  const flatSummary = !!rawSummary && typeof rawSummary === "object" && "matrix" in rawSummary;
+  return {
+    divergence: flat
+      ? { [data.provider]: raw as Record<RegionId, DivergenceRegion> }
+      : (data.divergence ?? {}),
+    divergenceSummary: flatSummary
+      ? { [data.provider]: rawSummary as DivergenceSummary }
+      : ((rawSummary as Partial<Record<LlmProvider, DivergenceSummary>> | null) ?? {}),
+    divergenceModels: data.divergenceModels ?? null,
+  };
+}
 
 /**
  * Streaming answer reducer. Consecutive `body` chunks that share region/cluster

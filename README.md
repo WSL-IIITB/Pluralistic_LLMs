@@ -2,7 +2,7 @@
 
 A dark, cartographic dashboard that shows how Karnataka's four regions —
 **Mysuru-Bengaluru**, **North Karnataka**, **Karavali** and **Malnad** — hold different
-viewpoints on a shared topic, and how much answering *as each region* changes an LLM's reply.
+viewpoints on a shared topic, and how much answering _as each region_ changes an LLM's reply.
 
 Enter a topic and a LangGraph backend streams results in real time: it gathers social
 posts (YouTube, Reddit) and mainstream/official web sources region by region, places each
@@ -12,7 +12,7 @@ reply per region in that region's persona** (built from its persona description,
 `backend/app/data/personas/`).
 
 The **Divergence** tab then re-asks every region the same question with the same
-evidence but *no persona*, and measures how far the two replies diverge: semantic
+evidence but _no persona_, and measures how far the two replies diverge: semantic
 similarity (primary indicator) against a sampling-noise floor, the specific points that
 were added, dropped or reframed, a reply-similarity heatmap, and a t-SNE map of every
 extracted point. The **Data** tab (India-wide secondary-school dropout data) is separate
@@ -45,8 +45,12 @@ divergence view included. For live runs, start the backend (`backend/`, see
 - **Personas** — `backend/app/karnataka.py` builds each region's persona prompt
   deterministically from its description file; the prompt's hash is shown with every
   divergence score. `GET /api/personas` serves them.
-- **Divergence** — `backend/app/graph/nodes/divergence.py`. Embeddings are always the
-  local `all-MiniLM-L6-v2` model (never a provider API), so scores compare across LLMs.
+- **Divergence** — `backend/app/graph/nodes/divergence.py`. Runs on every configured model in
+  `reasoning_modes.DIVERGENCE_PROVIDERS` (Gemma and Claude today) plus the run's own model,
+  all on the same persona and evidence; the tab switches between models and compares them.
+  Points are always extracted by the run's own model and embedded with the local
+  `all-MiniLM-L6-v2` (never a provider API), so the measuring tools never vary with the
+  model being measured.
 
 ## Wiring it to real data — the three plug points
 
@@ -110,19 +114,20 @@ return it from `createStreamSource()`.
 All event types are defined in [`src/lib/worldview/types.ts`](src/lib/worldview/types.ts)
 (mirrored by `backend/app/schema.py`). Every event carries a `queryRunId`.
 
-| `type`               | payload (key fields)                                                  | drives                               |
-| -------------------- | --------------------------------------------------------------------- | ------------------------------------ |
-| `query_started`      | `query`, `queryType` (`descriptive`\|`policy`), `mode`, `provider`   | run identity + answer mode           |
-| `status`             | `ticker`, `phase`, `counts`, `progress` (0–1)                         | ticker + progress bar                |
-| `region_defined`     | `regionId`, `name`, `justification`, `districtIds`                    | region names                         |
-| `cluster_defined`    | `clusterId`, `label`, `summary`, `representativePosts`, `regionId`    | legend, column colours               |
-| `region_resolved`    | `regionId`, `clusterId`, `volume`, `confidence`, `method`             | region fills, 3D columns             |
-| `deflection`         | `clusterA/B`, `level`, `unitA/B`, `point`                             | deflection panel + map arcs          |
-| `answer_chunk`       | `segment` (`{ text, kind?, clusterId?, regionId?, citations? }`)      | overview + per-region persona replies |
-| `research_document`  | `document` (`{ id, url, title, domain, snippet }`)                    | numbered sources                     |
-| `divergence_region`  | similarity, noise floor, points only-with / only-without / reframed   | Divergence tab                       |
-| `divergence_summary` | reply-similarity matrix, cross-region similarity, t-SNE points        | Divergence tab                       |
-| `done` / `error`     | `counts` / `message`                                                  | terminal state / reconnect           |
+| `type`               | payload (key fields)                                                   | drives                                |
+| -------------------- | ---------------------------------------------------------------------- | ------------------------------------- |
+| `query_started`      | `query`, `queryType` (`descriptive`\|`policy`), `mode`, `provider`     | run identity + answer mode            |
+| `status`             | `ticker`, `phase`, `counts`, `progress` (0–1)                          | ticker + progress bar                 |
+| `region_defined`     | `regionId`, `name`, `justification`, `districtIds`                     | region names                          |
+| `cluster_defined`    | `clusterId`, `label`, `summary`, `representativePosts`, `regionId`     | legend, column colours                |
+| `region_resolved`    | `regionId`, `clusterId`, `volume`, `confidence`, `method`              | region fills, 3D columns              |
+| `deflection`         | `clusterA/B`, `level`, `unitA/B`, `point`                              | deflection panel + map arcs           |
+| `answer_chunk`       | `segment` (`{ text, kind?, clusterId?, regionId?, citations? }`)       | overview + per-region persona replies |
+| `research_document`  | `document` (`{ id, url, title, domain, snippet }`)                     | numbered sources                      |
+| `divergence_region`  | similarity, noise floor, points only-with / only-without / reframed    | Divergence tab                        |
+| `divergence_summary` | reply-similarity matrix, cross-region similarity, t-SNE points         | Divergence tab                        |
+| `divergence_models`  | per region: how far two models' replies agree, each model's divergence | Divergence tab (across models)        |
+| `done` / `error`     | `counts` / `message`                                                   | terminal state / reconnect            |
 
 ## Architecture
 

@@ -232,6 +232,7 @@ class DivergenceRegionEvent(EventBase):
     carries only `error`; every metric field is then absent."""
 
     type: Literal["divergence_region"] = "divergence_region"
+    model: LlmProvider
     region_id: str = Field(alias="regionId")
     region_name: str = Field(alias="regionName")
     status: Literal["ok", "failed"]
@@ -270,6 +271,7 @@ class DivergenceSummaryEvent(EventBase):
     t-SNE projection of every extracted point from every reply."""
 
     type: Literal["divergence_summary"] = "divergence_summary"
+    model: LlmProvider
     embedding_model: str = Field(alias="embeddingModel")
     labels: list[dict]
     matrix: list[list[float]]
@@ -283,6 +285,28 @@ class DivergenceSummaryEvent(EventBase):
     )
     points: list[DivergenceEmbeddingPoint]
     perplexity: Optional[float] = None
+
+
+class ModelAgreement(Camel):
+    region_id: str = Field(alias="regionId")
+    model_a: LlmProvider = Field(alias="modelA")
+    model_b: LlmProvider = Field(alias="modelB")
+    # Similarity between the two models' replies to the same prompt.
+    persona: float
+    baseline: float
+    # Each model's persona-vs-no-persona divergence, side by side.
+    divergence_a: float = Field(alias="divergenceA")
+    divergence_b: float = Field(alias="divergenceB")
+
+
+class DivergenceModelsEvent(EventBase):
+    """Cross-model view once every model is measured: do two LLMs, given the
+    same persona and evidence, say the same thing -- and does the persona move
+    each of them by the same amount?"""
+
+    type: Literal["divergence_models"] = "divergence_models"
+    models: list[dict]  # [{id, label}] in display order
+    agreements: list[ModelAgreement]
 
 
 class DoneEvent(EventBase):
@@ -308,6 +332,7 @@ WorldviewEvent = Annotated[
         ResearchDocumentEvent,
         DivergenceRegionEvent,
         DivergenceSummaryEvent,
+        DivergenceModelsEvent,
         DoneEvent,
         StreamErrorEvent,
     ],

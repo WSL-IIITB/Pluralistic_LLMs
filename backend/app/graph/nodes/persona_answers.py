@@ -17,7 +17,8 @@ from ...schema import AnswerChunkEvent, AnswerSegment, CollectionCounts, StatusE
 from ..state import EmitFn, PipelineState
 
 _CONCURRENCY = 4
-_MAX_DOCS_PER_REGION = 15
+# Sources handed to each region's reply -- more for deeper modes, which gather more.
+_MAX_DOCS_PER_REGION: dict[str, int] = {"basic": 10, "medium": 15, "high": 20, "extrahigh": 25}
 
 
 def build_region_evidence(state: PipelineState, region_id: str) -> dict:
@@ -27,7 +28,7 @@ def build_region_evidence(state: PipelineState, region_id: str) -> dict:
         d
         for d in state.get("research_documents") or []
         if d.get("source_region_id") == region_id or d.get("url") in region_urls
-    ][:_MAX_DOCS_PER_REGION]
+    ][: _MAX_DOCS_PER_REGION.get(state["mode"], 15)]
 
     platform_by_post = {p["id"]: p["platform"] for p in posts}
     clusters = []

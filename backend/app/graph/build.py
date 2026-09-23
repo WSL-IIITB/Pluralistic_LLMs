@@ -353,7 +353,7 @@ def build_graph(emit: EmitFn, llm: LLMClient, settings: Settings, mode: Research
     graph.add_node("deflect", _bind(extract_region_deflections, emit=emit, llm=llm))
     graph.add_node("synthesize", _bind(synthesize_answer, emit=emit, llm=llm))
     graph.add_node("answer_regions", _bind(answer_regions, emit=emit, llm=llm))
-    graph.add_node("divergence", _bind(measure_divergence, emit=emit, llm=llm))
+    graph.add_node("divergence", _bind(measure_divergence, emit=emit, llm=llm, settings=settings))
 
     order = [
         "source",
@@ -385,7 +385,7 @@ async def run_pipeline(
     """Runs one full pass. Caller has already emitted `query_started` and will
     emit `done`/`error` based on this function's return/exception."""
     llm = get_llm_client(settings, provider)
-    state = new_pipeline_state(query_run_id, query, mode)
+    state = new_pipeline_state(query_run_id, query, mode, provider)
     state["query_type"] = query_type
     graph = build_graph(emit, llm, settings, mode)
     return await graph.ainvoke(state)

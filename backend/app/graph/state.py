@@ -89,6 +89,7 @@ class PipelineState(TypedDict):
     query: str
     query_type: str  # QueryType — set by an early classification step
     mode: ResearchMode
+    provider: str  # LlmProvider that runs the main pipeline
     phase: str  # RunPhase
 
     posts: list[RawPost]
@@ -104,7 +105,6 @@ class PipelineState(TypedDict):
     region_evidence: dict[str, dict]
     # Per persona region: {"segments": [...], "text": str} of the persona reply.
     region_replies: dict[str, dict]
-    divergence: dict | None
     answer_segments: list[dict]  # AnswerSegment-shaped dicts
     # Karnataka-scoped framings of the topic (llm.suggest_framings) -- steer
     # sourcing and ground the overview synthesis.
@@ -124,12 +124,13 @@ class PipelineState(TypedDict):
     deflections_found: int
 
 
-def new_pipeline_state(query_run_id: str, query: str, mode: ResearchMode) -> PipelineState:
+def new_pipeline_state(query_run_id: str, query: str, mode: ResearchMode, provider: str) -> PipelineState:
     return PipelineState(
         query_run_id=query_run_id,
         query=query,
         query_type="descriptive",
         mode=mode,
+        provider=provider,
         phase="sourcing",
         posts=[],
         clusters={},
@@ -140,7 +141,6 @@ def new_pipeline_state(query_run_id: str, query: str, mode: ResearchMode) -> Pip
         region_stats={},
         region_evidence={},
         region_replies={},
-        divergence=None,
         answer_segments=[],
         framings=[],
         research_findings="",
