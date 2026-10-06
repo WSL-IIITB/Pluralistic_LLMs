@@ -393,7 +393,7 @@
     const base = location.pathname.replace(/[^/]*$/, "");
     [DATA, CONFIG] = await Promise.all([
       fetch(base + "items.json").then((r) => r.json()),
-      fetch(base + "config.json").then((r) => (r.ok ? r.json() : {})).catch(() => ({})),
+      fetch(base + "config.json", { cache: "no-store" }).then((r) => (r.ok ? r.json() : {})).catch(() => ({})),
     ]);
     $("#introQuery").textContent = `“${DATA.query}”`;
     $("#introMinutes").textContent = `${Math.round(DATA.items.length * 2.2)}–${Math.round(DATA.items.length * 3)}`;
