@@ -1,0 +1,197 @@
+{
+  "districtId": "29-575",
+  "name": "Dakshina Kannada",
+  "regionId": "karavali",
+  "researchedOn": "2026-10-07",
+  "headline": "Top-ranked SSLC district, but seasonal labour migration is the documented reason children are out of school.",
+  "summary": "Dakshina Kannada has the state's best SSLC results, backed by slow-learner coaching, yet district surveys have pointed to parents' seasonal migration for work as the leading cause of out-of-school children, and SSA coordinators work with Childline to trace them. Even in this high-performing district hundreds of enrolled candidates skip SSLC papers each year. No source gives Class 8-10 dropout counts, and none explains the district's very low casefile dropout rate.",
+  "reasons": [
+    {
+      "factor": "Parents' seasonal labour migration",
+      "category": "migration",
+      "detail": "Surveys identified migrating labour families as the leading reason children are out of school; SSA coordinators work with the child welfare body and Childline to trace and re-enrol them.",
+      "sources": [
+        1,
+        2
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Skipping SSLC papers",
+      "category": "other",
+      "detail": "Hundreds of enrolled students are absent from SSLC language papers each year (329 on day one in 2024; 233 missed third-language papers in 2026).",
+      "sources": [
+        3,
+        4
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Intensive Class 10 retention drive",
+      "category": "governance",
+      "detail": "Teachers are trained to coach slow learners and keep every Class 10 student on track, which fits the 98.40% pass rate and first state rank in 2026.",
+      "sources": [
+        5,
+        6,
+        7
+      ],
+      "evidence": "moderate"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "SSLC pass rate, 2026",
+      "value": "98.40% (state rank 1)",
+      "sources": [
+        5
+      ]
+    },
+    {
+      "label": "Children out of school because of migration (survey)",
+      "value": "132",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "label": "Absent on first SSLC language paper, 2024",
+      "value": "329",
+      "sources": [
+        3
+      ]
+    },
+    {
+      "label": "Absent for third-language SSLC paper, 2026",
+      "value": "233",
+      "sources": [
+        4
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "SSLC 2026 results: Dakshina Kannada tops with 98.40%, Udupi student scores perfect 625",
+      "outlet": "Daijiworld",
+      "date": "2026-04-23",
+      "url": "https://daijiworld.com/news/newsDisplay?newsID=1312642",
+      "takeaway": "Dakshina Kannada tops the state in SSLC 2026 with 98.40%, Udupi second."
+    },
+    {
+      "title": "‘Ensure no student is left out in class 10’",
+      "outlet": "The Hindu",
+      "date": "2025-12-20",
+      "url": "https://www.thehindu.com/news/cities/Mangalore/ensure-no-student-is-left-out-in-class-10/article70419287.ece",
+      "takeaway": "Officials urged that no Class 10 student be left out."
+    },
+    {
+      "title": "SSLC examination in Dakshina Kannada, Udupi: 41,814 students write first language paper",
+      "outlet": "The Hindu",
+      "date": "2024-03-25",
+      "url": "https://www.thehindu.com/news/cities/Mangalore/sslc-examination-in-dakshina-kannada-udupi-41814-students-write-first-language-paper/article67991141.ece",
+      "takeaway": "First-day SSLC absentee numbers in Dakshina Kannada and Udupi."
+    },
+    {
+      "title": "Migration puts 132 children out of school in Dakshina Kannada",
+      "outlet": "The Hindu",
+      "date": "2012-12-29",
+      "url": "https://www.thehindu.com/news/cities/Mangalore/Migration-puts-132-children-out-of-school-in-Dakshina-Kannada/article12467950.ece",
+      "takeaway": "Migration of labour families put 132 children out of school in the district."
+    }
+  ],
+  "responses": [
+    {
+      "text": "SSA coordinators work with the Child Welfare Commission and Childline to trace migrant children, and teachers coach slow learners through Class 10.",
+      "sources": [
+        7,
+        1
+      ]
+    }
+  ],
+  "officialFactorCheck": [
+    {
+      "factor": "% Population Living in Households with Improved Sanitation",
+      "method": "state",
+      "verdict": "no-evidence",
+      "note": "No local source links household sanitation to dropout.",
+      "sources": []
+    },
+    {
+      "factor": "% Schools with instruction medium 1 (English)",
+      "method": "district",
+      "verdict": "unclear",
+      "note": "English-medium schools post strong SSLC results here, but no source links medium of instruction to retention or dropout.",
+      "sources": [
+        8
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://www.thehindu.com/news/cities/Mangalore/Migration-puts-132-children-out-of-school-in-Dakshina-Kannada/article12467950.ece",
+      "title": "Migration puts 132 children out of school in Dakshina Kannada",
+      "outlet": "The Hindu",
+      "date": "2012-12-29",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://www.thehindu.com/news/cities/Mangalore/Survey-of-school-dropouts-from-next-month/article15618539.ece",
+      "title": "Survey of school dropouts from next month",
+      "outlet": "The Hindu",
+      "date": "2012-11-29",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://www.thehindu.com/news/cities/Mangalore/sslc-examination-in-dakshina-kannada-udupi-41814-students-write-first-language-paper/article67991141.ece",
+      "title": "SSLC examination in Dakshina Kannada, Udupi: 41,814 students write first language paper",
+      "outlet": "The Hindu",
+      "date": "2024-03-25",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "https://www.thehindu.com/news/cities/Mangalore/mixed-response-from-class-10-students-to-grading-system-for-third-language-in-karnataka/article70807920.ece",
+      "title": "Mixed response from class 10 students to grading system  for third language in Karnataka",
+      "outlet": "The Hindu",
+      "date": "2026-03-31",
+      "type": "news"
+    },
+    {
+      "id": 5,
+      "url": "https://daijiworld.com/news/newsDisplay?newsID=1312642",
+      "title": "SSLC 2026 results: Dakshina Kannada tops with 98.40%, Udupi student scores perfect 625",
+      "outlet": "Daijiworld",
+      "date": "2026-04-23",
+      "type": "news"
+    },
+    {
+      "id": 6,
+      "url": "https://daijiworld.com/news/newsDisplay?newsID=861524",
+      "title": "Mangaluru: Nine from Dakshina Kannada score centum in SSLC examinations",
+      "outlet": "Daijiworld",
+      "date": "2021-08-09",
+      "type": "news"
+    },
+    {
+      "id": 7,
+      "url": "https://www.thehindu.com/news/cities/Mangalore/ensure-no-student-is-left-out-in-class-10/article70419287.ece",
+      "title": "‘Ensure no student is left out in class 10’",
+      "outlet": "The Hindu",
+      "date": "2025-12-20",
+      "type": "news"
+    },
+    {
+      "id": 8,
+      "url": "https://www.thehindu.com/news/cities/Mangalore/sslc-results-dakshina-kannada-district-tops-karnataka-after-many-years/article69532015.ece",
+      "title": "SSLC results: Dakshina Kannada district tops Karnataka after many years",
+      "outlet": "The Hindu",
+      "date": "2025-05-02",
+      "type": "news"
+    }
+  ],
+  "coverage": "moderate",
+  "gaps": "No Class 8-10 dropout counts or recent out-of-school survey; the migration survey is several years old; nothing explains the very low casefile dropout rate.",
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+}

@@ -1,0 +1,115 @@
+{
+  "districtId": "29-571",
+  "name": "Tumakuru",
+  "regionId": "bayaluseeme",
+  "researchedOn": "2026-10-07",
+  "headline": "Fee affordability and child exploitation cases; Madhugiri lost hundreds of students to unorganised labour.",
+  "summary": "Tumakuru sources include an SSLC girl who attempted suicide because her family could not pay exam fees, a police case after 24 runaway children alleged forced labour and abuse at a madrasa, and an older report that Madhugiri taluk lost 436 students to unorganised work.",
+  "reasons": [
+    {
+      "factor": "Hall ticket withheld over school fees",
+      "category": "economic",
+      "detail": "In 2021 a Tumakuru Class 10 girl who scored 95% in Class 9 was not issued an SSLC hall ticket because she could not pay the school's fee; she attempted suicide and later topped the supplementary exams.",
+      "sources": [
+        1
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Child labour exploitation",
+      "category": "economic",
+      "detail": "Police registered cases after 24 runaway children alleged abuse and forced labour at a madrasa in Tumakuru Rural.",
+      "sources": [
+        2
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Madhugiri dropouts to unorganised labour",
+      "category": "economic",
+      "detail": "A statewide dropout report listed Madhugiri with hundreds of students leaving to work in the unorganised sector.",
+      "sources": [
+        3
+      ],
+      "evidence": "moderate"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Madhugiri dropouts (older statewide report)",
+      "value": "436",
+      "sources": [
+        3
+      ]
+    },
+    {
+      "label": "Children who alleged forced labour at a madrasa",
+      "value": "24",
+      "sources": [
+        2
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "FIR against Tumakuru madrasa management after 24 runaway children allege abuse and forced labour",
+      "outlet": "The Hindu",
+      "date": "2026-05-13",
+      "url": "https://www.thehindu.com/news/national/karnataka/fir-against-tumakuru-madrasa-management-after-24-runaway-children-allege-abuse-and-forced-labour/article70972711.ece",
+      "takeaway": "FIR against Tumakuru madrasa management after 24 runaway children allege abuse and forced labour."
+    },
+    {
+      "title": "Girl student who tried to end life scores highest in supplementary exams",
+      "outlet": "The Times of India",
+      "date": "2021-10-13",
+      "url": "https://timesofindia.indiatimes.com/education/news/girl-student-who-tried-to-end-life-scores-highest-in-supplementary-exams/articleshow/86983633.cms",
+      "takeaway": "Girl student who tried to end life scores highest in supplementary exams."
+    }
+  ],
+  "responses": [],
+  "officialFactorCheck": [
+    {
+      "factor": "% Population Living in Households with Improved Sanitation",
+      "method": "state",
+      "verdict": "no-evidence",
+      "note": "Local reporting centres on finances and forced labour, not sanitation.",
+      "sources": []
+    },
+    {
+      "factor": "% Schools with instruction medium 1 (English)",
+      "method": "district",
+      "verdict": "no-evidence",
+      "note": "Language of instruction is not cited as a barrier locally.",
+      "sources": []
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://timesofindia.indiatimes.com/education/news/girl-student-who-tried-to-end-life-scores-highest-in-supplementary-exams/articleshow/86983633.cms",
+      "title": "Girl student who tried to end life scores highest in supplementary exams",
+      "outlet": "The Times of India",
+      "date": "2021-10-13",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://www.thehindu.com/news/national/karnataka/fir-against-tumakuru-madrasa-management-after-24-runaway-children-allege-abuse-and-forced-labour/article70972711.ece",
+      "title": "FIR against Tumakuru madrasa management after 24 runaway children allege abuse and forced labour",
+      "outlet": "The Hindu",
+      "date": "2026-05-13",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://timesofindia.indiatimes.com/city/bengaluru/bluru-urban-sees-maximum-dropouts-in-ktaka-udupi-least/articleshow/66901108.cms",
+      "title": "Bengaluru Urban sees maximum dropouts in Karnataka, Udupi least",
+      "outlet": "The Times of India",
+      "date": "2018-12-02",
+      "type": "news"
+    }
+  ],
+  "coverage": "thin",
+  "gaps": "Sources are individual cases and an old count; no current dropout or SSLC district figures.",
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+}

@@ -1,0 +1,341 @@
+{
+  "districtId": "29-572",
+  "name": "Bengaluru Urban",
+  "regionId": "old-mysuru",
+  "researchedOn": "2026-10-07",
+  "headline": "Migrant-labour families and school toilet gaps; thousands of dropouts counted across Bengaluru North and South.",
+  "summary": "Bengaluru Urban's reported exits are tied to migration and weak tracking of children in a large, mobile population. A Bangalore Mirror report counted about 2,000 dropouts in Bengaluru South and 1,800 in Bengaluru North in 2023-24, and a 2023 High Court report found one government school in Bengaluru North and four in Bengaluru South without toilets. A statewide survey found most dropouts happen around ages 11 to 13, at the move into high school.",
+  "reasons": [
+    {
+      "factor": "Migration and an untracked child population",
+      "category": "migration",
+      "detail": "A Bangalore Mirror report says migration fuels dropout in the state, and an officer said Bengaluru North's low out-of-school count (189) may reflect weak tracking in a garment-factory area.",
+      "sources": [
+        1,
+        2
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Schools without toilets",
+      "category": "school-infrastructure",
+      "detail": "A 2023 High Court report found one government school in Bengaluru North and four in Bengaluru South without toilets.",
+      "sources": [
+        3
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Migrant families lacking documents",
+      "category": "migration",
+      "detail": "Children of migrant construction workers are often refused admission without local address proof, and families that keep moving for work lose continuity in schooling; transfer certificates can substitute but are inconsistently accepted.",
+      "sources": [
+        8,
+        9
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Language gap for non-Kannada speakers",
+      "category": "school-infrastructure",
+      "detail": "Migrant children from other states struggle with Kannada-medium government schooling, which pushes them out; NGO bridge programmes teach Kannada, English and maths before moving them into regular classes.",
+      "sources": [
+        8,
+        9
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Survival income outweighs schooling",
+      "category": "economic",
+      "detail": "Migrant labourers on daily wages say food and shelter come before children's education, and children of migrants sometimes leave school when parents return temporarily to home states.",
+      "sources": [
+        8,
+        9
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Pandemic hardship and early marriage",
+      "category": "gender",
+      "detail": "Activists linked COVID school closures and lost incomes to dropouts, and then to child marriage; Bengaluru urban and rural together logged 279 complaints between 2020 and August 2022, with 47 marriages solemnised.",
+      "sources": [
+        12
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "SSLC failure and lost year",
+      "category": "governance",
+      "detail": "In Bandepalya (south-east Bengaluru) police began crash courses for failed SSLC students, noting that the year-long gap before retaking exams leaves them prone to drifting away. 40 of 84 enrolled had failed over five subjects.",
+      "sources": [
+        11
+      ],
+      "evidence": "thin"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Bengaluru South dropouts, 2023-24",
+      "value": "2,028",
+      "sources": [
+        2
+      ]
+    },
+    {
+      "label": "Bengaluru North dropouts, 2023-24",
+      "value": "1,824",
+      "sources": [
+        2
+      ]
+    },
+    {
+      "label": "Bengaluru South SSLC pass rate, 2025",
+      "value": "72.3%",
+      "sources": [
+        4
+      ]
+    },
+    {
+      "label": "Statewide: share of dropouts aged 11-13",
+      "value": "63%",
+      "sources": [
+        5
+      ]
+    },
+    {
+      "label": "Children out of school, Karnataka, 2014 (state-level)",
+      "value": "About 1,71,000, with Bengaluru a significant share",
+      "sources": [
+        9
+      ]
+    },
+    {
+      "label": "Child marriage complaints, Bengaluru urban+rural, 2020-Aug 2022",
+      "value": "279 complaints; 232 stopped; 47 solemnised",
+      "sources": [
+        12
+      ]
+    },
+    {
+      "label": "SSLC failures at Bandepalya crash course, 2023",
+      "value": "84 students enrolled; 40 failed in more than five subjects",
+      "sources": [
+        11
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Migration fuels school dropout crisis in Karnataka",
+      "outlet": "Bangalore Mirror",
+      "date": "2025-01-04",
+      "url": "https://bangaloremirror.indiatimes.com/bangalore/others/migration-fuels-school-dropout-crisis-in-karnataka/articleshow/116925443.cms",
+      "takeaway": "Migration fuels school dropout crisis in Karnataka."
+    },
+    {
+      "title": "Bengaluru police station gives a crash-course push to SSLC students to help them clear supplementary exam hurdle",
+      "outlet": "South First",
+      "date": "2023-05-30",
+      "url": "https://thesouthfirst.com/karnataka/a-police-station-in-bengaluru-gives-a-crash-course-push-to-sslc-students-to-help-them-clear-the-supplementary-exam-hurdle/",
+      "takeaway": "Bandepalya police run a 21-day course for failed SSLC students, fearing the one-year gap leaves them vulnerable to dropping out and bad company."
+    },
+    {
+      "title": "No drinking water in 87 govt schools, no toilets in 464 schools in Karnataka",
+      "outlet": "The Hindu",
+      "date": "2023-05-29",
+      "url": "https://www.thehindu.com/news/national/karnataka/sorry-state-of-affairs-says-high-court-on-absence-of-toilets-in-464-govt-schools/article66908404.ece",
+      "takeaway": "No drinking water in 87 government schools, no toilets in 464, says High Court."
+    },
+    {
+      "title": "Since 2020, Bengaluru has witnessed at least one child marriage every month",
+      "outlet": "The News Minute",
+      "date": "2022-10-19",
+      "url": "https://www.thenewsminute.com/karnataka/2020-bengaluru-has-witnessed-least-one-child-marriage-every-month-169032",
+      "takeaway": "Pandemic school closures and income loss pushed dropouts and early marriage; figures combine Bengaluru urban and rural."
+    },
+    {
+      "title": "Without documents, most migrant workers' children find access to education elusive",
+      "outlet": "Citizen Matters",
+      "date": "2022-07-20",
+      "url": "https://citizenmatters.in/access-to-education-for-migrant-workers-children-85408",
+      "takeaway": "Lack of local address proof, language barriers and survival priorities keep many migrant workers' children out of Bengaluru schools; Gubbachi runs bridge centres."
+    },
+    {
+      "title": "Bengaluru Urban sees maximum dropouts in Karnataka, Udupi least",
+      "outlet": "The Times of India",
+      "date": "2018-12-02",
+      "url": "https://timesofindia.indiatimes.com/city/bengaluru/bluru-urban-sees-maximum-dropouts-in-ktaka-udupi-least/articleshow/66901108.cms",
+      "takeaway": "Bengaluru Urban sees maximum dropouts in Karnataka, Udupi least."
+    },
+    {
+      "title": "How a Bengaluru citizen group is helping migrant labourers send their kids to school",
+      "outlet": "The News Minute",
+      "date": "2015-09-18",
+      "url": "https://thenewsminute.com/article/how-bengaluru-citizen-group-helping-migrant-labourers-send-their-kids-school-34418",
+      "takeaway": "Samridhdhi Trust bridge schools tackle language and transport barriers for migrant children, who often quit when parents return home temporarily."
+    },
+    {
+      "title": "Handholding support led me back to school",
+      "outlet": "Indian Social Institute, Bangalore",
+      "date": "",
+      "url": "https://isibangalore.com/?p=647",
+      "takeaway": "A Thubrahalli study centre serving about 200 migrant workers' children helped girls rejoin school and afford fees after pandemic hardship."
+    }
+  ],
+  "responses": [
+    {
+      "text": "Gubbachi runs year-long bridge centres that prepare out-of-school migrant children in Kannada, English and maths before entering government schools.",
+      "sources": [
+        8
+      ]
+    },
+    {
+      "text": "Samridhdhi Trust operates seven bridge schools in Bengaluru with multilingual teaching, transport and sibling childcare, serving at least 700 students a year.",
+      "sources": [
+        9
+      ]
+    },
+    {
+      "text": "Bandepalya police ran a 21-day crash course with volunteer teachers and counsellors for students who failed SSLC, ahead of supplementary exams.",
+      "sources": [
+        11
+      ]
+    },
+    {
+      "text": "The Indian Social Institute study centre in Thubrahalli offers tutoring, mentoring and fee help to migrant workers' children.",
+      "sources": [
+        10
+      ]
+    }
+  ],
+  "officialFactorCheck": [
+    {
+      "factor": "% Population Living in Households with Improved Sanitation",
+      "method": "state",
+      "verdict": "unclear",
+      "note": "Government schools in the district lack toilets, but no source ties this to dropout locally.",
+      "sources": [
+        3
+      ]
+    },
+    {
+      "factor": "% Schools with Functional Protected Well",
+      "method": "district",
+      "verdict": "no-evidence",
+      "note": "No local investigation links the district-method factor to retention.",
+      "sources": [
+        7
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://timesofindia.indiatimes.com/city/bengaluru/Experts-seek-resurvey-rubbish-SSA-data/articleshow/52292503.cms?utm_source=newsletter&utm_medium=referral&utm_campaign=digest_section",
+      "title": "Experts seek resurvey, rubbish SSA data",
+      "outlet": "The Times of India",
+      "date": "2016-05-16",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://bangaloremirror.indiatimes.com/bangalore/others/migration-fuels-school-dropout-crisis-in-karnataka/articleshow/116925443.cms",
+      "title": "Migration fuels school dropout crisis in Karnataka",
+      "outlet": "Bangalore Mirror",
+      "date": "2025-01-04",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://www.thehindu.com/news/national/karnataka/sorry-state-of-affairs-says-high-court-on-absence-of-toilets-in-464-govt-schools/article66908404.ece",
+      "title": "No drinking water in 87 govt schools, no toilets in 464 schools in Karnataka",
+      "outlet": "The Hindu",
+      "date": "2023-05-29",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "https://www.collegedekho.com/karnataka-sslc-result-statistics-brd",
+      "title": "Karnataka SSLC Result Statistics 2026 - Check Karnataka Class 10 Result Statistics | CollegeDekho",
+      "outlet": "CollegeDekho",
+      "date": "2024-04-04",
+      "type": "news"
+    },
+    {
+      "id": 5,
+      "url": "https://www.thehindu.com/news/national/karnataka/63-of-school-dropouts-in-karnataka-in-11-to-13-age-group-survey/article19235973.ece",
+      "title": "63% of school dropouts in Karnataka in 11 to 13 age group: Survey",
+      "outlet": "The Hindu",
+      "date": "2017-07-07",
+      "type": "news"
+    },
+    {
+      "id": 6,
+      "url": "https://timesofindia.indiatimes.com/city/bengaluru/bluru-urban-sees-maximum-dropouts-in-ktaka-udupi-least/articleshow/66901108.cms",
+      "title": "Bengaluru Urban sees maximum dropouts in Karnataka, Udupi least",
+      "outlet": "The Times of India",
+      "date": "2018-12-02",
+      "type": "news"
+    },
+    {
+      "id": 7,
+      "url": "https://www.thehindu.com/news/cities/bangalore/An-education-lost-is-a-livelihood-gained/article14417811.ece",
+      "title": "An education lost is a livelihood gained?",
+      "outlet": "The Hindu",
+      "date": "2016-06-12",
+      "type": "news"
+    },
+    {
+      "id": 8,
+      "url": "https://citizenmatters.in/access-to-education-for-migrant-workers-children-85408",
+      "title": "Without documents, most migrant workers' children find access to education elusive",
+      "outlet": "Citizen Matters",
+      "date": "2022-07-20",
+      "type": "news"
+    },
+    {
+      "id": 9,
+      "url": "https://thenewsminute.com/article/how-bengaluru-citizen-group-helping-migrant-labourers-send-their-kids-school-34418",
+      "title": "How a Bengaluru citizen group is helping migrant labourers send their kids to school",
+      "outlet": "The News Minute",
+      "date": "2015-09-18",
+      "type": "news"
+    },
+    {
+      "id": 10,
+      "url": "https://isibangalore.com/?p=647",
+      "title": "Handholding support led me back to school",
+      "outlet": "Indian Social Institute, Bangalore",
+      "date": "",
+      "type": "ngo"
+    },
+    {
+      "id": 11,
+      "url": "https://thesouthfirst.com/karnataka/a-police-station-in-bengaluru-gives-a-crash-course-push-to-sslc-students-to-help-them-clear-the-supplementary-exam-hurdle/",
+      "title": "Bengaluru police station gives a crash-course push to SSLC students to help them clear supplementary exam hurdle",
+      "outlet": "South First",
+      "date": "2023-05-30",
+      "type": "news"
+    },
+    {
+      "id": 12,
+      "url": "https://www.thenewsminute.com/karnataka/2020-bengaluru-has-witnessed-least-one-child-marriage-every-month-169032",
+      "title": "Since 2020, Bengaluru has witnessed at least one child marriage every month",
+      "outlet": "The News Minute",
+      "date": "2022-10-19",
+      "type": "news"
+    },
+    {
+      "id": 13,
+      "url": "https://www.deccanherald.com/india/karnataka/bengaluru/highest-number-school-dropouts-bangalore-2174993",
+      "title": "Deccan Herald report on highest number of school dropouts in Bangalore (exact title and date not retrieved; page blocked)",
+      "outlet": "Deccan Herald",
+      "date": "",
+      "type": "news"
+    }
+  ],
+  "coverage": "moderate",
+  "gaps": "An earlier undated Deccan Herald snippet gave 2,682 for Bengaluru South; the dated Bangalore Mirror figure (2,028, 2023-24) is used. casefile sub-areas North and South are not separated in most sources. No recent district-level Class 8-10 dropout counts, SSLC pass rates for Bengaluru North/South, or UDISE+ figures retrieved; UDISE+ girls' dropout data found is state-level only; Deccan Herald pages were blocked and known only via search snippets.",
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+}

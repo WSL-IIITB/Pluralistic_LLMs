@@ -1,0 +1,99 @@
+{
+  "districtId": "29-584",
+  "name": "Ramanagara",
+  "regionId": "old-mysuru",
+  "researchedOn": "2026-10-07",
+  "headline": "Child marriage is the main documented exit: 44 cases in 2020-2023.",
+  "summary": "Ramanagara is one of the southern districts with the most recorded child marriages, 44 between 2020 and 2023, and reporting also notes rising child labour. Tracking is reactive, based on rescues and interventions rather than bridge courses for slow learners.",
+  "reasons": [
+    {
+      "factor": "Child marriage of girls",
+      "category": "gender",
+      "detail": "State child-welfare data records 44 child marriages in the district between 2020 and 2023, withdrawing girls from the SSLC pipeline.",
+      "sources": [
+        1
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Rising child labour",
+      "category": "economic",
+      "detail": "Reporting notes a rise in child-labour incidents that pull boys out of class.",
+      "sources": [
+        2
+      ],
+      "evidence": "thin"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Child marriage cases, 2020-2023",
+      "value": "44",
+      "sources": [
+        1
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Bengaluru ranks low in child protection index in Karnataka",
+      "outlet": "The Times of India",
+      "date": "2025-11-21",
+      "url": "https://timesofindia.indiatimes.com/city/bengaluru/bengaluru-ranks-low-in-child-protection-index-in-karnataka/articleshow/125470643.cms",
+      "takeaway": "Bengaluru ranks low in the child protection index in Karnataka."
+    },
+    {
+      "title": "Mandya No. 1 dist in child marriages since 2020: Data",
+      "outlet": "The Times of India",
+      "date": "2023-12-18",
+      "url": "https://timesofindia.indiatimes.com/city/mysuru/mandya-no-1-dist-in-child-marriages-since-2020-data/articleshow/106071868.cms",
+      "takeaway": "Mandya is the number one district in child marriages since 2020, with Ramanagara among the southern districts listed."
+    }
+  ],
+  "responses": [],
+  "officialFactorCheck": [
+    {
+      "factor": "% Population Living in Households with Improved Sanitation",
+      "method": "state",
+      "verdict": "no-evidence",
+      "note": "No local investigation links sanitation to dropout.",
+      "sources": []
+    },
+    {
+      "factor": "% Schools with instruction medium 1 (English)",
+      "method": "district",
+      "verdict": "no-evidence",
+      "note": "Language of instruction is not cited as a barrier.",
+      "sources": []
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://timesofindia.indiatimes.com/city/mysuru/mandya-no-1-dist-in-child-marriages-since-2020-data/articleshow/106071868.cms",
+      "title": "Mandya No. 1 dist in child marriages since 2020: Data",
+      "outlet": "The Times of India",
+      "date": "2023-12-18",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://timesofindia.indiatimes.com/city/bengaluru/covid-on-the-ebb-but-child-labour-incidence-still-high-in-karnataka/articleshow/94629749.cms",
+      "title": "Covid on the ebb, but child labour incidence still high in Karnataka",
+      "outlet": "The Times of India",
+      "date": "2022-10-04",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://timesofindia.indiatimes.com/city/bengaluru/bengaluru-ranks-low-in-child-protection-index-in-karnataka/articleshow/125470643.cms",
+      "title": "Bengaluru ranks low in child protection index in Karnataka",
+      "outlet": "The Times of India",
+      "date": "2025-11-21",
+      "type": "news"
+    }
+  ],
+  "coverage": "thin",
+  "gaps": "No dropout, SSLC or out-of-school figures for the district.",
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+}

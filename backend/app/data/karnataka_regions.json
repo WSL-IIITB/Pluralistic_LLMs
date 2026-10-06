@@ -1,0 +1,162 @@
+{
+  "state_code": "29",
+  "state_name": "Karnataka",
+  "statewide_region_id": "karnataka-statewide",
+  "statewide_region_name": "Karnataka (statewide)",
+  "regions": [
+    {
+      "id": "old-mysuru",
+      "name": "Old Mysuru (Southern) Region",
+      "short_name": "Old Mysuru",
+      "definition": "The former core of the princely Mysore State: Bengaluru Urban and Bengaluru Rural (the IT/BT metro and its industrial periphery), Ramanagara, Mandya, Mysuru and Chamarajanagara (the Vokkaliga-heartland, Cauvery-basin agrarian belt anchored by Mysuru city). Grouped together as the region long governed from and centred on Mysuru/Bengaluru, sharing Old Mysuru Kannada, Vokkaliga social weight and Cauvery-dependent irrigation, distinct from the drier plains to its north-east.",
+      "personas": [
+        {"id": "male", "label": "Male resident", "persona_file": "personas/old_mysuru_male.json"},
+        {"id": "female", "label": "Female resident", "persona_file": "personas/old_mysuru_female.json"}
+      ],
+      "color": [213, 81, 129],
+      "search_terms": "Bengaluru Mysuru Mandya Ramanagara Chamarajanagara",
+      "district_ids": ["29-572", "29-583", "29-584", "29-573", "29-577", "29-578"],
+      "aliases": [
+        "old mysuru", "old mysore", "mysuru bengaluru", "mysore bangalore", "bengaluru mysuru",
+        "bangalore mysore", "south karnataka", "southern karnataka"
+      ]
+    },
+    {
+      "id": "bayaluseeme",
+      "name": "Bayaluseeme (Central Plains) Region",
+      "short_name": "Bayaluseeme",
+      "definition": "Kannada 'bayalu seeme' (open country): the semi-arid, rain-shadow central and eastern plains -- Chikkaballapur, Kolar, Tumakuru, Davanagere and Chitradurga. Grouped together as borewell-dependent dryland-farming districts squeezed between the wetter Malnad/Karavali west and the Deccan north, sharing groundwater depletion, drought exposure and heavy out-migration to Bengaluru, distinct from both the Bengaluru metro belt and the Krishna-basin north.",
+      "personas": [
+        {"id": "male", "label": "Male resident", "persona_file": "personas/bayaluseeme_male.json"},
+        {"id": "female", "label": "Female resident", "persona_file": "personas/bayaluseeme_female.json"}
+      ],
+      "color": [124, 91, 188],
+      "search_terms": "Tumakuru Kolar Chikkaballapur Davanagere Chitradurga",
+      "district_ids": ["29-582", "29-581", "29-571", "29-567", "29-566"],
+      "aliases": [
+        "bayaluseeme", "bayalu seeme", "bayaluseema", "central karnataka", "central plains",
+        "eastern dry belt"
+      ]
+    },
+    {
+      "id": "karavali",
+      "name": "Karavali (Coastal) Region",
+      "short_name": "Karavali",
+      "definition": "Karnataka's Arabian Sea coast and its Western Ghats hinterland: Uttara Kannada, Udupi and Dakshina Kannada. Grouped together as the Kanara/Tulu Nadu littoral, sharing Tulu, Konkani and coastal-Kannada speech, fishing and port economies, Gulf remittances and high literacy, though Uttara Kannada's ghat-top taluks (Sirsi, Siddapur, Yellapur) are ecologically closer to Malnad than to the coast itself.",
+      "personas": [
+        {"id": "male", "label": "Male resident", "persona_file": "personas/karavali_male.json"},
+        {"id": "female", "label": "Female resident", "persona_file": "personas/karavali_female.json"}
+      ],
+      "color": [57, 135, 229],
+      "search_terms": "coastal Karnataka Mangaluru Udupi Karwar",
+      "district_ids": ["29-575", "29-569", "29-563"],
+      "aliases": [
+        "karavali", "coastal karnataka", "karnataka coast", "tulu nadu", "tulunadu",
+        "canara", "south canara", "north canara", "kanara"
+      ]
+    },
+    {
+      "id": "malnad",
+      "name": "Malnad Region",
+      "short_name": "Malnad",
+      "definition": "The 'hill country' on the eastern slopes of the Western Ghats -- Shivamogga, Chikkamagaluru, Hassan and Kodagu. Grouped together as Karnataka's coffee, areca and pepper plantation belt and primary watershed, sharing a wet monsoon climate, Hoysala-era heritage and documented youth out-migration and human-wildlife conflict, distinct from both the coastal Karavali strip to its west and the drier plains to its east.",
+      "personas": [
+        {"id": "male", "label": "Male resident", "persona_file": "personas/malnad_male.json"},
+        {"id": "female", "label": "Female resident", "persona_file": "personas/malnad_female.json"}
+      ],
+      "color": [0, 131, 0],
+      "search_terms": "Malnad Shivamogga Chikkamagaluru Kodagu Hassan",
+      "district_ids": ["29-568", "29-570", "29-576", "29-574"],
+      "aliases": ["malnad", "malenadu", "malnadu", "malenaadu", "male nadu"]
+    },
+    {
+      "id": "kitturu-karnataka",
+      "name": "Kitturu Karnataka (North-west) Region",
+      "short_name": "Kitturu Karnataka",
+      "definition": "The former Bombay-Karnataka region, renamed Kitturu Karnataka in 2021 after Rani Chennamma's Kittur -- Belagavi, Vijayapura, Bagalkote, Dharwad, Gadag and Haveri. Grouped together as the Krishna-Malaprabha sugarcane and cotton belt with a shared Bombay Presidency administrative legacy, Marathi-influenced border districts (Belagavi), and the Hubballi-Dharwad twin-city commercial hub, distinct from the poorer, Hyderabad-legacy districts further east.",
+      "personas": [
+        {"id": "male", "label": "Male resident", "persona_file": "personas/kitturu_karnataka_male.json"},
+        {"id": "female", "label": "Female resident", "persona_file": "personas/kitturu_karnataka_female.json"}
+      ],
+      "color": [201, 133, 0],
+      "search_terms": "Belagavi Vijayapura Bagalkote Dharwad Gadag Haveri",
+      "district_ids": ["29-555", "29-557", "29-556", "29-562", "29-561", "29-564"],
+      "aliases": [
+        "kitturu karnataka", "kittur karnataka", "bombay karnataka", "mumbai karnataka",
+        "north-west karnataka", "northwest karnataka"
+      ]
+    },
+    {
+      "id": "kalyana-karnataka",
+      "name": "Kalyana Karnataka (North-east) Region",
+      "short_name": "Kalyana Karnataka",
+      "definition": "The former Hyderabad-Karnataka region, part of the Nizam's Hyderabad State until 1948 and renamed Kalyana Karnataka in 2019 -- Kalaburagi, Bidar, Yadgir, Raichur, Koppal, Ballari and Vijayanagara. Grouped together as Karnataka's most backward region by the Nanjundappa Committee, now under Article 371(J) special constitutional status, sharing a Deccan/Dakhani-influenced Kannada, tur-dal and cotton farming, iron-ore mining around Ballari-Sandur, and the state's weakest education and health indicators.",
+      "personas": [
+        {"id": "male", "label": "Male resident", "persona_file": "personas/kalyana_karnataka_male.json"},
+        {"id": "female", "label": "Female resident", "persona_file": "personas/kalyana_karnataka_female.json"}
+      ],
+      "color": [196, 58, 58],
+      "search_terms": "Kalaburagi Bidar Yadgir Raichur Koppal Ballari Vijayanagara",
+      "district_ids": ["29-579", "29-558", "29-580", "29-559", "29-560", "29-565"],
+      "aliases": [
+        "kalyana karnataka", "kalyan karnataka", "hyderabad karnataka", "hyderabad-karnataka",
+        "north-east karnataka", "northeast karnataka"
+      ]
+    }
+  ],
+  "place_aliases": {
+    "bangalore": "29-572", "bengaluru": "29-572", "bengaluru city": "29-572", "bangalore urban": "29-572",
+    "whitefield": "29-572", "electronic city": "29-572", "yelahanka": "29-572", "anekal": "29-572",
+    "peenya": "29-572", "koramangala": "29-572", "jayanagar": "29-572", "hebbal": "29-572",
+    "bangalore rural": "29-583", "doddaballapura": "29-583", "doddaballapur": "29-583", "devanahalli": "29-583",
+    "hoskote": "29-583", "nelamangala": "29-583", "bagaluru": "29-583",
+    "ramanagaram": "29-584", "bengaluru south": "29-584", "channapatna": "29-584", "kanakapura": "29-584",
+    "magadi": "29-584", "bidadi": "29-584", "harohalli": "29-584",
+    "maddur": "29-573", "malavalli": "29-573", "srirangapatna": "29-573", "srirangapattana": "29-573",
+    "pandavapura": "29-573", "krishnarajpet": "29-573", "kr pet": "29-573", "nagamangala": "29-573",
+    "mysore": "29-577", "nanjangud": "29-577", "hunsur": "29-577", "t narasipura": "29-577",
+    "hd kote": "29-577", "heggadadevanakote": "29-577", "periyapatna": "29-577", "kr nagar": "29-577",
+    "chamarajanagar": "29-578", "kollegal": "29-578", "gundlupet": "29-578", "yelandur": "29-578",
+    "mm hills": "29-578", "male mahadeshwara hills": "29-578", "br hills": "29-578", "bandipur": "29-578",
+    "tumkur": "29-571", "tiptur": "29-571", "sira": "29-571", "kunigal": "29-571", "madhugiri": "29-571",
+    "gubbi": "29-571", "pavagada": "29-571",
+    "kgf": "29-581", "kolar gold fields": "29-581", "mulbagal": "29-581", "malur": "29-581", "bangarapet": "29-581",
+    "chikkaballapur": "29-582", "chikballapur": "29-582", "chintamani": "29-582", "gauribidanur": "29-582",
+    "nandi hills": "29-582",
+    "belgaum": "29-555", "gokak": "29-555", "chikkodi": "29-555", "athani": "29-555", "nippani": "29-555",
+    "bailhongal": "29-555", "kittur": "29-555", "khanapur": "29-555",
+    "bagalkot": "29-556", "jamkhandi": "29-556", "badami": "29-556", "ilkal": "29-556", "mudhol": "29-556",
+    "aihole": "29-556", "pattadakal": "29-556", "almatti": "29-556",
+    "bijapur": "29-557", "indi": "29-557", "sindagi": "29-557", "basavana bagewadi": "29-557",
+    "lakshmeshwar": "29-561", "nargund": "29-561", "ron": "29-561", "lakkundi": "29-561",
+    "hubli": "29-562", "hubballi": "29-562", "hubli dharwad": "29-562", "hubballi dharwad": "29-562",
+    "kalghatgi": "29-562", "navalgund": "29-562",
+    "byadgi": "29-564", "byadagi": "29-564", "ranebennur": "29-564", "savanur": "29-564", "hangal": "29-564",
+    "bellary": "29-565", "hospet": "29-565", "hosapete": "29-565", "hampi": "29-565", "sandur": "29-565",
+    "siruguppa": "29-565", "vijayanagara": "29-565", "kudligi": "29-565",
+    "basavakalyan": "29-558", "humnabad": "29-558", "bhalki": "29-558", "aurad": "29-558",
+    "gulbarga": "29-579", "kalburgi": "29-579", "aland": "29-579", "sedam": "29-579", "chincholi": "29-579",
+    "jewargi": "29-579", "afzalpur": "29-579",
+    "gangavathi": "29-560", "gangavati": "29-560", "kushtagi": "29-560", "yelburga": "29-560",
+    "sindhanur": "29-559", "lingasugur": "29-559", "manvi": "29-559", "devadurga": "29-559",
+    "yadagiri": "29-580", "shorapur": "29-580", "surpur": "29-580", "shahapur": "29-580",
+    "hiriyur": "29-566", "challakere": "29-566", "hosadurga": "29-566", "holalkere": "29-566", "molakalmuru": "29-566",
+    "davangere": "29-567", "harihar": "29-567", "channagiri": "29-567", "honnali": "29-567", "jagalur": "29-567",
+    "mangalore": "29-575", "mangaluru": "29-575", "puttur": "29-575", "belthangady": "29-575", "sullia": "29-575",
+    "bantwal": "29-575", "moodbidri": "29-575", "dharmasthala": "29-575", "subramanya": "29-575",
+    "kukke subramanya": "29-575", "surathkal": "29-575", "ullal": "29-575",
+    "manipal": "29-569", "kundapura": "29-569", "kundapur": "29-569", "karkala": "29-569", "malpe": "29-569",
+    "byndoor": "29-569", "kapu": "29-569", "brahmavar": "29-569",
+    "karwar": "29-563", "kumta": "29-563", "honnavar": "29-563", "bhatkal": "29-563", "ankola": "29-563",
+    "gokarna": "29-563", "murudeshwar": "29-563", "sirsi": "29-563", "siddapur": "29-563", "yellapur": "29-563",
+    "mundgod": "29-563", "haliyal": "29-563", "dandeli": "29-563", "joida": "29-563", "north kanara": "29-563",
+    "shimoga": "29-568", "shivamogga city": "29-568", "sagara": "29-568", "sagar": "29-568", "thirthahalli": "29-568",
+    "tirthahalli": "29-568", "agumbe": "29-568", "bhadravati": "29-568", "shikaripura": "29-568", "soraba": "29-568",
+    "hosanagara": "29-568", "jog falls": "29-568", "kyasanur": "29-568",
+    "chikmagalur": "29-570", "chikkamagalur": "29-570", "sringeri": "29-570", "koppa": "29-570",
+    "mudigere": "29-570", "kadur": "29-570", "tarikere": "29-570", "kudremukh": "29-570", "narasimharajapura": "29-570",
+    "coorg": "29-576", "madikeri": "29-576", "virajpet": "29-576", "kushalnagar": "29-576", "somwarpet": "29-576",
+    "sakleshpur": "29-574", "belur": "29-574", "halebidu": "29-574", "arsikere": "29-574",
+    "channarayapatna": "29-574", "holenarasipur": "29-574", "shravanabelagola": "29-574"
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "districtId": "29-556",
+  "name": "Bagalkote",
+  "regionId": "kitturu-karnataka",
+  "researchedOn": "2026-10-07",
+  "headline": "Child marriage and a 2022 hijab-related exam boycott are the documented exits for girls.",
+  "summary": "Bagalkote reporting links girls' school exit to child marriage, with the state offering gram panchayats a Rs 50,000 reward for preventing it, and records a student skipping SSLC in 2022 rather than remove a hijab. Farm-labour pressure on teenagers is asserted but thinly sourced.",
+  "reasons": [
+    {
+      "factor": "Child marriage of girls",
+      "category": "gender",
+      "detail": "A child development project officer's mentoring reaches over 600 early-married girls in Bagalkot villages, a measure of how common early marriage is.",
+      "sources": [
+        1
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Hijab-related exam boycott",
+      "category": "social-norms",
+      "detail": "A Bagalkot student refused to remove her hijab and skipped an SSLC paper during the 2022 dress-code row.",
+      "sources": [
+        2
+      ],
+      "evidence": "moderate"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Statewide: reward per gram panchayat that prevents child marriage",
+      "value": "Rs 50,000",
+      "sources": [
+        3
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "State government announces ₹50,000 reward to gram panchayats that prevent child marriages",
+      "outlet": "The Hindu",
+      "date": "2024-11-07",
+      "url": "https://www.thehindu.com/news/national/karnataka/state-government-announces-50000-reward-to-gram-panchayats-that-prevent-child-marriages/article68836090.ece",
+      "takeaway": "State announces Rs 50,000 reward to gram panchayats that prevent child marriages."
+    },
+    {
+      "title": "Karnataka SSLC Topper 2024: Bagalkot girl tops SSLC in Karnataka",
+      "outlet": "The Hindu",
+      "date": "2024-05-09",
+      "url": "https://www.thehindu.com/news/national/karnataka/class-10-exam-1-results-bagalkot-girl-tops-sslc-in-karnataka/article68156833.ece",
+      "takeaway": "Class 10 results: a Bagalkot girl tops SSLC in Karnataka."
+    },
+    {
+      "title": "Bagalkot student refuses to remove hijab, skips SSLC exam",
+      "outlet": "The Hindu",
+      "date": "2022-03-29",
+      "url": "https://www.thehindu.com/news/cities/bangalore/bagalkot-student-refuses-to-remove-hijab-skips-sslc-exam/article65268446.ece",
+      "takeaway": "Bagalkot student refuses to remove hijab, skips SSLC exam."
+    }
+  ],
+  "responses": [
+    {
+      "text": "The state pays Rs 50,000 to gram panchayats that prevent child marriages and runs Children's Gram Sabhas.",
+      "sources": [
+        3
+      ]
+    }
+  ],
+  "officialFactorCheck": [
+    {
+      "factor": "% Population Living in Households with Improved Sanitation",
+      "method": "state",
+      "verdict": "no-evidence",
+      "note": "No local reporting links sanitation to dropout.",
+      "sources": []
+    },
+    {
+      "factor": "% Schools with instruction medium 1 (English)",
+      "method": "district",
+      "verdict": "no-evidence",
+      "note": "No local data links English-medium instruction to dropout.",
+      "sources": []
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://20in20.deccanherald.com/shailaja-g-k",
+      "title": "Shailaja G K",
+      "outlet": "Deccan Herald",
+      "date": "2019-12-27",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://www.thehindu.com/news/cities/bangalore/bagalkot-student-refuses-to-remove-hijab-skips-sslc-exam/article65268446.ece",
+      "title": "Bagalkot student refuses to remove hijab, skips SSLC exam",
+      "outlet": "The Hindu",
+      "date": "2022-03-29",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://www.thehindu.com/news/national/karnataka/state-government-announces-50000-reward-to-gram-panchayats-that-prevent-child-marriages/article68836090.ece",
+      "title": "State government announces ₹50,000 reward to gram panchayats that prevent child marriages",
+      "outlet": "The Hindu",
+      "date": "2024-11-07",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "https://www.thehindu.com/news/national/karnataka/class-10-exam-1-results-bagalkot-girl-tops-sslc-in-karnataka/article68156833.ece",
+      "title": "Karnataka SSLC Topper 2024: Bagalkot girl tops SSLC in Karnataka",
+      "outlet": "The Hindu",
+      "date": "2024-05-09",
+      "type": "news"
+    }
+  ],
+  "coverage": "thin",
+  "gaps": "No dropout, out-of-school, SSLC pass-rate or migration data for the district was retrieved; child-marriage figures are thin.",
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+}

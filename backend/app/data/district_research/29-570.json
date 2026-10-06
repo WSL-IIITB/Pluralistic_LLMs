@@ -1,0 +1,254 @@
+{
+  "districtId": "29-570",
+  "name": "Chikkamagaluru",
+  "regionId": "malnad",
+  "researchedOn": "2026-10-07",
+  "headline": "Migrant plantation families keep children out of school each pepper and coffee harvest.",
+  "summary": "Each harvest season families migrate into Chikkamagaluru to work in coffee and pepper plantations, and children live in roadside tents minding younger siblings instead of attending school. A school in Begar made four regular students write SSLC as private candidates without parental consent, and parents threatened to withdraw daughters over the 2022 hijab ban.",
+  "reasons": [
+    {
+      "factor": "Seasonal plantation migration",
+      "category": "migration",
+      "detail": "Hundreds of migrant families work the coffee and pepper harvest; their children miss school while living in makeshift tents.",
+      "sources": [
+        1
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Students registered as private candidates",
+      "category": "governance",
+      "detail": "Karnataka Public School Begar allegedly registered four regular students as private candidates without parental consent, costing them internal marks.",
+      "sources": [
+        2
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Forest-hamlet tribal families and school access",
+      "category": "school-infrastructure",
+      "detail": "Forest communities near Ajjampura relied on ashrama schools; during Covid closures there was no network in forests and limited support. The article says such schools offer classes only up to Class 7 (state-wide statement).",
+      "sources": [
+        7
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Hijab dispute",
+      "category": "social-norms",
+      "detail": "Parents said they would withdraw daughters from high schools if headscarves were barred during the 2022 row.",
+      "sources": [
+        3
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Cheap child labour in poor families",
+      "category": "economic",
+      "detail": "The 2021 report quotes that child labour is cheap and easily employed among first-generation Adivasi learners, pushing children towards work instead of school; Chikkamagaluru communities feature among its examples.",
+      "sources": [
+        7
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Paid weekend catering work",
+      "category": "economic",
+      "detail": "Teachers found malnad students, a majority from Shivamogga, Uttara Kannada and Chikkamagaluru, skipping college for Bengaluru catering jobs paying Rs 1,000 a day; increase noted after Covid. College-level evidence.",
+      "sources": [
+        8
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Government school teacher and facility gaps",
+      "category": "school-infrastructure",
+      "detail": "Coverage around the child rights commission's dropout count notes that government schools in Chikkamagaluru lack teachers and basic facilities, with calls for more appointments.",
+      "sources": [
+        6
+      ],
+      "evidence": "thin"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Students made to write SSLC as private candidates at one school",
+      "value": "4",
+      "sources": [
+        2
+      ]
+    },
+    {
+      "label": "Child marriages, January-October 2025",
+      "value": "19",
+      "sources": [
+        4
+      ]
+    },
+    {
+      "label": "Child marriage cases since 2020",
+      "value": "40",
+      "sources": [
+        5
+      ]
+    },
+    {
+      "label": "School dropouts reported by child rights commission",
+      "value": "102 children in Chikkamagaluru",
+      "sources": [
+        6
+      ]
+    },
+    {
+      "label": "Weekend catering pay reported for malnad students",
+      "value": "Rs 1,000 per day",
+      "sources": [
+        8
+      ]
+    },
+    {
+      "label": "District schools cited as affected in 2021 Covid report",
+      "value": "12 schools in the district",
+      "sources": [
+        7
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Karnataka govt school allegedly made four students write SSLC exams as private candidates",
+      "outlet": "The Hindu",
+      "date": "2026-04-28",
+      "url": "https://www.thehindu.com/news/national/karnataka/karnataka-public-school-allegedly-made-four-students-write-sslc-exams-as-private-candidates-in-chikkamagaluru/article70915499.ece",
+      "takeaway": "Karnataka Public School allegedly made four students write SSLC exams as private candidates in Chikkamagaluru."
+    },
+    {
+      "title": "Come pepper harvest season, children of migrant workers in Karnataka miss school",
+      "outlet": "The Hindu",
+      "date": "2026-02-16",
+      "url": "https://www.thehindu.com/news/national/karnataka/come-pepper-harvest-season-children-of-migrant-workers-in-karnataka-miss-school/article70578263.ece",
+      "takeaway": "Come pepper harvest season, children of migrant workers in Karnataka miss school."
+    },
+    {
+      "title": "Parents want their children with headscarves allowed to attend classes",
+      "outlet": "The Hindu",
+      "date": "2022-02-15",
+      "url": "https://www.thehindu.com/news/national/karnataka/hijab-controversy-parents-want-children-with-headscarves-allowed-to-attend-classes-in-chikkamagaluru/article65051734.ece",
+      "takeaway": "Students and parents urge schools to allow girls with hijab in Chikkamagaluru."
+    },
+    {
+      "title": "Bleak future ahead: COVID-19 pushes Karnataka's first generation Adivasi learners off schools",
+      "outlet": "Down To Earth",
+      "date": "2021-08-25",
+      "url": "https://www.downtoearth.org.in/governance/bleak-future-ahead-covid-19-pushes-karnataka-s-first-generation-adivasi-learners-off-schools-78637",
+      "takeaway": "Forest communities near Ajjampura faced closed schools, no network and child-labour pressure; ashrama schools cover limited grades."
+    },
+    {
+      "title": "Malnad students bunk classes for weekend catering jobs",
+      "outlet": "Deccan Herald",
+      "date": "",
+      "url": "https://www.deccanherald.com/india/karnataka/malnad-students-bunk-classes-for-weekend-catering-jobs-1199337.html",
+      "takeaway": "Students from Shivamogga, Uttara Kannada and Chikkamagaluru skipped college for weekend catering work in Bengaluru."
+    },
+    {
+      "title": "Education rights adalat made mandatory",
+      "outlet": "Deccan Herald",
+      "date": "",
+      "url": "https://www.deccanherald.com/india/karnataka/education-rights-adalat-made-mandatory-2067930",
+      "takeaway": "Child rights commission counted 102 dropouts in Chikkamagaluru and launched Shaale Kade Nanna Nade to readmit them."
+    }
+  ],
+  "responses": [
+    {
+      "text": "The Shaale Kade Nanna Nade campaign was organised to readmit school dropouts, planned as a mass movement, with identification of dropouts elsewhere in the district continuing.",
+      "sources": [
+        6
+      ]
+    }
+  ],
+  "officialFactorCheck": [
+    {
+      "factor": "% Population Living in Households with Improved Sanitation",
+      "method": "state",
+      "verdict": "no-evidence",
+      "note": "Migration and administrative malpractice, not sanitation, are the documented barriers.",
+      "sources": []
+    },
+    {
+      "factor": "% Schools with instruction medium 1 (English)",
+      "method": "district",
+      "verdict": "no-evidence",
+      "note": "Medium of instruction is not cited as a barrier.",
+      "sources": []
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://www.thehindu.com/news/national/karnataka/come-pepper-harvest-season-children-of-migrant-workers-in-karnataka-miss-school/article70578263.ece",
+      "title": "Come pepper harvest season, children of migrant workers in Karnataka miss school",
+      "outlet": "The Hindu",
+      "date": "2026-02-16",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://www.thehindu.com/news/national/karnataka/karnataka-public-school-allegedly-made-four-students-write-sslc-exams-as-private-candidates-in-chikkamagaluru/article70915499.ece",
+      "title": "Karnataka govt school allegedly made four students write SSLC exams as private candidates",
+      "outlet": "The Hindu",
+      "date": "2026-04-28",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://www.thehindu.com/news/national/karnataka/hijab-controversy-parents-want-children-with-headscarves-allowed-to-attend-classes-in-chikkamagaluru/article65051734.ece",
+      "title": "Parents want their children with headscarves allowed to attend classes",
+      "outlet": "The Hindu",
+      "date": "2022-02-15",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "https://timesofindia.indiatimes.com/city/mysuru/drastic-fall-in-child-marriage-numbers-in-old-mysuru-region/articleshow/125918000.cms",
+      "title": "Drastic fall in child marriage numbers in Old Mysuru region",
+      "outlet": "The Times of India",
+      "date": "2025-12-12",
+      "type": "news"
+    },
+    {
+      "id": 5,
+      "url": "https://timesofindia.indiatimes.com/city/mysuru/mandya-no-1-dist-in-child-marriages-since-2020-data/articleshow/106071868.cms",
+      "title": "Mandya No. 1 dist in child marriages since 2020: Data",
+      "outlet": "The Times of India",
+      "date": "2023-12-18",
+      "type": "news"
+    },
+    {
+      "id": 6,
+      "url": "https://www.deccanherald.com/india/karnataka/education-rights-adalat-made-mandatory-2067930",
+      "title": "Education rights adalat made mandatory",
+      "outlet": "Deccan Herald",
+      "date": "",
+      "type": "news"
+    },
+    {
+      "id": 7,
+      "url": "https://www.downtoearth.org.in/governance/bleak-future-ahead-covid-19-pushes-karnataka-s-first-generation-adivasi-learners-off-schools-78637",
+      "title": "Bleak future ahead: COVID-19 pushes Karnataka's first generation Adivasi learners off schools",
+      "outlet": "Down To Earth",
+      "date": "2021-08-25",
+      "type": "news"
+    },
+    {
+      "id": 8,
+      "url": "https://www.deccanherald.com/india/karnataka/malnad-students-bunk-classes-for-weekend-catering-jobs-1199337.html",
+      "title": "Malnad students bunk classes for weekend catering jobs",
+      "outlet": "Deccan Herald",
+      "date": "",
+      "type": "news"
+    }
+  ],
+  "coverage": "moderate",
+  "gaps": "SSLC pass rate omitted because sources conflict; no dropout counts. No coffee-estate migrant child, SSLC pass-rate, UDISE+ or child-marriage figures for this district were verified. Deccan Herald pages could not be fetched, so they rest on search excerpts without dates.",
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+}

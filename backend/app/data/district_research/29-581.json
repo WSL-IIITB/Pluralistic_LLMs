@@ -1,0 +1,222 @@
+{
+  "districtId": "29-581",
+  "name": "Kolar",
+  "regionId": "bayaluseeme",
+  "researchedOn": "2026-10-07",
+  "headline": "A KGF government school with four teachers for 86 students failed all 38 SSLC candidates in 2024.",
+  "summary": "At a 126-year-old government school in Kolar Gold Fields, all 38 SSLC candidates failed in 2025 because four teachers served 86 high-school students with no Science or Hindi teachers. A report of a man marrying his bride's minor sister points to child-marriage pressure on adolescent girls. A claim about bus-fare barriers could not be tied to Kolar and was dropped.",
+  "reasons": [
+    {
+      "factor": "Teacher shortage and mass failure",
+      "category": "school-infrastructure",
+      "detail": "A KGF government school had four teachers for 86 high-school students and no Science or Hindi teachers; all 38 candidates failed SSLC in 2024.",
+      "sources": [
+        1
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Child marriage",
+      "category": "gender",
+      "detail": "A report of a man marrying his bride's minor sister shows child-marriage pressure on adolescent girls in the district.",
+      "sources": [
+        2
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Child marriage among adolescent girls",
+      "category": "gender",
+      "detail": "Kolar stopped 93 child marriages in 2020-21, up from 17 in 2018-19 and 37 in 2019-20, a period linked in coverage to poverty and school closures during the pandemic.",
+      "sources": [
+        3
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Gap between age cohort and secondary enrolment",
+      "category": "other",
+      "detail": "A district profile puts enrolment in classes 9-12 at about 60 percent of school-age children and says roughly 24 percent of girls aged 15-21 are out of education; years are not stated.",
+      "sources": [
+        5
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Dropouts identified at school reopening",
+      "category": "governance",
+      "detail": "The education department ran a reopening drive to bring back 393 identified dropouts, with block and cluster resource persons tasked to track them; the report does not say why they left.",
+      "sources": [
+        4
+      ],
+      "evidence": "thin"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "SSLC candidates who failed at the KGF school, 2024",
+      "value": "38",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "label": "Teachers for 86 high-school students at the KGF school",
+      "value": "4",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "label": "Child marriages stopped, 2020-21",
+      "value": "93 (17 in 2018-19; 37 in 2019-20)",
+      "sources": [
+        3
+      ]
+    },
+    {
+      "label": "Dropouts targeted in reopening drive (year unclear)",
+      "value": "393 dropouts to be brought back by June 10",
+      "sources": [
+        4
+      ]
+    },
+    {
+      "label": "Girls aged 15-21 out of education (undated profile)",
+      "value": "23.9 percent",
+      "sources": [
+        5
+      ]
+    },
+    {
+      "label": "Class 9-12 enrolment of school-age children (undated)",
+      "value": "60 percent",
+      "sources": [
+        5
+      ]
+    },
+    {
+      "label": "Child labourers found in Sept 2026 drive, Kolar Gold Fields",
+      "value": "nil reported",
+      "sources": [
+        6
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "800 child labourers rescued in Karnataka during a special ongoing drive",
+      "outlet": "Deccan Chronicle",
+      "date": "2026-09-12",
+      "url": "https://www.deccanchronicle.com/southern-states/karnataka/800-child-labourers-rescued-in-karnataka-during-a-special-ongoing-drive-1987042",
+      "takeaway": "A statewide drive rescued 800 children; Kolar Gold Fields reported nil child labourers during inspections."
+    },
+    {
+      "title": "126 years old & forgotten: All 38 SSLC students of pioneer Karnataka school fail",
+      "outlet": "The Times of India",
+      "date": "2025-05-08",
+      "url": "https://timesofindia.indiatimes.com/city/bengaluru/126-years-old-forgotten-all-38-sslc-students-of-pioneer-karnataka-school-fail/articleshow/121006325.cms",
+      "takeaway": "126-year-old forgotten school: all 38 SSLC students of a pioneer Karnataka school fail."
+    },
+    {
+      "title": "Man in Karnataka marries bride’s minor sister too; held",
+      "outlet": "The Times of India",
+      "date": "2021-05-17",
+      "url": "https://timesofindia.indiatimes.com/city/bengaluru/man-in-karnataka-marries-brides-minor-sister-too-held/articleshow/82698100.cms",
+      "takeaway": "Man in Karnataka marries bride's minor sister too, held."
+    },
+    {
+      "title": "Poverty, school closure push up child marriages in Karnataka",
+      "outlet": "Deccan Herald",
+      "date": "",
+      "url": "https://www.deccanherald.com/amp/story/india%2Fkarnataka%2Fpoverty-school-closure-push-up-child-marriages-in-karnataka-997144.html",
+      "takeaway": "Kolar detected 93 child marriages in 2020-21 versus 17 and 37 in the two prior years, part of a statewide rise."
+    },
+    {
+      "title": "Back to school today",
+      "outlet": "Deccan Herald",
+      "date": "",
+      "url": "https://www.deccanherald.com/india/karnataka/back-school-today-2544182",
+      "takeaway": "Kolar education officials planned a drive to bring back 393 dropouts and admit 11,159 identified children to class 1."
+    }
+  ],
+  "responses": [
+    {
+      "text": "Kolar education department mobilised block and cluster resource persons at school reopening to bring back 393 identified dropouts and enrol identified children.",
+      "sources": [
+        4
+      ]
+    }
+  ],
+  "officialFactorCheck": [
+    {
+      "factor": "% Population Living in Households with Improved Sanitation",
+      "method": "state",
+      "verdict": "no-evidence",
+      "note": "Distance and transport, not sanitation, are the documented physical barriers.",
+      "sources": []
+    },
+    {
+      "factor": "% Schools with instruction medium 1 (English)",
+      "method": "district",
+      "verdict": "no-evidence",
+      "note": "Mass failure is attributed to missing subject teachers, not to English medium.",
+      "sources": [
+        1
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://timesofindia.indiatimes.com/city/bengaluru/126-years-old-forgotten-all-38-sslc-students-of-pioneer-karnataka-school-fail/articleshow/121006325.cms",
+      "title": "126 years old & forgotten: All 38 SSLC students of pioneer Karnataka school fail",
+      "outlet": "The Times of India",
+      "date": "2025-05-08",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://timesofindia.indiatimes.com/city/bengaluru/man-in-karnataka-marries-brides-minor-sister-too-held/articleshow/82698100.cms",
+      "title": "Man in Karnataka marries bride’s minor sister too; held",
+      "outlet": "The Times of India",
+      "date": "2021-05-17",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://www.deccanherald.com/amp/story/india%2Fkarnataka%2Fpoverty-school-closure-push-up-child-marriages-in-karnataka-997144.html",
+      "title": "Poverty, school closure push up child marriages in Karnataka",
+      "outlet": "Deccan Herald",
+      "date": "",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "https://www.deccanherald.com/india/karnataka/back-school-today-2544182",
+      "title": "Back to school today",
+      "outlet": "Deccan Herald",
+      "date": "",
+      "type": "news"
+    },
+    {
+      "id": 5,
+      "url": "https://youthpower.in/institution/karnataka/kolar/kgbv",
+      "title": "KGBV in Kolar, Karnataka (district profile)",
+      "outlet": "YouthPower India",
+      "date": "",
+      "type": "data"
+    },
+    {
+      "id": 6,
+      "url": "https://www.deccanchronicle.com/southern-states/karnataka/800-child-labourers-rescued-in-karnataka-during-a-special-ongoing-drive-1987042",
+      "title": "800 child labourers rescued in Karnataka during a special ongoing drive",
+      "outlet": "Deccan Chronicle",
+      "date": "2026-09-12",
+      "type": "news"
+    }
+  ],
+  "coverage": "thin",
+  "gaps": "No district dropout or out-of-school counts retrieved; the bus-fare claim was dropped (cited article does not tie it to Kolar). No Kolar-specific SSLC pass rates, UDISE dropout counts, migration, school-distance or Telugu-medium analysis found; Deccan Herald pages returned 403 so those items rest on search excerpts; indiastat pages timed out.",
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+}

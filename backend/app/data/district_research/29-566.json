@@ -1,0 +1,298 @@
+{
+  "districtId": "29-566",
+  "name": "Chitradurga",
+  "regionId": "bayaluseeme",
+  "researchedOn": "2026-10-07",
+  "headline": "49 child marriages carried out in six months of 2024, driven by landless poverty.",
+  "summary": "Chitradurga recorded 102 child-marriage complaints between April and September 2024; 49 marriages were carried out and 53 prevented. Police point to poverty among landless families, who use early marriage to ease household burdens.",
+  "reasons": [
+    {
+      "factor": "Child marriage of girls",
+      "category": "gender",
+      "detail": "102 complaints in April-September 2024, of which 49 marriages were carried out, removing girls from school.",
+      "sources": [
+        1,
+        2
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Landless poverty",
+      "category": "economic",
+      "detail": "Police say landless families treat child marriage as an economic coping mechanism.",
+      "sources": [
+        2
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Social customs in a tribal-dominated district",
+      "category": "social-norms",
+      "detail": "In a legislative reply, social customs were blamed as one reason for dropout in two tribal-dominated districts, Chitradurga and Chamarajanagara.",
+      "sources": [
+        3
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Child marriage of schoolgirls",
+      "category": "social-norms",
+      "detail": "The district child protection officer reported 201 child-marriage complaints from April 2024 to April 2025. A 13-year-old Class 8 girl escaped a family marriage in June 2025; a 15-year-old case in Challakere also drew child-rights group attention.",
+      "sources": [
+        5,
+        6
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Rural absenteeism before SSLC",
+      "category": "governance",
+      "detail": "Officials credited the 2023 top SSLC rank partly to approaching and counselling parents of absent pupils, which implies absenteeism before the exam was a recognised problem. Counselling centres also addressed exam anxiety.",
+      "sources": [
+        4
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Drought-driven family migration",
+      "category": "migration",
+      "detail": "Challakere and Molakalmuru are described as the worst drought-hit taluks, with families leaving for Bengaluru garment, construction and security work. The reports do not directly measure effects on children's schooling.",
+      "sources": [
+        7,
+        8
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Weaker recent SSLC outcomes",
+      "category": "governance",
+      "detail": "The 2025 pass rate fell to 63.21 percent, 23rd in the state, so a larger share of candidates faced failure. No source here links this to Chitradurga dropout directly.",
+      "sources": [
+        9
+      ],
+      "evidence": "thin"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Child marriage complaints, April-September 2024",
+      "value": "102",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "label": "Child marriages carried out",
+      "value": "49",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "label": "Child marriages prevented",
+      "value": "53",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "label": "SSLC 2023 district pass percentage",
+      "value": "96.8%, first among 35 districts",
+      "sources": [
+        4
+      ]
+    },
+    {
+      "label": "SSLC 2025 district pass percentage",
+      "value": "63.21%",
+      "sources": [
+        9
+      ]
+    },
+    {
+      "label": "SSLC 2025 district rank",
+      "value": "23rd among Karnataka districts",
+      "sources": [
+        9
+      ]
+    },
+    {
+      "label": "Child-marriage complaints, Apr 2024-Apr 2025",
+      "value": "201 complaints",
+      "sources": [
+        5
+      ]
+    },
+    {
+      "label": "Child marriages intervened, Apr 2024-Apr 2025",
+      "value": "88 interventions, 83 cases filed",
+      "sources": [
+        5
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Behind silicon shine: 2000 children forced to enter into wedlock in Karnataka in 3 years",
+      "outlet": "The Times of India",
+      "date": "2025-12-11",
+      "url": "https://timesofindia.indiatimes.com/city/bengaluru/behind-silicone-shine-2000-children-forced-to-enter-into-wedlock-in-karnataka-in-3-years/articleshow/125905806.cms",
+      "takeaway": "Behind the silicone shine, 2,000 children forced into wedlock in Karnataka in three years."
+    },
+    {
+      "title": "Karnataka govt intervention sought in Chitradurga's child marriage case",
+      "outlet": "EducationWorld",
+      "date": "2025-06-09",
+      "url": "https://educationworld.in/karnataka-govt-intervention-sought-in-chitradurgas-child-marriage-case/",
+      "takeaway": "Child-rights observatory urged action after an attempted forced marriage of a 15-year-old in Challakere taluk, stressing girls' education as protection."
+    },
+    {
+      "title": "13-year-old girl bravely stops forced marriage attempt in Chitradurga",
+      "outlet": "NewsKarnataka",
+      "date": "2025-06-08",
+      "url": "https://newskarnataka.com/chitradurga/13-year-old-girl-bravely-stops-forced-marriage-attempt-in-chitradurga/08062025/",
+      "takeaway": "A Class 8 student escaped marriage; officer cited 201 district complaints in a year."
+    },
+    {
+      "title": "State government announces ₹50,000 reward to gram panchayats that prevent child marriages",
+      "outlet": "The Hindu",
+      "date": "2024-11-07",
+      "url": "https://www.thehindu.com/news/national/karnataka/state-government-announces-50000-reward-to-gram-panchayats-that-prevent-child-marriages/article68836090.ece",
+      "takeaway": "State announces a Rs 50,000 reward to gram panchayats that prevent child marriages."
+    },
+    {
+      "title": "Karnataka: How Chitradurga outperformed tier 1 cities in SSLC exams",
+      "outlet": "EducationWorld",
+      "date": "2023-05-10",
+      "url": "https://educationworld.in/karnataka-how-chitradurga-outperformed-tier-1-cities-in-sslc-exams/",
+      "takeaway": "Chitradurga topped SSLC at 96.8 percent; schools counselled parents when pupils were absent."
+    },
+    {
+      "title": "Tale of contrasts: Two Karnataka villages approach severe drought differently",
+      "outlet": "The Week",
+      "date": "2019-07-01",
+      "url": "https://www.theweek.in/magazine/theweek/specials/2019/06/28/tale-of-contrasts-two-karnataka-villages-approach-severe-drought-differently.amp.html",
+      "takeaway": "Challakere farmers abandon farms for Bengaluru amid drought; Chowluru described as turning into a ghost village."
+    },
+    {
+      "title": "At the mercy of rain god, Chitradurga on lifeline again",
+      "outlet": "Outlook",
+      "date": "",
+      "url": "https://outlookindia.com/national/india-news-at-the-mercy-of-rain-god-chitradurga-on-lifeline-again-news-301574",
+      "takeaway": "Failed rains and dry borewells push villagers to Bengaluru for garment, construction and security jobs."
+    }
+  ],
+  "responses": [
+    {
+      "text": "Gram panchayats that prevent child marriage get a Rs 50,000 reward.",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "text": "Schools approached and counselled parents of absent SSLC pupils, ran morning and evening classes and set up exam-anxiety counselling centres in Hosadurga block (2023).",
+      "sources": [
+        4
+      ]
+    },
+    {
+      "text": "Police and the Child Welfare Committee rescued the Class 8 girl in June 2025 and placed her at a Bala Mandir care centre.",
+      "sources": [
+        5
+      ]
+    }
+  ],
+  "officialFactorCheck": [
+    {
+      "factor": "% Population Living in Households with Improved Sanitation",
+      "method": "state",
+      "verdict": "no-evidence",
+      "note": "Sanitation is not among the documented causes of dropout.",
+      "sources": []
+    },
+    {
+      "factor": "% Schools with instruction medium 1 (English)",
+      "method": "district",
+      "verdict": "no-evidence",
+      "note": "Medium of instruction is not a documented barrier.",
+      "sources": []
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://www.thehindu.com/news/national/karnataka/state-government-announces-50000-reward-to-gram-panchayats-that-prevent-child-marriages/article68836090.ece",
+      "title": "State government announces ₹50,000 reward to gram panchayats that prevent child marriages",
+      "outlet": "The Hindu",
+      "date": "2024-11-07",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://timesofindia.indiatimes.com/city/bengaluru/behind-silicone-shine-2000-children-forced-to-enter-into-wedlock-in-karnataka-in-3-years/articleshow/125905806.cms",
+      "title": "Behind silicon shine: 2000 children forced to enter into wedlock in Karnataka in 3 years",
+      "outlet": "The Times of India",
+      "date": "2025-12-11",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://timesofindia.indiatimes.com/city/mysuru/poverty-migration-to-single-parents-one-of-reasons-for-school-dropout-in-karnataka/articleshow/124054037.cms",
+      "title": "Poverty, migration to single parents one of reasons for school dropout in Karnataka",
+      "outlet": "The Times of India",
+      "date": "2025-09-22",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "https://educationworld.in/karnataka-how-chitradurga-outperformed-tier-1-cities-in-sslc-exams/",
+      "title": "Karnataka: How Chitradurga outperformed tier 1 cities in SSLC exams",
+      "outlet": "EducationWorld",
+      "date": "2023-05-10",
+      "type": "news"
+    },
+    {
+      "id": 5,
+      "url": "https://newskarnataka.com/chitradurga/13-year-old-girl-bravely-stops-forced-marriage-attempt-in-chitradurga/08062025/",
+      "title": "13-year-old girl bravely stops forced marriage attempt in Chitradurga",
+      "outlet": "NewsKarnataka",
+      "date": "2025-06-08",
+      "type": "news"
+    },
+    {
+      "id": 6,
+      "url": "https://educationworld.in/karnataka-govt-intervention-sought-in-chitradurgas-child-marriage-case/",
+      "title": "Karnataka govt intervention sought in Chitradurga's child marriage case",
+      "outlet": "EducationWorld",
+      "date": "2025-06-09",
+      "type": "news"
+    },
+    {
+      "id": 7,
+      "url": "https://www.theweek.in/magazine/theweek/specials/2019/06/28/tale-of-contrasts-two-karnataka-villages-approach-severe-drought-differently.amp.html",
+      "title": "Tale of contrasts: Two Karnataka villages approach severe drought differently",
+      "outlet": "The Week",
+      "date": "2019-07-01",
+      "type": "news"
+    },
+    {
+      "id": 8,
+      "url": "https://outlookindia.com/national/india-news-at-the-mercy-of-rain-god-chitradurga-on-lifeline-again-news-301574",
+      "title": "At the mercy of rain god, Chitradurga on lifeline again",
+      "outlet": "Outlook",
+      "date": "",
+      "type": "news"
+    },
+    {
+      "id": 9,
+      "url": "https://www.careerindia.com/news/karnataka-sslc-result-2025-top-districts-by-pass-percentage-key-highlights-050529.html",
+      "title": "Karnataka SSLC Result 2025: Top Districts by Pass Percentage & Key Highlights",
+      "outlet": "Careerindia",
+      "date": "2025-05",
+      "type": "news"
+    }
+  ],
+  "coverage": "moderate",
+  "gaps": "No school-level dropout or SSLC district figures retrieved. No Chitradurga dropout or out-of-school counts, DDPI or Samagra Shiksha data, or reporting that directly ties drought migration or child labour to students leaving Classes 8-10. Search budget ran out; The Hindu and many Deccan Herald pages were inaccessible.",
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+}

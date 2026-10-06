@@ -1,0 +1,316 @@
+{
+  "districtId": "29-555",
+  "name": "Belagavi",
+  "regionId": "kitturu-karnataka",
+  "researchedOn": "2026-10-07",
+  "headline": "Child marriage and sugarcane-economy pressure sit behind adolescent exits, even as results stay strong.",
+  "summary": "Belagavi coverage centres on child marriage, with a minor married twice and the Akka Pade task force stopping marriages, and on child-labour rescues from local businesses. Sugarcane price disputes are reported as background to household stress, though no source links them to dropout. The division records a 95.71% SSLC pass rate in 2026. Belagavi Chikkodi was not researched separately.",
+  "reasons": [
+    {
+      "factor": "Child marriage of adolescent girls",
+      "category": "gender",
+      "detail": "A 15-year-old was married off twice before the legal age, and the Akka Pade task force has intercepted marriages and sent girls to child protection committees.",
+      "sources": [
+        1,
+        2
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Child labour in local businesses",
+      "category": "economic",
+      "detail": "Authorities rescued five school-age children from a bakery, one of several raids on commercial establishments.",
+      "sources": [
+        3
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Sugarcane-season migrant families",
+      "category": "migration",
+      "detail": "About 100 Maharashtra families bring children to cut cane in Belagavi for four to five months; the growers' association reported about 50 young children up to Class 5 lacking schooling.",
+      "sources": [
+        7
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Sugarcane-economy household stress",
+      "category": "economic",
+      "detail": "Prolonged farmer protests over cane prices signal income instability in agricultural households, though the sources do not tie it to dropout directly.",
+      "sources": [
+        4,
+        5
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Child labour in cane fields",
+      "category": "economic",
+      "detail": "A fact-finding report described 20 Adivasi migrant workers, including nine children, in debt-tied cane work in Belagavi; district authorities reportedly found no child labour. Schooling was not discussed.",
+      "sources": [
+        8
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Language gap for migrant children",
+      "category": "governance",
+      "detail": "For Marathi-speaking cutter children, the education department proposed tent schools near cane fields with Marathi teachers, implying existing Kannada-medium provision was not reaching them.",
+      "sources": [
+        7
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Weak SSLC outcomes",
+      "category": "governance",
+      "detail": "Belagavi educational district recorded a 2024-25 SSLC pass rate below the prior year, which raises exam-related exit risk; the source does not tie this to dropout counts.",
+      "sources": [
+        9
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Child marriage and school distance",
+      "category": "social-norms",
+      "detail": "A 2016 CRY-partnered study of child brides across six districts including Belgaum found most were Class 10 dropouts and many faced distance barriers; no Belagavi-only breakdown was given.",
+      "sources": [
+        11
+      ],
+      "evidence": "thin"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Belagavi division SSLC pass rate, 2026",
+      "value": "95.71%",
+      "sources": [
+        6
+      ]
+    },
+    {
+      "label": "Children rescued from a bakery",
+      "value": "5",
+      "sources": [
+        3
+      ]
+    },
+    {
+      "label": "Belagavi SSLC pass rate, 2024-25",
+      "value": "62.16% (19,583 of 31,503 passed)",
+      "sources": [
+        9
+      ]
+    },
+    {
+      "label": "Belagavi SSLC state rank, 2024-25",
+      "value": "25th, up from 29th in 2023-24 (pass rate then 64.93%)",
+      "sources": [
+        9
+      ]
+    },
+    {
+      "label": "Maharashtra cutter families in Belagavi, 2023",
+      "value": "about 100 families, 4 to 5 month season",
+      "sources": [
+        7
+      ]
+    },
+    {
+      "label": "Cutter children up to Class 5 without school, 2023",
+      "value": "around 50",
+      "sources": [
+        7
+      ]
+    },
+    {
+      "label": "Adivasi cane workers with children, 2022",
+      "value": "20 workers including 9 children",
+      "sources": [
+        8
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Akka Pade prevents child marriage in Belagavi district",
+      "outlet": "The Hindu",
+      "date": "2026-04-28",
+      "url": "https://www.thehindu.com/news/national/karnataka/akka-pade-prevents-child-marriage-in-belagavi-district/article70913149.ece",
+      "takeaway": "Akka Pade prevents a child marriage in Belagavi district."
+    },
+    {
+      "title": "SSLC: Belagavi division tops Karnataka with 95.71 pass percentage",
+      "outlet": "The Hindu",
+      "date": "2026-04-25",
+      "url": "https://www.thehindu.com/news/national/karnataka/sslc-belagavi-division-tops-karnataka-with-9571-pass-percentage/article70902252.ece",
+      "takeaway": "Belagavi division tops Karnataka in SSLC with 95.71%."
+    },
+    {
+      "title": "Five children rescued from bakery in Belagavi",
+      "outlet": "The Hindu",
+      "date": "2026-04-20",
+      "url": "https://www.thehindu.com/news/national/karnataka/five-children-rescued-from-bakery-in-belagavi/article70878479.ece",
+      "takeaway": "Five children rescued from a bakery in Belagavi."
+    },
+    {
+      "title": "AIDSO stages protest in Belagavi against merger of rural schools",
+      "outlet": "The Hindu",
+      "date": "2025-12-15",
+      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNVGd1c0hQSTZ2QThDRl9wVHEtTkNMTC0zRFlROWRHTHo1MkdsOEpEMUdHQjB0QXNHLVZQOXlyVlhoeW9HVHB4SzJPOVg1WlIxZzVnbHNxWG1jRWF4TDJnSFBpZHNDdWVCbF9NdmEwRnJDT1N0RC1LUTdvR0tWU2ZlVjQ2ZG1WaW1rM2RPNjBkWF95VjlzQk9Kb2Vsb0Rmb2otb1JRbFJHU3VSX1J0TGlGNDRLblg3LTh6Mm9FV3dVNkdaQ3FfNlpZNUc3TUlfd9IB1AFBVV95cUxOcm83U1ZzU0Y1QTRwR3lDT3p0b01jME1LcE5NYzhtWFNQS2pBVEc2Qnlpb0FCbWo5WHhwTXota3ZrTW5xLUh1anpxbHVqeGZNVjZuNTBYUFhkVTFWTHh1UjNjSFN4T1RFajcyeE5zSk9WTzVWNjlSa3cwemM3c2NJaGRZaENMeGZYcWhZVDViUDdyNUVyWWRjanpCNW9JTHY5VWNxR2thb0ZnMkR1MzlZN09TUUthVkFLNy0zMUR3WWh4VXJIMy0zVHNzZ25BZmJFdTFyag?oc=5",
+      "takeaway": "Student organisation protested in Belagavi over merging rural schools; only the headline was retrieved."
+    },
+    {
+      "title": "Police register case as minor girl is married off twice in Belagavi district",
+      "outlet": "The Hindu",
+      "date": "2025-03-19",
+      "url": "https://www.thehindu.com/news/national/karnataka/police-register-case-as-minor-girl-is-married-off-twice-in-belagavi-district/article69349585.ece",
+      "takeaway": "Police register a case as a minor girl is married off twice in Belagavi district."
+    },
+    {
+      "title": "SSLC: Belagavi secures 25th rank but pass percentage falls",
+      "outlet": "Deccan Herald",
+      "date": "2025",
+      "url": "https://www.deccanherald.com/amp/story/india%2Fkarnataka%2Fsslc-belagavi-secures-25th-rank-but-pass-percentage-falls-3522516",
+      "takeaway": "Belagavi climbed four ranks to 25th but its pass rate dropped to 62.16%, from 64.93% the year before."
+    },
+    {
+      "title": "Karnataka sugarcane growers body seeks temporary schools for migrants in Belagavi",
+      "outlet": "Global Agriculture",
+      "date": "2023-11-10",
+      "url": "https://www.global-agriculture.com/agriculture-industry/karnataka-sugarcane-growers-body-seeks-temporary-schools-for-migrants-in-belagavi/",
+      "takeaway": "Growers asked for tent schools for Maharashtra cutters' children; the deputy director of public instruction said Marathi teachers would be deployed."
+    },
+    {
+      "title": "Bonded child labour: Adivasi community in Belagavi, Karnataka",
+      "outlet": "Careers360 News",
+      "date": "2022-02-11",
+      "url": "https://news.careers360.com/bonded-child-labour-adivasi-community-belagavi-karnataka-madhya-pradesh-child-protection",
+      "takeaway": "Fact-finding report on 20 Madhya Pradesh Adivasi cane workers including nine children; authorities said they found no child labour."
+    }
+  ],
+  "responses": [
+    {
+      "text": "The Akka Pade women's task force intercepts child marriages and hands minors to District Child Protection Committees.",
+      "sources": [
+        2
+      ]
+    },
+    {
+      "text": "Education officials said temporary tent schools with Marathi teachers would be set up near cane-cutter settlements in Belagavi (2023 report).",
+      "sources": [
+        7
+      ]
+    }
+  ],
+  "officialFactorCheck": [
+    {
+      "factor": "% Population Living in Households with Improved Sanitation",
+      "method": "state",
+      "verdict": "no-evidence",
+      "note": "No local data links sanitation to dropout.",
+      "sources": []
+    },
+    {
+      "factor": "% Schools with instruction medium 1 (English)",
+      "method": "district",
+      "verdict": "no-evidence",
+      "note": "No local data links English-medium instruction to dropout.",
+      "sources": []
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://www.thehindu.com/news/national/karnataka/police-register-case-as-minor-girl-is-married-off-twice-in-belagavi-district/article69349585.ece",
+      "title": "Police register case as minor girl is married off twice in Belagavi district",
+      "outlet": "The Hindu",
+      "date": "2025-03-19",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://www.thehindu.com/news/national/karnataka/akka-pade-prevents-child-marriage-in-belagavi-district/article70913149.ece",
+      "title": "Akka Pade prevents child marriage in Belagavi district",
+      "outlet": "The Hindu",
+      "date": "2026-04-28",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://www.thehindu.com/news/national/karnataka/five-children-rescued-from-bakery-in-belagavi/article70878479.ece",
+      "title": "Five children rescued from bakery in Belagavi",
+      "outlet": "The Hindu",
+      "date": "2026-04-20",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "https://www.thehindu.com/news/national/karnataka/talks-between-sugarcane-growers-and-management-of-factories-hit-a-deadlock-in-belagavi/article70240325.ece",
+      "title": "Talks between sugarcane growers and management of factories hit a deadlock in Belagavi",
+      "outlet": "The Hindu",
+      "date": "2025-11-04",
+      "type": "news"
+    },
+    {
+      "id": 5,
+      "url": "https://www.thehindu.com/news/national/karnataka/protest-by-sugarcane-growers-enters-seventh-day-in-belagavi/article70244395.ece",
+      "title": "Protest by sugarcane growers enters seventh day in Belagavi",
+      "outlet": "The Hindu",
+      "date": "2025-11-05",
+      "type": "news"
+    },
+    {
+      "id": 6,
+      "url": "https://www.thehindu.com/news/national/karnataka/sslc-belagavi-division-tops-karnataka-with-9571-pass-percentage/article70902252.ece",
+      "title": "SSLC: Belagavi division tops Karnataka with 95.71 pass percentage",
+      "outlet": "The Hindu",
+      "date": "2026-04-25",
+      "type": "news"
+    },
+    {
+      "id": 7,
+      "url": "https://www.global-agriculture.com/agriculture-industry/karnataka-sugarcane-growers-body-seeks-temporary-schools-for-migrants-in-belagavi/",
+      "title": "Karnataka sugarcane growers body seeks temporary schools for migrants in Belagavi",
+      "outlet": "Global Agriculture",
+      "date": "2023-11-10",
+      "type": "news"
+    },
+    {
+      "id": 8,
+      "url": "https://news.careers360.com/bonded-child-labour-adivasi-community-belagavi-karnataka-madhya-pradesh-child-protection",
+      "title": "Bonded child labour: Adivasi community in Belagavi, Karnataka",
+      "outlet": "Careers360 News",
+      "date": "2022-02-11",
+      "type": "news"
+    },
+    {
+      "id": 9,
+      "url": "https://www.deccanherald.com/amp/story/india%2Fkarnataka%2Fsslc-belagavi-secures-25th-rank-but-pass-percentage-falls-3522516",
+      "title": "SSLC: Belagavi secures 25th rank but pass percentage falls",
+      "outlet": "Deccan Herald",
+      "date": "2025",
+      "type": "news"
+    },
+    {
+      "id": 10,
+      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNVGd1c0hQSTZ2QThDRl9wVHEtTkNMTC0zRFlROWRHTHo1MkdsOEpEMUdHQjB0QXNHLVZQOXlyVlhoeW9HVHB4SzJPOVg1WlIxZzVnbHNxWG1jRWF4TDJnSFBpZHNDdWVCbF9NdmEwRnJDT1N0RC1LUTdvR0tWU2ZlVjQ2ZG1WaW1rM2RPNjBkWF95VjlzQk9Kb2Vsb0Rmb2otb1JRbFJHU3VSX1J0TGlGNDRLblg3LTh6Mm9FV3dVNkdaQ3FfNlpZNUc3TUlfd9IB1AFBVV95cUxOcm83U1ZzU0Y1QTRwR3lDT3p0b01jME1LcE5NYzhtWFNQS2pBVEc2Qnlpb0FCbWo5WHhwTXota3ZrTW5xLUh1anpxbHVqeGZNVjZuNTBYUFhkVTFWTHh1UjNjSFN4T1RFajcyeE5zSk9WTzVWNjlSa3cwemM3c2NJaGRZaENMeGZYcWhZVDViUDdyNUVyWWRjanpCNW9JTHY5VWNxR2thb0ZnMkR1MzlZN09TUUthVkFLNy0zMUR3WWh4VXJIMy0zVHNzZ25BZmJFdTFyag?oc=5",
+      "title": "AIDSO stages protest in Belagavi against merger of rural schools",
+      "outlet": "The Hindu",
+      "date": "2025-12-15",
+      "type": "news"
+    },
+    {
+      "id": 11,
+      "url": "https://www.thenewsminute.com/article/why-one-three-child-brides-faces-broken-marriage-karnataka-46567",
+      "title": "Why one in three child brides faces broken marriage in Karnataka",
+      "outlet": "The News Minute",
+      "date": "2016-07-15",
+      "type": "ngo"
+    }
+  ],
+  "coverage": "moderate",
+  "gaps": "No district dropout, out-of-school or Class 8-10 retention figures; the SSLC figure is for the whole division; Chikkodi sub-area not covered. No Belagavi or Chikkodi dropout counts, UDISE+ figures, Class 8-10 exit surveys or Athani/Raibag-specific reporting retrieved; Deccan Herald pages blocked fetching, so its figures rest on search snippets. Evidence is mostly primary-age migration.",
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+}

@@ -1,0 +1,140 @@
+{
+  "districtId": "29-560",
+  "name": "Koppal",
+  "regionId": "kalyana-karnataka",
+  "researchedOn": "2026-10-07",
+  "headline": "The Devadasi system and forged age records for child marriage end girls' schooling.",
+  "summary": "Koppal's reporting centres on the outlawed Devadasi system, with a 2022 survey counting about 3,600 Devadasis in the district, and on families using forged school age certificates to marry minors at mass weddings. A regional report counts over 14,000 children in agricultural work across the Hyderabad-Karnataka belt, though not by district.",
+  "reasons": [
+    {
+      "factor": "Dedication of girls as Devadasis",
+      "category": "social-norms",
+      "detail": "Poor families, often in medical debt, still dedicate adolescent daughters to temple deities, ending their schooling.",
+      "sources": [
+        1,
+        2,
+        3
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Forged age records for child marriage",
+      "category": "gender",
+      "detail": "Authorities found fabricated school age certificates used to marry minor girls at mass weddings.",
+      "sources": [
+        4
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Agricultural child labour (regional)",
+      "category": "economic",
+      "detail": "A regional report found more than a third of child labour in the Hyderabad-Karnataka belt is in agriculture; the figure is not broken down by district.",
+      "sources": [
+        5
+      ],
+      "evidence": "thin"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Devadasi women in the district (2022 survey)",
+      "value": "3,600",
+      "sources": [
+        3
+      ]
+    },
+    {
+      "label": "Statewide region: children in agricultural child labour (Hyderabad-Karnataka)",
+      "value": "14,122",
+      "sources": [
+        5
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Documents certifying Koppal girl’s age for marriage fabricated",
+      "outlet": "The Hindu",
+      "date": "2026-05-05",
+      "url": "https://www.thehindu.com/news/national/karnataka/documents-certifying-koppal-girls-age-for-marriage-fabricated/article70943376.ece",
+      "takeaway": "Documents certifying a Koppal girl's age for marriage were fabricated."
+    },
+    {
+      "title": "Parents held for pushing daughter into Devadasi system in Karnataka",
+      "outlet": "The New Indian Express",
+      "date": "2022-12-30",
+      "url": "https://www.newindianexpress.com/states/karnataka/2022/Dec/30/parents-held-for-pushing-daughter-into-devadasi-system-in-karnataka-2533151.html",
+      "takeaway": "Parents held for pushing a daughter into the Devadasi system."
+    },
+    {
+      "title": "22-year-old forced into Devadasi system rescued in Karnataka; three family members arrested, one absconding",
+      "outlet": "The Hindu",
+      "date": "2022-12-28",
+      "url": "https://www.thehindu.com/news/national/karnataka/22-year-old-forced-into-devadasi-system-rescued-in-koppal-three-family-members-arrested-one-absconding/article66313594.ece",
+      "takeaway": "22-year-old forced into the Devadasi system rescued in Koppal."
+    }
+  ],
+  "responses": [],
+  "officialFactorCheck": [
+    {
+      "factor": "% Population Living in Households with Improved Sanitation",
+      "method": "state",
+      "verdict": "no-evidence",
+      "note": "Severe socio-cultural exploitation overshadows sanitation in local reporting.",
+      "sources": []
+    },
+    {
+      "factor": "% Schools with instruction medium 1 (English)",
+      "method": "district",
+      "verdict": "no-evidence",
+      "note": "No evidence links instruction medium to dropout.",
+      "sources": []
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://www.newsbharati.com/Encyc/2022/12/31/Devadasi-Karnataka.html",
+      "title": "21-year-old girl saved after unwillingly pushed into Devadasi system for unfounded beliefs of parents",
+      "outlet": "News Bharati",
+      "date": "2022-12-31",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://www.newindianexpress.com/states/karnataka/2022/Dec/30/parents-held-for-pushing-daughter-into-devadasi-system-in-karnataka-2533151.html",
+      "title": "Parents held for pushing daughter into Devadasi system in Karnataka",
+      "outlet": "The New Indian Express",
+      "date": "2022-12-30",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://www.thehindu.com/news/national/karnataka/22-year-old-forced-into-devadasi-system-rescued-in-koppal-three-family-members-arrested-one-absconding/article66313594.ece",
+      "title": "22-year-old forced into Devadasi system rescued in Karnataka; three family members arrested, one absconding",
+      "outlet": "The Hindu",
+      "date": "2022-12-28",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "https://www.thehindu.com/news/national/karnataka/documents-certifying-koppal-girls-age-for-marriage-fabricated/article70943376.ece",
+      "title": "Documents certifying Koppal girl’s age for marriage fabricated",
+      "outlet": "The Hindu",
+      "date": "2026-05-05",
+      "type": "news"
+    },
+    {
+      "id": 5,
+      "url": "https://www.thehindu.com/news/national/karnataka/%E2%80%98More-than-one-third-of-child-labour-in-agri-sector-in-HK-region%E2%80%99/article60094926.ece",
+      "title": "‘More than one-third of child labour in agri sector in HK region’",
+      "outlet": "The Hindu",
+      "date": "2014-12-12",
+      "type": "news"
+    }
+  ],
+  "coverage": "moderate",
+  "gaps": "No dropout counts or SSLC figures; the labour statistic is regional, not district-level.",
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+}

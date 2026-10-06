@@ -1,0 +1,130 @@
+{
+  "districtId": "29-558",
+  "name": "Bidar",
+  "regionId": "kalyana-karnataka",
+  "researchedOn": "2026-10-07",
+  "headline": "Festival-linked child marriages and very weak historic SSLC results; NGOs run 'academic ICU' bridge classes.",
+  "summary": "Bidar sees child marriages cluster around festivals such as Akshaya Tritiya, prompting special task forces. SSLC outcomes have been historically poor, at one point only 27% passed, and Rotary Clubs have set up 'academic ICU' courses to help out-of-school children clear SSLC before they age out at 16. The district's out-of-school tracking figures are contested.",
+  "reasons": [
+    {
+      "factor": "Festival-linked child marriage",
+      "category": "gender",
+      "detail": "Child marriages spike around festivals such as Akshaya Tritiya, so officials form special teams to stop parents withdrawing daughters from Class 8-9.",
+      "sources": [
+        1
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Very poor SSLC outcomes",
+      "category": "governance",
+      "detail": "A Hindu report on the district's results recorded only about 27% passing at one point, a pipeline that pushes failing students out.",
+      "sources": [
+        2
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Enrolled children working in scrap shops",
+      "category": "economic",
+      "detail": "An official said some enrolled Bidar students worked in a nearby scrap shop and had to be rescued.",
+      "sources": [
+        3
+      ],
+      "evidence": "thin"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Historic SSLC pass rate cited",
+      "value": "27%",
+      "sources": [
+        2
+      ]
+    },
+    {
+      "label": "Out-of-school children tracked (2025, contested)",
+      "value": "26",
+      "sources": [
+        3
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Ahead of Akshaya Tritiya, Bidar steps up vigil with special teams to prevent child marriages",
+      "outlet": "The Hindu",
+      "date": "2026-04-17",
+      "url": "https://www.thehindu.com/news/national/karnataka/ahead-of-akshaya-tritiya-bidar-steps-up-vigil-with-special-teams-to-prevent-child-marriages/article70874386.ece",
+      "takeaway": "Ahead of Akshaya Tritiya, Bidar steps up vigil with special teams to prevent child marriages."
+    },
+    {
+      "title": "Rotary Clubs to set up Academic ICU for out of school children in Bidar",
+      "outlet": "The Hindu",
+      "date": "2024-03-23",
+      "url": "https://www.thehindu.com/news/national/karnataka/rotary-clubs-to-set-up-academic-icu-for-out-of-school-children-in-bidar/article67984611.ece",
+      "takeaway": "Rotary Clubs to set up an Academic ICU for out-of-school children in Bidar."
+    }
+  ],
+  "responses": [
+    {
+      "text": "Rotary Clubs are running 'Academic ICU' bridge courses to help out-of-school children clear SSLC.",
+      "sources": [
+        4
+      ]
+    }
+  ],
+  "officialFactorCheck": [
+    {
+      "factor": "% Population Living in Households with Improved Sanitation",
+      "method": "state",
+      "verdict": "no-evidence",
+      "note": "No evidence links sanitation to dropout.",
+      "sources": []
+    },
+    {
+      "factor": "% Schools with instruction medium 1 (English)",
+      "method": "district",
+      "verdict": "no-evidence",
+      "note": "No evidence links instruction medium to dropout.",
+      "sources": []
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://www.thehindu.com/news/national/karnataka/ahead-of-akshaya-tritiya-bidar-steps-up-vigil-with-special-teams-to-prevent-child-marriages/article70874386.ece",
+      "title": "Ahead of Akshaya Tritiya, Bidar steps up vigil with special teams to prevent child marriages",
+      "outlet": "The Hindu",
+      "date": "2026-04-17",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://www.thehindu.com/news/national/karnataka/zero-results-no-action/article8633057.ece",
+      "title": "Zero results, no action",
+      "outlet": "The Hindu",
+      "date": "2016-05-22",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://www.thehindu.com/news/national/karnataka/different-surveys-on-out-of-school-children-in-kalaburagi-reveal-contrasting-figures/article69047215.ece",
+      "title": "Different surveys on out-of-school children in Kalaburagi reveal contrasting figures",
+      "outlet": "The Hindu",
+      "date": "2025-01-01",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "https://www.thehindu.com/news/national/karnataka/rotary-clubs-to-set-up-academic-icu-for-out-of-school-children-in-bidar/article67984611.ece",
+      "title": "Rotary Clubs to set up Academic ICU for out of school children in Bidar",
+      "outlet": "The Hindu",
+      "date": "2024-03-23",
+      "type": "news"
+    }
+  ],
+  "coverage": "thin",
+  "gaps": "No reliable out-of-school or dropout counts; the 27% pass figure is old.",
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+}

@@ -1,0 +1,138 @@
+{
+  "districtId": "29-564",
+  "name": "Haveri",
+  "regionId": "kitturu-karnataka",
+  "researchedOn": "2026-10-07",
+  "headline": "Private schools withholding hall tickets over fee arrears turn Class 10 students into exam dropouts.",
+  "summary": "In Haveri, 30 students of one high school were denied SSLC hall tickets in 2021 even though they said they had paid fees, and the minister allowed them the supplementary exam; in 2024 one student sat a mock exam outside the Deputy Commissioner's office in protest. Student unions oppose plans to close or merge government schools, and the state women's commission chair flagged child marriage and teenage pregnancy in the district.",
+  "reasons": [
+    {
+      "factor": "Hall tickets withheld by a school",
+      "category": "governance",
+      "detail": "30 students of one Haveri high school were not given SSLC hall tickets despite paying fees and had to take the supplementary exam.",
+      "sources": [
+        1
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "School closure and merger fears",
+      "category": "school-infrastructure",
+      "detail": "Student unions argue that closing or merging government schools will cut secondary access for the poorest rural students.",
+      "sources": [
+        2
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Child marriage and teenage pregnancy",
+      "category": "gender",
+      "detail": "The women's commission chair flagged the district for child marriage and teenage pregnancy, which end schooling for girls.",
+      "sources": [
+        3
+      ],
+      "evidence": "moderate"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Students of one Haveri high school denied hall tickets, 2021",
+      "value": "30",
+      "sources": [
+        1
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Drop plan to close down schools, say SFI members",
+      "outlet": "The Hindu",
+      "date": "2026-05-13",
+      "url": "https://www.thehindu.com/news/national/karnataka/drop-plan-to-close-down-schools-say-sfi-members/article70970468.ece",
+      "takeaway": "SFI members urge the government to drop its plan to close schools."
+    },
+    {
+      "title": "SSLC student writes mock exam in protest in front of Deputy Commissioner’s office in Haveri",
+      "outlet": "The Hindu",
+      "date": "2024-03-25",
+      "url": "https://www.thehindu.com/news/national/karnataka/sslc-student-writes-mock-exam-in-protest-in-front-of-deputy-commissioners-office-in-haveri/article67990961.ece",
+      "takeaway": "SSLC student writes a mock exam in protest in front of the Deputy Commissioner's office in Haveri."
+    },
+    {
+      "title": "In tussle between school managements and parents, many miss SSLC exam",
+      "outlet": "The Hindu",
+      "date": "2021-07-19",
+      "url": "https://www.thehindu.com/news/national/karnataka/in-tussle-between-school-managements-and-parents-many-miss-sslc-exam/article35415436.ece",
+      "takeaway": "In a tussle between school managements and parents, many miss the SSLC exam."
+    }
+  ],
+  "responses": [
+    {
+      "text": "PU courses are being added to three residential schools in the district.",
+      "sources": [
+        4
+      ]
+    }
+  ],
+  "officialFactorCheck": [
+    {
+      "factor": "% Population Living in Households with Improved Sanitation",
+      "method": "state",
+      "verdict": "no-evidence",
+      "note": "Sanitation is not cited as a dropout driver locally.",
+      "sources": []
+    },
+    {
+      "factor": "% Schools with instruction medium 1 (English)",
+      "method": "district",
+      "verdict": "no-evidence",
+      "note": "No evidence links instruction medium to dropout.",
+      "sources": []
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://www.thehindu.com/news/national/karnataka/in-tussle-between-school-managements-and-parents-many-miss-sslc-exam/article35415436.ece",
+      "title": "In tussle between school managements and parents, many miss SSLC exam",
+      "outlet": "The Hindu",
+      "date": "2021-07-19",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://www.thehindu.com/news/national/karnataka/drop-plan-to-close-down-schools-say-sfi-members/article70970468.ece",
+      "title": "Drop plan to close down schools, say SFI members",
+      "outlet": "The Hindu",
+      "date": "2026-05-13",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://www.thehindu.com/news/national/karnataka/call-for-creating-extensive-awareness-on-child-marriage-teenage-pregnancy-rape/article69905626.ece",
+      "title": "Call for creating extensive awareness on child marriage, teenage pregnancy, rape",
+      "outlet": "The Hindu",
+      "date": "2025-08-07",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "https://www.thehindu.com/news/national/karnataka/pu-courses-in-three-residential-schools-in-haveri-poojary/article65802140.ece",
+      "title": "PU courses in three residential schools in Haveri: Poojary",
+      "outlet": "The Hindu",
+      "date": "2022-08-23",
+      "type": "news"
+    },
+    {
+      "id": 5,
+      "url": "https://www.thehindu.com/news/national/karnataka/sslc-student-writes-mock-exam-in-protest-in-front-of-deputy-commissioners-office-in-haveri/article67990961.ece",
+      "title": "SSLC student writes mock exam in protest in front of Deputy Commissioner’s office in Haveri",
+      "outlet": "The Hindu",
+      "date": "2024-03-25",
+      "type": "news"
+    }
+  ],
+  "coverage": "moderate",
+  "gaps": "No dropout or out-of-school counts or SSLC pass rates for the district.",
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+}

@@ -1,0 +1,253 @@
+{
+  "male": {
+    "name": "Puttaswamy",
+    "ageLabel": "44",
+    "emoji": "👨‍🌾",
+    "role": "Sugarcane & paddy farmer",
+    "place": "Malavalli taluk, Mandya",
+    "community": "Vokkaliga",
+    "tagline": "A Mandya cane and paddy farmer one bad season away from serious debt.",
+    "household": [
+      { "who": "Wife Rathnamma", "emoji": "👩" },
+      { "who": "Elderly father", "emoji": "👴" },
+      { "who": "Elderly mother", "emoji": "👵" },
+      { "who": "Daughter Chaitra, 16", "emoji": "👧" },
+      { "who": "Son Kiran, 13", "emoji": "👦" }
+    ],
+    "vitals": [
+      { "label": "Land", "value": "2.5 acres" },
+      { "label": "Cash income", "value": "About 1.5 lakh/yr" },
+      { "label": "Dairy", "value": "2 milch cows" },
+      { "label": "Children", "value": "Class 10 & class 8" }
+    ],
+    "dayInLife": [
+      { "when": "Before 5 am", "emoji": "🐄", "text": "Walks his two cows to graze and checks the inlet channel watering the paddy nursery." },
+      { "when": "Morning", "emoji": "🌾", "text": "Works the field with Rathnamma, who does most transplanting and weeding; he manages irrigation turns and pesticide." },
+      { "when": "Dec to Mar", "emoji": "✂️", "text": "At cane harvest he also arranges migrant cane-cutting gangs for his own and neighbouring farms." },
+      { "when": "Lean months", "emoji": "🥛", "text": "Between transplanting and harvest, the fortnightly dairy cooperative milk cheque is the only predictable income." },
+      { "when": "Delayed-payment years", "emoji": "💸", "text": "While waiting on the mill, he borrows from a cooperative society, then a private moneylender." }
+    ],
+    "topics": [
+      {
+        "key": "daily_life_and_work",
+        "label": "Daily Life & Work",
+        "emoji": "⏰",
+        "headline": "Life runs on canal water, cane cycles and delayed mill payments",
+        "points": [
+          "Rises before 5 a.m. for the cows and the paddy nursery inlet, then works the field.",
+          "Mills routinely delay payment for crushed cane, so he borrows first from a cooperative society, then a moneylender.",
+          "A poor monsoon or a Cauvery release order to Tamil Nadu can cut his second paddy crop altogether."
+        ],
+        "stat": { "value": "1.5 lakh", "label": "Rough annual cash income after diesel, fertiliser and labour costs" }
+      },
+      {
+        "key": "family_and_household",
+        "label": "Family & Household",
+        "emoji": "🏠",
+        "headline": "Three generations share a small, already-divided holding",
+        "points": [
+          "His 2.5 acres are half of what his father farmed before it was divided with his elder brother.",
+          "Rathnamma milks the cows, cooks for six, transplants and weeds, and cares for his ageing parents almost alone.",
+          "Puttaswamy, his father and his brother jointly decide on education and marriage; property is in his father's name."
+        ],
+        "stat": { "value": "2.5 acres", "label": "His land, half of what his father once farmed" }
+      },
+      {
+        "key": "education_and_schooling",
+        "label": "Education & Schooling",
+        "emoji": "🎓",
+        "headline": "Daughter may continue to college by bus; son risks leaving at harvest",
+        "points": [
+          "Puttaswamy left school after the seventh standard and does not want that repeated for his children.",
+          "Chaitra has just cleared SSLC; free Shakti bus travel to Malavalli, ten kilometres away, could decide PU college.",
+          "Kiran stays in school at harvest because Puttaswamy hires labour, but a bad cane-payment year could change that."
+        ],
+        "stat": { "value": "22.09%", "label": "Karnataka class 9-10 dropout rate, UDISE+ 2023-24 (national 14.1%)" }
+      },
+      {
+        "key": "health_and_wellbeing",
+        "label": "Health & Wellbeing",
+        "emoji": "🩺",
+        "headline": "Distance, debt stress and field hazards shape health",
+        "points": [
+          "The family uses the village primary health centre, then Mandya hospital, with Mysuru for surgery or specialist care.",
+          "Sickle cuts, pesticide spray without reliable protective equipment and standing in flooded paddy are his main physical risks.",
+          "Rathnamma visits the health centre only when illness disrupts work; a hospitalisation worries him more than a bad monsoon."
+        ]
+      },
+      {
+        "key": "community_and_belief",
+        "label": "Community & Belief",
+        "emoji": "🛕",
+        "headline": "Vokkaliga farming life anchored in temples, cooperative and caste networks",
+        "points": [
+          "The family attends the Vairamudi festival at Melukote's Cheluvanarayana Swamy temple most years, and Chamundeshwari Temple at Dasara.",
+          "At peak transplanting and harvest he hires Scheduled Caste day labourers, most often Holeya.",
+          "His social world runs through the farmers' cooperative, mutual-aid networks and village-deity festivals, more than reservation politics."
+        ]
+      },
+      {
+        "key": "civic_life_and_government",
+        "label": "Civic Life & Government",
+        "emoji": "🏛️",
+        "headline": "Mills, canal water and revenue offices decide his fortunes",
+        "points": [
+          "He joins protests outside mill gates, loosely under the Karnataka Rajya Raitha Sangha, when cane arrears stretch too long.",
+          "His household holds an Anna Bhagya Priority Household ration card, and he has taken MGNREGA work in two lean seasons.",
+          "His land records are on Bhoomi, yet he twice visited the taluk office to correct a survey-number discrepancy."
+        ],
+        "stat": { "value": "5,000 cusecs", "label": "Interim Cauvery release for fifteen days after the August 2023 standoff" }
+      },
+      {
+        "key": "worldview_and_concerns",
+        "label": "Worldview & Concerns",
+        "emoji": "💭",
+        "headline": "Proud of Mandya's sugar bowl, wary of mills and state priorities",
+        "points": [
+          "He is proud of the KRS dam and Visvesvaraya's legacy, but feels the state treats agrarian distress as secondary.",
+          "He blames Cauvery release orders for failed paddy crops and the sugar mills for payment delays; he backs Mekedatu.",
+          "He wants Chaitra to finish PU college and Kiran to inherit the farm only after secondary school."
+        ]
+      }
+    ],
+    "schoolPressures": [
+      { "emoji": "🚜", "label": "Harvest labour", "detail": "Cane-cutting season pulls neighbours' sons out of school; Kiran is also expected to learn farming during holidays and harvest." },
+      { "emoji": "🚌", "label": "Transport & safety", "detail": "The family will not send Chaitra to PU college by shared auto or cycle on the highway." },
+      { "emoji": "💸", "label": "Delayed mill payments", "detail": "A household waiting on cane payment cannot easily absorb transport, books or uniforms for a second child." },
+      { "emoji": "💍", "label": "Marriage enquiries", "detail": "Relatives have begun informal enquiries about Chaitra's marriage, which become more common once a girl completes secondary school." }
+    ],
+    "worries": [
+      "Delayed cane payments",
+      "Cauvery release orders",
+      "Poor monsoon",
+      "Hospital costs",
+      "Children leaving school",
+      "Farm debt"
+    ]
+  },
+  "female": {
+    "name": "Manjula",
+    "ageLabel": "33",
+    "emoji": "👩‍🏭",
+    "role": "Garment factory sewing operator",
+    "place": "Near Peenya, Bengaluru Urban",
+    "community": "Scheduled Caste",
+    "tagline": "A Mandya-born sewing operator stitching export garments while holding up a one-room household in Bengaluru.",
+    "household": [
+      { "who": "Husband (daily-wage construction, auto-driving)", "emoji": "👨" },
+      { "who": "Daughter Keerthana, 15", "emoji": "👧" },
+      { "who": "Son, 9", "emoji": "👦" }
+    ],
+    "vitals": [
+      { "label": "Wage", "value": "Close to sector minimum" },
+      { "label": "Shift", "value": "9-10 hours" },
+      { "label": "Home", "value": "One rented room" },
+      { "label": "Children", "value": "Class 9 & age 9" }
+    ],
+    "dayInLife": [
+      { "when": "Before 5 am", "emoji": "🍲", "text": "Cooks the family's meals before leaving for the garment unit." },
+      { "when": "Around 7:30 am", "emoji": "🚌", "text": "Walks or takes a short bus ride, free under Shakti, to the northwestern industrial fringe." },
+      { "when": "Daytime", "emoji": "🧵", "text": "Sews through a nine-to-ten-hour shift built around a daily piece-rate quota." },
+      { "when": "Deadline evenings", "emoji": "⏰", "text": "When an export deadline is close, the shift extends and she reaches home after 8 p.m." },
+      { "when": "Night", "emoji": "🏠", "text": "Begins a second, unpaid shift of cooking, cleaning and helping her son with schoolwork." }
+    ],
+    "topics": [
+      {
+        "key": "daily_life_and_work",
+        "label": "Daily Life & Work",
+        "emoji": "⏰",
+        "headline": "Piece-rate targets, long shifts and a second shift at home",
+        "points": [
+          "She works nine-to-ten-hour shifts at a garment export unit, measured against a daily quota, for close to minimum wage.",
+          "Back and shoulder pain and eye strain are managed with painkillers, since piece-rate systems penalise absence.",
+          "She knows garment unions and has co-workers in them, but has not joined, fearing supervisor attention and lacking time."
+        ],
+        "stat": { "value": "₹10,330", "label": "Karnataka garment sector statutory minimum wage per month, 2024 study" }
+      },
+      {
+        "key": "family_and_household",
+        "label": "Family & Household",
+        "emoji": "🏠",
+        "headline": "One rented room, shared facilities, and a daughter picking up chores",
+        "points": [
+          "The family rents one room in an unauthorised layout near Peenya, sharing a toilet and water connection with neighbours.",
+          "Her husband's construction work is seasonal, so her wage is often the only certain income.",
+          "Emergency help comes from neighbouring women in the layout, not relatives; Keerthana minds her brother when shifts run late."
+        ],
+        "stat": { "value": "5-6 hours", "label": "Daily housework added to a 9-10 hour factory shift (2024 study)" }
+      },
+      {
+        "key": "education_and_schooling",
+        "label": "Education & Schooling",
+        "emoji": "🎓",
+        "headline": "Keerthana is at the highest-risk stage: ninth standard",
+        "points": [
+          "Manjula left school after the eighth standard; both children attend a nearby government Kannada-medium school, chosen for cost.",
+          "Keerthana faces domestic and sibling-care labour, commuting safety to a distant college, and the pull of garment wages.",
+          "Free Shakti bus travel makes a pre-university college plan realistic; Manjula wants Keerthana to finish school first."
+        ],
+        "stat": { "value": "22.09%", "label": "Karnataka class 9-10 dropout rate, UDISE+ 2023-24 (national 14.1%)" }
+      },
+      {
+        "key": "health_and_wellbeing",
+        "label": "Health & Wellbeing",
+        "emoji": "🩺",
+        "headline": "Anaemia risk, joint and eye strain, and costly treatment",
+        "points": [
+          "She has never been diagnosed but recognises the fatigue and breathlessness described, and cannot always afford green vegetables.",
+          "Her joint and eye strain from machine stitching goes untreated because a missed factory day costs more than a consultation.",
+          "The family relies on the public health centre and government hospital; shared water is blamed for her son's stomach upsets."
+        ],
+        "stat": { "value": "71.3%", "label": "Anaemia among Bengaluru garment-factory women aged 15 to 49, 2025 study" }
+      },
+      {
+        "key": "community_and_belief",
+        "label": "Community & Belief",
+        "emoji": "🛕",
+        "headline": "Two networks: a Mandya village and neighbouring garment workers",
+        "points": [
+          "Her native village network still guides major decisions, including who her daughter might eventually marry.",
+          "Women in her layout, many fellow garment workers, share childcare, lend small sums between paydays and accompany each other late.",
+          "She sends money for her village's annual temple festival even when the family cannot attend in person."
+        ]
+      },
+      {
+        "key": "civic_life_and_government",
+        "label": "Civic Life & Government",
+        "emoji": "🏛️",
+        "headline": "New city corporations, informal housing and welfare that helps in parts",
+        "points": [
+          "Since September 2025 her ward falls under one of five new corporations replacing BBMP; garbage and drainage remain irregular.",
+          "Her unauthorised-layout address complicates her BPL ration card, and she has no ESI or provident fund registration.",
+          "She is registered to vote in her Mandya village, so she has never voted in a city local election."
+        ],
+        "stat": { "value": "5", "label": "New city corporations replaced BBMP from September 2025" }
+      },
+      {
+        "key": "worldview_and_concerns",
+        "label": "Worldview & Concerns",
+        "emoji": "💭",
+        "headline": "Proud of her own wage, frustrated by the cost of living",
+        "points": [
+          "She values supporting the family through her own wage; she blames factory management and global brands for low pay.",
+          "She credits Shakti and Anna Bhagya with easing transport and food costs, though they do not address wages.",
+          "She wants Keerthana to finish school and find work that avoids ten hours at a machine."
+        ]
+      }
+    ],
+    "schoolPressures": [
+      { "emoji": "🧹", "label": "Chores & sibling-care", "detail": "When Manjula's shift runs long, Keerthana minds her brother, cooks and does chores, competing with homework." },
+      { "emoji": "🚌", "label": "Commute safety", "detail": "The nearest government college is far, and families worry about unsupervised daily travel for a teenage girl." },
+      { "emoji": "🧵", "label": "Factory wages", "detail": "Garment work, even at minimum wage, is an immediate income; Keerthana joining her mother is openly discussed." },
+      { "emoji": "📄", "label": "Missing transfer certificate", "detail": "Migrant families who move often fail to carry a transfer certificate, blocking re-enrolment in a new government school." }
+    ],
+    "worries": [
+      "Low wages",
+      "Cost of living",
+      "Daughter leaving school",
+      "Son's stomach upsets",
+      "Shared water supply",
+      "Costly private healthcare"
+    ]
+  }
+}

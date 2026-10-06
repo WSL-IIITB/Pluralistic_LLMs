@@ -1,0 +1,243 @@
+{
+  "districtId": "29-576",
+  "name": "Kodagu",
+  "regionId": "malnad",
+  "researchedOn": "2026-10-07",
+  "headline": "Even a girl who passed SSLC was engaged at 16 and later killed, showing marriage pressure after Class 10.",
+  "summary": "Kodagu coverage includes a 16-year-old, the only student from her remote village school to pass SSLC, who was engaged immediately and later murdered. Child marriage cases stood at 10 in January-October 2025. The report's remark about elephant attacks on estate workers does not concern students and was not used.",
+  "reasons": [
+    {
+      "factor": "Marriage pressure after SSLC",
+      "category": "gender",
+      "detail": "A 16-year-old who was the only student from her village school to pass SSLC was forced into an engagement and later murdered.",
+      "sources": [
+        1,
+        2
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Migrant estate labour families",
+      "category": "migration",
+      "detail": "Estates in Kodagu depend on labourers, many migrating from North India, throughout the year; the report documents their hardship, though it does not itself quantify children's school exits.",
+      "sources": [
+        4
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Child marriage on estates",
+      "category": "social-norms",
+      "detail": "A POCSO case alleged an estate owner sexually assaulted a minor girl living in an estate line house and facilitated her marriage; officials who failed to act were also booked.",
+      "sources": [
+        7
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Girls under marriage pressure",
+      "category": "gender",
+      "detail": "A 2024 case involved a Class X girl whose families had agreed to defer marriage after Child Helpline intervention, showing early-marriage pressure on schoolgirls.",
+      "sources": [
+        8
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Dropouts found door to door",
+      "category": "governance",
+      "detail": "A Zilla Panchayat CEO visited Kadagadalu in Madikeri to collect dropout details and readmit a child to Class 8 in a government high school during a special enrolment drive.",
+      "sources": [
+        5
+      ],
+      "evidence": "thin"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Child marriages, January-October 2025",
+      "value": "10",
+      "sources": [
+        3
+      ]
+    },
+    {
+      "label": "SSLC 2025 pass percentage after revaluation",
+      "value": "82.40 percent, fourth in Karnataka",
+      "sources": [
+        6
+      ]
+    },
+    {
+      "label": "Students passing after SSLC 2025 revaluation",
+      "value": "25 (Virajpet 11, Somwarpet 13, Madikeri 1)",
+      "sources": [
+        6
+      ]
+    },
+    {
+      "label": "SSLC 2025 pass percentage before revaluation",
+      "value": "82.21 percent",
+      "sources": [
+        6
+      ]
+    },
+    {
+      "label": "Passed students attempting supplementary exam, 2025",
+      "value": "68",
+      "sources": [
+        6
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Kodagu climbs to fourth in SSLC rankings after revaluation boost",
+      "outlet": "News Karnataka",
+      "date": "2025-05-29",
+      "url": "https://newskarnataka.com/kodagu/kodagu-climbs-to-fourth-in-sslc-rankings-after-revaluation-boost/29052025/",
+      "takeaway": "Pass rate rose to 82.40 percent; 25 initially failed students passed after revaluation."
+    },
+    {
+      "title": "Tip-off to police led to Kodagu minor girl's murder? Probe on",
+      "outlet": "The Times of India",
+      "date": "2024-05-11",
+      "url": "https://timesofindia.indiatimes.com/city/mysuru/tip-off-to-police-led-to-kodagu-minor-girls-murder-probe-on/articleshow/110024530.cms",
+      "takeaway": "Tip-off to police led to Kodagu minor girl's murder? Probe on."
+    },
+    {
+      "title": "Kodagu student clears exam, gets engaged, killed",
+      "outlet": "The Times of India",
+      "date": "2024-05-10",
+      "url": "https://timesofindia.indiatimes.com/city/bengaluru/kodagu-student-clears-exam-gets-engaged-killed/articleshow/109996746.cms",
+      "takeaway": "Kodagu student clears exam, gets engaged, killed."
+    },
+    {
+      "title": "Karnataka horror: Kodagu man decapitates Class X girl after engagement called off",
+      "outlet": "The Week",
+      "date": "2024-05-10",
+      "url": "https://www.theweek.in/news/india/2024/05/10/crime-news-karnataka-horror-kodagu-man-decapitates-class-x-girl-after-engagement-called-off-flees-with-victim-s-head.amp.html",
+      "takeaway": "Families had agreed to postpone the Class X girl's marriage after a Child Helpline tip."
+    },
+    {
+      "title": "Karnataka: seven booked under POCSO for sexually assaulting, facilitating minor girl's child marriage",
+      "outlet": "Deccan Herald",
+      "date": "",
+      "url": "https://www.deccanherald.com/amp/story/india%2Fkarnataka%2Fkarnataka-seven-booked-under-pocso-case-for-sexually-assaulting-facilitating-minor-girls-child-marriage-3707274",
+      "takeaway": "Estate owner accused over a minor in an estate line house; CDPO, doctor and others also booked."
+    },
+    {
+      "title": "Plight of migrant labourers in Kodagu evokes sympathy",
+      "outlet": "Deccan Herald",
+      "date": "",
+      "url": "https://www.deccanherald.com/amp/story/india/karnataka/plight-of-migrant-labourers-in-kodagu-evokes-sympathy-949133.html",
+      "takeaway": "Kodagu estates need year-round labour, largely migrants from North India."
+    },
+    {
+      "title": "ZP CEO admits child to Kadagadalu school",
+      "outlet": "Deccan Herald",
+      "date": "",
+      "url": "https://deccanherald.com/amp/story/india%2Fkarnataka%2Fzp-ceo-admits-child-to-kadagadalu-school-738801.html",
+      "takeaway": "Special enrolment drive in Madikeri taluk readmitted a dropout to Class 8."
+    }
+  ],
+  "responses": [
+    {
+      "text": "Zilla Panchayat CEO personally collected dropout information in Kadagadalu gram panchayat and persuaded parents to send children back as part of an education department enrolment drive.",
+      "sources": [
+        5
+      ]
+    },
+    {
+      "text": "Revaluation and supplementary exams helped Kodagu students: 25 failed candidates passed and 68 passed students sat improvement exams across two centres per taluk in 2025.",
+      "sources": [
+        6
+      ]
+    }
+  ],
+  "officialFactorCheck": [
+    {
+      "factor": "% Population Living in Households with Improved Sanitation",
+      "method": "state",
+      "verdict": "no-evidence",
+      "note": "Physical safety and child marriage, not sanitation, are the reported barriers.",
+      "sources": []
+    },
+    {
+      "factor": "% Schools with instruction medium 1 (English)",
+      "method": "district",
+      "verdict": "no-evidence",
+      "note": "No evidence connects instruction medium to dropout.",
+      "sources": []
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://timesofindia.indiatimes.com/city/bengaluru/kodagu-student-clears-exam-gets-engaged-killed/articleshow/109996746.cms",
+      "title": "Kodagu student clears exam, gets engaged, killed",
+      "outlet": "The Times of India",
+      "date": "2024-05-10",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://timesofindia.indiatimes.com/city/mysuru/tip-off-to-police-led-to-kodagu-minor-girls-murder-probe-on/articleshow/110024530.cms",
+      "title": "Tip-off to police led to Kodagu minor girl's murder? Probe on",
+      "outlet": "The Times of India",
+      "date": "2024-05-11",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://timesofindia.indiatimes.com/city/mysuru/drastic-fall-in-child-marriage-numbers-in-old-mysuru-region/articleshow/125918000.cms",
+      "title": "Drastic fall in child marriage numbers in Old Mysuru region",
+      "outlet": "The Times of India",
+      "date": "2025-12-12",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "https://www.deccanherald.com/amp/story/india/karnataka/plight-of-migrant-labourers-in-kodagu-evokes-sympathy-949133.html",
+      "title": "Plight of migrant labourers in Kodagu evokes sympathy",
+      "outlet": "Deccan Herald",
+      "date": "",
+      "type": "news"
+    },
+    {
+      "id": 5,
+      "url": "https://deccanherald.com/amp/story/india%2Fkarnataka%2Fzp-ceo-admits-child-to-kadagadalu-school-738801.html",
+      "title": "ZP CEO admits child to Kadagadalu school",
+      "outlet": "Deccan Herald",
+      "date": "",
+      "type": "news"
+    },
+    {
+      "id": 6,
+      "url": "https://newskarnataka.com/kodagu/kodagu-climbs-to-fourth-in-sslc-rankings-after-revaluation-boost/29052025/",
+      "title": "Kodagu climbs to fourth in SSLC rankings after revaluation boost",
+      "outlet": "News Karnataka",
+      "date": "2025-05-29",
+      "type": "news"
+    },
+    {
+      "id": 7,
+      "url": "https://www.deccanherald.com/amp/story/india%2Fkarnataka%2Fkarnataka-seven-booked-under-pocso-case-for-sexually-assaulting-facilitating-minor-girls-child-marriage-3707274",
+      "title": "Karnataka: seven booked under POCSO for sexually assaulting, facilitating minor girl's child marriage",
+      "outlet": "Deccan Herald",
+      "date": "",
+      "type": "news"
+    },
+    {
+      "id": 8,
+      "url": "https://www.theweek.in/news/india/2024/05/10/crime-news-karnataka-horror-kodagu-man-decapitates-class-x-girl-after-engagement-called-off-flees-with-victim-s-head.amp.html",
+      "title": "Karnataka horror: Kodagu man decapitates Class X girl after engagement called off",
+      "outlet": "The Week",
+      "date": "2024-05-10",
+      "type": "news"
+    }
+  ],
+  "coverage": "moderate",
+  "gaps": "Single-case evidence only; SSLC pass rate omitted because sources conflict. No Kodagu Class 8-10 dropout or out-of-school counts, tribal-hamlet (Yerava, Jenu Kuruba) secondary evidence or UDISE+ figures verified. Deccan Herald pages were unfetchable, so those items rest on search excerpts without dates.",
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+}

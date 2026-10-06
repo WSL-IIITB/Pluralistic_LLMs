@@ -1,0 +1,147 @@
+{
+  "districtId": "29-559",
+  "name": "Raichur",
+  "regionId": "kalyana-karnataka",
+  "researchedOn": "2026-10-07",
+  "headline": "Cotton fields pull children out of class: 1,290 child labourers rescued in one year.",
+  "summary": "Raichur's agricultural economy, especially Bt cotton, creates demand for child labour; the Labour Department rescued 1,290 children from cotton fields in a year and a judge warned against farm child labour. A child-marriage and POCSO case was reported. Older surveys counted over 12,000 out-of-school children while the education department later reported none, prompting the child-rights commission to demand a resurvey.",
+  "reasons": [
+    {
+      "factor": "Cotton-field child labour",
+      "category": "economic",
+      "detail": "Labour rescues removed 1,290 children from cotton fields in a year, and a judge warned that farm child labour is destroying children's futures.",
+      "sources": [
+        1,
+        2
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Under-reported out-of-school children",
+      "category": "governance",
+      "detail": "An older survey counted 12,128 out-of-school children while the education department reported zero absentees, drawing a commission demand for a resurvey.",
+      "sources": [
+        3,
+        4
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Child marriage and sexual violence",
+      "category": "gender",
+      "detail": "Ten people were booked under POCSO for a child marriage and assault of a minor.",
+      "sources": [
+        5
+      ],
+      "evidence": "thin"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Child labourers rescued from cotton fields in a year",
+      "value": "1,290",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "label": "Out-of-school children, older survey",
+      "value": "12,128",
+      "sources": [
+        3
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Judge warns against employing children in agricultural work",
+      "outlet": "The Hindu",
+      "date": "2026-08-27",
+      "url": "https://www.thehindu.com/news/national/karnataka/judge-warns-against-employing-children-in-agricultural-work/article71396030.ece",
+      "takeaway": "Judge warns against employing children in agricultural work."
+    },
+    {
+      "title": "KSCPCR urges DPI to conduct resurvey of out-of-school children in 2 districts",
+      "outlet": "The Hindu",
+      "date": "2020-01-01",
+      "url": "https://www.thehindu.com/news/national/karnataka/kscpcr-urges-dpi-to-conduct-resurvey-of-out-of-school-children-in-2-districts/article30453444.ece",
+      "takeaway": "KSCPCR urges a resurvey of out-of-school children in two districts."
+    },
+    {
+      "title": "1,290 child labourers rescued in Raichur this year",
+      "outlet": "The Hindu",
+      "date": "2015-11-26",
+      "url": "https://www.thehindu.com/news/national/karnataka/1290-child-labourers-rescued-in-raichur-this-year/article7917830.ece",
+      "takeaway": "1,290 child labourers rescued in Raichur this year."
+    }
+  ],
+  "responses": [
+    {
+      "text": "The Karnataka child rights commission asked the education department to resurvey out-of-school children in the district.",
+      "sources": [
+        4
+      ]
+    }
+  ],
+  "officialFactorCheck": [
+    {
+      "factor": "% Population Living in Households with Improved Sanitation",
+      "method": "state",
+      "verdict": "no-evidence",
+      "note": "Labour demand overshadows any sanitation link in local reporting.",
+      "sources": []
+    },
+    {
+      "factor": "% Schools with instruction medium 1 (English)",
+      "method": "district",
+      "verdict": "no-evidence",
+      "note": "No evidence links instruction medium to dropout.",
+      "sources": []
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://www.thehindu.com/news/national/karnataka/1290-child-labourers-rescued-in-raichur-this-year/article7917830.ece",
+      "title": "1,290 child labourers rescued in Raichur this year",
+      "outlet": "The Hindu",
+      "date": "2015-11-26",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://www.thehindu.com/news/national/karnataka/judge-warns-against-employing-children-in-agricultural-work/article71396030.ece",
+      "title": "Judge warns against employing children in agricultural work",
+      "outlet": "The Hindu",
+      "date": "2026-08-27",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://www.thehindu.com/news/cities/bangalore/17-lakh-children-out-of-school-sarva-shiksha-abhiyan-survey/article5653888.ece",
+      "title": "1.7 lakh children out of school: Sarva Shiksha Abhiyan survey",
+      "outlet": "The Hindu",
+      "date": "2014-02-05",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "https://www.thehindu.com/news/national/karnataka/kscpcr-urges-dpi-to-conduct-resurvey-of-out-of-school-children-in-2-districts/article30453444.ece",
+      "title": "KSCPCR urges DPI to conduct resurvey of out-of-school children in 2 districts",
+      "outlet": "The Hindu",
+      "date": "2020-01-01",
+      "type": "news"
+    },
+    {
+      "id": 5,
+      "url": "https://www.thehindu.com/news/national/karnataka/10-booked-on-the-charge-of-child-marriage-sexual-assault-on-minor-in-raichur/article69855909.ece",
+      "title": "10 booked on the charge of child marriage, sexual assault on minor in Raichur",
+      "outlet": "The Hindu",
+      "date": "2025-07-25",
+      "type": "news"
+    }
+  ],
+  "coverage": "moderate",
+  "gaps": "Rescue figure and survey are several years old; no recent dropout rate or SSLC rank.",
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+}

@@ -1,0 +1,412 @@
+{
+  "male": {
+    "name": "The Challakere groundnut farmer",
+    "ageLabel": "About 44",
+    "emoji": "👨‍🌾",
+    "role": "Groundnut & onion farmer",
+    "place": "Challakere taluk, Chitradurga",
+    "community": "Kuruba",
+    "tagline": "Rainfed Kuruba farmer who diversifies with sheep as the kaval grazing commons shrink.",
+    "household": [
+      {
+        "who": "Wife, works the farm and tends the sheep",
+        "emoji": "👩"
+      },
+      {
+        "who": "Son, about 16, in government high school",
+        "emoji": "👦"
+      },
+      {
+        "who": "Daughter, about 13, in upper-primary school",
+        "emoji": "👧"
+      },
+      {
+        "who": "His parents, living nearby",
+        "emoji": "👴"
+      }
+    ],
+    "vitals": [
+      {
+        "label": "Land",
+        "value": "About 3 rainfed acres"
+      },
+      {
+        "label": "Household income",
+        "value": "Rs 8,000-14,000 a month"
+      },
+      {
+        "label": "Flock",
+        "value": "8-10 sheep"
+      },
+      {
+        "label": "His schooling",
+        "value": "Up to Class 7"
+      }
+    ],
+    "dayInLife": [
+      {
+        "when": "Before sunrise",
+        "emoji": "💧",
+        "text": "Checks the two borewells that irrigate part of his groundnut and onion plots."
+      },
+      {
+        "when": "Early morning",
+        "emoji": "🐑",
+        "text": "Moves his flock of eight to ten sheep out to graze on the remaining kaval commons."
+      },
+      {
+        "when": "Before the heat",
+        "emoji": "🌱",
+        "text": "Walks his fields checking for pest damage."
+      },
+      {
+        "when": "Fallow months",
+        "emoji": "⛏️",
+        "text": "He and his wife register for MGNREGA work, which supplements rather than replaces farm income."
+      },
+      {
+        "when": "Bad crop years",
+        "emoji": "💰",
+        "text": "Sells sheep as a buffer, since groundnut and onion prices are volatile."
+      }
+    ],
+    "topics": [
+      {
+        "key": "daily_life_and_work",
+        "label": "Daily Life & Work",
+        "emoji": "⏰",
+        "headline": "Diversifying across crops and sheep to survive drought and price swings",
+        "points": [
+          "Groundnut and onion rotate with ragi on about three rainfed acres; sheep act as a buffer in bad years.",
+          "One of his two borewells failed two years ago when the water table dropped further.",
+          "A bumper crop can crash onion prices from Rs 40-50 a kilogram to Rs 5-10 within weeks."
+        ],
+        "stat": {
+          "value": "Rs 8,000-14,000",
+          "label": "Monthly household income, averaged over good and bad seasons, before loan repayments"
+        }
+      },
+      {
+        "key": "family_and_household",
+        "label": "Family & Household",
+        "emoji": "🏠",
+        "headline": "Women's labour is central, but credit and land sit with men",
+        "points": [
+          "His wife works alongside him and manages the sheep, on top of unpaid domestic labour and childcare.",
+          "He handles loan and land transactions; day-to-day decisions are made jointly with his wife.",
+          "He hopes his son finishes school; he is less certain about his daughter's path beyond secondary school."
+        ],
+        "stat": {
+          "value": "65.9% vs 81.4%",
+          "label": "Female vs male literacy, Chitradurga district, 2011 Census"
+        }
+      },
+      {
+        "key": "education_and_schooling",
+        "label": "Education & Schooling",
+        "emoji": "📚",
+        "headline": "No secondary school within walking distance, and a daughter nearing Class 9",
+        "points": [
+          "His son commutes several kilometres to a government high school in Challakere town by bicycle or shared transport.",
+          "His daughter must move to the same distant high school at Class 9; no girls' secondary school is nearer.",
+          "He knows the Kasturba Gandhi Balika Vidyalaya residential scheme and sees it as a fallback."
+        ],
+        "stat": {
+          "value": "22.2%",
+          "label": "Karnataka dropout rate in classes 9-10, UDISE+ 2023-24"
+        }
+      },
+      {
+        "key": "health_and_wellbeing",
+        "label": "Health & Wellbeing",
+        "emoji": "🩺",
+        "headline": "Heat, pesticides and debt anxiety, with serious care far away",
+        "points": [
+          "He sprays pesticide with minimal protection and has had skin irritation and headaches, without a formal diagnosis.",
+          "Routine illness goes to a primary health centre nearby; serious cases mean travelling to Chitradurga town.",
+          "His wife has chronic back and joint pain that she manages without regular medical attention."
+        ],
+        "stat": {
+          "value": "1,182",
+          "label": "Karnataka farmer suicides, April 2023-July 2024, mostly drought and debt-linked"
+        }
+      },
+      {
+        "key": "community_and_belief",
+        "label": "Community & Belief",
+        "emoji": "🛕",
+        "headline": "Identity shaped by the kaval grazing commons and their loss",
+        "points": [
+          "He identifies with the Kuruba community, traditionally dependent on the Amrita Mahal Kaval commons for grazing.",
+          "He is Hindu and attends his village deity's festivals as markers of the farming and social calendar.",
+          "Caste associations and village elders' councils informally settle disputes over land, grazing rights and marriage."
+        ],
+        "stat": {
+          "value": "10,000 acres",
+          "label": "Kaval grazing land diverted since 2009-2010 for the Challakere science city"
+        }
+      },
+      {
+        "key": "civic_life_and_government",
+        "label": "Civic Life & Government",
+        "emoji": "🏛️",
+        "headline": "Slow compensation and shrinking MGNREGA work shape his view of the state",
+        "points": [
+          "He has filed drought-relief claims and calls the process slow and paperwork-heavy.",
+          "His wife and daughter benefit from the Shakti scheme's free bus travel for women.",
+          "He attends gram sabha meetings to raise the kaval dispute, borewell electricity connections and the hamlet road."
+        ],
+        "stat": {
+          "value": "1,003 of 1,182",
+          "label": "Farmer suicides deemed eligible for Rs 5 lakh compensation, April 2023-July 2024"
+        }
+      },
+      {
+        "key": "worldview_and_concerns",
+        "label": "Worldview & Concerns",
+        "emoji": "💭",
+        "headline": "Water first, then compensation, grazing land and local jobs",
+        "points": [
+          "His most immediate worry is water: one borewell failure can wipe out a season's investment overnight.",
+          "He is proud of keeping the household afloat and of his son staying in school this long.",
+          "The science city took land but, in his community's eyes, has employed relatively few local people."
+        ],
+        "stat": {
+          "value": "223 of 236",
+          "label": "Karnataka taluks declared disaster-affected in the 2023 drought"
+        }
+      }
+    ],
+    "schoolPressures": [
+      {
+        "emoji": "🚌",
+        "label": "Distance",
+        "detail": "No functioning secondary school within walking distance; the daily commute to Challakere town is several kilometres."
+      },
+      {
+        "emoji": "🌾",
+        "label": "Harvest labour",
+        "detail": "Farm and grazing work during the groundnut harvest and lambing season pulls children away."
+      },
+      {
+        "emoji": "🐑",
+        "label": "Lost grazing land",
+        "detail": "Kaval diversion changed herding routines, pulling boys who help move livestock away from regular schooling."
+      },
+      {
+        "emoji": "💸",
+        "label": "Drought wage work",
+        "detail": "In bad years a teenager may do short stretches of daily-wage work while staying on school rolls."
+      }
+    ],
+    "worries": [
+      "Failing borewells",
+      "Volatile crop prices",
+      "Shrinking kaval grazing",
+      "Slow drought compensation",
+      "Few local jobs",
+      "Daughter's schooling"
+    ]
+  },
+  "female": {
+    "name": "The Chintamani silkworm rearer",
+    "ageLabel": "34",
+    "emoji": "🐛",
+    "role": "Sericulture worker & wage labourer",
+    "place": "Chintamani taluk, Chikkaballapur",
+    "community": "",
+    "tagline": "Rears silkworms and works daily wages, running the household alone while her husband migrates.",
+    "household": [
+      {
+        "who": "Husband, migrates seasonally for brick-kiln and construction work",
+        "emoji": "👨"
+      },
+      {
+        "who": "Son, 15, in government high school",
+        "emoji": "👦"
+      },
+      {
+        "who": "Daughter, 14, just finished Class 8",
+        "emoji": "👧"
+      },
+      {
+        "who": "Elderly mother-in-law",
+        "emoji": "👵"
+      }
+    ],
+    "vitals": [
+      {
+        "label": "Mulberry patch",
+        "value": "Rented quarter-acre"
+      },
+      {
+        "label": "Household income",
+        "value": "Rs 6,000-10,000 a month"
+      },
+      {
+        "label": "Her schooling",
+        "value": "About Class 6"
+      },
+      {
+        "label": "Married",
+        "value": "About 17 years"
+      }
+    ],
+    "dayInLife": [
+      {
+        "when": "Before sunrise",
+        "emoji": "🌿",
+        "text": "Cuts and carries mulberry leaves to feed the silkworms."
+      },
+      {
+        "when": "Rearing cycle",
+        "emoji": "🐛",
+        "text": "Feeds worms several times a day, cleans trays and manages shed temperature and humidity by hand."
+      },
+      {
+        "when": "Between batches",
+        "emoji": "🍅",
+        "text": "Takes daily wage work transplanting or harvesting in tomato and grape fields, with no guaranteed work."
+      },
+      {
+        "when": "Off-season",
+        "emoji": "🧱",
+        "text": "Her husband travels to brick kilns or construction sites, leaving her to run everything."
+      },
+      {
+        "when": "All day",
+        "emoji": "🍲",
+        "text": "Cooking, water collection and childcare come on top of both kinds of paid work."
+      }
+    ],
+    "topics": [
+      {
+        "key": "daily_life_and_work",
+        "label": "Daily Life & Work",
+        "emoji": "⏰",
+        "headline": "Two kinds of labour that rarely let up",
+        "points": [
+          "She rears silkworms on a rented quarter-acre of mulberry and takes daily wage work in nearby fields.",
+          "Women dominate cocoon harvesting, worm-mounting, leaf-feeding and rearing, while men usually market the cocoons.",
+          "A poor rearing cycle, silkworm disease or a market dip can wipe out weeks of unpaid labour."
+        ],
+        "stat": {
+          "value": "Rs 6,000-10,000",
+          "label": "Monthly household income, averaged across rearing cycles, wage days and migration earnings"
+        }
+      },
+      {
+        "key": "family_and_household",
+        "label": "Family & Household",
+        "emoji": "🏠",
+        "headline": "She runs the household largely alone while her husband is away",
+        "points": [
+          "She studied only to about Class 6 before leaving to help her mother with younger siblings.",
+          "During her husband's absences she decides on children's schooling, health spending and the daily budget.",
+          "She sometimes takes her daughter along to cut mulberry leaves and feed silkworms in busy rearing cycles."
+        ],
+        "stat": {
+          "value": "972 per 1,000",
+          "label": "Women per 1,000 men, Chikkaballapur district, 2011 Census"
+        }
+      },
+      {
+        "key": "education_and_schooling",
+        "label": "Education & Schooling",
+        "emoji": "📚",
+        "headline": "Her daughter's Class 9 decision is genuinely undecided",
+        "points": [
+          "Her son commutes daily to a government high school in Chintamani town; her daughter finished Class 8.",
+          "The nearest school with Classes 9 and 10 is several kilometres away, and parents weigh safety heavily.",
+          "A Kasturba Gandhi Balika Vidyalaya hostel seat is one of the few realistic ways her daughter could continue."
+        ],
+        "stat": {
+          "value": "19.6%",
+          "label": "Karnataka girls' dropout rate in 2023-24, falling to 13.9% by 2025-26"
+        }
+      },
+      {
+        "key": "health_and_wellbeing",
+        "label": "Health & Wellbeing",
+        "emoji": "🩺",
+        "headline": "Fluoride in groundwater, aching backs and a distant referral hospital",
+        "points": [
+          "Studies find fluoride in the district's groundwater above safe limits; she notes mottled teeth among some village children.",
+          "Sericulture work is linked to back and joint pain, skin irritation and eye strain; she treats hers unaided.",
+          "Anything serious means R.L. Jalappa Hospital in Tamaka, Kolar, a journey of an hour or more."
+        ],
+        "stat": {
+          "value": "About 40%",
+          "label": "Tested groundwater samples in Chikkaballapur taluk over fluoride limits, 2024 study"
+        }
+      },
+      {
+        "key": "community_and_belief",
+        "label": "Community & Belief",
+        "emoji": "🛕",
+        "headline": "A bilingual border community held together by women's networks",
+        "points": [
+          "Kannada, Telugu and, in the town's older core, Urdu are all spoken in Chintamani taluk.",
+          "She is Hindu and attends the village temple's annual festival; neighbouring silkworm-rearing women are her closest ties.",
+          "She is wary of outsiders assuming everyone speaks only Kannada or that sericulture is easy cottage labour."
+        ]
+      },
+      {
+        "key": "civic_life_and_government",
+        "label": "Civic Life & Government",
+        "emoji": "🏛️",
+        "headline": "Sericulture services and free bus rides, but opaque hostel seats",
+        "points": [
+          "She is registered with the district sericulture network of cocoon markets and grainage centres, including one in Chintamani.",
+          "The Shakti scheme gives her free bus travel to the bank, taluk office or a larger cocoon market.",
+          "She asked about Kasturba Gandhi Balika Vidyalaya seats and found eligibility opaque and dependent on teachers' contacts."
+        ],
+        "stat": {
+          "value": "668+ crore",
+          "label": "Free rides recorded statewide under Shakti since June 2023"
+        }
+      },
+      {
+        "key": "worldview_and_concerns",
+        "label": "Worldview & Concerns",
+        "emoji": "💭",
+        "headline": "Unpredictable cocoon prices and wage days, with small failures adding up",
+        "points": [
+          "Her top worry is two unpredictable incomes at once: cocoon prices and wage-labour availability.",
+          "She would likely demand tested piped water and steadier cocoon procurement prices.",
+          "She takes pride in keeping her son in school and managing the household alone while her husband is away."
+        ]
+      }
+    ],
+    "schoolPressures": [
+      {
+        "emoji": "🚸",
+        "label": "Distance & safety",
+        "detail": "The nearest Class 9-10 school is several kilometres away, and parents weigh the commute and daughters' safety heavily."
+      },
+      {
+        "emoji": "🐛",
+        "label": "Rearing labour",
+        "detail": "Time-bound leaf-feeding and rearing work often falls to daughters, especially when the father is away."
+      },
+      {
+        "emoji": "🧱",
+        "label": "Father's migration",
+        "detail": "Seasonal brick-kiln and construction work leaves no one to share the load and disrupts children's attendance."
+      },
+      {
+        "emoji": "🏫",
+        "label": "Hostel seat uncertainty",
+        "detail": "Continuing depends on whether a KGBV or similar hostel seat becomes available and how cocoon cycles pay."
+      }
+    ],
+    "worries": [
+      "Cocoon price swings",
+      "Uncertain wage days",
+      "Fluoride in water",
+      "Husband's migration income",
+      "Distant high school",
+      "Few non-farm jobs"
+    ]
+  }
+}

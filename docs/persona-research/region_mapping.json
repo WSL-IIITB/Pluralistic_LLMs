@@ -1,0 +1,97 @@
+{
+  "state": "Karnataka",
+  "note": "Six-region mapping supplied by the project owner. district_ids are the ids in public/geo/india-districts.geojson (29-<dt_code>); Vijayanagara (carved out of Ballari in Oct 2021) has no polygon of its own, so it shares Ballari's id 29-565 until the geometry is split.",
+  "regions": [
+    {
+      "id": "old-mysuru",
+      "name": "Old Mysuru (Southern) Region",
+      "short_name": "Old Mysuru",
+      "slug": "old-mysuru",
+      "file_no": "01",
+      "persona_file": "personas/old_mysuru.json",
+      "districts": [
+        {"name": "Bengaluru Urban", "id": "29-572"},
+        {"name": "Ramanagara", "id": "29-584"},
+        {"name": "Mandya", "id": "29-573"},
+        {"name": "Mysuru", "id": "29-577"},
+        {"name": "Chamarajanagara", "id": "29-578"},
+        {"name": "Bengaluru Rural", "id": "29-583"}
+      ]
+    },
+    {
+      "id": "bayaluseeme",
+      "name": "Bayaluseeme (Central Plains) Region",
+      "short_name": "Bayaluseeme",
+      "slug": "bayaluseeme",
+      "file_no": "02",
+      "persona_file": "personas/bayaluseeme.json",
+      "districts": [
+        {"name": "Chikkaballapur", "id": "29-582"},
+        {"name": "Kolar", "id": "29-581"},
+        {"name": "Tumakuru", "id": "29-571"},
+        {"name": "Davanagere", "id": "29-567"},
+        {"name": "Chitradurga", "id": "29-566"}
+      ]
+    },
+    {
+      "id": "karavali",
+      "name": "Karavali (Coastal) Region",
+      "short_name": "Karavali",
+      "slug": "karavali",
+      "file_no": "03",
+      "persona_file": "personas/karavali.json",
+      "districts": [
+        {"name": "Uttara Kannada", "id": "29-563"},
+        {"name": "Udupi", "id": "29-569"},
+        {"name": "Dakshina Kannada", "id": "29-575"}
+      ]
+    },
+    {
+      "id": "malnad",
+      "name": "Malnad Region",
+      "short_name": "Malnad",
+      "slug": "malnad",
+      "file_no": "04",
+      "persona_file": "personas/malnad.json",
+      "districts": [
+        {"name": "Shivamogga", "id": "29-568"},
+        {"name": "Chikkamagaluru", "id": "29-570"},
+        {"name": "Hassan", "id": "29-574"},
+        {"name": "Kodagu", "id": "29-576"}
+      ]
+    },
+    {
+      "id": "kitturu-karnataka",
+      "name": "Kitturu Karnataka (North-west) Region",
+      "short_name": "Kitturu Karnataka",
+      "slug": "kitturu-karnataka",
+      "file_no": "05",
+      "persona_file": "personas/kitturu_karnataka.json",
+      "districts": [
+        {"name": "Belagavi", "id": "29-555"},
+        {"name": "Vijayapura", "id": "29-557"},
+        {"name": "Bagalkote", "id": "29-556"},
+        {"name": "Dharwad", "id": "29-562"},
+        {"name": "Gadag", "id": "29-561"},
+        {"name": "Haveri", "id": "29-564"}
+      ]
+    },
+    {
+      "id": "kalyana-karnataka",
+      "name": "Kalyana Karnataka (North-east) Region",
+      "short_name": "Kalyana Karnataka",
+      "slug": "kalyana-karnataka",
+      "file_no": "06",
+      "persona_file": "personas/kalyana_karnataka.json",
+      "districts": [
+        {"name": "Kalaburagi", "id": "29-579"},
+        {"name": "Bidar", "id": "29-558"},
+        {"name": "Yadgir", "id": "29-580"},
+        {"name": "Raichur", "id": "29-559"},
+        {"name": "Koppal", "id": "29-560"},
+        {"name": "Ballari", "id": "29-565"},
+        {"name": "Vijayanagara", "id": "29-565"}
+      ]
+    }
+  ]
+}

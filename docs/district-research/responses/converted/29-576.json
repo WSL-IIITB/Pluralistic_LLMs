@@ -1,0 +1,91 @@
+{
+  "districtId": "29-576",
+  "name": "Kodagu",
+  "regionId": "malnad",
+  "researchedOn": "2026-10-07",
+  "headline": "Even a girl who passed SSLC was engaged at 16 and later killed, showing marriage pressure after Class 10.",
+  "summary": "Kodagu coverage includes a 16-year-old, the only student from her remote village school to pass SSLC, who was engaged immediately and later murdered. Child marriage cases stood at 10 in January-October 2025. The report's remark about elephant attacks on estate workers does not concern students and was not used.",
+  "reasons": [
+    {
+      "factor": "Marriage pressure after SSLC",
+      "category": "gender",
+      "detail": "A 16-year-old who was the only student from her village school to pass SSLC was forced into an engagement and later murdered.",
+      "sources": [
+        1,
+        2
+      ],
+      "evidence": "thin"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Child marriages, January-October 2025",
+      "value": "10",
+      "sources": [
+        3
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Tip-off to police led to Kodagu minor girl's murder? Probe on",
+      "outlet": "The Times of India",
+      "date": "2024-05-11",
+      "url": "https://timesofindia.indiatimes.com/city/mysuru/tip-off-to-police-led-to-kodagu-minor-girls-murder-probe-on/articleshow/110024530.cms",
+      "takeaway": "Tip-off to police led to Kodagu minor girl's murder? Probe on."
+    },
+    {
+      "title": "Kodagu student clears exam, gets engaged, killed",
+      "outlet": "The Times of India",
+      "date": "2024-05-10",
+      "url": "https://timesofindia.indiatimes.com/city/bengaluru/kodagu-student-clears-exam-gets-engaged-killed/articleshow/109996746.cms",
+      "takeaway": "Kodagu student clears exam, gets engaged, killed."
+    }
+  ],
+  "responses": [],
+  "officialFactorCheck": [
+    {
+      "factor": "% Population Living in Households with Improved Sanitation",
+      "method": "state",
+      "verdict": "no-evidence",
+      "note": "Physical safety and child marriage, not sanitation, are the reported barriers.",
+      "sources": []
+    },
+    {
+      "factor": "% Schools with instruction medium 1 (English)",
+      "method": "district",
+      "verdict": "no-evidence",
+      "note": "No evidence connects instruction medium to dropout.",
+      "sources": []
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://timesofindia.indiatimes.com/city/bengaluru/kodagu-student-clears-exam-gets-engaged-killed/articleshow/109996746.cms",
+      "title": "Kodagu student clears exam, gets engaged, killed",
+      "outlet": "The Times of India",
+      "date": "2024-05-10",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://timesofindia.indiatimes.com/city/mysuru/tip-off-to-police-led-to-kodagu-minor-girls-murder-probe-on/articleshow/110024530.cms",
+      "title": "Tip-off to police led to Kodagu minor girl's murder? Probe on",
+      "outlet": "The Times of India",
+      "date": "2024-05-11",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://timesofindia.indiatimes.com/city/mysuru/drastic-fall-in-child-marriage-numbers-in-old-mysuru-region/articleshow/125918000.cms",
+      "title": "Drastic fall in child marriage numbers in Old Mysuru region",
+      "outlet": "The Times of India",
+      "date": "2025-12-12",
+      "type": "news"
+    }
+  ],
+  "coverage": "thin",
+  "gaps": "Single-case evidence only; SSLC pass rate omitted because sources conflict.",
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+}

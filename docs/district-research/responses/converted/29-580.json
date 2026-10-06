@@ -1,0 +1,147 @@
+{
+  "districtId": "29-580",
+  "name": "Yadgir",
+  "regionId": "kalyana-karnataka",
+  "researchedOn": "2026-10-07",
+  "headline": "Distress migration pulls 14-18-year-olds out of school; the Deputy Commissioner drives dropouts back herself.",
+  "summary": "Yadgir's sources describe mass distress migration of labourer families to cities such as Bengaluru, a survey finding 1,747 out-of-school children aged 14-18, and a 2019 count of 1,547 children absent for more than three weeks, the highest in the state at the time. The administration uses NIOS and 'Mitra' programmes to bring older adolescents back, and an Azim Premji action-research study points to economic constraints at the transition into secondary school.",
+  "reasons": [
+    {
+      "factor": "Distress migration of labour families",
+      "category": "migration",
+      "detail": "Families unable to live off arid land migrate to cities for construction and wage work, taking children out of school.",
+      "sources": [
+        1,
+        2
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Chronic absenteeism",
+      "category": "other",
+      "detail": "In 2019 Yadgir had the state's highest number of children missing school for over three consecutive weeks.",
+      "sources": [
+        3
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Economic bottleneck at the move to secondary school",
+      "category": "economic",
+      "detail": "Azim Premji Foundation research found deep-rooted economic constraints blocking the transition into secondary school.",
+      "sources": [
+        4
+      ],
+      "evidence": "moderate"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Out-of-school children aged 14-18 (survey)",
+      "value": "1,747",
+      "sources": [
+        2
+      ]
+    },
+    {
+      "label": "Children absent more than three weeks, 2019",
+      "value": "1,547",
+      "sources": [
+        3
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "1,747 out-of-school children in Yadgir to be brought back to classrooms through NIOS Mitra",
+      "outlet": "The Hindu",
+      "date": "2026-06-28",
+      "url": "https://www.thehindu.com/news/national/karnataka/1747-out-of-school-children-in-yadgir-to-be-brought-back-to-classrooms-through-nios-mitra/article71117892.ece",
+      "takeaway": "1,747 out-of-school children in Yadgir to be brought back through NIOS and Mitra."
+    },
+    {
+      "title": "Yadgir Deputy Commissioner takes dropouts back to school in her vehicle",
+      "outlet": "The Hindu",
+      "date": "2022-12-21",
+      "url": "https://www.thehindu.com/news/national/karnataka/yadgir-deputy-commissioner-takes-dropouts-back-to-school-in-her-vehicle/article66288515.ece",
+      "takeaway": "Yadgir Deputy Commissioner takes dropouts back to school in her vehicle."
+    },
+    {
+      "title": "SSA writes to welfare panel on 311 out-of-school children",
+      "outlet": "The Hindu",
+      "date": "2019-12-03",
+      "url": "https://www.thehindu.com/news/national/karnataka/ssa-writes-to-welfare-panel-on-311-out-of-school-children/article30152623.ece",
+      "takeaway": "SSA writes to the welfare panel about out-of-school children."
+    }
+  ],
+  "responses": [
+    {
+      "text": "The administration uses NIOS and 'Mitra' programmes to mainstream older out-of-school adolescents; the Deputy Commissioner personally returns dropouts to class.",
+      "sources": [
+        2,
+        5
+      ]
+    }
+  ],
+  "officialFactorCheck": [
+    {
+      "factor": "% Population Living in Households with Improved Sanitation",
+      "method": "state",
+      "verdict": "no-evidence",
+      "note": "No direct evidence links sanitation to dropout.",
+      "sources": []
+    },
+    {
+      "factor": "% Schools with instruction medium 1 (English)",
+      "method": "district",
+      "verdict": "no-evidence",
+      "note": "No evidence links instruction medium to dropout.",
+      "sources": []
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://www.thehindu.com/news/cities/bangalore/for-the-child-of-a-migrant-labourer-education-continues-to-be-elusive/article5348040.ece",
+      "title": "For the child of a migrant labourer, education continues to be elusive",
+      "outlet": "The Hindu",
+      "date": "2013-11-13",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://www.thehindu.com/news/national/karnataka/1747-out-of-school-children-in-yadgir-to-be-brought-back-to-classrooms-through-nios-mitra/article71117892.ece",
+      "title": "1,747 out-of-school children in Yadgir to be brought back to classrooms through NIOS Mitra",
+      "outlet": "The Hindu",
+      "date": "2026-06-28",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://www.thehindu.com/news/national/karnataka/ssa-writes-to-welfare-panel-on-311-out-of-school-children/article30152623.ece",
+      "title": "SSA writes to welfare panel on 311 out-of-school children",
+      "outlet": "The Hindu",
+      "date": "2019-12-03",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "http://publications.azimpremjiuniversity.edu.in/395/",
+      "title": "Who drops out of school? evidence from an action research study in Yadgir district, Karnataka  - ePrints@APU",
+      "outlet": "Azim Premji University",
+      "date": "",
+      "type": "research"
+    },
+    {
+      "id": 5,
+      "url": "https://www.thehindu.com/news/national/karnataka/yadgir-deputy-commissioner-takes-dropouts-back-to-school-in-her-vehicle/article66288515.ece",
+      "title": "Yadgir Deputy Commissioner takes dropouts back to school in her vehicle",
+      "outlet": "The Hindu",
+      "date": "2022-12-21",
+      "type": "news"
+    }
+  ],
+  "coverage": "moderate",
+  "gaps": "No district SSLC pass rates; the migration source is older.",
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+}

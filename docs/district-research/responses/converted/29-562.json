@@ -1,0 +1,146 @@
+{
+  "districtId": "29-562",
+  "name": "Dharwad",
+  "regionId": "kitturu-karnataka",
+  "researchedOn": "2026-10-07",
+  "headline": "A rural Dharwad study ties dropout to hardship and migration; child marriage is also being stopped.",
+  "summary": "A study of rural Dharwad attributes high upper-primary and early-secondary dropout to disinterest, economic hardship and families migrating for wage work. The district's SSLC rank rose while its pass percentage fell, which The Hindu reported but did not link to dropout. Authorities prevented 28 child marriages in 2024-25 and launched Mission Vidyakashi to improve SSLC and PU results.",
+  "reasons": [
+    {
+      "factor": "Hardship, disinterest and migration",
+      "category": "economic",
+      "detail": "A study of Dharwad's rural areas found dropouts driven by student disinterest, economic hardship and families moving for wage labour.",
+      "sources": [
+        1
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Child marriage of girls",
+      "category": "gender",
+      "detail": "Officials stopped 28 child marriages in 2024-25, evidence of ongoing pressure to marry girls out of school.",
+      "sources": [
+        2
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Rank up, pass rate down",
+      "category": "governance",
+      "detail": "Dharwad moved up the SSLC ranking while its pass percentage fell; the report reads this as weaker students leaving, which the sources do not confirm.",
+      "sources": [
+        3,
+        4
+      ],
+      "evidence": "thin"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Child marriages prevented, 2024-25",
+      "value": "28",
+      "sources": [
+        2
+      ]
+    },
+    {
+      "label": "SSLC state rank, 2023",
+      "value": "24th (up from 26th)",
+      "sources": [
+        4
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "28 child marriages prevented in Dharwad district during 2024-25",
+      "outlet": "The Hindu",
+      "date": "2025-05-22",
+      "url": "https://www.thehindu.com/news/national/karnataka/28-child-marriages-prevented-in-dharwad-district-during-2024-25/article69606749.ece",
+      "takeaway": "28 child marriages prevented in Dharwad district during 2024-25."
+    },
+    {
+      "title": "Mission Vidyakashi launched to help improve Dharwad’s performance in SSLC, PU exams",
+      "outlet": "The Hindu",
+      "date": "2024-07-30",
+      "url": "https://www.thehindu.com/news/national/karnataka/mission-vidyakashi-launched-to-help-improve-dharwads-performance-in-sslc-pu-exams/article68464685.ece",
+      "takeaway": "Mission Vidyakashi launched to improve Dharwad's SSLC and PU performance."
+    },
+    {
+      "title": "Dharwad goes up in SSLC ranking, but down in passing percentage",
+      "outlet": "The Hindu",
+      "date": "2024-05-09",
+      "url": "https://www.thehindu.com/news/national/karnataka/dharwad-goes-up-in-sslc-ranking-but-down-in-passing-percentage/article68158495.ece",
+      "takeaway": "Dharwad goes up in SSLC ranking but down in pass percentage."
+    }
+  ],
+  "responses": [
+    {
+      "text": "Mission Vidyakashi aims to improve teaching methods and SSLC and PU results.",
+      "sources": [
+        5
+      ]
+    }
+  ],
+  "officialFactorCheck": [
+    {
+      "factor": "% Population Living in Households with Improved Sanitation",
+      "method": "state",
+      "verdict": "no-evidence",
+      "note": "Sanitation is not identified as a dropout driver in local sources.",
+      "sources": []
+    },
+    {
+      "factor": "% Schools with instruction medium 1 (English)",
+      "method": "district",
+      "verdict": "no-evidence",
+      "note": "No data links instruction medium to local dropout.",
+      "sources": []
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://www.ijcmas.com/8-2-2019/S.V.%20Halawar.pdf",
+      "title": "A Study on School Dropouts and Student Strength of Dharwad",
+      "outlet": "Int. J. Curr. Microbiol. App. Sci.",
+      "date": "",
+      "type": "research"
+    },
+    {
+      "id": 2,
+      "url": "https://www.thehindu.com/news/national/karnataka/28-child-marriages-prevented-in-dharwad-district-during-2024-25/article69606749.ece",
+      "title": "28 child marriages prevented in Dharwad district during 2024-25",
+      "outlet": "The Hindu",
+      "date": "2025-05-22",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://www.thehindu.com/news/national/karnataka/dharwad-goes-up-in-sslc-ranking-but-down-in-passing-percentage/article68158495.ece",
+      "title": "Dharwad goes up in SSLC ranking, but down in passing percentage",
+      "outlet": "The Hindu",
+      "date": "2024-05-09",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "https://www.thehindu.com/news/national/karnataka/dharwad-up-in-ranking-but-pass-percentage-down/article66827799.ece",
+      "title": "Dharwad up in ranking, but pass percentage down",
+      "outlet": "The Hindu",
+      "date": "2023-05-08",
+      "type": "news"
+    },
+    {
+      "id": 5,
+      "url": "https://www.thehindu.com/news/national/karnataka/mission-vidyakashi-launched-to-help-improve-dharwads-performance-in-sslc-pu-exams/article68464685.ece",
+      "title": "Mission Vidyakashi launched to help improve Dharwad’s performance in SSLC, PU exams",
+      "outlet": "The Hindu",
+      "date": "2024-07-30",
+      "type": "news"
+    }
+  ],
+  "coverage": "moderate",
+  "gaps": "The dropout study is from 2019; no recent district dropout or out-of-school counts.",
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+}

@@ -1,0 +1,249 @@
+{
+  "districtId": "29-584",
+  "name": "Ramanagara",
+  "regionId": "old-mysuru",
+  "researchedOn": "2026-10-07",
+  "headline": "Child marriage is the main documented exit: 44 cases in 2020-2023.",
+  "summary": "Ramanagara is one of the southern districts with the most recorded child marriages, 44 between 2020 and 2023, and reporting also notes rising child labour. Tracking is reactive, based on rescues and interventions rather than bridge courses for slow learners.",
+  "reasons": [
+    {
+      "factor": "Child marriage of girls",
+      "category": "gender",
+      "detail": "State child-welfare data records 44 child marriages in the district between 2020 and 2023, withdrawing girls from the SSLC pipeline.",
+      "sources": [
+        1
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Rising child labour",
+      "category": "economic",
+      "detail": "Reporting notes a rise in child-labour incidents that pull boys out of class.",
+      "sources": [
+        2
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "School mergers and longer distances",
+      "category": "school-infrastructure",
+      "detail": "The Karnataka Public School magnet pilot in Channapatna taluk folded seven village schools into Honganuru, five km from some children's earlier school; student groups say consolidation raises dropout among poor pupils.",
+      "sources": [
+        4,
+        5,
+        6
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Girls' safety and transport costs",
+      "category": "gender",
+      "detail": "Parents in the Channapatna pilot area worry about daughters travelling farther unaccompanied, and recalled paying about 700 rupees monthly for private transport after promised buses failed, with some keeping children home.",
+      "sources": [
+        4
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Child labour in silk reeling",
+      "category": "economic",
+      "detail": "A 2001 study of a Ramanagaram reeling centre found about half the workforce was children under 14, while the children themselves wanted schooling; evidence is old.",
+      "sources": [
+        8
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Child marriage",
+      "category": "social-norms",
+      "detail": "A 2016 report counted 68 child marriage cases in Ramanagara over 2013-16, attributing rising statewide cases to poverty, limited education and low awareness.",
+      "sources": [
+        7
+      ],
+      "evidence": "thin"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Child marriage cases, 2020-2023",
+      "value": "44",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "label": "Schools merged into Honganuru magnet school, 2024 pilot",
+      "value": "Seven village schools, with enrolments from 2 to 100 pupils",
+      "sources": [
+        4,
+        6
+      ]
+    },
+    {
+      "label": "Distance to Honganuru magnet school (Channapatna), 2025",
+      "value": "About 5 km from the earlier school, per parents",
+      "sources": [
+        4
+      ]
+    },
+    {
+      "label": "Private transport cost cited by parent, 2025",
+      "value": "About 700 rupees per month",
+      "sources": [
+        4
+      ]
+    },
+    {
+      "label": "Child marriage cases, Ramanagara, 2013-2016",
+      "value": "68 cases",
+      "sources": [
+        7
+      ]
+    },
+    {
+      "label": "Children in Ramanagaram reeling centre, 2001 study",
+      "value": "About half of workers were under 14",
+      "sources": [
+        8
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Karnataka student groups seek rollback of centralised magnet school plan",
+      "outlet": "The News Minute",
+      "date": "2026-02-02",
+      "url": "https://www.thenewsminute.com/amp/story/karnataka/student-groups-seek-rollback-of-karnatakas-centralised-magnet-school-plan",
+      "takeaway": "Student organisations say the Channapatna-piloted magnet model forces longer commutes and increases dropout among disadvantaged rural pupils."
+    },
+    {
+      "title": "Being removed from community: The cost of Karnataka's government school merger plan",
+      "outlet": "South First",
+      "date": "2025-12-04",
+      "url": "https://thesouthfirst.com/karnataka/being-removed-from-community-the-cost-of-karnatakas-government-school-merger-plan/",
+      "takeaway": "Channapatna parents fear unsafe travel for daughters and higher transport costs after seven schools were slated to merge at Honganuru."
+    },
+    {
+      "title": "40,000 Karnataka schools to be closed: AIDSO calls government's KPS-Magnet scheme a 'cruel conspiracy'",
+      "outlet": "Careers360",
+      "date": "2025-11-26",
+      "url": "https://news.careers360.com/karnataka-schools-closed-40000-aidso-calls-kps-magnet-government-merger-scheme-cruel-conspiracy-education-villagers-protest",
+      "takeaway": "AIDSO says the magnet scheme, including seven schools near Honganooru, will shut village schools; villagers protest."
+    },
+    {
+      "title": "Bengaluru ranks low in child protection index in Karnataka",
+      "outlet": "The Times of India",
+      "date": "2025-11-21",
+      "url": "https://timesofindia.indiatimes.com/city/bengaluru/bengaluru-ranks-low-in-child-protection-index-in-karnataka/articleshow/125470643.cms",
+      "takeaway": "Bengaluru ranks low in the child protection index in Karnataka."
+    },
+    {
+      "title": "Mandya No. 1 dist in child marriages since 2020: Data",
+      "outlet": "The Times of India",
+      "date": "2023-12-18",
+      "url": "https://timesofindia.indiatimes.com/city/mysuru/mandya-no-1-dist-in-child-marriages-since-2020-data/articleshow/106071868.cms",
+      "takeaway": "Mandya is the number one district in child marriages since 2020, with Ramanagara among the southern districts listed."
+    },
+    {
+      "title": "Siddaramaiah's Mysuru stands 8th in child marriage cases",
+      "outlet": "Deccan Chronicle",
+      "date": "2016-11-22",
+      "url": "https://deccanchronicle.com/nation/politics/221116/siddaramaiahs-mysuru-stands-8th-in-child-marriage-cases.html",
+      "takeaway": "Ramanagara recorded 68 child marriage cases in 2013-16 amid a statewide rise attributed to poverty and low awareness."
+    }
+  ],
+  "responses": [
+    {
+      "text": "The state piloted a Karnataka Public School magnet model in Channapatna from November 2024, merging seven small schools into one campus and planning to expand it across Karnataka.",
+      "sources": [
+        4,
+        5
+      ]
+    }
+  ],
+  "officialFactorCheck": [
+    {
+      "factor": "% Population Living in Households with Improved Sanitation",
+      "method": "state",
+      "verdict": "no-evidence",
+      "note": "No local investigation links sanitation to dropout.",
+      "sources": []
+    },
+    {
+      "factor": "% Schools with instruction medium 1 (English)",
+      "method": "district",
+      "verdict": "no-evidence",
+      "note": "Language of instruction is not cited as a barrier.",
+      "sources": []
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://timesofindia.indiatimes.com/city/mysuru/mandya-no-1-dist-in-child-marriages-since-2020-data/articleshow/106071868.cms",
+      "title": "Mandya No. 1 dist in child marriages since 2020: Data",
+      "outlet": "The Times of India",
+      "date": "2023-12-18",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://timesofindia.indiatimes.com/city/bengaluru/covid-on-the-ebb-but-child-labour-incidence-still-high-in-karnataka/articleshow/94629749.cms",
+      "title": "Covid on the ebb, but child labour incidence still high in Karnataka",
+      "outlet": "The Times of India",
+      "date": "2022-10-04",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://timesofindia.indiatimes.com/city/bengaluru/bengaluru-ranks-low-in-child-protection-index-in-karnataka/articleshow/125470643.cms",
+      "title": "Bengaluru ranks low in child protection index in Karnataka",
+      "outlet": "The Times of India",
+      "date": "2025-11-21",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "https://thesouthfirst.com/karnataka/being-removed-from-community-the-cost-of-karnatakas-government-school-merger-plan/",
+      "title": "Being removed from community: The cost of Karnataka's government school merger plan",
+      "outlet": "South First",
+      "date": "2025-12-04",
+      "type": "news"
+    },
+    {
+      "id": 5,
+      "url": "https://www.thenewsminute.com/amp/story/karnataka/student-groups-seek-rollback-of-karnatakas-centralised-magnet-school-plan",
+      "title": "Karnataka student groups seek rollback of centralised magnet school plan",
+      "outlet": "The News Minute",
+      "date": "2026-02-02",
+      "type": "news"
+    },
+    {
+      "id": 6,
+      "url": "https://news.careers360.com/karnataka-schools-closed-40000-aidso-calls-kps-magnet-government-merger-scheme-cruel-conspiracy-education-villagers-protest",
+      "title": "40,000 Karnataka schools to be closed: AIDSO calls government's KPS-Magnet scheme a 'cruel conspiracy'",
+      "outlet": "Careers360",
+      "date": "2025-11-26",
+      "type": "news"
+    },
+    {
+      "id": 7,
+      "url": "https://deccanchronicle.com/nation/politics/221116/siddaramaiahs-mysuru-stands-8th-in-child-marriage-cases.html",
+      "title": "Siddaramaiah's Mysuru stands 8th in child marriage cases",
+      "outlet": "Deccan Chronicle",
+      "date": "2016-11-22",
+      "type": "news"
+    },
+    {
+      "id": 8,
+      "url": "https://ideas.repec.org/a/sae/manlab/v26y2001i3p191-204.html",
+      "title": "Child Labour in a Rural Non-Farm Sector - A Study of the Silk Reeling Industry",
+      "outlet": "Manpower Journal (via RePEc)",
+      "date": "2001",
+      "type": "research"
+    }
+  ],
+  "coverage": "moderate",
+  "gaps": "No dropout, SSLC or out-of-school figures for the district. No current district dropout or out-of-school counts, SSLC pass rate, or teacher-vacancy figure (Kanakapura) could be tied to a retrievable source; Deccan Herald pages were blocked and the web search budget ran out. Child-labour and marriage evidence is dated.",
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+}

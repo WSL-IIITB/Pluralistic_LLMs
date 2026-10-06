@@ -1,0 +1,115 @@
+{
+  "districtId": "29-568",
+  "name": "Shivamogga",
+  "regionId": "malnad",
+  "researchedOn": "2026-10-07",
+  "headline": "Hostel conditions for SC/ST students and child marriage drive exits; police now track dropouts.",
+  "summary": "The state child-rights commission noted high dropout among SC/ST students in social-welfare hostels in Shivamogga, citing poor living conditions and food. Child marriage is a persistent threat, with 79 cases recorded in 2023-24, and police and the education department are working to trace dropped-out youth. The report's claim about schools forcing weak students to register as private candidates is about a Chikkamagaluru school and has been moved there.",
+  "reasons": [
+    {
+      "factor": "Hostel conditions for SC/ST students",
+      "category": "school-infrastructure",
+      "detail": "The child-rights commission noted high dropout among marginalised students in welfare hostels, citing unlivable conditions and poor food.",
+      "sources": [
+        1
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Child marriage",
+      "category": "gender",
+      "detail": "79 child marriages were recorded in 2023-24, and officials avert several each year.",
+      "sources": [
+        2,
+        3
+      ],
+      "evidence": "moderate"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Child marriages recorded, 2023-24",
+      "value": "79",
+      "sources": [
+        2
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Shivamogga Police join hands with Education Department to bring school dropouts back to schools",
+      "outlet": "The Hindu",
+      "date": "2026-08-11",
+      "url": "https://www.thehindu.com/news/national/karnataka/shivamogga-police-join-hands-with-education-department-to-bring-dropouts-back-to-schools/article71331953.ece",
+      "takeaway": "Shivamogga Police join hands with the Education Department to bring dropouts back to school."
+    },
+    {
+      "title": "Meeting concerning safety of children in Shivamogga held",
+      "outlet": "The Hindu",
+      "date": "2024-06-21",
+      "url": "https://www.thehindu.com/news/national/karnataka/meeting-concerning-safety-of-children-in-shivamogga-held/article68315984.ece",
+      "takeaway": "Meeting concerning safety of children in Shivamogga held."
+    }
+  ],
+  "responses": [
+    {
+      "text": "Police and the education department are jointly tracing dropouts to bring them back to school.",
+      "sources": [
+        4
+      ]
+    }
+  ],
+  "officialFactorCheck": [
+    {
+      "factor": "% Population Living in Households with Improved Sanitation",
+      "method": "state",
+      "verdict": "no-evidence",
+      "note": "Hostel conditions are cited, not household sanitation.",
+      "sources": []
+    },
+    {
+      "factor": "% Schools with instruction medium 1 (English)",
+      "method": "district",
+      "verdict": "no-evidence",
+      "note": "No evidence links instruction medium to dropout.",
+      "sources": []
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://www.thehindu.com/news/national/karnataka/meeting-concerning-safety-of-children-in-shivamogga-held/article68315984.ece",
+      "title": "Meeting concerning safety of children in Shivamogga held",
+      "outlet": "The Hindu",
+      "date": "2024-06-21",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://timesofindia.indiatimes.com/city/mysuru/karnataka-child-marriage-figures-show-marginal-dip-in-2024-25/articleshow/123392206.cms",
+      "title": "Karnataka child marriage figures show marginal dip in 2024-25",
+      "outlet": "The Times of India",
+      "date": "2025-08-20",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://www.thehindu.com/news/national/karnataka/officials-avert-three-child-marriages-in-shivamogga/article7314642.ece",
+      "title": "Officials avert three child marriages in Shivamogga",
+      "outlet": "The Hindu",
+      "date": "2015-06-14",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "https://www.thehindu.com/news/national/karnataka/shivamogga-police-join-hands-with-education-department-to-bring-dropouts-back-to-schools/article71331953.ece",
+      "title": "Shivamogga Police join hands with Education Department to bring school dropouts back to schools",
+      "outlet": "The Hindu",
+      "date": "2026-08-11",
+      "type": "news"
+    }
+  ],
+  "coverage": "thin",
+  "gaps": "The district's SSLC pass rate is omitted because sources conflict; no dropout counts from these sources.",
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+}

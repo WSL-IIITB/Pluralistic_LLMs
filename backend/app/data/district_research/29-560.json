@@ -1,0 +1,349 @@
+{
+  "districtId": "29-560",
+  "name": "Koppal",
+  "regionId": "kalyana-karnataka",
+  "researchedOn": "2026-10-07",
+  "headline": "The Devadasi system and forged age records for child marriage end girls' schooling.",
+  "summary": "Koppal's reporting centres on the outlawed Devadasi system, with a 2022 survey counting about 3,600 Devadasis in the district, and on families using forged school age certificates to marry minors at mass weddings. A regional report counts over 14,000 children in agricultural work across the Hyderabad-Karnataka belt, though not by district.",
+  "reasons": [
+    {
+      "factor": "Dedication of girls as Devadasis",
+      "category": "social-norms",
+      "detail": "Poor families, often in medical debt, still dedicate adolescent daughters to temple deities, ending their schooling.",
+      "sources": [
+        1,
+        2,
+        3
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Forged age records for child marriage",
+      "category": "gender",
+      "detail": "Authorities found fabricated school age certificates used to marry minor girls at mass weddings.",
+      "sources": [
+        4
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Early marriage ends schooling",
+      "category": "gender",
+      "detail": "Koppal girls often marry young: NFHS-5 shows 58.6 percent married before 18. Wedding season peaks around March school holidays; the Minister reported four child marriage cases in Koppal in April-May 2025.",
+      "sources": [
+        6,
+        7
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Distance and unreliable transport",
+      "category": "school-infrastructure",
+      "detail": "Buses are irregular and crowded and schools far, while hostel access is limited. Girls are pulled out after menarche. High school upgrades in 2017-18 reportedly reduced dropouts in Koppal and neighbours.",
+      "sources": [
+        6,
+        11
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Teacher shortages in region",
+      "category": "governance",
+      "detail": "Koppal is among Kalyana Karnataka districts with zero-teacher high schools; experts linked low SSLC results to missing teachers and infrastructure, and Koppal passed 53.25 percent in 2025.",
+      "sources": [
+        8,
+        11
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "SSLC failure and exits",
+      "category": "governance",
+      "detail": "Koppal recorded a 53.25 percent SSLC pass in 2025, then 93.10 percent in 2026 (rank 25 of 35), indicating volatile exam outcomes that affect Class 10 progression.",
+      "sources": [
+        8,
+        9
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Agricultural child labour (regional)",
+      "category": "economic",
+      "detail": "A regional report found more than a third of child labour in the Hyderabad-Karnataka belt is in agriculture; the figure is not broken down by district.",
+      "sources": [
+        5
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Seasonal sugarcane migration",
+      "category": "migration",
+      "detail": "The Sphoorthi report lists seasonal migration of sugarcane workers as a disruption to children's education in Koppal villages, without giving counts.",
+      "sources": [
+        6
+      ],
+      "evidence": "thin"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Devadasi women in the district (2022 survey)",
+      "value": "3,600",
+      "sources": [
+        3
+      ]
+    },
+    {
+      "label": "Statewide region: children in agricultural child labour (Hyderabad-Karnataka)",
+      "value": "14,122",
+      "sources": [
+        5
+      ]
+    },
+    {
+      "label": "Women married before 18, NFHS-5",
+      "value": "58.6 percent",
+      "sources": [
+        6
+      ]
+    },
+    {
+      "label": "Child marriages prevented by Sphoorthi girls",
+      "value": "531 in Koppal and Yelburga blocks",
+      "sources": [
+        6
+      ]
+    },
+    {
+      "label": "SSLC 2025 pass percentage",
+      "value": "53.25 percent",
+      "sources": [
+        8
+      ]
+    },
+    {
+      "label": "SSLC 2026 pass percentage and rank",
+      "value": "93.10 percent, rank 25 of 35 districts",
+      "sources": [
+        9
+      ]
+    },
+    {
+      "label": "Child labourers found, Sept 2026 drive",
+      "value": "27 from 95 premises checked",
+      "sources": [
+        10
+      ]
+    },
+    {
+      "label": "Rural 6-14 not in school, ASER 2016",
+      "value": "0.3 percent",
+      "sources": [
+        13
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Child labour rescue drive: 800 child labourers rescued in Karnataka",
+      "outlet": "Deccan Chronicle",
+      "date": "2026-09-12",
+      "url": "https://www.deccanchronicle.com/southern-states/karnataka/800-child-labourers-rescued-in-karnataka-during-a-special-ongoing-drive-1987042",
+      "takeaway": "Koppal police checked 95 premises across 14 stations and rescued 27 child labourers in the statewide special drive."
+    },
+    {
+      "title": "Documents certifying Koppal girl’s age for marriage fabricated",
+      "outlet": "The Hindu",
+      "date": "2026-05-05",
+      "url": "https://www.thehindu.com/news/national/karnataka/documents-certifying-koppal-girls-age-for-marriage-fabricated/article70943376.ece",
+      "takeaway": "Documents certifying a Koppal girl's age for marriage were fabricated."
+    },
+    {
+      "title": "Girls leading girls: Sphoorthi army fighting for a new normal in Koppal villages",
+      "outlet": "The South First",
+      "date": "2026-03-16",
+      "url": "https://thesouthfirst.com/karnataka/girls-leading-girls-sphoorthi-army-fighting-for-a-new-normal-in-koppal-villages/",
+      "takeaway": "Girls' groups stopped 531 child marriages; transport, puberty withdrawal, migration and marriage drive dropout."
+    },
+    {
+      "title": "K'taka Minister expresses concern over child marriages; pulls up authorities",
+      "outlet": "Sakshi Post",
+      "date": "2025-06-18",
+      "url": "https://www.sakshipost.com/news/ktaka-minister-expresses-concern-over-child-marriages-pulls-authorities-419923",
+      "takeaway": "Minister Tangadagi said four child marriages were reported in Koppal in April-May 2025 and urged more than FIRs."
+    },
+    {
+      "title": "Karnataka CM Orders For Action Against School Education Dept Officials For Low SSLC Pass Percentage",
+      "outlet": "ETV Bharat",
+      "date": "2025-05-31",
+      "url": "https://www.etvbharat.com/en/!state/karnataka-cm-action-against-school-education-dept-officials-low-sslc-pass-percentage-enn25053102263",
+      "takeaway": "Koppal's 53.25 percent SSLC pass was among the lowest; Kalyana Karnataka was the weakest region."
+    },
+    {
+      "title": "Karnataka girls studying in zero-teacher schools want to become teachers",
+      "outlet": "The News Minute",
+      "date": "2023-10-11",
+      "url": "https://www.thenewsminute.com/amp/story/karnataka/karnataka-girls-studying-in-zero-teacher-schools-want-to-become-teachers",
+      "takeaway": "CRY says 2017-18 high school upgrades in Raichur, Ballari and Koppal cut dropouts and child labour; teacher vacancies remain."
+    },
+    {
+      "title": "Parents held for pushing daughter into Devadasi system in Karnataka",
+      "outlet": "The New Indian Express",
+      "date": "2022-12-30",
+      "url": "https://www.newindianexpress.com/states/karnataka/2022/Dec/30/parents-held-for-pushing-daughter-into-devadasi-system-in-karnataka-2533151.html",
+      "takeaway": "Parents held for pushing a daughter into the Devadasi system."
+    },
+    {
+      "title": "22-year-old forced into Devadasi system rescued in Karnataka; three family members arrested, one absconding",
+      "outlet": "The Hindu",
+      "date": "2022-12-28",
+      "url": "https://www.thehindu.com/news/national/karnataka/22-year-old-forced-into-devadasi-system-rescued-in-koppal-three-family-members-arrested-one-absconding/article66313594.ece",
+      "takeaway": "22-year-old forced into the Devadasi system rescued in Koppal."
+    }
+  ],
+  "responses": [
+    {
+      "text": "KHPT's Sphoorthi programme works across 51 Koppal villages, using peer girls, panchayats and Child Helpline 1098 to stop marriages and keep girls in school.",
+      "sources": [
+        6
+      ]
+    },
+    {
+      "text": "KHPT works with single-mother, tribal and poor households in 40 Koppal villages through safe spaces and Balika Panchayats to keep adolescent girls in school.",
+      "sources": [
+        12
+      ]
+    },
+    {
+      "text": "Police and the Child Welfare Committee rescued and rehabilitated child labourers during a September 2026 statewide drive.",
+      "sources": [
+        10
+      ]
+    }
+  ],
+  "officialFactorCheck": [
+    {
+      "factor": "% Population Living in Households with Improved Sanitation",
+      "method": "state",
+      "verdict": "no-evidence",
+      "note": "Severe socio-cultural exploitation overshadows sanitation in local reporting.",
+      "sources": []
+    },
+    {
+      "factor": "% Schools with instruction medium 1 (English)",
+      "method": "district",
+      "verdict": "no-evidence",
+      "note": "No evidence links instruction medium to dropout.",
+      "sources": []
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://www.newsbharati.com/Encyc/2022/12/31/Devadasi-Karnataka.html",
+      "title": "21-year-old girl saved after unwillingly pushed into Devadasi system for unfounded beliefs of parents",
+      "outlet": "News Bharati",
+      "date": "2022-12-31",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://www.newindianexpress.com/states/karnataka/2022/Dec/30/parents-held-for-pushing-daughter-into-devadasi-system-in-karnataka-2533151.html",
+      "title": "Parents held for pushing daughter into Devadasi system in Karnataka",
+      "outlet": "The New Indian Express",
+      "date": "2022-12-30",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://www.thehindu.com/news/national/karnataka/22-year-old-forced-into-devadasi-system-rescued-in-koppal-three-family-members-arrested-one-absconding/article66313594.ece",
+      "title": "22-year-old forced into Devadasi system rescued in Karnataka; three family members arrested, one absconding",
+      "outlet": "The Hindu",
+      "date": "2022-12-28",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "https://www.thehindu.com/news/national/karnataka/documents-certifying-koppal-girls-age-for-marriage-fabricated/article70943376.ece",
+      "title": "Documents certifying Koppal girl’s age for marriage fabricated",
+      "outlet": "The Hindu",
+      "date": "2026-05-05",
+      "type": "news"
+    },
+    {
+      "id": 5,
+      "url": "https://www.thehindu.com/news/national/karnataka/%E2%80%98More-than-one-third-of-child-labour-in-agri-sector-in-HK-region%E2%80%99/article60094926.ece",
+      "title": "‘More than one-third of child labour in agri sector in HK region’",
+      "outlet": "The Hindu",
+      "date": "2014-12-12",
+      "type": "news"
+    },
+    {
+      "id": 6,
+      "url": "https://thesouthfirst.com/karnataka/girls-leading-girls-sphoorthi-army-fighting-for-a-new-normal-in-koppal-villages/",
+      "title": "Girls leading girls: Sphoorthi army fighting for a new normal in Koppal villages",
+      "outlet": "The South First",
+      "date": "2026-03-16",
+      "type": "news"
+    },
+    {
+      "id": 7,
+      "url": "https://www.sakshipost.com/news/ktaka-minister-expresses-concern-over-child-marriages-pulls-authorities-419923",
+      "title": "K'taka Minister expresses concern over child marriages; pulls up authorities",
+      "outlet": "Sakshi Post",
+      "date": "2025-06-18",
+      "type": "news"
+    },
+    {
+      "id": 8,
+      "url": "https://www.etvbharat.com/en/!state/karnataka-cm-action-against-school-education-dept-officials-low-sslc-pass-percentage-enn25053102263",
+      "title": "Karnataka CM Orders For Action Against School Education Dept Officials For Low SSLC Pass Percentage",
+      "outlet": "ETV Bharat",
+      "date": "2025-05-31",
+      "type": "news"
+    },
+    {
+      "id": 9,
+      "url": "https://www.inyatrust.co.in/2026/04/karnataka-sslc-result-2026-district-rank-list-pass-percentage.html",
+      "title": "Karnataka SSLC Result 2026 District Rank List Out: Dakshina Kannada Tops with 98.4%",
+      "outlet": "Inya Trust (results blog)",
+      "date": "2026-04",
+      "type": "data"
+    },
+    {
+      "id": 10,
+      "url": "https://www.deccanchronicle.com/southern-states/karnataka/800-child-labourers-rescued-in-karnataka-during-a-special-ongoing-drive-1987042",
+      "title": "800 Child Labourers Rescued In Karnataka During A Special Ongoing Drive",
+      "outlet": "Deccan Chronicle",
+      "date": "2026-09-12",
+      "type": "news"
+    },
+    {
+      "id": 11,
+      "url": "https://www.thenewsminute.com/amp/story/karnataka/karnataka-girls-studying-in-zero-teacher-schools-want-to-become-teachers",
+      "title": "Karnataka girls studying in zero-teacher schools want to become teachers",
+      "outlet": "The News Minute",
+      "date": "2023-10-11",
+      "type": "news"
+    },
+    {
+      "id": 12,
+      "url": "https://azimpremjifoundation.org/node/10150",
+      "title": "KHPT adolescent girls programme in Koppal (Azim Premji Foundation page)",
+      "outlet": "Azim Premji Foundation",
+      "date": "",
+      "type": "ngo"
+    },
+    {
+      "id": 13,
+      "url": "https://img.asercentre.org/docs/Publications/ASER%20Reports/ASER%202016/District%20Estimates/karnataka.pdf",
+      "title": "ASER 2016 Karnataka rural district estimates: private enrolment, children not in school, learning levels",
+      "outlet": "Pratham ASER Centre",
+      "date": "2016",
+      "type": "ngo"
+    }
+  ],
+  "coverage": "moderate",
+  "gaps": "No dropout counts or SSLC figures; the labour statistic is regional, not district-level. No Koppal-specific figures found on out-of-school counts, SSLC dropout by gender, Devadasi-linked exits or tanda access; sugarcane migration is mentioned without counts. Deccan Herald and The Hindu pages could not be fetched.",
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+}

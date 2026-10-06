@@ -1,0 +1,260 @@
+{
+  "districtId": "29-568",
+  "name": "Shivamogga",
+  "regionId": "malnad",
+  "researchedOn": "2026-10-07",
+  "headline": "Hostel conditions for SC/ST students and child marriage drive exits; police now track dropouts.",
+  "summary": "The state child-rights commission noted high dropout among SC/ST students in social-welfare hostels in Shivamogga, citing poor living conditions and food. Child marriage is a persistent threat, with 79 cases recorded in 2023-24, and police and the education department are working to trace dropped-out youth. The report's claim about schools forcing weak students to register as private candidates is about a Chikkamagaluru school and has been moved there.",
+  "reasons": [
+    {
+      "factor": "Hostel conditions for SC/ST students",
+      "category": "school-infrastructure",
+      "detail": "The child-rights commission noted high dropout among marginalised students in welfare hostels, citing unlivable conditions and poor food.",
+      "sources": [
+        1
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Child marriage",
+      "category": "gender",
+      "detail": "79 child marriages were recorded in 2023-24, and officials avert several each year.",
+      "sources": [
+        2,
+        3
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Poverty and need to earn",
+      "category": "economic",
+      "detail": "Police tracking in 2026 found children leaving school because families needed income; the drive focused on home visits, counselling and readmission into government schools.",
+      "sources": [
+        5
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Academic struggle and lost confidence",
+      "category": "other",
+      "detail": "Alongside poverty, children who struggled academically lost confidence and stopped attending, according to the police campaign's account of why the 946 identified children had left.",
+      "sources": [
+        5
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Child marriage and teenage pregnancy",
+      "category": "gender",
+      "detail": "After 23 child pregnancies surfaced, the Collector ordered closer watch on dropouts, girls often absent from school or college, and families at risk of child marriage.",
+      "sources": [
+        6
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Paid weekend work pulling students out",
+      "category": "economic",
+      "detail": "Teachers in malnad degree colleges found students from Shivamogga and neighbouring districts skipping classes for paid catering work in Bengaluru, a trend said to have grown after Covid. College-level evidence.",
+      "sources": [
+        7
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Tribal-area school without teachers or toilets",
+      "category": "school-infrastructure",
+      "detail": "A tribal-majority government school at Elige in Sagar taluk reportedly had no permanent teachers for eight years and lacked proper toilets for girls; this was a primary school.",
+      "sources": [
+        8
+      ],
+      "evidence": "thin"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Child marriages recorded, 2023-24",
+      "value": "79",
+      "sources": [
+        2
+      ]
+    },
+    {
+      "label": "Identified school dropouts in district, 2026",
+      "value": "946, Bhadravathi highest",
+      "sources": [
+        5
+      ]
+    },
+    {
+      "label": "Dropouts returned to school by police drive, 2026",
+      "value": "over 200",
+      "sources": [
+        5
+      ]
+    },
+    {
+      "label": "Child pregnancies detected, 2026",
+      "value": "23",
+      "sources": [
+        6
+      ]
+    },
+    {
+      "label": "Child protection unit cases Apr-Jun 2026-27",
+      "value": "79 (61 POCSO, 18 POCSO plus child marriage)",
+      "sources": [
+        6
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Shivamogga Police join hands with Education Department to bring school dropouts back to schools",
+      "outlet": "The Hindu",
+      "date": "2026-08-11",
+      "url": "https://www.thehindu.com/news/national/karnataka/shivamogga-police-join-hands-with-education-department-to-bring-dropouts-back-to-schools/article71331953.ece",
+      "takeaway": "Shivamogga Police join hands with the Education Department to bring dropouts back to school."
+    },
+    {
+      "title": "23 child pregnancies in Shivamogga trigger alarm",
+      "outlet": "UNI",
+      "date": "2026-08-08",
+      "url": "https://test.uniindia.com/23-child-pregnancies-in-shivamogga-trigger-alarm/south/news/3936650.html",
+      "takeaway": "Collector orders surveillance of dropouts, frequently absent girls and families vulnerable to child marriage."
+    },
+    {
+      "title": "Karnataka police go beyond policing, return 200 school dropouts",
+      "outlet": "Siasat",
+      "date": "2026-08-02",
+      "url": "https://www.siasat.com/karnataka-police-go-beyond-policing-return-200-school-dropouts-3517781/amp/",
+      "takeaway": "Shivamogga police month-long drive found 946 dropouts, readmitted over 200, citing poverty and academic struggles."
+    },
+    {
+      "title": "Meeting concerning safety of children in Shivamogga held",
+      "outlet": "The Hindu",
+      "date": "2024-06-21",
+      "url": "https://www.thehindu.com/news/national/karnataka/meeting-concerning-safety-of-children-in-shivamogga-held/article68315984.ece",
+      "takeaway": "Meeting concerning safety of children in Shivamogga held."
+    },
+    {
+      "title": "Malnad students bunk classes for weekend catering jobs",
+      "outlet": "Deccan Herald",
+      "date": "",
+      "url": "https://www.deccanherald.com/india/karnataka/malnad-students-bunk-classes-for-weekend-catering-jobs-1199337.html",
+      "takeaway": "Malnad students, many from Shivamogga, skipped college for Bengaluru weekend catering jobs paying about Rs 1,000 a day."
+    },
+    {
+      "title": "Karnataka govt school students forced to make toilets out of sarees",
+      "outlet": "Deccan Herald",
+      "date": "",
+      "url": "https://www.deccanherald.com/amp/story/india%2Fkarnataka%2Fkarnataka-govt-school-students-forced-to-make-toilets-out-of-sarees-1171405.html",
+      "takeaway": "Tribal-majority Elige school in Sagar taluk lacked permanent teachers and toilets; girls used saree-walled enclosure."
+    }
+  ],
+  "responses": [
+    {
+      "text": "Police and the education department are jointly tracing dropouts to bring them back to school.",
+      "sources": [
+        4
+      ]
+    },
+    {
+      "text": "District police 'Back to School' campaign collected dropout details, verified status, made home visits, counselled families and secured government-school admissions; tracking of re-enrolled children continues.",
+      "sources": [
+        5
+      ]
+    },
+    {
+      "text": "District Collector directed intensified monitoring of dropouts, frequently absent girls and at-risk families, and FIRs against those facilitating child marriages.",
+      "sources": [
+        6
+      ]
+    }
+  ],
+  "officialFactorCheck": [
+    {
+      "factor": "% Population Living in Households with Improved Sanitation",
+      "method": "state",
+      "verdict": "no-evidence",
+      "note": "Hostel conditions are cited, not household sanitation.",
+      "sources": []
+    },
+    {
+      "factor": "% Schools with instruction medium 1 (English)",
+      "method": "district",
+      "verdict": "no-evidence",
+      "note": "No evidence links instruction medium to dropout.",
+      "sources": []
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://www.thehindu.com/news/national/karnataka/meeting-concerning-safety-of-children-in-shivamogga-held/article68315984.ece",
+      "title": "Meeting concerning safety of children in Shivamogga held",
+      "outlet": "The Hindu",
+      "date": "2024-06-21",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://timesofindia.indiatimes.com/city/mysuru/karnataka-child-marriage-figures-show-marginal-dip-in-2024-25/articleshow/123392206.cms",
+      "title": "Karnataka child marriage figures show marginal dip in 2024-25",
+      "outlet": "The Times of India",
+      "date": "2025-08-20",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://www.thehindu.com/news/national/karnataka/officials-avert-three-child-marriages-in-shivamogga/article7314642.ece",
+      "title": "Officials avert three child marriages in Shivamogga",
+      "outlet": "The Hindu",
+      "date": "2015-06-14",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "https://www.thehindu.com/news/national/karnataka/shivamogga-police-join-hands-with-education-department-to-bring-dropouts-back-to-schools/article71331953.ece",
+      "title": "Shivamogga Police join hands with Education Department to bring school dropouts back to schools",
+      "outlet": "The Hindu",
+      "date": "2026-08-11",
+      "type": "news"
+    },
+    {
+      "id": 5,
+      "url": "https://www.siasat.com/karnataka-police-go-beyond-policing-return-200-school-dropouts-3517781/amp/",
+      "title": "Karnataka police go beyond policing, return 200 school dropouts",
+      "outlet": "Siasat",
+      "date": "2026-08-02",
+      "type": "news"
+    },
+    {
+      "id": 6,
+      "url": "https://test.uniindia.com/23-child-pregnancies-in-shivamogga-trigger-alarm/south/news/3936650.html",
+      "title": "23 child pregnancies in Shivamogga trigger alarm",
+      "outlet": "UNI",
+      "date": "2026-08-08",
+      "type": "news"
+    },
+    {
+      "id": 7,
+      "url": "https://www.deccanherald.com/india/karnataka/malnad-students-bunk-classes-for-weekend-catering-jobs-1199337.html",
+      "title": "Malnad students bunk classes for weekend catering jobs",
+      "outlet": "Deccan Herald",
+      "date": "",
+      "type": "news"
+    },
+    {
+      "id": 8,
+      "url": "https://www.deccanherald.com/amp/story/india%2Fkarnataka%2Fkarnataka-govt-school-students-forced-to-make-toilets-out-of-sarees-1171405.html",
+      "title": "Karnataka govt school students forced to make toilets out of sarees",
+      "outlet": "Deccan Herald",
+      "date": "",
+      "type": "news"
+    }
+  ],
+  "coverage": "moderate",
+  "gaps": "The district's SSLC pass rate is omitted because sources conflict; no dropout counts from these sources. No Class 8-10 specific dropout counts, SSLC failure or district UDISE+ figures retrieved; no estate/migrant or forest-village secondary evidence found. Deccan Herald pages were unfetchable, so those items rely on search excerpts.",
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+}

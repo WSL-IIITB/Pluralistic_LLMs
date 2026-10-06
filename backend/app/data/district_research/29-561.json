@@ -1,0 +1,209 @@
+{
+  "districtId": "29-561",
+  "name": "Gadag",
+  "regionId": "kitturu-karnataka",
+  "researchedOn": "2026-10-07",
+  "headline": "Bonded shepherding of boys and mass weddings are the documented exits; the 2022 hijab row disrupted SSLC.",
+  "summary": "Gadag sources cover two brothers from a Gadag village pulled out of school to work as bonded shepherds for five years (freed in 2013), two child marriages detected among mass weddings in 2016-17, a slide to 34th in the SSLC ranking with a 66.74% pass rate in 2015, and the suspension of seven teachers and invigilators in the 2022 hijab row. Evidence is dated and mostly single cases.",
+  "reasons": [
+    {
+      "factor": "Bonded shepherding of boys",
+      "category": "economic",
+      "detail": "Two brothers, now 12 and 10, from a Gadag village were forced out of school five years earlier to work as bonded shepherds after their parents borrowed money; they were freed in 2013.",
+      "sources": [
+        1
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Child marriage at mass weddings",
+      "category": "gender",
+      "detail": "Officials detected two child marriages among mass weddings in Gadag in 2016-17 and said this may not be the full extent.",
+      "sources": [
+        2
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Hijab row at SSLC",
+      "category": "social-norms",
+      "detail": "Seven teachers and chief invigilators were suspended in 2022 for letting students write SSLC in hijab, alienating some minority students.",
+      "sources": [
+        3
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Girls leaving education by late teens",
+      "category": "gender",
+      "detail": "Roughly 39.8% of Gadag women aged 15 to 21 are out of education per a district youth profile, suggesting heavy girl attrition after school age; causes are not stated.",
+      "sources": [
+        6
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Secondary enrolment gap",
+      "category": "other",
+      "detail": "The same profile puts classes 9-12 enrolment of school-age children at 76%, implying about a quarter are not enrolled at secondary level; year and drivers are not given.",
+      "sources": [
+        6
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Devadasi-linked dropout (regional)",
+      "category": "social-norms",
+      "detail": "NGO material says dedication of girls as Devadasis means leaving school, across North Karnataka. This is regional evidence; no Gadag-specific confirmation was found.",
+      "sources": [
+        7
+      ],
+      "evidence": "thin"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "SSLC pass rate and state rank, 2015",
+      "value": "66.74% (34th)",
+      "sources": [
+        4
+      ]
+    },
+    {
+      "label": "Registered SSLC candidates, 2015",
+      "value": "15,095",
+      "sources": [
+        5
+      ]
+    },
+    {
+      "label": "Teachers and invigilators suspended in the hijab row",
+      "value": "7",
+      "sources": [
+        3
+      ]
+    },
+    {
+      "label": "Women aged 15-21 out of education (undated)",
+      "value": "39.8%",
+      "sources": [
+        6
+      ]
+    },
+    {
+      "label": "School-age children enrolled, classes 9-12 (undated)",
+      "value": "76%",
+      "sources": [
+        6
+      ]
+    },
+    {
+      "label": "Estimated Devadasi women, North Karnataka (regional, not Gadag)",
+      "value": "About 80,000, one fifth under 18",
+      "sources": [
+        7
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Seven Karnataka school teachers suspended for allowing students to write SSLC exam in hijab",
+      "outlet": "The Hindu",
+      "date": "2022-03-30",
+      "url": "https://www.thehindu.com/news/national/karnataka/seven-karnataka-school-teachers-suspended-for-allowing-students-to-write-sslc-exam-in-hijab/article65275228.ece",
+      "takeaway": "Seven teachers suspended for letting students write SSLC in hijab."
+    },
+    {
+      "title": "Gadag slides down from 13th to 34th place",
+      "outlet": "The Hindu",
+      "date": "2015-05-13",
+      "url": "https://www.thehindu.com/news/national/karnataka/gadag-slides-down-from-13th-to-34th-place/article7198563.ece",
+      "takeaway": "Gadag slides from 13th to 34th place in SSLC results."
+    },
+    {
+      "title": "Goodbye to 5 long years as shepherd boys",
+      "outlet": "The Hindu",
+      "date": "2013-08-15",
+      "url": "https://www.thehindu.com/news/national/karnataka/goodbye-to-5-long-years-as-shepherd-boys/article5023107.ece",
+      "takeaway": "Goodbye to 5 long years as shepherd boys."
+    }
+  ],
+  "responses": [],
+  "officialFactorCheck": [
+    {
+      "factor": "% Population Living in Households with Improved Sanitation",
+      "method": "state",
+      "verdict": "no-evidence",
+      "note": "No local reporting links sanitation to dropout.",
+      "sources": []
+    },
+    {
+      "factor": "% Schools with instruction medium 1 (English)",
+      "method": "district",
+      "verdict": "no-evidence",
+      "note": "No local data links English-medium instruction to dropout.",
+      "sources": []
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://www.thehindu.com/news/national/karnataka/goodbye-to-5-long-years-as-shepherd-boys/article5023107.ece",
+      "title": "Goodbye to 5 long years as shepherd boys",
+      "outlet": "The Hindu",
+      "date": "2013-08-15",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://www.thehindu.com/news/national/karnataka/mass-weddings-a-gateway-for-child-marriages/article19246309.ece",
+      "title": "Mass weddings, a gateway for child marriages",
+      "outlet": "The Hindu",
+      "date": "2017-07-09",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://www.thehindu.com/news/national/karnataka/seven-karnataka-school-teachers-suspended-for-allowing-students-to-write-sslc-exam-in-hijab/article65275228.ece",
+      "title": "Seven Karnataka school teachers suspended for allowing students to write SSLC exam in hijab",
+      "outlet": "The Hindu",
+      "date": "2022-03-30",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "https://www.thehindu.com/news/national/karnataka/gadag-slides-down-from-13th-to-34th-place/article7198563.ece",
+      "title": "Gadag slides down from 13th to 34th place",
+      "outlet": "The Hindu",
+      "date": "2015-05-13",
+      "type": "news"
+    },
+    {
+      "id": 5,
+      "url": "https://www.thehindu.com/news/national/karnataka/15095-students-to-appear-for-sslc-exams-from-gadag/article7027981.ece",
+      "title": "15,095 students to appear for SSLC exams from Gadag",
+      "outlet": "The Hindu",
+      "date": "2015-03-24",
+      "type": "news"
+    },
+    {
+      "id": 6,
+      "url": "https://youthpower.in/institution/karnataka/gadag/jss",
+      "title": "JSS (Jan Shikshan Sansthan) in Gadag, Karnataka",
+      "outlet": "YouthPower India",
+      "date": "",
+      "type": "data"
+    },
+    {
+      "id": 7,
+      "url": "https://int.terredeshommes.nl/projects/children-empowerment-of-the-devadasi-system",
+      "title": "Children empowerment for getting out of the Devadasi system",
+      "outlet": "Terre des Hommes",
+      "date": "",
+      "type": "ngo"
+    }
+  ],
+  "coverage": "moderate",
+  "gaps": "Sources are mostly 2013-2017 and 2022; no recent dropout, out-of-school or SSLC figures. No Gadag-specific news, DDPI/Samagra Shiksha reports, SSLC figures, out-of-school counts or migration evidence retrieved; a Gadag child-protection report was unavailable (404). Search quota ran out; major outlets were inaccessible.",
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+}

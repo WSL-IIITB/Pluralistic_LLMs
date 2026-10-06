@@ -1,0 +1,224 @@
+{
+  "districtId": "29-558",
+  "name": "Bidar",
+  "regionId": "kalyana-karnataka",
+  "researchedOn": "2026-10-07",
+  "headline": "Festival-linked child marriages and very weak historic SSLC results; NGOs run 'academic ICU' bridge classes.",
+  "summary": "Bidar sees child marriages cluster around festivals such as Akshaya Tritiya, prompting special task forces. SSLC outcomes have been historically poor, at one point only 27% passed, and Rotary Clubs have set up 'academic ICU' courses to help out-of-school children clear SSLC before they age out at 16. The district's out-of-school tracking figures are contested.",
+  "reasons": [
+    {
+      "factor": "Festival-linked child marriage",
+      "category": "gender",
+      "detail": "Child marriages spike around festivals such as Akshaya Tritiya, so officials form special teams to stop parents withdrawing daughters from Class 8-9.",
+      "sources": [
+        1
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Very poor SSLC outcomes",
+      "category": "governance",
+      "detail": "A Hindu report on the district's results recorded only about 27% passing at one point, a pipeline that pushes failing students out.",
+      "sources": [
+        2
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Weak SSLC outcomes in district",
+      "category": "governance",
+      "detail": "Bidar ranked 28th of 35 educational districts in the 2026 SSLC results with a 92.17 percent pass rate, below the state figure of 94.1 percent, per a results aggregator. Exam failure is a recognised exit point at Class 10.",
+      "sources": [
+        5
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Enrolled children working in scrap shops",
+      "category": "economic",
+      "detail": "An official said some enrolled Bidar students worked in a nearby scrap shop and had to be rescued.",
+      "sources": [
+        3
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Child labour among school-age children",
+      "category": "economic",
+      "detail": "A statewide police drive in September 2026 recorded 8 child labour rescue cases in Bidar. The report gives no breakdown of work type or whether the children had left school.",
+      "sources": [
+        6
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Regional teacher and infrastructure gaps",
+      "category": "school-infrastructure",
+      "detail": "Reporting on the 2025 SSLC results cites missing teachers and infrastructure as drivers of poor Kalyana Karnataka performance. Bidar is not named in that article, so this is regional context rather than district evidence.",
+      "sources": [
+        8
+      ],
+      "evidence": "thin"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Historic SSLC pass rate cited",
+      "value": "27%",
+      "sources": [
+        2
+      ]
+    },
+    {
+      "label": "Out-of-school children tracked (2025, contested)",
+      "value": "26",
+      "sources": [
+        3
+      ]
+    },
+    {
+      "label": "SSLC 2026 pass percentage and rank",
+      "value": "92.17 percent, rank 28 of 35 districts (state overall 94.1 percent)",
+      "sources": [
+        5
+      ]
+    },
+    {
+      "label": "Child labour rescue cases, Sept 2026 drive",
+      "value": "8 cases in Bidar",
+      "sources": [
+        6
+      ]
+    },
+    {
+      "label": "Rural 6-14 not in school, ASER 2016",
+      "value": "0.7 percent",
+      "sources": [
+        7
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "800 Child Labourers Rescued In Karnataka During A Special Ongoing Drive",
+      "outlet": "Deccan Chronicle",
+      "date": "2026-09-12",
+      "url": "https://www.deccanchronicle.com/southern-states/karnataka/800-child-labourers-rescued-in-karnataka-during-a-special-ongoing-drive-1987042",
+      "takeaway": "Statewide police drive; Bidar and Bagalkot each recorded 8 rescue cases, with no further district detail given."
+    },
+    {
+      "title": "Ahead of Akshaya Tritiya, Bidar steps up vigil with special teams to prevent child marriages",
+      "outlet": "The Hindu",
+      "date": "2026-04-17",
+      "url": "https://www.thehindu.com/news/national/karnataka/ahead-of-akshaya-tritiya-bidar-steps-up-vigil-with-special-teams-to-prevent-child-marriages/article70874386.ece",
+      "takeaway": "Ahead of Akshaya Tritiya, Bidar steps up vigil with special teams to prevent child marriages."
+    },
+    {
+      "title": "Karnataka SSLC Result 2026 District Rank List Out: Dakshina Kannada Tops with 98.4%",
+      "outlet": "Inya Trust (results blog)",
+      "date": "2026-04",
+      "url": "https://www.inyatrust.co.in/2026/04/karnataka-sslc-result-2026-district-rank-list-pass-percentage.html",
+      "takeaway": "District rank list placing Bidar 28th with a 92.17 percent pass rate, below the 94.1 percent state average."
+    },
+    {
+      "title": "Rotary Clubs to set up Academic ICU for out of school children in Bidar",
+      "outlet": "The Hindu",
+      "date": "2024-03-23",
+      "url": "https://www.thehindu.com/news/national/karnataka/rotary-clubs-to-set-up-academic-icu-for-out-of-school-children-in-bidar/article67984611.ece",
+      "takeaway": "Rotary Clubs to set up an Academic ICU for out-of-school children in Bidar."
+    }
+  ],
+  "responses": [
+    {
+      "text": "Rotary Clubs are running 'Academic ICU' bridge courses to help out-of-school children clear SSLC.",
+      "sources": [
+        4
+      ]
+    }
+  ],
+  "officialFactorCheck": [
+    {
+      "factor": "% Population Living in Households with Improved Sanitation",
+      "method": "state",
+      "verdict": "no-evidence",
+      "note": "No evidence links sanitation to dropout.",
+      "sources": []
+    },
+    {
+      "factor": "% Schools with instruction medium 1 (English)",
+      "method": "district",
+      "verdict": "no-evidence",
+      "note": "No evidence links instruction medium to dropout.",
+      "sources": []
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://www.thehindu.com/news/national/karnataka/ahead-of-akshaya-tritiya-bidar-steps-up-vigil-with-special-teams-to-prevent-child-marriages/article70874386.ece",
+      "title": "Ahead of Akshaya Tritiya, Bidar steps up vigil with special teams to prevent child marriages",
+      "outlet": "The Hindu",
+      "date": "2026-04-17",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://www.thehindu.com/news/national/karnataka/zero-results-no-action/article8633057.ece",
+      "title": "Zero results, no action",
+      "outlet": "The Hindu",
+      "date": "2016-05-22",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://www.thehindu.com/news/national/karnataka/different-surveys-on-out-of-school-children-in-kalaburagi-reveal-contrasting-figures/article69047215.ece",
+      "title": "Different surveys on out-of-school children in Kalaburagi reveal contrasting figures",
+      "outlet": "The Hindu",
+      "date": "2025-01-01",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "https://www.thehindu.com/news/national/karnataka/rotary-clubs-to-set-up-academic-icu-for-out-of-school-children-in-bidar/article67984611.ece",
+      "title": "Rotary Clubs to set up Academic ICU for out of school children in Bidar",
+      "outlet": "The Hindu",
+      "date": "2024-03-23",
+      "type": "news"
+    },
+    {
+      "id": 5,
+      "url": "https://www.inyatrust.co.in/2026/04/karnataka-sslc-result-2026-district-rank-list-pass-percentage.html",
+      "title": "Karnataka SSLC Result 2026 District Rank List Out: Dakshina Kannada Tops with 98.4%",
+      "outlet": "Inya Trust (results blog)",
+      "date": "2026-04",
+      "type": "data"
+    },
+    {
+      "id": 6,
+      "url": "https://www.deccanchronicle.com/southern-states/karnataka/800-child-labourers-rescued-in-karnataka-during-a-special-ongoing-drive-1987042",
+      "title": "800 Child Labourers Rescued In Karnataka During A Special Ongoing Drive",
+      "outlet": "Deccan Chronicle",
+      "date": "2026-09-12",
+      "type": "news"
+    },
+    {
+      "id": 7,
+      "url": "https://img.asercentre.org/docs/Publications/ASER%20Reports/ASER%202016/District%20Estimates/karnataka.pdf",
+      "title": "ASER 2016 Karnataka rural district estimates: private enrolment, children not in school, learning levels",
+      "outlet": "Pratham ASER Centre",
+      "date": "2016",
+      "type": "ngo"
+    },
+    {
+      "id": 8,
+      "url": "https://www.etvbharat.com/en/!state/karnataka-cm-action-against-school-education-dept-officials-low-sslc-pass-percentage-enn25053102263",
+      "title": "Karnataka CM Orders For Action Against School Education Dept Officials For Low SSLC Pass Percentage",
+      "outlet": "ETV Bharat",
+      "date": "2025-05-31",
+      "type": "news"
+    }
+  ],
+  "coverage": "moderate",
+  "gaps": "No reliable out-of-school or dropout counts; the 27% pass figure is old. No Bidar-specific media, DDPI or NGO material found on migration, child marriage, tanda access, school closure or out-of-school counts; Deccan Herald and The Hindu pages could not be fetched. SSLC rank comes from an aggregator, not the official KSEAB table.",
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+}

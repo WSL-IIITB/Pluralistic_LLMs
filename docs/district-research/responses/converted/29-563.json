@@ -1,0 +1,116 @@
+{
+  "districtId": "29-563",
+  "name": "Uttara Kannada",
+  "regionId": "karavali",
+  "researchedOn": "2026-10-07",
+  "headline": "Forest-belt poverty and thin staffing, with only old out-of-school counts for the Sirsi area.",
+  "summary": "Uttara Kannada has few documented exits: a 2014 state survey found only 686 out-of-school children in Uttara Kannada (the fewest in the state) and 1,066 in the Sirsi educational district, and COVID-era fears kept some Sirsi parents from sending children to SSLC papers. A 2023 High Court report found every government school in the district had toilets. Claims about Siddi girls and guest teachers in the deep-research report could not be tied to their cited pages and were dropped.",
+  "reasons": [
+    {
+      "factor": "Few out-of-school children (2014)",
+      "category": "other",
+      "detail": "The state's 2014 survey found Uttara Kannada had the fewest out-of-school children in Karnataka, with the Sirsi educational district higher.",
+      "sources": [
+        1
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "COVID-era exam avoidance in Sirsi",
+      "category": "health",
+      "detail": "During the pandemic some Sirsi parents withheld children from SSLC maths and English papers over health fears.",
+      "sources": [
+        2
+      ],
+      "evidence": "thin"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Out-of-school children, Uttara Kannada (SSA survey, 2014)",
+      "value": "686",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "label": "Out-of-school children, Sirsi educational district (SSA survey, 2014)",
+      "value": "1,066",
+      "sources": [
+        1
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Quote Hangers for SSLC results",
+      "outlet": "The Hindu",
+      "date": "2024-05-09",
+      "url": "https://www.thehindu.com/news/national/karnataka/quote-hangers-for-sslc-results/article68158314.ece",
+      "takeaway": "Government-school students from Sirsi score near-perfect in SSLC 2024."
+    },
+    {
+      "title": "Students in Karnataka write SSLC examination in the face of adversity",
+      "outlet": "The Hindu",
+      "date": "2020-06-29",
+      "url": "https://www.thehindu.com/news/national/karnataka/students-in-karnataka-write-sslc-examination-in-the-face-of-adversity/article31948488.ece",
+      "takeaway": "Students in Karnataka write SSLC in the face of adversity, including Sirsi parents' pandemic fears."
+    }
+  ],
+  "responses": [],
+  "officialFactorCheck": [
+    {
+      "factor": "% Population Living in Households with Improved Sanitation",
+      "method": "state",
+      "verdict": "unclear",
+      "note": "A 2023 High Court report found every government school here had toilets, yet the casefile rate is high; the factor is household sanitation, which the report does not measure.",
+      "sources": [
+        4
+      ]
+    },
+    {
+      "factor": "% Schools with instruction medium 1 (English)",
+      "method": "district",
+      "verdict": "no-evidence",
+      "note": "No data linking instruction medium to local dropout.",
+      "sources": []
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://www.thehindu.com/news/cities/bangalore/17-lakh-children-out-of-school-sarva-shiksha-abhiyan-survey/article5653888.ece",
+      "title": "1.7 lakh children out of school: Sarva Shiksha Abhiyan survey",
+      "outlet": "The Hindu",
+      "date": "2014-02-05",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://www.thehindu.com/news/national/karnataka/students-in-karnataka-write-sslc-examination-in-the-face-of-adversity/article31948488.ece",
+      "title": "Students in Karnataka write SSLC examination in the face of adversity",
+      "outlet": "The Hindu",
+      "date": "2020-06-29",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://www.thehindu.com/news/national/karnataka/quote-hangers-for-sslc-results/article68158314.ece",
+      "title": "Quote Hangers for SSLC results",
+      "outlet": "The Hindu",
+      "date": "2024-05-09",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "https://www.thehindu.com/news/national/karnataka/sorry-state-of-affairs-says-high-court-on-absence-of-toilets-in-464-govt-schools/article66908404.ece",
+      "title": "No drinking water in 87 govt schools, no toilets in 464 schools in Karnataka",
+      "outlet": "The Hindu",
+      "date": "2023-05-29",
+      "type": "news"
+    }
+  ],
+  "coverage": "thin",
+  "gaps": "No recent dropout or SSLC figures; Sirsi evidence is the 2014 count and one COVID item; the high casefile rate is unexplained. Siddi-girls and guest-teacher claims were dropped (cited pages do not support them).",
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+}

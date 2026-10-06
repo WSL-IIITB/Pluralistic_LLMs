@@ -1,0 +1,154 @@
+{
+  "districtId": "29-557",
+  "name": "Vijayapura",
+  "regionId": "kitturu-karnataka",
+  "researchedOn": "2026-10-07",
+  "headline": "Mass weddings used to marry school-age girls, plus teachers pulled off duty, shape a weak secondary system.",
+  "summary": "Vijayapura sources describe families using mass weddings to marry school-age daughters, prompting a rule that organisers give 21 days' notice so officials can check brides' ages. Teachers have protested being diverted to census work after SSLC, and the district has had poor SSLC performance that drew warnings to education officials. Many students are children of daily-wage farm labourers.",
+  "reasons": [
+    {
+      "factor": "Child marriage through mass weddings",
+      "category": "gender",
+      "detail": "Poor families use mass wedding ceremonies to marry school-age daughters, so the district required organisers to give 21 days' notice for age verification.",
+      "sources": [
+        1
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Agricultural wage-labour poverty",
+      "category": "economic",
+      "detail": "Many students are children of daily-wage farm labourers, which is reported to push them towards work.",
+      "sources": [
+        2
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Census duty clashing with teaching",
+      "category": "governance",
+      "detail": "High-school teachers complained that census work clashes with the academic calendar; the Deputy Commissioner exempted Vijayapura's high-school teachers.",
+      "sources": [
+        3
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Weak SSLC performance",
+      "category": "governance",
+      "detail": "A poor SSLC result led the in-charge minister to threaten action against education officials and send teams to learn from coastal districts.",
+      "sources": [
+        4
+      ],
+      "evidence": "thin"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Advance notice required for mass weddings",
+      "value": "21 days",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "label": "Candidates who tampered with SSLC marks cards for postal jobs",
+      "value": "42",
+      "sources": [
+        5
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "High school teachers and PU lecturers say their academic calendar clashes with census work",
+      "outlet": "The Hindu",
+      "date": "2026-04-04",
+      "url": "https://www.thehindu.com/news/national/karnataka/high-school-teachers-and-pu-lecturers-say-their-academic-calendar-clashes-with-census-work/article70822908.ece",
+      "takeaway": "High-school teachers say the academic calendar clashes with census work."
+    },
+    {
+      "title": "SSLC exam: DDPI taken to task for Vijayapura’s dismal performance",
+      "outlet": "The Hindu",
+      "date": "2016-07-02",
+      "url": "https://www.thehindu.com/news/national/karnataka/SSLC-exam-DDPI-taken-to-task-for-Vijayapura%E2%80%99s-dismal-performance/article14466215.ece",
+      "takeaway": "DDPI taken to task for Vijayapura's dismal SSLC performance."
+    },
+    {
+      "title": "‘Permission needs to be taken 21 days in advance for mass weddings’",
+      "outlet": "The Hindu",
+      "date": "2015-08-29",
+      "url": "https://www.thehindu.com/news/national/karnataka/permission-needs-to-be-taken-21-days-in-advance-for-mass-weddings/article7592855.ece",
+      "takeaway": "Permission needed 21 days in advance for mass weddings in Vijayapura."
+    }
+  ],
+  "responses": [
+    {
+      "text": "The district administration requires 21 days' notice for mass weddings so brides' ages can be verified.",
+      "sources": [
+        1
+      ]
+    }
+  ],
+  "officialFactorCheck": [
+    {
+      "factor": "% Population Living in Households with Improved Sanitation",
+      "method": "state",
+      "verdict": "no-evidence",
+      "note": "No evidence links sanitation to dropout here.",
+      "sources": []
+    },
+    {
+      "factor": "% Schools with instruction medium 1 (English)",
+      "method": "district",
+      "verdict": "no-evidence",
+      "note": "No evidence links instruction medium to dropout here.",
+      "sources": []
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://www.thehindu.com/news/national/karnataka/permission-needs-to-be-taken-21-days-in-advance-for-mass-weddings/article7592855.ece",
+      "title": "‘Permission needs to be taken 21 days in advance for mass weddings’",
+      "outlet": "The Hindu",
+      "date": "2015-08-29",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://www.thehindu.com/news/national/karnataka/son-of-dalit-labourer-from-vijayapura-tops-sslc-exam-in-karnataka/article65429658.ece",
+      "title": "SSLC exam in Karnataka: Son of Dalit labourer from Vijayapura is one of the toppers",
+      "outlet": "The Hindu",
+      "date": "2022-05-19",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://www.thehindu.com/news/national/karnataka/high-school-teachers-and-pu-lecturers-say-their-academic-calendar-clashes-with-census-work/article70822908.ece",
+      "title": "High school teachers and PU lecturers say their academic calendar clashes with census work",
+      "outlet": "The Hindu",
+      "date": "2026-04-04",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "https://www.thehindu.com/news/national/karnataka/SSLC-exam-DDPI-taken-to-task-for-Vijayapura%E2%80%99s-dismal-performance/article14466215.ece",
+      "title": "SSLC exam: DDPI taken to task for Vijayapura’s dismal performance",
+      "outlet": "The Hindu",
+      "date": "2016-07-02",
+      "type": "news"
+    },
+    {
+      "id": 5,
+      "url": "https://www.thehindu.com/news/national/karnataka/42-candidates-tampered-with-their-sslc-marks-cards-to-get-jobs-in-postal-department/article67713945.ece",
+      "title": "42 candidates tampered with their SSLC marks cards to get jobs in Postal Department",
+      "outlet": "The Hindu",
+      "date": "2024-01-06",
+      "type": "news"
+    }
+  ],
+  "coverage": "moderate",
+  "gaps": "No dropout, out-of-school or SSLC pass-rate figures retrieved for recent years; sources are mostly 2015-2016 and one 2023 fraud case.",
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+}

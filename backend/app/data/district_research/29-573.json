@@ -1,0 +1,267 @@
+{
+  "districtId": "29-573",
+  "name": "Mandya",
+  "regionId": "old-mysuru",
+  "researchedOn": "2026-10-07",
+  "headline": "Mandya recorded the state's most child marriages since 2020, despite strong SSLC results.",
+  "summary": "Women and Child Welfare data show 172 child marriages in Mandya in 2020-2023, the highest in the state, with officials also citing single-parent households' financial strain as a driver of irregular attendance. The district's SSLC pass rate was 96.7% in 2023, which hides students who left earlier. Child marriages fell to 25 in January-October 2025 after intensive interventions.",
+  "reasons": [
+    {
+      "factor": "Child marriage of girls",
+      "category": "gender",
+      "detail": "Mandya recorded 172 child marriages in 2020-2023, the most in the state, falling to 25 by late 2025 after enforcement.",
+      "sources": [
+        1,
+        2
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Single-parent households",
+      "category": "economic",
+      "detail": "A legislative reply named single-parent households among the reasons for school dropout in Mandya and five other educational districts.",
+      "sources": [
+        3
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Poverty and parental illiteracy",
+      "category": "economic",
+      "detail": "The 2013-14 survey attributed dropout to illiterate parents, poverty and scarcity of rural labour; children were taken to work in hotels and small factories, girls as domestic help.",
+      "sources": [
+        5
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Sugarcane harvest in-migration",
+      "category": "migration",
+      "detail": "Families from northern districts migrate to Mandya for the October-March cane harvest; accompanying school-age children are reported to lose about six months of schooling.",
+      "sources": [
+        6
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Child marriage after leaving school",
+      "category": "gender",
+      "detail": "Child-protection officials say girls who stay out of school are quickly thought of as ready for marriage; Mandya is cited for frequent child marriages in wedding months.",
+      "sources": [
+        7,
+        8
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Sibling care and domestic work",
+      "category": "social-norms",
+      "detail": "Responsibility for looking after siblings and girls sent to work as domestic help were listed among causes of children staying away from school.",
+      "sources": [
+        5
+      ],
+      "evidence": "thin"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Child marriage cases, 2020-2023",
+      "value": "172",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "label": "Child marriage cases, January-October 2025",
+      "value": "25",
+      "sources": [
+        2
+      ]
+    },
+    {
+      "label": "SSLC pass rate, 2023",
+      "value": "96.7%",
+      "sources": [
+        4
+      ]
+    },
+    {
+      "label": "Out-of-school children aged 6-14, 2013-14",
+      "value": "2,151 (1,297 boys, 854 girls)",
+      "sources": [
+        5
+      ]
+    },
+    {
+      "label": "Highest taluk count, 2013-14 survey",
+      "value": "Srirangapatna 443; Pandavapura 205 (lowest cited)",
+      "sources": [
+        5
+      ]
+    },
+    {
+      "label": "Sugarcane harvest season in Mandya",
+      "value": "Starts late October, runs to March, about six months",
+      "sources": [
+        6
+      ]
+    },
+    {
+      "label": "Child marriages in peak months (reported)",
+      "value": "About 40 per month in wedding months",
+      "sources": [
+        8
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Drastic fall in child marriage numbers in Old Mysuru region",
+      "outlet": "The Times of India",
+      "date": "2025-12-12",
+      "url": "https://timesofindia.indiatimes.com/city/mysuru/drastic-fall-in-child-marriage-numbers-in-old-mysuru-region/articleshow/125918000.cms",
+      "takeaway": "Drastic fall in child marriage numbers in the Old Mysuru region."
+    },
+    {
+      "title": "Poverty, migration to single parents one of reasons for school dropout in Karnataka",
+      "outlet": "The Times of India",
+      "date": "2025-09-22",
+      "url": "https://timesofindia.indiatimes.com/city/mysuru/poverty-migration-to-single-parents-one-of-reasons-for-school-dropout-in-karnataka/articleshow/124054037.cms",
+      "takeaway": "Poverty, migration and single parents among reasons for school dropout in Karnataka."
+    },
+    {
+      "title": "Mandya No. 1 dist in child marriages since 2020: Data",
+      "outlet": "The Times of India",
+      "date": "2023-12-18",
+      "url": "https://timesofindia.indiatimes.com/city/mysuru/mandya-no-1-dist-in-child-marriages-since-2020-data/articleshow/106071868.cms",
+      "takeaway": "Mandya is number one in child marriages since 2020, data shows."
+    },
+    {
+      "title": "Lawless wedlock",
+      "outlet": "The Week",
+      "date": "2020-12-11",
+      "url": "https://www.theweek.in/theweek/specials/2020/12/10/lawless-wedlock.html",
+      "takeaway": "Describes a 15-year-old girl in Mandya married to a 35-year-old man in May 2020 amid school closures that raised child-marriage risk."
+    },
+    {
+      "title": "Myriad causes for marrying off girls",
+      "outlet": "Deccan Herald",
+      "date": "",
+      "url": "https://www.deccanherald.com/india/karnataka/myriad-causes-marrying-off-girls-2299555",
+      "takeaway": "Coverage on child marriage in Karnataka names Mandya as a district with frequent cases, and links girls staying out of school to early marriage."
+    },
+    {
+      "title": "Tent schools still on paper, migrant kids denied education",
+      "outlet": "Deccan Herald",
+      "date": "",
+      "url": "https://www.deccanherald.com/amp/story/india%2Fkarnataka%2Ftent-schools-still-on-paper-migrant-kids-denied-edu-786431.html",
+      "takeaway": "Seasonal sugarcane migrant children in Mandya go without schooling for months; promised temporary tent schools had not materialised, per the headline and report."
+    },
+    {
+      "title": "2,151 school dropouts in Mandya district",
+      "outlet": "Deccan Herald",
+      "date": "",
+      "url": "https://www.deccanherald.com/content/403089/2151-school-dropouts-mandya-district.html",
+      "takeaway": "A 2013-14 survey found 2,151 out-of-school children aged 6-14, more boys than girls, blaming poverty, migration and illiteracy."
+    }
+  ],
+  "responses": [
+    {
+      "text": "The District Child Protection Officer's interventions are reported to have cut child marriages to 25 in the first ten months of 2025.",
+      "sources": [
+        2
+      ]
+    },
+    {
+      "text": "Free textbooks, uniforms, Ksheera Bhagya and midday meals existed, yet officials were reported as unable to retain children in school (2013-14 coverage).",
+      "sources": [
+        5
+      ]
+    }
+  ],
+  "officialFactorCheck": [
+    {
+      "factor": "% Population Living in Households with Improved Sanitation",
+      "method": "state",
+      "verdict": "no-evidence",
+      "note": "No local reports highlight sanitation as a dropout cause.",
+      "sources": []
+    },
+    {
+      "factor": "% Schools with instruction medium 1 (English)",
+      "method": "district",
+      "verdict": "no-evidence",
+      "note": "Language of instruction is not documented as a barrier.",
+      "sources": []
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://timesofindia.indiatimes.com/city/mysuru/mandya-no-1-dist-in-child-marriages-since-2020-data/articleshow/106071868.cms",
+      "title": "Mandya No. 1 dist in child marriages since 2020: Data",
+      "outlet": "The Times of India",
+      "date": "2023-12-18",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://timesofindia.indiatimes.com/city/mysuru/drastic-fall-in-child-marriage-numbers-in-old-mysuru-region/articleshow/125918000.cms",
+      "title": "Drastic fall in child marriage numbers in Old Mysuru region",
+      "outlet": "The Times of India",
+      "date": "2025-12-12",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://timesofindia.indiatimes.com/city/mysuru/poverty-migration-to-single-parents-one-of-reasons-for-school-dropout-in-karnataka/articleshow/124054037.cms",
+      "title": "Poverty, migration to single parents one of reasons for school dropout in Karnataka",
+      "outlet": "The Times of India",
+      "date": "2025-09-22",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "https://www.collegedekho.com/karnataka-sslc-result-statistics-brd",
+      "title": "Karnataka SSLC Result Statistics 2026 - Check Karnataka Class 10 Result Statistics | CollegeDekho",
+      "outlet": "CollegeDekho",
+      "date": "2024-04-04",
+      "type": "news"
+    },
+    {
+      "id": 5,
+      "url": "https://www.deccanherald.com/content/403089/2151-school-dropouts-mandya-district.html",
+      "title": "2151 school dropouts mandya district",
+      "outlet": "Deccan Herald",
+      "date": "",
+      "type": "news"
+    },
+    {
+      "id": 6,
+      "url": "https://www.deccanherald.com/amp/story/india%2Fkarnataka%2Ftent-schools-still-on-paper-migrant-kids-denied-edu-786431.html",
+      "title": "Tent schools still on paper, migrant kids denied education",
+      "outlet": "Deccan Herald",
+      "date": "",
+      "type": "news"
+    },
+    {
+      "id": 7,
+      "url": "https://www.theweek.in/theweek/specials/2020/12/10/lawless-wedlock.html",
+      "title": "Lawless wedlock",
+      "outlet": "The Week",
+      "date": "2020-12-11",
+      "type": "news"
+    },
+    {
+      "id": 8,
+      "url": "https://www.deccanherald.com/india/karnataka/myriad-causes-marrying-off-girls-2299555",
+      "title": "Myriad causes for marrying off girls",
+      "outlet": "Deccan Herald",
+      "date": "",
+      "type": "news"
+    }
+  ],
+  "coverage": "moderate",
+  "gaps": "No dropout counts; the report's mention of female foeticide is not tied to schooling. No recent Mandya-specific Class 8-10 dropout count, SSLC-exit analysis, school-closure or teacher-vacancy reporting retrieved; several Deccan Herald pages were readable only via search snippets and carry no confirmed date. Figures are for ages 6-14, not secondary alone.",
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+}

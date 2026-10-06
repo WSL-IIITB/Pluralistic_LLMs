@@ -1,0 +1,251 @@
+{
+  "male": {
+    "name": "The Havyaka coffee farmer",
+    "ageLabel": "46",
+    "emoji": "👨‍🌾",
+    "role": "Coffee, areca & pepper smallholder",
+    "place": "Mudigere taluk, Chikkamagaluru",
+    "community": "Havyaka Brahmin",
+    "tagline": "Havyaka smallholder on family coffee, areca and pepper land, wary of disease, wildlife and ESA maps.",
+    "household": [
+      { "who": "Wife, shares estate labour", "emoji": "👩" },
+      { "who": "Son, 17, boards for PUC coaching", "emoji": "👦" },
+      { "who": "Daughter, 14, Class 9", "emoji": "👧" },
+      { "who": "Elderly parents next door", "emoji": "👴" }
+    ],
+    "vitals": [
+      { "label": "Land", "value": "About 5 acres" },
+      { "label": "Crops", "value": "Coffee, areca, pepper" },
+      { "label": "Children", "value": "Son 17, daughter 14" },
+      { "label": "His schooling", "value": "Up to PUC" }
+    ],
+    "dayInLife": [
+      { "when": "Before sunrise", "emoji": "🌄", "text": "Walks the estate checking coffee bushes and areca palms for pests, wilting and yellowing." },
+      { "when": "Dry months", "emoji": "✂️", "text": "Pruning and shade-tree management fill the days." },
+      { "when": "Before monsoon", "emoji": "🧴", "text": "Sprays pesticide and fungicide ahead of the rains." },
+      { "when": "Nov to Feb", "emoji": "☕", "text": "Hired pickers and he strip ripe cherries by hand, then pulp them at a small wet-mill." },
+      { "when": "After picking", "emoji": "🚚", "text": "Parchment dries on raised beds, then sells via a curing works or trader in Chikkamagaluru town." }
+    ],
+    "topics": [
+      {
+        "key": "daily_life_and_work",
+        "label": "Daily Life & Work",
+        "emoji": "⏰",
+        "headline": "Disease, wildlife and prices squeeze a five-acre estate",
+        "points": [
+          "Intercrops Arabica coffee, arecanut and pepper; even his small output feeds a national export chain whose prices he cannot influence.",
+          "Areca Yellow Leaf Disease has no known cure, so he leans harder on coffee and pepper instead.",
+          "Elephants make hired labourers reluctant to work at dawn or dusk, costing picking days at peak harvest."
+        ],
+        "stat": { "value": "80-100%", "label": "Areca Yellow Leaf Disease incidence in Sringeri, Koppa, Narasimharajapura and Kalasa taluks" }
+      },
+      {
+        "key": "family_and_household",
+        "label": "Family & Household",
+        "emoji": "🏡",
+        "headline": "Parents next door, children's futures pointing away from the estate",
+        "points": [
+          "Lives on the family estate; his elderly parents occupy an adjoining portion and still weigh in on land decisions.",
+          "His wife works the harvest, supervising hired women pickers and managing the drying yard, besides running the household.",
+          "Worries his son's salaried ambitions leave open who manages the estate, amid a wider bride shortage for farming sons."
+        ]
+      },
+      {
+        "key": "education_and_schooling",
+        "label": "Education & Schooling",
+        "emoji": "📚",
+        "headline": "Son boards for coaching; daughter's bus fails in monsoon",
+        "points": [
+          "He studied only up to PUC at a government college in Chikkamagaluru town and wants his children to go further.",
+          "His Class 12 son boards in town for coaching; his Class 9 daughter's bus is unreliable in monsoon.",
+          "Free Shakti bus travel eases fares for his daughter, but monsoon road closures can still cancel the service."
+        ],
+        "stat": { "value": "13.9%", "label": "Karnataka female dropout rate, Classes 9-10 (UDISE+), against about 8% nationally" }
+      },
+      {
+        "key": "health_and_wellbeing",
+        "label": "Health & Wellbeing",
+        "emoji": "🩺",
+        "headline": "Monkey fever, elephants and distant hospitals",
+        "points": [
+          "Kyasanur Forest Disease is the risk most specific to him; transmission peaks January to May during coffee picking.",
+          "Elephants and, less often, leopards use nearby corridors, so he and his wife think twice about dawn and dusk paths.",
+          "Routine care is a Mudigere health centre and private clinic; serious cases mean Chikkamagaluru town via ghat roads."
+        ],
+        "stat": { "value": "150+", "label": "KFD infections across Chikkamagaluru and Shivamogga, 2025 season; at least two deaths" }
+      },
+      {
+        "key": "community_and_belief",
+        "label": "Community & Belief",
+        "emoji": "🛕",
+        "headline": "Havyaka kin networks, the temple, and a quietly watched shrine dispute",
+        "points": [
+          "Social life runs through Havyaka farming families across the Mudigere-Koppa-Sringeri belt, who speak Havigannada alongside Kannada.",
+          "Weddings and temple gatherings double as chances to compare notes on disease, labour rates and rain.",
+          "Over the Baba Budangiri shrine dispute, he says Hindu and Muslim neighbours get along day to day."
+        ]
+      },
+      {
+        "key": "civic_life_and_government",
+        "label": "Civic Life & Government",
+        "emoji": "🏛️",
+        "headline": "The Western Ghats ESA draft dominates his civic attention",
+        "points": [
+          "The 27 July 2026 draft risks classifying canopy-covered coffee and areca plantations like his own as natural forest.",
+          "Karnataka's legislature unanimously rejected the draft on 22 September 2026, seeking a one-year extension for a physical survey.",
+          "He finds Forest Department elephant-damage compensation slow and undervalued relative to actual crop losses."
+        ],
+        "stat": { "value": "20,000+ sq km", "label": "identified as ESA across ten Karnataka districts in 27 July 2026 draft" }
+      },
+      {
+        "key": "worldview_and_concerns",
+        "label": "Worldview & Concerns",
+        "emoji": "💭",
+        "headline": "Neglect and misclassification by authorities who miss plantation reality",
+        "points": [
+          "Blames the ESA satellite methodology for mistaking working estates for forest; wants a survey-number-by-survey-number assessment first.",
+          "Sees research as failing to deliver a cure for areca Yellow Leaf Disease while farmers carry debt against dying trees.",
+          "Proud of coffee heritage, yet anxious about succession and about erratic blossom rains no scheme insures against."
+        ]
+      }
+    ],
+    "schoolPressures": [
+      { "emoji": "🌾", "label": "Harvest labour", "detail": "Economic pressure can pull girls into farm labour during coffee harvest, when every extra pair of hands matters." },
+      { "emoji": "🌧️", "label": "Monsoon roads", "detail": "His daughter's bus becomes unreliable when hill roads wash out in the heavy monsoon months." },
+      { "emoji": "🚸", "label": "Girls' mobility", "detail": "Concern over girls' mobility and perceived sexual purity grows once they reach adolescence." },
+      { "emoji": "🏫", "label": "Protest bandhs", "detail": "Sringeri's ESA bandh shut shops, banks and schools for a day, a land-rights disruption to schooling." }
+    ],
+    "worries": [
+      "Areca Yellow Leaf Disease",
+      "ESA land classification",
+      "Slow elephant compensation",
+      "Succession on the estate",
+      "Erratic blossom rains",
+      "Youth leaving for cities"
+    ]
+  },
+  "female": {
+    "name": "The Kodava homestay manager",
+    "ageLabel": "39",
+    "emoji": "👩‍🌾",
+    "role": "Coffee estate & homestay manager",
+    "place": "Madikeri taluk, Kodagu",
+    "community": "Kodava",
+    "tagline": "Kodava woman running a coffee estate and family homestay in an ancestral clan house.",
+    "household": [
+      { "who": "Husband, registered estate owner", "emoji": "👨" },
+      { "who": "Husband's parents", "emoji": "👴" },
+      { "who": "Daughter, 15, boards in Madikeri", "emoji": "👧" },
+      { "who": "Son, 10, village primary school", "emoji": "👦" }
+    ],
+    "vitals": [
+      { "label": "Estate", "value": "About 8 acres" },
+      { "label": "Homestay", "value": "Two converted rooms" },
+      { "label": "Children", "value": "Daughter 15, son 10" },
+      { "label": "Her schooling", "value": "Through PUC" }
+    ],
+    "dayInLife": [
+      { "when": "Morning", "emoji": "🍳", "text": "Oversees breakfast and check-out for guests in two converted rooms of the ainmane." },
+      { "when": "Mid-morning", "emoji": "🌿", "text": "Walks the coffee-and-pepper plot with her husband and the estate's hired workers." },
+      { "when": "Through the day", "emoji": "🛏️", "text": "Manages homestay bookings, meals and the guest experience herself." },
+      { "when": "Nov to Mar", "emoji": "☕", "text": "Picking season: labour demand peaks, and she helps organise housing for migrant worker families." }
+    ],
+    "topics": [
+      {
+        "key": "daily_life_and_work",
+        "label": "Daily Life & Work",
+        "emoji": "⏰",
+        "headline": "Estate and homestay mornings, with labour as the daily worry",
+        "points": [
+          "Hired workers, mostly migrants from north Karnataka, Odisha, Assam or Jharkhand, now make up the bulk of the workforce.",
+          "The homestay began after the 1990s coffee price crash; she now competes with larger resorts entering the district.",
+          "Legal minimum wage is roughly Rs 270 for an eight-hour day, though many workers are paid less for longer hours."
+        ],
+        "stat": { "value": "800", "label": "Estimated registered homestays in Kodagu, plus over 2,000 unregistered ones" }
+      },
+      {
+        "key": "family_and_household",
+        "label": "Family & Household",
+        "emoji": "🏡",
+        "headline": "Joint household where Kodava custom gives women unusual standing",
+        "points": [
+          "Married into a patrilineal okka clan; the estate's jamma land stays registered to the clan, not divided.",
+          "Shares the ainmane with her husband, his parents and two children; her mother-in-law helps with childcare and cooking.",
+          "Consulted on homestay investment, schooling and increasingly estate matters, while husband and father-in-law handle field supervision and traders."
+        ]
+      },
+      {
+        "key": "education_and_schooling",
+        "label": "Education & Schooling",
+        "emoji": "📚",
+        "headline": "Daughter boards in Madikeri; floods and hostel costs shape others' schooling",
+        "points": [
+          "Her daughter has boarded in Madikeri town since Class 8; village options and landslide-prone commutes fell short.",
+          "Migrant labourers' children often cannot access local schools because instruction is in Kannada and home languages differ.",
+          "Free Shakti bus travel has made her children's trips cheaper; she is confident both will finish secondary school."
+        ],
+        "stat": { "value": "4+", "label": "schools closed over a year after August 2018 landslides destroyed access roads" }
+      },
+      {
+        "key": "health_and_wellbeing",
+        "label": "Health & Wellbeing",
+        "emoji": "🩺",
+        "headline": "Madikeri hospital at home, Mysuru for anything serious",
+        "points": [
+          "Routine care uses primary health centres feeding a single district hospital in Madikeri; serious cases go to Mysuru.",
+          "The Madikeri-Mysuru road was repeatedly landslide-damaged between 2018 and 2020, making emergencies harder.",
+          "Elephants are a persistent estate presence, so she is careful about who moves through dense areas at dawn and dusk."
+        ]
+      },
+      {
+        "key": "community_and_belief",
+        "label": "Community & Belief",
+        "emoji": "🏹",
+        "headline": "Kodava clans, martial festivals and a language of their own",
+        "points": [
+          "Kodava identity centres on over a thousand named okka clans, each historically tied to an ancestral ainmane house.",
+          "Kail Podh in early September and Puthari, the November-December rice harvest festival, structure her year.",
+          "At home she and her husband speak Kodava Takk, a traditionally unwritten language; the children mix in Kannada and English."
+        ],
+        "stat": { "value": "1,000+", "label": "named patrilineal okka clans in the Kodava community" }
+      },
+      {
+        "key": "civic_life_and_government",
+        "label": "Civic Life & Government",
+        "emoji": "🏛️",
+        "headline": "No railway, slow flood rehabilitation, and an ESA draft",
+        "points": [
+          "Kodagu has no railway; a 2012 survey found a Mysuru-Kushalnagar line not viable, and by mid-2026 no proposal existed.",
+          "She welcomed the legislature's September 2026 resolution rejecting the ESA draft and demanding a physical survey, not satellite mapping.",
+          "Kodava landholders enjoy an Arms Act licensing exemption, most recently extended to 2029."
+        ],
+        "stat": { "value": "~140", "label": "displaced families still awaiting rehabilitation housing seven years after the 2018 landslides" }
+      },
+      {
+        "key": "worldview_and_concerns",
+        "label": "Worldview & Concerns",
+        "emoji": "💭",
+        "headline": "Chronic official neglect of a district the state benefits from",
+        "points": [
+          "Blames successive governments for broken railway promises; wants a real connectivity plan or an honest admission none is coming.",
+          "Blames satellite mapping for confusing coffee estates with forest; wants a parcel-by-parcel survey excluding settled agricultural land.",
+          "Proud of Kodava culture and the homestay economy, yet uneasy about exploitative labour arrangements her family depends on."
+        ]
+      }
+    ],
+    "schoolPressures": [
+      { "emoji": "🏫", "label": "Limited village school", "detail": "The family judged village school options beyond middle school too limited for the higher secondary years." },
+      { "emoji": "⛰️", "label": "Landslide roads", "detail": "The daily commute on Kodagu's landslide-prone roads was judged too unreliable to sustain." },
+      { "emoji": "💰", "label": "Hostel costs", "detail": "Families in remoter estate hamlets say they cannot always afford to place a child in a hostel." },
+      { "emoji": "🌊", "label": "Flood disruption", "detail": "A single monsoon season can knock a rural Kodagu child's schooling off track for a year or more." }
+    ],
+    "worries": [
+      "No railway line",
+      "ESA satellite mapping",
+      "Flood rehabilitation delays",
+      "Migrant worker wages",
+      "Youth outmigration",
+      "Weak tertiary care"
+    ]
+  }
+}

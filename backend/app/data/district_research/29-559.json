@@ -1,0 +1,298 @@
+{
+  "districtId": "29-559",
+  "name": "Raichur",
+  "regionId": "kalyana-karnataka",
+  "researchedOn": "2026-10-07",
+  "headline": "Cotton fields pull children out of class: 1,290 child labourers rescued in one year.",
+  "summary": "Raichur's agricultural economy, especially Bt cotton, creates demand for child labour; the Labour Department rescued 1,290 children from cotton fields in a year and a judge warned against farm child labour. A child-marriage and POCSO case was reported. Older surveys counted over 12,000 out-of-school children while the education department later reported none, prompting the child-rights commission to demand a resurvey.",
+  "reasons": [
+    {
+      "factor": "Cotton-field child labour",
+      "category": "economic",
+      "detail": "Labour rescues removed 1,290 children from cotton fields in a year, and a judge warned that farm child labour is destroying children's futures.",
+      "sources": [
+        1,
+        2
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Under-reported out-of-school children",
+      "category": "governance",
+      "detail": "An older survey counted 12,128 out-of-school children while the education department reported zero absentees, drawing a commission demand for a resurvey.",
+      "sources": [
+        3,
+        4
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "SSLC failure and exam-related exits",
+      "category": "governance",
+      "detail": "Raichur passed only 52 percent in SSLC 2025, among the weakest in the state; experts cited missing teachers and infrastructure. Results recovered to 94.41 percent in 2026, ranked 21st of 35.",
+      "sources": [
+        7,
+        8
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "High schools far from villages",
+      "category": "school-infrastructure",
+      "detail": "Girls from marginalised communities in Raichur and neighbouring districts typically stopped after Class 7 because high schools were distant and parents feared sending adolescent daughters; they stayed home for chores and sibling care.",
+      "sources": [
+        6
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Zero-teacher government high schools",
+      "category": "governance",
+      "detail": "Mallata Government High School in Raichur has had no permanent teachers since it opened in 2017-18, with six posts vacant, though it still reported a 90 percent SSLC pass in 2021-22.",
+      "sources": [
+        6
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Child marriage and sexual violence",
+      "category": "gender",
+      "detail": "Ten people were booked under POCSO for a child marriage and assault of a minor.",
+      "sources": [
+        5
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Poverty-driven family migration",
+      "category": "migration",
+      "detail": "A Deccan Herald report on a flood-hit year said Raichur had the most out-of-school children aged 7-13 in the state, and cited migration of poor people as one reason. Date not confirmed.",
+      "sources": [
+        10
+      ],
+      "evidence": "thin"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Child labourers rescued from cotton fields in a year",
+      "value": "1,290",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "label": "Out-of-school children, older survey",
+      "value": "12,128",
+      "sources": [
+        3
+      ]
+    },
+    {
+      "label": "SSLC 2025 pass percentage",
+      "value": "52 percent",
+      "sources": [
+        7
+      ]
+    },
+    {
+      "label": "SSLC 2026 pass percentage and rank",
+      "value": "94.41 percent, rank 21 of 35 districts",
+      "sources": [
+        8
+      ]
+    },
+    {
+      "label": "Rural 6-14 not in school, ASER 2016",
+      "value": "4.7 percent",
+      "sources": [
+        9
+      ]
+    },
+    {
+      "label": "Out-of-school age 7-13 (undated flood-year report)",
+      "value": "9,119 children, highest in the state",
+      "sources": [
+        10
+      ]
+    },
+    {
+      "label": "Vacant posts at Mallata high school, 2023",
+      "value": "6 allocated teaching posts unfilled since 2017-18",
+      "sources": [
+        6
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Judge warns against employing children in agricultural work",
+      "outlet": "The Hindu",
+      "date": "2026-08-27",
+      "url": "https://www.thehindu.com/news/national/karnataka/judge-warns-against-employing-children-in-agricultural-work/article71396030.ece",
+      "takeaway": "Judge warns against employing children in agricultural work."
+    },
+    {
+      "title": "Karnataka CM Orders For Action Against School Education Dept Officials For Low SSLC Pass Percentage",
+      "outlet": "ETV Bharat",
+      "date": "2025-05-31",
+      "url": "https://www.etvbharat.com/en/!state/karnataka-cm-action-against-school-education-dept-officials-low-sslc-pass-percentage-enn25053102263",
+      "takeaway": "Raichur's 52 percent SSLC pass placed it among 14 educational districts below 65 percent; Kalyana Karnataka was weakest region."
+    },
+    {
+      "title": "Karnataka girls studying in zero-teacher schools want to become teachers",
+      "outlet": "The News Minute",
+      "date": "2023-10-11",
+      "url": "https://www.thenewsminute.com/amp/story/karnataka/karnataka-girls-studying-in-zero-teacher-schools-want-to-become-teachers",
+      "takeaway": "CRY writer says Raichur girls could not study past Class 7 until 2017-18 school upgrades; teacher vacancies persist."
+    },
+    {
+      "title": "KSCPCR urges DPI to conduct resurvey of out-of-school children in 2 districts",
+      "outlet": "The Hindu",
+      "date": "2020-01-01",
+      "url": "https://www.thehindu.com/news/national/karnataka/kscpcr-urges-dpi-to-conduct-resurvey-of-out-of-school-children-in-2-districts/article30453444.ece",
+      "takeaway": "KSCPCR urges a resurvey of out-of-school children in two districts."
+    },
+    {
+      "title": "1,290 child labourers rescued in Raichur this year",
+      "outlet": "The Hindu",
+      "date": "2015-11-26",
+      "url": "https://www.thehindu.com/news/national/karnataka/1290-child-labourers-rescued-in-raichur-this-year/article7917830.ece",
+      "takeaway": "1,290 child labourers rescued in Raichur this year."
+    },
+    {
+      "title": "Floods interrupt children's future in north",
+      "outlet": "Deccan Herald",
+      "date": "",
+      "url": "https://www.deccanherald.com/content/71980/floods-interrupt-childrens-future-north.html",
+      "takeaway": "Raichur, worst flood-hit, had the most 7-13 out-of-school children; migration of poor families cited; a bridge programme ran in 201 schools."
+    }
+  ],
+  "responses": [
+    {
+      "text": "The Karnataka child rights commission asked the education department to resurvey out-of-school children in the district.",
+      "sources": [
+        4
+      ]
+    },
+    {
+      "text": "Chinnara Angala, a basic-skills programme to bring out-of-school children back, ran in 201 Raichur schools in the flood-year report.",
+      "sources": [
+        10
+      ]
+    },
+    {
+      "text": "After CRY-backed community campaigns, the state upgraded schools to high schools in Raichur, Ballari and Koppal in 2017-18 under the KKRDB initiative.",
+      "sources": [
+        6
+      ]
+    },
+    {
+      "text": "After the weak 2025 results, the Chief Minister ordered notices to DDPIs of districts below 60 percent pass.",
+      "sources": [
+        7
+      ]
+    }
+  ],
+  "officialFactorCheck": [
+    {
+      "factor": "% Population Living in Households with Improved Sanitation",
+      "method": "state",
+      "verdict": "no-evidence",
+      "note": "Labour demand overshadows any sanitation link in local reporting.",
+      "sources": []
+    },
+    {
+      "factor": "% Schools with instruction medium 1 (English)",
+      "method": "district",
+      "verdict": "no-evidence",
+      "note": "No evidence links instruction medium to dropout.",
+      "sources": []
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://www.thehindu.com/news/national/karnataka/1290-child-labourers-rescued-in-raichur-this-year/article7917830.ece",
+      "title": "1,290 child labourers rescued in Raichur this year",
+      "outlet": "The Hindu",
+      "date": "2015-11-26",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://www.thehindu.com/news/national/karnataka/judge-warns-against-employing-children-in-agricultural-work/article71396030.ece",
+      "title": "Judge warns against employing children in agricultural work",
+      "outlet": "The Hindu",
+      "date": "2026-08-27",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://www.thehindu.com/news/cities/bangalore/17-lakh-children-out-of-school-sarva-shiksha-abhiyan-survey/article5653888.ece",
+      "title": "1.7 lakh children out of school: Sarva Shiksha Abhiyan survey",
+      "outlet": "The Hindu",
+      "date": "2014-02-05",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "https://www.thehindu.com/news/national/karnataka/kscpcr-urges-dpi-to-conduct-resurvey-of-out-of-school-children-in-2-districts/article30453444.ece",
+      "title": "KSCPCR urges DPI to conduct resurvey of out-of-school children in 2 districts",
+      "outlet": "The Hindu",
+      "date": "2020-01-01",
+      "type": "news"
+    },
+    {
+      "id": 5,
+      "url": "https://www.thehindu.com/news/national/karnataka/10-booked-on-the-charge-of-child-marriage-sexual-assault-on-minor-in-raichur/article69855909.ece",
+      "title": "10 booked on the charge of child marriage, sexual assault on minor in Raichur",
+      "outlet": "The Hindu",
+      "date": "2025-07-25",
+      "type": "news"
+    },
+    {
+      "id": 6,
+      "url": "https://www.thenewsminute.com/amp/story/karnataka/karnataka-girls-studying-in-zero-teacher-schools-want-to-become-teachers",
+      "title": "Karnataka girls studying in zero-teacher schools want to become teachers",
+      "outlet": "The News Minute",
+      "date": "2023-10-11",
+      "type": "news"
+    },
+    {
+      "id": 7,
+      "url": "https://www.etvbharat.com/en/!state/karnataka-cm-action-against-school-education-dept-officials-low-sslc-pass-percentage-enn25053102263",
+      "title": "Karnataka CM Orders For Action Against School Education Dept Officials For Low SSLC Pass Percentage",
+      "outlet": "ETV Bharat",
+      "date": "2025-05-31",
+      "type": "news"
+    },
+    {
+      "id": 8,
+      "url": "https://www.inyatrust.co.in/2026/04/karnataka-sslc-result-2026-district-rank-list-pass-percentage.html",
+      "title": "Karnataka SSLC Result 2026 District Rank List Out: Dakshina Kannada Tops with 98.4%",
+      "outlet": "Inya Trust (results blog)",
+      "date": "2026-04",
+      "type": "data"
+    },
+    {
+      "id": 9,
+      "url": "https://img.asercentre.org/docs/Publications/ASER%20Reports/ASER%202016/District%20Estimates/karnataka.pdf",
+      "title": "ASER 2016 Karnataka rural district estimates: private enrolment, children not in school, learning levels",
+      "outlet": "Pratham ASER Centre",
+      "date": "2016",
+      "type": "ngo"
+    },
+    {
+      "id": 10,
+      "url": "https://www.deccanherald.com/content/71980/floods-interrupt-childrens-future-north.html",
+      "title": "Floods interrupt children's future in north",
+      "outlet": "Deccan Herald",
+      "date": "",
+      "type": "news"
+    }
+  ],
+  "coverage": "moderate",
+  "gaps": "Rescue figure and survey are several years old; no recent dropout rate or SSLC rank. No Raichur-specific data found on child marriage, Lambani tanda access, cotton or paddy child labour, or current out-of-school counts; Deccan Herald and The Hindu pages could not be fetched, so the flood-year report is undated and snippet-based.",
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+}

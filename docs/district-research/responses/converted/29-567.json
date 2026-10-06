@@ -1,0 +1,98 @@
+{
+  "districtId": "29-567",
+  "name": "Davanagere",
+  "regionId": "bayaluseeme",
+  "researchedOn": "2026-10-07",
+  "headline": "Selected for a UNICEF child-labour rehabilitation pilot; SSLC results have been volatile.",
+  "summary": "Davanagere was chosen for a UNICEF pilot to rehabilitate child labourers, with hostels and schools built to bring them back into class, and the Chief Minister has warned teachers over results. Authorities also investigated a protocol breach at an SSLC evaluation centre.",
+  "reasons": [
+    {
+      "factor": "Child labour",
+      "category": "economic",
+      "detail": "UNICEF picked the district for a child-labour rehabilitation project, building hostels and schools to reintegrate children.",
+      "sources": [
+        1
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Volatile SSLC results",
+      "category": "governance",
+      "detail": "The Chief Minister warned local teachers to improve results, and an SSLC evaluation-centre breach was probed.",
+      "sources": [
+        2
+      ],
+      "evidence": "thin"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "UNICEF child-labour rehabilitation pilot",
+      "value": "District selected",
+      "sources": [
+        1
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Assessment protocol breach spotted at SSLC evaluation centre in Davangere | Hubballi News - The Times of India",
+      "outlet": "The Times of India",
+      "date": "2025-04-15",
+      "url": "https://timesofindia.indiatimes.com/city/hubballi/assessment-protocol-breach-spotted-at-sslc-evaluation-centre-in-davangere/articleshow/120318633.cms",
+      "takeaway": "Assessment protocol breach spotted at SSLC evaluation centre in Davangere."
+    },
+    {
+      "title": "Davanagere chosen for UNICEF project",
+      "outlet": "The Times of India",
+      "date": "2002-04-30",
+      "url": "https://timesofindia.indiatimes.com/city/bengaluru/davanagere-chosen-for-unicef-project/articleshow/8496080.cms",
+      "takeaway": "Davanagere chosen for UNICEF project."
+    }
+  ],
+  "responses": [
+    {
+      "text": "A UNICEF project funds hostels and schools to rehabilitate child labourers.",
+      "sources": [
+        1
+      ]
+    }
+  ],
+  "officialFactorCheck": [
+    {
+      "factor": "% Population Living in Households with Improved Sanitation",
+      "method": "state",
+      "verdict": "no-evidence",
+      "note": "No local investigation links sanitation to dropout.",
+      "sources": []
+    },
+    {
+      "factor": "% Schools with instruction medium 1 (English)",
+      "method": "district",
+      "verdict": "no-evidence",
+      "note": "No documentation links instruction medium to dropout.",
+      "sources": []
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://timesofindia.indiatimes.com/city/bengaluru/davanagere-chosen-for-unicef-project/articleshow/8496080.cms",
+      "title": "Davanagere chosen for UNICEF project",
+      "outlet": "The Times of India",
+      "date": "2002-04-30",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://timesofindia.indiatimes.com/city/hubballi/assessment-protocol-breach-spotted-at-sslc-evaluation-centre-in-davangere/articleshow/120318633.cms",
+      "title": "Assessment protocol breach spotted at SSLC evaluation centre in Davangere | Hubballi News - The Times of India",
+      "outlet": "The Times of India",
+      "date": "2025-04-15",
+      "type": "news"
+    }
+  ],
+  "coverage": "thin",
+  "gaps": "The UNICEF source is old; no current dropout counts retrieved.",
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+}

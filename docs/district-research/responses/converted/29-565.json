@@ -1,0 +1,74 @@
+{
+  "districtId": "29-565",
+  "name": "Ballari (incl. Vijayanagara)",
+  "regionId": "kalyana-karnataka",
+  "researchedOn": "2026-10-07",
+  "headline": "A tracking drive found 259 out-of-school children but brought back only 38.",
+  "summary": "In a drive reported in January 2025, officials identified 259 out-of-school children in Ballari but brought only 38 back to school. The deep-research report's claims about mining, poverty and mass weddings rested on a social-media post and a statewide article that does not name Ballari, so they are not used here.",
+  "reasons": [
+    {
+      "factor": "Low reintegration of out-of-school children",
+      "category": "governance",
+      "detail": "A tracking drive identified 259 out-of-school children but managed to bring only 38 back to class.",
+      "sources": [
+        1
+      ],
+      "evidence": "moderate"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Out-of-school children identified",
+      "value": "259",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "label": "Children reintegrated into school",
+      "value": "38",
+      "sources": [
+        1
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Different surveys on out-of-school children in Kalaburagi reveal contrasting figures",
+      "outlet": "The Hindu",
+      "date": "2025-01-01",
+      "url": "https://www.thehindu.com/news/national/karnataka/different-surveys-on-out-of-school-children-in-kalaburagi-reveal-contrasting-figures/article69047215.ece",
+      "takeaway": "Different surveys on out-of-school children in Kalyana Karnataka reveal contrasting figures."
+    }
+  ],
+  "responses": [],
+  "officialFactorCheck": [
+    {
+      "factor": "% Population Living in Households with Improved Sanitation",
+      "method": "state",
+      "verdict": "no-evidence",
+      "note": "No source cites sanitation as a dropout driver here.",
+      "sources": []
+    },
+    {
+      "factor": "% Schools with instruction medium 1 (English)",
+      "method": "district",
+      "verdict": "no-evidence",
+      "note": "No evidence links instruction medium to dropout.",
+      "sources": []
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://www.thehindu.com/news/national/karnataka/different-surveys-on-out-of-school-children-in-kalaburagi-reveal-contrasting-figures/article69047215.ece",
+      "title": "Different surveys on out-of-school children in Kalaburagi reveal contrasting figures",
+      "outlet": "The Hindu",
+      "date": "2025-01-01",
+      "type": "news"
+    }
+  ],
+  "coverage": "thin",
+  "gaps": "Mining-belt, poverty and mass-wedding claims were dropped (social-media post; statewide article); no SSLC or migration data. Vijayanagara not separately covered.",
+  "verificationNotes": "Dropped reason 'Mass weddings used to marry girls': cited page(s) do not name the district. Dropped news item (cite 42): page does not name the district."
+}

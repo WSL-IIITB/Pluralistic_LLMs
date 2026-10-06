@@ -1,0 +1,384 @@
+{
+  "male": {
+    "name": "The Sirsi arecanut farmer",
+    "ageLabel": "Late 40s",
+    "emoji": "👨‍🌾",
+    "role": "Arecanut smallholder farmer",
+    "place": "Near Sirsi, Uttara Kannada",
+    "community": "Havyaka Brahmin",
+    "tagline": "Havyaka arecanut grower whose daughter's schooling hangs on bad roads, disease and harvest income.",
+    "household": [
+      {
+        "who": "Wife",
+        "emoji": "👩"
+      },
+      {
+        "who": "Elder son, in Bengaluru",
+        "emoji": "👨"
+      },
+      {
+        "who": "Daughter, 15",
+        "emoji": "👧"
+      },
+      {
+        "who": "Elderly mother, nearby",
+        "emoji": "👵"
+      }
+    ],
+    "vitals": [
+      {
+        "label": "Land",
+        "value": "2.5 acres"
+      },
+      {
+        "label": "Income",
+        "value": "Rs 1.5-3 lakh a year"
+      },
+      {
+        "label": "Children",
+        "value": "2"
+      },
+      {
+        "label": "His schooling",
+        "value": "SSLC (Class 10)"
+      }
+    ],
+    "dayInLife": [
+      {
+        "when": "Before sunrise",
+        "emoji": "🌴",
+        "text": "Walks the plantation to check the areca palms and the drip lines from the check-dam."
+      },
+      {
+        "when": "Summer",
+        "emoji": "💧",
+        "text": "Pollination and irrigation fill the dry months."
+      },
+      {
+        "when": "From October",
+        "emoji": "🥥",
+        "text": "Disease-watch and harvest, then weeks of husking, boiling and sun-drying the nuts."
+      },
+      {
+        "when": "Harvest season",
+        "emoji": "🧑‍🌾",
+        "text": "Does wage work on larger plantations, and hires migrant labour for a few weeks at his own peak."
+      },
+      {
+        "when": "Market days",
+        "emoji": "🏪",
+        "text": "Goes to Sirsi to sell produce, buy fertiliser and pesticide, and deal with CAMPCO and the cooperative bank."
+      }
+    ],
+    "topics": [
+      {
+        "key": "daily_life_and_work",
+        "label": "Daily Life & Work",
+        "emoji": "⏰",
+        "headline": "Plantation rhythm set by monsoon, disease and cooperative prices",
+        "points": [
+          "Arecanut, intercropped with pepper and cocoa, is cured into chali and kempu grades after weeks of husking, boiling and drying.",
+          "Selling through CAMPCO gives him a floor price, but Yellow Leaf Disease and Koleroga remain the central anxiety.",
+          "He has lost part of a harvest to Koleroga twice in the past decade, taking cooperative loans to replant."
+        ],
+        "stat": {
+          "value": "65,000+ t",
+          "label": "Arecanut CAMPCO purchased in FY2024-25, worth roughly Rs 2,825 crore"
+        }
+      },
+      {
+        "key": "family_and_household",
+        "label": "Family & Household",
+        "emoji": "🏠",
+        "headline": "Nuclear family of four, with an open question about the son returning",
+        "points": [
+          "A tiled house on plantation land his father and grandfather worked; his elderly mother lives nearby and is visited daily.",
+          "His wife runs the drying yard, kitchen garden and cattle, and supervises the plantation when he is in Sirsi.",
+          "Their elder son works in a Bengaluru factory, visits twice a year and sends money when he can."
+        ]
+      },
+      {
+        "key": "education_and_schooling",
+        "label": "Education & Schooling",
+        "emoji": "📚",
+        "headline": "High literacy on paper, but distance and terrain threaten Class 10",
+        "points": [
+          "He stopped after SSLC because the nearest pre-university college was too far; his wife left after middle school.",
+          "Their daughter reaches a government high school by shared auto; pre-university means boarding or commuting to Sirsi.",
+          "Her mother wants her to finish secondary school and go on to a pre-university college in Sirsi."
+        ],
+        "stat": {
+          "value": "22%",
+          "label": "Karnataka Class 9-10 dropout rate (UDISE+ 2023-24)"
+        }
+      },
+      {
+        "key": "health_and_wellbeing",
+        "label": "Health & Wellbeing",
+        "emoji": "🩺",
+        "headline": "Monkey fever and hospitals far from the ghats",
+        "points": [
+          "Kyasanur Forest Disease (monkey fever) recurs each dry season; the family avoids the forest fringe and gets vaccinated at camps.",
+          "Uttara Kannada has no medical college; serious cases mean a half-day or full-day journey out of the ghats.",
+          "Day to day they use a primary health centre a few kilometres away, and Sirsi private clinics when affordable."
+        ]
+      },
+      {
+        "key": "community_and_belief",
+        "label": "Community & Belief",
+        "emoji": "🛕",
+        "headline": "Havyaka kinship, CAMPCO meetings and Sirsi's Marikamba Jatre",
+        "points": [
+          "Havyaka Brahmin households speak Havigannada and resist being folded into a Tulu Nadu identity.",
+          "Sirsi's Marikamba Jatre, a temple festival held once every two years, is the big event for his family and neighbours.",
+          "CAMPCO's Sirsi branch and farmer meetings are a social hub for sharing news on disease, prices and schemes."
+        ]
+      },
+      {
+        "key": "civic_life_and_government",
+        "label": "Civic Life & Government",
+        "emoji": "🏛️",
+        "headline": "CAMPCO, Shakti buses and a grievance about district neglect",
+        "points": [
+          "Uttara Kannada has no medical college and no airport, with worse roads and hospitals than Dakshina Kannada and Udupi.",
+          "The Kasturirangan Western Ghats Ecologically Sensitive Area proposals worry him over land-use restrictions on his plantation.",
+          "Panchayat talk is practical: monsoon road repair, the school building and access to the health centre."
+        ],
+        "stat": {
+          "value": "75 lakh+",
+          "label": "women use free state buses daily statewide under Shakti, since June 2023"
+        }
+      },
+      {
+        "key": "worldview_and_concerns",
+        "label": "Worldview & Concerns",
+        "emoji": "💭",
+        "headline": "Distance, disease and neglect, not poverty, shape his worries",
+        "points": [
+          "He frames dropout around infrequent buses, landslide-prone roads, understaffed schools and disease scares, not school fees.",
+          "He would demand a government medical college or a reliably funded referral hospital closer to Sirsi.",
+          "On arecanut he wants faster disease surveillance, subsidised replanting material and limits on cheaper imports."
+        ]
+      }
+    ],
+    "schoolPressures": [
+      {
+        "emoji": "🚌",
+        "label": "Distance & terrain",
+        "detail": "Pre-university colleges are in Sirsi and Siddapur; infrequent buses cross roads that wash out in monsoon."
+      },
+      {
+        "emoji": "🦠",
+        "label": "Seasonal disease",
+        "detail": "Kyasanur Forest Disease outbreak months and precaution drives can disrupt attendance."
+      },
+      {
+        "emoji": "🏫",
+        "label": "Thin schools",
+        "detail": "Government schools in smaller hamlets are more likely to be understaffed or single-teacher."
+      },
+      {
+        "emoji": "🥥",
+        "label": "Harvest chores",
+        "detail": "She helps sort and dry areca nuts after school during the harvest weeks."
+      }
+    ],
+    "worries": [
+      "Koleroga and leaf disease",
+      "Cheap arecanut imports",
+      "No medical college",
+      "Monsoon road damage",
+      "Ghats ESA restrictions",
+      "Daughter's schooling"
+    ]
+  },
+  "female": {
+    "name": "The Malpe fisherman's wife",
+    "ageLabel": "Late 30s",
+    "emoji": "🐟",
+    "role": "Fish-drying cooperative worker",
+    "place": "Malpe, near Udupi",
+    "community": "Mogaveera",
+    "tagline": "Mogaveera harbour worker who cures fish and runs the household while her husband is at sea.",
+    "household": [
+      {
+        "who": "Husband, trawler crew",
+        "emoji": "👨"
+      },
+      {
+        "who": "Son, 16",
+        "emoji": "👦"
+      },
+      {
+        "who": "Daughter, 12",
+        "emoji": "👧"
+      },
+      {
+        "who": "Husband's mother, nearby",
+        "emoji": "👵"
+      }
+    ],
+    "vitals": [
+      {
+        "label": "Household",
+        "value": "Family of four"
+      },
+      {
+        "label": "Son",
+        "value": "16, Class 10"
+      },
+      {
+        "label": "Daughter",
+        "value": "12, Class 7"
+      },
+      {
+        "label": "Her schooling",
+        "value": "About Class 8"
+      }
+    ],
+    "dayInLife": [
+      {
+        "when": "Before dawn",
+        "emoji": "🌅",
+        "text": "At Malpe harbour as boats return and the catch is auctioned on the beach and in the sheds."
+      },
+      {
+        "when": "Drying yard",
+        "emoji": "🐟",
+        "text": "Sorts, salts and sun-dries fish on a cooperative plot; pay is piece-based and seasonal."
+      },
+      {
+        "when": "Husband at sea",
+        "emoji": "⚓",
+        "text": "His trawler trips last several days, so she runs the household and money alone."
+      },
+      {
+        "when": "Home hours",
+        "emoji": "🍲",
+        "text": "Does most of the cooking and childcare, and tends a small garden and a couple of hens."
+      },
+      {
+        "when": "Weekends",
+        "emoji": "🚤",
+        "text": "Her son helps around the harbour; her daughter sometimes helps at the drying yard in holidays."
+      }
+    ],
+    "topics": [
+      {
+        "key": "daily_life_and_work",
+        "label": "Daily Life & Work",
+        "emoji": "⏰",
+        "headline": "Harbour auctions, drying-yard work and a seasonal income",
+        "points": [
+          "Her husband crews a mechanised trawler and can be at sea for several days at a stretch.",
+          "She belongs to the Malpe Fisherwomen's Cooperative Society, which sub-leases drying plots and supplies imported salt at a fixed price.",
+          "Income drops sharply in the monsoon fishing ban, typically June to July or August, and when diesel costs cut trips."
+        ]
+      },
+      {
+        "key": "family_and_household",
+        "label": "Family & Household",
+        "emoji": "🏠",
+        "headline": "She runs household decisions alone while her husband is at sea",
+        "points": [
+          "A nuclear family of four in a small harbour-side house; her husband's mother lives close by and helps with childcare.",
+          "Her marriage was arranged within the Mogaveera community and she moved to her husband's family's part of Malpe.",
+          "Her son's weekend harbour work is both help and a rite of passage, but it can tip into leaving school."
+        ]
+      },
+      {
+        "key": "education_and_schooling",
+        "label": "Education & Schooling",
+        "emoji": "📚",
+        "headline": "Fishing and drying-yard work pull at her son and daughter",
+        "points": [
+          "She left school around Class 8; her husband finished SSLC but not pre-university college.",
+          "Boys are drawn into paid harbour and boat work earlier than their sisters, sometimes before Class 10 ends.",
+          "For girls, peak-season drying-yard work, commute safety and distant pre-university colleges add pressure; Shakti buses help."
+        ],
+        "stat": {
+          "value": "22%",
+          "label": "Karnataka Class 9-10 dropout rate (UDISE+ 2023-24)"
+        }
+      },
+      {
+        "key": "health_and_wellbeing",
+        "label": "Health & Wellbeing",
+        "emoji": "🩺",
+        "headline": "Wet, salty yard work wears her down; referrals feel uncertain",
+        "points": [
+          "Standing in wet salted conditions and repetitive sorting cause skin complaints, musculoskeletal pain and fatigue she treats as routine.",
+          "Her husband faces rough weather, mechanical injury and long stretches without medical help on multi-day trawler trips.",
+          "Care runs through a government primary health centre and Udupi district hospital; serious cases go toward Mangaluru-Manipal."
+        ]
+      },
+      {
+        "key": "community_and_belief",
+        "label": "Community & Belief",
+        "emoji": "🛕",
+        "headline": "Mogaveera kin, the fisherwomen's cooperative and local shrines",
+        "points": [
+          "Mogaveera village councils were historically led by a hereditary leader called a Gurikara.",
+          "The cooperative is a mutual-support network: members share yard space, watch each other's children and swap price information.",
+          "Her ritual life centres on local shrines and boat-blessing rites before fishing reopens after the monsoon ban."
+        ]
+      },
+      {
+        "key": "civic_life_and_government",
+        "label": "Civic Life & Government",
+        "emoji": "🏛️",
+        "headline": "Cooperative lease, coastal rules and free bus travel",
+        "points": [
+          "The cooperative leases its drying-yard land from the government and renews it with municipal and fisheries authorities.",
+          "The 2019 CRZ notification cut the No-Development Zone in crowded coastal stretches like Malpe from 200 metres to 50.",
+          "Shakti, free state bus travel for women since June 2023, is a scheme she finds unambiguously useful."
+        ],
+        "stat": {
+          "value": "50 m",
+          "label": "No-Development Zone, down from 200 m, under the 2019 CRZ notification"
+        }
+      },
+      {
+        "key": "worldview_and_concerns",
+        "label": "Worldview & Concerns",
+        "emoji": "💭",
+        "headline": "Enough income to keep her children in school",
+        "points": [
+          "She would blame large mechanised trawlers and purse seiners for depleting near-shore stocks that artisanal fishers depend on.",
+          "She would demand guaranteed access to the Mangaluru-Manipal hospitals, not referrals withdrawn by contract disputes.",
+          "She takes pride in Malpe's harbour and the cooperative, and wants a secure long-term lease for the drying yard."
+        ]
+      }
+    ],
+    "schoolPressures": [
+      {
+        "emoji": "🚤",
+        "label": "Boat work",
+        "detail": "A boat owner's steady wages can pull a Class 10 boy into paid harbour work."
+      },
+      {
+        "emoji": "🐟",
+        "label": "Drying-yard work",
+        "detail": "Peak-season fish processing draws adolescent girls into paid labour."
+      },
+      {
+        "emoji": "🏫",
+        "label": "Thinner government schools",
+        "detail": "Private English-medium schools draw better-off families, leaving poorer ones in under-resourced government schools."
+      },
+      {
+        "emoji": "🚌",
+        "label": "Commute & safety",
+        "detail": "A daughter's commute to a distant pre-university college raises safety and cost worries."
+      }
+    ],
+    "worries": [
+      "Husband's safety at sea",
+      "Monsoon ban income",
+      "Trawlers depleting fish stocks",
+      "Unstable hospital referrals",
+      "2019 CRZ changes",
+      "Kids finishing Class 10"
+    ]
+  }
+}

@@ -1,0 +1,287 @@
+{
+  "region_name": "Northern Karnataka Region",
+  "region_definition": "Northern Karnataka, a semi-arid to tropical savanna expanse of the geologically ancient Deccan Plateau (300 to 730 meters elevation) comprising the Belagavi division (historically Bombay-Karnataka or Kittur Karnataka) and the Kalaburagi division (historically Hyderabad-Karnataka, now Kalyana Karnataka) across up to 14 districts, is defined by its fertile yet challenging black cotton soils, profound historical and cultural legacy, chronic water scarcity, and severe structural economic disparity relative to the high-growth southern districts of the state.",
+  "topics": {
+    "culture": {
+      "topic_label": "Culture",
+      "definition": "The customs, languages, religious practices, cuisine, arts, festivals, and social norms that characterize the way of life of a region's inhabitants.",
+      "regional_profile": "Northern Karnataka's cultural identity rests on an extraordinary, layered imperial legacy spanning more than two millennia. Positioned as the gateway between the northern plains and the deep south, the region served as the political, military, and cultural epicenter for a succession of powers including the Mauryas, Shatavahanas, Kadambas, Badami Chalukyas, Rashtrakutas, the Vijayanagara Empire, and the Bahmani and Deccan Sultanates. This continuous succession of imperial rule made the region the primary experimental crucible of Indian temple architecture, birthing the Vesara style, a syncretic form that hybridized the verticality of northern Nagara spires with the tiered precision of southern Dravida elements. The evolution is immortalized in the rock-cut caves of Badami, the experimental temple complexes of Aihole, and the UNESCO World Heritage site of Pattadakal, with later Gadag-style masterpieces such as the Kasivisvesvara Temple at Lakkundi and the Mahadeva Temple at Itagi in Koppal district, the sprawling ruins of Hampi (capital of the Vijayanagara Empire), and the imposing Indo-Islamic monuments of the Bahmani Sultanate, including the massive dome of the Gol Gumbaz in Vijayapura and the formidable forts of Bidar and Kalaburagi.\n\nBeyond monumental architecture, the region is the birthplace of one of India's most radical socio-religious revolutions: the 12th-century Sharana movement, pioneered by the philosopher, statesman, and mystic poet Basavanna during the reign of the Kalachuri dynasty. Its central institution, the Anubhava Mantapa (literally the 'Hall of Experience') at Basavakalyan in present-day Bidar district, is widely regarded as the world's first spiritual parliament - an egalitarian assembly where individuals of all castes, classes, and genders, from cobblers and boatmen to queens and scholars, debated philosophy, ethics, and spirituality on equal footing. The movement championed Kayakave Kailasa (the dignity of labor), rejected caste-based and gender-based discrimination, and fostered an accessible literary tradition through the Vachanas, short free-verse poems in vernacular Kannada that carried complex philosophy to common people. Its enduring legacy is the Lingayat faith, which remains the dominant social, cultural, and political force in Northern Karnataka today; the modern state government is commemorating the institution with a massive 770-pillar monument at Basavakalyan designed in the traditional Kalyana Chalukya architectural style.\n\nThe living cultural economy includes the indigenous crafts and cuisine shaped by the arid environment. The Sandur Lambani embroidery, practiced almost exclusively by nomadic Lambani (Banjara) tribal women settled in the mineral-rich Sandur region of Ballari district, is a vibrant patch-work needlecraft attaching mirrors, cowrie shells, vintage coins, and small metallic trinkets to locally woven fabric using nature-inspired motifs and the hand block prints known locally as toori and vakli; it received a Geographical Indication tag (GI No. 132) in 2010, jointly applied for by the Sandur Kushala Kala Kendra and the Karnataka State Handicrafts Development Corporation. The challenging agricultural environment also shapes a culinary identity distinctly separate from the rice-dominated cuisine of southern and coastal Karnataka: the dietary staple of the northern maidan is Jolada Rotti, an unleavened, highly nutritious sorghum flatbread, typically paired with pungent, robust curries spiced by the locally cultivated, deep-red Byadgi chilli.",
+      "sources": [
+        {
+          "title": "North Karnataka - Wikipedia",
+          "year": null,
+          "url": "https://en.wikipedia.org/wiki/North_Karnataka"
+        },
+        {
+          "title": "Anubhava Mantapa - Wikipedia",
+          "year": null,
+          "url": "https://en.wikipedia.org/wiki/Anubhava_Mantapa"
+        },
+        {
+          "title": "Anubhava Mantapa in Basavakalyan: Karnataka - Drishti IAS",
+          "year": null,
+          "url": "https://www.drishtiias.com/daily-updates/daily-news-analysis/anubhava-mantapa-in-basavakalyan-karnataka"
+        },
+        {
+          "title": "Sandur, Karnataka - The Heart of Tribal Craft - lambani.in",
+          "year": null,
+          "url": "https://lambani.in/where-lambani-embroidery-comes-from-sandur-karnataka-the-heart-of-tribal-craft/"
+        },
+        {
+          "title": "Sandur Lambani embroidery gets GI tag - The Hindu",
+          "year": null,
+          "url": "https://www.thehindu.com/news/cities/bangalore/Sandur-Lambani-embroidery-gets-GI-tag/article16051971.ece"
+        },
+        {
+          "title": "Byadagi chilli - Wikipedia",
+          "year": null,
+          "url": "https://en.wikipedia.org/wiki/Byadagi_chilli"
+        }
+      ]
+    },
+    "education": {
+      "topic_label": "Education",
+      "definition": "The formal and informal systems of learning in a region, including schools, higher education, vocational training, literacy levels, and education policy implementation.",
+      "regional_profile": "The region's educational character is defined by a historical deficit rooted in pre-independence political fragmentation. Governance under the Bombay Presidency (Bombay-Karnataka) and the autocratic rule of the Nizam of Hyderabad (Hyderabad-Karnataka) produced fundamentally unequal administrative structures and poor literacy foundations compared with the more progressive, heavily invested governance of the Old Mysore State in the south - a divergence that continues to shape attainment across the Belagavi and Kalaburagi divisions.\n\nLiteracy statistics reveal sharp internal divides within the region itself. Dharwad district, benefiting from historical investments in higher education and urban centers, records a literacy rate of 80.3%, while the districts of the extreme northeast lag severely: Yadgir registers the lowest overall literacy rate in the state at 51.83%, a figure further marred by severe gender disparity with male literacy at 62.25% and female literacy trailing at just 41.38%, and Raichur follows closely at only 59.56%. High dropout rates in secondary education remain a massive concern, driven by a lack of transportation and sanitation facilities in remote rural areas.\n\nPolicy has attempted to correct this through constitutional and planning instruments. Article 371J, inserted by the Constitution (98th Amendment) Act in 2012, provides institutionalized reservation quotas in state-run educational institutions - up to 70% reservation in engineering and medical admissions - for individuals domiciled in the Kalyana Karnataka region, aiming to build a localized skilled workforce. The Kalyana Karnataka Regional Development Board is likewise tasked with equitable allocation of state funds for human development. Despite these measures, multidimensional poverty remains deeply pervasive and the region's human development indicators have moved only slowly. The source document's coverage of education is oriented toward literacy attainment, dropout drivers, and policy interventions rather than detailed inventories of specific schools, colleges, or universities (beyond the agricultural research mandate of UAS Dharwad).",
+      "sources": [
+        {
+          "title": "Regionalism, Dr Nanjundappa Committee report, regional.pptx",
+          "year": null,
+          "url": "https://www.slideshare.net/slideshow/regionalism-dr-nanjundappa-committee-report-regional-pptx/286617670"
+        },
+        {
+          "title": "Home district of CM among bottom five in HDI in Karnataka",
+          "year": null,
+          "url": "https://www.thehindu.com/news/national/karnataka/home-district-of-cm-among-bottom-five-in-hdi-in-karnataka/article66601107.ece"
+        },
+        {
+          "title": "Dharwad district - Wikipedia",
+          "year": null,
+          "url": "https://en.wikipedia.org/wiki/Dharwad_district"
+        },
+        {
+          "title": "DISTRICT WISE VARIATIONS IN LITERACY RATE IN KARNATAKA",
+          "year": 2011,
+          "url": "https://ga.bujournals.com/articles/district-wise-variations-in-literacy-rate-in-karnataka-state-2011"
+        },
+        {
+          "title": "Demography | District Yadgiri, Government of Karnataka | India",
+          "year": 2011,
+          "url": "https://yadgir.nic.in/en/demography/"
+        },
+        {
+          "title": "Article 371J of the Constitution of India - Wikipedia",
+          "year": null,
+          "url": "https://en.wikipedia.org/wiki/Article_371J_of_the_Constitution_of_India"
+        }
+      ]
+    },
+    "agriculture": {
+      "topic_label": "Agriculture",
+      "definition": "The cultivation of crops, animal husbandry, fisheries, and allied rural livelihood activities, including land use, irrigation, major produce, and farming communities.",
+      "regional_profile": "Agriculture in Northern Karnataka rests on the region's distinctive pedological foundation: expansive tracts of black cotton soil, scientifically classified as Vertisols and locally called Regur or Ere Manne, formed from the weathering of the basaltic Deccan Traps laid down during the Cretaceous period approximately 65 to 66 million years ago. These montmorillonite-dominated clays, with clay content frequently exceeding 30%, swell during the monsoon and crack up to a meter deep during dry spells, a continuous self-ploughing dynamic (pedoturbation) that keeps the soil exceptionally fertile. Chemically alkaline (pH 7.5 to 8.0), calcareous, and rich in calcium carbonate, magnesium, and potash, they nonetheless suffer chronic deficiencies in nitrogen, phosphorus, zinc, and organic matter; their low infiltration rate makes them prone to waterlogging and salinity build-up, and their narrow moisture window means tillage must be timed precisely before the monsoon or immediately after the first showers.\n\nFarming is predominantly rainfed, functioning within a fragile dryland ecosystem of erratic rainfall, prolonged dry spells, and frequent terminal droughts, yet the region forms the backbone of the state's dryland agricultural output. The moisture-retentive deep black soils make it the premier pedological environment for cotton, complemented by drought-tolerant sorghum (jowar), pearl millet (bajra), finger millet (ragi), pigeon pea (red gram), groundnut, sunflower, safflower, and soybean, with deep ploughing of up to one foot recommended to shatter compact subsurface layers. Institutional support is anchored by the University of Agricultural Sciences, Dharwad (UAS-D), established over seven decades ago, which has released more than 200 resilient crop varieties, promoted Broad Bed and Furrow land configuration, driven the adoption of Bt cotton hybrids that reduced pesticide reliance, and developed contingent crop planning including early-maturing maize hybrids (DMH 1 and DMH 2) and natural farming practices.\n\nThe highest-value chain is the Byadgi chilli, grown predominantly in Haveri, Dharwad, and Gadag and protected by a Geographical Indication tag (GI No. 129/147) awarded in 2011. Renowned for intense deep-red pigmentation rather than heat - 12,000 to 17,000 Scoville Heat Units and ASTA color values of 80 to 130, with premium batches at 156.9 - its two sub-varieties, the plump Dabbi and the slender Kaddi, feed an oleoresin extraction industry yielding roughly 50 liters per tonne, supported by cold-storage infrastructure in Byadgi town operating at 4 to 6 degrees Celsius. Irrigation depends on the Krishna basin and its tributaries (Bhima, Ghataprabha, Malaprabha, Tungabhadra): the Almatti Dam under the Upper Krishna Project holds 123.08 TMC at a full reservoir level of 519.16 meters, and the proposed Stage III, raising the spillway gates to 524.256 meters to capture an additional 100 TMC following the KWDT-2 award of 130 TMC to Karnataka, would submerge prime farmland, requiring the acquisition of over 1,33,867 acres and the displacement of thousands of families, primarily in Bagalkot district.",
+      "sources": [
+        {
+          "title": "Soil Types and Distribution in Karnataka | PDF - Scribd",
+          "year": null,
+          "url": "https://www.scribd.com/document/151457750/Soils-of-Karnataka-361"
+        },
+        {
+          "title": "The 'Black Cotton Soil' (Ere Manne) of North Karnataka is ... - GKToday",
+          "year": null,
+          "url": "https://www.gktoday.in/question/in-which-of-the-following-districts-of-karnataka-p"
+        },
+        {
+          "title": "University of Agricultural Sciences, Dharwad",
+          "year": 2022,
+          "url": "https://uasd.edu/wp-content/uploads/3.-Kharif-Proceedings-2022-23.pdf"
+        },
+        {
+          "title": "Interview: D P Biradar on Agricultural R&D - reflections",
+          "year": 2015,
+          "url": "http://reflections-shivanand.blogspot.com/2015/04/interview-d-p-biradar-on-agricultural-r.html"
+        },
+        {
+          "title": "Byadagi chilli - Wikipedia",
+          "year": null,
+          "url": "https://en.wikipedia.org/wiki/Byadagi_chilli"
+        },
+        {
+          "title": "handbook for byadgi chilli processing - NIFTEM",
+          "year": 2022,
+          "url": "https://niftem.ac.in/newsite/pmfme/wp-content/uploads/2022/08/byadagichilliwriteup.pdf"
+        }
+      ]
+    },
+    "health": {
+      "topic_label": "Health",
+      "definition": "The healthcare systems, public health conditions, disease burden, and health-related environmental risks affecting a region's population.",
+      "regional_profile": "Health and human development indicators in Northern Karnataka consistently rank not only at the bottom of the state but frequently align with the lowest-performing districts nationally. The districts of the Kalyana Karnataka region - Yadgir, Kalaburagi, Raichur, Koppal, and Ballari - occupy the absolute bottom ranks on the state Human Development Index, with Yadgir frequently registering the lowest HDI score in the state (0.538), falling strictly into the 'low human development' categorization. Maternal and child health presents an ongoing crisis: districts in the northern region report stubbornly high incidences of maternal mortality directly correlated with severe nutritional deficits, and over 45.7% of pregnant women (aged 15-49) in several northern districts, including Bidar and Haveri, suffer from chronic anemia and malnutrition.\n\nHealth-related environmental risk is dominated by hydrological scarcity. The sheer aridity of the semi-arid climate produces chronic, acute water shortages that have necessitated massive state-sponsored irrigation investments and prolonged inter-state disputes over the Krishna and Mahadayi rivers; securing reliable drinking water for the chronically drought-prone districts of Belagavi, Dharwad, Bagalkot, and Gadag was the founding rationale of the Kalasa-Banduri project. Gender-linked determinants are equally severe: the Gender Inequality Index places Kalaburagi (17th), Ballari (20th), and Koppal (25th) near the bottom of state rankings, with female labor force participation below even the low 43.6% state average and severely limited female political representation.\n\nInstitutional remedies have had limited effect. The Nanjundappa Committee's Special Development Plan (2002) prioritized public health infrastructure within its Rs 31,000 crore outlay for the 114 backward taluks, but implementation that began in 2007-08 ran 30% to 40% short of recommended funding targets in divisions such as Belagavi and Kalaburagi, blunting the intended corrective impact, and the Kalyana Karnataka Regional Development Board's allocations have been hampered by bureaucratic inefficiencies and weak monitoring frameworks. The source document's coverage of conventional healthcare infrastructure, such as hospitals, primary care networks, or insurance systems, is limited - health is treated primarily through human development, nutrition, and gender indicators.",
+      "sources": [
+        {
+          "title": "Karnataka's economic survey lays bare a 500% income gulf",
+          "year": null,
+          "url": "https://theprint.in/india/karnatakas-economic-survey-lays-bare-a-500-income-gulf-between-its-richest-and-poorest-districts/2874071/"
+        },
+        {
+          "title": "REALIZING A POVERTY-FREE KARNATAKA: THE ROLE OF",
+          "year": null,
+          "url": "https://nammakpsc.com/oldsite/articles/realizing-a-poverty-free-karnataka-the-role-of-mission-antyodaya-survey-mas/"
+        },
+        {
+          "title": "Karnataka: A Study of Human Development Indices. - JETIR.org",
+          "year": null,
+          "url": "https://www.jetir.org/papers/JETIR1802348.pdf"
+        },
+        {
+          "title": "Karnataka government must take nuanced approach to address",
+          "year": 2025,
+          "url": "https://www.newindianexpress.com/states/karnataka/2025/Apr/13/karnataka-government-must-take-nuanced-approach-to-address-regional-imbalance-corruption"
+        },
+        {
+          "title": "Home district of CM among bottom five in HDI in Karnataka",
+          "year": null,
+          "url": "https://www.thehindu.com/news/national/karnataka/home-district-of-cm-among-bottom-five-in-hdi-in-karnataka/article66601107.ece"
+        }
+      ]
+    },
+    "economy": {
+      "topic_label": "Economy",
+      "definition": "The production, employment, income, and wealth structure of a region, including industry, services, agriculture, trade, and key economic institutions.",
+      "regional_profile": "The defining economic fact of Northern Karnataka is a severe, persistent structural disparity with the south of the state. Historical fragmentation under the Bombay Presidency and the autocratic rule of the Nizam of Hyderabad left unequal administrative structures and infrastructural baselines, while the state's modern growth became hyper-concentrated in the IT, biotechnology, and high-end services boom of the southern districts. The result is a per capita income gulf of nearly 500% within the same state: against a state average of Rs 4.33 lakhs, Bengaluru Urban records more than Rs 8.55 lakhs while Kalaburagi sits at approximately Rs 1.44 lakhs and Yadgir at roughly Rs 1.46 lakhs. The seven districts of the Kalyana Karnataka region collectively contribute only about 10.8% of the state's industrial GSDP and 8.8% of services GSDP, dwarfed by Bengaluru Urban's near 50% share of the state's service economy.\n\nThe region's productive base remains overwhelmingly agricultural and craft-based. Dryland farming on moisture-retentive Vertisols sustains cotton, coarse cereals, legumes, and oilseeds, and the flagship cash crop is the GI-tagged (2011) Byadgi chilli, whose deep-red pods feed an industrial oleoresin extraction economy - roughly 50 liters of concentrated extract per tonne, prized in the global food and beverage industry as a natural colorant and used in cosmetics and pharmaceutical formulations such as lipsticks, nail polishes, and pain balms. The Byadgi APMC market, the vital economic nerve center of this trade, processes annual sales of approximately Rs 30 billion (about $361 million), attracting a vast network of traders from across Karnataka and neighboring states and supported by capital-intensive cold storage that raises extraction yields by an estimated 30-40%. The GI-tagged Sandur Lambani embroidery (2010) adds a protected artisan economy, while state investment clusters around the Almatti Dam complex - with its Japanese, Mughal, and Rock Gardens and 290 MW hydroelectric capacity - and the monumental heritage tourism of Hampi.\n\nThe core structural failure, according to the economic analyses cited in the document, is the region's inability to transition its workforce and capital from low-yield, climate-vulnerable agriculture to high-value manufacturing and modern services. State interventions, even when funded through the Special Development Plan recommended at Rs 31,000 crores (at 2002-03 prices) for the 114 backward taluks, have failed to create secondary or tertiary investment cycles: capital and skilled labor inevitably flow back toward already-developed urban agglomerations, perpetuating the cycle of multidimensional poverty and chronic regional imbalance.",
+      "sources": [
+        {
+          "title": "Karnataka's economic survey lays bare a 500% income gulf",
+          "year": null,
+          "url": "https://theprint.in/india/karnatakas-economic-survey-lays-bare-a-500-income-gulf-between-its-richest-and-poorest-districts/2874071/"
+        },
+        {
+          "title": "Byadagi chilli",
+          "year": 2026,
+          "url": "http://5.imimg.com/data5/SELLER/Doc/2026/8/639600528/HT/SV/VG/262881367/byadagi-chilli.pdf"
+        },
+        {
+          "title": "A decade and a half after spending Rs 32,000 crore to fight regional",
+          "year": null,
+          "url": "https://www.facebook.com/deccanherald/posts/a-decade-and-a-half-after-spending-rs-32000-crore-to-fight-regional-imbalance-th/1388795239955536/"
+        },
+        {
+          "title": "status of economic development in kalyana karnataka region ... - srjis",
+          "year": null,
+          "url": "https://www.srjis.com/downloadPdf/151_%20STATUS%20OF%20ECONOMIC%20DEVELOPMENT%20IN%20KALYANA%20KARNATAKA.pdf/8767/267"
+        },
+        {
+          "title": "Nanjundappa Committee Implementation Analysis | PDF - Scribd",
+          "year": null,
+          "url": "https://www.scribd.com/document/849672712/Mono-58"
+        },
+        {
+          "title": "Recommendations of Nanjundappa Committee Report and ... - CMDR",
+          "year": 2025,
+          "url": "https://cmdr.ac.in/wp-content/uploads/2025/11/96.-Recommendations-of-Nanjundappa-Committee-Report-and-Resource-Flows-of-Special-Development-Plan-Are-We-Meeting-the-Targets.pdf"
+        }
+      ]
+    },
+    "transport": {
+      "topic_label": "Transport",
+      "definition": "The mobility and logistics infrastructure of a region, including roads, railways, aviation, transit systems, and freight networks.",
+      "regional_profile": "The source document contains no dedicated coverage of transport infrastructure for Northern Karnataka - there are no details on national highways, railways, airports, or urban transit systems within the region. Transport-related content appears only indirectly, through the lens of development policy: the Nanjundappa Committee's 2002 report recommended an Eight-Year Special Development Plan of Rs 31,000 crores (at 2002-03 prices) for the state's 114 backward taluks, prioritizing massive targeted investment in rural roads alongside urban water supply, public health infrastructure, basic education, and watershed management. Implementation, which commenced with delay in 2007-08, fell 30% to 40% short of recommended funding targets in divisions such as Belagavi and Kalaburagi - a gap implying persistent deficits in rural connectivity across the region.\n\nWhat the document does convey is the region's corridor character and its logistics-dependent commodity economy. Geographically positioned as the gateway between the northern plains and the deep south, Northern Karnataka historically channeled imperial, military, and commercial movement, and today its principal arteries are defined by agricultural trade flows: the Byadgi APMC market attracts a vast network of traders from across Karnataka and neighboring states, supported by specialized cold-storage logistics centered on the town of Byadgi that store chilli pods at strictly regulated temperatures to protect the ASTA color value before processing. The document also links mobility deficits directly to social outcomes, noting that high secondary-school dropout rates in remote rural areas are driven by a lack of transportation facilities. A fuller account of roads, rail, and aviation infrastructure would require sources beyond this document.",
+      "sources": [
+        {
+          "title": "North Karnataka - Wikipedia",
+          "year": null,
+          "url": "https://en.wikipedia.org/wiki/North_Karnataka"
+        },
+        {
+          "title": "Byadagi chilli",
+          "year": 2026,
+          "url": "http://5.imimg.com/data5/SELLER/Doc/2026/8/639600528/HT/SV/VG/262881367/byadagi-chilli.pdf"
+        },
+        {
+          "title": "Nanjundappa Committee Implementation Analysis | PDF - Scribd",
+          "year": null,
+          "url": "https://www.scribd.com/document/849672712/Mono-58"
+        },
+        {
+          "title": "Recommendations of Nanjundappa Committee Report and ... - CMDR",
+          "year": 2025,
+          "url": "https://cmdr.ac.in/wp-content/uploads/2025/11/96.-Recommendations-of-Nanjundappa-Committee-Report-and-Resource-Flows-of-Special-Development-Plan-Are-We-Meeting-the-Targets.pdf"
+        },
+        {
+          "title": "Regionalism, Dr Nanjundappa Committee report, regional.pptx",
+          "year": null,
+          "url": "https://www.slideshare.net/slideshow/regionalism-dr-nanjundappa-committee-report-regional-pptx/286617670"
+        }
+      ]
+    },
+    "demographics": {
+      "topic_label": "Demographics",
+      "definition": "The size, distribution, composition, growth, and migration patterns of a region's population.",
+      "regional_profile": "Northern Karnataka's population spans up to 14 districts across two major historical and cultural divisions - the Belagavi division (historically Bombay-Karnataka or Kittur Karnataka) and the Kalaburagi division (historically Hyderabad-Karnataka, now officially Kalyana Karnataka) - a settlement and administrative pattern shaped by centuries of rule under the Bombay Presidency and the Nizam of Hyderabad rather than the Old Mysore State. The region's social composition is marked by the dominance of the Lingayat faith, whose roots lie in the 12th-century Sharana movement and which remains the dominant social, cultural, and political force, alongside nomadic Lambani (Banjara) tribal communities settled primarily in the mineral-rich Sandur region of Ballari district.\n\nHuman development indicators reveal a population stratified at the very bottom of the state: the Kalyana Karnataka districts of Yadgir, Kalaburagi, Raichur, Koppal, and Ballari occupy the absolute bottom ranks on the state Human Development Index, with Yadgir frequently the lowest (an HDI of 0.538), and the region's districts often align with the lowest performers nationally. Literacy, a core compositional marker, varies sharply within the region - Dharwad records 80.3% while Yadgir manages only 51.83% (female literacy at just 41.38% against 62.25% for males) and Raichur 59.56%. The Gender Inequality Index places Kalaburagi (17th), Ballari (20th), and Koppal (25th) near the bottom of state rankings, reflecting exceedingly poor female labor force participation (below the low 43.6% state average) and severely limited female political representation.\n\nMigration dynamics are defined by outflow and concentration. Economic research cited in the document indicates that capital and skilled labor inevitably flow away from backward regions toward already-developed urban agglomerations, particularly the Bengaluru metropolitan economic engine, perpetuating the cycle of poverty and leaving the northern districts anchored to low-yield, climate-vulnerable agricultural livelihoods. The document's demographic coverage is oriented toward human development, literacy, and gender indicators rather than population totals, growth rates, or density figures, which it does not provide.",
+      "sources": [
+        {
+          "title": "Karnataka's economic survey lays bare a 500% income gulf",
+          "year": null,
+          "url": "https://theprint.in/india/karnatakas-economic-survey-lays-bare-a-500-income-gulf-between-its-richest-and-poorest-districts/2874071/"
+        },
+        {
+          "title": "REALIZING A POVERTY-FREE KARNATAKA: THE ROLE OF",
+          "year": null,
+          "url": "https://nammakpsc.com/oldsite/articles/realizing-a-poverty-free-karnataka-the-role-of-mission-antyodaya-survey-mas/"
+        },
+        {
+          "title": "Home district of CM among bottom five in HDI in Karnataka",
+          "year": null,
+          "url": "https://www.thehindu.com/news/national/karnataka/home-district-of-cm-among-bottom-five-in-hdi-in-karnataka/article66601107.ece"
+        },
+        {
+          "title": "Demography | District Yadgiri, Government of Karnataka | India",
+          "year": 2011,
+          "url": "https://yadgir.nic.in/en/demography/"
+        },
+        {
+          "title": "2021 - 2026, Karnataka ... - Yadgir District Population Census 2011",
+          "year": 2011,
+          "url": "https://www.census2011.co.in/census/district/270-yadgir.html"
+        }
+      ]
+    },
+    "governance": {
+      "topic_label": "Governance",
+      "definition": "The administrative, civic, and institutional structures through which a region is governed, including municipal bodies, policy frameworks, and inter-governmental mechanisms.",
+      "regional_profile": "Northern Karnataka is administered through two major revenue divisions - Belagavi and Kalaburagi - encompassing up to 14 districts (Belagavi, Bagalkot, Vijayapura, Gadag, Dharwad, Haveri, Uttara Kannada, Ballari, Bidar, Kalaburagi, Koppal, Raichur, Vijayanagara, and Yadgir). Its governance history is defined by the pre-independence split between the Bombay Presidency and the autocratic rule of the Nizam of Hyderabad, which left fundamentally unequal administrative structures and infrastructural baselines relative to the Old Mysore State, and by decades of mounting political pressure and regional agitation over the resulting neglect.\n\nThe central policy instrument for redressal has been the High Power Committee for Redressal of Regional Imbalances, constituted by the Government of Karnataka in 2000 and chaired by the economist Dr. D. M. Nanjundappa. Its 2002 report, built on a Comprehensive Composite Development Index of 35 socio-economic indicators, classified 114 of the state's then-175 taluks as backward (35 Backward, 40 More Backward, and 39 Most Backward), with 26 of the 39 Most Backward taluks located in the north, 21 of them concentrated in the historically marginalized Hyderabad-Karnataka region. The committee recommended an Eight-Year Special Development Plan of Rs 31,000 crores (at 2002-03 prices) for rural roads, urban water supply, public health, basic education, and watershed management; its execution, delayed until 2007-08, has been plagued by financial gaps of 30% to 40% in divisions such as Belagavi and Kalaburagi, bureaucratic inertia, and weak inter-departmental convergence.\n\nA constitutional layer was added by the Constitution (98th Amendment) Act in 2012, whose Article 371J grants special status to the six (now seven, after the bifurcation of Vijayanagara) districts of the Kalyana Karnataka region and mandates the Kalyana Karnataka Regional Development Board to ensure equitable, legally mandated allocation of state funds, alongside reservation quotas of up to 70% in engineering and medical admissions and public employment for region-domiciled candidates. Inter-state water governance is equally consequential: the Krishna Water Disputes Tribunal-2 awarded Karnataka an additional 130 TMC, underpinning the Upper Krishna Project Stage III's raising of the Almatti Dam spillway gates from 519.16 to 524.256 meters and the associated acquisition of over 1,33,867 acres, while the Mahadayi Water Disputes Tribunal (constituted in 2010, final award August 2018) allocated Karnataka 13.42 TMC against Goa's 24 TMC - awards still contested before the Supreme Court and constrained by pending environmental and wildlife clearances involving 26.92 hectares of protected forest land in the Bhimgad Wildlife Sanctuary.",
+      "sources": [
+        {
+          "title": "Regionalism, Dr Nanjundappa Committee report, regional.pptx",
+          "year": null,
+          "url": "https://www.slideshare.net/slideshow/regionalism-dr-nanjundappa-committee-report-regional-pptx/286617670"
+        },
+        {
+          "title": "Explainer: The Mahadayi river dispute between Karnataka and Goa",
+          "year": null,
+          "url": "https://www.thenewsminute.com/karnataka/explainer-mahadayi-river-dispute-between-karnataka-and-goa-171578"
+        },
+        {
+          "title": "Mahadayi Water Disputes Tribunal - Wikipedia",
+          "year": null,
+          "url": "https://en.wikipedia.org/wiki/Mahadayi_Water_Disputes_Tribunal"
+        },
+        {
+          "title": "Nanjundappa Committee Implementation Analysis | PDF - Scribd",
+          "year": null,
+          "url": "https://www.scribd.com/document/849672712/Mono-58"
+        },
+        {
+          "title": "Article 371J of the Constitution of India - Wikipedia",
+          "year": null,
+          "url": "https://en.wikipedia.org/wiki/Article_371J_of_the_Constitution_of_India"
+        },
+        {
+          "title": "Demand for Separate State - Political Science Teaching Aid",
+          "year": 2026,
+          "url": "https://www.dennana.in/2026/08/17/demand-for-separate-state/"
+        }
+      ]
+    }
+  }
+}

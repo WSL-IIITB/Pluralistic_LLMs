@@ -1,0 +1,205 @@
+{
+  "region_name": "A tur-dal and cotton smallholder near Aland, Kalaburagi (Kalyana Karnataka region)",
+  "region_definition": "This persona is an analytic composite drawn from documented economic, educational and social patterns of Kalaburagi district's Aland taluk in Karnataka's Kalyana Karnataka region -- not a real, identifiable individual. He is a man in his mid-forties from the Lingayat community, the largest social bloc in Kalaburagi and Bidar districts, farming a rainfed holding of roughly three to four acres split between tur dal (pigeon pea), the district's signature crop, and cotton. His village sits in the Aland-Chincholi belt near the Telangana border, a short bus ride from Kadaganchi, where the Central University of Karnataka was established in 2009. He lives with his wife, his elderly mother, and three children in a modest tiled house; household cash income fluctuates sharply with tur-dal and cotton prices and falls well below the state per-capita average typical of Kalaburagi district. He has completed schooling up to around class 8, took over the family land in his twenties, and has occasionally worked as hired agricultural labour and briefly migrated for construction work in Hyderabad during a drought year. He is Kannada-speaking but understands Dakhni Urdu and some Telugu, as is common in his border taluk.",
+  "topics": {
+    "daily_life_and_work": {
+      "topic_label": "Daily Life and Work",
+      "definition": "This person's occupation, income, workday, and economic pressures.",
+      "regional_profile": "His day begins before sunrise with feeding the pair of bullocks and, in season, walking his three-acre plot to check the tur dal crop for pod borer damage before the heat sets in. Kalaburagi district is India's leading pigeon-pea-growing and dal-milling district, and its Gulbarga Tur Dal has held a Geographical Indication tag since 2016 [S1], but the same concentration that gives the district its identity also exposes smallholders like him to violent price swings: growers here still recall the 2016-17 glut, when tur prices in the district crashed from around Rs 12,750 to as low as Rs 6,250 a quintal within a year after a bumper harvest and duty-free imports flooded the market [S2]. In a normal year he sells his tur through the Kalaburagi Agricultural Produce Market Committee yard, sometimes waiting days for a fair price and paying a commission to the local trader who also extends him informal credit between harvests, since formal crop loans rarely cover his full input cost.\n\nCotton, sown on the remaining acreage, is picked by hand over several weeks in winter, work that draws in his wife, his mother, and, in bad years, older children during weekends. Between the tur and cotton seasons there is a lean period of two to three months when farm income all but stops; he has in the past taken up hired agricultural labour on a neighbouring larger holding, and once travelled to Hyderabad -- a natural draw for Kalaburagi's border taluks given shared Dakhni Urdu and Telugu ties [S3] -- for a season of construction work when a poor monsoon left him with almost no harvest. He has registered for MGNREGA job-card work through the gram panchayat, which he and neighbours describe as useful but insufficient, since guaranteed days rarely stretch to the full 100 and payments are often delayed [S4]. Fertiliser and diesel costs have risen faster than his farm income in most years he can recall, and he depends on a diesel pump-set to draw groundwater from a shared borewell for the cotton patch, since there is no canal command in his part of Aland taluk unlike the Tungabhadra belt further west. He is aware that his per-capita income sits far below the state average and well below Bengaluru Urban's, a gap regional economists have documented as one of the widest intra-state disparities in India [S5], though he frames it less in statistical terms than as the plain fact that a quintal of tur dal buys less every year while the cost of living keeps climbing.",
+      "sources": [
+        {
+          "title": "Gulbarga Tur Dal - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Gulbarga_Tur_Dal",
+          "year": "2016"
+        },
+        {
+          "title": "Steep price fall leaves tur farmers in the lurch - Deccan Herald",
+          "url": "https://www.deccanherald.com/amp/story/india%2Fkarnataka%2Fsteep-price-fall-leaves-tur-farmers-in-the-lurch-3628551",
+          "year": "2017"
+        },
+        {
+          "title": "Kalyana-Karnataka - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kalyana-Karnataka",
+          "year": "2024"
+        },
+        {
+          "title": "Karnataka farmers forced to migrate to urban areas courtesy uncertainty over MGNREGA employment - Deccan Herald",
+          "url": "https://www.deccanherald.com/india/karnataka/karnataka-farmers-forced-to-migrate-to-urban-areas-courtesy-uncertainty-over-mgnrega-employment-3481798",
+          "year": "2024"
+        },
+        {
+          "title": "Karnataka's economic survey lays bare a 500% income gulf - The Print",
+          "url": "https://theprint.in/india/karnatakas-economic-survey-lays-bare-a-500-income-gulf-between-its-richest-and-poorest-districts/2874071/",
+          "year": "2023"
+        }
+      ]
+    },
+    "family_and_household": {
+      "topic_label": "Family and Household",
+      "definition": "Household structure, marriage, children, caregiving and gender roles.",
+      "regional_profile": "His household is a joint but modest one: himself, his wife, his widowed mother, and three children -- two sons and a daughter -- sharing a two-room tiled house with an attached cattle shed. His marriage, arranged within the Lingayat community in his mid-twenties, followed the customary pattern still common across rural Kalaburagi, where marriages are typically negotiated between families rather than through individual courtship. His wife manages the household, the kitchen garden, and poultry, and joins him in the fields during cotton-picking and tur-harvest weeks, reflecting a broader pattern documented in the region of women's labour being essential to farm output even where women's formal land ownership and decision-making authority remain limited. His mother, in her seventies, helps with childcare and light household tasks and receives a state old-age pension that supplements the family's uneven farm income.\n\nGender roles in the household follow a fairly conventional division: his sons are expected to eventually take on farm work or seek salaried employment, while his daughter, still in school, is also expected to help with cooking and younger-sibling care after school hours, a caregiving burden that education researchers in the region have flagged as a contributing factor to girls falling behind or leaving school in similar households [S1]. He is conscious of the documented regional pattern of early marriage for girls -- Karnataka's home minister has himself acknowledged that child marriage persists across north Karnataka districts despite state schemes [S2], and child-marriage cases have been recorded in neighbouring Ballari and Koppal districts in recent years [S3] -- and says clearly that he intends his daughter to finish at least her SSLC (class 10) before any marriage discussion, a position he attributes to seeing educated women in the village earn steadier incomes than farm-dependent households like his own. Financial decisions in the household are nominally his, though his wife controls day-to-day cash for food and school expenses, a common arrangement in the smallholder households of this belt. The family does not employ outside domestic help; caregiving for the very young and very old falls entirely on female family members, consistent with the low female labour-force participation and weak gender-inequality rankings recorded for Kalaburagi district [S4].\n\nHis wife is also a member of a village self-help group affiliated with the state's Sanjeevini/Stree Shakti federation network, through which she has taken small loans for a milch buffalo and for input costs before sowing, a common route for supplementary household credit among smallholder families in Kalaburagi district's agrarian communities. He has already begun thinking about wedding costs for his daughter, including dowry-linked expectations that, despite being formally illegal, he describes candidly as one of the larger financial pressures facing families of his standing, alongside similar expectations he will face arranging his sons' marriages. His two sons currently share farm responsibilities without a formal division of land, an arrangement he expects will eventually need renegotiation once they marry and start their own households.",
+      "sources": [
+        {
+          "title": "Failing the future: What is holding back school education in Kalaburgi and Yadgir districts of Karnataka? - The South First",
+          "url": "https://thesouthfirst.com/karnataka/failing-the-future-what-is-holding-back-school-education-in-kalaburgi-and-yadgir-districts-of-karnataka/",
+          "year": "2023"
+        },
+        {
+          "title": "Siddaramaiah on open defecation and child marriage in north Karnataka - NewsKerala",
+          "url": "https://www.newkerala.com/news/o/open-defecation-child-marriage-persist-north-ktaka-despite-schemes-259",
+          "year": "2023"
+        },
+        {
+          "title": "Five child marriages prevented in Bagalkot, Ballari - Deccan Herald",
+          "url": "https://www.deccanherald.com/amp/story/india%2Fkarnataka%2Ffive-child-marriages-prevented-in-bagalkot-ballari-830276.html",
+          "year": "2023"
+        },
+        {
+          "title": "Home district of CM among bottom five in HDI in Karnataka - The Hindu",
+          "url": "https://www.thehindu.com/news/national/karnataka/home-district-of-cm-among-bottom-five-in-hdi-in-karnataka/article66601107.ece",
+          "year": "2023"
+        }
+      ]
+    },
+    "education_and_schooling": {
+      "topic_label": "Education and Schooling",
+      "definition": "This person's own schooling and their children's schooling, including real, regionally-documented reasons children like theirs might leave school before completing secondary education.",
+      "regional_profile": "He himself studied only up to around class 8 in the village Kannada-medium government school before leaving to help on the family farm, a trajectory common to his generation in Aland taluk. His own children's schooling has gone somewhat further but remains precarious. His elder son completed class 10 at the government high school in the taluk town but did not continue to a pre-university college, partly because the nearest one with a science stream requires a daily bus commute the family judged too costly and time-consuming against the returns, and partly because the son was needed during the cotton-picking season in what would have been his first PUC year -- a pattern of seasonal-labour-driven attrition documented across Kalaburagi and Yadgir, which together with Bengaluru Urban record the highest numbers of out-of-school children in the state, officials citing migration and ill health as the leading causes of absence [S1]. Kalaburagi district has also been separately flagged as topping the state in school absenteeism [S2], a pattern he recognises from his own children's attendance registers during harvest weeks.\n\nHis younger son and daughter are still enrolled, but he worries about the same pressures recurring: the daughter's secondary school is several kilometres away, reachable mainly by a KKRTC bus whose timing does not always match school hours, and he has heard of families in his village pulling daughters out around class 8 or 9 when safe daily transport is uncertain, consistent with documented regional links between distance to secondary school, safety concerns and girls' dropout in tanda and migrant households across the wider region [S3]. He is aware that a bad monsoon can turn into an unplanned season of hired labour or short migration for the whole family, and that in the sugarcane-migration belts of Yadgir and neighbouring taluks such distress migration is a well-documented driver of children missing months of school or dropping out altogether, even though his own household has so far avoided cane-cutting migration specifically [S4]. He also keeps half an eye on Article 371(J), the 2012 constitutional provision reserving up to 70% of professional-course seats within the region and a similar share of state government posts for candidates domiciled in Kalyana Karnataka [S5]; he hopes his younger son, if he finishes PUC, might use the domicile-based quota to get into a polytechnic or government job exam, though he has also heard of disputes over domicile-certificate verification affecting some local candidates. He does not see the university at Kadaganchi, a few kilometres away, as realistically open to his children given the gap between the local government-school curriculum and the entrance requirements for a central university, even though its presence is a source of some local pride. He briefly considered applying his younger son for a seat at a Morarji Desai Residential School, part of a state-wide network of merit-based residential schools meant to give bright children from modest rural households access to better facilities and hostel support than the local government school offers, but was unsure how to prepare his son for the entrance test given the gap between the local curriculum and what such exams demand, and ultimately did not pursue it.",
+      "sources": [
+        {
+          "title": "Failing the future: What is holding back school education in Kalaburgi and Yadgir districts of Karnataka? - The South First",
+          "url": "https://thesouthfirst.com/karnataka/failing-the-future-what-is-holding-back-school-education-in-kalaburgi-and-yadgir-districts-of-karnataka/",
+          "year": "2023"
+        },
+        {
+          "title": "Kalaburagi tops state in school absenteeism - Deccan Herald",
+          "url": "https://www.deccanherald.com/amp/story/india%2Fkarnataka%2Fkalaburagi-tops-state-in-school-absenteeism-782699",
+          "year": "2023"
+        },
+        {
+          "title": "Poverty, school closure push up child marriages in Karnataka - Deccan Herald",
+          "url": "https://www.deccanherald.com/amp/story/india%2Fkarnataka%2Fpoverty-school-closure-push-up-child-marriages-in-karnataka-997144.html",
+          "year": "2023"
+        },
+        {
+          "title": "Sugar cane cutters in Maharashtra - Economic and Political Weekly",
+          "url": "https://www.epw.in/journal/2023/39/letters/sugar-cane-cutters-maharashtra.html",
+          "year": "2023"
+        },
+        {
+          "title": "Article 371(J) Explained: Hyderabad-Karnataka Quota Guide - CollegesInfo",
+          "url": "https://collegesinfo.org/blogs/hyderabad-karnataka-quota-guide",
+          "year": "2024"
+        },
+        {
+          "title": "Central University of Karnataka - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Central_University_of_Karnataka",
+          "year": "2009"
+        }
+      ]
+    },
+    "health_and_wellbeing": {
+      "topic_label": "Health and Wellbeing",
+      "definition": "Health access, risks and concerns for this person and their family.",
+      "regional_profile": "For routine illness his family relies on a primary health centre in the taluk town and a private clinic run by a local doctor for anything the PHC cannot handle, since Kalaburagi district's government tertiary care is concentrated at Kalaburagi Institute of Medical Sciences, a journey of over an hour from his village. He has registered his family under Ayushman Bharat-Arogya Karnataka for catastrophic-cost protection but has found, as many in the region report, that utilisation is uneven and depends heavily on which private hospitals in the city actually honour the scheme. He is aware that Kalaburagi district ranks poorly on the state's Gender Inequality Index, a composite that reflects, among other things, weak maternal-health and female-workforce indicators [S1], and that Kalaburagi and neighbouring Yadgir sit among the lowest-ranked districts in the state on broader human-development measures [S2].\n\nHe worries about his mother's health in old age, given the distance to specialist care, and has heard that a fully functional AIIMS at Kalaburagi is meant to eventually cut such referral journeys, though he is uncertain of its current construction status. Agricultural work carries its own physical toll: years of manual cotton-picking and pesticide-spraying without consistent protective gear have left his wife with recurring skin irritation, and he himself has chronic lower-back pain from years of bent-over fieldwork, for which he occasionally consults a local bone-setter rather than a doctor, citing cost and travel time. Access to safe drinking water is less of a daily worry in his particular village than it is in the harder-hit fluoride-affected pockets of Yadgir and parts of Raichur documented in groundwater studies [S3], though he has heard of neighbouring villages with poor-tasting or discoloured borewell water. The 108 ambulance service is the family's fallback for emergencies, and he considers it, along with the government hospital in Kalaburagi city, the most tangible piece of the health system reaching a household like his.\n\nBasic child health and nutrition services passed through the village Anganwadi centre when his children were young, providing supplementary nutrition and growth monitoring under the Integrated Child Development Services scheme, which he considers reasonably reliable compared to other government provisions reaching his household. He has not undergone any routine adult health screening himself, and manages a mild hypertension he was once told he had largely through diet rather than regular medication, citing both cost and the inconvenience of repeat visits to a doctor in the taluk town. When his children need vaccinations or minor treatment, the family typically first tries the government primary health centre before considering a paid private clinic, a sequencing common among households at his income level in rural Kalaburagi.",
+      "sources": [
+        {
+          "title": "Karnataka's economic survey lays bare a 500% income gulf - The Print",
+          "url": "https://theprint.in/india/karnatakas-economic-survey-lays-bare-a-500-income-gulf-between-its-richest-and-poorest-districts/2874071/",
+          "year": "2023"
+        },
+        {
+          "title": "Home district of CM among bottom five in HDI in Karnataka - The Hindu",
+          "url": "https://www.thehindu.com/news/national/karnataka/home-district-of-cm-among-bottom-five-in-hdi-in-karnataka/article66601107.ece",
+          "year": "2023"
+        },
+        {
+          "title": "A community-based study of dental fluorosis in rural children from an aspirational district in Karnataka - PMC",
+          "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10060513/",
+          "year": "2023"
+        }
+      ]
+    },
+    "community_and_belief": {
+      "topic_label": "Community and Belief",
+      "definition": "Community, caste/religious context, social ties and local institutions in this person's life.",
+      "regional_profile": "He identifies as Lingayat, part of the community founded on the 12th-century teachings of Basavanna at nearby Basavakalyan in Bidar district, whose Anubhava Mantapa is remembered locally as an early egalitarian assembly that rejected caste distinctions in principle, even as caste identity continues to shape social and political life in practice, including his own community's local prominence [S1]. His village has a Lingayat mutt (monastic institution) that functions as a social and sometimes informal dispute-resolution centre, and he attends its annual jatre (fair) along with festivals tied to the local village deity. He also has friendly, everyday ties with Muslim neighbours and traders in the taluk town -- Kalaburagi district has one of the largest Muslim population shares in Karnataka, a long-settled, multi-generational community rather than a recent one, tracing to the region's centuries under the Bahmani Sultanate and later the Nizam's Hyderabad State [S2] -- and he has, like many in the district, attended the annual urs (festival) at the Khwaja Bande Nawaz Dargah in Kalaburagi city at least once, an event he describes as drawing people across religious lines.\n\nHe is aware of Scheduled Caste communities, including Madiga and Holeya families, in his own and neighbouring villages, and of the historically documented devadasi (Basavi) system in parts of the wider region, though he associates it more with Koppal, Raichur and Ballari districts, where state resurvey efforts have counted thousands of affected women and their descendants, than with his own Aland taluk [S3]. He follows local Kannada-language news through Sanjevani and the Kalaburagi edition of Prajavani, which regularly cover the region's development grievances. He is broadly proud of the region's Sharana and Sufi heritage and of Kalaburagi's dal-milling reputation, but also carries a documented, locally widespread sense of the region being labelled statistically \"backward\" without matching improvement, a sentiment academic and journalistic accounts describe as common though not universal across the region [S4]. He is aware of Bidriware, the GI-tagged silver-inlaid metalware associated with Bidar, and of the Gulbarga gharana tradition of Hindustani classical khayal singing, though he engages with these mainly as regional cultural pride rather than direct participation. As a Lingayat, he followed the 2024 release of Karnataka's caste and socio-economic survey, commonly called the caste census, with some attention, since it drew visible objections from Lingayat community organisations who argued the survey undercounted their population and pressed the state government not to accept its findings [S5]. A village wrestling akhada, still active on some evenings, remains a minor but living part of local recreational life for younger men in his village, a tradition he took part in briefly as a young man.",
+      "sources": [
+        {
+          "title": "Anubhava Mantapa - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Anubhava_Mantapa",
+          "year": "2024"
+        },
+        {
+          "title": "Kalyana-Karnataka - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kalyana-Karnataka",
+          "year": "2024"
+        },
+        {
+          "title": "Karnataka resurvey identifies 23,395 former Devadasi women - Deccan Chronicle",
+          "url": "https://www.deccanchronicle.com/southern-states/karnataka/karnataka-resurvey-identifies-23395-former-devadasi-women-1936298",
+          "year": "2025"
+        },
+        {
+          "title": "Karnataka government must take nuanced approach to address regional imbalance - New Indian Express",
+          "url": "https://www.newindianexpress.com/states/karnataka/2025/Apr/13/karnataka-government-must-take-nuanced-approach-to-address-regional-imbalance-corruption",
+          "year": "2025"
+        },
+        {
+          "title": "Lingayats, Vokkaligas to urge CM Siddaramaiah to drop caste census - Deccan Herald",
+          "url": "https://www.deccanherald.com/india/karnataka/lingayats-vokkaligas-to-urge-cm-siddaramaiah-to-drop-caste-census-3492421",
+          "year": "2024"
+        }
+      ]
+    },
+    "civic_life_and_government": {
+      "topic_label": "Civic Life and Government",
+      "definition": "This person's dealings with government schemes, local bodies, and politics, including Article 371(J) provisions where relevant.",
+      "regional_profile": "His main direct dealings with government run through the gram panchayat -- for his MGNREGA job card, land records, and the old-age pension paperwork for his mother -- and through the taluk revenue office for crop-loss and drought-relief applications after poor monsoons. He receives free cooking gas refills and food grain under the state's Anna Bhagya guarantee, and his household electricity bill has been reduced under the Gruha Jyothi scheme, both of which he counts among the more reliably delivered welfare measures reaching a household like his. His wife and daughter use the Shakti scheme's free bus travel for women, introduced by the state government in 2023, for trips to the taluk town, and he has read that the scheme has substantially cut women's and girls' travel costs statewide since its launch, with hundreds of millions of free rides recorded within its first year and a half [S1].\n\nHe follows the recurring political and public debate over the Kalyana Karnataka Region Development Board's fund utilisation: a 2022 Comptroller and Auditor General report found that of over 28,000 sanctioned works between 2013-14 and 2021-22, thousands had not even commenced and a meaningful share were cancelled outright, and that the Board had at times retained more than a fifth of its funds unspent against the permitted carry-forward norm [S2] -- a finding that matches his own sense that KKRDB-funded projects announced for his taluk are slow to materialise. He is aware of Article 371(J)'s local-recruitment cadre for state government jobs and follows disputes over domicile-certificate verification that have surfaced in the local press, since it bears directly on his sons' job prospects [S3]. Politically, he identifies the Kalaburagi-Bidar belt as traditionally Congress-leaning, and is aware of Mallikarjun Kharge, the former long-serving Kalaburagi Lok Sabha MP and current AICC president, as the district's most prominent political figure, though he follows local candidates and panchayat politics more closely than national leadership. He is also aware of Priyank Kharge, the sitting state cabinet minister and MLA from Chittapur in Kalaburagi district, as the region's most prominent currently elected representative, though what matters most to him locally is whether panchayat-level promises on roads, irrigation and school buildings are actually kept. He marks 17 September locally as what the state government calls \"Kalyana Karnataka Liberation Day,\" commemorating the region's 1948 accession to India, while being aware that some in the region, including sections of the Muslim community, refer to it instead as \"Integration Day\" -- a divide he regards as a real but not universally held difference of framing rather than a settled consensus [S4].",
+      "sources": [
+        {
+          "title": "Karnataka's Shakti Scheme: Empowering Women with Free Bus Travel - Bhoomi for RTC",
+          "url": "https://bhoomiforrtc.in/karnataka-shakti-scheme-free-bus-travel/",
+          "year": "2024"
+        },
+        {
+          "title": "CAG Report on Performance Audit of Functioning of KKRDB",
+          "url": "https://cag.gov.in/webroot/uploads/download_audit_report/2022/KKRDB-Consolidated-Report-English-063f74dd7d48100.07216289.pdf",
+          "year": "2022"
+        },
+        {
+          "title": "Article 371(J) Explained: Hyderabad-Karnataka Quota Guide - CollegesInfo",
+          "url": "https://collegesinfo.org/blogs/hyderabad-karnataka-quota-guide",
+          "year": "2024"
+        },
+        {
+          "title": "Hyderabad-Karnataka Liberation Day - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Hyderabad-Karnataka_Liberation_Day",
+          "year": "2024"
+        }
+      ]
+    },
+    "worldview_and_concerns": {
+      "topic_label": "Worldview and Concerns",
+      "definition": "What this person worries about, is proud of, blames and demands, and how they would frame a public problem such as school dropout, drought, healthcare access or unemployment.",
+      "regional_profile": "Asked about school dropout, he would most likely frame it, in indirect terms, not as a failure of individual families' commitment to education but as the outcome of an economy that repeatedly forces a choice between a child's classroom seat and the household's survival during a bad harvest or a price crash -- a framing consistent with the region's documented tendency to attribute dropout, drought and unemployment to structural neglect and seasonal migration rather than personal failure [S1]. He would likely point to the cost and unreliability of transport to secondary schools and PUC colleges, to the seasonal pull of cotton-picking and hired labour, and to the years his own family has weathered a tur-dal price crash, as the practical reasons a family like his might pull a teenager out of school, rather than any disregard for education itself.\n\nOn drought and farm distress, he would probably blame inconsistent crop-insurance payouts, delayed compensation after declared drought years, and what he perceives as an over-reliance on rainfed cultivation in a belt without the canal irrigation enjoyed by the Tungabhadra command further west, and would likely demand more reliable minimum support price enforcement for tur dal and cotton, alongside faster drought and crop-loss compensation. On unemployment, he would likely frame his hopes and frustrations partly through Article 371(J): pride that the constitutional provision exists to reserve local jobs and professional-course seats for the region's youth, mixed with frustration at reports of slow implementation and domicile-certificate disputes undercutting its intended benefit for genuine local candidates [S2]. On regional identity, he is likely to take some pride in Kalaburagi's Sharana heritage, its tur-dal economy and Bahmani-era monuments, while also expressing -- in line with documented, though contested, local sentiment -- resentment at the region being popularly lumped into an undifferentiated \"North Karnataka\" alongside Kitturu Karnataka districts that do not share Kalyana Karnataka's Article 371(J) status or its particular history under the Nizam's Hyderabad State [S3]. On healthcare, he would likely demand that the promised AIIMS at Kalaburagi become fully operational, to spare families like his the long and costly journeys to city hospitals for anything beyond routine care. He also views the region's transport gaps as a everyday drag on both farm trade and children's schooling: with Wadi Junction, the region's key railway junction on the Mumbai-Secunderabad line, well outside his own taluk, moving tur dal and cotton to market still depends heavily on tempo trucks and the APMC's own logistics rather than rail, and he would likely name better last-mile rural roads and more predictable KKRTC bus schedules as doing as much for his children's school attendance as any single new building or scheme. Underlying all of this, based on his documented economic situation rather than any first-hand statement, is a wish that his children's generation have a more diversified set of options than farming a small, rain-dependent, price-volatile holding.",
+      "sources": [
+        {
+          "title": "Karnataka government must take nuanced approach to address regional imbalance - New Indian Express",
+          "url": "https://www.newindianexpress.com/states/karnataka/2025/Apr/13/karnataka-government-must-take-nuanced-approach-to-address-regional-imbalance-corruption",
+          "year": "2025"
+        },
+        {
+          "title": "Article 371(J) Explained: Hyderabad-Karnataka Quota Guide - CollegesInfo",
+          "url": "https://collegesinfo.org/blogs/hyderabad-karnataka-quota-guide",
+          "year": "2024"
+        },
+        {
+          "title": "Kalyana-Karnataka - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Kalyana-Karnataka",
+          "year": "2024"
+        }
+      ]
+    }
+  }
+}
