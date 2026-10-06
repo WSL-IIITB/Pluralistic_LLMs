@@ -5,7 +5,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [karnataka-regions]
+    branches: [karnataka-regions, human-eval-form]
   workflow_dispatch:
 
 permissions:

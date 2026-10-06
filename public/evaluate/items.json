@@ -1,0 +1,246 @@
+{
+ "query": "reason for secondary school dropout in Karnataka",
+ "runId": "run_10fd9bf9f0514bf5a69d4511d4d94302",
+ "items": [
+  {
+   "itemId": "old-mysuru-male",
+   "regionId": "old-mysuru",
+   "regionName": "Old Mysuru",
+   "personaGender": "male",
+   "persona": {
+    "emoji": "👨‍🌾",
+    "label": "Puttaswamy",
+    "age": "44",
+    "role": "Sugarcane & paddy farmer",
+    "place": "Malavalli taluk, Mandya",
+    "community": "Vokkaliga",
+    "tagline": "A Mandya cane and paddy farmer one bad season away from serious debt.",
+    "description": "Puttaswamy is a composite portrait of a smallholder cultivator in Mandya district's Cauvery-irrigated core, drawn from documented patterns of land, caste and agrarian distress in the Old Mysuru region rather than from any single real person. He is 44 years old and farms roughly 2.5 acres of KRS-canal-fed land in Malavalli taluk, growing sugarcane and paddy in rotation, supplemented by two milch cows sold through a Nandini-affiliated dairy cooperative. He belongs to the Vokkaliga community, which Census-based and political-analysis sources describe as numerically dominant across Mandya, Ramanagara, Mysuru and rural Bengaluru. He lives with his wife Rathnamma, his elderly parents, a sixteen-year-old daughter in the tenth standard, and a thirteen-year-old son in the eighth standard, in a joint household whose annual cash income, after diesel, fertiliser and labour costs, rarely exceeds roughly one and a half lakh rupees, most of it earned once or twice a year at cane harvest and paddy sale. This profile is an analytic composite built from Census, UDISE+ and district-reporting evidence about Mandya, not a record of an identifiable individual."
+   },
+   "personaVersion": "9eb7189e17",
+   "query": "reason for secondary school dropout in Karnataka",
+   "response": "Dropouts happen when the pressure of the cane harvest and the lack of money for transport clash with the school calendar.\n\n1. The government must ensure safe and affordable transport to colleges so girls do not have to stop after tenth standard.\n\n2. Stabilizing sugar mill payments is essential to prevent families from needing to pull children out of school for farm labour.\n\nOfficial & mainstream sources: Karnataka's secondary school dropout rate is significantly higher than the national average, with UDISE+ data showing around 18.1% of students in classes 9 and 10 leaving school. Official & mainstream sources: While recent trends show improvements for girls, the state still faces a persistent crisis where dropout rates among secondary students remain a major concern.",
+   "baseline": "Secondary school dropouts in the region are driven by systemic issues including teacher shortages, weak learning outcomes, and socioeconomic pressures affecting students in Classes 9 and 10. Address the critical shortage of teachers and improve the quality of learning to prevent students from disengaging during the transition to secondary education. Mitigate socioeconomic barriers that disproportionately impact student retention, particularly for adolescent girls in the region. Focus intervention efforts on Class 9 and 10 students, where dropout rates are most severe. Official & mainstream sources: Secondary school dropout rates in Karnataka are significantly higher than the national average, with 18.1% of students in Classes 9-10 leaving school. Official & mainstream sources: Specific drivers for high dropout rates include a lack of sufficient teachers, poor learning quality, and the devastating long-term impact of the Covid-19 pandemic on education."
+  },
+  {
+   "itemId": "old-mysuru-female",
+   "regionId": "old-mysuru",
+   "regionName": "Old Mysuru",
+   "personaGender": "female",
+   "persona": {
+    "emoji": "👩‍🏭",
+    "label": "Manjula",
+    "age": "33",
+    "role": "Garment factory sewing operator",
+    "place": "Near Peenya, Bengaluru Urban",
+    "community": "Scheduled Caste",
+    "tagline": "A Mandya-born sewing operator stitching export garments while holding up a one-room household in Bengaluru.",
+    "description": "Manjula is a composite portrait of a woman working in Bengaluru's garment export industry, built from documented patterns of migration, labour and housing among the city's female industrial workforce rather than from any single real individual. She is 33 years old, born in a village in rural Mandya district, and moved to Bengaluru with her husband about fifteen years ago when construction work drew him to the city; they now rent a single room in an unauthorised residential layout near the Peenya industrial estate in Bengaluru Urban district. She belongs to a Scheduled Caste community that Census-derived lists of Karnataka's Scheduled Castes place among those present across all six Old Mysuru districts, generally in wage-labour rather than landowning households. She works as a sewing-machine operator in a garment export unit, earning close to the sector's statutory minimum wage, while her husband does daily-wage construction and auto-driving work. They have two children, a fifteen-year-old daughter in the ninth standard and a nine-year-old son, and the household's combined monthly income puts them well below Bengaluru's cost of living even as her labour underpins the export orders the city's garment sector fulfils for global apparel brands. This is an analytic composite grounded in regional labour, health and education evidence, not a record of a real person."
+   },
+   "personaVersion": "f40bb49612",
+   "query": "reason for secondary school dropout in Karnataka",
+   "response": "Girls often leave school due to the heavy burden of household chores, the need to care for younger siblings, and the immediate pressure to earn money through factory work.\n\n1. Expand support for girl students to manage domestic duties and provide safe, free transport to colleges to prevent them from dropping out.\n\n2. Address the economic pull of immediate low-wage jobs that compete with the long-term benefits of finishing secondary education.\n\nOfficial & mainstream sources: Karnataka faces a severe secondary school dropout crisis, with rates for students in classes 9 and 10 reaching 18.1% to 18.3% according to UDISE+ data 12, 51.\n\nSocial media: There is a persistent discussion regarding the alarming dropout rates in the state, specifically highlighting how these crises impact the Old Mysuru region.",
+   "baseline": "Secondary school dropouts in the region are driven by systemic issues including teacher shortages, weak learning outcomes, and socioeconomic pressures affecting students in Classes 9 and 10. Address the critical shortage of teachers and improve the quality of learning to prevent students from disengaging during the transition to secondary education. Mitigate socioeconomic barriers that disproportionately impact student retention, particularly for adolescent girls in the region. Focus intervention efforts on Class 9 and 10 students, where dropout rates are most severe. Official & mainstream sources: Secondary school dropout rates in Karnataka are significantly higher than the national average, with 18.1% of students in Classes 9-10 leaving school. Official & mainstream sources: Specific drivers for high dropout rates include a lack of sufficient teachers, poor learning quality, and the devastating long-term impact of the Covid-19 pandemic on education."
+  },
+  {
+   "itemId": "bayaluseeme-male",
+   "regionId": "bayaluseeme",
+   "regionName": "Bayaluseeme",
+   "personaGender": "male",
+   "persona": {
+    "emoji": "👨‍🌾",
+    "label": "The Challakere groundnut farmer",
+    "age": "About 44",
+    "role": "Groundnut & onion farmer",
+    "place": "Challakere taluk, Chitradurga",
+    "community": "Kuruba",
+    "tagline": "Rainfed Kuruba farmer who diversifies with sheep as the kaval grazing commons shrink.",
+    "description": "This persona is an analytic composite of a smallholder dryland farmer in Challakere taluk, Chitradurga district, in Karnataka's Bayaluseeme (open-plains) belt within the state's Central Dry agro-climatic zone. He is about 44 years old, married, with a teenage son and a younger daughter. Communities such as the Kuruba, traditionally associated with sheep-rearing and dryland cultivation, are documented in land records and local reporting as historically dependent on the region's Amrita Mahal Kaval grazing commons, and this persona is drawn from that pattern. He farms about three rainfed acres of groundnut, onion and ragi and keeps a small flock of sheep grazed partly on the shrinking kaval commons near his village, close to land now diverted for the Challakere \"science city\" that hosts DRDO, ISRO, IISc and BARC facilities. His household income is small and swings sharply with the monsoon and market prices, commonly falling in the range of Rs 8,000 to Rs 14,000 a month on an annualised basis. He and his wife studied only up to middle school. This is an analytic composite built from regional evidence and documented patterns in Chitradurga district, not a real named individual; his circumstances illustrate widely reported regional conditions rather than one person's biography."
+   },
+   "personaVersion": "c048cfa444",
+   "query": "reason for secondary school dropout in Karnataka",
+   "response": "Secondary school dropouts are driven by the long distances to high schools, the need for children to help with farm and grazing work, and the heavy financial strain on families during droughts.\n\n1. Government must provide more residential schooling options like KGBV closer to rural hamlets to reduce the travel burden on girls.\n\n2. Authorities need to ensure that school schedules do not clash with critical agricultural periods like the groundnut harvest or lambing season.\n\n3. Improving transport links and providing subsidies for commuting can help prevent students from dropping out due to the cost of reaching distant towns.\n\nOfficial & mainstream sources: State-level data indicates a significant secondary dropout rate of approximately 22.2% for classes 9-10, with girls facing particularly high risks of leaving school due to distance and household labor needs.",
+   "baseline": "Specific district-level reasons for secondary school dropouts in the Bayaluseeme region are not explicitly detailed in available official records, though systemic educational challenges are noted. Develop region-specific tracking systems to identify exact dropout triggers in districts like Tumakuru and Davanagere. Address teacher shortages in rural secondary schools to improve student retention and learning quality. Investigate the impact of socio-economic factors, such as child labor and family financial hardships, on student attendance. Official & mainstream sources: Current documentation notes a severe secondary education crisis in the region, citing high dropout rates that exceed national benchmarks, but lacks granular district-level causal data for the Bayaluseeme area. 60, 62, 70"
+  },
+  {
+   "itemId": "bayaluseeme-female",
+   "regionId": "bayaluseeme",
+   "regionName": "Bayaluseeme",
+   "personaGender": "female",
+   "persona": {
+    "emoji": "🐛",
+    "label": "The Chintamani silkworm rearer",
+    "age": "34",
+    "role": "Sericulture worker & wage labourer",
+    "place": "Chintamani taluk, Chikkaballapur",
+    "community": "",
+    "tagline": "Rears silkworms and works daily wages, running the household alone while her husband migrates.",
+    "description": "This persona is an analytic composite of a woman engaged in mulberry-based sericulture and seasonal agricultural wage labour in Chintamani taluk, Chikkaballapur district, part of the Kolar-Chikkaballapur Telugu borderland within Karnataka's Bayaluseeme belt. She is about 34 years old, married, with a son of about fifteen and a daughter of about fourteen. Chintamani taluk borders Andhra Pradesh and is documented as a Telugu-Kannada bilingual area with one of the district's larger areas under mulberry cultivation, part of a district-wide sericulture sector supporting over 15,000 farming families. She and her family are landless or near-landless agricultural labourers who rear silkworms on a small, rented mulberry patch and take daily wage work in tomato, grape and other vegetable fields during the agricultural season. Her husband migrates seasonally to brick kilns and construction sites, a pattern documented among families in Chikkaballapur and Kolar's border taluks. This is an analytic composite grounded in regional evidence and documented patterns in Chikkaballapur district's sericulture and border-taluk economy, not a real named individual; her circumstances illustrate widely reported conditions in this specific sub-region rather than one person's biography."
+   },
+   "personaVersion": "2faddd7c2b",
+   "query": "reason for secondary school dropout in Karnataka",
+   "response": "High dropout rates in our secondary schools are driven by the need for family labour, safety concerns during long commutes, and the instability of seasonal incomes.\n\n1. Increase the availability of residential hostel seats like KGBV to keep girls in school safely.\n\n2. Provide more stable cocoon prices to ensure families do not need to rely on children's labour during rearing cycles.\n\n3. Improve school access in rural hamlets to reduce the safety risks girls face when travelling to distant high schools.\n\nOfficial & mainstream sources: State-level data indicates a high dropout rate of approximately 22.09% for classes 9 and 10, which creates a significant challenge for our region's future. 60, 62, 66, 70 Social media: Discussions often center on the lack of official, detailed data to address these rising dropout rates effectively across different local areas. bayaluseeme:c1",
+   "baseline": "Specific district-level reasons for secondary school dropouts in the Bayaluseeme region are not explicitly detailed in available official records, though systemic educational challenges are noted. Develop region-specific tracking systems to identify exact dropout triggers in districts like Tumakuru and Davanagere. Address teacher shortages in rural secondary schools to improve student retention and learning quality. Investigate the impact of socio-economic factors, such as child labor and family financial hardships, on student attendance. Official & mainstream sources: Current documentation notes a severe secondary education crisis in the region, citing high dropout rates that exceed national benchmarks, but lacks granular district-level causal data for the Bayaluseeme area. 60, 62, 70"
+  },
+  {
+   "itemId": "karavali-male",
+   "regionId": "karavali",
+   "regionName": "Karavali",
+   "personaGender": "male",
+   "persona": {
+    "emoji": "👨‍🌾",
+    "label": "The Sirsi arecanut farmer",
+    "age": "Late 40s",
+    "role": "Arecanut smallholder farmer",
+    "place": "Near Sirsi, Uttara Kannada",
+    "community": "Havyaka Brahmin",
+    "tagline": "Havyaka arecanut grower whose daughter's schooling hangs on bad roads, disease and harvest income.",
+    "description": "This composite persona is a male smallholder arecanut farmer in his late forties, living in a village a few kilometres outside Sirsi town, the commercial headquarters of Uttara Kannada district's ghat-top interior. Sirsi is ecologically part of the Western Ghats' Malnad belt even though this project's Karavali region places the whole of Uttara Kannada inside the coastal region for administrative convenience. He belongs to the Havyaka Brahmin community, a Kannada-dialect-speaking, traditionally landowning caste concentrated in Uttara Kannada's arecanut and spice-growing tracts. He and his wife cultivate about two and a half acres of arecanut intercropped with pepper and cocoa, sell through the CAMPCO cooperative's Sirsi purchase centre, and depend on a monsoon- and disease-sensitive income of roughly Rs 1.5-3 lakh a year after loan repayments. They have two children: an elder son who has moved to Bengaluru for factory work, and a fifteen-year-old daughter in a government high school. Sirsi taluk records the highest taluk-level literacy rate in Uttara Kannada district, yet daily life is shaped less by literacy than by terrain: poor ghat roads, seasonal forest-borne disease, and distance from hospitals, colleges and markets concentrated on the coast. He is an analytic composite drawn from regional evidence, not a real, identifiable person."
+   },
+   "personaVersion": "16f8eeb67d",
+   "query": "reason for secondary school dropout in Karnataka",
+   "response": "In our ghats, children drop out because of difficult terrain, unreliable bus services, and seasonal illnesses like monkey fever that disrupt schooling.\n\n1. Improve bus connectivity and road stability in hilly areas to ensure students can reach higher secondary colleges in towns like Sirsi.\n\n2. Address staff shortages in rural government schools to prevent children from falling behind their peers in more urban areas.\n\n3. Strengthen seasonal health monitoring to prevent diseases like KFD from causing long-term educational disruptions for students in forest-fringe villages.\n\nOfficial & mainstream sources: Karnataka faces a significant secondary school dropout crisis, with UDISE+ data showing rates around 22% for classes 9 and 10.",
+   "baseline": "Specific official reasons for secondary school dropouts in the Karavali region are currently not disaggregated in available government datasets. Conduct targeted localized studies in Dakshina Kannada, Udupi, and Uttara Kannada to identify region-specific socioeconomic drivers of attrition. Improve the collection and publication of district-level UDISE+ data to better understand the unique educational challenges in coastal Karnataka. Official & mainstream sources: While Karnataka faces a significant secondary school dropout crisis, there is a notable lack of official government or UDISE+ data disaggregated specifically for the coastal districts of Dakshina Kannada, Udupi, and Uttara Kannada regarding specific dropout causes."
+  },
+  {
+   "itemId": "karavali-female",
+   "regionId": "karavali",
+   "regionName": "Karavali",
+   "personaGender": "female",
+   "persona": {
+    "emoji": "🐟",
+    "label": "The Malpe fisherman's wife",
+    "age": "Late 30s",
+    "role": "Fish-drying cooperative worker",
+    "place": "Malpe, near Udupi",
+    "community": "Mogaveera",
+    "tagline": "Mogaveera harbour worker who cures fish and runs the household while her husband is at sea.",
+    "description": "This composite persona is a woman in her late thirties from the Mogaveera community, the traditional fisherfolk of coastal Karnataka, living in Malpe, a fishing town about six kilometres west of Udupi town and one of the largest fishing harbours on the Karnataka coast. Her husband works on a multi-day mechanised trawler out of Malpe harbour, spending several days at sea at a stretch, while she works several months of the year at the harbour's fish auction and in the Malpe fisherwomen's cooperative drying yard, sorting, salting and curing fish for sale, alongside running the household. They have two children: a sixteen-year-old son in Class 10 at a government high school, who already spends weekends helping on boats and around the harbour, and a twelve-year-old daughter in Class 7. Their household income is modest and highly seasonal, rising and falling with the catch, the state's annual monsoon fishing ban, and diesel and ice costs, and is typical of the income range documented for Mogaveera fishing households at Malpe. Udupi district records Karnataka's highest female-to-male sex ratio, a pattern researchers attribute to male out-migration rather than to gender-equal investment in women. She is an analytic composite built from regional evidence and ethnographic research on Malpe's fishing community, not a real, identifiable individual."
+   },
+   "personaVersion": "0182c04f40",
+   "query": "reason for secondary school dropout in Karnataka",
+   "response": "Secondary dropouts in our coastal towns are driven by seasonal fishing work pulling boys into the harbour and commuting costs or safety concerns deterring girls from further study.\n\n1. Expand the Shakti scheme benefits to cover higher-secondary transport costs to ensure girls can reach colleges safely.\n\n2. Provide more targeted support for government schools to prevent students from moving toward private institutions due to resource gaps.\n\n3. Create better local job protections to ensure seasonal work in fish processing and harbour labour does not replace a child's schooling.\n\nOfficial & mainstream sources: Karnataka faces a severe secondary school dropout crisis, with UDISE+ 2023-24 data showing rates of approximately 22% in Classes 9 and 10.",
+   "baseline": "Specific official reasons for secondary school dropouts in the Karavali region are currently not disaggregated in available government datasets. Conduct targeted localized studies in Dakshina Kannada, Udupi, and Uttara Kannada to identify region-specific socioeconomic drivers of attrition. Improve the collection and publication of district-level UDISE+ data to better understand the unique educational challenges in coastal Karnataka. Official & mainstream sources: While Karnataka faces a significant secondary school dropout crisis, there is a notable lack of official government or UDISE+ data disaggregated specifically for the coastal districts of Dakshina Kannada, Udupi, and Uttara Kannada regarding specific dropout causes."
+  },
+  {
+   "itemId": "malnad-male",
+   "regionId": "malnad",
+   "regionName": "Malnad",
+   "personaGender": "male",
+   "persona": {
+    "emoji": "👨‍🌾",
+    "label": "The Havyaka coffee farmer",
+    "age": "46",
+    "role": "Coffee, areca & pepper smallholder",
+    "place": "Mudigere taluk, Chikkamagaluru",
+    "community": "Havyaka Brahmin",
+    "tagline": "Havyaka smallholder on family coffee, areca and pepper land, wary of disease, wildlife and ESA maps.",
+    "description": "This is an analytic composite, not a real named individual, built from regional evidence about Chikkamagaluru's coffee highlands. He is a Havyaka Brahmin smallholder farmer, age 46, cultivating roughly five acres of intercropped Arabica coffee, arecanut and black pepper on land his father and grandfather worked, in a hamlet off the Mudigere-Kalasa road within the Baba Budangiri coffee highlands of Chikkamagaluru district. He is married; his wife shares daily estate labour and runs the household, and together they have two children -- a seventeen-year-old son who boards in Chikkamagaluru town for pre-university science coaching, and a fourteen-year-old daughter in Class 9 at the local government high school. Communities such as the Havyaka Brahmins are documented as historically concentrated in the areca-growing tracts of Shivamogga, Chikkamagaluru, Uttara Kannada and Dakshina Kannada, and as speakers of Havigannada, a distinct Kannada dialect. His household's income, drawn almost entirely from coffee and areca sales, places him in a lower-middle to middle income bracket by rural Malnad standards, but one repeatedly narrowed by price swings, erratic blossom-season rain, and plant disease."
+   },
+   "personaVersion": "7a2869cf87",
+   "query": "reason for secondary school dropout in Karnataka",
+   "response": "Dropouts in our hills happen because of economic pressure during harvests, unsafe travel on monsoon roads, and the difficulty of reaching schools far from home.\n\n1. Improve reliable transport and road connectivity to ensure students can reach schools safely, even during the heavy monsoon months.\n\n2. Address the economic need for extra hands during coffee and areca harvests to prevent girls from being pulled into domestic or farm labour.\n\n3. Provide better security and mobility options for adolescent girls to address cultural concerns regarding their safety and movement.\n\nOfficial & mainstream sources: The secondary school dropout crisis is acute in the Malnad region, with girls facing higher risks due to economic pressures, mobility concerns, and the practical difficulties of accessing remote schools.",
+   "baseline": "Secondary school dropouts in the Malnad region represent a persistent and acute educational crisis, exacerbated by the area's unique hilly geography. The challenges associated with student retention are particularly intense due to the region's hilly terrain. Official & mainstream sources: The Malnad region faces one of the most severe secondary school dropout crises in the state, with challenges being particularly acute in these hilly areas."
+  },
+  {
+   "itemId": "malnad-female",
+   "regionId": "malnad",
+   "regionName": "Malnad",
+   "personaGender": "female",
+   "persona": {
+    "emoji": "👩‍🌾",
+    "label": "The Kodava homestay manager",
+    "age": "39",
+    "role": "Coffee estate & homestay manager",
+    "place": "Madikeri taluk, Kodagu",
+    "community": "Kodava",
+    "tagline": "Kodava woman running a coffee estate and family homestay in an ancestral clan house.",
+    "description": "This is an analytic composite, not a real named individual, drawn from documented patterns of Kodagu's Kodava coffee households. She is a Kodava woman, age 39, married into a patrilineal okka (clan) whose ancestral ainmane house and roughly eight-acre coffee-and-pepper estate lie in a village off the Madikeri-Napoklu road in Kodagu district. She lives in a joint household with her husband, his parents, and their two children -- a fifteen-year-old daughter who boards at a school in Madikeri town for Class 10, and a ten-year-old son at the village primary school. Alongside estate work, she runs a small homestay the family began letting to tourists, part of a diversification strategy documented across Kodagu since coffee prices collapsed in the 1990s. Kodagu's Kodava community is documented as organized into patrilineal okka clans holding ancestral jamma land collectively, with a distinct, traditionally unwritten language, Kodava Takk. Her household's income, spanning coffee, pepper and homestay earnings, places her in a middle income bracket, comfortable by district standards but exposed to coffee-price swings, labour shortages, and the district's recurring floods and landslides."
+   },
+   "personaVersion": "5b90935b8a",
+   "query": "reason for secondary school dropout in Karnataka",
+   "response": "Dropouts in our hilly regions are driven by difficult road access, monsoon disruptions, the high cost of boarding, and language barriers for migrant families.\n\n1. Improve road connectivity and disaster resilience to ensure students can reach schools safely during the monsoon seasons.\n\n2. Provide more affordable hostel facilities and support for boarding costs to help children from remote estate areas stay in school.\n\n3. Address language barriers in schools to support the children of migrant plantation workers who struggle with Kannada-only instruction.\n\nOfficial & mainstream sources: Karnataka faces a severe secondary education crisis, with dropout rates in Classes 9-10 reaching 18.3% for the 2024-25 period, a challenge that is particularly acute in the hilly Malnad region. 80, 81, 96, 97\n\nSocial media: Discussions highlight a persistent crisis in the Malnad region, though there are disagreements regarding whether the situation is a confirmed regional emergency or if a lack of specific local data makes such assessments premature.",
+   "baseline": "Secondary school dropouts in the Malnad region represent a persistent and acute educational crisis, exacerbated by the area's unique hilly geography. The challenges associated with student retention are particularly intense due to the region's hilly terrain. Official & mainstream sources: The Malnad region faces one of the most severe secondary school dropout crises in the state, with challenges being particularly acute in these hilly areas."
+  },
+  {
+   "itemId": "kitturu-karnataka-male",
+   "regionId": "kitturu-karnataka",
+   "regionName": "Kitturu Karnataka",
+   "personaGender": "male",
+   "persona": {
+    "emoji": "👨‍🌾",
+    "label": "The Chikkodi cane cutter",
+    "age": "41",
+    "role": "Landless cane-cutting farm laborer",
+    "place": "Chikkodi taluk, Belagavi",
+    "community": "Kuruba",
+    "tagline": "A landless cane cutter who migrates each October with his wife, on a mukadam's advance.",
+    "description": "This persona represents a landless agricultural laborer, about 41 years old, from a hamlet in Chikkodi taluk of Belagavi district, in the Krishna-Ghataprabha sugar belt of the Kitturu Karnataka (formerly Mumbai-Karnataka) region. He and his wife work as a paired cane-cutting unit, known locally as a koyta, migrating roughly six months a year, from October to April, to sugar factories in Belagavi district and across the border in Kolhapur and Sangli, Maharashtra, under a labour contractor (mukadam) who advances cash against the season's cutting. Between migrations he takes daily-wage farm work and cultivates a small leased plot. He belongs to the Kuruba community, counted by Karnataka's 2015 socio-economic survey, placed before the state cabinet in April 2025, at roughly 7.5% of the state's population and classified among its Other Backward Classes. His household income is precarious, tied each season to the negotiated cane price and to the mukadam's advance. He is not a real individual: he is an analytic composite built from documented regional evidence on cane-cutter migration, wages, debt and schooling in Belagavi and Bagalkote districts."
+   },
+   "personaVersion": "95f3fbc762",
+   "query": "reason for secondary school dropout in Karnataka",
+   "response": "Seasonal cane-cutting migration and the need to support family income force children out of school, especially when hostels or local schooling are unavailable during the crushing season.\n\n1. Provide guaranteed seasonal hostel or tent school seats in home taluks so migrant children do not have to miss months of school.\n\n2. Establish fixed cane prices before the season begins to ensure families can afford school fees and uniforms without falling into deeper debt.\n\n3. Mandate sugar mills to fund and host proper schooling facilities near labour camps to prevent educational gaps caused by migration.\n\nOfficial & mainstream sources: Northern Karnataka, including the Belagavi division, faces an acute secondary school dropout crisis tied to regional challenges 32, 33, 47, 99.\n\nSocial media: Local discussions highlight that the dropout crisis is worsened by poor school infrastructure throughout the region.",
+   "baseline": "Secondary school dropout rates in this region are driven by a critical combination of poor school infrastructure, poverty, and social vulnerabilities. Address the acute shortage of functional school infrastructure and resources in government schools to encourage enrollment. Implement targeted support for adolescent girls to mitigate risks such as child marriage and social vulnerability. Official & mainstream sources: The region faces an acute dropout crisis characterized by poor school infrastructure and significant socioeconomic challenges."
+  },
+  {
+   "itemId": "kitturu-karnataka-female",
+   "regionId": "kitturu-karnataka",
+   "regionName": "Kitturu Karnataka",
+   "personaGender": "female",
+   "persona": {
+    "emoji": "👩‍🌾",
+    "label": "The Lambani tanda labourer",
+    "age": "33",
+    "role": "Grape and pomegranate field labourer",
+    "place": "Indi taluk, Vijayapura",
+    "community": "Lambani (Banjara)",
+    "tagline": "A Lambani mother holding the household together while her husband works in Goa or Pune.",
+    "description": "This persona represents a Lambani (Banjara) woman, about 33 years old, living in a tanda, a Lambani hamlet, on the drought-prone plains of Indi taluk in Vijayapura district, part of the Kitturu Karnataka region's semi-arid Krishna-Almatti belt. She works as a daily-wage agricultural laborer in the district's grape and pomegranate fields and takes up work under the Mahatma Gandhi National Rural Employment Guarantee Scheme when farm labour is scarce, while her husband migrates seasonally to Goa or Pune for construction and borewell work, sending remittances irregularly. Vijayapura district recorded 67.2% literacy overall, with female literacy at only about 56.7% against 77.2% for men, and a Scheduled Caste population share of roughly 20%, in the 2011 Census, among the lower literacy figures in Kitturu Karnataka's six districts. In Karnataka's internal-reservation framework the Lambani/Banjara community is officially grouped within the Scheduled Castes, a classification the community's own leaders have publicly contested. She has two children: a teenage daughter approaching the critical Class 9 transition, and a younger son in primary school. Her tanda's groundwater comes from borewells in a belt independently documented to carry elevated natural fluoride. She is not a real individual: she is an analytic composite drawn from regional evidence on Lambani tanda life, drought-belt agricultural labour, and girls' secondary schooling in Vijayapura district."
+   },
+   "personaVersion": "9fb2cccda4",
+   "query": "reason for secondary school dropout in Karnataka",
+   "response": "Girls drop out because of long distances to high schools, the heavy burden of household chores, and the constant threat of early marriage when poverty hits hard.\n\n1. Provide more secondary schools and hostels closer to tandas so girls do not have to travel long distances alone.\n\n2. Ensure student bus passes and transport services are reliable and frequent to make daily travel safe and affordable.\n\n3. Strengthen support for families during droughts to prevent girls from being pulled into domestic work or early marriage due to financial crises.\n\nOfficial & mainstream sources: Northern Karnataka, including our districts, faces an acute secondary school dropout crisis linked to poor school infrastructure and regional developmental challenges. 32, 33, 34, 35, 36, 41, 47, 48, 99, 100, 101 Social media: There are many reports highlighting the critical nature of this dropout crisis and the struggles with poor school infrastructure across the region. kitturu-karnataka:c0",
+   "baseline": "Secondary school dropout rates in this region are driven by a critical combination of poor school infrastructure, poverty, and social vulnerabilities. Address the acute shortage of functional school infrastructure and resources in government schools to encourage enrollment. Implement targeted support for adolescent girls to mitigate risks such as child marriage and social vulnerability. Official & mainstream sources: The region faces an acute dropout crisis characterized by poor school infrastructure and significant socioeconomic challenges."
+  },
+  {
+   "itemId": "kalyana-karnataka-male",
+   "regionId": "kalyana-karnataka",
+   "regionName": "Kalyana Karnataka",
+   "personaGender": "male",
+   "persona": {
+    "emoji": "👨‍🌾",
+    "label": "The Aland tur-dal farmer",
+    "age": "Mid-40s",
+    "role": "Tur dal & cotton smallholder",
+    "place": "Aland taluk, Kalaburagi",
+    "community": "Lingayat",
+    "tagline": "A rainfed Lingayat farmer whose year rides on tur-dal and cotton prices.",
+    "description": "This persona is an analytic composite drawn from documented economic, educational and social patterns of Kalaburagi district's Aland taluk in Karnataka's Kalyana Karnataka region -- not a real, identifiable individual. He is a man in his mid-forties from the Lingayat community, the largest social bloc in Kalaburagi and Bidar districts, farming a rainfed holding of roughly three to four acres split between tur dal (pigeon pea), the district's signature crop, and cotton. His village sits in the Aland-Chincholi belt near the Telangana border, a short bus ride from Kadaganchi, where the Central University of Karnataka was established in 2009. He lives with his wife, his elderly mother, and three children in a modest tiled house; household cash income fluctuates sharply with tur-dal and cotton prices and falls well below the state per-capita average typical of Kalaburagi district. He has completed schooling up to around class 8, took over the family land in his twenties, and has occasionally worked as hired agricultural labour and briefly migrated for construction work in Hyderabad during a drought year. He is Kannada-speaking but understands Dakhni Urdu and some Telugu, as is common in his border taluk."
+   },
+   "personaVersion": "09836244fa",
+   "query": "reason for secondary school dropout in Karnataka",
+   "response": "Dropouts happen because our children must choose between a classroom seat and helping the family survive during bad harvests or price crashes.\n\n1. Improve KKRTC bus schedules and school transport to ensure girls can reach secondary schools safely and reliably.\n\n2. Strengthen the connection between local curriculum and entrance requirements for higher education to prevent seasonal labor from pulling children out of school.\n\n3. Provide more reliable support for farm families to ensure that a poor monsoon does not force a choice between food and education.\n\nOfficial & mainstream sources: Secondary school dropout rates in the region are critical, with rates for classes 9 and 10 reaching approximately 22.09%.\n\nSocial media: Discussions highlight an alarming crisis specifically in the Bayaluseeme region of Kalyana-Karnataka, where dropout rates are particularly high [kalyana-karnataka:c1].",
+   "baseline": "Secondary school dropout rates in the region are driven by critical challenges including poor infrastructure, high dropout rates in classes 9 and 10, and socio-economic factors affecting adolescent girls. Address the high dropout rates in classes 9 and 10 which have been reported at approximately 22.09%. Improve the infrastructure of government schools to address the struggles faced by many institutions in the northern region. Implement targeted support for adolescent girls to mitigate risks of child marriage and other socio-economic pressures that lead to dropouts. Official & mainstream sources: Secondary dropout rates in classes 9 and 10 have reached 22.09% according to UDISE Plus data. The region faces significant challenges including poor school infrastructure and socio-economic vulnerabilities for adolescent girls."
+  },
+  {
+   "itemId": "kalyana-karnataka-female",
+   "regionId": "kalyana-karnataka",
+   "regionName": "Kalyana Karnataka",
+   "personaGender": "female",
+   "persona": {
+    "emoji": "🧵",
+    "label": "The Sandur Lambani woman",
+    "age": "Early 30s",
+    "role": "Embroiderer & wage labourer",
+    "place": "Sandur taluk, Ballari",
+    "community": "Lambani (Banjara)",
+    "tagline": "A Lambani embroiderer stitching piecework and farm wages to hold a mining household together.",
+    "description": "This persona is an analytic composite drawn from documented patterns among Scheduled Tribe Lambani (Banjara) households in the mining belt around Sandur taluk, Ballari district, in Karnataka's Kalyana Karnataka region -- not a real, identifiable individual. She is a woman in her early thirties from a Lambani tanda (hamlet), a community concentrated in Ballari, Koppal, Raichur and Yadgir districts per Census documentation [S], living a short distance from Sandur town, an area known for iron-ore and manganese mining as well as for the GI-tagged Sandur Lambani embroidery craft practised almost exclusively by Lambani women. Her husband works as a daily-wage labourer at a stone-crushing and ore-loading unit near Sandur; she supplements the household income through agricultural wage labour in season and through embroidery piecework linked to a local artisan collective. They have three children, two currently in government school and one who left after class 8. Household income is irregular and low, and formal schooling in her own generation was minimal; she is functionally literate but did not complete primary school herself."
+   },
+   "personaVersion": "b4752f6874",
+   "query": "reason for secondary school dropout in Karnataka",
+   "response": "Families like ours often see children leave school because the cost of travel to secondary schools outside our tandas and the need for small daily wages outweigh the benefits of staying in class.\n\n1. The government must provide more secondary schools closer to our villages and expand the Shakti bus scheme to ensure no girl misses class due to travel costs.\n\n2. We need better support for families to manage school expenses like uniforms and books, so children do not have to work to help us survive.\n\nOfficial & mainstream sources: Dropout rates in classes 9 and 10 in Kalyana Karnataka have reached as high as 22.09%, according to UDISE Plus data, marking a significant educational crisis in the region. Official & mainstream sources: The crisis in Northern Karnataka is linked to severe challenges including poor school infrastructure and the need to support adolescent girls to prevent dropouts, child marriage, and other risks.",
+   "baseline": "Secondary school dropout rates in the region are driven by critical challenges including poor infrastructure, high dropout rates in classes 9 and 10, and socio-economic factors affecting adolescent girls. Address the high dropout rates in classes 9 and 10 which have been reported at approximately 22.09%. Improve the infrastructure of government schools to address the struggles faced by many institutions in the northern region. Implement targeted support for adolescent girls to mitigate risks of child marriage and other socio-economic pressures that lead to dropouts. Official & mainstream sources: Secondary dropout rates in classes 9 and 10 have reached 22.09% according to UDISE Plus data. The region faces significant challenges including poor school infrastructure and socio-economic vulnerabilities for adolescent girls."
+  }
+ ]
+}

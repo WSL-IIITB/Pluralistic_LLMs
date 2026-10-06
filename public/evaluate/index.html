@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Persona response evaluation</title>
+<meta name="robots" content="noindex" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" />
+<style>
+  :root {
+    --bg: #131316; --panel: #1b1b20; --panel-2: #222228; --border: rgba(255,255,255,.09);
+    --text: #f1efe9; --muted: #a3a1a8; --faint: #6f6d76; --accent: #f0a43a; --accent-ink: #231705;
+    --ok: #4cc38a; --bad: #e5645a; --radius: 14px;
+  }
+  @media (prefers-color-scheme: light) {
+    :root { --bg:#f6f4ef; --panel:#fff; --panel-2:#f0eee8; --border:rgba(0,0,0,.1); --text:#1c1b1f; --muted:#5d5b63; --faint:#8b8991; --accent:#c9740a; --accent-ink:#fff; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:400 15px/1.55 Inter,system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+  main { max-width: 820px; margin: 0 auto; padding: 28px 18px 80px; }
+  h1 { font-size: 22px; margin: 0 0 6px; letter-spacing: -.01em; }
+  h2 { font-size: 16px; margin: 0 0 4px; }
+  p { margin: 0 0 12px; }
+  .muted { color: var(--muted); } .faint { color: var(--faint); } .small { font-size: 13px; }
+  .label { font-size: 11px; letter-spacing: .09em; text-transform: uppercase; color: var(--faint); font-weight: 500; }
+  .card { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; margin: 14px 0; }
+  .card.soft { background: var(--panel-2); }
+  .hidden { display: none !important; }
+  /* progress */
+  .topbar { position: sticky; top: 0; z-index: 5; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(10px); padding: 12px 0 10px; margin-bottom: 4px; }
+  .bar { height: 4px; background: var(--panel-2); border-radius: 99px; overflow: hidden; margin-top: 8px; }
+  .bar > i { display:block; height:100%; background: var(--accent); width:0; transition: width .3s; }
+  .row { display:flex; gap:12px; align-items:center; justify-content:space-between; flex-wrap:wrap; }
+  /* persona */
+  .persona { display:flex; gap:14px; align-items:flex-start; }
+  .avatar { width:54px; height:54px; border-radius:50%; display:grid; place-items:center; font-size:28px; background: color-mix(in srgb, var(--accent) 22%, var(--panel-2)); flex:none; }
+  .chips { display:flex; flex-wrap:wrap; gap:6px; margin-top:6px; }
+  .chip { font-size:12px; padding:2px 10px; border-radius:99px; background: var(--panel-2); color: var(--muted); border:1px solid var(--border); }
+  details summary { cursor:pointer; color: var(--muted); font-size: 13px; margin-top: 10px; }
+  details p { margin-top: 8px; font-size: 13.5px; color: var(--muted); }
+  /* response text */
+  .resp { white-space: pre-wrap; font-size: 15px; line-height: 1.6; }
+  .resp-box { border-left: 3px solid var(--accent); padding: 2px 0 2px 14px; margin: 8px 0 0; }
+  .ab { display:grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 700px) { .ab { grid-template-columns: 1fr; } }
+  .ab .col { background: var(--panel-2); border-radius: 12px; padding: 12px 14px; border:1px solid var(--border); }
+  .ab .col .resp { font-size: 14px; }
+  /* questions */
+  .q { padding: 14px 0; border-top: 1px solid var(--border); }
+  .q:first-of-type { border-top: 0; }
+  .q b { font-weight: 500; }
+  .scale { display:grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-top: 10px; }
+  .scale label { text-align:center; cursor:pointer; }
+  .scale input { position:absolute; opacity:0; pointer-events:none; }
+  .scale span { display:block; padding: 9px 0; border-radius: 10px; border: 1px solid var(--border); background: var(--panel-2); font-weight:500; transition: all .12s; }
+  .scale label:hover span { border-color: var(--accent); }
+  .scale input:checked + span { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+  .scale input:focus-visible + span { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .ends { display:flex; justify-content:space-between; font-size:12px; color: var(--faint); margin-top: 6px; }
+  .choices { display:flex; flex-wrap:wrap; gap:8px; margin-top: 10px; }
+  .choices label { cursor:pointer; }
+  .choices input { position:absolute; opacity:0; pointer-events:none; }
+  .choices span { display:inline-block; padding: 8px 14px; border-radius: 10px; border:1px solid var(--border); background: var(--panel-2); }
+  .choices input:checked + span { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); font-weight:500; }
+  .choices input:focus-visible + span { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .invalid { outline: 1px solid var(--bad); outline-offset: 6px; border-radius: 8px; }
+  .err { color: var(--bad); font-size: 13px; margin-top: 8px; }
+  /* inputs */
+  label.field { display:block; margin-top: 14px; font-size: 13.5px; }
+  input[type=text], input[type=email], select, textarea {
+    width:100%; margin-top:6px; padding:10px 12px; border-radius:10px; border:1px solid var(--border);
+    background: var(--panel-2); color: var(--text); font: inherit;
+  }
+  textarea { min-height: 90px; resize: vertical; }
+  .check { display:flex; gap:10px; align-items:flex-start; margin-top: 10px; font-size: 14px; cursor:pointer; }
+  .check input { margin-top: 4px; accent-color: var(--accent); }
+  button { font: inherit; cursor:pointer; border-radius: 10px; border:1px solid var(--border); background: var(--panel-2); color: var(--text); padding: 10px 18px; }
+  button.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); font-weight: 500; }
+  button:disabled { opacity:.5; cursor:not-allowed; }
+  .status { font-size: 12.5px; padding: 3px 10px; border-radius: 99px; border:1px solid var(--border); background: var(--panel-2); }
+  .status.ok { color: var(--ok); } .status.warn { color: var(--accent); }
+  .nav { display:flex; justify-content:space-between; gap: 12px; margin-top: 18px; }
+  .hp { position:absolute; left:-9999px; }
+  .legend { display:grid; gap:4px; font-size:13px; color:var(--muted); }
+</style>
+</head>
+<body>
+<main>
+  <header class="row" style="align-items:flex-start">
+    <div>
+      <p class="label" style="margin-bottom:6px">Pluralistic Karnataka · Human evaluation</p>
+      <h1>How well do these answers speak for the person?</h1>
+    </div>
+    <span id="net" class="status hidden"></span>
+  </header>
+
+  <!-- ===== INTRO / CONSENT / PROFILE ===== -->
+  <section id="intro">
+    <div class="card">
+      <p>We asked an AI model one question, <b id="introQuery"></b>, in the voice of <b>12 composite people</b> — a man and a woman from each of Karnataka's six regions — and, separately, as a generic answer with no persona.</p>
+      <p>You will read each person's answer and rate how convincingly and fairly it speaks for them. There are no right answers; we want your honest judgement. <b>It takes about <span id="introMinutes">25–35</span> minutes</b> and you can stop and resume — your progress is saved in this browser.</p>
+      <p class="muted small">The people are <i>composites</i> built from public data and research — not real individuals. Please don't try to identify anyone.</p>
+    </div>
+
+    <form id="profileForm" class="card" autocomplete="off">
+      <h2>About you</h2>
+      <p class="muted small">Used only to interpret the ratings. Name and email are optional.</p>
+      <label class="field">Name (optional)<input type="text" name="name" /></label>
+      <label class="field">Email (optional)<input type="email" name="email" /></label>
+      <label class="field">Which best describes you? *
+        <select name="role" required>
+          <option value="">Choose…</option>
+          <option>Researcher / academic</option><option>Teacher / education professional</option>
+          <option>NGO / development practitioner</option><option>Government / policy</option>
+          <option>Student</option><option>Resident of Karnataka (general)</option><option>Other</option>
+        </select>
+      </label>
+      <label class="field">How fluent are you in Kannada? *
+        <select name="kannada" required>
+          <option value="">Choose…</option><option>Native / fluent</option><option>Conversational</option><option>A little</option><option>None</option>
+        </select>
+      </label>
+      <label class="field">Have you lived or worked in Karnataka? *
+        <select name="karnataka" required>
+          <option value="">Choose…</option><option>Live there now</option><option>Lived there for years</option><option>Worked or researched there</option><option>Visited</option><option>No</option>
+        </select>
+      </label>
+      <label class="check"><input type="checkbox" id="consent" required />
+        <span>I understand my ratings (and the details above, if I give them) will be stored in a research spreadsheet and used in aggregate for this study. I can stop at any time.</span></label>
+      <div class="hp"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off" /></label></div>
+      <div class="nav"><span></span><button class="primary" type="submit">Start</button></div>
+    </form>
+  </section>
+
+  <!-- ===== EVALUATION ===== -->
+  <section id="task" class="hidden">
+    <div class="topbar">
+      <div class="row"><span class="label" id="progressLabel"></span><span class="small muted" id="itemMeta"></span></div>
+      <div class="bar"><i id="progressBar"></i></div>
+    </div>
+
+    <div class="card">
+      <p class="label">The question that was asked</p>
+      <p style="font-size:17px;margin:4px 0 0" id="query"></p>
+    </div>
+
+    <div class="card">
+      <div class="persona">
+        <div class="avatar" id="avatar"></div>
+        <div>
+          <h2 id="personaName"></h2>
+          <div class="muted small" id="personaLine"></div>
+          <div class="chips" id="personaChips"></div>
+          <p class="small" style="margin:8px 0 0" id="personaTagline"></p>
+        </div>
+      </div>
+      <details><summary>Read the full persona description</summary><p id="personaDesc"></p></details>
+    </div>
+
+    <form id="itemForm" novalidate>
+      <div class="card">
+        <p class="label">Part 1 · This person's answer</p>
+        <div class="resp-box"><div class="resp" id="response"></div></div>
+      </div>
+
+      <div class="card" id="part1">
+        <p class="label">Rate this answer</p>
+        <div class="q" data-q="familiarity">
+          <b>How familiar are you with <span id="famRegion"></span>?</b>
+          <div class="scale" id="sc-familiarity"></div><div class="ends"><span>Not at all</span><span>Very familiar</span></div>
+        </div>
+        <div id="likerts"></div>
+        <div class="q">
+          <b>Anything that stood out? (optional)</b>
+          <div class="check"><label class="check" style="margin:6px 0"><input type="checkbox" name="flag_generic" /><span>Sounds generic — could be said by anyone</span></label></div>
+          <div class="check"><label class="check" style="margin:6px 0"><input type="checkbox" name="flag_factual" /><span>Contains something factually wrong or invented</span></label></div>
+          <div class="check"><label class="check" style="margin:6px 0"><input type="checkbox" name="flag_stereotype" /><span>Relies on a stereotype about this region, caste, community or gender</span></label></div>
+          <div class="check"><label class="check" style="margin:6px 0"><input type="checkbox" name="flag_offensive" /><span>Offensive or inappropriate</span></label></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <p class="label">Part 2 · Compare two answers</p>
+        <p class="small muted">Below are two answers to the same question. One was written in this person's voice; the other is a generic answer with no persona. They are shown in random order and not labelled.</p>
+        <div class="ab">
+          <div class="col"><p class="label">Answer A</p><div class="resp" id="ansA"></div></div>
+          <div class="col"><p class="label">Answer B</p><div class="resp" id="ansB"></div></div>
+        </div>
+        <div class="q" data-q="cmpLikely" style="margin-top:14px">
+          <b>Which answer is more likely to have come from <span id="cmpName"></span>?</b>
+          <div class="choices" id="ch-cmpLikely"></div>
+        </div>
+        <div class="q" data-q="cmpRepresents">
+          <b>Which answer better reflects what people in <span id="cmpRegion"></span> actually experience?</b>
+          <div class="choices" id="ch-cmpRepresents"></div>
+        </div>
+        <div class="q">
+          <b>Comments (optional)</b>
+          <textarea name="comment" placeholder="What felt right or wrong? Anything missing or inaccurate?"></textarea>
+        </div>
+      </div>
+      <div id="formError" class="err hidden"></div>
+      <div class="nav">
+        <button type="button" id="backBtn">← Back</button>
+        <button type="submit" class="primary" id="nextBtn">Save &amp; next →</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- ===== DONE ===== -->
+  <section id="done" class="hidden">
+    <div class="card">
+      <h1>Thank you.</h1>
+      <p>You've rated all <span id="doneCount"></span> answers. Your evaluation is complete.</p>
+      <p id="doneStatus" class="muted"></p>
+      <div class="row" style="justify-content:flex-start;gap:10px">
+        <button id="retryBtn" class="hidden">Send unsent answers</button>
+        <button id="csvBtn">Download my answers (CSV)</button>
+        <button id="restartBtn">Review my answers</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(() => {
+  "use strict";
+  const STORE = "persona-eval-v1";
+  const LIKERTS = [
+    { id: "fidelity",    text: "This answer sounds like something this person would actually say.", lo: "Not at all", hi: "Completely" },
+    { id: "authenticity",text: "The details — places, work, institutions, concerns — fit this region and this kind of household.", lo: "Don't fit", hi: "Fit well" },
+    { id: "accuracy",    text: "Nothing in the answer seems factually wrong or made up.", lo: "Clearly wrong", hi: "Seems accurate" },
+    { id: "stereotyping",text: "The answer leans on stereotypes about this region, community or gender.", lo: "Not at all", hi: "Heavily" },
+    { id: "insight",     text: "It gives me an understanding of the question that a generic answer would not.", lo: "No added insight", hi: "Much more insight" },
+    { id: "overall",     text: "Overall, how good is this answer as a voice for this person?", lo: "Poor", hi: "Excellent" },
+  ];
+  const CMP_LIKELY = [["A", "Answer A"], ["B", "Answer B"], ["neither", "Neither"]];
+  const CMP_REPS = [["A", "Answer A"], ["B", "Answer B"], ["both", "Both equally"], ["neither", "Neither"]];
+
+  const $ = (s, r = document) => r.querySelector(s);
+  const el = (tag, attrs = {}, html = "") => { const e = document.createElement(tag); Object.entries(attrs).forEach(([k, v]) => e.setAttribute(k, v)); e.innerHTML = html; return e; };
+  const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
+
+  let DATA, CONFIG, S; // S = persisted state
+
+  // ---------- seeded shuffle (stable per evaluator) ----------
+  function hash(str) { let h = 1779033703 ^ str.length; for (let i = 0; i < str.length; i++) { h = Math.imul(h ^ str.charCodeAt(i), 3432918353); h = (h << 13) | (h >>> 19); } return () => { h = Math.imul(h ^ (h >>> 16), 2246822507); h = Math.imul(h ^ (h >>> 13), 3266489909); return (h ^= h >>> 16) >>> 0; }; }
+  function rng(seed) { const h = hash(seed); let a = h(); return () => { a |= 0; a = (a + 0x6d2b79f5) | 0; let t = Math.imul(a ^ (a >>> 15), 1 | a); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
+  function shuffle(arr, seed) { const r = rng(seed), a = arr.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+
+  // ---------- storage ----------
+  const load = () => { try { return JSON.parse(localStorage.getItem(STORE)); } catch { return null; } };
+  const save = () => { try { localStorage.setItem(STORE, JSON.stringify(S)); } catch {} };
+  const uid = () => (crypto.randomUUID ? crypto.randomUUID() : "e" + Math.random().toString(36).slice(2) + Date.now().toString(36));
+
+  // ---------- sending to the Google Sheet ----------
+  const connected = () => !!(CONFIG && CONFIG.sheetEndpoint);
+  function netBadge() {
+    const b = $("#net"); b.classList.remove("hidden", "ok", "warn");
+    if (!connected()) { b.textContent = "Not connected to a sheet — saving in this browser"; b.classList.add("warn"); return; }
+    const n = ((S && S.pending) || []).length;
+    b.textContent = n ? `${n} answer${n > 1 ? "s" : ""} waiting to send` : "All answers sent"; b.classList.add(n ? "warn" : "ok");
+  }
+  async function postRow(row) {
+    const res = await fetch(CONFIG.sheetEndpoint, { method: "POST", body: JSON.stringify(row), redirect: "follow" }); // text/plain: no CORS preflight
+    let ok = res.ok; try { const j = await res.json(); ok = ok && j.ok !== false; } catch {}
+    if (!ok) throw new Error("rejected");
+  }
+  async function flush() {
+    if (!S || !connected() || !S.pending || !S.pending.length) { netBadge(); return; }
+    const left = [];
+    for (const row of S.pending) { try { await postRow(row); } catch { left.push(row); } }
+    S.pending = left; save(); netBadge(); updateDone();
+  }
+
+  // ---------- screens ----------
+  const show = (id) => ["intro", "task", "done"].forEach((s) => $("#" + s).classList.toggle("hidden", s !== id));
+  const total = () => S.order.length;
+  const answeredCount = () => S.order.filter((id) => S.answers[id]).length;
+
+  function renderScale(root, name, value) {
+    root.innerHTML = [1, 2, 3, 4, 5].map((n) => `<label><input type="radio" name="${name}" value="${n}" ${String(value) === String(n) ? "checked" : ""}><span>${n}</span></label>`).join("");
+  }
+  function renderChoices(root, name, opts, value) {
+    root.innerHTML = opts.map(([v, t]) => `<label><input type="radio" name="${name}" value="${v}" ${value === v ? "checked" : ""}><span>${esc(t)}</span></label>`).join("");
+  }
+
+  function renderItem() {
+    const id = S.order[S.idx], item = DATA.items.find((i) => i.itemId === id), prev = S.answers[id] || {};
+    show("task"); window.scrollTo(0, 0);
+    $("#progressLabel").textContent = `Answer ${S.idx + 1} of ${total()}`;
+    $("#progressBar").style.width = `${(answeredCount() / total()) * 100}%`;
+    $("#itemMeta").textContent = `${item.regionName} region`;
+    $("#query").textContent = DATA.query;
+    $("#avatar").textContent = item.persona.emoji || "👤";
+    $("#personaName").textContent = `${item.persona.label}${item.persona.age ? ", " + item.persona.age : ""}`;
+    $("#personaLine").textContent = `${item.persona.role} · ${item.persona.place}`;
+    $("#personaChips").innerHTML = [item.regionName + " region", item.personaGender === "female" ? "Woman" : "Man", item.persona.community].filter(Boolean).map((c) => `<span class="chip">${esc(c)}</span>`).join("");
+    $("#personaTagline").textContent = item.persona.tagline || "";
+    $("#personaDesc").textContent = item.persona.description || "";
+    $("#response").textContent = item.response;
+    $("#famRegion").textContent = `the ${item.regionName} region`;
+    $("#cmpName").textContent = item.persona.label;
+    $("#cmpRegion").textContent = `the ${item.regionName} region`;
+    renderScale($("#sc-familiarity"), "familiarity", prev.familiarity);
+    $("#likerts").innerHTML = LIKERTS.map((l) => `<div class="q" data-q="${l.id}"><b>${esc(l.text)}</b><div class="scale" id="sc-${l.id}"></div><div class="ends"><span>1 · ${esc(l.lo)}</span><span>5 · ${esc(l.hi)}</span></div></div>`).join("");
+    LIKERTS.forEach((l) => renderScale($("#sc-" + l.id), l.id, prev[l.id]));
+    // blind A/B order, stable per evaluator+item
+    const personaFirst = rng(S.evaluatorId + id)() < 0.5;
+    const [a, b] = personaFirst ? [item.response, item.baseline] : [item.baseline, item.response];
+    S.shown = S.shown || {}; S.shown[id] = personaFirst ? "persona_first" : "generic_first";
+    $("#ansA").textContent = a; $("#ansB").textContent = b;
+    renderChoices($("#ch-cmpLikely"), "cmpLikely", CMP_LIKELY, prev.cmpLikelyRaw);
+    renderChoices($("#ch-cmpRepresents"), "cmpRepresents", CMP_REPS, prev.cmpRepresentsRaw);
+    const f = $("#itemForm");
+    ["flag_generic", "flag_factual", "flag_stereotype", "flag_offensive"].forEach((n) => { f.elements[n].checked = !!(prev.flags || []).includes(n.replace("flag_", "")); });
+    f.elements.comment.value = prev.comment || "";
+    $("#formError").classList.add("hidden");
+    document.querySelectorAll(".invalid").forEach((n) => n.classList.remove("invalid"));
+    $("#backBtn").disabled = S.idx === 0;
+    $("#nextBtn").textContent = S.idx === total() - 1 ? "Save & finish" : "Save & next →";
+    S.itemShownAt = Date.now(); save();
+  }
+
+  // A/B letters -> "persona" | "generic" | "both" | "neither"
+  function decode(letter, personaFirst) {
+    if (letter === "A") return personaFirst ? "persona" : "generic";
+    if (letter === "B") return personaFirst ? "generic" : "persona";
+    return letter;
+  }
+
+  function submitItem(e) {
+    e.preventDefault();
+    const f = $("#itemForm"), id = S.order[S.idx], item = DATA.items.find((i) => i.itemId === id);
+    const get = (n) => (f.querySelector(`input[name="${n}"]:checked`) || {}).value;
+    const need = ["familiarity", ...LIKERTS.map((l) => l.id), "cmpLikely", "cmpRepresents"];
+    const missing = need.filter((n) => !get(n));
+    document.querySelectorAll(".invalid").forEach((n) => n.classList.remove("invalid"));
+    if (missing.length) {
+      missing.forEach((n) => { const q = document.querySelector(`[data-q="${n}"]`); if (q) q.classList.add("invalid"); });
+      const err = $("#formError"); err.textContent = `Please answer all questions (${missing.length} left).`; err.classList.remove("hidden");
+      const first = document.querySelector(".invalid"); if (first) first.scrollIntoView({ behavior: "smooth", block: "center" });
+      return;
+    }
+    const personaFirst = S.shown[id] === "persona_first";
+    const flags = ["generic", "factual", "stereotype", "offensive"].filter((k) => f.elements["flag_" + k].checked);
+    const seconds = Math.round((Date.now() - (S.itemShownAt || Date.now())) / 1000);
+    const ans = {
+      familiarity: +get("familiarity"), ...Object.fromEntries(LIKERTS.map((l) => [l.id, +get(l.id)])),
+      cmpLikelyRaw: get("cmpLikely"), cmpRepresentsRaw: get("cmpRepresents"),
+      flags, comment: f.elements.comment.value.trim(), seconds: ((S.answers[id] || {}).seconds || 0) + seconds,
+    };
+    S.answers[id] = ans;
+    const row = {
+      submitted_at: new Date().toISOString(), form_version: (CONFIG && CONFIG.formVersion) || "1",
+      evaluator_id: S.evaluatorId, evaluator_name: S.profile.name, evaluator_email: S.profile.email,
+      evaluator_role: S.profile.role, kannada_fluency: S.profile.kannada, karnataka_experience: S.profile.karnataka,
+      item_id: id, region_id: item.regionId, persona_gender: item.personaGender, persona_version: item.personaVersion,
+      query: DATA.query, item_position: S.idx + 1, ab_order: S.shown[id],
+      region_familiarity: ans.familiarity, fidelity: ans.fidelity, authenticity: ans.authenticity, accuracy: ans.accuracy,
+      stereotyping: ans.stereotyping, insight: ans.insight, overall: ans.overall,
+      cmp_more_likely_persona: decode(ans.cmpLikelyRaw, personaFirst), cmp_better_represents: decode(ans.cmpRepresentsRaw, personaFirst),
+      flags: flags.join(","), comment: ans.comment, seconds_on_item: ans.seconds,
+      user_agent: navigator.userAgent, website: "",
+    };
+    S.rows = S.rows || {}; S.rows[id] = row;
+    S.pending = (S.pending || []).filter((r) => r.item_id !== id); S.pending.push(row);
+    save(); netBadge(); flush();
+    if (S.idx < total() - 1) { S.idx += 1; save(); renderItem(); } else { finish(); }
+  }
+
+  function finish() { S.finished = true; save(); show("done"); window.scrollTo(0, 0); $("#doneCount").textContent = total(); updateDone(); }
+  function updateDone() {
+    if ($("#done").classList.contains("hidden")) return;
+    const n = (S.pending || []).length;
+    $("#retryBtn").classList.toggle("hidden", !(connected() && n));
+    $("#doneStatus").textContent = !connected()
+      ? "This copy of the form isn't connected to the research sheet yet, so your answers are saved only in this browser. Please download the CSV below and send it to the study team."
+      : n ? `${n} answer${n > 1 ? "s" : ""} could not be sent yet (are you offline?). They are saved here — press “Send unsent answers” when you're back online.` : "All your answers have been sent. You can close this page.";
+  }
+
+  function downloadCsv() {
+    const rows = Object.values(S.rows || {}); if (!rows.length) return;
+    const cols = Object.keys(rows[0]).filter((c) => c !== "website");
+    const q = (v) => `"${String(v ?? "").replace(/"/g, '""')}"`;
+    const csv = [cols.join(","), ...rows.map((r) => cols.map((c) => q(r[c])).join(","))].join("\n");
+    const a = el("a", { href: URL.createObjectURL(new Blob(["﻿" + csv], { type: "text/csv" })), download: "my-persona-evaluation.csv" });
+    document.body.appendChild(a); a.click(); a.remove();
+  }
+
+  // ---------- start ----------
+  async function init() {
+    const base = location.pathname.replace(/[^/]*$/, "");
+    [DATA, CONFIG] = await Promise.all([
+      fetch(base + "items.json").then((r) => r.json()),
+      fetch(base + "config.json").then((r) => (r.ok ? r.json() : {})).catch(() => ({})),
+    ]);
+    $("#introQuery").textContent = `“${DATA.query}”`;
+    $("#introMinutes").textContent = `${Math.round(DATA.items.length * 2.2)}–${Math.round(DATA.items.length * 3)}`;
+    S = load();
+    if (S && S.evaluatorId && S.order && S.order.length === DATA.items.length) {
+      netBadge();
+      if (S.finished) { show("done"); $("#doneCount").textContent = total(); updateDone(); flush(); }
+      else { renderItem(); flush(); }
+    } else { S = null; show("intro"); netBadge(); }
+
+    $("#profileForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const f = e.target; if (f.elements.website.value) return; // honeypot
+      const id = uid();
+      S = { evaluatorId: id, profile: { name: f.elements.name.value.trim(), email: f.elements.email.value.trim(), role: f.elements.role.value, kannada: f.elements.kannada.value, karnataka: f.elements.karnataka.value },
+            order: shuffle(DATA.items.map((i) => i.itemId), id), idx: 0, answers: {}, rows: {}, pending: [], shown: {} };
+      save(); renderItem(); netBadge();
+    });
+    $("#itemForm").addEventListener("submit", submitItem);
+    $("#backBtn").addEventListener("click", () => { if (S.idx > 0) { S.idx -= 1; save(); renderItem(); } });
+    $("#csvBtn").addEventListener("click", downloadCsv);
+    $("#retryBtn").addEventListener("click", flush);
+    $("#restartBtn").addEventListener("click", () => { S.finished = false; S.idx = 0; save(); renderItem(); });
+    window.addEventListener("online", flush);
+  }
+  init().catch((err) => { document.querySelector("main").innerHTML = `<div class="card"><h2>Couldn't load the form</h2><p class="muted">${esc(err.message)}</p></div>`; });
+})();
+</script>
+</body>
+</html>
