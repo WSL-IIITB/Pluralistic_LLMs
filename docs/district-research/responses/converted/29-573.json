@@ -1,0 +1,136 @@
+{
+  "districtId": "29-573",
+  "name": "Mandya",
+  "regionId": "old-mysuru",
+  "researchedOn": "2026-10-07",
+  "headline": "Mandya recorded the state's most child marriages since 2020, despite strong SSLC results.",
+  "summary": "Women and Child Welfare data show 172 child marriages in Mandya in 2020-2023, the highest in the state, with officials also citing single-parent households' financial strain as a driver of irregular attendance. The district's SSLC pass rate was 96.7% in 2023, which hides students who left earlier. Child marriages fell to 25 in January-October 2025 after intensive interventions.",
+  "reasons": [
+    {
+      "factor": "Child marriage of girls",
+      "category": "gender",
+      "detail": "Mandya recorded 172 child marriages in 2020-2023, the most in the state, falling to 25 by late 2025 after enforcement.",
+      "sources": [
+        1,
+        2
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Single-parent households",
+      "category": "economic",
+      "detail": "A legislative reply named single-parent households among the reasons for school dropout in Mandya and five other educational districts.",
+      "sources": [
+        3
+      ],
+      "evidence": "moderate"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Child marriage cases, 2020-2023",
+      "value": "172",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "label": "Child marriage cases, January-October 2025",
+      "value": "25",
+      "sources": [
+        2
+      ]
+    },
+    {
+      "label": "SSLC pass rate, 2023",
+      "value": "96.7%",
+      "sources": [
+        4
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Drastic fall in child marriage numbers in Old Mysuru region",
+      "outlet": "The Times of India",
+      "date": "2025-12-12",
+      "url": "https://timesofindia.indiatimes.com/city/mysuru/drastic-fall-in-child-marriage-numbers-in-old-mysuru-region/articleshow/125918000.cms",
+      "takeaway": "Drastic fall in child marriage numbers in the Old Mysuru region."
+    },
+    {
+      "title": "Poverty, migration to single parents one of reasons for school dropout in Karnataka",
+      "outlet": "The Times of India",
+      "date": "2025-09-22",
+      "url": "https://timesofindia.indiatimes.com/city/mysuru/poverty-migration-to-single-parents-one-of-reasons-for-school-dropout-in-karnataka/articleshow/124054037.cms",
+      "takeaway": "Poverty, migration and single parents among reasons for school dropout in Karnataka."
+    },
+    {
+      "title": "Mandya No. 1 dist in child marriages since 2020: Data",
+      "outlet": "The Times of India",
+      "date": "2023-12-18",
+      "url": "https://timesofindia.indiatimes.com/city/mysuru/mandya-no-1-dist-in-child-marriages-since-2020-data/articleshow/106071868.cms",
+      "takeaway": "Mandya is number one in child marriages since 2020, data shows."
+    }
+  ],
+  "responses": [
+    {
+      "text": "The District Child Protection Officer's interventions are reported to have cut child marriages to 25 in the first ten months of 2025.",
+      "sources": [
+        2
+      ]
+    }
+  ],
+  "officialFactorCheck": [
+    {
+      "factor": "% Population Living in Households with Improved Sanitation",
+      "method": "state",
+      "verdict": "no-evidence",
+      "note": "No local reports highlight sanitation as a dropout cause.",
+      "sources": []
+    },
+    {
+      "factor": "% Schools with instruction medium 1 (English)",
+      "method": "district",
+      "verdict": "no-evidence",
+      "note": "Language of instruction is not documented as a barrier.",
+      "sources": []
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://timesofindia.indiatimes.com/city/mysuru/mandya-no-1-dist-in-child-marriages-since-2020-data/articleshow/106071868.cms",
+      "title": "Mandya No. 1 dist in child marriages since 2020: Data",
+      "outlet": "The Times of India",
+      "date": "2023-12-18",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://timesofindia.indiatimes.com/city/mysuru/drastic-fall-in-child-marriage-numbers-in-old-mysuru-region/articleshow/125918000.cms",
+      "title": "Drastic fall in child marriage numbers in Old Mysuru region",
+      "outlet": "The Times of India",
+      "date": "2025-12-12",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://timesofindia.indiatimes.com/city/mysuru/poverty-migration-to-single-parents-one-of-reasons-for-school-dropout-in-karnataka/articleshow/124054037.cms",
+      "title": "Poverty, migration to single parents one of reasons for school dropout in Karnataka",
+      "outlet": "The Times of India",
+      "date": "2025-09-22",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "https://www.collegedekho.com/karnataka-sslc-result-statistics-brd",
+      "title": "Karnataka SSLC Result Statistics 2026 - Check Karnataka Class 10 Result Statistics | CollegeDekho",
+      "outlet": "CollegeDekho",
+      "date": "2024-04-04",
+      "type": "news"
+    }
+  ],
+  "coverage": "thin",
+  "gaps": "No dropout counts; the report's mention of female foeticide is not tied to schooling.",
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+}

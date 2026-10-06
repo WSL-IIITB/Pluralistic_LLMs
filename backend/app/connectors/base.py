@@ -183,20 +183,46 @@ class LLMClient(Protocol):
         deflections: list[dict],
         mode: ResearchMode = "medium",
     ) -> list[dict]:
-        """One Karnataka region's reply to `query`, grounded in that region's
-        evidence. `persona_prompt` (data/personas via karnataka.build_persona_prompt)
-        is the ONLY input that differs between the persona reply and the
-        divergence stage's no-persona reply -- implementations must keep
-        everything else identical. Returns AnswerSegment-shaped dicts
+        """One Karnataka region's persona reply to `query` (`persona_prompt`
+        from data/personas via karnataka.build_persona_prompt), grounded in
+        that region's evidence. Returns AnswerSegment-shaped dicts
         ({text, kind: "tldr"|"recommendation"|"body", clusterId?, citations?}).
         Raises on failure instead of falling back to stub text: a fabricated
-        reply would silently corrupt the divergence measurement."""
+        reply would silently misrepresent what that persona actually said."""
         ...
 
-    async def extract_points(self, text: str) -> list[str]:
-        """Split a reply into its distinct substantive points (short standalone
-        sentences, the text's own specifics kept). Raises on failure, for the
-        same reason as answer_for_region."""
+    async def compare_story_vs_official(
+        self,
+        query: str,
+        area_label: str,
+        story_points: list[str],
+        official_factors: list[dict],
+    ) -> dict:
+        """Compares Story Mode's own reasoning (`story_points` -- this area's
+        persona reply texts, or the Karnataka-wide overview for the statewide
+        call) against the UIDAI/NITI official dominant-factor rows for this
+        area's districts (`official_factors`, each {district, factor, value,
+        method} -- see ../niti_factors.py for what `method` means; NEVER treat
+        the two methods' `value`s as comparable to each other, and never
+        invent a statistical meaning for `value` beyond what `method` states).
+
+        Either list may be empty (no persona reply yet for a region, or no
+        NITI row matched its districts) -- work with whichever evidence is
+        actually present rather than fabricating the other side.
+
+        Return {"comparison": str, "consolidated_answer": str}:
+        - `comparison`: a short, plain-language account of where Story Mode's
+          social/persona-driven account and the official statistical factor(s)
+          agree, where they diverge, and why that might be (e.g. Story Mode
+          surfaces a cause the official model can't measure, like cane-harvest
+          labour, while the official data flags a measurable infrastructure
+          gap). If one side is empty, say so plainly instead of comparing.
+        - `consolidated_answer`: one coherent answer to `query` for this area
+          that actually draws on BOTH sources where both exist -- not a
+          concatenation of the two, a genuine synthesis. Ground every claim in
+          the evidence given; never invent a statistic beyond it.
+        Raises on failure -- a fabricated comparison would misrepresent both
+        sources."""
         ...
 
     async def generate_verdict(

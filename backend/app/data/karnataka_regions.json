@@ -5,38 +5,48 @@
   "statewide_region_name": "Karnataka (statewide)",
   "regions": [
     {
-      "id": "mysuru-bengaluru",
-      "name": "Mysuru-Bengaluru Region",
-      "short_name": "Mysuru-Bengaluru",
-      "persona_file": "personas/mysuru_bengaluru.json",
+      "id": "old-mysuru",
+      "name": "Old Mysuru (Southern) Region",
+      "short_name": "Old Mysuru",
+      "definition": "The former core of the princely Mysore State: Bengaluru Urban and Bengaluru Rural (the IT/BT metro and its industrial periphery), Ramanagara, Mandya, Mysuru and Chamarajanagara (the Vokkaliga-heartland, Cauvery-basin agrarian belt anchored by Mysuru city). Grouped together as the region long governed from and centred on Mysuru/Bengaluru, sharing Old Mysuru Kannada, Vokkaliga social weight and Cauvery-dependent irrigation, distinct from the drier plains to its north-east.",
+      "personas": [
+        {"id": "male", "label": "Male resident", "persona_file": "personas/old_mysuru_male.json"},
+        {"id": "female", "label": "Female resident", "persona_file": "personas/old_mysuru_female.json"}
+      ],
       "color": [213, 81, 129],
-      "search_terms": "Bengaluru Mysuru Mandya Ramanagara",
-      "district_ids": ["29-572", "29-583", "29-584", "29-573", "29-577", "29-578", "29-571", "29-581", "29-582"],
+      "search_terms": "Bengaluru Mysuru Mandya Ramanagara Chamarajanagara",
+      "district_ids": ["29-572", "29-583", "29-584", "29-573", "29-577", "29-578"],
       "aliases": [
-        "mysuru bengaluru", "mysore bangalore", "bengaluru mysuru", "bangalore mysore",
-        "old mysore", "mysuru region", "mysore region", "bengaluru region", "bangalore region",
-        "south karnataka", "southern karnataka", "southern plateau"
+        "old mysuru", "old mysore", "mysuru bengaluru", "mysore bangalore", "bengaluru mysuru",
+        "bangalore mysore", "south karnataka", "southern karnataka"
       ]
     },
     {
-      "id": "north-karnataka",
-      "name": "Northern Karnataka Region",
-      "short_name": "North Karnataka",
-      "persona_file": "personas/north_karnataka.json",
-      "color": [201, 133, 0],
-      "search_terms": "North Karnataka Kalaburagi Belagavi Ballari",
-      "district_ids": ["29-555", "29-556", "29-557", "29-561", "29-562", "29-564", "29-565", "29-558", "29-579", "29-560", "29-559", "29-580", "29-566", "29-567"],
+      "id": "bayaluseeme",
+      "name": "Bayaluseeme (Central Plains) Region",
+      "short_name": "Bayaluseeme",
+      "definition": "Kannada 'bayalu seeme' (open country): the semi-arid, rain-shadow central and eastern plains -- Chikkaballapur, Kolar, Tumakuru, Davanagere and Chitradurga. Grouped together as borewell-dependent dryland-farming districts squeezed between the wetter Malnad/Karavali west and the Deccan north, sharing groundwater depletion, drought exposure and heavy out-migration to Bengaluru, distinct from both the Bengaluru metro belt and the Krishna-basin north.",
+      "personas": [
+        {"id": "male", "label": "Male resident", "persona_file": "personas/bayaluseeme_male.json"},
+        {"id": "female", "label": "Female resident", "persona_file": "personas/bayaluseeme_female.json"}
+      ],
+      "color": [124, 91, 188],
+      "search_terms": "Tumakuru Kolar Chikkaballapur Davanagere Chitradurga",
+      "district_ids": ["29-582", "29-581", "29-571", "29-567", "29-566"],
       "aliases": [
-        "north karnataka", "northern karnataka", "uttara karnataka", "kalyana karnataka",
-        "hyderabad karnataka", "kittur karnataka", "bombay karnataka", "mumbai karnataka",
-        "kalyan karnataka"
+        "bayaluseeme", "bayalu seeme", "bayaluseema", "central karnataka", "central plains",
+        "eastern dry belt"
       ]
     },
     {
       "id": "karavali",
-      "name": "Karavali Coastal Region",
+      "name": "Karavali (Coastal) Region",
       "short_name": "Karavali",
-      "persona_file": "personas/karavali.json",
+      "definition": "Karnataka's Arabian Sea coast and its Western Ghats hinterland: Uttara Kannada, Udupi and Dakshina Kannada. Grouped together as the Kanara/Tulu Nadu littoral, sharing Tulu, Konkani and coastal-Kannada speech, fishing and port economies, Gulf remittances and high literacy, though Uttara Kannada's ghat-top taluks (Sirsi, Siddapur, Yellapur) are ecologically closer to Malnad than to the coast itself.",
+      "personas": [
+        {"id": "male", "label": "Male resident", "persona_file": "personas/karavali_male.json"},
+        {"id": "female", "label": "Female resident", "persona_file": "personas/karavali_female.json"}
+      ],
       "color": [57, 135, 229],
       "search_terms": "coastal Karnataka Mangaluru Udupi Karwar",
       "district_ids": ["29-575", "29-569", "29-563"],
@@ -49,11 +59,49 @@
       "id": "malnad",
       "name": "Malnad Region",
       "short_name": "Malnad",
-      "persona_file": "personas/malnad.json",
+      "definition": "The 'hill country' on the eastern slopes of the Western Ghats -- Shivamogga, Chikkamagaluru, Hassan and Kodagu. Grouped together as Karnataka's coffee, areca and pepper plantation belt and primary watershed, sharing a wet monsoon climate, Hoysala-era heritage and documented youth out-migration and human-wildlife conflict, distinct from both the coastal Karavali strip to its west and the drier plains to its east.",
+      "personas": [
+        {"id": "male", "label": "Male resident", "persona_file": "personas/malnad_male.json"},
+        {"id": "female", "label": "Female resident", "persona_file": "personas/malnad_female.json"}
+      ],
       "color": [0, 131, 0],
       "search_terms": "Malnad Shivamogga Chikkamagaluru Kodagu Hassan",
       "district_ids": ["29-568", "29-570", "29-576", "29-574"],
       "aliases": ["malnad", "malenadu", "malnadu", "malenaadu", "male nadu"]
+    },
+    {
+      "id": "kitturu-karnataka",
+      "name": "Kitturu Karnataka (North-west) Region",
+      "short_name": "Kitturu Karnataka",
+      "definition": "The former Bombay-Karnataka region, renamed Kitturu Karnataka in 2021 after Rani Chennamma's Kittur -- Belagavi, Vijayapura, Bagalkote, Dharwad, Gadag and Haveri. Grouped together as the Krishna-Malaprabha sugarcane and cotton belt with a shared Bombay Presidency administrative legacy, Marathi-influenced border districts (Belagavi), and the Hubballi-Dharwad twin-city commercial hub, distinct from the poorer, Hyderabad-legacy districts further east.",
+      "personas": [
+        {"id": "male", "label": "Male resident", "persona_file": "personas/kitturu_karnataka_male.json"},
+        {"id": "female", "label": "Female resident", "persona_file": "personas/kitturu_karnataka_female.json"}
+      ],
+      "color": [201, 133, 0],
+      "search_terms": "Belagavi Vijayapura Bagalkote Dharwad Gadag Haveri",
+      "district_ids": ["29-555", "29-557", "29-556", "29-562", "29-561", "29-564"],
+      "aliases": [
+        "kitturu karnataka", "kittur karnataka", "bombay karnataka", "mumbai karnataka",
+        "north-west karnataka", "northwest karnataka"
+      ]
+    },
+    {
+      "id": "kalyana-karnataka",
+      "name": "Kalyana Karnataka (North-east) Region",
+      "short_name": "Kalyana Karnataka",
+      "definition": "The former Hyderabad-Karnataka region, part of the Nizam's Hyderabad State until 1948 and renamed Kalyana Karnataka in 2019 -- Kalaburagi, Bidar, Yadgir, Raichur, Koppal, Ballari and Vijayanagara. Grouped together as Karnataka's most backward region by the Nanjundappa Committee, now under Article 371(J) special constitutional status, sharing a Deccan/Dakhani-influenced Kannada, tur-dal and cotton farming, iron-ore mining around Ballari-Sandur, and the state's weakest education and health indicators.",
+      "personas": [
+        {"id": "male", "label": "Male resident", "persona_file": "personas/kalyana_karnataka_male.json"},
+        {"id": "female", "label": "Female resident", "persona_file": "personas/kalyana_karnataka_female.json"}
+      ],
+      "color": [196, 58, 58],
+      "search_terms": "Kalaburagi Bidar Yadgir Raichur Koppal Ballari Vijayanagara",
+      "district_ids": ["29-579", "29-558", "29-580", "29-559", "29-560", "29-565"],
+      "aliases": [
+        "kalyana karnataka", "kalyan karnataka", "hyderabad karnataka", "hyderabad-karnataka",
+        "north-east karnataka", "northeast karnataka"
+      ]
     }
   ],
   "place_aliases": {

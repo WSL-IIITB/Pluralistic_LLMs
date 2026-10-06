@@ -1,14 +1,17 @@
 """
 Wires the pipeline stages into a LangGraph StateGraph -- one topology for every
-reasoning mode, working region by region across Karnataka's four persona
-regions (see ../karnataka.py):
+reasoning mode, working region by region across Karnataka's persona regions
+(see ../karnataka.py):
 
-    source -> research -> resolve_regions -> cluster -> aggregate -> deflect
-           -> synthesize -> answer_regions -> divergence -> END
+    source -> research -> resolve_regions -> cluster -> aggregate
+           -> synthesize -> answer_regions -> persona_similarity
+           -> story_vs_official -> END
 
-`synthesize` writes the Karnataka-wide overview; `answer_regions` writes one
-persona reply per region; `divergence` re-asks each region without its persona
-and measures how far the two replies diverge.
+`synthesize` writes the Karnataka-wide overview; `answer_regions` writes a
+male and a female persona reply per region; `story_vs_official` compares that
+Story Mode reasoning against the UIDAI/NITI official dominant-factor data
+(../niti_factors.py) and writes one consolidated answer per region plus one
+for the whole state.
 
 The graph is rebuilt per request (cheap) so each request gets its own `emit`
 closure.
@@ -39,11 +42,12 @@ from ..reasoning_modes import (
 )
 from ..schema import CollectionCounts, StatusEvent
 from .nodes.cluster_viewpoints import cluster_viewpoints_per_region
-from .nodes.deflection_and_synthesis import extract_region_deflections, synthesize_answer
-from .nodes.divergence import measure_divergence
+from .nodes.deflection_and_synthesis import synthesize_answer
 from .nodes.persona_answers import answer_regions
+from .nodes.persona_similarity import measure_persona_similarity
 from .nodes.research import gather_research
 from .nodes.resolve_regions import aggregate_regions, resolve_regions
+from .nodes.story_vs_official import compare_story_vs_official
 from .state import EmitFn, PipelineState, RawPost, new_pipeline_state
 
 _gazetteer_cache: dict | None = None
@@ -186,10 +190,12 @@ async def _filter_by_relevance(posts: list[RawPost], query: str, framings: list[
 # Karnataka subreddits worth searching per region (Reddit is only used when
 # credentials are configured -- see connectors/sources.py).
 REGION_SUBREDDITS: dict[str, list[str]] = {
-    "mysuru-bengaluru": ["bangalore", "mysore"],
+    "old-mysuru": ["bangalore", "mysore"],
     "karavali": ["mangalore"],
     "malnad": [],
-    "north-karnataka": [],
+    "bayaluseeme": [],
+    "kitturu-karnataka": [],
+    "kalyana-karnataka": [],
 }
 STATEWIDE_SUBREDDITS = ["karnataka"]
 
@@ -334,8 +340,13 @@ def build_graph(emit: EmitFn, llm: LLMClient, settings: Settings, mode: Research
     """One topology for every mode (mode only scales volume -- see
     reasoning_modes.py):
 
-      source -> research -> resolve_regions -> cluster -> aggregate -> deflect
-             -> synthesize -> answer_regions -> divergence -> END
+      source -> research -> resolve_regions -> cluster -> aggregate
+             -> synthesize -> answer_regions -> persona_similarity
+             -> story_vs_official -> END
+
+    (The old "deflect" stage -- pairwise points of deflection between
+    viewpoint clusters -- was dropped from the dashboard; extract_region_deflections
+    is left in deflection_and_synthesis.py but is no longer wired in.)
     """
     reddit = get_reddit_connector(settings)
     youtube = get_youtube_connector(settings)
@@ -350,10 +361,10 @@ def build_graph(emit: EmitFn, llm: LLMClient, settings: Settings, mode: Research
     )
     graph.add_node("cluster", _bind(cluster_viewpoints_per_region, emit=emit, llm=llm))
     graph.add_node("aggregate", _bind(aggregate_regions, emit=emit))
-    graph.add_node("deflect", _bind(extract_region_deflections, emit=emit, llm=llm))
     graph.add_node("synthesize", _bind(synthesize_answer, emit=emit, llm=llm))
     graph.add_node("answer_regions", _bind(answer_regions, emit=emit, llm=llm))
-    graph.add_node("divergence", _bind(measure_divergence, emit=emit, llm=llm, settings=settings))
+    graph.add_node("persona_similarity", _bind(measure_persona_similarity, emit=emit, llm=llm))
+    graph.add_node("story_vs_official", _bind(compare_story_vs_official, emit=emit, llm=llm))
 
     order = [
         "source",
@@ -361,10 +372,10 @@ def build_graph(emit: EmitFn, llm: LLMClient, settings: Settings, mode: Research
         "resolve_regions",
         "cluster",
         "aggregate",
-        "deflect",
         "synthesize",
         "answer_regions",
-        "divergence",
+        "persona_similarity",
+        "story_vs_official",
     ]
     graph.set_entry_point(order[0])
     for a, b in zip(order, order[1:]):

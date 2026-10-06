@@ -10,6 +10,7 @@
  * logged, never thrown.
  */
 
+import { STATIC_DATA } from "./api";
 import { STREAM_SOURCE, WORLDVIEW_API_URL } from "./stream/config";
 import type { SavedRunData } from "./store";
 import type { SavedRunSummary } from "./types";
@@ -19,7 +20,7 @@ const RUNS_URL = WORLDVIEW_API_URL.replace(/\/stream$/, "/runs");
 
 /** No real backend to persist to in the offline mock demo — every function
  * below short-circuits on this rather than attempting (and failing) a fetch. */
-const hasBackend = STREAM_SOURCE === "sse";
+const hasBackend = STREAM_SOURCE === "sse" && !STATIC_DATA;
 
 /** Fire-and-forget: save a completed run. Never throws. */
 export async function saveRun(data: SavedRunData): Promise<void> {

@@ -1,0 +1,146 @@
+{
+  "districtId": "29-579",
+  "name": "Kalaburagi",
+  "regionId": "kalyana-karnataka",
+  "researchedOn": "2026-10-07",
+  "headline": "Out-of-school counts differ 50-fold between departments, and child marriage is widespread.",
+  "summary": "A rural-development survey found 11,137 out-of-school children in Kalaburagi while the education department reported 225, so the true scale is unclear. Authorities stopped 128 child marriages in a year and logged 43 more cases in four months, and parents were booked for marrying 15-year-old daughters. Child labour in ragpicking and scrap shops is reported, and the district ranked last in SSLC 2026.",
+  "reasons": [
+    {
+      "factor": "Child marriage of adolescent girls",
+      "category": "gender",
+      "detail": "Officials prevented 128 child marriages in one year and logged 43 more cases in four months; parents were booked for marrying ailing 15-year-olds.",
+      "sources": [
+        1,
+        2,
+        3
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Departments disagree on dropout counts",
+      "category": "governance",
+      "detail": "A rural-development survey counted 11,137 out-of-school children against 225 reported by the education department, hiding the real scale.",
+      "sources": [
+        4
+      ],
+      "evidence": "strong"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Out-of-school children: rural-development survey vs education department",
+      "value": "11,137 vs 225",
+      "sources": [
+        4
+      ]
+    },
+    {
+      "label": "Child marriages prevented in one year",
+      "value": "128",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "label": "SSLC pass rate, 2026 (lowest in the state)",
+      "value": "85.06%",
+      "sources": [
+        5
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Campaign prevents 128 child marriages in Kalaburagi in one year",
+      "outlet": "The Hindu",
+      "date": "2025-05-01",
+      "url": "https://www.thehindu.com/news/national/karnataka/campaign-prevents-128-child-marriages-in-kalaburagi-in-one-year/article69505819.ece",
+      "takeaway": "Campaign prevents 128 child marriages in Kalaburagi in one year."
+    },
+    {
+      "title": "Four booked for child marriage in Kalaburagi",
+      "outlet": "The Hindu",
+      "date": "2025-01-29",
+      "url": "https://www.thehindu.com/news/national/karnataka/four-booked-for-child-marriage-in-kalaburagi/article69154828.ece",
+      "takeaway": "Four booked for child marriage in Kalaburagi."
+    },
+    {
+      "title": "Different surveys on out-of-school children in Kalaburagi reveal contrasting figures",
+      "outlet": "The Hindu",
+      "date": "2025-01-01",
+      "url": "https://www.thehindu.com/news/national/karnataka/different-surveys-on-out-of-school-children-in-kalaburagi-reveal-contrasting-figures/article69047215.ece",
+      "takeaway": "Different surveys on out-of-school children in Kalaburagi reveal contrasting figures."
+    }
+  ],
+  "responses": [
+    {
+      "text": "A campaign and task force stepped up child-marriage prevention, with officials told to file FIRs swiftly.",
+      "sources": [
+        1,
+        2
+      ]
+    }
+  ],
+  "officialFactorCheck": [
+    {
+      "factor": "% Population Living in Households with Improved Sanitation",
+      "method": "state",
+      "verdict": "no-evidence",
+      "note": "Poverty, child marriage and data gaps dominate local reporting; sanitation is not linked to dropout.",
+      "sources": []
+    },
+    {
+      "factor": "% Schools with instruction medium 1 (English)",
+      "method": "district",
+      "verdict": "no-evidence",
+      "note": "No evidence links instruction medium to dropout.",
+      "sources": []
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://www.thehindu.com/news/national/karnataka/campaign-prevents-128-child-marriages-in-kalaburagi-in-one-year/article69505819.ece",
+      "title": "Campaign prevents 128 child marriages in Kalaburagi in one year",
+      "outlet": "The Hindu",
+      "date": "2025-05-01",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://www.thehindu.com/news/national/karnataka/officials-told-to-swiftly-file-firs-against-those-involved-in-child-marriage-activities/article69602479.ece",
+      "title": "Officials told to swiftly file FIRs against those involved in child marriage activities",
+      "outlet": "The Hindu",
+      "date": "2025-05-21",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://www.thehindu.com/news/national/karnataka/four-booked-for-child-marriage-in-kalaburagi/article69154828.ece",
+      "title": "Four booked for child marriage in Kalaburagi",
+      "outlet": "The Hindu",
+      "date": "2025-01-29",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "https://www.thehindu.com/news/national/karnataka/different-surveys-on-out-of-school-children-in-kalaburagi-reveal-contrasting-figures/article69047215.ece",
+      "title": "Different surveys on out-of-school children in Kalaburagi reveal contrasting figures",
+      "outlet": "The Hindu",
+      "date": "2025-01-01",
+      "type": "news"
+    },
+    {
+      "id": 5,
+      "url": "https://daijiworld.com/news/newsDisplay?newsID=1312642",
+      "title": "SSLC 2026 results: Dakshina Kannada tops with 98.40%, Udupi student scores perfect 625",
+      "outlet": "Daijiworld",
+      "date": "2026-04-23",
+      "type": "news"
+    }
+  ],
+  "coverage": "thin",
+  "gaps": "Out-of-school survey figures are contested and undated here; no Class 8-10 dropout rate.",
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+}

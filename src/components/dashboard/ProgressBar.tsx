@@ -28,7 +28,7 @@ export function ProgressBar({ onGoDeeper }: ProgressBarProps) {
   }
 
   return (
-    <section className="panel-surface pointer-events-auto flex w-[560px] max-w-[calc(100vw-3rem)] items-center gap-4 rounded-xl px-4 py-3">
+    <section className="panel-surface pointer-events-auto flex w-full items-center gap-4 rounded-xl px-4 py-3">
       <div className="min-w-0 flex-1">
         <div className="flex items-baseline justify-between gap-2">
           <p className="label-micro truncate">Live collection{mode !== "medium" ? ` · ${mode}` : ""}</p>

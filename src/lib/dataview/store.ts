@@ -36,17 +36,21 @@ export type DataViewLoadState = "idle" | "loading" | "ready" | "error";
 export type DataViewColorMode = "dropoutRate" | "interventionIndex";
 
 /**
- * Which of Data View's two pages is showing — "Verdict" (map + per-state
+ * Which of Data View's three pages is showing — "Verdict" (map + per-state
  * top-5-factors table + factor cross-filter + the real LLM-generated verdict
- * narrative for whatever's selected) or "Intervention & Budget" (bucket
- * sliders, Original-vs-Prescribed table, budget allocation). Mirrors the
- * reference LKI/IIIT-B dashboard's guided two-page flow, switched by an
- * explicit forward/back control — NEVER auto-switched as a side effect of a
- * map click/selection change, which is why this is its own field rather
- * than folded into `selection` below (selection MUST persist across a
- * toggle in either direction).
+ * narrative for whatever's selected), "Intervention & Budget" (bucket
+ * sliders, Original-vs-Prescribed table, budget allocation), both India-wide
+ * and backed by this store, or "Persona Similarity" (Karnataka Story Mode's
+ * own male/female-persona-vs-baseline similarity scores and t-SNE — backed
+ * by the separate Karnataka worldview store instead, see
+ * KarnatakaPersonaSimilarity.tsx). The first two mirror the reference
+ * LKI/IIIT-B dashboard's guided two-page flow, switched by an explicit
+ * forward/back control — NEVER auto-switched as a side effect of a map
+ * click/selection change, which is why this is its own field rather than
+ * folded into `selection` below (selection MUST persist across a toggle in
+ * either direction).
  */
-export type DataViewActiveView = "verdict" | "intervention";
+export type DataViewActiveView = "verdict" | "intervention" | "persona-similarity";
 
 export type DataViewSelection =
   | { kind: "district"; id: DistrictId }

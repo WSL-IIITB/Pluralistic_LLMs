@@ -1,0 +1,147 @@
+{
+  "districtId": "29-569",
+  "name": "Udupi",
+  "regionId": "karavali",
+  "researchedOn": "2026-10-07",
+  "headline": "Near-perfect SSLC results; documented exits are mostly students absent from board papers.",
+  "summary": "Udupi shares Dakshina Kannada's profile: 98.18% SSLC pass in 2026 (second in the state) after intensive slow-learner coaching. The only dropout-like signal in the sources is students who sit the whole secondary cycle and then skip board papers, 62 in language papers in 2026 and 122 in science papers in an earlier cycle. Early-secondary dropout is rarely reported.",
+  "reasons": [
+    {
+      "factor": "Skipping SSLC board papers",
+      "category": "other",
+      "detail": "Students from several blocks failed to appear for language papers in 2026 and for science papers in an earlier cycle, a late exit that official pass rates hide.",
+      "sources": [
+        1,
+        2
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Intensive slow-learner coaching",
+      "category": "governance",
+      "detail": "Teachers are told to isolate weaker students and drill them with question banks after preparatory exams, which keeps Class 10 candidates in the system.",
+      "sources": [
+        3,
+        4
+      ],
+      "evidence": "moderate"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "SSLC pass rate, 2026",
+      "value": "98.18% (state rank 2)",
+      "sources": [
+        3
+      ]
+    },
+    {
+      "label": "Students who failed SSLC, 2026",
+      "value": "244",
+      "sources": [
+        3
+      ]
+    },
+    {
+      "label": "Absent for SSLC language papers, 2026",
+      "value": "62",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "label": "Schools with 100% SSLC pass",
+      "value": "51",
+      "sources": [
+        4
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Karnataka SSLC exam-1: Focused preparatory strategy helps Dakshina Kannada and Udupi achieve record performance",
+      "outlet": "The Hindu",
+      "date": "2026-04-23",
+      "url": "https://www.thehindu.com/news/cities/Mangalore/karnataka-sslc-exam-1-focused-preparatory-strategy-helps-dakshina-kannada-and-udupi-achieve-record-performance/article70896779.ece",
+      "takeaway": "Focused preparatory strategy helps Dakshina Kannada and Udupi record top SSLC performance."
+    },
+    {
+      "title": "Over 42,000 students attend SSLC exam in Dakshina Kannada, Udupi",
+      "outlet": "The Hindu",
+      "date": "2024-03-31",
+      "url": "https://www.thehindu.com/news/cities/Mangalore/over-42000-students-attend-sslc-exam-in-dakshina-kannada-udupi/article68010307.ece",
+      "takeaway": "Over 42,000 students attend the SSLC exam in Dakshina Kannada and Udupi."
+    }
+  ],
+  "responses": [
+    {
+      "text": "Education officials mandate slow-learner coaching and question-bank drills after the preparatory exam.",
+      "sources": [
+        3
+      ]
+    }
+  ],
+  "officialFactorCheck": [
+    {
+      "factor": "% Population Living in Households with Improved Sanitation",
+      "method": "state",
+      "verdict": "unclear",
+      "note": "Every government school here had toilets in 2023 High Court data; the factor is household sanitation, which no source links to dropout locally.",
+      "sources": [
+        5
+      ]
+    },
+    {
+      "factor": "% Schools with instruction medium 1 (English)",
+      "method": "district",
+      "verdict": "no-evidence",
+      "note": "English-medium schooling is common here, but no source links it to retention or dropout.",
+      "sources": []
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://www.thehindu.com/news/cities/Mangalore/mixed-response-from-class-10-students-to-grading-system-for-third-language-in-karnataka/article70807920.ece",
+      "title": "Mixed response from class 10 students to grading system  for third language in Karnataka",
+      "outlet": "The Hindu",
+      "date": "2026-03-31",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://www.thehindu.com/news/cities/Mangalore/over-42000-students-attend-sslc-exam-in-dakshina-kannada-udupi/article68010307.ece",
+      "title": "Over 42,000 students attend SSLC exam in Dakshina Kannada, Udupi",
+      "outlet": "The Hindu",
+      "date": "2024-03-31",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://www.thehindu.com/news/cities/Mangalore/karnataka-sslc-exam-1-focused-preparatory-strategy-helps-dakshina-kannada-and-udupi-achieve-record-performance/article70896779.ece",
+      "title": "Karnataka SSLC exam-1: Focused preparatory strategy helps Dakshina Kannada and Udupi achieve record performance",
+      "outlet": "The Hindu",
+      "date": "2026-04-23",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "https://www.thehindu.com/news/cities/Mangalore/sslc-results-dakshina-kannada-district-tops-karnataka-after-many-years/article69532015.ece",
+      "title": "SSLC results: Dakshina Kannada district tops Karnataka after many years",
+      "outlet": "The Hindu",
+      "date": "2025-05-02",
+      "type": "news"
+    },
+    {
+      "id": 5,
+      "url": "https://www.thehindu.com/news/national/karnataka/sorry-state-of-affairs-says-high-court-on-absence-of-toilets-in-464-govt-schools/article66908404.ece",
+      "title": "No drinking water in 87 govt schools, no toilets in 464 schools in Karnataka",
+      "outlet": "The Hindu",
+      "date": "2023-05-29",
+      "type": "news"
+    }
+  ],
+  "coverage": "thin",
+  "gaps": "No Class 8-10 dropout counts; most sources are SSLC-result coverage; the district's very low casefile dropout rate is unexplained.",
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+}

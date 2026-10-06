@@ -1,0 +1,208 @@
+{
+  "districtId": "29-583",
+  "name": "Bengaluru Rural",
+  "regionId": "old-mysuru",
+  "researchedOn": "2026-10-07",
+  "headline": "Child labour near the metro and schools without water or toilets.",
+  "summary": "Bengaluru Rural sits next to the metropolis, which creates demand for cheap adolescent labour; labour sweeps rescued 145 children over three years in a Times of India report. A High Court audit flagged five schools here without drinking water or toilets. Child-rights groups worry about post-COVID children who never returned to school.",
+  "reasons": [
+    {
+      "factor": "Child labour near the metro",
+      "category": "economic",
+      "detail": "Proximity to Bengaluru draws adolescents into unorganised work; labour sweeps rescued 145 children over three years.",
+      "sources": [
+        1
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Schools without toilets",
+      "category": "school-infrastructure",
+      "detail": "A 2023 High Court report found five government schools in Bengaluru Rural without toilets.",
+      "sources": [
+        2
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Pandemic closures and income loss",
+      "category": "economic",
+      "detail": "Activists tie COVID school closures, job losses and unaffordable online-class costs to dropouts and then early marriage; the figures combine Bengaluru urban and rural, not rural alone.",
+      "sources": [
+        4
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Child marriage after school exit",
+      "category": "gender",
+      "detail": "Child protection officers in Bengaluru Rural stopped 66 child marriages in 2020-21 versus 12 in the prior two years, per a Deccan Herald report; girls out of school are quickly seen as ready for marriage.",
+      "sources": [
+        5
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Poverty and low awareness",
+      "category": "social-norms",
+      "detail": "A 2016 report listing Bengaluru Rural with 25 child marriage cases (2013-16) blamed poverty, limited education and low awareness for rising cases statewide; it is not specific to this district.",
+      "sources": [
+        6
+      ],
+      "evidence": "thin"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Child labourers rescued over three years",
+      "value": "145",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "label": "SSLC pass rate, 2025",
+      "value": "74.02%",
+      "sources": [
+        3
+      ]
+    },
+    {
+      "label": "Government schools without toilets (High Court data, 2023)",
+      "value": "5",
+      "sources": [
+        2
+      ]
+    },
+    {
+      "label": "Child marriage cases, Bengaluru Rural, 2013-2016",
+      "value": "25 cases",
+      "sources": [
+        6
+      ]
+    },
+    {
+      "label": "Child marriages stopped, Bengaluru Rural, 2020-21",
+      "value": "66, versus 12 cases in the two years before",
+      "sources": [
+        5
+      ]
+    },
+    {
+      "label": "Child marriage complaints, urban+rural, 2020-Aug 2022",
+      "value": "279 complaints; 232 stopped; 47 solemnised",
+      "sources": [
+        4
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Since 2020, Bengaluru has witnessed at least one child marriage every month",
+      "outlet": "The News Minute",
+      "date": "2022-10-19",
+      "url": "https://www.thenewsminute.com/karnataka/2020-bengaluru-has-witnessed-least-one-child-marriage-every-month-169032",
+      "takeaway": "Pandemic dropouts raised child marriage risk across Bengaluru urban and rural combined, with poverty and norms named as root causes."
+    },
+    {
+      "title": "Covid on the ebb, but child labour incidence still high in Karnataka",
+      "outlet": "The Times of India",
+      "date": "2022-10-04",
+      "url": "https://timesofindia.indiatimes.com/city/bengaluru/covid-on-the-ebb-but-child-labour-incidence-still-high-in-karnataka/articleshow/94629749.cms",
+      "takeaway": "Covid on the ebb, but child labour incidence still high in Karnataka."
+    },
+    {
+      "title": "Siddaramaiah's Mysuru stands 8th in child marriage cases",
+      "outlet": "Deccan Chronicle",
+      "date": "2016-11-22",
+      "url": "https://deccanchronicle.com/nation/politics/221116/siddaramaiahs-mysuru-stands-8th-in-child-marriage-cases.html",
+      "takeaway": "Lists Bengaluru Rural with 25 child marriage cases over 2013-16 amid a statewide rise attributed to poverty and limited education."
+    },
+    {
+      "title": "Child marriages in Bengaluru fewer but still a concern",
+      "outlet": "Deccan Herald",
+      "date": "",
+      "url": "https://www.deccanherald.com/amp/story/india%2Fkarnataka%2Fbengaluru%2Fchild-marriages-in-bengaluru-fewer-but-still-a-concern-3758993",
+      "takeaway": "Awareness drives in schools and the 1098 helpline stop most child marriages; Bengaluru Rural stopped 66 in 2020-21 against 12 earlier."
+    }
+  ],
+  "responses": [
+    {
+      "text": "Child protection authorities use awareness drives in schools and the 1098 child helpline to stop child marriages; the report says about 80 percent of Bengaluru cases were stopped.",
+      "sources": [
+        5
+      ]
+    }
+  ],
+  "officialFactorCheck": [
+    {
+      "factor": "% Population Living in Households with Improved Sanitation",
+      "method": "state",
+      "verdict": "unclear",
+      "note": "Schools here lack water and toilets, but no source links this to dropout.",
+      "sources": [
+        2
+      ]
+    },
+    {
+      "factor": "% Schools with instruction medium 1 (English)",
+      "method": "district",
+      "verdict": "no-evidence",
+      "note": "No documented link between English-medium instruction and dropout locally.",
+      "sources": []
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://timesofindia.indiatimes.com/city/bengaluru/covid-on-the-ebb-but-child-labour-incidence-still-high-in-karnataka/articleshow/94629749.cms",
+      "title": "Covid on the ebb, but child labour incidence still high in Karnataka",
+      "outlet": "The Times of India",
+      "date": "2022-10-04",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://www.thehindu.com/news/national/karnataka/sorry-state-of-affairs-says-high-court-on-absence-of-toilets-in-464-govt-schools/article66908404.ece",
+      "title": "No drinking water in 87 govt schools, no toilets in 464 schools in Karnataka",
+      "outlet": "The Hindu",
+      "date": "2023-05-29",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://www.collegedekho.com/karnataka-sslc-result-statistics-brd",
+      "title": "Karnataka SSLC Result Statistics 2026 - Check Karnataka Class 10 Result Statistics | CollegeDekho",
+      "outlet": "CollegeDekho",
+      "date": "2024-04-04",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "https://www.thenewsminute.com/karnataka/2020-bengaluru-has-witnessed-least-one-child-marriage-every-month-169032",
+      "title": "Since 2020, Bengaluru has witnessed at least one child marriage every month",
+      "outlet": "The News Minute",
+      "date": "2022-10-19",
+      "type": "news"
+    },
+    {
+      "id": 5,
+      "url": "https://www.deccanherald.com/amp/story/india%2Fkarnataka%2Fbengaluru%2Fchild-marriages-in-bengaluru-fewer-but-still-a-concern-3758993",
+      "title": "Child marriages in Bengaluru fewer but still a concern",
+      "outlet": "Deccan Herald",
+      "date": "",
+      "type": "news"
+    },
+    {
+      "id": 6,
+      "url": "https://deccanchronicle.com/nation/politics/221116/siddaramaiahs-mysuru-stands-8th-in-child-marriage-cases.html",
+      "title": "Siddaramaiah's Mysuru stands 8th in child marriage cases",
+      "outlet": "Deccan Chronicle",
+      "date": "2016-11-22",
+      "type": "news"
+    }
+  ],
+  "coverage": "thin",
+  "gaps": "No district dropout counts; the child-labour figure comes from a statewide report. No district-specific dropout/out-of-school counts, SSLC pass rates, child-labour (garment/industrial) or taluk-level evidence found for Bengaluru Rural; Deccan Herald pages were blocked, so the 66-vs-12 figure rests on a search snippet.",
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+}

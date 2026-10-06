@@ -11,6 +11,7 @@ import {
   type AnswerSegment,
   type ClusterId,
   type KarnatakaRegionMeta,
+  type PersonaVariantMeta,
   type QueryType,
   type ResearchDocument,
 } from "@/lib/worldview";
@@ -115,8 +116,13 @@ export function ConsolidatedPanel() {
     () =>
       KARNATAKA_REGIONS.map((meta) => ({
         meta,
-        segments: answer.filter((a) => a.regionId === meta.id),
-      })).filter((r) => r.segments.length > 0),
+        byPersona: meta.personas
+          .map((p) => ({
+            persona: p,
+            segments: answer.filter((a) => a.regionId === meta.id && a.personaId === p.id),
+          }))
+          .filter((g) => g.segments.length > 0),
+      })).filter((r) => r.byPersona.length > 0),
     [answer],
   );
   const isStreaming = runState === "streaming" || runState === "connecting";
@@ -256,7 +262,7 @@ export function ConsolidatedPanel() {
               <p className="label-micro">Persona replies by region</p>
               <div className="mt-2.5 space-y-3">
                 {regionReplies.map((r) => (
-                  <RegionReply key={r.meta.id} meta={r.meta} segments={r.segments} />
+                  <RegionReply key={r.meta.id} meta={r.meta} byPersona={r.byPersona} />
                 ))}
               </div>
             </div>
@@ -276,10 +282,14 @@ export function ConsolidatedPanel() {
   );
 }
 
-function RegionReply({ meta, segments }: { meta: KarnatakaRegionMeta; segments: AnswerSegment[] }) {
+function RegionReply({
+  meta,
+  byPersona,
+}: {
+  meta: KarnatakaRegionMeta;
+  byPersona: { persona: PersonaVariantMeta; segments: AnswerSegment[] }[];
+}) {
   const [open, setOpen] = useState(true);
-  const tldr = segments.find((s) => s.kind === "tldr");
-  const rest = segments.filter((s) => s !== tldr);
   return (
     <div className="rounded-lg border border-panel-border bg-background/30 px-3 py-2.5">
       <button
@@ -301,11 +311,34 @@ function RegionReply({ meta, segments }: { meta: KarnatakaRegionMeta; segments: 
           aria-hidden
         />
       </button>
-      {tldr && (
-        <p className="mt-1.5 text-[12.5px] leading-relaxed text-foreground/90">{tldr.text}</p>
+      {open && (
+        <div className="mt-1.5 space-y-2.5">
+          {byPersona.map(({ persona, segments }) => (
+            <PersonaReply key={persona.id} persona={persona} segments={segments} />
+          ))}
+        </div>
       )}
-      {open && rest.length > 0 && (
-        <ul className="mt-2 space-y-1.5">
+    </div>
+  );
+}
+
+function PersonaReply({
+  persona,
+  segments,
+}: {
+  persona: PersonaVariantMeta;
+  segments: AnswerSegment[];
+}) {
+  const tldr = segments.find((s) => s.kind === "tldr");
+  const rest = segments.filter((s) => s !== tldr);
+  return (
+    <div>
+      <p className="label-micro text-foreground/60">{persona.label}</p>
+      {tldr && (
+        <p className="mt-1 text-[12.5px] leading-relaxed text-foreground/90">{tldr.text}</p>
+      )}
+      {rest.length > 0 && (
+        <ul className="mt-1.5 space-y-1.5">
           {rest.map((seg, i) => (
             <li
               key={i}
@@ -414,9 +447,9 @@ function EmptyState({ isStreaming }: { isStreaming: boolean }) {
   return (
     <p className="text-[13px] leading-relaxed text-muted-foreground/70">
       Enter a topic and press <span className="text-foreground">Explore</span>. Posts and sources
-      are gathered across Karnataka's four regions, then a Karnataka-wide answer and one persona
-      reply per region — Mysuru-Bengaluru, North Karnataka, Karavali and Malnad — are written here,
-      with citations to the sources used.
+      are gathered across Karnataka's six regions, then a Karnataka-wide answer and a male and a
+      female persona reply per region — Old Mysuru, Bayaluseeme, Karavali, Malnad, Kitturu
+      Karnataka and Kalyana Karnataka — are written here, with citations to the sources used.
     </p>
   );
 }

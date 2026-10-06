@@ -24,7 +24,6 @@ import asyncio
 from ...connectors.base import LLMClient
 from ...karnataka import (
     karnataka_state_code,
-    load_persona,
     load_karnataka_gazetteer,
     normalize_place,
     persona_regions,
@@ -109,7 +108,7 @@ def _region_states() -> dict[str, RegionState]:
         regions[spec["id"]] = RegionState(
             id=spec["id"],
             name=spec["short_name"],
-            justification=load_persona(spec["id"])["region_definition"],
+            justification=spec["definition"],
             district_ids=list(spec["district_ids"]),
             state_codes=[ka],
             confidence="high",

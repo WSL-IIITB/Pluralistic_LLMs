@@ -384,8 +384,35 @@ class StubLLMClient:
             segments.append(seg)
         return segments
 
-    async def extract_points(self, text: str) -> list[str]:
-        return [p.strip() for p in re.split(r"(?<=[.!?])\s+", text) if len(p.strip()) > 12][:12]
+    async def compare_story_vs_official(
+        self,
+        query: str,
+        area_label: str,
+        story_points: list[str],
+        official_factors: list[dict],
+    ) -> dict:
+        # Honest, inert default: state what evidence exists, fabricate no
+        # synthesis, same contract every other stub method follows.
+        has_story = bool(story_points)
+        has_official = bool(official_factors)
+        if has_story and has_official:
+            comparison = (
+                f"For '{query}' in {area_label}: Story Mode gathered {len(story_points)} persona "
+                f"reply/replies from social and web evidence; UIDAI/NITI data names "
+                f"{len(official_factors)} dominant-factor row(s) for this area's districts. No live "
+                "comparison model configured for this run -- showing both sources directly rather "
+                "than a synthesized comparison."
+            )
+        elif has_story:
+            comparison = f"Only Story Mode evidence is available for {area_label}; no UIDAI/NITI row matched this area's districts."
+        elif has_official:
+            comparison = f"Only UIDAI/NITI data is available for {area_label}; Story Mode produced no persona reply for this area."
+        else:
+            comparison = f"No Story Mode or UIDAI/NITI evidence is available for {area_label}."
+        consolidated = " ".join(story_points) or (
+            "; ".join(f"{f.get('factor')} ({f.get('district')})" for f in official_factors) or ""
+        )
+        return {"comparison": comparison, "consolidated_answer": consolidated}
 
     async def generate_verdict(
         self,
@@ -852,13 +879,25 @@ class OpenAILLMClient:
                 for d in research_documents
                 if isinstance(d, dict) and d.get("id")
             ]
+            # Belt-and-braces on top of research.py's own per-job cap: this is
+            # the one call that bundles evidence from EVERY region into a
+            # single prompt, so it's the most exposed to a context-window
+            # overflow as the region/mode count grows. A silent truncation
+            # here is far better than the alternative -- this whole call
+            # falling back to the generic stub overview (see the except
+            # below), which is worse for every region, not just the trimmed
+            # part.
+            _MAX_FINDINGS_CHARS = 20_000
+            findings = research_findings or ""
+            if len(findings) > _MAX_FINDINGS_CHARS:
+                findings = findings[:_MAX_FINDINGS_CHARS].rstrip() + "\n\n[additional findings truncated for length]"
             payload = {
                 "query": query,
                 "query_type": query_type,
                 "clusters": clusters,
                 "deflections": deflections,
                 "known_framings": known_framings,
-                "research_findings": research_findings,
+                "research_findings": findings,
                 "research_documents": doc_index,
             }
             structure_instructions = (
@@ -1026,24 +1065,47 @@ class OpenAILLMClient:
             raise ValueError("no usable segments")
         return cleaned
 
-    async def extract_points(self, text: str) -> list[str]:
-        data = await self._chat_json(
-            "Split the user's text into its distinct substantive points: each a short, "
-            "self-contained sentence stating exactly one claim, recommendation, or fact from the "
-            "text. Keep the text's own specifics (names, places, numbers); do not add anything "
-            "that is not in the text, do not merge unrelated ideas, and skip filler. Respond with "
-            'JSON: {"points": ["...", ...]} with 3 to 12 points.',
-            text,
-            timeout=60.0,
+    async def compare_story_vs_official(
+        self,
+        query: str,
+        area_label: str,
+        story_points: list[str],
+        official_factors: list[dict],
+    ) -> dict:
+        payload = {"query": query, "area": area_label, "story_points": story_points, "official_factors": official_factors}
+        system = (
+            f"You compare two independent accounts of '{query}' for ONE Karnataka area: {area_label}.\n\n"
+            "`story_points` -- Story Mode's own reasoning: persona-written replies grounded in "
+            "social media, news and web research for this specific area (may be empty if this area "
+            "had no persona reply this run).\n\n"
+            "`official_factors` -- UIDAI/NITI's statistical model: each row is {district, factor, "
+            "value, method} naming the factor identified as most predictive of that district's "
+            "dropout rate (may be empty if no row matched this area's districts). Two DIFFERENT "
+            "methods appear and must NEVER be treated as comparable to each other or averaged -- "
+            "read each row's own `method` string for what its `value` actually means, and never "
+            "assert a statistical meaning beyond what `method` states.\n\n"
+            'Respond with JSON: {"comparison": str, "consolidated_answer": str}.\n\n'
+            "`comparison` (plain text, 80-150 words): where Story Mode's account and the official "
+            "factor(s) agree, where they diverge, and a plausible reason why (for example Story "
+            "Mode surfacing a cause the official model can't measure, like seasonal labour or "
+            "language of instruction, while the official data flags a measurable infrastructure "
+            "gap). If one side is empty, say so plainly in one sentence instead of comparing.\n\n"
+            "`consolidated_answer` (plain text, 80-150 words): ONE coherent answer to the query for "
+            "this area that genuinely draws on BOTH sources where both exist -- not a "
+            "concatenation, a real synthesis. Ground every claim in the evidence given; never "
+            "invent a statistic, district, or factor not present in the payload.\n\n"
+            "PLAIN TEXT ONLY in both fields: no markdown, no bullet characters, no citation "
+            "markers, no source names inline."
         )
-        points = data.get("points")
-        if not isinstance(points, list):
-            raise ValueError(f"malformed points: {points!r}")
-        cleaned = [self._strip_markdown_noise(str(p)) for p in points if str(p).strip()]
-        cleaned = [p for p in cleaned if p]
-        if not cleaned:
-            raise ValueError("no points extracted")
-        return cleaned[:12]
+        data = await self._chat_json(system, json.dumps(payload), timeout=60.0)
+        comparison = data.get("comparison")
+        consolidated = data.get("consolidated_answer")
+        if not isinstance(comparison, str) or not isinstance(consolidated, str):
+            raise ValueError(f"malformed compare_story_vs_official response: {data!r}")
+        return {
+            "comparison": self._strip_markdown_noise(comparison),
+            "consolidated_answer": self._strip_markdown_noise(consolidated),
+        }
 
     async def generate_verdict(
         self,

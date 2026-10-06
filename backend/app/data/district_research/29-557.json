@@ -1,0 +1,275 @@
+{
+  "districtId": "29-557",
+  "name": "Vijayapura",
+  "regionId": "kitturu-karnataka",
+  "researchedOn": "2026-10-07",
+  "headline": "Mass weddings used to marry school-age girls, plus teachers pulled off duty, shape a weak secondary system.",
+  "summary": "Vijayapura sources describe families using mass weddings to marry school-age daughters, prompting a rule that organisers give 21 days' notice so officials can check brides' ages. Teachers have protested being diverted to census work after SSLC, and the district has had poor SSLC performance that drew warnings to education officials. Many students are children of daily-wage farm labourers.",
+  "reasons": [
+    {
+      "factor": "Child marriage through mass weddings",
+      "category": "gender",
+      "detail": "Poor families use mass wedding ceremonies to marry school-age daughters, so the district required organisers to give 21 days' notice for age verification.",
+      "sources": [
+        1
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Agricultural wage-labour poverty",
+      "category": "economic",
+      "detail": "Many students are children of daily-wage farm labourers, which is reported to push them towards work.",
+      "sources": [
+        2
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Summer migration for work",
+      "category": "migration",
+      "detail": "Dropout is highest in summer when families migrate to Maharashtra and Andhra Pradesh for work; interstate migration pulls children out, and the state opened seasonal schools only for intra-state migrants.",
+      "sources": [
+        6,
+        7
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Early marriage of girls",
+      "category": "gender",
+      "detail": "The Deputy Commissioner said girls' dropout is much higher than boys', with the community favouring marriage at 13 or 14; returning to school after marriage is nearly impossible.",
+      "sources": [
+        6
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Low perceived value of schooling",
+      "category": "social-norms",
+      "detail": "Education is seen mainly as a route to jobs after Class 10, and classroom teaching does not hold children's interest, according to the district's top official.",
+      "sources": [
+        6,
+        7
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Census duty clashing with teaching",
+      "category": "governance",
+      "detail": "High-school teachers complained that census work clashes with the academic calendar; the Deputy Commissioner exempted Vijayapura's high-school teachers.",
+      "sources": [
+        3
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Weak SSLC performance",
+      "category": "governance",
+      "detail": "A poor SSLC result led the in-charge minister to threaten action against education officials and send teams to learn from coastal districts.",
+      "sources": [
+        4
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Secondary school distance",
+      "category": "school-infrastructure",
+      "detail": "In Shegunashi village the school ends at Class 8, so students travel to a neighbouring village; the panchayat funded bus passes for seven girls.",
+      "sources": [
+        6
+      ],
+      "evidence": "thin"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Advance notice required for mass weddings",
+      "value": "21 days",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "label": "Candidates who tampered with SSLC marks cards for postal jobs",
+      "value": "42",
+      "sources": [
+        5
+      ]
+    },
+    {
+      "label": "Out-of-school children, 2018-19 survey",
+      "value": "4,417",
+      "sources": [
+        7
+      ]
+    },
+    {
+      "label": "Samata dropped-out girls identified, 2014-16",
+      "value": "125 identified, 14 brought back (Bagalkot and Bijapur combined)",
+      "sources": [
+        6
+      ]
+    },
+    {
+      "label": "Samata discontinued girls identified, 2014-16",
+      "value": "153 identified, 21 brought back (both districts combined)",
+      "sources": [
+        6
+      ]
+    },
+    {
+      "label": "Class 10 pass among tuition girls, 2015",
+      "value": "90% (Samata villages, Bagalkot and Bijapur)",
+      "sources": [
+        6
+      ]
+    },
+    {
+      "label": "Girls given village bus passes, Shegunashi 2016",
+      "value": "7",
+      "sources": [
+        6
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "High school teachers and PU lecturers say their academic calendar clashes with census work",
+      "outlet": "The Hindu",
+      "date": "2026-04-04",
+      "url": "https://www.thehindu.com/news/national/karnataka/high-school-teachers-and-pu-lecturers-say-their-academic-calendar-clashes-with-census-work/article70822908.ece",
+      "takeaway": "High-school teachers say the academic calendar clashes with census work."
+    },
+    {
+      "title": "SSLC exam: DDPI taken to task for Vijayapura’s dismal performance",
+      "outlet": "The Hindu",
+      "date": "2016-07-02",
+      "url": "https://www.thehindu.com/news/national/karnataka/SSLC-exam-DDPI-taken-to-task-for-Vijayapura%E2%80%99s-dismal-performance/article14466215.ece",
+      "takeaway": "DDPI taken to task for Vijayapura's dismal SSLC performance."
+    },
+    {
+      "title": "No society can develop if it leaves its women behind, says D. Randeep, Vijayapura Deputy Commissioner",
+      "outlet": "Samata Samachara (Karnataka Health Promotion Trust)",
+      "date": "2016-05",
+      "url": "https://strive.lshtm.ac.uk/sites/strive.lshtm.ac.uk/files/SAMATA%20Samachara%20%20May%202016.pdf",
+      "takeaway": "Deputy Commissioner linked summer migration, child marriage and low value placed on girls to high dropout."
+    },
+    {
+      "title": "‘Permission needs to be taken 21 days in advance for mass weddings’",
+      "outlet": "The Hindu",
+      "date": "2015-08-29",
+      "url": "https://www.thehindu.com/news/national/karnataka/permission-needs-to-be-taken-21-days-in-advance-for-mass-weddings/article7592855.ece",
+      "takeaway": "Permission needed 21 days in advance for mass weddings in Vijayapura."
+    },
+    {
+      "title": "Rise in school drop-outs worrying",
+      "outlet": "Deccan Herald",
+      "date": "",
+      "url": "https://deccanherald.com/opinion/editorial/rise-school-drop-outs-worrying-717277.html",
+      "takeaway": "Editorial reported 4,417 out-of-school children in Vijayapura in a 2018-19 survey, citing migration and disinterest as main reasons."
+    }
+  ],
+  "responses": [
+    {
+      "text": "The district administration requires 21 days' notice for mass weddings so brides' ages can be verified.",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "text": "Karnataka opened seasonal schools for children of families migrating within the state; interstate migrants remain hard to cover (2016).",
+      "sources": [
+        6
+      ]
+    },
+    {
+      "text": "Samata programme ran tuition, dropout tracking and gender training in Bagalkot and Bijapur villages, bringing back 14 dropped-out girls by March 2016.",
+      "sources": [
+        6
+      ]
+    },
+    {
+      "text": "Shegunashi village government sanctioned Rs 5 lakh for school playground and compound wall and gave seven girls bus passes.",
+      "sources": [
+        6
+      ]
+    }
+  ],
+  "officialFactorCheck": [
+    {
+      "factor": "% Population Living in Households with Improved Sanitation",
+      "method": "state",
+      "verdict": "no-evidence",
+      "note": "No evidence links sanitation to dropout here.",
+      "sources": []
+    },
+    {
+      "factor": "% Schools with instruction medium 1 (English)",
+      "method": "district",
+      "verdict": "no-evidence",
+      "note": "No evidence links instruction medium to dropout here.",
+      "sources": []
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://www.thehindu.com/news/national/karnataka/permission-needs-to-be-taken-21-days-in-advance-for-mass-weddings/article7592855.ece",
+      "title": "‘Permission needs to be taken 21 days in advance for mass weddings’",
+      "outlet": "The Hindu",
+      "date": "2015-08-29",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://www.thehindu.com/news/national/karnataka/son-of-dalit-labourer-from-vijayapura-tops-sslc-exam-in-karnataka/article65429658.ece",
+      "title": "SSLC exam in Karnataka: Son of Dalit labourer from Vijayapura is one of the toppers",
+      "outlet": "The Hindu",
+      "date": "2022-05-19",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://www.thehindu.com/news/national/karnataka/high-school-teachers-and-pu-lecturers-say-their-academic-calendar-clashes-with-census-work/article70822908.ece",
+      "title": "High school teachers and PU lecturers say their academic calendar clashes with census work",
+      "outlet": "The Hindu",
+      "date": "2026-04-04",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "https://www.thehindu.com/news/national/karnataka/SSLC-exam-DDPI-taken-to-task-for-Vijayapura%E2%80%99s-dismal-performance/article14466215.ece",
+      "title": "SSLC exam: DDPI taken to task for Vijayapura’s dismal performance",
+      "outlet": "The Hindu",
+      "date": "2016-07-02",
+      "type": "news"
+    },
+    {
+      "id": 5,
+      "url": "https://www.thehindu.com/news/national/karnataka/42-candidates-tampered-with-their-sslc-marks-cards-to-get-jobs-in-postal-department/article67713945.ece",
+      "title": "42 candidates tampered with their SSLC marks cards to get jobs in Postal Department",
+      "outlet": "The Hindu",
+      "date": "2024-01-06",
+      "type": "news"
+    },
+    {
+      "id": 6,
+      "url": "https://strive.lshtm.ac.uk/sites/strive.lshtm.ac.uk/files/SAMATA%20Samachara%20%20May%202016.pdf",
+      "title": "Samata Samachara, Issue 4",
+      "outlet": "Karnataka Health Promotion Trust",
+      "date": "2016-05",
+      "type": "ngo"
+    },
+    {
+      "id": 7,
+      "url": "https://deccanherald.com/opinion/editorial/rise-school-drop-outs-worrying-717277.html",
+      "title": "Rise in school drop-outs worrying",
+      "outlet": "Deccan Herald",
+      "date": "",
+      "type": "news"
+    }
+  ],
+  "coverage": "moderate",
+  "gaps": "No dropout, out-of-school or SSLC pass-rate figures retrieved for recent years; sources are mostly 2015-2016 and one 2023 fraud case. No recent (2022-26) Vijayapura reporting, SSLC district results, UDISE+ counts or teacher vacancy data retrieved. Deccan Herald pages returned access errors, so the 4,417 figure rests on search snippets; the 2016 newsletter is dated.",
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+}

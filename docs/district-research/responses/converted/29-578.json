@@ -1,0 +1,82 @@
+{
+  "districtId": "29-578",
+  "name": "Chamarajanagara",
+  "regionId": "old-mysuru",
+  "researchedOn": "2026-10-07",
+  "headline": "Tribal customs and seasonal migration are blamed for secondary exits; only three child marriages reported in 2025.",
+  "summary": "A Times of India report on a legislative reply names Chamarajanagara as one of two tribal-dominated districts where social customs are blamed for school dropout. Reported child marriages were only three in the first ten months of 2025.",
+  "reasons": [
+    {
+      "factor": "Social customs in a tribal-dominated district",
+      "category": "social-norms",
+      "detail": "In a legislative reply, social customs were blamed as one reason for dropout in two tribal-dominated districts, Chamarajanagara and Chitradurga.",
+      "sources": [
+        1
+      ],
+      "evidence": "moderate"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Child marriages reported, January-October 2025",
+      "value": "3",
+      "sources": [
+        2
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Drastic fall in child marriage numbers in Old Mysuru region",
+      "outlet": "The Times of India",
+      "date": "2025-12-12",
+      "url": "https://timesofindia.indiatimes.com/city/mysuru/drastic-fall-in-child-marriage-numbers-in-old-mysuru-region/articleshow/125918000.cms",
+      "takeaway": "Drastic fall in child marriage numbers in the Old Mysuru region."
+    },
+    {
+      "title": "Poverty, migration to single parents one of reasons for school dropout in Karnataka",
+      "outlet": "The Times of India",
+      "date": "2025-09-22",
+      "url": "https://timesofindia.indiatimes.com/city/mysuru/poverty-migration-to-single-parents-one-of-reasons-for-school-dropout-in-karnataka/articleshow/124054037.cms",
+      "takeaway": "Poverty, migration and single parents among reasons for school dropout in Karnataka."
+    }
+  ],
+  "responses": [],
+  "officialFactorCheck": [
+    {
+      "factor": "% Population Living in Households with Improved Sanitation",
+      "method": "state",
+      "verdict": "no-evidence",
+      "note": "Sanitation is not listed among the causes of dropout here.",
+      "sources": []
+    },
+    {
+      "factor": "% Schools with instruction medium 1 (English)",
+      "method": "district",
+      "verdict": "no-evidence",
+      "note": "Medium of instruction is not documented as a barrier here.",
+      "sources": []
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://timesofindia.indiatimes.com/city/mysuru/poverty-migration-to-single-parents-one-of-reasons-for-school-dropout-in-karnataka/articleshow/124054037.cms",
+      "title": "Poverty, migration to single parents one of reasons for school dropout in Karnataka",
+      "outlet": "The Times of India",
+      "date": "2025-09-22",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://timesofindia.indiatimes.com/city/mysuru/drastic-fall-in-child-marriage-numbers-in-old-mysuru-region/articleshow/125918000.cms",
+      "title": "Drastic fall in child marriage numbers in Old Mysuru region",
+      "outlet": "The Times of India",
+      "date": "2025-12-12",
+      "type": "news"
+    }
+  ],
+  "coverage": "thin",
+  "gaps": "The main source is a statewide article; district-level dropout counts and SSLC results were not retrieved.",
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+}

@@ -1,0 +1,85 @@
+{
+  "districtId": "29-582",
+  "name": "Chikkaballapur",
+  "regionId": "bayaluseeme",
+  "researchedOn": "2026-10-07",
+  "headline": "Child marriage and abduction of adolescent girls; a statewide Class 10-12 dropout figure does not belong to this district.",
+  "summary": "Chikkaballapur's documented exit in these sources is a 15-year-old pulled out of school and married (2016). The deep-research report's claim of a 35-40% post-SSLC dropout and a shortage of PU colleges here was a statewide statement from a 2016 budget article and is shown only as statewide context.",
+  "reasons": [
+    {
+      "factor": "Girl pulled out of school and married",
+      "category": "gender",
+      "detail": "A 2016 report describes a 15-year-old from Chikkaballapur who was forcibly pulled out of school and married to a man from Andhra Pradesh.",
+      "sources": [
+        1
+      ],
+      "evidence": "thin"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Statewide: share of students who drop out between Classes 10 and 12 (2016, educationists)",
+      "value": "35-40%",
+      "sources": [
+        2
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Child brides born out of poverty, lack of security",
+      "outlet": "The Times of India",
+      "date": "2016-02-11",
+      "url": "https://timesofindia.indiatimes.com/city/bengaluru/child-brides-born-out-of-poverty-lack-of-security/articleshow/50947690.cms",
+      "takeaway": "Child brides born out of poverty and lack of security."
+    }
+  ],
+  "responses": [],
+  "officialFactorCheck": [
+    {
+      "factor": "% Population Living in Households with Improved Sanitation",
+      "method": "state",
+      "verdict": "no-evidence",
+      "note": "No evidence links sanitation to dropout in this district.",
+      "sources": []
+    },
+    {
+      "factor": "% Schools with instruction medium 1 (English)",
+      "method": "district",
+      "verdict": "unclear",
+      "note": "Rural educators say rural students stay focused, but English medium is not cited as a cause of dropout.",
+      "sources": [
+        3
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://timesofindia.indiatimes.com/city/bengaluru/child-brides-born-out-of-poverty-lack-of-security/articleshow/50947690.cms",
+      "title": "Child brides born out of poverty, lack of security",
+      "outlet": "The Times of India",
+      "date": "2016-02-11",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://www.thehindu.com/news/national/karnataka/we-need-more-high-schools-and-pu-colleges/article8361715.ece",
+      "title": "‘We need more high schools and PU colleges’",
+      "outlet": "The Hindu",
+      "date": "2016-03-17",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://timesofindia.indiatimes.com/city/bengaluru/gadgets-distract-urban-students-rural-kids-more-focused/articleshow/64088026.cms",
+      "title": "‘Gadgets distract urban students, rural kids more focused’",
+      "outlet": "The Times of India",
+      "date": "2018-05-09",
+      "type": "news"
+    }
+  ],
+  "coverage": "thin",
+  "gaps": "No district dropout, out-of-school or SSLC pass-rate figures; the 35-40% figure is statewide and was not used as a district finding.",
+  "verificationNotes": "Dropped reason 'SSLC malpractice': cited page(s) do not name the district."
+}

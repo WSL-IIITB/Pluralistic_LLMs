@@ -17,10 +17,8 @@ import {
   type ClusterId,
   type CollectionCounts,
   type DeflectionDatum,
-  type DivergenceModels,
-  type DivergenceRegion,
-  type DivergenceSummary,
   type LlmProvider,
+  type PersonaSimilarityRegion,
   type QueryRunId,
   type QueryType,
   type RegionDatum,
@@ -29,9 +27,11 @@ import {
   type ResearchDocument,
   type ResearchMode,
   type RunPhase,
+  type StoryVsOfficial,
   type WorldviewEvent,
 } from "./types";
-import { regionColor } from "./karnataka";
+import { setResearchSnapshot, type DistrictResearch } from "./districtResearch";
+import { regionColor, STATEWIDE_REGION_ID } from "./karnataka";
 import { paletteColor, paletteColorForRegionHue } from "./palette";
 
 export type RunState = "idle" | "connecting" | "streaming" | "done" | "error" | "empty";
@@ -64,10 +64,11 @@ export interface RunSnapshot {
   deflections: DeflectionDatum[];
   answer: AnswerSegment[];
   researchDocuments: ResearchDocument[];
-  /** Persona vs. no-persona divergence, per model then per region, as each is measured. */
-  divergence: Partial<Record<LlmProvider, Record<RegionId, DivergenceRegion>>>;
-  divergenceSummary: Partial<Record<LlmProvider, DivergenceSummary>>;
-  divergenceModels: DivergenceModels | null;
+  /** Story Mode vs. UIDAI/NITI official data, keyed by region id (the
+   *  statewide row lives under STATEWIDE_REGION_ID). */
+  storyVsOfficial: Record<RegionId, StoryVsOfficial>;
+  /** Regional persona replies compared with one Karnataka-wide answer. */
+  personaSimilarity: Record<RegionId, PersonaSimilarityRegion>;
   status: StatusSnapshot;
 }
 
@@ -81,6 +82,10 @@ export interface RunSnapshot {
  * fetched back verbatim to reopen — the backend never inspects this shape.
  */
 export interface SavedRunData extends RunSnapshot {
+  /** The district research files as they stood when the run was saved, so reopening
+   *  the run shows that research even if the live files have since changed.
+   *  Absent on runs saved before this existed. */
+  districtResearch?: Record<string, DistrictResearch>;
   id: QueryRunId;
   query: string;
   queryType: QueryType;
@@ -98,7 +103,7 @@ const EMPTY_COUNTS: CollectionCounts = {
 };
 
 const IDLE_STATUS: StatusSnapshot = {
-  ticker: "Enter a topic to begin — the map builds live as posts are sourced and resolved.",
+  ticker: "Enter a topic to begin.",
   phase: "sourcing",
   counts: EMPTY_COUNTS,
   progress: 0,
@@ -129,9 +134,9 @@ export interface WorldviewStore {
    *  deduped by URL. Rendered as the "Sources" section of the consolidated
    *  answer panel; also referenced from AnswerSegment.citations (1-based ids). */
   researchDocuments: ResearchDocument[];
-  divergence: Partial<Record<LlmProvider, Record<RegionId, DivergenceRegion>>>;
-  divergenceSummary: Partial<Record<LlmProvider, DivergenceSummary>>;
-  divergenceModels: DivergenceModels | null;
+  storyVsOfficial: Record<RegionId, StoryVsOfficial>;
+  /** Regional persona replies compared with one Karnataka-wide answer. */
+  personaSimilarity: Record<RegionId, PersonaSimilarityRegion>;
 
   // ── view state ──────────────────────────────────────────────────────────────
   layers: LayerToggles;
@@ -232,9 +237,8 @@ const EMPTY_DATA = {
   deflections: [],
   answer: [],
   researchDocuments: [],
-  divergence: {},
-  divergenceSummary: {},
-  divergenceModels: null,
+  storyVsOfficial: {},
+  personaSimilarity: {},
 } satisfies Omit<RunSnapshot, "status">;
 
 export const useWorldviewStore = create<WorldviewStore>((set, get) => ({
@@ -280,6 +284,7 @@ export const useWorldviewStore = create<WorldviewStore>((set, get) => ({
   applyEvent: (evt) => {
     switch (evt.type) {
       case "query_started": {
+        setResearchSnapshot(null);
         set({
           queryRunId: evt.queryRunId,
           query: evt.query,
@@ -373,26 +378,16 @@ export const useWorldviewStore = create<WorldviewStore>((set, get) => ({
         return;
       }
 
-      case "divergence_region": {
-        const { type: _t, queryRunId: _q, t: _time, ...region } = evt;
-        set((s) => ({
-          divergence: {
-            ...s.divergence,
-            [evt.model]: { ...s.divergence[evt.model], [evt.regionId]: region },
-          },
-        }));
+      case "story_vs_official": {
+        const { type: _t, queryRunId: _q, t: _time, ...row } = evt;
+        const key = row.regionId ?? STATEWIDE_REGION_ID;
+        set((s) => ({ storyVsOfficial: { ...s.storyVsOfficial, [key]: row } }));
         return;
       }
 
-      case "divergence_summary": {
-        const { type: _t, queryRunId: _q, t: _time, ...summary } = evt;
-        set((s) => ({ divergenceSummary: { ...s.divergenceSummary, [evt.model]: summary } }));
-        return;
-      }
-
-      case "divergence_models": {
-        const { type: _t, queryRunId: _q, t: _time, ...models } = evt;
-        set({ divergenceModels: models });
+      case "persona_similarity_region": {
+        const { type: _t, queryRunId: _q, t: _time, ...row } = evt;
+        set((s) => ({ personaSimilarity: { ...s.personaSimilarity, [row.regionId]: row } }));
         return;
       }
 
@@ -472,14 +467,14 @@ export const useWorldviewStore = create<WorldviewStore>((set, get) => ({
       deflections: s.deflections,
       answer: s.answer,
       researchDocuments: s.researchDocuments,
-      divergence: s.divergence,
-      divergenceSummary: s.divergenceSummary,
-      divergenceModels: s.divergenceModels,
+      storyVsOfficial: s.storyVsOfficial,
+      personaSimilarity: s.personaSimilarity,
       status: s.status,
     };
   },
   restoreRun: (snapshot) => set({ ...snapshot, runState: "connecting", error: null }),
-  loadSavedRun: (data) =>
+  loadSavedRun: (data) => {
+    setResearchSnapshot(data.districtResearch ?? null);
     set({
       queryRunId: data.id,
       query: data.query,
@@ -499,12 +494,17 @@ export const useWorldviewStore = create<WorldviewStore>((set, get) => ({
       deflections: data.deflections,
       answer: data.answer,
       researchDocuments: data.researchDocuments,
-      ...normalizeSavedDivergence(data),
+      // Runs saved before this feature existed (persona-vs-baseline semantic
+      // divergence) have no storyVsOfficial data -- default rather than crash;
+      // that run just reloads without a Divergence tab.
+      storyVsOfficial: data.storyVsOfficial ?? {},
+      personaSimilarity: data.personaSimilarity ?? {},
       status: data.status,
       selection: NO_SELECTION,
       hoveredClusterId: null,
       deflectionPair: { a: null, b: null },
-    }),
+    });
+  },
 
   setLayer: (key, value) => set((s) => ({ layers: { ...s.layers, [key]: value } })),
   toggleLayer: (key) => set((s) => ({ layers: { ...s.layers, [key]: !s.layers[key] } })),
@@ -514,7 +514,8 @@ export const useWorldviewStore = create<WorldviewStore>((set, get) => ({
   setHoveredCluster: (id) => set({ hoveredClusterId: id }),
   setDeflectionPair: (a, b) => set({ deflectionPair: { a, b } }),
 
-  reset: () =>
+  reset: () => {
+    setResearchSnapshot(null);
     set({
       queryRunId: null,
       query: null,
@@ -529,27 +530,10 @@ export const useWorldviewStore = create<WorldviewStore>((set, get) => ({
       selection: NO_SELECTION,
       hoveredClusterId: null,
       deflectionPair: { a: null, b: null },
-    }),
+    });
+  },
 }));
 
-/** Saved runs from before per-model divergence stored one model's results unkeyed. */
-function normalizeSavedDivergence(
-  data: Partial<RunSnapshot> & { provider: LlmProvider },
-): Pick<RunSnapshot, "divergence" | "divergenceSummary" | "divergenceModels"> {
-  const raw = (data.divergence ?? {}) as Record<string, unknown>;
-  const flat = Object.values(raw).some((v) => v && typeof v === "object" && "regionId" in v);
-  const rawSummary = data.divergenceSummary as unknown;
-  const flatSummary = !!rawSummary && typeof rawSummary === "object" && "matrix" in rawSummary;
-  return {
-    divergence: flat
-      ? { [data.provider]: raw as Record<RegionId, DivergenceRegion> }
-      : (data.divergence ?? {}),
-    divergenceSummary: flatSummary
-      ? { [data.provider]: rawSummary as DivergenceSummary }
-      : ((rawSummary as Partial<Record<LlmProvider, DivergenceSummary>> | null) ?? {}),
-    divergenceModels: data.divergenceModels ?? null,
-  };
-}
 
 /**
  * Streaming answer reducer. Consecutive `body` chunks that share region/cluster
@@ -569,6 +553,7 @@ function mergeAnswer(prev: AnswerSegment[], seg: AnswerSegment): AnswerSegment[]
     last.clusterId === seg.clusterId &&
     last.region === seg.region &&
     last.regionId === seg.regionId &&
+    last.personaId === seg.personaId &&
     !startsNewPara
   ) {
     const joiner = /\s$/.test(last.text) || /^\s/.test(cleaned.text) ? "" : " ";

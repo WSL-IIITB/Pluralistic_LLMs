@@ -2,53 +2,28 @@
  * Client-only deck.gl map. Lazy-loaded by WorldviewMap so none of this — deck.gl,
  * mapbox-gl, or the mapbox CSS — is ever imported during SSR.
  *
- * Story View: Karnataka's four persona regions — region fills, per-viewpoint 3D
- * columns, deflection arcs. Data View: the India-wide district choropleth.
- * Optional Mapbox dark basemap when VITE_MAPBOX_TOKEN is set.
+ * A flat view of Karnataka's six persona regions. The user cannot pan, zoom or
+ * rotate; the camera only moves programmatically — it frames all of Karnataka,
+ * or flies to the region / district chosen by a click (or from the panels),
+ * leaving room at the bottom for the detail sheet. Esc or a click on empty map
+ * zooms back out. Optional Mapbox dark basemap when VITE_MAPBOX_TOKEN is set.
  */
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import DeckGL from "@deck.gl/react";
-import {
-  AmbientLight,
-  DirectionalLight,
-  FlyToInterpolator,
-  LightingEffect,
-  WebMercatorViewport,
-  type PickingInfo,
-  type ViewStateChangeParameters,
-} from "@deck.gl/core";
+import { FlyToInterpolator, WebMercatorViewport, type PickingInfo } from "@deck.gl/core";
 import Map from "react-map-gl/mapbox";
 import "mapbox-gl/dist/mapbox-gl.css";
 
-import {
-  INDIA_VIEW,
-  KARNATAKA_VIEW,
-  regionShortName,
-  splitRegionIds,
-  useWorldviewStore,
-  viewTierForZoom,
-  ZOOM_TIERS,
-  type ClusterId,
-  type MapViewState,
-  type ViewTier,
-} from "@/lib/worldview";
-import type { BBox, DistrictGeo } from "@/lib/worldview/geo/districts";
-import { useDataViewStore } from "@/lib/dataview/store";
-import type { NumericDomain } from "@/lib/dataview/palette";
-import { buildLayers, computeColumnPositions, type DataViewLayerParams } from "./layers";
-import { useRegionGeo, type RegionFeatureProps } from "./useRegionGeo";
+import { KARNATAKA_VIEW, regionShortName, useExplorerStore, type MapViewState } from "@/lib/worldview";
+import type { BBox, DistrictFeatureProps, DistrictGeo } from "@/lib/worldview/geo/districts";
+import { buildLayers } from "./layers";
+import { useRegionGeo } from "./useRegionGeo";
 import { useStateGeo } from "./useStateGeo";
 
 interface DeckMapProps {
   geo: DistrictGeo;
   mapboxToken: string | null;
-  onViewTierChange: (tier: ViewTier) => void;
-  /** True when the "Data" tab is active — see routes/index.tsx. Switches the
-   * choropleth to Data View's numeric scale and routes selection to
-   * useDataViewStore instead of useWorldviewStore. Defaults to false so
-   * Story View's own map usage needs no changes. */
-  dataViewActive?: boolean;
 }
 
 type ViewState = MapViewState & {
@@ -56,355 +31,149 @@ type ViewState = MapViewState & {
   transitionInterpolator?: FlyToInterpolator;
 };
 
-interface PickedDistrict {
-  districtId: string;
-  stateCode: string;
-}
-
 const MAP_STYLE = "mapbox://styles/mapbox/dark-v11";
 
-const HTML_ESCAPES: Record<string, string> = {
-  "&": "&amp;",
-  "<": "&lt;",
-  ">": "&gt;",
-  '"': "&quot;",
-  "'": "&#39;",
-};
+const KARNATAKA_BOUNDS: BBox = [74.0, 11.5, 78.6, 18.5];
+const FALLBACK_VIEW: ViewState = { ...KARNATAKA_VIEW, pitch: 0, bearing: 0 };
+/** Share of the map's height kept clear at the bottom for the detail sheet when something is focused. */
+const SHEET_FRACTION = 0.46;
+/** Top inset: room for the region pills overlaid on the map (they wrap to two rows when narrow). */
+const topInset = (width: number) => (width < 640 ? 82 : 52);
 
-/** Escapes text interpolated into the tooltip's `html`; names/labels may originate from an LLM backend. */
-function escapeHtml(input: string): string {
-  return input.replace(/[&<>"']/g, (ch) => HTML_ESCAPES[ch] ?? ch);
-}
+const NO_INTERACTION = {
+  dragPan: false,
+  dragRotate: false,
+  scrollZoom: false,
+  touchZoom: false,
+  touchRotate: false,
+  doubleClickZoom: false,
+  keyboard: false,
+} as const;
 
-/** Story View picking: a region polygon, or a viewpoint column (carries regionId). */
-function pickRegion(info: PickingInfo): string | null {
-  const o = info.object as unknown;
-  if (!o || typeof o !== "object") return null;
-  if ("regionId" in o) return (o as { regionId: string }).regionId;
-  const p = (o as { properties?: Partial<RegionFeatureProps> }).properties;
-  return p?.regionId ?? null;
-}
-
-function pickDistrict(info: PickingInfo): PickedDistrict | null {
-  const o = info.object as unknown;
-  if (!o || typeof o !== "object") return null;
-  if ("districtId" in o && "stateCode" in o) {
-    const c = o as { districtId: string; stateCode: string };
-    return { districtId: c.districtId, stateCode: c.stateCode };
+function frame(bbox: BBox, width: number, height: number, focused: boolean, maxZoom: number): ViewState {
+  const bottom = focused ? Math.round(height * SHEET_FRACTION) : 24;
+  try {
+    const fit = new WebMercatorViewport({ width, height }).fitBounds(
+      [
+        [bbox[0], bbox[1]],
+        [bbox[2], bbox[3]],
+      ],
+      { padding: { top: topInset(width), bottom, left: 28, right: 28 }, maxZoom },
+    );
+    return { longitude: fit.longitude, latitude: fit.latitude, zoom: fit.zoom, pitch: 0, bearing: 0 };
+  } catch {
+    return FALLBACK_VIEW;
   }
-  if ("properties" in o) {
-    const p = (o as { properties?: { districtId?: string; stateCode?: string } }).properties;
-    if (p?.districtId && p?.stateCode) return { districtId: p.districtId, stateCode: p.stateCode };
-  }
-  return null;
 }
 
-export default function DeckMap({
-  geo,
-  mapboxToken,
-  onViewTierChange,
-  dataViewActive = false,
-}: DeckMapProps) {
-  const [viewState, setViewState] = useState<ViewState>(
-    dataViewActive ? INDIA_VIEW : KARNATAKA_VIEW,
-  );
-  const sizeRef = useRef<{ width: number; height: number }>({ width: 1280, height: 800 });
-  const tierRef = useRef<ViewTier>(viewTierForZoom(INDIA_VIEW.zoom));
+const escapeHtml = (s: string) => s.replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
 
-  // Store slices (each change re-renders the map, which is what we want live).
-  const regionStats = useWorldviewStore((s) => s.regionStats);
-  const clusters = useWorldviewStore((s) => s.clusters);
-  const deflections = useWorldviewStore((s) => s.deflections);
-  const toggles = useWorldviewStore((s) => s.layers);
-  const selection = useWorldviewStore((s) => s.selection);
-  const hoveredClusterId = useWorldviewStore((s) => s.hoveredClusterId);
-  const deflectionPair = useWorldviewStore((s) => s.deflectionPair);
-
-  // Data View slices — only actually read/computed when dataViewActive, but
-  // subscribing unconditionally keeps hook order stable across the toggle.
-  const dvDistricts = useDataViewStore((s) => s.districts);
-  const dvStateScores = useDataViewStore((s) => s.stateScores);
-  const dvColorMode = useDataViewStore((s) => s.colorMode);
-
-  const dataViewValues = useMemo<Record<string, number>>(() => {
-    if (!dataViewActive) return {};
-    const values: Record<string, number> = {};
-    for (const districtId of Object.keys(dvDistricts)) {
-      const d = dvDistricts[districtId];
-      if (!d) continue;
-      if (dvColorMode === "dropoutRate") {
-        values[districtId] = d.outcomeValue;
-      } else {
-        const stateScore = dvStateScores[d.stateCode];
-        if (stateScore) values[districtId] = stateScore.interventionIndex;
-      }
-    }
-    return values;
-  }, [dataViewActive, dvDistricts, dvStateScores, dvColorMode]);
-
-  // Actual min/max across whatever's currently populated — recomputed
-  // reactively as district_scored/state_scored events stream in.
-  const dataViewDomain = useMemo<NumericDomain>(() => {
-    let lo = Infinity;
-    let hi = -Infinity;
-    for (const v of Object.values(dataViewValues)) {
-      if (v < lo) lo = v;
-      if (v > hi) hi = v;
-    }
-    return Number.isFinite(lo) && Number.isFinite(hi) ? [lo, hi] : [0, 1];
-  }, [dataViewValues]);
-
-  const dataViewParams: DataViewLayerParams = useMemo(
-    () => ({
-      active: dataViewActive,
-      colorMode: dvColorMode,
-      values: dataViewValues,
-      domain: dataViewDomain,
-    }),
-    [dataViewActive, dvColorMode, dataViewValues, dataViewDomain],
-  );
-
+export default function DeckMap({ geo, mapboxToken }: DeckMapProps) {
   const stateGeo = useStateGeo();
   const regionGeo = useRegionGeo();
-  const tier = viewTierForZoom(viewState.zoom);
 
-  const splitRegions = useMemo(() => splitRegionIds(regionStats), [regionStats]);
-  // Keyed only on [regionStats, regionGeo], NOT hover/selection — hovering a
-  // legend row must not recompute every column position.
-  const columnPositions = useMemo(
-    () => computeColumnPositions(regionStats, regionGeo),
-    [regionStats, regionGeo],
-  );
+  const regionId = useExplorerStore((s) => s.regionId);
+  const districtId = useExplorerStore((s) => s.districtId);
+
+  const districtToRegion = useMemo(() => {
+    const out: Record<string, string> = {};
+    for (const f of regionGeo?.features ?? []) {
+      for (const id of f.properties.districtIds) out[id] = f.properties.regionId;
+    }
+    return out;
+  }, [regionGeo]);
 
   const layers = useMemo(
-    () =>
-      buildLayers({
-        geo,
-        tier,
-        stateGeo,
-        regionGeo,
-        regionStats,
-        clusters,
-        splitRegions,
-        toggles,
-        selection,
-        hoveredClusterId,
-        deflections,
-        deflectionPair,
-        columnPositions,
-        dataView: dataViewParams,
-      }),
-    [
-      geo,
-      tier,
-      stateGeo,
-      regionGeo,
-      regionStats,
-      clusters,
-      splitRegions,
-      toggles,
-      selection,
-      hoveredClusterId,
-      deflections,
-      deflectionPair,
-      columnPositions,
-      dataViewParams,
-    ],
+    () => buildLayers({ geo, stateGeo, regionGeo, districtToRegion, regionId, districtId }),
+    [geo, stateGeo, regionGeo, districtToRegion, regionId, districtId],
   );
 
-  const effects = useMemo(() => {
-    const ambient = new AmbientLight({ color: [255, 245, 230], intensity: 1.5 });
-    const key = new DirectionalLight({
-      color: [255, 235, 210],
-      intensity: 1.1,
-      direction: [-1, -3, -1],
-    });
-    const fill = new DirectionalLight({
-      color: [180, 190, 220],
-      intensity: 0.5,
-      direction: [2, 1, -1],
-    });
-    return [new LightingEffect({ ambient, key, fill })];
-  }, []);
+  // ── Camera ────────────────────────────────────────────────────────────────
+  const [size, setSize] = useState<{ width: number; height: number } | null>(null);
+  const [viewState, setViewState] = useState<ViewState>(FALLBACK_VIEW);
+  const lastFocusKey = useRef<string>("");
 
-  const reportTier = useCallback(
-    (zoom: number) => {
-      const tier = viewTierForZoom(zoom);
-      if (tier !== tierRef.current) {
-        tierRef.current = tier;
-        onViewTierChange(tier);
-      }
-    },
-    [onViewTierChange],
-  );
-
-  useEffect(() => reportTier(viewState.zoom), [reportTier, viewState.zoom]);
-
-  // Reset the shared camera + clear any stale Data View selection every time
-  // the "Data" tab is entered (dataViewActive's false->true edge only — see
-  // routes/index.tsx). The map instance/viewState is shared between Story
-  // View and Data View (mounted once, never unmounted per tab — see
-  // WorldviewMap.tsx), and `handleClick` below decides district-vs-state
-  // selection purely from the CURRENT camera zoom. Without this, drilling
-  // into a state/district in either tab leaves the shared camera zoomed past
-  // ZOOM_TIERS.country, so every subsequent click anywhere resolves to a
-  // district — making it impossible to ever select a state in Data View
-  // once the camera has zoomed in even once. A ref (not a dependency on the
-  // previous prop value, which React doesn't give us directly) tracks the
-  // prior value so this only fires on the actual transition, not every
-  // render while dataViewActive stays true. Deliberately does NOT run on the
-  // reverse edge (leaving Data View) — Story View's own zoom/selection is
-  // left exactly as the user set it, matching this prop's "defaults to
-  // false so Story View needs no changes" contract.
-  const wasDataViewActiveRef = useRef(dataViewActive);
   useEffect(() => {
-    const wasActive = wasDataViewActiveRef.current;
-    wasDataViewActiveRef.current = dataViewActive;
-    if (!wasActive && dataViewActive) {
-      setViewState(INDIA_VIEW);
-      useDataViewStore.getState().clearSelection();
-    } else if (wasActive && !dataViewActive) {
-      setViewState(KARNATAKA_VIEW);
+    if (!size) return;
+    let bbox: BBox = KARNATAKA_BOUNDS;
+    let maxZoom = 12;
+    if (districtId) {
+      bbox = geo.districts[districtId]?.bbox ?? bbox;
+      maxZoom = 9.2;
+    } else if (regionId) {
+      bbox = regionGeo?.features.find((f) => f.properties.regionId === regionId)?.properties.bbox ?? bbox;
+      maxZoom = 8;
     }
-  }, [dataViewActive]);
+    const next = frame(bbox, size.width, size.height, !!(districtId || regionId), maxZoom);
+    const focusKey = `${regionId ?? ""}|${districtId ?? ""}`;
+    const focusChanged = focusKey !== lastFocusKey.current && lastFocusKey.current !== "";
+    lastFocusKey.current = focusKey;
+    setViewState(
+      focusChanged
+        ? { ...next, transitionDuration: 900, transitionInterpolator: new FlyToInterpolator() }
+        : next,
+    );
+  }, [size, regionId, districtId, geo, regionGeo]);
 
-  const flyToBBox = useCallback((bbox: BBox, fallbackZoom: number) => {
-    const { width, height } = sizeRef.current;
-    let longitude = (bbox[0] + bbox[2]) / 2;
-    let latitude = (bbox[1] + bbox[3]) / 2;
-    let zoom = fallbackZoom;
-    try {
-      const vp = new WebMercatorViewport({ width, height });
-      const fit = vp.fitBounds(
-        [
-          [bbox[0], bbox[1]],
-          [bbox[2], bbox[3]],
-        ],
-        { padding: 120 },
-      );
-      longitude = fit.longitude;
-      latitude = fit.latitude;
-      zoom = Math.min(fit.zoom, 8.5);
-    } catch {
-      /* keep centroid fallback */
-    }
-    setViewState((prev) => ({
-      ...prev,
-      longitude,
-      latitude,
-      zoom,
-      pitch: 48,
-      transitionDuration: 1100,
-      transitionInterpolator: new FlyToInterpolator(),
-    }));
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") useExplorerStore.getState().resetFocus();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
   }, []);
+
+  // ── Interaction ───────────────────────────────────────────────────────────
+  const pickedDistrict = (info: PickingInfo): DistrictFeatureProps | null => {
+    const props = (info.object as { properties?: Partial<DistrictFeatureProps> } | null)?.properties;
+    return props?.districtId ? (props as DistrictFeatureProps) : null;
+  };
 
   const handleClick = useCallback(
     (info: PickingInfo) => {
-      if (!dataViewActive) {
-        const regionId = pickRegion(info);
-        const store = useWorldviewStore.getState();
-        if (!regionId) {
-          store.clearSelection();
-          return;
-        }
-        store.select({ kind: "region", id: regionId });
-        const feature = regionGeo?.features.find((f) => f.properties.regionId === regionId);
-        if (feature) flyToBBox(feature.properties.bbox, 7);
+      const d = pickedDistrict(info);
+      const store = useExplorerStore.getState();
+      if (!d) {
+        store.resetFocus();
         return;
       }
-      const picked = pickDistrict(info);
-      const store = useDataViewStore.getState();
-      if (!picked) {
-        store.clearSelection();
-        return;
-      }
-      const atCountry = viewState.zoom < ZOOM_TIERS.country;
-      if (atCountry) {
-        store.select({ kind: "state", id: picked.stateCode });
-        const st = geo.states[picked.stateCode];
-        if (st) flyToBBox(st.bbox, 5.6);
-      } else {
-        store.select({ kind: "district", id: picked.districtId });
-        const d = geo.districts[picked.districtId];
-        if (d) {
-          setViewState((prev) => ({
-            ...prev,
-            longitude: d.centroid[0],
-            latitude: d.centroid[1],
-            zoom: Math.max(prev.zoom, 7.4),
-            pitch: 52,
-            transitionDuration: 900,
-            transitionInterpolator: new FlyToInterpolator(),
-          }));
-        }
-      }
+      const rid = districtToRegion[d.districtId];
+      if (rid) store.focusDistrict(d.districtId, rid);
     },
-    [geo, regionGeo, viewState.zoom, flyToBBox, dataViewActive],
+    [districtToRegion],
   );
 
   const getTooltip = useCallback(
-    (info: PickingInfo): { html: string; style: Record<string, string> } | null => {
-      let html: string | null = null;
-      if (!dataViewActive) {
-        const regionId = pickRegion(info);
-        if (!regionId) return null;
-        const store = useWorldviewStore.getState();
-        const stats = store.regionStats[regionId];
-        const columnCluster =
-          info.object && typeof info.object === "object" && "clusterId" in info.object
-            ? (info.object as { clusterId: ClusterId }).clusterId
-            : null;
-        const clusterId = columnCluster ?? stats?.clusterId ?? null;
-        const label = clusterId ? (store.clusters[clusterId]?.label ?? clusterId) : "no data yet";
-        const posts = columnCluster
-          ? (stats?.clusterVolumes[columnCluster] ?? 0)
-          : (stats?.volume ?? 0);
-        html = `<div style="font-weight:600">${escapeHtml(regionShortName(regionId))}</div>
-               <div style="margin-top:4px">${escapeHtml(label)}</div>
-               <div style="opacity:.7">${posts ? `${posts} posts` : ""}${stats ? ` · ${escapeHtml(stats.confidence)} confidence` : ""}</div>`;
-      } else {
-        const picked = pickDistrict(info);
-        if (!picked) return null;
-        const loaded = geo.districts[picked.districtId];
-        html = `<div style="font-weight:600">${escapeHtml(loaded?.name ?? picked.districtId)}</div>
-               <div style="opacity:.7">${escapeHtml(loaded?.stateName ?? "")}</div>`;
-      }
+    (info: PickingInfo) => {
+      const d = pickedDistrict(info);
+      if (!d) return null;
+      const rid = districtToRegion[d.districtId];
       return {
-        html,
+        html: `<div style="font-weight:600">${escapeHtml(d.districtName)}</div><div style="opacity:.7">${escapeHtml(regionShortName(rid))}</div>`,
         style: {
           background: "rgba(20,20,24,0.92)",
           color: "#f4f2ee",
           fontSize: "11px",
-          padding: "8px 10px",
+          padding: "7px 10px",
           borderRadius: "8px",
           border: "1px solid rgba(255,255,255,0.1)",
-          boxShadow: "0 12px 30px -12px rgba(0,0,0,0.8)",
         },
       };
     },
-    [geo, dataViewActive],
+    [districtToRegion],
   );
 
   return (
     <DeckGL
       viewState={viewState}
-      controller={{ dragRotate: true, touchRotate: true }}
+      controller={NO_INTERACTION}
       layers={layers}
-      effects={effects}
-      onViewStateChange={(params: ViewStateChangeParameters) => {
-        const vs = params.viewState as ViewState;
-        setViewState(vs);
-        reportTier(vs.zoom);
-      }}
-      onResize={(size: { width: number; height: number }) => {
-        sizeRef.current = size;
+      onResize={({ width, height }: { width: number; height: number }) => {
+        if (width > 0 && height > 0) setSize({ width, height });
       }}
       onClick={handleClick}
       getTooltip={getTooltip}
-      getCursor={({ isDragging, isHovering }) =>
-        isDragging ? "grabbing" : isHovering ? "pointer" : "grab"
-      }
+      getCursor={({ isHovering }) => (isHovering ? "pointer" : "default")}
       style={{ position: "absolute", inset: "0" }}
     >
       {mapboxToken ? (

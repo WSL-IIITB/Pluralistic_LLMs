@@ -2,6 +2,7 @@ import { ExternalLink, X } from "lucide-react";
 
 import {
   clusterColor,
+  personaVariantLabel,
   regionColor,
   regionEntropy,
   regionMeta,
@@ -43,7 +44,7 @@ export function RegionInfoPanel() {
   if (selection.kind !== "region") return null;
   const regionId = selection.id;
   const stats = regionStats[regionId];
-  const personaTldr = answer.find((a) => a.regionId === regionId && a.kind === "tldr")?.text;
+  const personaTldrs = answer.filter((a) => a.regionId === regionId && a.kind === "tldr");
 
   return (
     <section className="panel-surface pointer-events-auto flex max-h-[46vh] w-[360px] flex-col rounded-xl">
@@ -76,10 +77,16 @@ export function RegionInfoPanel() {
 
       <div className="min-h-0 flex-1 overflow-y-auto [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-border [&::-webkit-scrollbar-track]:bg-transparent">
         <div className="space-y-3 px-4 py-4">
-          {personaTldr && (
-            <div>
-              <p className="label-micro">Persona reply</p>
-              <p className="mt-1.5 text-[12.5px] leading-relaxed text-foreground">{personaTldr}</p>
+          {personaTldrs.length > 0 && (
+            <div className="space-y-2">
+              {personaTldrs.map((seg, i) => (
+                <div key={seg.personaId ?? i}>
+                  <p className="label-micro">
+                    {personaVariantLabel(regionId, seg.personaId) || "Persona reply"}
+                  </p>
+                  <p className="mt-1 text-[12.5px] leading-relaxed text-foreground">{seg.text}</p>
+                </div>
+              ))}
             </div>
           )}
           {stats ? (

@@ -1,0 +1,100 @@
+{
+  "districtId": "29-581",
+  "name": "Kolar",
+  "regionId": "bayaluseeme",
+  "researchedOn": "2026-10-07",
+  "headline": "A KGF government school with four teachers for 86 students failed all 38 SSLC candidates in 2024.",
+  "summary": "At a 126-year-old government school in Kolar Gold Fields, all 38 SSLC candidates failed in 2025 because four teachers served 86 high-school students with no Science or Hindi teachers. A report of a man marrying his bride's minor sister points to child-marriage pressure on adolescent girls. A claim about bus-fare barriers could not be tied to Kolar and was dropped.",
+  "reasons": [
+    {
+      "factor": "Teacher shortage and mass failure",
+      "category": "school-infrastructure",
+      "detail": "A KGF government school had four teachers for 86 high-school students and no Science or Hindi teachers; all 38 candidates failed SSLC in 2024.",
+      "sources": [
+        1
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Child marriage",
+      "category": "gender",
+      "detail": "A report of a man marrying his bride's minor sister shows child-marriage pressure on adolescent girls in the district.",
+      "sources": [
+        2
+      ],
+      "evidence": "thin"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "SSLC candidates who failed at the KGF school, 2024",
+      "value": "38",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "label": "Teachers for 86 high-school students at the KGF school",
+      "value": "4",
+      "sources": [
+        1
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "126 years old & forgotten: All 38 SSLC students of pioneer Karnataka school fail",
+      "outlet": "The Times of India",
+      "date": "2025-05-08",
+      "url": "https://timesofindia.indiatimes.com/city/bengaluru/126-years-old-forgotten-all-38-sslc-students-of-pioneer-karnataka-school-fail/articleshow/121006325.cms",
+      "takeaway": "126-year-old forgotten school: all 38 SSLC students of a pioneer Karnataka school fail."
+    },
+    {
+      "title": "Man in Karnataka marries bride’s minor sister too; held",
+      "outlet": "The Times of India",
+      "date": "2021-05-17",
+      "url": "https://timesofindia.indiatimes.com/city/bengaluru/man-in-karnataka-marries-brides-minor-sister-too-held/articleshow/82698100.cms",
+      "takeaway": "Man in Karnataka marries bride's minor sister too, held."
+    }
+  ],
+  "responses": [],
+  "officialFactorCheck": [
+    {
+      "factor": "% Population Living in Households with Improved Sanitation",
+      "method": "state",
+      "verdict": "no-evidence",
+      "note": "Distance and transport, not sanitation, are the documented physical barriers.",
+      "sources": []
+    },
+    {
+      "factor": "% Schools with instruction medium 1 (English)",
+      "method": "district",
+      "verdict": "no-evidence",
+      "note": "Mass failure is attributed to missing subject teachers, not to English medium.",
+      "sources": [
+        1
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://timesofindia.indiatimes.com/city/bengaluru/126-years-old-forgotten-all-38-sslc-students-of-pioneer-karnataka-school-fail/articleshow/121006325.cms",
+      "title": "126 years old & forgotten: All 38 SSLC students of pioneer Karnataka school fail",
+      "outlet": "The Times of India",
+      "date": "2025-05-08",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://timesofindia.indiatimes.com/city/bengaluru/man-in-karnataka-marries-brides-minor-sister-too-held/articleshow/82698100.cms",
+      "title": "Man in Karnataka marries bride’s minor sister too; held",
+      "outlet": "The Times of India",
+      "date": "2021-05-17",
+      "type": "news"
+    }
+  ],
+  "coverage": "thin",
+  "gaps": "No district dropout or out-of-school counts retrieved; the bus-fare claim was dropped (cited article does not tie it to Kolar).",
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+}

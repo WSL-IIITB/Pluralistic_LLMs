@@ -1,0 +1,223 @@
+{
+  "districtId": "29-563",
+  "name": "Uttara Kannada",
+  "regionId": "karavali",
+  "researchedOn": "2026-10-07",
+  "headline": "Forest-belt poverty and thin staffing, with only old out-of-school counts for the Sirsi area.",
+  "summary": "Uttara Kannada has few documented exits: a 2014 state survey found only 686 out-of-school children in Uttara Kannada (the fewest in the state) and 1,066 in the Sirsi educational district, and COVID-era fears kept some Sirsi parents from sending children to SSLC papers. A 2023 High Court report found every government school in the district had toilets. Claims about Siddi girls and guest teachers in the deep-research report could not be tied to their cited pages and were dropped.",
+  "reasons": [
+    {
+      "factor": "Few out-of-school children (2014)",
+      "category": "other",
+      "detail": "The state's 2014 survey found Uttara Kannada had the fewest out-of-school children in Karnataka, with the Sirsi educational district higher.",
+      "sources": [
+        1
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "COVID-era exam avoidance in Sirsi",
+      "category": "health",
+      "detail": "During the pandemic some Sirsi parents withheld children from SSLC maths and English papers over health fears.",
+      "sources": [
+        2
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Village school closures, falling enrolment",
+      "category": "school-infrastructure",
+      "detail": "Many small Kannada-medium government schools in Karwar and Joida taluks were shut over 17 years, reportedly as parents shifted priorities. Closures can lengthen travel to the next school, though the source does not link them to secondary dropout.",
+      "sources": [
+        5
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Zero-admission government schools",
+      "category": "governance",
+      "detail": "A report says 35 government schools in the district recorded no admissions in one academic year; the department keeps such schools closed temporarily for up to three years hoping children enrol again.",
+      "sources": [
+        6
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Adivasi learners cut off by COVID",
+      "category": "economic",
+      "detail": "A state-level report lists Uttara Kannada among districts where first-generation tribal learners were pushed out of school by closures, no phones, lost mid-day meals and child labour. No Uttara Kannada village examples are given.",
+      "sources": [
+        7
+      ],
+      "evidence": "thin"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Out-of-school children, Uttara Kannada (SSA survey, 2014)",
+      "value": "686",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "label": "Out-of-school children, Sirsi educational district (SSA survey, 2014)",
+      "value": "1,066",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "label": "Government schools closed over 17 years",
+      "value": "142 schools, per Deccan Herald",
+      "sources": [
+        5
+      ]
+    },
+    {
+      "label": "Closed schools in Karwar and Joida taluks",
+      "value": "31 in Karwar taluk and 14 in Joida",
+      "sources": [
+        5
+      ]
+    },
+    {
+      "label": "Schools with zero admissions in a recent year",
+      "value": "35 government schools",
+      "sources": [
+        6
+      ]
+    },
+    {
+      "label": "Waiting period before zero-admission schools reopen",
+      "value": "Up to three years of temporary closure",
+      "sources": [
+        6
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Quote Hangers for SSLC results",
+      "outlet": "The Hindu",
+      "date": "2024-05-09",
+      "url": "https://www.thehindu.com/news/national/karnataka/quote-hangers-for-sslc-results/article68158314.ece",
+      "takeaway": "Government-school students from Sirsi score near-perfect in SSLC 2024."
+    },
+    {
+      "title": "Bleak future ahead: COVID-19 pushes Karnataka's first generation Adivasi learners off schools",
+      "outlet": "Down To Earth",
+      "date": "2021-08-25",
+      "url": "https://www.downtoearth.org.in/governance/bleak-future-ahead-covid-19-pushes-karnataka-s-first-generation-adivasi-learners-off-schools-78637",
+      "takeaway": "Statewide Adivasi school exits after COVID closures; Uttara Kannada is named among affected districts without local detail."
+    },
+    {
+      "title": "Students in Karnataka write SSLC examination in the face of adversity",
+      "outlet": "The Hindu",
+      "date": "2020-06-29",
+      "url": "https://www.thehindu.com/news/national/karnataka/students-in-karnataka-write-sslc-examination-in-the-face-of-adversity/article31948488.ece",
+      "takeaway": "Students in Karnataka write SSLC in the face of adversity, including Sirsi parents' pandemic fears."
+    },
+    {
+      "title": "35 govt schools in Uttara Kannada record zero admissions this academic year",
+      "outlet": "Deccan Herald",
+      "date": "",
+      "url": "https://deccanherald.com/india/karnataka/35-govt-schools-in-uttara-kannada-record-zero-admissions-this-academic-year-4082304",
+      "takeaway": "Dozens of district government schools had no new admissions; the department holds them shut for up to three years before deciding."
+    },
+    {
+      "title": "142 govt schools shut in Uttara Kannada over 17 years",
+      "outlet": "Deccan Herald",
+      "date": "",
+      "url": "https://www.deccanherald.com/india/karnataka/142-govt-schools-shut-in-u-k-over-17-years-4006584",
+      "takeaway": "Small Kannada-medium village schools, notably in Karwar and Joida, closed as parents' priorities shifted."
+    }
+  ],
+  "responses": [
+    {
+      "text": "The education department keeps zero-admission schools temporarily closed for up to three years in case children enrol again, rather than closing them permanently at once.",
+      "sources": [
+        6
+      ]
+    }
+  ],
+  "officialFactorCheck": [
+    {
+      "factor": "% Population Living in Households with Improved Sanitation",
+      "method": "state",
+      "verdict": "unclear",
+      "note": "A 2023 High Court report found every government school here had toilets, yet the casefile rate is high; the factor is household sanitation, which the report does not measure.",
+      "sources": [
+        4
+      ]
+    },
+    {
+      "factor": "% Schools with instruction medium 1 (English)",
+      "method": "district",
+      "verdict": "no-evidence",
+      "note": "No data linking instruction medium to local dropout.",
+      "sources": []
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://www.thehindu.com/news/cities/bangalore/17-lakh-children-out-of-school-sarva-shiksha-abhiyan-survey/article5653888.ece",
+      "title": "1.7 lakh children out of school: Sarva Shiksha Abhiyan survey",
+      "outlet": "The Hindu",
+      "date": "2014-02-05",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://www.thehindu.com/news/national/karnataka/students-in-karnataka-write-sslc-examination-in-the-face-of-adversity/article31948488.ece",
+      "title": "Students in Karnataka write SSLC examination in the face of adversity",
+      "outlet": "The Hindu",
+      "date": "2020-06-29",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://www.thehindu.com/news/national/karnataka/quote-hangers-for-sslc-results/article68158314.ece",
+      "title": "Quote Hangers for SSLC results",
+      "outlet": "The Hindu",
+      "date": "2024-05-09",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "https://www.thehindu.com/news/national/karnataka/sorry-state-of-affairs-says-high-court-on-absence-of-toilets-in-464-govt-schools/article66908404.ece",
+      "title": "No drinking water in 87 govt schools, no toilets in 464 schools in Karnataka",
+      "outlet": "The Hindu",
+      "date": "2023-05-29",
+      "type": "news"
+    },
+    {
+      "id": 5,
+      "url": "https://www.deccanherald.com/india/karnataka/142-govt-schools-shut-in-u-k-over-17-years-4006584",
+      "title": "142 govt schools shut in Uttara Kannada over 17 years",
+      "outlet": "Deccan Herald",
+      "date": "",
+      "type": "news"
+    },
+    {
+      "id": 6,
+      "url": "https://deccanherald.com/india/karnataka/35-govt-schools-in-uttara-kannada-record-zero-admissions-this-academic-year-4082304",
+      "title": "35 govt schools in Uttara Kannada record zero admissions this academic year",
+      "outlet": "Deccan Herald",
+      "date": "",
+      "type": "news"
+    },
+    {
+      "id": 7,
+      "url": "https://www.downtoearth.org.in/governance/bleak-future-ahead-covid-19-pushes-karnataka-s-first-generation-adivasi-learners-off-schools-78637",
+      "title": "Bleak future ahead: COVID-19 pushes Karnataka's first generation Adivasi learners off schools",
+      "outlet": "Down To Earth",
+      "date": "2021-08-25",
+      "type": "news"
+    }
+  ],
+  "coverage": "thin",
+  "gaps": "No recent dropout or SSLC figures; Sirsi evidence is the 2014 count and one COVID item; the high casefile rate is unexplained. Siddi-girls and guest-teacher claims were dropped (cited pages do not support them). No district dropout figures, SSLC results, child marriage, migration or Sirsi sub-area evidence retrieved; Deccan Herald pages returned 403 so details rest on search excerpts; search budget ran out. Explanation of the high casefile rate is unevidenced.",
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+}

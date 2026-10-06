@@ -1,0 +1,266 @@
+{
+  "districtId": "29-565",
+  "name": "Ballari (incl. Vijayanagara)",
+  "regionId": "kalyana-karnataka",
+  "researchedOn": "2026-10-07",
+  "headline": "A tracking drive found 259 out-of-school children but brought back only 38.",
+  "summary": "In a drive reported in January 2025, officials identified 259 out-of-school children in Ballari but brought only 38 back to school. The deep-research report's claims about mining, poverty and mass weddings rested on a social-media post and a statewide article that does not name Ballari, so they are not used here.",
+  "reasons": [
+    {
+      "factor": "Low reintegration of out-of-school children",
+      "category": "governance",
+      "detail": "A tracking drive identified 259 out-of-school children but managed to bring only 38 back to class.",
+      "sources": [
+        1
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Hostel far from school",
+      "category": "school-infrastructure",
+      "detail": "In 2020 a Ballari child rights commission member said most schools in the district only ran classes 6-8 and higher classes were elsewhere, away from hostels; girls dropped out and parents hesitated over distance.",
+      "sources": [
+        4
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Teacher vacancies in high schools",
+      "category": "school-infrastructure",
+      "detail": "Ballari had 395 vacancies among 1,014 sanctioned government high school posts in 2025, worst in Siruguppa (157 of 269) and Sandur (92 of 181); guest teachers covered 434 posts, with maths and science gaps.",
+      "sources": [
+        5
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Weak SSLC outcomes",
+      "category": "governance",
+      "detail": "Ballari ranked 29th in 2025 with 60 government high schools below 40% pass; in June 2024 the CM sought suspension of Vijayanagara's education officers after its education ranking fell from 10th to 27th.",
+      "sources": [
+        5,
+        6,
+        7
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Migration, domestic work, distance",
+      "category": "other",
+      "detail": "State-level 2018-19 survey, where Ballari recorded 5,132 out-of-school children, cited migration, disinterest, domestic work, distance and parental reluctance to educate girls. Not broken out for Ballari.",
+      "sources": [
+        3
+      ],
+      "evidence": "thin"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Out-of-school children identified",
+      "value": "259",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "label": "Children reintegrated into school",
+      "value": "38",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "label": "Out-of-school children, 2018-19 survey (Ballari)",
+      "value": "5,132",
+      "sources": [
+        3
+      ]
+    },
+    {
+      "label": "Children who left school, Ballari, reported May 2016",
+      "value": "2,018, highest in state that year",
+      "sources": [
+        2
+      ]
+    },
+    {
+      "label": "SSLC pass percentage, Ballari, 2025",
+      "value": "60.26% (29th of 35 educational districts)",
+      "sources": [
+        5,
+        8
+      ]
+    },
+    {
+      "label": "Govt high school teacher posts filled, Ballari, 2025",
+      "value": "619 of 1,014 sanctioned",
+      "sources": [
+        5
+      ]
+    },
+    {
+      "label": "Ballari SSLC 2025 subject pass rates",
+      "value": "Maths 68.8%, science 66.3%",
+      "sources": [
+        5
+      ]
+    },
+    {
+      "label": "Vijayanagara education HDI rank, 2024",
+      "value": "fell from 10th to 27th",
+      "sources": [
+        6
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Karnataka CM Orders For Action Against School Education Dept Officials For Low SSLC Pass Percentage",
+      "outlet": "ETV Bharat",
+      "date": "2025-05-31",
+      "url": "https://www.etvbharat.com/en/!state/karnataka-cm-action-against-school-education-dept-officials-low-sslc-pass-percentage-enn25053102263",
+      "takeaway": "Of seven Kalyana Karnataka districts, only Vijayanagara and Ballari cleared 60% in SSLC 2025; CM ordered notices to weak-district DDPIs."
+    },
+    {
+      "title": "Ballari Govt Schools Face Scrutiny Over Poor SSLC Results Amid Teacher Shortage",
+      "outlet": "News Karnataka",
+      "date": "2025-05-08",
+      "url": "https://newskarnataka.com/ballary/ballari-govt-schools-face-scrutiny-over-poor-sslc-results-amid-teacher-shortage/08052025/",
+      "takeaway": "Show-cause notices planned for 60 high schools under 40% pass; 395 teacher posts vacant; Ballari ranked 29th statewide."
+    },
+    {
+      "title": "Different surveys on out-of-school children in Kalaburagi reveal contrasting figures",
+      "outlet": "The Hindu",
+      "date": "2025-01-01",
+      "url": "https://www.thehindu.com/news/national/karnataka/different-surveys-on-out-of-school-children-in-kalaburagi-reveal-contrasting-figures/article69047215.ece",
+      "takeaway": "Different surveys on out-of-school children in Kalyana Karnataka reveal contrasting figures."
+    },
+    {
+      "title": "Hospete: Karnataka CM Suspend DDPI, BEO in the Middle of the Meeting",
+      "outlet": "News Karnataka",
+      "date": "2024-06-21",
+      "url": "https://newskarnataka.com/bengaluru/hospete-karnataka-cm-suspend-ddpi-beo-in-the-middle-of-the-meeting/21062024/",
+      "takeaway": "At Vijayanagara's review meeting the CM, angered by a fall to 27th in education ranking, demanded suspension of the DDPI and BEOs."
+    },
+    {
+      "title": "High dropouts dog Kasturba girls' schools",
+      "outlet": "Deccan Herald",
+      "date": "2020-08-31",
+      "url": "https://www.deccanherald.com/amp/story/india%2Fkarnataka%2Fhigh-dropouts-dog-kasturba-girls-schools-880174.html",
+      "takeaway": "Ballari commission member says hostels located away from schools and distance push girls out; state has 2,430 vacant KGBV seats."
+    },
+    {
+      "title": "Rise in school drop-outs worrying",
+      "outlet": "Deccan Herald",
+      "date": "2019-02-08",
+      "url": "https://deccanherald.com/opinion/editorial/rise-school-drop-outs-worrying-717277.html",
+      "takeaway": "Editorial lists Ballari among districts with highest out-of-school counts in 2018-19 survey, citing migration and disinterest statewide."
+    },
+    {
+      "title": "'Education rights adalat to be made mandatory'",
+      "outlet": "Deccan Herald",
+      "date": "2016-05-30",
+      "url": "https://www.deccanherald.com/amp/story/india%2Fkarnataka%2Feducation-rights-adalat-made-mandatory-2067930",
+      "takeaway": "Child rights commission chair said Ballari had 2,018 children leaving school, the state's highest, and announced a readmission campaign."
+    }
+  ],
+  "responses": [
+    {
+      "text": "Ballari DDPI is preparing a plan with holiday special classes, show-cause notices for schools under 40% pass, and head teacher transfers; existing efforts include Kalika Aasare and phone-in programmes.",
+      "sources": [
+        5
+      ]
+    },
+    {
+      "text": "The state child rights commission's Shaale Kade Nanna Nade campaign (2016) aimed to readmit school leavers, citing Ballari's 2,018 as the state's highest.",
+      "sources": [
+        2
+      ]
+    }
+  ],
+  "officialFactorCheck": [
+    {
+      "factor": "% Population Living in Households with Improved Sanitation",
+      "method": "state",
+      "verdict": "no-evidence",
+      "note": "No source cites sanitation as a dropout driver here.",
+      "sources": []
+    },
+    {
+      "factor": "% Schools with instruction medium 1 (English)",
+      "method": "district",
+      "verdict": "no-evidence",
+      "note": "No evidence links instruction medium to dropout.",
+      "sources": []
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://www.thehindu.com/news/national/karnataka/different-surveys-on-out-of-school-children-in-kalaburagi-reveal-contrasting-figures/article69047215.ece",
+      "title": "Different surveys on out-of-school children in Kalaburagi reveal contrasting figures",
+      "outlet": "The Hindu",
+      "date": "2025-01-01",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://www.deccanherald.com/amp/story/india%2Fkarnataka%2Feducation-rights-adalat-made-mandatory-2067930",
+      "title": "Education rights adalat to be made mandatory",
+      "outlet": "Deccan Herald",
+      "date": "2016-05-30",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://deccanherald.com/opinion/editorial/rise-school-drop-outs-worrying-717277.html",
+      "title": "Rise in school drop-outs worrying",
+      "outlet": "Deccan Herald",
+      "date": "2019-02-08",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "https://www.deccanherald.com/amp/story/india%2Fkarnataka%2Fhigh-dropouts-dog-kasturba-girls-schools-880174.html",
+      "title": "High dropouts dog Kasturba girls' schools",
+      "outlet": "Deccan Herald",
+      "date": "2020-08-31",
+      "type": "news"
+    },
+    {
+      "id": 5,
+      "url": "https://newskarnataka.com/ballary/ballari-govt-schools-face-scrutiny-over-poor-sslc-results-amid-teacher-shortage/08052025/",
+      "title": "Ballari Govt Schools Face Scrutiny Over Poor SSLC Results Amid Teacher Shortage",
+      "outlet": "News Karnataka",
+      "date": "2025-05-08",
+      "type": "news"
+    },
+    {
+      "id": 6,
+      "url": "https://newskarnataka.com/bengaluru/hospete-karnataka-cm-suspend-ddpi-beo-in-the-middle-of-the-meeting/21062024/",
+      "title": "Hospete: Karnataka CM Suspend DDPI, BEO in the Middle of the Meeting",
+      "outlet": "News Karnataka",
+      "date": "2024-06-21",
+      "type": "news"
+    },
+    {
+      "id": 7,
+      "url": "https://www.etvbharat.com/en/!state/karnataka-cm-action-against-school-education-dept-officials-low-sslc-pass-percentage-enn25053102263",
+      "title": "Karnataka CM Orders For Action Against School Education Dept Officials For Low SSLC Pass Percentage",
+      "outlet": "ETV Bharat",
+      "date": "2025-05-31",
+      "type": "news"
+    },
+    {
+      "id": 8,
+      "url": "https://www.collegedekho.com/amp/news/sslc-karnataka-toppers-list-2025-out-district-wise-topper-names-marks-65534/",
+      "title": "SSLC Karnataka Toppers List 2025 (OUT): District-wise topper names, marks",
+      "outlet": "CollegeDekho",
+      "date": "2025-05-04",
+      "type": "data"
+    }
+  ],
+  "coverage": "moderate",
+  "gaps": "Mining-belt, poverty and mass-wedding claims were dropped (social-media post; statewide article); no SSLC or migration data. Vijayanagara not separately covered. No Ballari or Vijayanagara source on mining-belt effects, child labour, Devadasi practice, child marriage, Lambani tanda access or migration; no UDISE+ dropout rate; Vijayanagara-specific dropout counts missing; The Hindu and Times of India items not retrievable.",
+  "verificationNotes": "Dropped reason 'Mass weddings used to marry girls': cited page(s) do not name the district. Dropped news item (cite 42): page does not name the district."
+}

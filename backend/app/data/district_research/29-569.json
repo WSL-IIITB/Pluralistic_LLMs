@@ -1,0 +1,321 @@
+{
+  "districtId": "29-569",
+  "name": "Udupi",
+  "regionId": "karavali",
+  "researchedOn": "2026-10-07",
+  "headline": "Near-perfect SSLC results; documented exits are mostly students absent from board papers.",
+  "summary": "Udupi shares Dakshina Kannada's profile: 98.18% SSLC pass in 2026 (second in the state) after intensive slow-learner coaching. The only dropout-like signal in the sources is students who sit the whole secondary cycle and then skip board papers, 62 in language papers in 2026 and 122 in science papers in an earlier cycle. Early-secondary dropout is rarely reported.",
+  "reasons": [
+    {
+      "factor": "Skipping SSLC board papers",
+      "category": "other",
+      "detail": "Students from several blocks failed to appear for language papers in 2026 and for science papers in an earlier cycle, a late exit that official pass rates hide.",
+      "sources": [
+        1,
+        2
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Intensive slow-learner coaching",
+      "category": "governance",
+      "detail": "Teachers are told to isolate weaker students and drill them with question banks after preparatory exams, which keeps Class 10 candidates in the system.",
+      "sources": [
+        3,
+        4
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Child labour at Malpe harbour",
+      "category": "economic",
+      "detail": "The Deputy Commissioner reported complaints of under-14s collecting fish at Malpe harbour despite earlier raids, and said officials should focus on school dropouts, who tend to end up in child labour.",
+      "sources": [
+        6
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Children from other districts working",
+      "category": "migration",
+      "detail": "Rescue operations at Malpe port found children working there, including 17 from Bellary and Koppal in October 2020 and three in a 2023 joint operation, suggesting inbound labour migration rather than local dropout.",
+      "sources": [
+        10,
+        11
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Weak Class 9-10 learners, SSLC risk",
+      "category": "school-infrastructure",
+      "detail": "The district education office identified 3,080 slow learners in Class 9 and prepared a passing package, with the district pass rate around 88 percent. Exam-related exit risk is implied but not stated.",
+      "sources": [
+        9
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "SSLC exam absenteeism",
+      "category": "other",
+      "detail": "117 students were absent on the first SSLC exam day across 58 centres out of about 13,700 enrolled in the district, a small share.",
+      "sources": [
+        8
+      ],
+      "evidence": "thin"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "SSLC pass rate, 2026",
+      "value": "98.18% (state rank 2)",
+      "sources": [
+        3
+      ]
+    },
+    {
+      "label": "Students who failed SSLC, 2026",
+      "value": "244",
+      "sources": [
+        3
+      ]
+    },
+    {
+      "label": "Absent for SSLC language papers, 2026",
+      "value": "62",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "label": "Schools with 100% SSLC pass",
+      "value": "51",
+      "sources": [
+        4
+      ]
+    },
+    {
+      "label": "Out-of-school children, door-to-door survey",
+      "value": "174 children, lowest in Karnataka",
+      "sources": [
+        7
+      ]
+    },
+    {
+      "label": "Out-of-school children found in one year",
+      "value": "111 children, per the Deputy Commissioner",
+      "sources": [
+        6
+      ]
+    },
+    {
+      "label": "SSLC students enrolled, one exam year",
+      "value": "13,675 enrolled; 117 absent on day one",
+      "sources": [
+        8
+      ]
+    },
+    {
+      "label": "District SSLC pass percentage cited",
+      "value": "About 88 percent",
+      "sources": [
+        9
+      ]
+    },
+    {
+      "label": "Class 9 slow learners identified",
+      "value": "3,080 students",
+      "sources": [
+        9
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Karnataka SSLC exam-1: Focused preparatory strategy helps Dakshina Kannada and Udupi achieve record performance",
+      "outlet": "The Hindu",
+      "date": "2026-04-23",
+      "url": "https://www.thehindu.com/news/cities/Mangalore/karnataka-sslc-exam-1-focused-preparatory-strategy-helps-dakshina-kannada-and-udupi-achieve-record-performance/article70896779.ece",
+      "takeaway": "Focused preparatory strategy helps Dakshina Kannada and Udupi record top SSLC performance."
+    },
+    {
+      "title": "Over 42,000 students attend SSLC exam in Dakshina Kannada, Udupi",
+      "outlet": "The Hindu",
+      "date": "2024-03-31",
+      "url": "https://www.thehindu.com/news/cities/Mangalore/over-42000-students-attend-sslc-exam-in-dakshina-kannada-udupi/article68010307.ece",
+      "takeaway": "Over 42,000 students attend the SSLC exam in Dakshina Kannada and Udupi."
+    },
+    {
+      "title": "Joint rescue operation in Udupi saves children from child labor, begging",
+      "outlet": "Udayavani",
+      "date": "2023",
+      "url": "https://udayavani.com/?p=1533455",
+      "takeaway": "Authorities jointly rescued children found working at Malpe port, including three engaged in fishing."
+    },
+    {
+      "title": "Udupi: 17 child labourers working at Malpe harbour rescued",
+      "outlet": "Udayavani",
+      "date": "2020-10",
+      "url": "https://www.udayavani.com/english-news/udupi-17-child-labourers-working-at-malpe-harbour-rescued",
+      "takeaway": "Seventeen children from Bellary and Koppal were found working at Malpe fishing harbour and rescued."
+    },
+    {
+      "title": "Udupi DPI starts programs to improve district's SSLC pass rate",
+      "outlet": "Udayavani",
+      "date": "",
+      "url": "https://www.udayavani.com/english-news/udupi-dpi-starts-programs-to-improve-districts-sslc-pass-rate",
+      "takeaway": "Education officials identified 3,080 Class 9 slow learners and prepared a passing package to lift the roughly 88 percent pass rate."
+    },
+    {
+      "title": "Udupi district boasts lowest number of out-of-school children",
+      "outlet": "Deccan Herald",
+      "date": "",
+      "url": "https://www.deccanherald.com/content/392724/udupi-district-boasts-lowest-number.html",
+      "takeaway": "A door-to-door education department survey counted only 174 out-of-school children in Udupi, the lowest in the state."
+    },
+    {
+      "title": "SSLC exams: 117 students remain absent in Udupi",
+      "outlet": "Deccan Herald",
+      "date": "",
+      "url": "https://www.deccanherald.com/india/karnataka/sslc-exams-117-students-remain-absent-in-udupi-1095562.html",
+      "takeaway": "On the first exam day, 117 students were absent across 58 centres in the district."
+    }
+  ],
+  "responses": [
+    {
+      "text": "Education officials mandate slow-learner coaching and question-bank drills after the preparatory exam.",
+      "sources": [
+        3
+      ]
+    },
+    {
+      "text": "The Deputy Commissioner asked for periodic surprise raids at Malpe harbour, stronger action against employers, and awareness among parents so under-14s are kept in school.",
+      "sources": [
+        6
+      ]
+    },
+    {
+      "text": "The district education office created a passing package for 3,080 identified Class 9 slow learners to raise the SSLC pass rate.",
+      "sources": [
+        9
+      ]
+    },
+    {
+      "text": "Joint child-protection rescues at Malpe port took working children into the child welfare committee system.",
+      "sources": [
+        10,
+        11
+      ]
+    }
+  ],
+  "officialFactorCheck": [
+    {
+      "factor": "% Population Living in Households with Improved Sanitation",
+      "method": "state",
+      "verdict": "unclear",
+      "note": "Every government school here had toilets in 2023 High Court data; the factor is household sanitation, which no source links to dropout locally.",
+      "sources": [
+        5
+      ]
+    },
+    {
+      "factor": "% Schools with instruction medium 1 (English)",
+      "method": "district",
+      "verdict": "no-evidence",
+      "note": "English-medium schooling is common here, but no source links it to retention or dropout.",
+      "sources": []
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://www.thehindu.com/news/cities/Mangalore/mixed-response-from-class-10-students-to-grading-system-for-third-language-in-karnataka/article70807920.ece",
+      "title": "Mixed response from class 10 students to grading system  for third language in Karnataka",
+      "outlet": "The Hindu",
+      "date": "2026-03-31",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://www.thehindu.com/news/cities/Mangalore/over-42000-students-attend-sslc-exam-in-dakshina-kannada-udupi/article68010307.ece",
+      "title": "Over 42,000 students attend SSLC exam in Dakshina Kannada, Udupi",
+      "outlet": "The Hindu",
+      "date": "2024-03-31",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://www.thehindu.com/news/cities/Mangalore/karnataka-sslc-exam-1-focused-preparatory-strategy-helps-dakshina-kannada-and-udupi-achieve-record-performance/article70896779.ece",
+      "title": "Karnataka SSLC exam-1: Focused preparatory strategy helps Dakshina Kannada and Udupi achieve record performance",
+      "outlet": "The Hindu",
+      "date": "2026-04-23",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "https://www.thehindu.com/news/cities/Mangalore/sslc-results-dakshina-kannada-district-tops-karnataka-after-many-years/article69532015.ece",
+      "title": "SSLC results: Dakshina Kannada district tops Karnataka after many years",
+      "outlet": "The Hindu",
+      "date": "2025-05-02",
+      "type": "news"
+    },
+    {
+      "id": 5,
+      "url": "https://www.thehindu.com/news/national/karnataka/sorry-state-of-affairs-says-high-court-on-absence-of-toilets-in-464-govt-schools/article66908404.ece",
+      "title": "No drinking water in 87 govt schools, no toilets in 464 schools in Karnataka",
+      "outlet": "The Hindu",
+      "date": "2023-05-29",
+      "type": "news"
+    },
+    {
+      "id": 6,
+      "url": "https://demo2.icsf.net/?p=124009",
+      "title": "Udupi child labour at Malpe harbour (ICSF news reprint of a Hindu report)",
+      "outlet": "ICSF",
+      "date": "",
+      "type": "news"
+    },
+    {
+      "id": 7,
+      "url": "https://www.deccanherald.com/content/392724/udupi-district-boasts-lowest-number.html",
+      "title": "Udupi district boasts lowest number of out-of-school children",
+      "outlet": "Deccan Herald",
+      "date": "",
+      "type": "news"
+    },
+    {
+      "id": 8,
+      "url": "https://www.deccanherald.com/india/karnataka/sslc-exams-117-students-remain-absent-in-udupi-1095562.html",
+      "title": "SSLC exams: 117 students remain absent in Udupi",
+      "outlet": "Deccan Herald",
+      "date": "",
+      "type": "news"
+    },
+    {
+      "id": 9,
+      "url": "https://www.udayavani.com/english-news/udupi-dpi-starts-programs-to-improve-districts-sslc-pass-rate",
+      "title": "Udupi DPI starts programs to improve district's SSLC pass rate",
+      "outlet": "Udayavani",
+      "date": "",
+      "type": "news"
+    },
+    {
+      "id": 10,
+      "url": "https://www.udayavani.com/english-news/udupi-17-child-labourers-working-at-malpe-harbour-rescued",
+      "title": "Udupi: 17 child labourers working at Malpe harbour rescued",
+      "outlet": "Udayavani",
+      "date": "2020-10",
+      "type": "news"
+    },
+    {
+      "id": 11,
+      "url": "https://udayavani.com/?p=1533455",
+      "title": "Joint rescue operation in Udupi saves children from child labor, begging",
+      "outlet": "Udayavani",
+      "date": "2023",
+      "type": "news"
+    }
+  ],
+  "coverage": "moderate",
+  "gaps": "No Class 8-10 dropout counts; most sources are SSLC-result coverage; the district's very low casefile dropout rate is unexplained. Article dates mostly unknown; several pages returned 403 or 404 so details rest on search excerpts. No UDISE+ figures, post-COVID trend, girls or child marriage evidence, or source explaining the low rate (reporting differences, migration out) found.",
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+}

@@ -1,0 +1,127 @@
+{
+  "districtId": "29-577",
+  "name": "Mysuru",
+  "regionId": "old-mysuru",
+  "researchedOn": "2026-10-07",
+  "headline": "Mysuru had the state's most child-marriage complaints in six months of 2024.",
+  "summary": "Between April and September 2024 Mysuru received 105 child-marriage complaints, the most in the state, with 36 marriages carried out and 69 prevented. A legislative reply also named single-parent households among the reasons for dropout in Mysuru and five other educational districts.",
+  "reasons": [
+    {
+      "factor": "Child marriage of girls",
+      "category": "gender",
+      "detail": "105 complaints in six months of 2024, 36 marriages carried out and 69 prevented, ending girls' schooling.",
+      "sources": [
+        1
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Single-parent households",
+      "category": "economic",
+      "detail": "A legislative reply named single-parent households among the reasons for school dropout in Mysuru and five other educational districts.",
+      "sources": [
+        2
+      ],
+      "evidence": "moderate"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Child marriage complaints, April-September 2024",
+      "value": "105",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "label": "Child marriage cases since 2020",
+      "value": "100",
+      "sources": [
+        3
+      ]
+    },
+    {
+      "label": "Child marriages carried out, April-September 2024",
+      "value": "36",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "label": "Child marriages prevented, April-September 2024",
+      "value": "69",
+      "sources": [
+        1
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Poverty, migration to single parents one of reasons for school dropout in Karnataka",
+      "outlet": "The Times of India",
+      "date": "2025-09-22",
+      "url": "https://timesofindia.indiatimes.com/city/mysuru/poverty-migration-to-single-parents-one-of-reasons-for-school-dropout-in-karnataka/articleshow/124054037.cms",
+      "takeaway": "Poverty, migration and single parents among reasons for school dropout in Karnataka."
+    },
+    {
+      "title": "State government announces ₹50,000 reward to gram panchayats that prevent child marriages",
+      "outlet": "The Hindu",
+      "date": "2024-11-07",
+      "url": "https://www.thehindu.com/news/national/karnataka/state-government-announces-50000-reward-to-gram-panchayats-that-prevent-child-marriages/article68836090.ece",
+      "takeaway": "State announces a Rs 50,000 reward to gram panchayats that prevent child marriages."
+    }
+  ],
+  "responses": [
+    {
+      "text": "The state offers Rs 50,000 to gram panchayats that prevent child marriage.",
+      "sources": [
+        1
+      ]
+    }
+  ],
+  "officialFactorCheck": [
+    {
+      "factor": "% Population Living in Households with Improved Sanitation",
+      "method": "state",
+      "verdict": "no-evidence",
+      "note": "Sanitation is not cited as a leading driver of high-school exits.",
+      "sources": []
+    },
+    {
+      "factor": "% Schools with Functional Protected Well",
+      "method": "district",
+      "verdict": "no-evidence",
+      "note": "No evidence links the district-method factor to retention.",
+      "sources": []
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://www.thehindu.com/news/national/karnataka/state-government-announces-50000-reward-to-gram-panchayats-that-prevent-child-marriages/article68836090.ece",
+      "title": "State government announces ₹50,000 reward to gram panchayats that prevent child marriages",
+      "outlet": "The Hindu",
+      "date": "2024-11-07",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://timesofindia.indiatimes.com/city/mysuru/poverty-migration-to-single-parents-one-of-reasons-for-school-dropout-in-karnataka/articleshow/124054037.cms",
+      "title": "Poverty, migration to single parents one of reasons for school dropout in Karnataka",
+      "outlet": "The Times of India",
+      "date": "2025-09-22",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://timesofindia.indiatimes.com/city/mysuru/mandya-no-1-dist-in-child-marriages-since-2020-data/articleshow/106071868.cms",
+      "title": "Mandya No. 1 dist in child marriages since 2020: Data",
+      "outlet": "The Times of India",
+      "date": "2023-12-18",
+      "type": "news"
+    }
+  ],
+  "coverage": "thin",
+  "gaps": "The report's claim about residential schools for rescued child labourers cites a source that does not mention Mysuru and was dropped.",
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+}

@@ -1,5 +1,5 @@
 /**
- * WorldviewMap — the real 3D map, replacing the old MapPlaceholder.
+ * WorldviewMap — the static Karnataka region map.
  *
  * Design contract:
  *  • The dark backdrop (grid graticule + warm horizon glow) and the corner chips
@@ -14,7 +14,7 @@
 
 import { Component, lazy, Suspense, useEffect, useState, type ReactNode } from "react";
 
-import { viewTierForZoom, INDIA_VIEW, type ViewTier } from "@/lib/worldview";
+import { MapDetailSheet, RegionPills } from "./MapOverlays";
 import { useDistrictGeo } from "./useDistrictGeo";
 
 const DeckMap = lazy(() => import("./DeckMap"));
@@ -92,13 +92,7 @@ class MapErrorBoundary extends Component<
 }
 
 // ── Client-only map subtree (geo load + deck) ──────────────────────────────────
-function ClientMap({
-  onViewTierChange,
-  dataViewActive,
-}: {
-  onViewTierChange: (tier: ViewTier) => void;
-  dataViewActive: boolean;
-}) {
+function ClientMap() {
   const { geo, status } = useDistrictGeo();
   const [failed, setFailed] = useState(false);
   const token = readMapboxToken();
@@ -113,26 +107,14 @@ function ClientMap({
   return (
     <MapErrorBoundary onError={() => setFailed(true)}>
       <Suspense fallback={null}>
-        <DeckMap
-          geo={geo}
-          mapboxToken={token}
-          onViewTierChange={onViewTierChange}
-          dataViewActive={dataViewActive}
-        />
+        <DeckMap geo={geo} mapboxToken={token} />
       </Suspense>
     </MapErrorBoundary>
   );
 }
 
-interface WorldviewMapProps {
-  /** True when the "Data" tab is active — see routes/index.tsx. Threaded down
-   * to DeckMap; defaults to false so every existing Story View caller is unaffected. */
-  dataViewActive?: boolean;
-}
-
-export function WorldviewMap({ dataViewActive = false }: WorldviewMapProps) {
+export function WorldviewMap() {
   const [mounted, setMounted] = useState(false);
-  const [tier, setTier] = useState<ViewTier>(viewTierForZoom(INDIA_VIEW.zoom));
 
   useEffect(() => setMounted(true), []);
 
@@ -140,18 +122,20 @@ export function WorldviewMap({ dataViewActive = false }: WorldviewMapProps) {
     <div className="absolute inset-0 overflow-hidden bg-background">
       <MapBackdrop />
 
-      {mounted ? (
-        <ClientMap onViewTierChange={setTier} dataViewActive={dataViewActive} />
-      ) : (
-        <MapEmptyHint label="3D map of India" />
-      )}
+      {mounted ? <ClientMap /> : <MapEmptyHint label="Karnataka" />}
+      {/* the map's left edge dissolves into the page instead of ending at a hard seam */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-y-0 left-0 z-[5] w-24 bg-gradient-to-r from-background via-background/60 to-transparent"
+      />
+      <RegionPills />
+      <MapDetailSheet />
 
-      <div className="pointer-events-none absolute bottom-3 left-3 rounded-md border border-panel-border bg-panel px-2 py-1 text-[10px] text-muted-foreground/70 backdrop-blur-sm">
-        © Mapbox · © OpenStreetMap
-      </div>
-      <div className="pointer-events-none absolute right-3 bottom-3 rounded-md border border-panel-border bg-panel px-2 py-1 text-[10px] tracking-wide text-muted-foreground/70 uppercase backdrop-blur-sm">
-        {tier}
-      </div>
+      {readMapboxToken() && (
+        <div className="pointer-events-none absolute bottom-3 left-3 rounded-md border border-panel-border bg-panel px-2 py-1 text-[10px] text-muted-foreground/70 backdrop-blur-sm">
+          © Mapbox · © OpenStreetMap
+        </div>
+      )}
     </div>
   );
 }

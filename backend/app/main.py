@@ -20,7 +20,7 @@ from sse_starlette.sse import EventSourceResponse
 from .config import get_settings
 from .dataview.router import router as dataview_router
 from .graph.build import counts_from_state, run_pipeline
-from .karnataka import persona_payload, persona_regions
+from .karnataka import persona_payload, persona_regions, persona_variants
 from .reasoning_modes import parse_mode, parse_provider
 from .run_history import delete_run, get_run, list_runs, save_run
 from .schema import DoneEvent, QueryStartedEvent, StreamErrorEvent, WorldviewEvent, event_to_sse_data
@@ -51,8 +51,60 @@ def healthz() -> dict:
 
 @app.get("/api/personas")
 def personas() -> list[dict]:
-    """The four Karnataka persona regions, as built from data/personas/*.json."""
-    return [persona_payload(r["id"]) for r in persona_regions()]
+    """Every persona variant (male/female) of every Karnataka region, as built
+    from data/personas/*.json -- one entry per (region, variant) pair."""
+    return [
+        persona_payload(region["id"], variant["id"])
+        for region in persona_regions()
+        for variant in persona_variants(region["id"])
+    ]
+
+
+@app.get("/api/karnataka/districts")
+def karnataka_districts() -> dict:
+    """Per-district facts (region, dropout rate, UIDAI/NITI dominant factors)
+    for the map's click-through panel. Static data, no LLM."""
+    from .district_profiles import NITI_METHOD_NOTES, karnataka_district_profiles
+
+    return {"districts": karnataka_district_profiles(), "methods": NITI_METHOD_NOTES}
+
+
+@app.get("/api/karnataka/districts-research")
+def karnataka_districts_research() -> dict:
+    """Every district's research file, keyed by district id -- embedded into each
+    saved run so a reopened run shows the research as it stood when it was saved."""
+    import glob
+    import json
+    import os
+
+    from .config import DATA_DIR
+
+    out: dict[str, dict] = {}
+    for path in sorted(glob.glob(os.path.join(DATA_DIR, "district_research", "29-*.json"))):
+        with open(path, encoding="utf-8") as fh:
+            out[os.path.basename(path)[:-5]] = json.load(fh)
+    return out
+
+
+@app.get("/api/karnataka/districts/{district_id}/research")
+def karnataka_district_research(district_id: str) -> dict:
+    """The in-depth, media-sourced research file for one district (see
+    data/district_research/SCHEMA.md). 404 if none has been written yet."""
+    import json
+    import os
+    import re
+
+    from fastapi import HTTPException
+
+    from .config import DATA_DIR
+
+    if not re.fullmatch(r"29-\d{3}", district_id):
+        raise HTTPException(status_code=404, detail="unknown district")
+    path = os.path.join(DATA_DIR, "district_research", f"{district_id}.json")
+    if not os.path.isfile(path):
+        raise HTTPException(status_code=404, detail="no research for this district yet")
+    with open(path, encoding="utf-8") as fh:
+        return json.load(fh)
 
 
 @app.get("/api/worldview/stream")

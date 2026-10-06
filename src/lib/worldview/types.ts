@@ -104,6 +104,15 @@ export const LLM_PROVIDERS: readonly LlmProvider[] = [
   "gemma_remote",
 ] as const;
 
+/**
+ * Which of a Karnataka region's persona variants a reply speaks as. Today
+ * every region offers exactly "male" and "female" (see
+ * `karnataka_regions.json`'s per-region `personas` list on the backend); kept
+ * as a plain string, not a union, so a region can add a variant without a
+ * matching frontend type change.
+ */
+export type PersonaVariantId = string;
+
 /** Confidence in a district's geolocation + cluster assignment. */
 export type ConfidenceTier = "high" | "medium" | "low";
 
@@ -223,74 +232,52 @@ export interface RegionStatsDatum {
   samplePosts: SamplePost[];
 }
 
-export interface DivergencePointMatch {
-  persona: string;
-  baseline: string;
-  similarity: number;
+/** One UIDAI/NITI dominant-factor row -- see backend/app/niti_factors.py for
+ *  what `method` means. The two methods' `value`s are never comparable to
+ *  each other; never assert a meaning for `value` beyond what `method` says. */
+export interface NitiFactor {
+  district: string;
+  factor: string;
+  value: number;
+  method: string;
 }
 
-/** Persona vs. no-persona reply for one region (same question, same evidence). */
-export interface DivergenceRegion {
-  /** Which LLM wrote both replies. */
-  model: LlmProvider;
+/**
+ * Story Mode's persona-driven, social+web-sourced reasoning vs. the UIDAI/
+ * NITI official statistical model, for one region or the whole state
+ * (`regionId` is undefined for the statewide row).
+ */
+export interface StoryVsOfficial {
+  scope: "region" | "statewide";
+  regionId?: RegionId;
+  regionName: string;
+  status: "ok" | "failed";
+  error?: string;
+  /** Story Mode's own reasons for this area (its persona replies' text, or
+   *  the Karnataka-wide overview for the statewide row). */
+  storyPoints: string[];
+  /** UIDAI/NITI's dominant-factor rows for this area's districts (both
+   *  methods; empty if none matched). */
+  officialFactors: NitiFactor[];
+  comparison?: string;
+  consolidatedAnswer?: string;
+}
+
+/** Regional persona replies compared with one Karnataka-wide generic answer. */
+export interface PersonaSimilarityRegion {
   regionId: RegionId;
   regionName: string;
   status: "ok" | "failed";
   error?: string;
-  personaVersion?: string;
-  personaReply?: string;
+  /** Cosine similarity to the generic Karnataka answer (0–1, higher = more
+   *  represented by it). */
+  maleSimilarity?: number;
+  femaleSimilarity?: number;
+  /** Whichever persona is less represented by the generic Karnataka answer. */
+  moreDivergentPersona?: "male" | "female" | "equal";
   baselineReply?: string;
-  /** Primary indicator: cosine similarity of the two replies (0–1, higher = more alike). */
-  semanticSimilarity?: number;
-  divergence?: number;
-  /** Similarity between two independent no-persona samples — sampling noise. */
-  noiseFloor?: number;
-  pointAlignment?: number;
-  personaPoints?: string[];
-  baselinePoints?: string[];
-  shared?: DivergencePointMatch[];
-  reframed?: DivergencePointMatch[];
-  personaOnly?: string[];
-  baselineOnly?: string[];
-}
-
-export type DivergenceCondition = "persona" | "baseline";
-
-export interface DivergenceEmbeddingPoint {
-  x: number;
-  y: number;
-  regionId: RegionId;
-  condition: DivergenceCondition;
-  text: string;
-}
-
-export interface DivergenceSummary {
-  model: LlmProvider;
-  embeddingModel: string;
-  labels: { regionId: RegionId; regionName: string; condition: DivergenceCondition }[];
-  matrix: number[][];
-  personaCrossRegionSimilarity?: number;
-  baselineCrossRegionSimilarity?: number;
-  points: DivergenceEmbeddingPoint[];
-  perplexity?: number;
-}
-
-/** Two models answering the same region with the same prompt and evidence. */
-export interface ModelAgreement {
-  regionId: RegionId;
-  modelA: LlmProvider;
-  modelB: LlmProvider;
-  /** Similarity between the two models' persona replies. */
-  persona: number;
-  /** Similarity between the two models' no-persona replies. */
-  baseline: number;
-  divergenceA: number;
-  divergenceB: number;
-}
-
-export interface DivergenceModels {
-  models: { id: LlmProvider; label: string }[];
-  agreements: ModelAgreement[];
+  maleReply?: string;
+  femaleReply?: string;
 }
 
 /** The single load-bearing proposition two viewpoints fork on. */
@@ -320,6 +307,9 @@ export interface AnswerSegment {
   /** Which persona region's reply this segment belongs to (set by the backend,
    *  never by the LLM). Undefined for the Karnataka-wide overview. */
   regionId?: RegionId;
+  /** Which of that region's persona variants ("male"/"female") this reply
+   *  speaks as. Undefined for the Karnataka-wide overview. */
+  personaId?: PersonaVariantId;
   /**
    * How this segment renders:
    *  - `tldr`           one-sentence takeaway, pinned at the top of the panel
@@ -421,16 +411,12 @@ export interface RegionResolvedEvent extends EventBase {
   samplePosts?: SamplePost[];
 }
 
-export interface DivergenceRegionEvent extends EventBase, DivergenceRegion {
-  type: "divergence_region";
+export interface StoryVsOfficialEvent extends EventBase, StoryVsOfficial {
+  type: "story_vs_official";
 }
 
-export interface DivergenceSummaryEvent extends EventBase, DivergenceSummary {
-  type: "divergence_summary";
-}
-
-export interface DivergenceModelsEvent extends EventBase, DivergenceModels {
-  type: "divergence_models";
+export interface PersonaSimilarityRegionEvent extends EventBase, PersonaSimilarityRegion {
+  type: "persona_similarity_region";
 }
 
 /** A new viewpoint cluster was defined (or an existing one refined). */
@@ -508,9 +494,8 @@ export type WorldviewEvent =
   | DeflectionEvent
   | AnswerChunkEvent
   | ResearchDocumentEvent
-  | DivergenceRegionEvent
-  | DivergenceSummaryEvent
-  | DivergenceModelsEvent
+  | StoryVsOfficialEvent
+  | PersonaSimilarityRegionEvent
   | DoneEvent
   | StreamErrorEvent;
 

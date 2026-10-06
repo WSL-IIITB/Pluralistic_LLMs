@@ -1,0 +1,145 @@
+{
+  "districtId": "29-570",
+  "name": "Chikkamagaluru",
+  "regionId": "malnad",
+  "researchedOn": "2026-10-07",
+  "headline": "Migrant plantation families keep children out of school each pepper and coffee harvest.",
+  "summary": "Each harvest season families migrate into Chikkamagaluru to work in coffee and pepper plantations, and children live in roadside tents minding younger siblings instead of attending school. A school in Begar made four regular students write SSLC as private candidates without parental consent, and parents threatened to withdraw daughters over the 2022 hijab ban.",
+  "reasons": [
+    {
+      "factor": "Seasonal plantation migration",
+      "category": "migration",
+      "detail": "Hundreds of migrant families work the coffee and pepper harvest; their children miss school while living in makeshift tents.",
+      "sources": [
+        1
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Students registered as private candidates",
+      "category": "governance",
+      "detail": "Karnataka Public School Begar allegedly registered four regular students as private candidates without parental consent, costing them internal marks.",
+      "sources": [
+        2
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Hijab dispute",
+      "category": "social-norms",
+      "detail": "Parents said they would withdraw daughters from high schools if headscarves were barred during the 2022 row.",
+      "sources": [
+        3
+      ],
+      "evidence": "thin"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Students made to write SSLC as private candidates at one school",
+      "value": "4",
+      "sources": [
+        2
+      ]
+    },
+    {
+      "label": "Child marriages, January-October 2025",
+      "value": "19",
+      "sources": [
+        4
+      ]
+    },
+    {
+      "label": "Child marriage cases since 2020",
+      "value": "40",
+      "sources": [
+        5
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Karnataka govt school allegedly made four students write SSLC exams as private candidates",
+      "outlet": "The Hindu",
+      "date": "2026-04-28",
+      "url": "https://www.thehindu.com/news/national/karnataka/karnataka-public-school-allegedly-made-four-students-write-sslc-exams-as-private-candidates-in-chikkamagaluru/article70915499.ece",
+      "takeaway": "Karnataka Public School allegedly made four students write SSLC exams as private candidates in Chikkamagaluru."
+    },
+    {
+      "title": "Come pepper harvest season, children of migrant workers in Karnataka miss school",
+      "outlet": "The Hindu",
+      "date": "2026-02-16",
+      "url": "https://www.thehindu.com/news/national/karnataka/come-pepper-harvest-season-children-of-migrant-workers-in-karnataka-miss-school/article70578263.ece",
+      "takeaway": "Come pepper harvest season, children of migrant workers in Karnataka miss school."
+    },
+    {
+      "title": "Parents want their children with headscarves allowed to attend classes",
+      "outlet": "The Hindu",
+      "date": "2022-02-15",
+      "url": "https://www.thehindu.com/news/national/karnataka/hijab-controversy-parents-want-children-with-headscarves-allowed-to-attend-classes-in-chikkamagaluru/article65051734.ece",
+      "takeaway": "Students and parents urge schools to allow girls with hijab in Chikkamagaluru."
+    }
+  ],
+  "responses": [],
+  "officialFactorCheck": [
+    {
+      "factor": "% Population Living in Households with Improved Sanitation",
+      "method": "state",
+      "verdict": "no-evidence",
+      "note": "Migration and administrative malpractice, not sanitation, are the documented barriers.",
+      "sources": []
+    },
+    {
+      "factor": "% Schools with instruction medium 1 (English)",
+      "method": "district",
+      "verdict": "no-evidence",
+      "note": "Medium of instruction is not cited as a barrier.",
+      "sources": []
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://www.thehindu.com/news/national/karnataka/come-pepper-harvest-season-children-of-migrant-workers-in-karnataka-miss-school/article70578263.ece",
+      "title": "Come pepper harvest season, children of migrant workers in Karnataka miss school",
+      "outlet": "The Hindu",
+      "date": "2026-02-16",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://www.thehindu.com/news/national/karnataka/karnataka-public-school-allegedly-made-four-students-write-sslc-exams-as-private-candidates-in-chikkamagaluru/article70915499.ece",
+      "title": "Karnataka govt school allegedly made four students write SSLC exams as private candidates",
+      "outlet": "The Hindu",
+      "date": "2026-04-28",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://www.thehindu.com/news/national/karnataka/hijab-controversy-parents-want-children-with-headscarves-allowed-to-attend-classes-in-chikkamagaluru/article65051734.ece",
+      "title": "Parents want their children with headscarves allowed to attend classes",
+      "outlet": "The Hindu",
+      "date": "2022-02-15",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "https://timesofindia.indiatimes.com/city/mysuru/drastic-fall-in-child-marriage-numbers-in-old-mysuru-region/articleshow/125918000.cms",
+      "title": "Drastic fall in child marriage numbers in Old Mysuru region",
+      "outlet": "The Times of India",
+      "date": "2025-12-12",
+      "type": "news"
+    },
+    {
+      "id": 5,
+      "url": "https://timesofindia.indiatimes.com/city/mysuru/mandya-no-1-dist-in-child-marriages-since-2020-data/articleshow/106071868.cms",
+      "title": "Mandya No. 1 dist in child marriages since 2020: Data",
+      "outlet": "The Times of India",
+      "date": "2023-12-18",
+      "type": "news"
+    }
+  ],
+  "coverage": "moderate",
+  "gaps": "SSLC pass rate omitted because sources conflict; no dropout counts.",
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+}

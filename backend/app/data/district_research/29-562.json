@@ -1,0 +1,284 @@
+{
+  "districtId": "29-562",
+  "name": "Dharwad",
+  "regionId": "kitturu-karnataka",
+  "researchedOn": "2026-10-07",
+  "headline": "A rural Dharwad study ties dropout to hardship and migration; child marriage is also being stopped.",
+  "summary": "A study of rural Dharwad attributes high upper-primary and early-secondary dropout to disinterest, economic hardship and families migrating for wage work. The district's SSLC rank rose while its pass percentage fell, which The Hindu reported but did not link to dropout. Authorities prevented 28 child marriages in 2024-25 and launched Mission Vidyakashi to improve SSLC and PU results.",
+  "reasons": [
+    {
+      "factor": "Hardship, disinterest and migration",
+      "category": "economic",
+      "detail": "A study of Dharwad's rural areas found dropouts driven by student disinterest, economic hardship and families moving for wage labour.",
+      "sources": [
+        1
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Child marriage of girls",
+      "category": "gender",
+      "detail": "Officials stopped 28 child marriages in 2024-25, evidence of ongoing pressure to marry girls out of school.",
+      "sources": [
+        2
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Migrant farm-labour families",
+      "category": "migration",
+      "detail": "Many of the roughly 150 unenrolled children in 2025 belong to migrant families working in agricultural fields with parents, or have moved out of the district.",
+      "sources": [
+        6
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Never enrolled or not readmitted",
+      "category": "governance",
+      "detail": "Some children never attended school; others obtained transfer certificates but were not admitted elsewhere, pointing to gaps in tracking and re-enrolment after movement.",
+      "sources": [
+        6
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Rank up, pass rate down",
+      "category": "governance",
+      "detail": "Dharwad moved up the SSLC ranking while its pass percentage fell; the report reads this as weaker students leaving, which the sources do not confirm.",
+      "sources": [
+        3,
+        4
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Child labour in Hubballi-Dharwad",
+      "category": "economic",
+      "detail": "Ten children were rescued from labour in Hubballi-Dharwad during a September 2026 statewide police drive; the report does not say whether they were school dropouts.",
+      "sources": [
+        9
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Unmonitored absenteeism",
+      "category": "governance",
+      "detail": "A 2015 NGO drive proposed an attendance authority to act when a child is absent a week without reason, indicating irregular attendance preceded dropout.",
+      "sources": [
+        7
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Rising dropout flagged by research",
+      "category": "other",
+      "detail": "A 2015 geographical study of Dharwad district reported that dropout rates were increasing and examined causes and effects; the abstract gives no specific figures or causes.",
+      "sources": [
+        8
+      ],
+      "evidence": "thin"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Child marriages prevented, 2024-25",
+      "value": "28",
+      "sources": [
+        2
+      ]
+    },
+    {
+      "label": "SSLC state rank, 2023",
+      "value": "24th (up from 26th)",
+      "sources": [
+        4
+      ]
+    },
+    {
+      "label": "Children unenrolled, Dharwad district, May 2025",
+      "value": "About 150 children not enrolled in any school ahead of 2025-26",
+      "sources": [
+        6
+      ]
+    },
+    {
+      "label": "Navalgund taluk out-of-school children, 2025",
+      "value": "53 (highest), followed by Kundgol 36",
+      "sources": [
+        6
+      ]
+    },
+    {
+      "label": "Other taluks out-of-school children, 2025",
+      "value": "Dharwad Rural 25, Hubballi Rural 19, Dharwad City 10, Kalghatagi 5, Hubballi City 2",
+      "sources": [
+        6
+      ]
+    },
+    {
+      "label": "Children rescued from labour, Hubballi-Dharwad, 2026",
+      "value": "10 children in statewide drive",
+      "sources": [
+        9
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "K'taka: 800 children engaged in labour rescued by police in statewide drive",
+      "outlet": "ThePrint",
+      "date": "2026-09-12",
+      "url": "https://theprint.in/india/ktaka-800-children-engaged-in-labour-rescued-by-police-in-statewide-drive/3041403/",
+      "takeaway": "Statewide drive after the CM found children working at Bengaluru APMC; 10 children were rescued in Hubballi-Dharwad."
+    },
+    {
+      "title": "28 child marriages prevented in Dharwad district during 2024-25",
+      "outlet": "The Hindu",
+      "date": "2025-05-22",
+      "url": "https://www.thehindu.com/news/national/karnataka/28-child-marriages-prevented-in-dharwad-district-during-2024-25/article69606749.ece",
+      "takeaway": "28 child marriages prevented in Dharwad district during 2024-25."
+    },
+    {
+      "title": "150 kids still out of school in Dharwad ahead of new academic year",
+      "outlet": "News Karnataka",
+      "date": "2025-05-09",
+      "url": "https://newskarnataka.com/education/150-kids-still-out-of-school-in-dharwad-ahead-of-new-academic-year/09052025/",
+      "takeaway": "Survey list of about 150 unenrolled children, many from migrant farm families, forwarded to education department for reintegration."
+    },
+    {
+      "title": "Mission Vidyakashi launched to help improve Dharwad’s performance in SSLC, PU exams",
+      "outlet": "The Hindu",
+      "date": "2024-07-30",
+      "url": "https://www.thehindu.com/news/national/karnataka/mission-vidyakashi-launched-to-help-improve-dharwads-performance-in-sslc-pu-exams/article68464685.ece",
+      "takeaway": "Mission Vidyakashi launched to improve Dharwad's SSLC and PU performance."
+    },
+    {
+      "title": "Dharwad goes up in SSLC ranking, but down in passing percentage",
+      "outlet": "The Hindu",
+      "date": "2024-05-09",
+      "url": "https://www.thehindu.com/news/national/karnataka/dharwad-goes-up-in-sslc-ranking-but-down-in-passing-percentage/article68158495.ece",
+      "takeaway": "Dharwad goes up in SSLC ranking but down in pass percentage."
+    },
+    {
+      "title": "Orientation programme to conduct survey on dropout children at Dharwad through KCRO network",
+      "outlet": "CIVIC Bangalore",
+      "date": "2015-12-08",
+      "url": "https://civicspace.in/?p=2244",
+      "takeaway": "Child rights NGOs prepared a dropout survey in Dharwad and promoted an attendance authority to follow up week-long absences."
+    }
+  ],
+  "responses": [
+    {
+      "text": "Mission Vidyakashi aims to improve teaching methods and SSLC and PU results.",
+      "sources": [
+        5
+      ]
+    },
+    {
+      "text": "After the 2025 survey, the list was sent to the education department; the DDPI promised taluk-level outreach, while cluster resource persons and school heads will visit households to reintegrate children.",
+      "sources": [
+        6
+      ]
+    },
+    {
+      "text": "Returning first-time students are to be placed in age-appropriate classes under the reintegration plan announced in May 2025.",
+      "sources": [
+        6
+      ]
+    }
+  ],
+  "officialFactorCheck": [
+    {
+      "factor": "% Population Living in Households with Improved Sanitation",
+      "method": "state",
+      "verdict": "no-evidence",
+      "note": "Sanitation is not identified as a dropout driver in local sources.",
+      "sources": []
+    },
+    {
+      "factor": "% Schools with instruction medium 1 (English)",
+      "method": "district",
+      "verdict": "no-evidence",
+      "note": "No data links instruction medium to local dropout.",
+      "sources": []
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://www.ijcmas.com/8-2-2019/S.V.%20Halawar.pdf",
+      "title": "A Study on School Dropouts and Student Strength of Dharwad",
+      "outlet": "Int. J. Curr. Microbiol. App. Sci.",
+      "date": "",
+      "type": "research"
+    },
+    {
+      "id": 2,
+      "url": "https://www.thehindu.com/news/national/karnataka/28-child-marriages-prevented-in-dharwad-district-during-2024-25/article69606749.ece",
+      "title": "28 child marriages prevented in Dharwad district during 2024-25",
+      "outlet": "The Hindu",
+      "date": "2025-05-22",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://www.thehindu.com/news/national/karnataka/dharwad-goes-up-in-sslc-ranking-but-down-in-passing-percentage/article68158495.ece",
+      "title": "Dharwad goes up in SSLC ranking, but down in passing percentage",
+      "outlet": "The Hindu",
+      "date": "2024-05-09",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "https://www.thehindu.com/news/national/karnataka/dharwad-up-in-ranking-but-pass-percentage-down/article66827799.ece",
+      "title": "Dharwad up in ranking, but pass percentage down",
+      "outlet": "The Hindu",
+      "date": "2023-05-08",
+      "type": "news"
+    },
+    {
+      "id": 5,
+      "url": "https://www.thehindu.com/news/national/karnataka/mission-vidyakashi-launched-to-help-improve-dharwads-performance-in-sslc-pu-exams/article68464685.ece",
+      "title": "Mission Vidyakashi launched to help improve Dharwad’s performance in SSLC, PU exams",
+      "outlet": "The Hindu",
+      "date": "2024-07-30",
+      "type": "news"
+    },
+    {
+      "id": 6,
+      "url": "https://newskarnataka.com/education/150-kids-still-out-of-school-in-dharwad-ahead-of-new-academic-year/09052025/",
+      "title": "150 kids still out of school in Dharwad ahead of new academic year",
+      "outlet": "News Karnataka",
+      "date": "2025-05-09",
+      "type": "news"
+    },
+    {
+      "id": 7,
+      "url": "https://civicspace.in/?p=2244",
+      "title": "Orientation programme to conduct survey on dropout children at Dharwad through KCRO network",
+      "outlet": "CIVIC Bangalore",
+      "date": "2015-12-08",
+      "type": "ngo"
+    },
+    {
+      "id": 8,
+      "url": "https://www.ngji.in/index.php/ngji/article/view/355",
+      "title": "Out of School/ Dropout Children In Dharwad District, Karnataka State: A Geographical Study",
+      "outlet": "Nagpur-based geographical journal (NGJI)",
+      "date": "2015",
+      "type": "research"
+    },
+    {
+      "id": 9,
+      "url": "https://theprint.in/india/ktaka-800-children-engaged-in-labour-rescued-by-police-in-statewide-drive/3041403/",
+      "title": "K'taka: 800 children engaged in labour rescued by police in statewide drive",
+      "outlet": "ThePrint",
+      "date": "2026-09-12",
+      "type": "news"
+    }
+  ],
+  "coverage": "moderate",
+  "gaps": "The dropout study is from 2019; no recent district dropout or out-of-school counts. Searching stopped early (search quota exhausted). Not found: Dharwad SSLC pass percentage, school distance or teacher vacancy, girls' safety or child marriage, post-COVID drop, official UDISE dropout figures. Several major outlets blocked or inaccessible.",
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+}

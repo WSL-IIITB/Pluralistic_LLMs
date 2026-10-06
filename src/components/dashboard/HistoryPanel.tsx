@@ -64,7 +64,7 @@ export function HistoryPanel({ onOpenRun }: HistoryPanelProps) {
   };
 
   return (
-    <div className="absolute top-28 left-1/2 w-[560px] max-w-[calc(100vw-3rem)] -translate-x-1/2">
+    <div className="min-h-0 flex-1 overflow-y-auto">
       <section className="panel-surface pointer-events-auto rounded-xl p-5">
         <div className="flex items-center justify-between">
           <p className="label-micro">Saved Runs</p>

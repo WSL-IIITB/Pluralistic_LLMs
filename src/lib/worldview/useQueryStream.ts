@@ -12,6 +12,7 @@
 
 import { useCallback, useEffect, useMemo, useRef } from "react";
 
+import { fetchAllDistrictResearch } from "./districtResearch";
 import { saveRun } from "./runHistory";
 import {
   createStreamSource,
@@ -90,14 +91,19 @@ export function useQueryStream(): QueryStreamApi {
           if (event.type === "done") {
             const s = useWorldviewStore.getState();
             if ((s.runState === "done" || s.runState === "empty") && s.queryRunId && s.query) {
-              void saveRun({
+              const run = {
                 id: s.queryRunId,
                 query: s.query,
                 queryType: s.queryType,
                 mode: s.mode,
                 provider: s.provider,
                 ...s.snapshotRun(),
-              });
+              };
+              // Embed the district research as it stands right now, so reopening this
+              // run later shows exactly this research. Falls back to saving without it.
+              void fetchAllDistrictResearch().then((districtResearch) =>
+                saveRun(districtResearch ? { ...run, districtResearch } : run),
+              );
             }
           }
         },

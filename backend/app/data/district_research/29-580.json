@@ -1,0 +1,341 @@
+{
+  "districtId": "29-580",
+  "name": "Yadgir",
+  "regionId": "kalyana-karnataka",
+  "researchedOn": "2026-10-07",
+  "headline": "Distress migration pulls 14-18-year-olds out of school; the Deputy Commissioner drives dropouts back herself.",
+  "summary": "Yadgir's sources describe mass distress migration of labourer families to cities such as Bengaluru, a survey finding 1,747 out-of-school children aged 14-18, and a 2019 count of 1,547 children absent for more than three weeks, the highest in the state at the time. The administration uses NIOS and 'Mitra' programmes to bring older adolescents back, and an Azim Premji action-research study points to economic constraints at the transition into secondary school.",
+  "reasons": [
+    {
+      "factor": "Distress migration of labour families",
+      "category": "migration",
+      "detail": "Families unable to live off arid land migrate to cities for construction and wage work, taking children out of school.",
+      "sources": [
+        1,
+        2
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Chronic absenteeism",
+      "category": "other",
+      "detail": "In 2019 Yadgir had the state's highest number of children missing school for over three consecutive weeks.",
+      "sources": [
+        3
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "SSLC failure, results pressure",
+      "category": "governance",
+      "detail": "Yadgir managed 54.43% in 2024 and 51.6% in 2025; the district Zilla Panchayat CEO issued a circular tying teacher increments to subject results.",
+      "sources": [
+        8,
+        9,
+        10
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Economic bottleneck at the move to secondary school",
+      "category": "economic",
+      "detail": "Azim Premji Foundation research found deep-rooted economic constraints blocking the transition into secondary school.",
+      "sources": [
+        4
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Migration and ill health",
+      "category": "migration",
+      "detail": "Officials interpreting the 2019 state absenteeism survey, where Yadgir had the second-highest count, named migration and illness as main reasons; the 2018-19 survey also cited migration and disinterest.",
+      "sources": [
+        6,
+        7
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Poverty and irregular work",
+      "category": "economic",
+      "detail": "Yadgir has a 25.38% multidimensional poverty rate and the lowest district output in the state; an educator notes labourers can lack work for months, and parents take children to fields.",
+      "sources": [
+        8
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Teacher vacancies",
+      "category": "school-infrastructure",
+      "detail": "An RTE activist says teacher shortages are most severe in Kalyana Karnataka districts including Yadgir; a teacher also describes absent teachers going unpenalised across the region.",
+      "sources": [
+        8
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Child marriage, girls' safety",
+      "category": "gender",
+      "detail": "A social worker describes girls withdrawn from school and married off; in August 2025 a Class 9 girl gave birth in a Shahapur residential school washroom, prompting a child rights inquiry.",
+      "sources": [
+        8,
+        10
+      ],
+      "evidence": "thin"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Out-of-school children aged 14-18 (survey)",
+      "value": "1,747",
+      "sources": [
+        2
+      ]
+    },
+    {
+      "label": "Children absent more than three weeks, 2019",
+      "value": "1,547",
+      "sources": [
+        3
+      ]
+    },
+    {
+      "label": "Out-of-school children, 2018-19 survey",
+      "value": "5,741 (third-highest in state)",
+      "sources": [
+        7
+      ]
+    },
+    {
+      "label": "Children absent 7+ days, Oct 2019",
+      "value": "1,423, second to Kalaburagi (ages 6-14)",
+      "sources": [
+        6
+      ]
+    },
+    {
+      "label": "SSLC pass percentage, 2025",
+      "value": "51.6%, among the lowest in the state",
+      "sources": [
+        8,
+        9
+      ]
+    },
+    {
+      "label": "SSLC overall district pass, 2024",
+      "value": "54.43 per cent",
+      "sources": [
+        10
+      ]
+    },
+    {
+      "label": "PUC-2 pass percentage, 2024-25",
+      "value": "48.45%, lowest in Karnataka",
+      "sources": [
+        8
+      ]
+    },
+    {
+      "label": "Multidimensional poverty rate, MPI review 2023",
+      "value": "25.38%",
+      "sources": [
+        8
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "1,747 out-of-school children in Yadgir to be brought back to classrooms through NIOS Mitra",
+      "outlet": "The Hindu",
+      "date": "2026-06-28",
+      "url": "https://www.thehindu.com/news/national/karnataka/1747-out-of-school-children-in-yadgir-to-be-brought-back-to-classrooms-through-nios-mitra/article71117892.ece",
+      "takeaway": "1,747 out-of-school children in Yadgir to be brought back through NIOS and Mitra."
+    },
+    {
+      "title": "Class 9 Student Delivers Baby in School; Probe Ordered by Karnataka Child Rights Panel",
+      "outlet": "The Logical Indian",
+      "date": "2025-08-28",
+      "url": "https://thelogicalindian.com/class-9-student-delivers-baby-in-school-probe-ordered-by-karnataka-child-rights-panel/",
+      "takeaway": "A 14-year-old in a Shahapur government residential school gave birth; child rights commission ordered inquiry and warden was suspended."
+    },
+    {
+      "title": "Karnataka CM Orders For Action Against School Education Dept Officials For Low SSLC Pass Percentage",
+      "outlet": "ETV Bharat",
+      "date": "2025-05-31",
+      "url": "https://www.etvbharat.com/en/!state/karnataka-cm-action-against-school-education-dept-officials-low-sslc-pass-percentage-enn25053102263",
+      "takeaway": "Yadgir recorded 51.6% in SSLC 2025; CM ordered notices to DDPIs in districts below 60%."
+    },
+    {
+      "title": "Failing the future: What is holding back school education in Kalaburgi and Yadgir districts of Karnataka?",
+      "outlet": "The South First",
+      "date": "2025-05-10",
+      "url": "https://thesouthfirst.com/news/failing-the-future-what-is-holding-back-school-education-in-kalaburgi-and-yadgir-districts-of-karnataka",
+      "takeaway": "Poverty, stunting, teacher shortages and child marriage cited for Yadgir's bottom-ranked exam results; Yadgir had the lowest 2024-25 PUC-2 pass rate."
+    },
+    {
+      "title": "Subject teachers may lose hike over poor SSLC results in Karnataka",
+      "outlet": "Deccan Herald",
+      "date": "2024-06-27",
+      "url": "https://www.deccanherald.com/amp/story/india%2Fkarnataka%2Fsubject-teachers-may-lose-hike-over-poor-sslc-results-3082353",
+      "takeaway": "Yadgir Zilla Panchayat circular threatened increments for teachers whose subjects fell below the 54.43% district pass rate."
+    },
+    {
+      "title": "Yadgir Deputy Commissioner takes dropouts back to school in her vehicle",
+      "outlet": "The Hindu",
+      "date": "2022-12-21",
+      "url": "https://www.thehindu.com/news/national/karnataka/yadgir-deputy-commissioner-takes-dropouts-back-to-school-in-her-vehicle/article66288515.ece",
+      "takeaway": "Yadgir Deputy Commissioner takes dropouts back to school in her vehicle."
+    },
+    {
+      "title": "Kalaburagi tops state in school absenteeism",
+      "outlet": "Deccan Herald",
+      "date": "2019-12-04",
+      "url": "https://www.deccanherald.com/amp/story/india%2Fkarnataka%2Fkalaburagi-tops-state-in-school-absenteeism-782699.html",
+      "takeaway": "Yadgir had 1,423 children absent for a week, second to Kalaburagi; officials cited migration and ill health."
+    },
+    {
+      "title": "SSA writes to welfare panel on 311 out-of-school children",
+      "outlet": "The Hindu",
+      "date": "2019-12-03",
+      "url": "https://www.thehindu.com/news/national/karnataka/ssa-writes-to-welfare-panel-on-311-out-of-school-children/article30152623.ece",
+      "takeaway": "SSA writes to the welfare panel about out-of-school children."
+    },
+    {
+      "title": "Rise in school drop-outs worrying",
+      "outlet": "Deccan Herald",
+      "date": "2019-02-08",
+      "url": "https://deccanherald.com/opinion/editorial/rise-school-drop-outs-worrying-717277.html",
+      "takeaway": "Editorial lists Yadgir's 5,741 out-of-school children in 2018-19; survey cited migration and disinterest as major statewide reasons."
+    }
+  ],
+  "responses": [
+    {
+      "text": "The administration uses NIOS and 'Mitra' programmes to mainstream older out-of-school adolescents; the Deputy Commissioner personally returns dropouts to class.",
+      "sources": [
+        2,
+        5
+      ]
+    },
+    {
+      "text": "Yadgir Zilla Panchayat's CEO circular (2024) withheld annual increments from subject teachers below the district pass percentage; teachers' association objected.",
+      "sources": [
+        10
+      ]
+    },
+    {
+      "text": "After the Shahapur residential school incident the state child rights commission ordered an inquiry and counselling; the hostel warden was suspended.",
+      "sources": [
+        11
+      ]
+    }
+  ],
+  "officialFactorCheck": [
+    {
+      "factor": "% Population Living in Households with Improved Sanitation",
+      "method": "state",
+      "verdict": "no-evidence",
+      "note": "No direct evidence links sanitation to dropout.",
+      "sources": []
+    },
+    {
+      "factor": "% Schools with instruction medium 1 (English)",
+      "method": "district",
+      "verdict": "no-evidence",
+      "note": "No evidence links instruction medium to dropout.",
+      "sources": []
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://www.thehindu.com/news/cities/bangalore/for-the-child-of-a-migrant-labourer-education-continues-to-be-elusive/article5348040.ece",
+      "title": "For the child of a migrant labourer, education continues to be elusive",
+      "outlet": "The Hindu",
+      "date": "2013-11-13",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://www.thehindu.com/news/national/karnataka/1747-out-of-school-children-in-yadgir-to-be-brought-back-to-classrooms-through-nios-mitra/article71117892.ece",
+      "title": "1,747 out-of-school children in Yadgir to be brought back to classrooms through NIOS Mitra",
+      "outlet": "The Hindu",
+      "date": "2026-06-28",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://www.thehindu.com/news/national/karnataka/ssa-writes-to-welfare-panel-on-311-out-of-school-children/article30152623.ece",
+      "title": "SSA writes to welfare panel on 311 out-of-school children",
+      "outlet": "The Hindu",
+      "date": "2019-12-03",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "http://publications.azimpremjiuniversity.edu.in/395/",
+      "title": "Who drops out of school? evidence from an action research study in Yadgir district, Karnataka  - ePrints@APU",
+      "outlet": "Azim Premji University",
+      "date": "",
+      "type": "research"
+    },
+    {
+      "id": 5,
+      "url": "https://www.thehindu.com/news/national/karnataka/yadgir-deputy-commissioner-takes-dropouts-back-to-school-in-her-vehicle/article66288515.ece",
+      "title": "Yadgir Deputy Commissioner takes dropouts back to school in her vehicle",
+      "outlet": "The Hindu",
+      "date": "2022-12-21",
+      "type": "news"
+    },
+    {
+      "id": 6,
+      "url": "https://www.deccanherald.com/amp/story/india%2Fkarnataka%2Fkalaburagi-tops-state-in-school-absenteeism-782699.html",
+      "title": "Kalaburagi tops state in school absenteeism",
+      "outlet": "Deccan Herald",
+      "date": "2019-12-04",
+      "type": "news"
+    },
+    {
+      "id": 7,
+      "url": "https://deccanherald.com/opinion/editorial/rise-school-drop-outs-worrying-717277.html",
+      "title": "Rise in school drop-outs worrying",
+      "outlet": "Deccan Herald",
+      "date": "2019-02-08",
+      "type": "news"
+    },
+    {
+      "id": 8,
+      "url": "https://thesouthfirst.com/news/failing-the-future-what-is-holding-back-school-education-in-kalaburgi-and-yadgir-districts-of-karnataka",
+      "title": "Failing the future: What is holding back school education in Kalaburgi and Yadgir districts of Karnataka?",
+      "outlet": "The South First",
+      "date": "2025-05-10",
+      "type": "news"
+    },
+    {
+      "id": 9,
+      "url": "https://www.etvbharat.com/en/!state/karnataka-cm-action-against-school-education-dept-officials-low-sslc-pass-percentage-enn25053102263",
+      "title": "Karnataka CM Orders For Action Against School Education Dept Officials For Low SSLC Pass Percentage",
+      "outlet": "ETV Bharat",
+      "date": "2025-05-31",
+      "type": "news"
+    },
+    {
+      "id": 10,
+      "url": "https://www.deccanherald.com/amp/story/india%2Fkarnataka%2Fsubject-teachers-may-lose-hike-over-poor-sslc-results-3082353",
+      "title": "Subject teachers may lose hike over poor SSLC results in Karnataka",
+      "outlet": "Deccan Herald",
+      "date": "2024-06-27",
+      "type": "news"
+    },
+    {
+      "id": 11,
+      "url": "https://thelogicalindian.com/class-9-student-delivers-baby-in-school-probe-ordered-by-karnataka-child-rights-panel/",
+      "title": "Class 9 Student Delivers Baby in School; Probe Ordered by Karnataka Child Rights Panel",
+      "outlet": "The Logical Indian",
+      "date": "2025-08-28",
+      "type": "news"
+    }
+  ],
+  "coverage": "moderate",
+  "gaps": "No district SSLC pass rates; the migration source is older. No UDISE+ or DSERT Class 8-10 dropout rate for Yadgir found; no study of migration destinations; nothing district-specific on Lambani tandas, child labour or Devadasi links; the 2026 SSLC district result could not be verified.",
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+}

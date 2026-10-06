@@ -45,3 +45,10 @@ backend/app/data/run_history.db
 *.njsproj
 *.sln
 *.sw?
+
+# Downloaded news pages used to verify research claims (copyrighted, regenerable)
+docs/district-research/responses/.page_cache/
+docs/district-research/responses/.backend_districts.json
+
+# Static-site build output
+dist/

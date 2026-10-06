@@ -66,10 +66,6 @@ PROVIDER_LABELS: dict[LlmProvider, str] = {
     "gemma_remote": "Gemma",
 }
 
-# Models the divergence stage compares, when configured (see
-# graph/nodes/divergence.py) -- the run's own provider is always included.
-DIVERGENCE_PROVIDERS: tuple[LlmProvider, ...] = ("gemma_remote", "azure_anthropic")
-
 
 def parse_provider(raw: str | None, default: LlmProvider = "gemma_remote") -> LlmProvider:
     """Validate a provider string from a query param; unknown/missing -> default."""

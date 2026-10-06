@@ -1,8 +1,9 @@
-import { ChevronDown, ChevronUp, Loader2, Square } from "lucide-react";
-import { type FormEvent, useState } from "react";
+import { Loader2, Lock, Square } from "lucide-react";
+import type { FormEvent } from "react";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Progress } from "@/components/ui/progress";
 import { Select, SelectContent, SelectItem, SelectTrigger } from "@/components/ui/select";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { useWorldviewStore } from "@/lib/worldview";
@@ -18,10 +19,14 @@ interface QueryBarProps {
   onReasoningModeChange: (mode: ResearchMode) => void;
   provider: LlmProvider;
   onProviderChange: (provider: LlmProvider) => void;
+  /** Show the topic but disable editing — the study is built around one fixed question. */
+  locked?: boolean;
+  /** Re-run the current query one reasoning mode higher. */
+  onGoDeeper: () => void;
 }
 
 /**
- * Every mode covers all four Karnataka persona regions (see
+ * Every mode covers all six Karnataka persona regions (see
  * backend/app/reasoning_modes.py); mode scales how many targeted searches run
  * per region and how many posts each keeps.
  */
@@ -98,11 +103,17 @@ export function QueryBar({
   onReasoningModeChange,
   provider,
   onProviderChange,
+  onGoDeeper,
+  locked = false,
 }: QueryBarProps) {
-  const [collapsed, setCollapsed] = useState(false);
   const ticker = useWorldviewStore((s) => s.status.ticker);
+  const progress = useWorldviewStore((s) => s.status.progress);
   const runState = useWorldviewStore((s) => s.runState);
+  const storedQuery = useWorldviewStore((s) => s.query);
   const isError = runState === "error";
+  const pct = Math.round(progress * 100);
+  const canGoDeeper =
+    !isStreaming && !!storedQuery && (runState === "done" || runState === "empty");
   const activeHint = REASONING_HINTS[reasoningMode];
   const activeProviderOption = LLM_PROVIDER_OPTIONS.find((opt) => opt.value === provider);
   const localWarning =
@@ -116,34 +127,27 @@ export function QueryBar({
     if (value.trim().length > 0) onSubmit(value);
   };
 
-  if (collapsed) {
-    return (
-      <button
-        type="button"
-        onClick={() => setCollapsed(false)}
-        aria-label="Show query controls"
-        title="Show query controls"
-        className="panel-surface pointer-events-auto flex items-center gap-2 rounded-full px-4 py-2 text-[11px] font-semibold tracking-wide text-muted-foreground uppercase transition-colors hover:text-foreground"
-      >
-        <ChevronDown className="size-3.5 shrink-0" />
-        <span className="max-w-[50vw] truncate normal-case">{value || "Query"}</span>
-      </button>
-    );
-  }
-
   return (
-    <div className="pointer-events-auto w-[min(720px,calc(100vw-3rem))]">
-      <form
-        onSubmit={handleSubmit}
-        className="panel-surface flex items-center gap-2 rounded-xl p-2"
-      >
-        <Input
-          value={value}
-          onChange={(e) => onChange(e.target.value)}
-          placeholder="Enter a topic — e.g. Dasara, or 'high-school dropouts: where should government intervene?'"
-          className="h-10 border-0 bg-transparent text-sm shadow-none focus-visible:ring-0"
-          aria-label="Topic to explore"
-        />
+    <section className="panel-surface pointer-events-auto w-full shrink-0 rounded-xl">
+      {/* Row 1 — the question */}
+      <form onSubmit={handleSubmit} className="flex items-center gap-2 p-2.5">
+        <div className="relative min-w-0 flex-1">
+          <Input
+            value={value}
+            onChange={(e) => onChange(e.target.value)}
+            placeholder="Enter a topic"
+            aria-label={locked ? "Topic (fixed for this study)" : "Topic to explore"}
+            title={locked ? "The topic is fixed for this study" : undefined}
+            className="h-10 w-full border-0 bg-transparent px-2 pr-8 text-[14px] shadow-none focus-visible:ring-0 disabled:cursor-not-allowed disabled:opacity-100 disabled:text-foreground/80"
+            disabled={isStreaming || locked}
+          />
+          {locked && (
+            <Lock
+              className="pointer-events-none absolute top-1/2 right-2 size-3.5 -translate-y-1/2 text-muted-foreground/60"
+              aria-hidden
+            />
+          )}
+        </div>
         <Select
           value={provider}
           onValueChange={(v) => onProviderChange(v as LlmProvider)}
@@ -192,64 +196,67 @@ export function QueryBar({
             Explore
           </Button>
         )}
-        <button
-          type="button"
-          onClick={() => setCollapsed(true)}
-          aria-label="Hide query controls, show map only"
-          title="Hide query controls, show map only"
-          className="flex size-8 shrink-0 items-center justify-center rounded-lg text-muted-foreground/60 transition-colors hover:bg-white/5 hover:text-foreground"
-        >
-          <ChevronUp className="size-4" />
-        </button>
       </form>
 
-      <div className="panel-surface mt-2 flex items-center gap-3 rounded-xl px-3 py-2">
+      {/* Row 2 — how deep to go */}
+      <div className="flex flex-wrap items-center gap-x-3 gap-y-1 border-t border-panel-border px-3.5 py-2">
         <span className="label-micro shrink-0">Reasoning</span>
         <ToggleGroup
           type="single"
           value={reasoningMode}
           onValueChange={(v) => v && onReasoningModeChange(v as ResearchMode)}
           disabled={isStreaming}
-          aria-label="Reasoning mode — always covers all four Karnataka regions; controls how many sources are gathered per region"
+          aria-label="Reasoning mode — always covers all six Karnataka regions; controls how many sources are gathered per region"
           className="shrink-0 justify-start gap-1"
         >
           {REASONING_MODES.map((m) => (
             <ToggleGroupItem
               key={m.value}
               value={m.value}
-              className="h-7 px-3 text-[11px] font-semibold tracking-wide uppercase"
+              className="h-7 px-2.5 text-[11px] font-semibold tracking-wide uppercase"
             >
               {m.label}
             </ToggleGroupItem>
           ))}
         </ToggleGroup>
-        <span className="min-w-0 text-[11px] text-muted-foreground">
-          <span className="text-muted-foreground/50">
-            {activeHint} · all 4 regions + persona divergence
-            {localWarning}
-          </span>
+        <span className="min-w-0 truncate text-[11px] text-muted-foreground/70">
+          {activeHint}
+          {localWarning}
         </span>
       </div>
 
-      <div className="mt-2 flex items-center gap-2 px-2">
-        <span className="relative flex size-1.5 shrink-0">
+      {/* Row 3 — live status */}
+      <div className="border-t border-panel-border px-3.5 py-2.5">
+        <div className="flex items-center gap-2">
+          <span className="relative flex size-1.5 shrink-0">
+            {isStreaming && (
+              <span className="absolute inline-flex size-full animate-ping rounded-full bg-primary opacity-70" />
+            )}
+            <span
+              className={
+                "relative inline-flex size-1.5 rounded-full " +
+                (isError ? "bg-destructive" : isStreaming ? "bg-primary" : "bg-muted-foreground/50")
+              }
+            />
+          </span>
           {isStreaming && (
-            <span className="absolute inline-flex size-full animate-ping rounded-full bg-primary opacity-70" />
+            <Loader2 className="size-3 shrink-0 animate-spin text-muted-foreground/70" />
           )}
-          <span
-            className={
-              "relative inline-flex size-1.5 rounded-full " +
-              (isError ? "bg-destructive" : isStreaming ? "bg-primary" : "bg-muted-foreground/50")
-            }
-          />
-        </span>
-        {isStreaming && (
-          <Loader2 className="size-3 shrink-0 animate-spin text-muted-foreground/70" />
-        )}
-        <p className="min-w-0 flex-1 truncate text-[11px] tracking-wide text-muted-foreground">
-          {ticker}
-        </p>
+          <p className="min-w-0 flex-1 truncate text-[11px] text-muted-foreground">{ticker}</p>
+          <span className="shrink-0 text-[11px] tabular-nums text-muted-foreground">{pct}%</span>
+          <Button
+            variant="ghost"
+            size="sm"
+            className="h-6 shrink-0 px-2 text-[11px]"
+            onClick={onGoDeeper}
+            disabled={!canGoDeeper}
+            title="Re-run this query one reasoning mode higher for more sources"
+          >
+            Go deeper
+          </Button>
+        </div>
+        <Progress value={pct} className="mt-2 h-1 bg-secondary" />
       </div>
-    </div>
+    </section>
   );
 }

@@ -1,0 +1,231 @@
+{
+  "districtId": "29-567",
+  "name": "Davanagere",
+  "regionId": "bayaluseeme",
+  "researchedOn": "2026-10-07",
+  "headline": "Selected for a UNICEF child-labour rehabilitation pilot; SSLC results have been volatile.",
+  "summary": "Davanagere was chosen for a UNICEF pilot to rehabilitate child labourers, with hostels and schools built to bring them back into class, and the Chief Minister has warned teachers over results. Authorities also investigated a protocol breach at an SSLC evaluation centre.",
+  "reasons": [
+    {
+      "factor": "Child labour",
+      "category": "economic",
+      "detail": "UNICEF picked the district for a child-labour rehabilitation project, building hostels and schools to reintegrate children.",
+      "sources": [
+        1
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Volatile SSLC results",
+      "category": "governance",
+      "detail": "The Chief Minister warned local teachers to improve results, and an SSLC evaluation-centre breach was probed.",
+      "sources": [
+        2
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Child marriage driven by poverty",
+      "category": "social-norms",
+      "detail": "Officials said 194 child marriages were stopped in 2023 and 25 of 26 reported cases in April-May 2024, citing poverty, superstition, tradition and low awareness. Schooling status of the girls was not reported.",
+      "sources": [
+        3,
+        4
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "High-school distance and early marriage",
+      "category": "gender",
+      "detail": "A 2016 Samajika Parivarthana Janandolana and CRY study across six districts including Davangere found most young brides interviewed had left at Class 10 and many faced distance barriers. Not Davanagere-specific and dated.",
+      "sources": [
+        5
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Mid-table SSLC outcomes",
+      "category": "governance",
+      "detail": "About one in three candidates did not pass SSLC in 2025 (66.09 percent, 21st in the state). Exam failure is a typical exit point, but no source links it to Davanagere dropout directly.",
+      "sources": [
+        6
+      ],
+      "evidence": "thin"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "UNICEF child-labour rehabilitation pilot",
+      "value": "District selected",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "label": "SSLC 2025 district pass percentage",
+      "value": "66.09%",
+      "sources": [
+        6
+      ]
+    },
+    {
+      "label": "SSLC 2025 district rank",
+      "value": "21st among Karnataka districts",
+      "sources": [
+        6
+      ]
+    },
+    {
+      "label": "Child marriages prevented in 2023",
+      "value": "194 cases district-wide",
+      "sources": [
+        3,
+        4
+      ]
+    },
+    {
+      "label": "Child marriages prevented, Apr-May 2024",
+      "value": "25 of 26 reported cases",
+      "sources": [
+        3,
+        4
+      ]
+    },
+    {
+      "label": "Child labourers found, Sept 2026 drive",
+      "value": "Nil reported in Davanagere",
+      "sources": [
+        7
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Assessment protocol breach spotted at SSLC evaluation centre in Davangere | Hubballi News - The Times of India",
+      "outlet": "The Times of India",
+      "date": "2025-04-15",
+      "url": "https://timesofindia.indiatimes.com/city/hubballi/assessment-protocol-breach-spotted-at-sslc-evaluation-centre-in-davangere/articleshow/120318633.cms",
+      "takeaway": "Assessment protocol breach spotted at SSLC evaluation centre in Davangere."
+    },
+    {
+      "title": "Preventing child marriages in Davanagere, Karnataka: a success story",
+      "outlet": "NewsKarnataka",
+      "date": "2024-07-09",
+      "url": "https://newskarnataka.com/davanagere/preventing-child-marriages-in-davanagere-karnataka-a-success-story/09072024/",
+      "takeaway": "194 child marriages averted in 2023; officials cite poverty and low awareness and describe committees, a toll-free line and school awareness drives."
+    },
+    {
+      "title": "Authorities foil 25 child marriages in April-May in Karnataka's Davanagere",
+      "outlet": "ETV Bharat",
+      "date": "2024-07-08",
+      "url": "https://etvbharat.com/en/!state/authorities-foil-25-child-marriages-in-april-may-in-karnataka-davanagere-enn24070806000",
+      "takeaway": "Taluk split for 2023 prevented cases: Davanagere 79, Channagiri 51, Jagaluru 31."
+    },
+    {
+      "title": "Why one in three child brides faces broken marriage in Karnataka",
+      "outlet": "The News Minute",
+      "date": "2016-07-15",
+      "url": "https://www.thenewsminute.com/article/why-one-three-child-brides-faces-broken-marriage-karnataka-46567",
+      "takeaway": "Six-district study including Davangere found most young brides left school at Class 10 and many faced high-school distance barriers."
+    },
+    {
+      "title": "Davanagere chosen for UNICEF project",
+      "outlet": "The Times of India",
+      "date": "2002-04-30",
+      "url": "https://timesofindia.indiatimes.com/city/bengaluru/davanagere-chosen-for-unicef-project/articleshow/8496080.cms",
+      "takeaway": "Davanagere chosen for UNICEF project."
+    }
+  ],
+  "responses": [
+    {
+      "text": "A UNICEF project funds hostels and schools to rehabilitate child labourers.",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "text": "District committees of ASHA workers, Anganwadi teachers and panchayat staff monitor child marriage; a toll-free line lets children report cases and awareness drives run in schools and villages.",
+      "sources": [
+        3,
+        4
+      ]
+    }
+  ],
+  "officialFactorCheck": [
+    {
+      "factor": "% Population Living in Households with Improved Sanitation",
+      "method": "state",
+      "verdict": "no-evidence",
+      "note": "No local investigation links sanitation to dropout.",
+      "sources": []
+    },
+    {
+      "factor": "% Schools with instruction medium 1 (English)",
+      "method": "district",
+      "verdict": "no-evidence",
+      "note": "No documentation links instruction medium to dropout.",
+      "sources": []
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://timesofindia.indiatimes.com/city/bengaluru/davanagere-chosen-for-unicef-project/articleshow/8496080.cms",
+      "title": "Davanagere chosen for UNICEF project",
+      "outlet": "The Times of India",
+      "date": "2002-04-30",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://timesofindia.indiatimes.com/city/hubballi/assessment-protocol-breach-spotted-at-sslc-evaluation-centre-in-davangere/articleshow/120318633.cms",
+      "title": "Assessment protocol breach spotted at SSLC evaluation centre in Davangere | Hubballi News - The Times of India",
+      "outlet": "The Times of India",
+      "date": "2025-04-15",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://newskarnataka.com/davanagere/preventing-child-marriages-in-davanagere-karnataka-a-success-story/09072024/",
+      "title": "Preventing child marriages in Davanagere, Karnataka: a success story",
+      "outlet": "NewsKarnataka",
+      "date": "2024-07-09",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "https://etvbharat.com/en/!state/authorities-foil-25-child-marriages-in-april-may-in-karnataka-davanagere-enn24070806000",
+      "title": "Authorities foil 25 child marriages in April-May in Karnataka's Davanagere",
+      "outlet": "ETV Bharat",
+      "date": "2024-07-08",
+      "type": "news"
+    },
+    {
+      "id": 5,
+      "url": "https://www.thenewsminute.com/article/why-one-three-child-brides-faces-broken-marriage-karnataka-46567",
+      "title": "Why one in three child brides faces broken marriage in Karnataka",
+      "outlet": "The News Minute",
+      "date": "2016-07-15",
+      "type": "news"
+    },
+    {
+      "id": 6,
+      "url": "https://www.careerindia.com/news/karnataka-sslc-result-2025-top-districts-by-pass-percentage-key-highlights-050529.html",
+      "title": "Karnataka SSLC Result 2025: Top Districts by Pass Percentage & Key Highlights",
+      "outlet": "Careerindia",
+      "date": "2025-05",
+      "type": "news"
+    },
+    {
+      "id": 7,
+      "url": "https://www.deccanchronicle.com/southern-states/karnataka/800-child-labourers-rescued-in-karnataka-during-a-special-ongoing-drive-1987042",
+      "title": "800 Child Labourers Rescued In Karnataka During A Special Ongoing Drive",
+      "outlet": "Deccan Chronicle",
+      "date": "2026-09",
+      "type": "news"
+    }
+  ],
+  "coverage": "thin",
+  "gaps": "The UNICEF source is old; no current dropout counts retrieved. No Davanagere dropout or out-of-school counts, DDPI or Samagra Shiksha figures, or reporting on migration, toilets, teacher vacancies or girls' safety. The Davanagere Live page returned 404 on direct fetch; its figures come from search results. A district SSLC 2025 headcount (present/passed) was dropped because its only source no longer loads.",
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+}

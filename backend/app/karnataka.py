@@ -34,15 +34,25 @@ def normalize_place(name: str) -> str:
     return _NORMALIZE_RE.sub(" ", name.lower()).strip()
 
 
+class PersonaVariantSpec(TypedDict):
+    id: str  # "male" | "female" -- unique within a region, not globally
+    label: str
+    persona_file: str
+
+
 class RegionSpec(TypedDict):
     id: str
     name: str
     short_name: str
-    persona_file: str
+    definition: str  # region-level -- why these districts are treated as one region
+    personas: list[PersonaVariantSpec]
     color: list[int]
     search_terms: str
     district_ids: list[str]
     aliases: list[str]
+
+
+DEFAULT_PERSONA_VARIANT = "male"
 
 
 @lru_cache(maxsize=1)
@@ -118,21 +128,37 @@ def load_karnataka_gazetteer(base_gazetteer: dict) -> dict:
 
 
 # ── Personas ────────────────────────────────────────────────────────────────
+# Each region offers one or more persona variants (currently "male"/"female" --
+# see PersonaVariantSpec), each its own persona description file under
+# data/personas/. A variant is addressed by (region_id, variant_id); every
+# function below defaults variant_id to DEFAULT_PERSONA_VARIANT so existing
+# single-persona call sites keep working unchanged.
 
 
 @lru_cache(maxsize=None)
-def load_persona(region_id: str) -> dict:
-    spec = region_by_id()[region_id]
+def persona_variants(region_id: str) -> list[PersonaVariantSpec]:
+    return list(region_by_id()[region_id]["personas"])
+
+
+@lru_cache(maxsize=None)
+def persona_variant_by_id(region_id: str) -> dict[str, PersonaVariantSpec]:
+    return {p["id"]: p for p in persona_variants(region_id)}
+
+
+@lru_cache(maxsize=None)
+def load_persona(region_id: str, variant_id: str = DEFAULT_PERSONA_VARIANT) -> dict:
+    spec = persona_variant_by_id(region_id)[variant_id]
     with open(os.path.join(DATA_DIR, spec["persona_file"]), encoding="utf-8") as f:
         return json.load(f)
 
 
 @lru_cache(maxsize=None)
-def build_persona_prompt(region_id: str) -> str:
-    """Deterministic persona text built from the region's description file.
-    Deterministic on purpose: divergence is measured against a no-persona
-    reply, so the persona itself must not vary from run to run."""
-    persona = load_persona(region_id)
+def build_persona_prompt(region_id: str, variant_id: str = DEFAULT_PERSONA_VARIANT) -> str:
+    """Deterministic persona text built from the persona's description file.
+    Deterministic on purpose: run to run, the same persona should always
+    produce the same prompt, so results stay comparable across runs."""
+    persona = load_persona(region_id, variant_id)
+    region_name = region_by_id()[region_id]["name"]
     topics = persona.get("topics") or {}
     sections = []
     for topic in topics.values():
@@ -142,33 +168,33 @@ def build_persona_prompt(region_id: str) -> str:
             sections.append(f"## {label}\n{profile}")
     profile_text = "\n\n".join(sections)
     return (
-        f"PERSONA -- you speak for the people of Karnataka's {persona['region_name']}.\n"
-        f"Who you represent: {persona['region_definition']}\n\n"
-        "Answer as this region would: from its own priorities, constraints, lived experience and "
-        "history, emphasising what people here would emphasise and naming the local places, "
-        "institutions, crops, industries and disputes that matter to them. Use the regional "
-        "profile below only where it genuinely bears on the question -- never recite it -- and "
+        f"PERSONA -- you are {persona['region_name']}, a resident of Karnataka's {region_name}.\n"
+        f"Who you are: {persona['region_definition']}\n\n"
+        "Answer as this person would: from their own priorities, constraints, lived experience and "
+        "community, naming the local places, institutions, work and concerns that matter to them. Use "
+        "the profile below only where it genuinely bears on the question -- never recite it -- and "
         "never invent statistics beyond it and the supplied evidence.\n\n"
-        f"REGIONAL PROFILE\n\n{profile_text}"
+        f"PERSONA PROFILE\n\n{profile_text}"
     )
 
 
-def persona_version(region_id: str) -> str:
-    """Short content hash of the built persona -- shown with divergence results
-    so a score can always be traced to the exact persona text that produced it."""
-    return hashlib.sha256(build_persona_prompt(region_id).encode("utf-8")).hexdigest()[:10]
+def persona_version(region_id: str, variant_id: str = DEFAULT_PERSONA_VARIANT) -> str:
+    """Short content hash of the built persona -- shown via /api/personas so a
+    reply can always be traced to the exact persona text that produced it."""
+    return hashlib.sha256(build_persona_prompt(region_id, variant_id).encode("utf-8")).hexdigest()[:10]
 
 
-def persona_payload(region_id: str) -> dict:
+def persona_payload(region_id: str, variant_id: str = DEFAULT_PERSONA_VARIANT) -> dict:
     """Wire/UI shape for /api/personas."""
-    persona = load_persona(region_id)
+    persona = load_persona(region_id, variant_id)
     spec = region_by_id()[region_id]
     return {
         "regionId": region_id,
+        "personaId": variant_id,
         "name": persona["region_name"],
         "shortName": spec["short_name"],
         "definition": persona["region_definition"],
-        "version": persona_version(region_id),
+        "version": persona_version(region_id, variant_id),
         "topics": [
             {
                 "key": key,

@@ -1,26 +1,35 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ExternalLink, RotateCw } from "lucide-react";
+import { RotateCw } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
-import { ConsolidatedPanel } from "@/components/dashboard/ConsolidatedPanel";
-import { DeflectionPanel } from "@/components/dashboard/DeflectionPanel";
-import { RegionInfoPanel } from "@/components/dashboard/RegionInfoPanel";
-import { HistoryPanel } from "@/components/dashboard/HistoryPanel";
-import { LegendPanel } from "@/components/dashboard/LegendPanel";
 import { WorldviewMap } from "@/components/dashboard/map/WorldviewMap";
+import { PersonasPanel } from "@/components/persona/PersonasPanel";
 import { DataViewPanels } from "@/components/dataview/DataViewPanels";
 import { DivergenceView } from "@/components/divergence/DivergenceView";
-import { ProgressBar } from "@/components/dashboard/ProgressBar";
+import { HistoryPanel } from "@/components/dashboard/HistoryPanel";
+import { OverviewPanel } from "@/components/dashboard/OverviewPanel";
 import { QueryBar } from "@/components/dashboard/QueryBar";
-import { TopBar, type DashboardTab } from "@/components/dashboard/TopBar";
+import { SplitHandle, useSplit } from "@/components/dashboard/SplitHandle";
+import { TopBar } from "@/components/dashboard/TopBar";
 import { Button } from "@/components/ui/button";
-import { STREAM_SOURCE, useQueryStream, useWorldviewStore } from "@/lib/worldview";
+import {
+  FIXED_QUERY,
+  loadDefaultRun,
+  STATIC_DATA,
+  STREAM_SOURCE,
+  useExplorerStore,
+  useQueryStream,
+  useWorldviewStore,
+} from "@/lib/worldview";
 import { DEMO_QUERY } from "@/lib/worldview/stream/mockStream";
 import type { LlmProvider, ResearchMode } from "@/lib/worldview/types";
 
+/** Show the query card (Explore / reasoning mode / Go deeper). Off: the dashboard opens on a finished analysis. */
+const SHOW_QUERY_CONTROLS = false;
+
 const TITLE = "Pluralistic Karnataka — Worldview Explorer";
 const DESCRIPTION =
-  "How Karnataka's four regions — Mysuru-Bengaluru, North Karnataka, Karavali and Malnad — hold different viewpoints on shared topics, answered in each region's persona.";
+  "How Karnataka's six regions — Old Mysuru, Bayaluseeme, Karavali, Malnad, Kitturu Karnataka and Kalyana Karnataka — hold different viewpoints on shared topics, answered by a male and a female persona from each region.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -37,26 +46,38 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
-  const [activeTab, setActiveTab] = useState<DashboardTab>("Map");
-  const [query, setQuery] = useState("");
+  const activeTab = useExplorerStore((s) => s.tab);
+  const setActiveTab = useExplorerStore((s) => s.setTab);
+  const [query, setQuery] = useState(FIXED_QUERY);
   const [reasoningMode, setReasoningMode] = useState<ResearchMode>("medium");
   const [provider, setProvider] = useState<LlmProvider>("gemma_remote");
 
   const { run, cancel, retry, isStreaming, runState, error } = useQueryStream();
   const storeQuery = useWorldviewStore((s) => s.query);
-  const selection = useWorldviewStore((s) => s.selection);
   const legacyRun = useWorldviewStore((s) => s.legacyRun);
 
   // Auto-play the offline demo (a replayed real run) once on mount — mock source only.
   const startedRef = useRef(false);
+  // Open on a finished analysis (newest saved run with Divergence + persona-similarity results).
+  useEffect(() => {
+    if (STREAM_SOURCE === "sse" || STATIC_DATA) void loadDefaultRun();
+  }, []);
+
   useEffect(() => {
     if (startedRef.current) return;
     startedRef.current = true;
-    if (STREAM_SOURCE === "mock") {
+    if (STREAM_SOURCE === "mock" && !STATIC_DATA) {
       setQuery(DEMO_QUERY);
       run(DEMO_QUERY);
     }
   }, [run]);
+
+  const { split, setSplit, dragging, setDragging } = useSplit();
+  // The study's topic is fixed and its results already exist, so the query card is hidden
+  // (kept in the code, not deleted): flip this to bring Explore / Go deeper back.
+  const showQuery =
+    SHOW_QUERY_CONTROLS &&
+    (activeTab === "Map" || activeTab === "Divergence" || activeTab === "Data");
 
   const handleExplore = (q: string) => {
     setQuery(q);
@@ -68,71 +89,78 @@ function Index() {
   };
 
   return (
-    <main className="relative h-screen w-screen overflow-hidden bg-background">
-      <WorldviewMap dataViewActive={activeTab === "Data"} />
-
+    <main
+      className={
+        "relative h-screen w-screen overflow-hidden bg-background " +
+        (dragging ? "select-none" : "")
+      }
+    >
       <TopBar activeTab={activeTab} onTabChange={setActiveTab} />
 
-      {/* Floating panel layer */}
-      <div className="pointer-events-none absolute inset-0 top-14 z-30">
-        <div className="absolute top-4 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2">
-          <QueryBar
-            value={query}
-            onChange={setQuery}
-            onSubmit={handleExplore}
-            onStop={cancel}
-            isStreaming={isStreaming}
-            reasoningMode={reasoningMode}
-            onReasoningModeChange={setReasoningMode}
-            provider={provider}
-            onProviderChange={setProvider}
-          />
-          {runState === "error" && <ErrorCard message={error} onRetry={retry} />}
-          {runState === "empty" && !legacyRun && <NoResultsCard />}
-          {legacyRun && (
-            <div className="panel-surface pointer-events-auto w-[min(720px,calc(100vw-3rem))] rounded-xl px-4 py-2.5">
-              <p className="text-[12px] text-muted-foreground">
-                <span className="text-foreground">Legacy run.</span> This was saved by the earlier
-                India-wide, district-level version — its answer and sources are shown, but it has no
-                Karnataka region map or divergence data.
-              </p>
-            </div>
-          )}
-        </div>
-
-        {(activeTab === "Map" || activeTab === "Answer") && (
-          <div className="absolute top-28 left-5">
-            <ConsolidatedPanel />
-          </div>
+      {/* Left column: query controls, progress, and the active tab's content. */}
+      <div
+        className="absolute inset-y-0 left-0 z-30 flex flex-col gap-3 pr-4 pl-5 pt-[4.5rem] pb-5"
+        style={{ width: `${split * 100}%` }}
+      >
+        {showQuery && (
+          <>
+            <QueryBar
+              value={query}
+              onChange={setQuery}
+              onSubmit={handleExplore}
+              onStop={cancel}
+              isStreaming={isStreaming}
+              reasoningMode={reasoningMode}
+              onReasoningModeChange={setReasoningMode}
+              provider={provider}
+              onProviderChange={setProvider}
+              locked
+              onGoDeeper={handleGoDeeper}
+            />
+            {runState === "error" && <ErrorCard message={error} onRetry={retry} />}
+            {runState === "empty" && !legacyRun && <NoResultsCard />}
+            {legacyRun && (
+              <div className="panel-surface pointer-events-auto w-full rounded-xl px-4 py-2.5">
+                <p className="text-[12px] text-muted-foreground">
+                  <span className="text-foreground">Legacy run.</span> Saved by an earlier version —
+                  its answer and sources are shown, but it has no Karnataka region map or
+                  Story-vs-UIDAI/NITI comparison.
+                </p>
+              </div>
+            )}
+          </>
         )}
 
-        {activeTab === "Map" && (
-          <div className="absolute top-28 right-5">
-            <LegendPanel />
-          </div>
-        )}
-
-        {activeTab === "History" && <HistoryPanel onOpenRun={() => setActiveTab("Map")} />}
-
-        {activeTab === "Data" && <DataViewPanels />}
-
+        {activeTab === "Map" && !SHOW_QUERY_CONTROLS && <OverviewPanel />}
+        {activeTab === "Personas" && <PersonasPanel />}
         {activeTab === "Divergence" && <DivergenceView />}
+        {activeTab === "Data" && <DataViewPanels />}
+        {activeTab === "History" && <HistoryPanel onOpenRun={() => setActiveTab("Map")} />}
+      </div>
 
-        {activeTab === "About" && <AboutPanel />}
-
-        <div className="absolute bottom-6 left-1/2 flex w-max -translate-x-1/2 flex-col items-center gap-3">
-          {activeTab === "Map" && selection.kind && <RegionInfoPanel />}
-          {activeTab === "Deflections" && <DeflectionPanel />}
-          <ProgressBar onGoDeeper={handleGoDeeper} />
+      {/* Right: the static Karnataka map. */}
+      <div
+        className={"absolute inset-y-0 right-0 pt-14 " + (dragging ? "pointer-events-none" : "")}
+        style={{ left: `${split * 100}%` }}
+      >
+        <div className="relative h-full w-full">
+          <WorldviewMap />
         </div>
       </div>
+
+      <SplitHandle
+        split={split}
+        setSplit={setSplit}
+        dragging={dragging}
+        setDragging={setDragging}
+      />
     </main>
   );
 }
 
 function ErrorCard({ message, onRetry }: { message: string | null; onRetry: () => void }) {
   return (
-    <div className="panel-surface pointer-events-auto flex w-[min(720px,calc(100vw-3rem))] items-center gap-3 rounded-xl border-destructive/40 px-4 py-2.5">
+    <div className="panel-surface pointer-events-auto flex w-full items-center gap-3 rounded-xl border-destructive/40 px-4 py-2.5">
       <p className="flex-1 truncate text-[12px] text-muted-foreground">
         {message ?? "The analysis stream failed."}
       </p>
@@ -157,7 +185,7 @@ function NoResultsCard() {
 
   if (sourceCount > 0) {
     return (
-      <div className="panel-surface pointer-events-auto w-[min(720px,calc(100vw-3rem))] rounded-xl px-4 py-2.5">
+      <div className="panel-surface pointer-events-auto w-full rounded-xl px-4 py-2.5">
         <p className="text-[12px] text-muted-foreground">
           <span className="text-foreground">Research-only result.</span> Too little
           Karnataka-specific discussion on this topic to map by region — the answer is built from{" "}
@@ -168,58 +196,10 @@ function NoResultsCard() {
   }
 
   return (
-    <div className="panel-surface pointer-events-auto w-[min(720px,calc(100vw-3rem))] rounded-xl px-4 py-2.5">
+    <div className="panel-surface pointer-events-auto w-full rounded-xl px-4 py-2.5">
       <p className="text-[12px] text-muted-foreground">
         No posts resolved for this topic. Try a broader or more current query.
       </p>
-    </div>
-  );
-}
-
-function AboutPanel() {
-  return (
-    <div className="absolute top-28 left-1/2 w-[520px] max-w-[calc(100vw-3rem)] -translate-x-1/2">
-      <section className="panel-surface pointer-events-auto rounded-xl p-5">
-        <p className="label-micro">About</p>
-        <p className="mt-3 text-[13px] leading-relaxed text-muted-foreground">
-          Worldview Explorer gathers public conversation (YouTube, Reddit) and mainstream/official
-          web sources on a topic across Karnataka's four regions — Mysuru-Bengaluru, North
-          Karnataka, Karavali and Malnad — places each in its region, and clusters the viewpoints
-          within each region. For each pair of co-occurring viewpoints it extracts the{" "}
-          <span className="text-foreground">point of deflection</span>, then writes a Karnataka-wide
-          answer plus one reply per region in that region's persona, built from its persona
-          description.
-        </p>
-        <p className="mt-3 text-[13px] leading-relaxed text-muted-foreground">
-          The <span className="text-foreground">Divergence</span> tab re-asks each region the same
-          question with the same evidence but no persona, and measures how far the two replies
-          diverge: semantic similarity against a sampling-noise floor, the specific points that
-          differ, and a t-SNE map of every point. Region colour on the map is its dominant
-          viewpoint; column height is post volume. Without a backend the app replays one recorded
-          run — point it at a live backend in{" "}
-          <code className="rounded bg-white/5 px-1 py-0.5 text-[11px]">stream/config.ts</code>.
-        </p>
-        <div className="mt-4 flex flex-wrap gap-4 border-t border-panel-border pt-4">
-          <a
-            href="https://claude.ai/code/artifact/60b8c77a-4431-41a8-8013-f944fc231ed2"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-[12px] text-muted-foreground transition-colors hover:text-foreground"
-          >
-            <ExternalLink className="size-3" />
-            How it works (for stakeholders)
-          </a>
-          <a
-            href="https://claude.ai/code/artifact/88669c91-6498-45aa-93ed-d6faf9fe06a1"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-[12px] text-muted-foreground transition-colors hover:text-foreground"
-          >
-            <ExternalLink className="size-3" />
-            Full architecture diagram
-          </a>
-        </div>
-      </section>
     </div>
   );
 }

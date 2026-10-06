@@ -8,6 +8,7 @@ import type { Feature, FeatureCollection, MultiPolygon, Polygon } from "geojson"
 import { useEffect, useState } from "react";
 
 import type { RegionId } from "@/lib/worldview";
+import { assetUrl } from "@/lib/worldview/api";
 
 export interface RegionFeatureProps {
   regionId: RegionId;
@@ -22,7 +23,7 @@ export interface RegionFeatureProps {
 export type RegionFeature = Feature<Polygon | MultiPolygon, RegionFeatureProps>;
 export type RegionFeatureCollection = FeatureCollection<Polygon | MultiPolygon, RegionFeatureProps>;
 
-const URL = "/geo/karnataka-regions.geojson";
+const URL = assetUrl("geo/karnataka-regions.geojson");
 
 let cache: RegionFeatureCollection | null = null;
 let inflight: Promise<RegionFeatureCollection | null> | null = null;

@@ -1,9 +1,10 @@
 """
-Persona replies: one reply per Karnataka persona region, written in that
-region's persona (karnataka.build_persona_prompt) and grounded in that region's
-own evidence. The evidence bundle is saved on state["region_evidence"] so the
-divergence stage can re-ask the SAME question with the SAME evidence and only
-the persona removed.
+Persona replies: for each Karnataka persona region, one reply per persona
+variant (karnataka.persona_variants -- today "male" and "female"), written in
+that variant's persona (karnataka.build_persona_prompt) and grounded in the
+SAME region evidence for both variants. The evidence bundle is cached on
+state["region_evidence"] so the second variant reuses exactly what the first
+one built, rather than recomputing it.
 """
 
 from __future__ import annotations
@@ -12,7 +13,7 @@ import asyncio
 from collections import Counter
 
 from ...connectors.base import LLMClient
-from ...karnataka import build_persona_prompt, persona_regions
+from ...karnataka import build_persona_prompt, persona_regions, persona_variants
 from ...schema import AnswerChunkEvent, AnswerSegment, CollectionCounts, StatusEvent
 from ..state import EmitFn, PipelineState
 
@@ -70,14 +71,21 @@ def reply_text(segments: list[dict]) -> str:
 async def answer_regions(state: PipelineState, emit: EmitFn, llm: LLMClient) -> PipelineState:
     state["phase"] = "synthesizing"
     regions = persona_regions()
+    jobs = [(spec, variant) for spec in regions for variant in persona_variants(spec["id"])]
     semaphore = asyncio.Semaphore(_CONCURRENCY)
     done = 0
 
-    async def _one(spec: dict) -> None:
+    async def _one(spec: dict, variant: dict) -> None:
         nonlocal done
         region_id = spec["id"]
-        evidence = build_region_evidence(state, region_id)
-        state["region_evidence"][region_id] = evidence
+        variant_id = variant["id"]
+        # Evidence is per-region, shared across that region's persona variants --
+        # build it once (first variant to reach this region wins the race; both
+        # variants then read the same dict, so only the persona differs between
+        # a region's male and female replies).
+        if region_id not in state["region_evidence"]:
+            state["region_evidence"][region_id] = build_region_evidence(state, region_id)
+        evidence = state["region_evidence"][region_id]
         segments: list[dict] = []
         for attempt in range(2):  # one retry: provider refusals/timeouts are intermittent
             try:
@@ -85,19 +93,28 @@ async def answer_regions(state: PipelineState, emit: EmitFn, llm: LLMClient) -> 
                     segments = await llm.answer_for_region(
                         state["query"],
                         state["query_type"],
-                        spec["name"],
-                        build_persona_prompt(region_id),
+                        f"{spec['name']} -- {variant['label']}",
+                        build_persona_prompt(region_id, variant_id),
                         evidence["research_documents"],
                         evidence["clusters"],
                         evidence["deflections"],
                         mode=state["mode"],
                     )
                 break
-            except Exception as exc:  # noqa: BLE001 -- one region must not kill the others
-                print(f"[answer_regions] {region_id} persona reply attempt {attempt + 1} failed: {exc}", flush=True)
+            except Exception as exc:  # noqa: BLE001 -- one persona reply must not kill the others
+                print(
+                    f"[answer_regions] {region_id}/{variant_id} persona reply attempt {attempt + 1} failed: {exc}",
+                    flush=True,
+                )
 
         for seg in segments:
-            kwargs: dict = {"text": seg["text"], "kind": seg.get("kind"), "region": spec["short_name"], "region_id": region_id}
+            kwargs: dict = {
+                "text": seg["text"],
+                "kind": seg.get("kind"),
+                "region": spec["short_name"],
+                "region_id": region_id,
+                "persona_id": variant_id,
+            }
             if seg.get("clusterId"):
                 kwargs["cluster_id"] = seg["clusterId"]
             if seg.get("citations"):
@@ -106,14 +123,17 @@ async def answer_regions(state: PipelineState, emit: EmitFn, llm: LLMClient) -> 
             await emit(AnswerChunkEvent(query_run_id=state["query_run_id"], segment=segment))
             state["answer_segments"].append(segment.model_dump(by_alias=True, exclude_none=True))
         if segments:
-            state["region_replies"][region_id] = {"segments": segments, "text": reply_text(segments)}
+            state["region_replies"].setdefault(region_id, {})[variant_id] = {
+                "segments": segments,
+                "text": reply_text(segments),
+            }
 
         done += 1
         await emit(
             StatusEvent(
                 query_run_id=state["query_run_id"],
                 ticker=(
-                    f"Persona replies {done}/{len(regions)} ({spec['short_name']}"
+                    f"Persona replies {done}/{len(jobs)} ({spec['short_name']} · {variant['label']}"
                     f"{'' if segments else ' — failed'})…"
                 ),
                 phase="synthesizing",
@@ -125,9 +145,9 @@ async def answer_regions(state: PipelineState, emit: EmitFn, llm: LLMClient) -> 
                     sources_gathered=len(state.get("research_documents") or []),
                     regions_found=len(state.get("region_stats") or {}),
                 ),
-                progress=0.88 + 0.05 * done / len(regions),
+                progress=0.88 + 0.05 * done / len(jobs),
             )
         )
 
-    await asyncio.gather(*(_one(spec) for spec in regions))
+    await asyncio.gather(*(_one(spec, variant) for spec, variant in jobs))
     return state

@@ -1,0 +1,270 @@
+{
+  "districtId": "29-578",
+  "name": "Chamarajanagara",
+  "regionId": "old-mysuru",
+  "researchedOn": "2026-10-07",
+  "headline": "Tribal customs and seasonal migration are blamed for secondary exits; only three child marriages reported in 2025.",
+  "summary": "A Times of India report on a legislative reply names Chamarajanagara as one of two tribal-dominated districts where social customs are blamed for school dropout. Reported child marriages were only three in the first ten months of 2025.",
+  "reasons": [
+    {
+      "factor": "Social customs in a tribal-dominated district",
+      "category": "social-norms",
+      "detail": "In a legislative reply, social customs were blamed as one reason for dropout in two tribal-dominated districts, Chamarajanagara and Chitradurga.",
+      "sources": [
+        1
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Severe poverty, household problems",
+      "category": "economic",
+      "detail": "Counselling by teachers and officials identified domestic problems and severe poverty as the main reasons for dropout in the 2024 survey.",
+      "sources": [
+        3,
+        4
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Parents sending children to field work",
+      "category": "economic",
+      "detail": "About 30 cases were found where parents made children leave school to work in fields; absenteeism is also reported in the MM Hills area.",
+      "sources": [
+        3,
+        4
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Festival selling in MM Hills",
+      "category": "economic",
+      "detail": "Children sell puja items, flowers and incense around festivals at the Male Mahadeshwara Hills area, drawing them away from classes.",
+      "sources": [
+        3,
+        4
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Remote forest ashram schools",
+      "category": "school-infrastructure",
+      "detail": "Of 19 ashrama schools serving Soliga and other tribal communities, most lie inside forests; teacher recruitment has stalled and Covid closures pushed families towards tobacco picking.",
+      "sources": [
+        5
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Social barriers in tribal hamlets",
+      "category": "social-norms",
+      "detail": "An expert cites poor academic environment, weak home support, remote living and social prejudice affecting adolescents; 101 ST dropouts were reported in the district.",
+      "sources": [
+        7
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Weaker SSLC results",
+      "category": "governance",
+      "detail": "Pass rate fell to 61.4% in 2025 and rank to 27th; no direct link to dropout was reported.",
+      "sources": [
+        6
+      ],
+      "evidence": "thin"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Child marriages reported, January-October 2025",
+      "value": "3",
+      "sources": [
+        2
+      ]
+    },
+    {
+      "label": "Dropouts identified in 2024 survey",
+      "value": "228 identified, about 100 returned; 128 remain",
+      "sources": [
+        4
+      ]
+    },
+    {
+      "label": "Dropouts by taluk, 2024",
+      "value": "Hanur 48; Chamarajanagar 30; Kollegal 25; Gundlupet 19; Yelandur 10",
+      "sources": [
+        3
+      ]
+    },
+    {
+      "label": "Parents forcing field work, 2024",
+      "value": "About 30 cases",
+      "sources": [
+        3
+      ]
+    },
+    {
+      "label": "SSLC 2025 pass rate and rank",
+      "value": "61.4%, 27th (71.6%, 24th in 2024)",
+      "sources": [
+        6
+      ]
+    },
+    {
+      "label": "ST dropouts reported, 2026 report",
+      "value": "101, including 38 girls",
+      "sources": [
+        7
+      ]
+    },
+    {
+      "label": "Ashrama schools serving tribal communities",
+      "value": "19, mostly inside forest reserves",
+      "sources": [
+        5
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "ST student dropout rate rises sharply in Mysuru district",
+      "outlet": "News Karnataka",
+      "date": "2026-08-27",
+      "url": "https://newskarnataka.com/mysuru/st-student-dropout-rate-rises-sharply-in-mysuru-district/27082026/",
+      "takeaway": "Also reports 101 ST dropouts in Chamarajanagar including 38 girls; expert points to remote hamlets and weak school access."
+    },
+    {
+      "title": "Drastic fall in child marriage numbers in Old Mysuru region",
+      "outlet": "The Times of India",
+      "date": "2025-12-12",
+      "url": "https://timesofindia.indiatimes.com/city/mysuru/drastic-fall-in-child-marriage-numbers-in-old-mysuru-region/articleshow/125918000.cms",
+      "takeaway": "Drastic fall in child marriage numbers in the Old Mysuru region."
+    },
+    {
+      "title": "Poverty, migration to single parents one of reasons for school dropout in Karnataka",
+      "outlet": "The Times of India",
+      "date": "2025-09-22",
+      "url": "https://timesofindia.indiatimes.com/city/mysuru/poverty-migration-to-single-parents-one-of-reasons-for-school-dropout-in-karnataka/articleshow/124054037.cms",
+      "takeaway": "Poverty, migration and single parents among reasons for school dropout in Karnataka."
+    },
+    {
+      "title": "SSLC 2025: Mysuru, Chamarajanagar slip in ranks despite two perfect scores",
+      "outlet": "News Karnataka",
+      "date": "2025-05-03",
+      "url": "https://newskarnataka.com/mysuru/sslc-2025-mysuru-chamarajanagar-slip-in-ranks-despite-two-perfect-scores/03052025/",
+      "takeaway": "Chamarajanagar's pass rate fell from 71.6% to 61.4%, dropping its rank from 24th to 27th."
+    },
+    {
+      "title": "Chamarajanagar district faces alarmingly high school dropout rates",
+      "outlet": "News Karnataka",
+      "date": "2024-10-30",
+      "url": "https://newskarnataka.com/education/chamarajanagar-district-faces-alarmingly-high-school-dropout-rates/30102024/",
+      "takeaway": "Education department found 128 dropouts, led by Hanur; poverty and parents pushing children into field work cited."
+    },
+    {
+      "title": "100 out of 228 dropout children return to school",
+      "outlet": "Patrika News",
+      "date": "2024-10-29",
+      "url": "https://patrika.com/en/education-news/100-out-of-228-dropout-children-return-to-school-19106540",
+      "takeaway": "Officials identified 228 dropouts and brought about 100 back, using counselling and monitoring of families forcing children to work."
+    },
+    {
+      "title": "Bleak future ahead: COVID-19 pushes Karnataka's first generation Adivasi learners off schools",
+      "outlet": "Down To Earth",
+      "date": "2021-08-25",
+      "url": "https://www.downtoearth.org.in/governance/bleak-future-ahead-covid-19-pushes-karnataka-s-first-generation-adivasi-learners-off-schools-78637",
+      "takeaway": "Covers Chamarajanagar's 19 ashrama schools, stalled teacher hiring, lost connectivity and increased tobacco-picking labour."
+    }
+  ],
+  "responses": [
+    {
+      "text": "Teachers and officials counselled families and monitored those working in neighbouring districts; about 100 of 228 identified dropouts returned to school in 2024.",
+      "sources": [
+        3,
+        4
+      ]
+    },
+    {
+      "text": "The district has added government schools in tribal and hilly areas, according to the Patrika report.",
+      "sources": [
+        4
+      ]
+    }
+  ],
+  "officialFactorCheck": [
+    {
+      "factor": "% Population Living in Households with Improved Sanitation",
+      "method": "state",
+      "verdict": "no-evidence",
+      "note": "Sanitation is not listed among the causes of dropout here.",
+      "sources": []
+    },
+    {
+      "factor": "% Schools with instruction medium 1 (English)",
+      "method": "district",
+      "verdict": "no-evidence",
+      "note": "Medium of instruction is not documented as a barrier here.",
+      "sources": []
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://timesofindia.indiatimes.com/city/mysuru/poverty-migration-to-single-parents-one-of-reasons-for-school-dropout-in-karnataka/articleshow/124054037.cms",
+      "title": "Poverty, migration to single parents one of reasons for school dropout in Karnataka",
+      "outlet": "The Times of India",
+      "date": "2025-09-22",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://timesofindia.indiatimes.com/city/mysuru/drastic-fall-in-child-marriage-numbers-in-old-mysuru-region/articleshow/125918000.cms",
+      "title": "Drastic fall in child marriage numbers in Old Mysuru region",
+      "outlet": "The Times of India",
+      "date": "2025-12-12",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://newskarnataka.com/education/chamarajanagar-district-faces-alarmingly-high-school-dropout-rates/30102024/",
+      "title": "Chamarajanagar district faces alarmingly high school dropout rates",
+      "outlet": "News Karnataka",
+      "date": "2024-10-30",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "https://patrika.com/en/education-news/100-out-of-228-dropout-children-return-to-school-19106540",
+      "title": "100 out of 228 dropout children return to school",
+      "outlet": "Patrika News",
+      "date": "2024-10-29",
+      "type": "news"
+    },
+    {
+      "id": 5,
+      "url": "https://www.downtoearth.org.in/governance/bleak-future-ahead-covid-19-pushes-karnataka-s-first-generation-adivasi-learners-off-schools-78637",
+      "title": "Bleak future ahead: COVID-19 pushes Karnataka's first generation Adivasi learners off schools",
+      "outlet": "Down To Earth",
+      "date": "2021-08-25",
+      "type": "news"
+    },
+    {
+      "id": 6,
+      "url": "https://newskarnataka.com/mysuru/sslc-2025-mysuru-chamarajanagar-slip-in-ranks-despite-two-perfect-scores/03052025/",
+      "title": "SSLC 2025: Mysuru, Chamarajanagar slip in ranks despite two perfect scores",
+      "outlet": "News Karnataka",
+      "date": "2025-05-03",
+      "type": "news"
+    },
+    {
+      "id": 7,
+      "url": "https://newskarnataka.com/mysuru/st-student-dropout-rate-rises-sharply-in-mysuru-district/27082026/",
+      "title": "ST student dropout rate rises sharply in Mysuru district",
+      "outlet": "News Karnataka",
+      "date": "2026-08-27",
+      "type": "news"
+    }
+  ],
+  "coverage": "moderate",
+  "gaps": "The main source is a statewide article; district-level dropout counts and SSLC results were not retrieved. Class level of the 2024 dropouts is not stated. Child marriage, school distance, UDISE+/DDPI figures and girls' safety evidence for Chamarajanagar were not found. The 228 versus 128 counts differ between outlets.",
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+}

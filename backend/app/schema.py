@@ -33,6 +33,10 @@ class Camel(BaseModel):
 # ── Scalars / enums (mirror types.ts) ─────────────────────────────────────────
 
 QueryType = Literal["descriptive", "policy"]
+# "male" | "female" today (karnataka_regions.json's per-region "personas" list)
+# -- kept as plain str, not a Literal, so a region config can add variants
+# without a matching code change here.
+PersonaVariantId = str
 ConfidenceTier = Literal["high", "medium", "low"]
 ResolutionMethod = Literal[
     "city_subreddit",
@@ -122,6 +126,9 @@ class AnswerSegment(Camel):
     # Which persona region's reply this segment belongs to (set by
     # persona_answers.py, never by the LLM). None for the Karnataka-wide overview.
     region_id: Optional[str] = Field(default=None, alias="regionId")
+    # Which of that region's persona variants ("male"/"female") this reply
+    # speaks as. None for the Karnataka-wide overview.
+    persona_id: Optional[PersonaVariantId] = Field(default=None, alias="personaId")
     kind: Optional[AnswerSegmentKind] = None
     citations: Optional[list[int]] = None  # 1-based indices into the run's ResearchDocument list
 
@@ -220,93 +227,63 @@ class ResearchDocumentEvent(EventBase):
     document: ResearchDocument
 
 
-class DivergencePointMatch(Camel):
-    persona: str
-    baseline: str
-    similarity: float
+class NitiFactorPayload(Camel):
+    """One UIDAI/NITI dominant-factor row -- see ../niti_factors.py for what
+    `method` means and why the two methods are never blended."""
+
+    district: str
+    factor: str
+    value: float
+    method: str
 
 
-class DivergenceRegionEvent(EventBase):
-    """Persona vs. no-persona reply for one region: same question, same
-    evidence, same prompt -- only the persona is removed. `status` "failed"
-    carries only `error`; every metric field is then absent."""
+class StoryVsOfficialEvent(EventBase):
+    """Story Mode's persona-driven, social+web-sourced reasoning vs. the
+    UIDAI/NITI official statistical model, for one region or the whole state
+    (`scope`/`region_id` is None for the statewide row). `status` "failed"
+    carries only `error`; `comparison`/`consolidated_answer` are then absent,
+    but `story_points`/`official_factors` are always the raw evidence handed
+    to the model, whether or not it produced a synthesis from them."""
 
-    type: Literal["divergence_region"] = "divergence_region"
-    model: LlmProvider
+    type: Literal["story_vs_official"] = "story_vs_official"
+    scope: Literal["region", "statewide"]
+    region_id: Optional[str] = Field(default=None, alias="regionId")
+    region_name: str = Field(alias="regionName")
+    status: Literal["ok", "failed"] = "ok"
+    error: Optional[str] = None
+    # Story Mode's own reasons for this area (its persona replies' text, or
+    # the Karnataka-wide overview for the statewide row).
+    story_points: list[str] = Field(default_factory=list, alias="storyPoints")
+    # UIDAI/NITI's dominant-factor rows for this area's districts (both
+    # methods; empty if none matched -- see niti_factors.py).
+    official_factors: list[NitiFactorPayload] = Field(default_factory=list, alias="officialFactors")
+    comparison: Optional[str] = None
+    consolidated_answer: Optional[str] = Field(default=None, alias="consolidatedAnswer")
+
+
+class PersonaSimilarityRegionEvent(EventBase):
+    """Regional persona replies' similarity to one Karnataka-wide overview.
+
+    `status` "failed" carries only `error`. Male/female scores remain a
+    secondary diagnostic; their shared statewide baseline is the main signal.
+    """
+
+    type: Literal["persona_similarity_region"] = "persona_similarity_region"
     region_id: str = Field(alias="regionId")
     region_name: str = Field(alias="regionName")
-    status: Literal["ok", "failed"]
+    status: Literal["ok", "failed"] = "ok"
     error: Optional[str] = None
-    persona_version: Optional[str] = Field(default=None, alias="personaVersion")
-    persona_reply: Optional[str] = Field(default=None, alias="personaReply")
+    # Cosine similarity to the Karnataka-wide overview (0-1, higher = more
+    # represented by the generic statewide answer).
+    male_similarity: Optional[float] = Field(default=None, alias="maleSimilarity")
+    female_similarity: Optional[float] = Field(default=None, alias="femaleSimilarity")
+    # Whichever persona is less represented by the statewide answer.
+    more_divergent_persona: Optional[Literal["male", "female", "equal"]] = Field(
+        default=None, alias="moreDivergentPersona"
+    )
     baseline_reply: Optional[str] = Field(default=None, alias="baselineReply")
-    # Primary indicator: cosine similarity of the two replies' sentence-mean
-    # embeddings; divergence = 1 - similarity.
-    semantic_similarity: Optional[float] = Field(default=None, alias="semanticSimilarity")
-    divergence: Optional[float] = None
-    # Same similarity between two independent no-persona samples -- the
-    # run-to-run variation a persona effect has to exceed to mean anything.
-    noise_floor: Optional[float] = Field(default=None, alias="noiseFloor")
-    # Point-level agreement (BERTScore-style F1 of best-match similarities).
-    point_alignment: Optional[float] = Field(default=None, alias="pointAlignment")
-    persona_points: Optional[list[str]] = Field(default=None, alias="personaPoints")
-    baseline_points: Optional[list[str]] = Field(default=None, alias="baselinePoints")
-    shared: Optional[list[DivergencePointMatch]] = None
-    reframed: Optional[list[DivergencePointMatch]] = None
-    persona_only: Optional[list[str]] = Field(default=None, alias="personaOnly")
-    baseline_only: Optional[list[str]] = Field(default=None, alias="baselineOnly")
-
-
-class DivergenceEmbeddingPoint(Camel):
-    x: float
-    y: float
-    region_id: str = Field(alias="regionId")
-    condition: Literal["persona", "baseline"]
-    text: str
-
-
-class DivergenceSummaryEvent(EventBase):
-    """Cross-region view once every region is measured. `matrix` is cosine
-    similarity between whole replies, ordered by `labels`; `points` are the
-    t-SNE projection of every extracted point from every reply."""
-
-    type: Literal["divergence_summary"] = "divergence_summary"
-    model: LlmProvider
-    embedding_model: str = Field(alias="embeddingModel")
-    labels: list[dict]
-    matrix: list[list[float]]
-    # Mean pairwise similarity between the four regions' replies, per condition
-    # -- lower means the regions' answers differ more from each other.
-    persona_cross_region_similarity: Optional[float] = Field(
-        default=None, alias="personaCrossRegionSimilarity"
-    )
-    baseline_cross_region_similarity: Optional[float] = Field(
-        default=None, alias="baselineCrossRegionSimilarity"
-    )
-    points: list[DivergenceEmbeddingPoint]
-    perplexity: Optional[float] = None
-
-
-class ModelAgreement(Camel):
-    region_id: str = Field(alias="regionId")
-    model_a: LlmProvider = Field(alias="modelA")
-    model_b: LlmProvider = Field(alias="modelB")
-    # Similarity between the two models' replies to the same prompt.
-    persona: float
-    baseline: float
-    # Each model's persona-vs-no-persona divergence, side by side.
-    divergence_a: float = Field(alias="divergenceA")
-    divergence_b: float = Field(alias="divergenceB")
-
-
-class DivergenceModelsEvent(EventBase):
-    """Cross-model view once every model is measured: do two LLMs, given the
-    same persona and evidence, say the same thing -- and does the persona move
-    each of them by the same amount?"""
-
-    type: Literal["divergence_models"] = "divergence_models"
-    models: list[dict]  # [{id, label}] in display order
-    agreements: list[ModelAgreement]
+    male_reply: Optional[str] = Field(default=None, alias="maleReply")
+    female_reply: Optional[str] = Field(default=None, alias="femaleReply")
 
 
 class DoneEvent(EventBase):
@@ -330,9 +307,8 @@ WorldviewEvent = Annotated[
         DeflectionEvent,
         AnswerChunkEvent,
         ResearchDocumentEvent,
-        DivergenceRegionEvent,
-        DivergenceSummaryEvent,
-        DivergenceModelsEvent,
+        StoryVsOfficialEvent,
+        PersonaSimilarityRegionEvent,
         DoneEvent,
         StreamErrorEvent,
     ],

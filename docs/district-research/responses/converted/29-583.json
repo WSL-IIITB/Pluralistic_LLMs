@@ -1,0 +1,108 @@
+{
+  "districtId": "29-583",
+  "name": "Bengaluru Rural",
+  "regionId": "old-mysuru",
+  "researchedOn": "2026-10-07",
+  "headline": "Child labour near the metro and schools without water or toilets.",
+  "summary": "Bengaluru Rural sits next to the metropolis, which creates demand for cheap adolescent labour; labour sweeps rescued 145 children over three years in a Times of India report. A High Court audit flagged five schools here without drinking water or toilets. Child-rights groups worry about post-COVID children who never returned to school.",
+  "reasons": [
+    {
+      "factor": "Child labour near the metro",
+      "category": "economic",
+      "detail": "Proximity to Bengaluru draws adolescents into unorganised work; labour sweeps rescued 145 children over three years.",
+      "sources": [
+        1
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Schools without toilets",
+      "category": "school-infrastructure",
+      "detail": "A 2023 High Court report found five government schools in Bengaluru Rural without toilets.",
+      "sources": [
+        2
+      ],
+      "evidence": "thin"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Child labourers rescued over three years",
+      "value": "145",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "label": "SSLC pass rate, 2025",
+      "value": "74.02%",
+      "sources": [
+        3
+      ]
+    },
+    {
+      "label": "Government schools without toilets (High Court data, 2023)",
+      "value": "5",
+      "sources": [
+        2
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Covid on the ebb, but child labour incidence still high in Karnataka",
+      "outlet": "The Times of India",
+      "date": "2022-10-04",
+      "url": "https://timesofindia.indiatimes.com/city/bengaluru/covid-on-the-ebb-but-child-labour-incidence-still-high-in-karnataka/articleshow/94629749.cms",
+      "takeaway": "Covid on the ebb, but child labour incidence still high in Karnataka."
+    }
+  ],
+  "responses": [],
+  "officialFactorCheck": [
+    {
+      "factor": "% Population Living in Households with Improved Sanitation",
+      "method": "state",
+      "verdict": "unclear",
+      "note": "Schools here lack water and toilets, but no source links this to dropout.",
+      "sources": [
+        2
+      ]
+    },
+    {
+      "factor": "% Schools with instruction medium 1 (English)",
+      "method": "district",
+      "verdict": "no-evidence",
+      "note": "No documented link between English-medium instruction and dropout locally.",
+      "sources": []
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://timesofindia.indiatimes.com/city/bengaluru/covid-on-the-ebb-but-child-labour-incidence-still-high-in-karnataka/articleshow/94629749.cms",
+      "title": "Covid on the ebb, but child labour incidence still high in Karnataka",
+      "outlet": "The Times of India",
+      "date": "2022-10-04",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://www.thehindu.com/news/national/karnataka/sorry-state-of-affairs-says-high-court-on-absence-of-toilets-in-464-govt-schools/article66908404.ece",
+      "title": "No drinking water in 87 govt schools, no toilets in 464 schools in Karnataka",
+      "outlet": "The Hindu",
+      "date": "2023-05-29",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://www.collegedekho.com/karnataka-sslc-result-statistics-brd",
+      "title": "Karnataka SSLC Result Statistics 2026 - Check Karnataka Class 10 Result Statistics | CollegeDekho",
+      "outlet": "CollegeDekho",
+      "date": "2024-04-04",
+      "type": "news"
+    }
+  ],
+  "coverage": "thin",
+  "gaps": "No district dropout counts; the child-labour figure comes from a statewide report.",
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+}

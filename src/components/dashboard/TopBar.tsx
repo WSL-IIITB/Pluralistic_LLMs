@@ -1,15 +1,7 @@
-import { Info } from "lucide-react";
+import { STATIC_DATA } from "@/lib/worldview/api";
+import { DASHBOARD_TABS, type DashboardTab } from "@/lib/worldview/explorer";
 
-export const DASHBOARD_TABS = [
-  "Map",
-  "Divergence",
-  "Data",
-  "Deflections",
-  "Answer",
-  "History",
-  "About",
-] as const;
-export type DashboardTab = (typeof DASHBOARD_TABS)[number];
+export { DASHBOARD_TABS, type DashboardTab };
 
 type TopBarProps = {
   activeTab: DashboardTab;
@@ -27,7 +19,7 @@ export function TopBar({ activeTab, onTabChange }: TopBarProps) {
       </div>
 
       <nav aria-label="Dashboard sections" className="flex items-center gap-1">
-        {DASHBOARD_TABS.map((tab) => {
+        {DASHBOARD_TABS.filter((tab) => !(STATIC_DATA && tab === "History")).map((tab) => {
           const isActive = tab === activeTab;
           return (
             <button
@@ -47,15 +39,6 @@ export function TopBar({ activeTab, onTabChange }: TopBarProps) {
           );
         })}
       </nav>
-
-      <button
-        type="button"
-        aria-label="About this explorer"
-        onClick={() => onTabChange("About")}
-        className="flex size-8 items-center justify-center rounded-full border border-panel-border text-muted-foreground transition-colors hover:text-foreground"
-      >
-        <Info className="size-4" />
-      </button>
     </header>
   );
 }

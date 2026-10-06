@@ -1,9 +1,9 @@
 """
 Research stage (source -> **research** -> resolve_regions -> cluster -> ...).
 
-Fires web-search-grounded research REGION BY REGION across Karnataka's four
-persona regions (reasoning_modes.REGION_RESEARCH_ANGLES[mode] targeted angles
-each) plus one statewide call, streams every gathered ResearchDocument to the
+Fires web-search-grounded research REGION BY REGION across Karnataka's persona
+regions (reasoning_modes.REGION_RESEARCH_ANGLES[mode] targeted angles each)
+plus one statewide call, streams every gathered ResearchDocument to the
 frontend, and keeps them on state for the region replies to cite.
 
 Each document is tagged with the region whose query produced it
@@ -39,6 +39,15 @@ _MAX_CONCURRENT_RESEARCH = 6
 _MAX_CONCURRENT_PLACE_EXTRACTIONS = 6
 _PROGRESS_START = 0.12
 _PROGRESS_END = 0.32
+# state["research_findings"] is every job's findings write-up joined into one
+# string, consumed ONLY by synthesize_answer's single Karnataka-wide-overview
+# call (persona_answers.py uses the per-region ResearchDocuments instead, so
+# this cap never touches it). With 6 regions x up to 4 angles +
+# 1 statewide, that's up to 25 jobs -- capping each job's own contribution
+# keeps the join bounded regardless of region/mode count, and keeps every
+# region a fair, comparable share of the summary rather than letting whichever
+# jobs happen to finish first dominate it.
+_MAX_FINDING_CHARS_PER_JOB = 900
 
 # One targeted web search per template, per region; the first N (by mode) run.
 REGION_RESEARCH_ANGLE_TEMPLATES = (
@@ -214,7 +223,11 @@ async def gather_research(
     for finished in asyncio.as_completed([asyncio.ensure_future(_run(*job)) for job in jobs]):
         findings, docs, label = await finished
         if findings:
-            findings_parts.append(findings)
+            findings_parts.append(
+                findings
+                if len(findings) <= _MAX_FINDING_CHARS_PER_JOB
+                else findings[:_MAX_FINDING_CHARS_PER_JOB].rstrip() + "…"
+            )
         all_docs.extend(docs)
         # Dedupe by url + renumber after each call so the sources count climbs live.
         state["research_documents"] = _merge_documents([], all_docs)

@@ -1,0 +1,237 @@
+{
+  "districtId": "29-574",
+  "name": "Hassan",
+  "regionId": "malnad",
+  "researchedOn": "2026-10-07",
+  "headline": "Child marriages doubled in two years and put Hassan at the top of the state.",
+  "summary": "Reporting says child marriages in Hassan doubled over two years, placing the district first in the state, with poverty and single-parent households behind withdrawals. A survey found 1,819 out-of-school children, concentrated in particular taluks, and police formed an all-women squad, Hasanamba Pade, to track dropouts and stop underage marriages.",
+  "reasons": [
+    {
+      "factor": "Child marriage doubling",
+      "category": "gender",
+      "detail": "Child marriages in the district doubled over two years, the highest in the state at the time of the report.",
+      "sources": [
+        1,
+        2
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Girls taken in love-affair marriages",
+      "category": "gender",
+      "detail": "Minor girls are reported to be taken and married under the guise of love affairs, complicating efforts to return them to class.",
+      "sources": [
+        2
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Out-of-school children",
+      "category": "other",
+      "detail": "A survey identified 1,819 out-of-school children, concentrated in specific taluks.",
+      "sources": [
+        3
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Girls leaving high school, child marriage",
+      "category": "gender",
+      "detail": "The Deputy Commissioner urged tracking of girl students dropping out of high school and monitoring of mass marriages to curb child marriage, reflecting official concern that girls exit through early marriage.",
+      "sources": [
+        5
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Closure of small government schools",
+      "category": "school-infrastructure",
+      "detail": "Thirty-two government primary schools were closed, 11 in Belur and 10 in Hassan taluk among them, reducing nearby schooling; link to secondary dropout is inferred, not stated.",
+      "sources": [
+        6
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Missing and absent girls concern",
+      "category": "social-norms",
+      "detail": "The same review asked officials to look into rising missing-person cases of women and girls and run awareness programmes for girls.",
+      "sources": [
+        5
+      ],
+      "evidence": "thin"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Out-of-school children identified in a survey",
+      "value": "1,819",
+      "sources": [
+        3
+      ]
+    },
+    {
+      "label": "Government primary schools closed in district",
+      "value": "32",
+      "sources": [
+        6
+      ]
+    },
+    {
+      "label": "Closures by taluk",
+      "value": "Belur 11, Hassan 10, Holenarasipura 5, Sakleshpur 3, Channarayapatna 3",
+      "sources": [
+        6
+      ]
+    },
+    {
+      "label": "Hassan govt high school SSLC 2025 record",
+      "value": "100 percent pass for 8th year running",
+      "sources": [
+        7
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Hassan govt school shines with 100% SSLC pass rate for 8th year",
+      "outlet": "News Karnataka",
+      "date": "2025-05-06",
+      "url": "https://newskarnataka.com/education/hassan-govt-school-shines-with-100-sslc-pass-rate-for-8th-year/06052025/",
+      "takeaway": "A Hassan government high school again achieved a full SSLC pass in 2025, against a state average of 66.14 percent."
+    },
+    {
+      "title": "Hassan: Child Marriages Double In 2 Yrs; Hassan On Top",
+      "outlet": "The Times of India",
+      "date": "2022-03-23",
+      "url": "https://timesofindia.indiatimes.com/city/bengaluru/child-marriages-double-in-2-yrs-hassan-on-top/articleshow/90384773.cms",
+      "takeaway": "Child marriages double in two years; Hassan on top."
+    },
+    {
+      "title": "73 school dropouts in Hassan this year",
+      "outlet": "The Hindu",
+      "date": "2021-03-01",
+      "url": "https://www.thehindu.com/news/national/karnataka/73-school-dropouts-in-hassan-this-year/article33964792.ece",
+      "takeaway": "73 school dropouts in Hassan this year."
+    },
+    {
+      "title": "Cases of child marriage worry officials in Hassan",
+      "outlet": "The Hindu",
+      "date": "2019-05-27",
+      "url": "https://www.thehindu.com/news/national/karnataka/cases-of-child-marriage-worry-officials-in-hassan/article27256439.ece",
+      "takeaway": "Cases of child marriage worry officials in Hassan."
+    },
+    {
+      "title": "1,819 children out of school in Hassan district: survey",
+      "outlet": "The Hindu",
+      "date": "2014-02-14",
+      "url": "https://www.thehindu.com/news/national/karnataka/1819-children-out-of-school-in-hassan-district-survey/article5688227.ece",
+      "takeaway": "1,819 children out of school in Hassan district: survey."
+    },
+    {
+      "title": "Be alert, curb child marriages",
+      "outlet": "Deccan Herald",
+      "date": "",
+      "url": "https://www.deccanherald.com/india/karnataka/be-alert-curb-child-marriages-2233949",
+      "takeaway": "Hassan DC asked officials to track girls dropping out of high schools and act against child marriages."
+    },
+    {
+      "title": "32 government primary schools closed",
+      "outlet": "Deccan Herald",
+      "date": "",
+      "url": "https://www.deccanherald.com/india/karnataka/32-government-primary-schools-closed-2424751",
+      "takeaway": "Closures concentrated in Belur and Hassan taluks, among other Hassan taluks."
+    }
+  ],
+  "responses": [
+    {
+      "text": "Police formed an all-women squad, Hasanamba Pade, to track dropouts and prevent underage marriages.",
+      "sources": [
+        2
+      ]
+    },
+    {
+      "text": "Deputy Commissioner directed the deputy director of education to track girls who drop out of high school and report, and told child welfare officials to book cases over child marriages.",
+      "sources": [
+        5
+      ]
+    }
+  ],
+  "officialFactorCheck": [
+    {
+      "factor": "% Population Living in Households with Improved Sanitation",
+      "method": "state",
+      "verdict": "no-evidence",
+      "note": "Child marriage and poverty, not sanitation, are the documented barriers.",
+      "sources": []
+    },
+    {
+      "factor": "% Schools with instruction medium 1 (English)",
+      "method": "district",
+      "verdict": "no-evidence",
+      "note": "Medium of instruction is not cited as a barrier.",
+      "sources": []
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://timesofindia.indiatimes.com/city/bengaluru/child-marriages-double-in-2-yrs-hassan-on-top/articleshow/90384773.cms",
+      "title": "Hassan: Child Marriages Double In 2 Yrs; Hassan On Top",
+      "outlet": "The Times of India",
+      "date": "2022-03-23",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://www.thehindu.com/news/national/karnataka/cases-of-child-marriage-worry-officials-in-hassan/article27256439.ece",
+      "title": "Cases of child marriage worry officials in Hassan",
+      "outlet": "The Hindu",
+      "date": "2019-05-27",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://www.thehindu.com/news/national/karnataka/1819-children-out-of-school-in-hassan-district-survey/article5688227.ece",
+      "title": "1,819 children out of school in Hassan district: survey",
+      "outlet": "The Hindu",
+      "date": "2014-02-14",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "https://www.thehindu.com/news/national/karnataka/73-school-dropouts-in-hassan-this-year/article33964792.ece",
+      "title": "73 school dropouts in Hassan this year",
+      "outlet": "The Hindu",
+      "date": "2021-03-01",
+      "type": "news"
+    },
+    {
+      "id": 5,
+      "url": "https://www.deccanherald.com/india/karnataka/be-alert-curb-child-marriages-2233949",
+      "title": "Be alert, curb child marriages",
+      "outlet": "Deccan Herald",
+      "date": "",
+      "type": "news"
+    },
+    {
+      "id": 6,
+      "url": "https://www.deccanherald.com/india/karnataka/32-government-primary-schools-closed-2424751",
+      "title": "32 government primary schools closed",
+      "outlet": "Deccan Herald",
+      "date": "",
+      "type": "news"
+    },
+    {
+      "id": 7,
+      "url": "https://newskarnataka.com/education/hassan-govt-school-shines-with-100-sslc-pass-rate-for-8th-year/06052025/",
+      "title": "Hassan govt school shines with 100% SSLC pass rate for 8th year",
+      "outlet": "News Karnataka",
+      "date": "2025-05-06",
+      "type": "news"
+    }
+  ],
+  "coverage": "thin",
+  "gaps": "The out-of-school survey and child-marriage report are several years old; SSLC pass rate omitted because sources conflict. No Hassan dropout or out-of-school counts, district SSLC pass rate (conflicting snippets), estate-worker or Sakleshpur migrant-child evidence, or UDISE+ figures verified. Deccan Herald pages were unfetchable; dates unknown.",
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+}

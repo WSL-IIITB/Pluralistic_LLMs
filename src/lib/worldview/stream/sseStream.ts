@@ -25,9 +25,8 @@ const EVENT_TYPES: WorldviewEventType[] = [
   "deflection",
   "answer_chunk",
   "research_document",
-  "divergence_region",
-  "divergence_summary",
-  "divergence_models",
+  "story_vs_official",
+  "persona_similarity_region",
   "done",
   "error",
 ];

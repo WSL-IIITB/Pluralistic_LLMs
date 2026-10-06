@@ -1,0 +1,348 @@
+{
+  "districtId": "29-577",
+  "name": "Mysuru",
+  "regionId": "old-mysuru",
+  "researchedOn": "2026-10-07",
+  "headline": "Mysuru had the state's most child-marriage complaints in six months of 2024.",
+  "summary": "Between April and September 2024 Mysuru received 105 child-marriage complaints, the most in the state, with 36 marriages carried out and 69 prevented. A legislative reply also named single-parent households among the reasons for dropout in Mysuru and five other educational districts.",
+  "reasons": [
+    {
+      "factor": "Child marriage of girls",
+      "category": "gender",
+      "detail": "105 complaints in six months of 2024, 36 marriages carried out and 69 prevented, ending girls' schooling.",
+      "sources": [
+        1
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Single-parent households",
+      "category": "economic",
+      "detail": "A legislative reply named single-parent households among the reasons for school dropout in Mysuru and five other educational districts.",
+      "sources": [
+        2
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Girls withdrawn at puberty, married",
+      "category": "gender",
+      "detail": "In some backward rural communities, girls are kept from school after attaining puberty as parents seek marriage; most identified out-of-school children were girls.",
+      "sources": [
+        4
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Low awareness in SC/ST, minority blocks",
+      "category": "social-norms",
+      "detail": "Dropouts were higher in educational blocks with larger Muslim and SC/ST populations, which officials linked to lack of awareness about education.",
+      "sources": [
+        4
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Pandemic closures, devices, child labour",
+      "category": "economic",
+      "detail": "Prolonged Covid school closure and lack of devices were blamed for rising dropouts and child labour, prompting a house-to-house survey of children aged 6-14 in Mysuru city.",
+      "sources": [
+        5
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Child marriage during lockdown",
+      "category": "gender",
+      "detail": "An NGO founder reported about 170 child-marriage cases in Mysuru district over seven months of 2020, with school shutdowns removing meals and protection.",
+      "sources": [
+        6
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Remote tribal hamlets, ashram schools",
+      "category": "school-infrastructure",
+      "detail": "In HD Kote, residential schools for Jenu Kuruba and other communities stood empty after Covid; no electricity or phones, and contract-teacher staffing problems hampered learning.",
+      "sources": [
+        7,
+        10
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Volatile SSLC outcomes",
+      "category": "governance",
+      "detail": "Mysuru's SSLC rank fell to 15th in 2025 and 20th in 2026 despite higher pass rates; the DDPI promised corrective analysis. Link to exits is not evidenced.",
+      "sources": [
+        8,
+        9
+      ],
+      "evidence": "thin"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Child marriage complaints, April-September 2024",
+      "value": "105",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "label": "Child marriage cases since 2020",
+      "value": "100",
+      "sources": [
+        3
+      ]
+    },
+    {
+      "label": "Child marriages carried out, April-September 2024",
+      "value": "36",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "label": "Child marriages prevented, April-September 2024",
+      "value": "69",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "label": "Out-of-school children, district survey (older)",
+      "value": "2,657, majority girls and backward communities",
+      "sources": [
+        4
+      ]
+    },
+    {
+      "label": "Blocks with most out-of-school children",
+      "value": "Mysuru North 1,316; Nanjangud 808; Hunsur 692",
+      "sources": [
+        4
+      ]
+    },
+    {
+      "label": "Child-marriage cases, Mysuru, 2020",
+      "value": "At least 170 in seven months (NGO figure)",
+      "sources": [
+        6
+      ]
+    },
+    {
+      "label": "SSLC 2025 pass rate and state rank",
+      "value": "68.4%, 15th (73.4%, 7th in 2024)",
+      "sources": [
+        8
+      ]
+    },
+    {
+      "label": "SSLC 2026 pass rate and state rank",
+      "value": "94.50%, 20th (up 13.12 points)",
+      "sources": [
+        9
+      ]
+    },
+    {
+      "label": "ST school dropouts, Mysuru, 2026 report",
+      "value": "62 at primary/secondary level",
+      "sources": [
+        10
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "ST student dropout rate rises sharply in Mysuru district",
+      "outlet": "News Karnataka",
+      "date": "2026-08-27",
+      "url": "https://newskarnataka.com/mysuru/st-student-dropout-rate-rises-sharply-in-mysuru-district/27082026/",
+      "takeaway": "602 of 3,434 ST degree-college students discontinued; 62 ST children left school; expert cites remote hamlets, weak home support and social prejudice."
+    },
+    {
+      "title": "Mysuru SSLC pass percentage rises to 94.5, rank drops",
+      "outlet": "News Karnataka",
+      "date": "2026-04-23",
+      "url": "https://newskarnataka.com/mysuru/mysuru-sslc-pass-percentage-rises-to-94-5-rank-drops/23042026/",
+      "takeaway": "Pass rate jumped about 13 points but district fell to 20th in the state; no perfect scorers in Mysuru region."
+    },
+    {
+      "title": "Poverty, migration to single parents one of reasons for school dropout in Karnataka",
+      "outlet": "The Times of India",
+      "date": "2025-09-22",
+      "url": "https://timesofindia.indiatimes.com/city/mysuru/poverty-migration-to-single-parents-one-of-reasons-for-school-dropout-in-karnataka/articleshow/124054037.cms",
+      "takeaway": "Poverty, migration and single parents among reasons for school dropout in Karnataka."
+    },
+    {
+      "title": "SSLC 2025: Mysuru, Chamarajanagar slip in ranks despite two perfect scores",
+      "outlet": "News Karnataka",
+      "date": "2025-05-03",
+      "url": "https://newskarnataka.com/mysuru/sslc-2025-mysuru-chamarajanagar-slip-in-ranks-despite-two-perfect-scores/03052025/",
+      "takeaway": "Mysuru fell to 15th with 68.4%; the DDPI said the aim had been the top five."
+    },
+    {
+      "title": "State government announces ₹50,000 reward to gram panchayats that prevent child marriages",
+      "outlet": "The Hindu",
+      "date": "2024-11-07",
+      "url": "https://www.thehindu.com/news/national/karnataka/state-government-announces-50000-reward-to-gram-panchayats-that-prevent-child-marriages/article68836090.ece",
+      "takeaway": "State announces a Rs 50,000 reward to gram panchayats that prevent child marriages."
+    },
+    {
+      "title": "Bleak future ahead: COVID-19 pushes Karnataka's first generation Adivasi learners off schools",
+      "outlet": "Down To Earth",
+      "date": "2021-08-25",
+      "url": "https://www.downtoearth.org.in/governance/bleak-future-ahead-covid-19-pushes-karnataka-s-first-generation-adivasi-learners-off-schools-78637",
+      "takeaway": "Report covers HD Kote tribal residential schools left empty, learning loss, lost meals and no connectivity in Mysuru district."
+    },
+    {
+      "title": "MCC begins H2H mobile app survey on school dropouts",
+      "outlet": "Deccan Herald",
+      "date": "2021-01",
+      "url": "https://www.deccanherald.com/india/karnataka/mcc-begins-h2h-mobile-app-survey-on-school-dropouts-941373.html",
+      "takeaway": "Mysuru City Corporation surveyed children aged 6-14 house to house after reports of rising child labour in the pandemic."
+    },
+    {
+      "title": "Lawless wedlock",
+      "outlet": "The Week",
+      "date": "2020-12-11",
+      "url": "https://www.theweek.in/theweek/specials/2020/12/10/lawless-wedlock.html",
+      "takeaway": "An NGO reported 170 child-marriage cases in Mysuru district in seven months of 2020 as schools stayed shut."
+    },
+    {
+      "title": "Mysuru has over 2,600 school drop-outs",
+      "outlet": "Deccan Herald",
+      "date": "",
+      "url": "https://www.deccanherald.com/state/districts/mysuru-has-over-2600-school-drop-outs-428768.html",
+      "takeaway": "Survey found 2,657 children out of school, mostly girls and backward communities; Mysuru North, Nanjangud and Hunsur blocks lead."
+    }
+  ],
+  "responses": [
+    {
+      "text": "The state offers Rs 50,000 to gram panchayats that prevent child marriage.",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "text": "Mysuru City Corporation, with the education and child welfare departments, ran a house-to-house app survey from mid-January to mid-February 2021 to identify out-of-school children aged 6-14.",
+      "sources": [
+        5
+      ]
+    },
+    {
+      "text": "Free education, hostel access and financial assistance exist for ST students in Mysuru, though an expert says they are insufficient without tackling structural barriers.",
+      "sources": [
+        10
+      ]
+    },
+    {
+      "text": "District DDPI said the department would analyse the 2025 SSLC results and implement corrective strategies to improve.",
+      "sources": [
+        8
+      ]
+    }
+  ],
+  "officialFactorCheck": [
+    {
+      "factor": "% Population Living in Households with Improved Sanitation",
+      "method": "state",
+      "verdict": "no-evidence",
+      "note": "Sanitation is not cited as a leading driver of high-school exits.",
+      "sources": []
+    },
+    {
+      "factor": "% Schools with Functional Protected Well",
+      "method": "district",
+      "verdict": "no-evidence",
+      "note": "No evidence links the district-method factor to retention.",
+      "sources": []
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://www.thehindu.com/news/national/karnataka/state-government-announces-50000-reward-to-gram-panchayats-that-prevent-child-marriages/article68836090.ece",
+      "title": "State government announces ₹50,000 reward to gram panchayats that prevent child marriages",
+      "outlet": "The Hindu",
+      "date": "2024-11-07",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://timesofindia.indiatimes.com/city/mysuru/poverty-migration-to-single-parents-one-of-reasons-for-school-dropout-in-karnataka/articleshow/124054037.cms",
+      "title": "Poverty, migration to single parents one of reasons for school dropout in Karnataka",
+      "outlet": "The Times of India",
+      "date": "2025-09-22",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://timesofindia.indiatimes.com/city/mysuru/mandya-no-1-dist-in-child-marriages-since-2020-data/articleshow/106071868.cms",
+      "title": "Mandya No. 1 dist in child marriages since 2020: Data",
+      "outlet": "The Times of India",
+      "date": "2023-12-18",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "https://www.deccanherald.com/state/districts/mysuru-has-over-2600-school-drop-outs-428768.html",
+      "title": "Mysuru has over 2,600 school drop-outs",
+      "outlet": "Deccan Herald",
+      "date": "",
+      "type": "news"
+    },
+    {
+      "id": 5,
+      "url": "https://www.deccanherald.com/india/karnataka/mcc-begins-h2h-mobile-app-survey-on-school-dropouts-941373.html",
+      "title": "MCC begins H2H mobile app survey on school dropouts",
+      "outlet": "Deccan Herald",
+      "date": "2021-01",
+      "type": "news"
+    },
+    {
+      "id": 6,
+      "url": "https://www.theweek.in/theweek/specials/2020/12/10/lawless-wedlock.html",
+      "title": "Lawless wedlock",
+      "outlet": "The Week",
+      "date": "2020-12-11",
+      "type": "news"
+    },
+    {
+      "id": 7,
+      "url": "https://www.downtoearth.org.in/governance/bleak-future-ahead-covid-19-pushes-karnataka-s-first-generation-adivasi-learners-off-schools-78637",
+      "title": "Bleak future ahead: COVID-19 pushes Karnataka's first generation Adivasi learners off schools",
+      "outlet": "Down To Earth",
+      "date": "2021-08-25",
+      "type": "news"
+    },
+    {
+      "id": 8,
+      "url": "https://newskarnataka.com/mysuru/sslc-2025-mysuru-chamarajanagar-slip-in-ranks-despite-two-perfect-scores/03052025/",
+      "title": "SSLC 2025: Mysuru, Chamarajanagar slip in ranks despite two perfect scores",
+      "outlet": "News Karnataka",
+      "date": "2025-05-03",
+      "type": "news"
+    },
+    {
+      "id": 9,
+      "url": "https://newskarnataka.com/mysuru/mysuru-sslc-pass-percentage-rises-to-94-5-rank-drops/23042026/",
+      "title": "Mysuru SSLC pass percentage rises to 94.5, rank drops",
+      "outlet": "News Karnataka",
+      "date": "2026-04-23",
+      "type": "news"
+    },
+    {
+      "id": 10,
+      "url": "https://newskarnataka.com/mysuru/st-student-dropout-rate-rises-sharply-in-mysuru-district/27082026/",
+      "title": "ST student dropout rate rises sharply in Mysuru district",
+      "outlet": "News Karnataka",
+      "date": "2026-08-27",
+      "type": "news"
+    }
+  ],
+  "coverage": "moderate",
+  "gaps": "The report's claim about residential schools for rescued child labourers cites a source that does not mention Mysuru and was dropped. No recent district out-of-school count for Classes 8-10, UDISE+ or DDPI figures, or Deccan Herald articles with confirmed dates were retrievable. SSLC pass rates differ by exam attempt basis across years, and no direct SSLC-failure-to-dropout evidence was found.",
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+}

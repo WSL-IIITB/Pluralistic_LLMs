@@ -100,11 +100,11 @@ class PipelineState(TypedDict):
     regions: dict[str, RegionState]  # keyed by region_id
     deflections: list[DeflectionState]
     region_stats: dict[str, RegionStatsState]
-    # Per persona region: the exact evidence handed to its reply, kept so the
-    # no-persona reply in the divergence stage gets byte-identical inputs.
+    # Per persona region: the exact evidence handed to its replies, cached so
+    # a region's male and female replies are built from byte-identical inputs.
     region_evidence: dict[str, dict]
-    # Per persona region: {"segments": [...], "text": str} of the persona reply.
-    region_replies: dict[str, dict]
+    # region_id -> persona variant id ("male"/"female") -> {"segments": [...], "text": str}.
+    region_replies: dict[str, dict[str, dict]]
     answer_segments: list[dict]  # AnswerSegment-shaped dicts
     # Karnataka-scoped framings of the topic (llm.suggest_framings) -- steer
     # sourcing and ground the overview synthesis.

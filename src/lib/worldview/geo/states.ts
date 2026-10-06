@@ -15,9 +15,10 @@
  * per-district choropleth alone — nothing else depends on this file existing.
  */
 
+import { assetUrl } from "../api";
 import type { StateCode } from "../types";
 
-export const STATE_GEOJSON_URL = "/geo/india-states.geojson";
+export const STATE_GEOJSON_URL = assetUrl("geo/india-states.geojson");
 
 type Position = number[];
 interface PolygonGeometry {

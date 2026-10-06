@@ -12,9 +12,10 @@
  * `null` and the map degrades to its column-only / placeholder rendering.
  */
 
+import { assetUrl } from "../api";
 import { makeDistrictId, type DistrictId, type StateCode } from "../types";
 
-export const DISTRICT_GEOJSON_URL = "/geo/india-districts.geojson";
+export const DISTRICT_GEOJSON_URL = assetUrl("geo/india-districts.geojson");
 
 // Minimal GeoJSON shapes (avoids a hard dep on @types/geojson).
 type Position = number[];

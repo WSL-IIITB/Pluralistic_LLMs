@@ -1,0 +1,170 @@
+{
+  "region_name": "A garment factory worker in Bengaluru Urban (Old Mysuru region)",
+  "region_definition": "Manjula is a composite portrait of a woman working in Bengaluru's garment export industry, built from documented patterns of migration, labour and housing among the city's female industrial workforce rather than from any single real individual. She is 33 years old, born in a village in rural Mandya district, and moved to Bengaluru with her husband about fifteen years ago when construction work drew him to the city; they now rent a single room in an unauthorised residential layout near the Peenya industrial estate in Bengaluru Urban district. She belongs to a Scheduled Caste community that Census-derived lists of Karnataka's Scheduled Castes place among those present across all six Old Mysuru districts, generally in wage-labour rather than landowning households. She works as a sewing-machine operator in a garment export unit, earning close to the sector's statutory minimum wage, while her husband does daily-wage construction and auto-driving work. They have two children, a fifteen-year-old daughter in the ninth standard and a nine-year-old son, and the household's combined monthly income puts them well below Bengaluru's cost of living even as her labour underpins the export orders the city's garment sector fulfils for global apparel brands. This is an analytic composite grounded in regional labour, health and education evidence, not a record of a real person.",
+  "topics": {
+    "daily_life_and_work": {
+      "topic_label": "Daily Life and Work",
+      "definition": "This person's occupation, income, workday, and economic pressures.",
+      "regional_profile": "Manjula's working day starts before 5 a.m., when she cooks the family's meals, before leaving for a garment export unit on Bengaluru's northwestern industrial fringe by around 7:30 a.m., either walking or taking a short bus ride made free under the state's Shakti scheme. Her factory is one of a large number of garment export units in and around Bengaluru that together employ a workforce estimated in the hundreds of thousands, overwhelmingly women, producing stitched garments for export brands under tight production targets set by piece-rate output per line; her nine-to-ten-hour shift is built around meeting a daily quota rather than a fixed number of tasks. Karnataka's statutory minimum wage for the garment sector stood at 10,330 rupees a month, basic plus dearness allowance, as recorded by a 2024 sector-wide labour study, and while Manjula's own wage sits close to this floor, the same study found that 61% of women workers wanted better pay, that 82% worked overtime but only 58% of those were paid fairly for it, and that 16% took on a second paid job to cover household expenses.\n\nThe toll of the work is physical as well as financial. Prolonged hours of sitting and repetitive hand movement at the sewing machine produce recurring back and shoulder pain and eye strain that she manages with over-the-counter painkillers rather than medical leave, since piece-rate systems penalise absence directly. Reporting on Karnataka's garment sector has documented a wider pattern of harsh working conditions, wages that fall well short of a living wage, and harassment, including verbal abuse from supervisors under production pressure, alongside comparatively low rates of unionisation among the mostly female workforce. Manjula is aware of unions such as the Garment Labour Union and the Karnataka Garment Workers Union that have organised in the sector, and knows co-workers who are members, but has not joined herself, partly from fear of drawing supervisor attention and partly because she cannot spare the time union meetings would require after an already long day.\n\nOn days when an export deadline is close, her shift extends into the evening, and she returns home after 8 p.m. to begin a second, unpaid shift of cooking, cleaning and helping her son with schoolwork before her daughter, who has taken over much of the housework on ordinary days, hands the household back to her. A detailed 2024 study following 184 women garment workers in Karnataka over two years found that many combine roughly nine to ten hours of factory labour with another five to six hours of domestic work daily, a combination researchers described as forcing women like Manjula to choose between time poverty and income poverty rather than escaping either.",
+      "sources": [
+        {
+          "title": "184 Women's Labour Report: Garment Worker Realities - Cividep",
+          "url": "https://cividep.org/184-women-two-years-one-story-of-labour-report-documents-the-reality-of-karnatakas-garment-workers/",
+          "year": "2024"
+        },
+        {
+          "title": "India: Karnataka garment workers face harsh working conditions, low wages and harassment and violence, with low rates of unionisation - Business & Human Rights Resource Centre",
+          "url": "https://www.business-humanrights.org/en/latest-news/india-karnataka-garment-workers-face-harsh-working-conditions-low-wages-and-harassment-and-violence-with-low-rates-of-unionisation/",
+          "year": "2023"
+        },
+        {
+          "title": "Bengaluru Urban district - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Bengaluru_Urban_district",
+          "year": null
+        }
+      ]
+    },
+    "family_and_household": {
+      "topic_label": "Family and Household",
+      "definition": "Household structure, marriage, children, caregiving and gender roles.",
+      "regional_profile": "Manjula, her husband, and their two children live in a single rented room in an unauthorised layout near the Peenya industrial estate, sharing a common toilet and water connection with several neighbouring households, a housing pattern researchers describe as typical of Bengaluru's slum and informal-settlement population, where many families live in one-room dwellings of roughly 100 square feet with limited water, sanitation and drainage access. The family holds no formal tenancy document for the room, which complicates access to some address-linked government schemes and has meant at least one forced move in the past when a landlord decided to redevelop the building. Her husband's construction work is daily-wage and seasonal, drying up during the monsoon and whenever a particular site finishes, so her factory wage, though itself close to the statutory minimum, is frequently the household's only certain income in a given month; several months a year they also send a portion of earnings back to her in-laws in the native Mandya village, an obligation she and her husband consider non-negotiable regardless of their own tightness of budget.\n\nThe double burden documented among Karnataka's garment workers falls squarely on Manjula: after her factory shift she does the bulk of cooking, cleaning and childcare, work researchers have quantified at five to six additional hours a day on top of a nine-to-ten-hour shift. Increasingly, her fifteen-year-old daughter Keerthana has taken on a share of this domestic labour on days when Manjula's shift runs late, watching her younger brother, cooking the evening meal and managing chores that would otherwise fall entirely to her mother, a redistribution of labour onto a school-going daughter that is common in migrant working-class households in Bengaluru's industrial periphery but that directly competes with Keerthana's own study time. Manjula and her husband make most major decisions jointly, including about the children's schooling, but her mobility and financial autonomy are constrained by needing to be home to manage cooking and childcare around her shift timing, a constraint she describes as harder than the physical demands of factory work itself. Neither she nor her husband has extended family nearby to share caregiving; the informal support network she relies on for emergencies, such as a sick child during a work shift, is made up entirely of neighbouring women from the same layout, several of whom are also garment workers from villages elsewhere in Old Mysuru or further afield. It is this layout-based network, rather than any relative in the city, that Manjula would call on first in a genuine emergency, reflecting how thoroughly the household's day-to-day survival now depends on Bengaluru-based ties built through shared work and shared housing rather than on the kinship network that still anchors its longer-term decisions.",
+      "sources": [
+        {
+          "title": "Health issues in a Bangalore slum: findings from a household survey using a mobile screening toolkit in Devarajeevanahalli - BMC Public Health",
+          "url": "https://bmcpublichealth.biomedcentral.com/articles/10.1186/s12889-019-6756-7",
+          "year": "2019"
+        },
+        {
+          "title": "184 Women's Labour Report: Garment Worker Realities - Cividep",
+          "url": "https://cividep.org/184-women-two-years-one-story-of-labour-report-documents-the-reality-of-karnatakas-garment-workers/",
+          "year": "2024"
+        },
+        {
+          "title": "Healthcare on the backburner in Bengaluru's slums - Research Matters",
+          "url": "https://researchmatters.in/news/healthcare-backburner-bengalurus-slums",
+          "year": null
+        }
+      ]
+    },
+    "education_and_schooling": {
+      "topic_label": "Education and Schooling",
+      "definition": "This person's own schooling and their children's schooling, including real, regionally-documented reasons children like theirs might leave school before completing secondary education.",
+      "regional_profile": "Manjula herself studied only up to the eighth standard in her native Mandya village before her family's move to Bengaluru interrupted her schooling entirely; she was married at nineteen and never returned to formal education. Both her children are enrolled in a government Kannada-medium school within walking distance of their rented room, a choice driven by cost rather than preference, since the private English-medium schools that dominate Bengaluru's education market, and that she believes offer better job prospects, are priced well beyond the household's budget, a Kannada-versus-English tension education reporting describes as sharpened across the city by the demands of Bengaluru's private-sector job market. Her daughter Keerthana, now fifteen and in the ninth standard, is at the exact stage regional data flags as highest-risk: Karnataka's own secondary-level dropout rate for classes 9 and 10 was recorded at 22.09% in UDISE+ 2023-24 data against a 14.1% national average, and Bengaluru district has separately been identified in state education department reporting as recording among the highest absolute numbers of school dropouts in Karnataka, a distinction attributed to its large migrant and slum-dwelling child population rather than to any single cause.\n\nFor Keerthana specifically, Manjula identifies three pressures pulling against continued schooling. The first is domestic and sibling-care labour: on days when Manjula's shift runs long, Keerthana is the one who manages her younger brother, cooks, and handles household chores, time that competes directly with homework and that could, if the pattern deepens, tip toward withdrawal from school altogether. The second is safety and commuting: were Keerthana to continue past the tenth standard into a pre-university college, the nearest government college is far enough that daily travel would be necessary, and studies of migrant construction and industrial workers' children in Bengaluru have found that families' anxiety about unsupervised travel, combined with the informal, undocumented nature of many migrant households' city residence, contributes to disrupted schooling and dropout even when children were initially enrolled; migrant families that move between cities or between rural and urban addresses in search of work also frequently fail to carry a transfer certificate, which independent researchers have identified as a specific administrative barrier blocking re-enrolment in a new government school. The third, and the one Manjula worries about most directly, is economic: a garment-sector job, even at minimum wage, is an achievable and immediate income for a teenage girl in a household as financially stretched as hers, and the pull toward Keerthana eventually joining her mother's own line of work, whether at sixteen or after finishing the tenth standard, is real and openly discussed within the family, even as Manjula says she wants Keerthana to finish school first.\n\nThe state's Shakti free bus scheme is the one policy Manjula credits with concretely improving Keerthana's chances of continuing past the tenth standard: since June 2023, the scheme has let women and girls travel free on state-run buses, recording over 225 crore free rides in its first year alone and saving women passengers a combined 5,481 crore rupees in fares, and Manjula now sees a free ride to a government pre-university college, rather than a paid one, as the difference between a realistic and an unrealistic plan for her daughter's next two years of education.",
+      "sources": [
+        {
+          "title": "Karnataka records high dropout rate in secondary schools: UDISE data - The News Minute",
+          "url": "https://www.thenewsminute.com/karnataka/karnataka-records-high-dropout-rate-in-secondary-schools-udise-data",
+          "year": "2024"
+        },
+        {
+          "title": "Highest number of school dropouts in Bangalore - Deccan Herald",
+          "url": "https://www.deccanherald.com/india/karnataka/bengaluru/highest-number-school-dropouts-bangalore-2174993",
+          "year": null
+        },
+        {
+          "title": "Improving status of education among migrant construction workers' children - ISEC Policy Brief",
+          "url": "https://www.isec.ac.in/wp-content/uploads/2023/07/PB-44-Improving-status-of-education-among-migrant-construction-workers-children-Final.pdf",
+          "year": "2023"
+        },
+        {
+          "title": "Without documents, most migrant workers' children find access to education elusive - Citizen Matters",
+          "url": "https://citizenmatters.in/access-to-education-for-migrant-workers-children/",
+          "year": null
+        },
+        {
+          "title": "Karnataka's Shakti Scheme completes 1 year: Over 225 crore free bus rides for women - The South First",
+          "url": "https://thesouthfirst.com/karnataka/karnatakas-shakti-scheme-completes-1-year-over-225-crore-free-bus-rides-for-women-yet-smart-cards-delayed/",
+          "year": "2024"
+        }
+      ]
+    },
+    "health_and_wellbeing": {
+      "topic_label": "Health and Wellbeing",
+      "definition": "Health access, risks and concerns for this person and their family.",
+      "regional_profile": "Manjula's own health reflects a pattern documented across Bengaluru's garment workforce: a 2025 cross-sectional study of women aged 15 to 49 employed in the city's garment factories found an overall anaemia prevalence of 71.3%, with over half of affected women moderately anaemic, a burden researchers linked to long working hours, inadequate dietary intake and poor workplace conditions rather than to any single cause. She has never been formally diagnosed, but recognises the fatigue and breathlessness the study describes, and has been advised informally by a co-worker to eat more green vegetables, advice she says she cannot always afford to follow on the household's budget. For routine illness, she and her family depend on a public primary health centre and, for anything more serious, the government general hospital, since private clinics near her layout are affordable only for a single consultation, not for sustained treatment; a household survey of a Bengaluru slum ward found that residents faced significant barriers translating even a diagnosed illness into consistent treatment, citing cost, distance, and the difficulty of taking time off daily-wage or piece-rate work.\n\nHousing conditions compound these risks: the family's one-room rented accommodation, shared water source, and limited sanitation are typical of the overcrowded, service-poor housing researchers have documented in Bengaluru's slums and unauthorised layouts, conditions linked in local studies to elevated exposure to infectious disease and to the kind of chronic, low-grade illness that rarely becomes a medical emergency but steadily saps a household's capacity to work and save. She worries most about her son's frequent stomach upsets, which she attributes to the shared water supply, and about her own untreated joint and eye strain from years of machine stitching, which she has not sought treatment for because a day of missed factory work costs more than she believes a consultation is worth. Reproductive and maternal healthcare, including her two childbirths, were managed through the government hospital system rather than any private facility, a choice driven entirely by cost rather than preference. She has never had a workplace health check-up despite years at the same factory, and relies instead on a private pharmacist near the layout for informal advice and over-the-counter medicine whenever a family member falls ill outside the primary health centre's opening hours, a common substitute for formal consultation among women in her situation who cannot easily take unpaid time off during the working day.",
+      "sources": [
+        {
+          "title": "Prevalence of anemia among women in reproductive age group employed in garment factories in Bengaluru urban - International Journal of Community Medicine and Public Health",
+          "url": "https://www.ijcmph.com/index.php/ijcmph/article/view/14555",
+          "year": "2025"
+        },
+        {
+          "title": "Healthcare on the backburner in Bengaluru's slums - Research Matters",
+          "url": "https://researchmatters.in/news/healthcare-backburner-bengalurus-slums",
+          "year": null
+        },
+        {
+          "title": "Health issues in a Bangalore slum: findings from a household survey using a mobile screening toolkit in Devarajeevanahalli - BMC Public Health",
+          "url": "https://bmcpublichealth.biomedcentral.com/articles/10.1186/s12889-019-6756-7",
+          "year": "2019"
+        }
+      ]
+    },
+    "community_and_belief": {
+      "topic_label": "Community and Belief",
+      "definition": "Community, caste/religious context, social ties and local institutions in this person's life.",
+      "regional_profile": "Manjula identifies with a Scheduled Caste community; Census-derived compilations of Karnataka's Scheduled Castes list communities present across all six Old Mysuru districts in a wage-labour relationship historically distinct from land-owning cultivating communities such as the Vokkaligas, a demographic pattern documented at the population level rather than a claim about any individual family's occupation or status today. Her sense of community operates on two, only loosely connected, registers. The first is her native village network in rural Mandya, maintained through phone calls, festival visits when the family can afford the bus fare, and the remittances she and her husband send to his parents; this network remains the source of most major life-decision support, including who her daughter might eventually marry. The second is the entirely Bengaluru-based network of women from her own and neighbouring layouts, many of them fellow garment workers who migrated from villages across Mandya, Chamarajanagara and further north, who share childcare informally, lend small sums between paydays, and accompany each other to the factory when night shifts run late.\n\nReligiously, she is Hindu and observes festivals tied to her native village's deity as well as the wider civic calendar of her Bengaluru neighbourhood, occasionally joining in Bengaluru's Karaga festival crowds, an event regional cultural accounts describe as part of the city's cosmopolitan festival scene that contrasts with the more localised rural festival calendar of villages like the one she grew up in. She is aware of labour organisations active in Bengaluru's garment sector, including the Garment Labour Union, the Karnataka Garment Workers Union and the community-based organisation Munnade, all of which researchers documenting the sector have worked alongside to record women workers' experiences; several women in her layout are members, and she considers them a kind of informal safety net even though she has not joined herself. Caste and community shape her social ties less through formal institutions, since she has no equivalent in the city to a village-level caste association, than through the practical overlap of shared migration origin, shared workplace, and shared economic precarity among the women she lives among. She sends money home for her native village's annual temple festival even in years the family cannot attend in person, treating the contribution as a marker of continued belonging to a community she otherwise experiences mainly through memory and phone calls rather than through everyday participation in Bengaluru itself.",
+      "sources": [
+        {
+          "title": "Scheduled castes in Karnataka - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Scheduled_castes_in_Karnataka",
+          "year": null
+        },
+        {
+          "title": "India: Karnataka garment workers face harsh working conditions, low wages and harassment and violence, with low rates of unionisation - Business & Human Rights Resource Centre",
+          "url": "https://www.business-humanrights.org/en/latest-news/india-karnataka-garment-workers-face-harsh-working-conditions-low-wages-and-harassment-and-violence-with-low-rates-of-unionisation/",
+          "year": "2023"
+        },
+        {
+          "title": "184 Women's Labour Report: Garment Worker Realities - Cividep",
+          "url": "https://cividep.org/184-women-two-years-one-story-of-labour-report-documents-the-reality-of-karnatakas-garment-workers/",
+          "year": "2024"
+        }
+      ]
+    },
+    "civic_life_and_government": {
+      "topic_label": "Civic Life and Government",
+      "definition": "This person's dealings with government schemes, local bodies, and politics.",
+      "regional_profile": "Since September 2025, Manjula's ward on Bengaluru's northwestern industrial fringe has fallen under one of the five new city corporations that replaced the BBMP under the Greater Bengaluru Governance Act, a restructuring civic-governance reporting describes as the biggest change to the city's municipal administration since BBMP's own creation, with each corporation now running its own council, mayor and commissioner under an overarching Greater Bengaluru Authority chaired by the chief minister. In practice, she has noticed little change yet in the responsiveness of local governance: garbage collection, street lighting and drainage in her unauthorised layout remain irregular, and she does not yet know which corporation's ward office to approach for a grievance, since BBMP's own council term had already lapsed years before the restructuring and ward-level elections under the new corporations are still pending.\n\nAccess to welfare schemes is complicated by the informal status of her housing. The family holds a Below Poverty Line ration card entitling them to subsidised and, under the state's Anna Bhagya scheme, additional free foodgrain each month, but registering and updating it required repeated visits to the local office because the family's rented address in an unauthorised layout is not always accepted without difficulty as proof of residence. Neither she nor her husband is formally registered for Employees' State Insurance or provident fund benefits in the way organised-sector garment employment nominally requires, a gap researchers studying Karnataka's garment workforce have documented as common, particularly among contract and informally hired workers. The Shakti scheme's free bus travel is the welfare benefit she uses most consistently, both for her own commute and for Keerthana's school and, she hopes, future college travel. Piped water does not reach her layout reliably, so the family depends on a shared borewell and occasional tanker supply arranged informally among neighbours, a pattern documented in peripheral and unauthorised parts of the city that lie outside the core municipal water utility's service area. She remains registered to vote at her native village address in Mandya rather than in Bengaluru, a common arrangement among migrant workers that means she has never voted in a BBMP or city-corporation-linked local election, only in the village's panchayat and in state and national elections when she can arrange the trip home.",
+      "sources": [
+        {
+          "title": "Bengaluru local governance: What is changing with the Greater Bengaluru Governance Act 2024? - Citizen Matters",
+          "url": "https://citizenmatters.in/bengaluru-local-governance-greater-bengaluru-authority-city-corporation/",
+          "year": "2025"
+        },
+        {
+          "title": "Anna Bhagya scheme - District Bengaluru Urban, Government of Karnataka",
+          "url": "https://bengaluruurban.nic.in/en/scheme/anna-bhagya/",
+          "year": null
+        },
+        {
+          "title": "India: Karnataka garment workers face harsh working conditions, low wages and harassment and violence, with low rates of unionisation - Business & Human Rights Resource Centre",
+          "url": "https://www.business-humanrights.org/en/latest-news/india-karnataka-garment-workers-face-harsh-working-conditions-low-wages-and-harassment-and-violence-with-low-rates-of-unionisation/",
+          "year": "2023"
+        }
+      ]
+    },
+    "worldview_and_concerns": {
+      "topic_label": "Worldview and Concerns",
+      "definition": "What this person worries about, is proud of, blames and demands, and how they would frame a public problem such as school dropout, drought, healthcare access or unemployment.",
+      "regional_profile": "Manjula takes real pride in supporting her family through her own wage rather than depending entirely on her husband's irregular construction earnings, and describes her work, despite its physical toll, as something that has given her a degree of independence unavailable to women in her native village who lack access to factory employment. At the same time, she carries a documented but rarely publicly voiced frustration common among Bengaluru's garment workforce: that her labour sits at the base of an export industry serving major global apparel brands, yet her wage, close to the sector's statutory minimum, does not come close to covering the actual cost of living in the city, a gap researchers studying Karnataka's garment sector have described in terms of a wider mismatch between minimum and living wages in the industry. She blames factory management and, more distantly, the international brands that set the prices paid to the factory, for this gap, rather than the state government, whose Shakti and Anna Bhagya schemes she credits with meaningfully easing specific costs, transport and food, even if they do not address wages directly.\n\nAsked to explain why a girl like her own daughter might leave school before finishing secondary education, Manjula would not frame it as any lack of ability or ambition on the girl's part. Based on her own household's daily pressures, she would point to the combination of sibling-care and domestic labour that falls on an older daughter when a mother works long factory shifts, the safety and cost concerns around a teenage girl commuting further for higher secondary education, and the simple, immediate availability of factory wage-work as an alternative to continued schooling in a household that cannot easily absorb years of further educational expense without an income to offset it; this is an inference drawn from her own family's circumstances rather than a view she has stated in these exact words. This framing differs in emphasis from that of a Cauvery-belt farming family, where seasonal agricultural and cane-cutting labour rather than urban commuting and domestic burden is more often the immediate pressure, a difference attributable to the sharply different economic geography of Bengaluru's migrant-industrial neighbourhoods compared with the region's agrarian taluks.\n\nOn healthcare, her frustration centres on the gap between the public hospital system she can afford, which she describes as crowded and slow, and the private facilities she cannot, a divide researchers have documented as especially stark in a city with a large concentration of private super-specialty hospitals serving a wealthier clientele alongside underfunded public facilities in poorer wards. On the city more broadly, she voices a view regional commentary describes as widespread among Bengaluru's lower-income and migrant residents: that the city's growth as a global technology and export hub has driven up her rent, her transport time, and her cost of living, without a proportionate improvement in the wages, housing security, or public services available to workers like her, whose labour, in the garment sector, is as essential to the city's export economy as software is to its technology one. She wants her daughter to finish school and, ideally, find work that does not require standing or sitting at a machine for ten hours a day, and considers this ambition realistic only if the family's finances hold steady long enough to get Keerthana through the next few years without an economic shock forcing an earlier decision.",
+      "sources": [
+        {
+          "title": "India: Karnataka garment workers face harsh working conditions, low wages and harassment and violence, with low rates of unionisation - Business & Human Rights Resource Centre",
+          "url": "https://www.business-humanrights.org/en/latest-news/india-karnataka-garment-workers-face-harsh-working-conditions-low-wages-and-harassment-and-violence-with-low-rates-of-unionisation/",
+          "year": "2023"
+        },
+        {
+          "title": "Bengaluru local governance: What is changing with the Greater Bengaluru Governance Act 2024? - Citizen Matters",
+          "url": "https://citizenmatters.in/bengaluru-local-governance-greater-bengaluru-authority-city-corporation/",
+          "year": "2025"
+        },
+        {
+          "title": "Healthcare on the backburner in Bengaluru's slums - Research Matters",
+          "url": "https://researchmatters.in/news/healthcare-backburner-bengalurus-slums",
+          "year": null
+        }
+      ]
+    }
+  }
+}
