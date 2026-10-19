@@ -1,0 +1,96 @@
+{
+  "model": "Firworks/gemma-4-26B-A4B-it-fp8",
+  "trials": [
+    {
+      "size": 4000,
+      "pos": "start",
+      "ok": true,
+      "ttft_s": 0.96,
+      "prompt_tokens": 3999
+    },
+    {
+      "size": 4000,
+      "pos": "middle",
+      "ok": true,
+      "ttft_s": 0.94,
+      "prompt_tokens": 3967
+    },
+    {
+      "size": 4000,
+      "pos": "end",
+      "ok": true,
+      "ttft_s": 1.0,
+      "prompt_tokens": 3943
+    },
+    {
+      "size": 8000,
+      "pos": "start",
+      "ok": true,
+      "ttft_s": 1.35,
+      "prompt_tokens": 7843
+    },
+    {
+      "size": 8000,
+      "pos": "middle",
+      "ok": true,
+      "ttft_s": 1.35,
+      "prompt_tokens": 7832
+    },
+    {
+      "size": 8000,
+      "pos": "end",
+      "ok": true,
+      "ttft_s": 1.34,
+      "prompt_tokens": 7886
+    },
+    {
+      "size": 16000,
+      "pos": "start",
+      "ok": true,
+      "ttft_s": 2.07,
+      "prompt_tokens": 15661
+    },
+    {
+      "size": 16000,
+      "pos": "middle",
+      "ok": true,
+      "ttft_s": 2.09,
+      "prompt_tokens": 15665
+    },
+    {
+      "size": 16000,
+      "pos": "end",
+      "ok": true,
+      "ttft_s": 2.21,
+      "prompt_tokens": 15717
+    },
+    {
+      "size": 32000,
+      "pos": "start",
+      "ok": true,
+      "ttft_s": 4.01,
+      "prompt_tokens": 31294
+    },
+    {
+      "size": 32000,
+      "pos": "middle",
+      "ok": true,
+      "ttft_s": 4.1,
+      "prompt_tokens": 31242
+    },
+    {
+      "size": 32000,
+      "pos": "end",
+      "ok": true,
+      "ttft_s": 4.74,
+      "prompt_tokens": 31340
+    },
+    {
+      "size": 64000,
+      "pos": "start",
+      "error": "Error code: 400 - {'error': {'message': \"This model's maximum context length is 32768 tokens. However, you requested 24 output tokens and your prompt contains at least 32745 input tokens, for a total "
+    }
+  ],
+  "usable_context_tokens": 31340,
+  "reported_max_model_len": 32768
+}

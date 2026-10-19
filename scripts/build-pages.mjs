@@ -15,6 +15,14 @@ if (!existsSync("public/data/default-run.json")) {
   process.exit(1);
 }
 
+// The chat answers only from public/data/knowledge-pack.json; refuse to publish a stale one.
+try {
+  execSync("python3 scripts/build_knowledge_pack.py --check", { stdio: "inherit" });
+} catch {
+  console.error("knowledge pack is stale -- run: python3 scripts/build_knowledge_pack.py   (then commit it)");
+  process.exit(1);
+}
+
 execSync("npx vite build", {
   stdio: "inherit",
   env: { ...process.env, GITHUB_PAGES: "1", PAGES_BASE: base, VITE_STATIC_DATA: "1" },

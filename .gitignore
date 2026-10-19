@@ -52,3 +52,7 @@ docs/district-research/responses/.backend_districts.json
 
 # Static-site build output
 dist/
+
+# Generated chat-eval artefacts (rebuild with scripts/chat_eval/build_contexts.mjs + run_eval.py)
+scripts/chat_eval/contexts.json
+scripts/chat_eval/results.json

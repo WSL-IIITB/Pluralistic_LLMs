@@ -4,6 +4,7 @@ Write the JSON snapshots the GitHub Pages build reads in place of the backend:
     public/data/districts.json            <- GET /api/karnataka/districts
     public/data/personas.json             <- GET /api/personas
     public/data/districts-research.json   <- GET /api/karnataka/districts-research
+    public/data/knowledge-pack.json       <- built from the files above (scripts/build_knowledge_pack.py)
     public/data/default-run.json          <- the newest saved run that has both Story-vs-UIDAI/NITI
                                              and persona-similarity results (what the dashboard opens on)
 
@@ -20,6 +21,7 @@ from __future__ import annotations
 
 import json
 import os
+import subprocess
 import sys
 import urllib.request
 
@@ -61,6 +63,8 @@ def main() -> None:
     chosen.pop("districtResearch", None)
     write("default-run.json", chosen)
     print(f"  default run: {chosen['id']} ({chosen['mode']}, '{chosen['query']}')")
+    # The chat's knowledge pack is derived from the files above -- rebuild it so it never goes stale.
+    subprocess.run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), "build_knowledge_pack.py")], check=True)
 
 
 if __name__ == "__main__":
