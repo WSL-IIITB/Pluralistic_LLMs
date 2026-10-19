@@ -27,3 +27,4 @@ export { personaCard, type PersonaCard, type PersonaCardTopic } from "./personaC
 export * from "./districtResearch";
 export { loadDefaultRun } from "./defaultRun";
 export { CATEGORY_LABEL, CATEGORY_EMOJI } from "./reasonCategories";
+export * from "./aggregate";

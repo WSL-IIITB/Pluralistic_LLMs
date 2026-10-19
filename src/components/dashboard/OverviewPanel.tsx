@@ -5,23 +5,21 @@
  * against local evidence. Built from the district research files; no query is run.
  */
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo } from "react";
+
+import { KeyFindings } from "@/components/dashboard/KeyFindings";
 
 import {
   CATEGORY_EMOJI,
   CATEGORY_LABEL,
   KARNATAKA_REGIONS,
-  fetchAllDistrictResearch,
   rgbaCss,
   useDistrictProfiles,
   useExplorerStore,
-  type DistrictResearch,
   type ReasonCategory,
 } from "@/lib/worldview";
+import { aggregateResearch, regionRatesFrom, useAllResearch } from "@/lib/worldview/aggregate";
 
-type ResearchMap = Record<string, DistrictResearch>;
-
-const EVIDENCE_WEIGHT = { strong: 3, moderate: 2, thin: 1 } as const;
 const VERDICTS = ["supports", "contradicts", "unclear", "no-evidence"] as const;
 const VERDICT_LABEL: Record<(typeof VERDICTS)[number], string> = {
   supports: "Supports",
@@ -35,18 +33,6 @@ const VERDICT_BAR: Record<(typeof VERDICTS)[number], string> = {
   unclear: "bg-amber-400/80",
   "no-evidence": "bg-muted-foreground/35",
 };
-
-function useAllResearch(): ResearchMap | null {
-  const [data, setData] = useState<ResearchMap | null>(null);
-  useEffect(() => {
-    let alive = true;
-    void fetchAllDistrictResearch().then((r) => alive && setData(r));
-    return () => {
-      alive = false;
-    };
-  }, []);
-  return data;
-}
 
 function Section({
   title,
@@ -81,96 +67,8 @@ export function OverviewPanel() {
   const focusRegion = useExplorerStore((s) => s.focusRegion);
   const focusDistrict = useExplorerStore((s) => s.focusDistrict);
 
-  const agg = useMemo(() => {
-    if (!research) return null;
-    const districts = Object.values(research);
-    const n = districts.length;
-
-    // Reason categories: in how many districts does each appear, weighted by evidence?
-    const catDistricts: Record<string, Set<string>> = {};
-    const catScore: Record<string, number> = {};
-    const regionCats: Record<string, Record<string, number>> = {};
-    const strong: {
-      district: string;
-      id: string;
-      regionId: string;
-      factor: string;
-      category: ReasonCategory;
-      detail: string;
-    }[] = [];
-    for (const d of districts) {
-      for (const r of d.reasons) {
-        (catDistricts[r.category] ??= new Set()).add(d.districtId);
-        catScore[r.category] = (catScore[r.category] ?? 0) + EVIDENCE_WEIGHT[r.evidence];
-        const rc = (regionCats[d.regionId] ??= {});
-        rc[r.category] = (rc[r.category] ?? 0) + EVIDENCE_WEIGHT[r.evidence];
-        if (r.evidence === "strong")
-          strong.push({
-            district: d.name,
-            id: d.districtId,
-            regionId: d.regionId,
-            factor: r.factor,
-            category: r.category,
-            detail: r.detail,
-          });
-      }
-    }
-    const categories = Object.keys(catDistricts)
-      .map((c) => ({
-        category: c as ReasonCategory,
-        districts: catDistricts[c]!.size,
-        score: catScore[c] ?? 0,
-      }))
-      .sort((a, b) => b.districts - a.districts || b.score - a.score);
-
-    const verdicts: Record<"state" | "district", Record<string, number>> = {
-      state: {},
-      district: {},
-    };
-    for (const d of districts)
-      for (const c of d.officialFactorCheck ?? [])
-        verdicts[c.method][c.verdict] = (verdicts[c.method][c.verdict] ?? 0) + 1;
-
-    const urls = new Set<string>();
-    const outlets = new Set<string>();
-    let headlines = 0;
-    for (const d of districts) {
-      headlines += d.headlines.length;
-      for (const s of d.sources) {
-        urls.add(s.url);
-        outlets.add(s.outlet);
-      }
-    }
-    const coverage = { moderate: 0, thin: 0, rich: 0 } as Record<string, number>;
-    for (const d of districts) coverage[d.coverage] = (coverage[d.coverage] ?? 0) + 1;
-
-    return {
-      n,
-      categories,
-      regionCats,
-      strong,
-      verdicts,
-      sources: urls.size,
-      outlets: outlets.size,
-      headlines,
-      coverage,
-    };
-  }, [research]);
-
-  const regionRates = useMemo(() => {
-    const out: Record<string, { avg: number | null; n: number }> = {};
-    for (const r of KARNATAKA_REGIONS) {
-      const rates = Object.values(byId)
-        .filter((d) => d.regionId === r.id)
-        .map((d) => d.dropoutRate)
-        .filter((x): x is number => typeof x === "number");
-      out[r.id] = {
-        avg: rates.length ? rates.reduce((a, b) => a + b, 0) / rates.length : null,
-        n: Object.values(byId).filter((d) => d.regionId === r.id).length,
-      };
-    }
-    return out;
-  }, [byId]);
+  const agg = useMemo(() => (research ? aggregateResearch(research) : null), [research]);
+  const regionRates = useMemo(() => regionRatesFrom(byId), [byId]);
 
   return (
     <div className="panel-surface @container pointer-events-auto flex min-h-0 flex-1 flex-col overflow-hidden rounded-xl">
@@ -192,6 +90,8 @@ export function OverviewPanel() {
           </p>
         ) : (
           <>
+            <KeyFindings agg={agg} research={research!} regionRates={regionRates} />
+
             <div className="grid grid-cols-2 gap-2 @xl:grid-cols-4">
               <Stat value={agg.n} label="Districts researched" />
               <Stat value={agg.sources} label="Sources cited" />
