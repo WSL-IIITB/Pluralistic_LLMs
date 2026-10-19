@@ -66,14 +66,16 @@ async def main() -> int:
         bad = sorted(cited - set(c["sourceIds"]))
         if bad:
             fails.append(f"cites ids not in context: {bad}")
+        if re.search(r"\[(DIGEST|CAVEATS|UIDAI|ANALYSIS|PERSONAS|REGION|DISTRICT)", answer):
+            warns.append("cites a section name instead of a source id")
         is_refusal = answer.strip().strip('"') == REFUSAL
         if q.get("refuse"):
             if not is_refusal:
                 fails.append("should have refused (out of scope) but answered")
         else:
-            if is_refusal:
+            if is_refusal and not q.get("allowRefusal"):
                 fails.append("refused an answerable question")
-            for pat in q.get("include", []):
+            for pat in ([] if is_refusal and q.get("allowRefusal") else q.get("include", [])):
                 if not re.search(pat, answer, re.I):
                     fails.append(f"missing /{pat}/")
             for pat in q.get("exclude", []):

@@ -37,6 +37,8 @@ const UIDAI =
 const ANALYSIS =
   /\b(persona|personas|generic answer|similarity|divergen\w*|story mode|consolidated|region[- ]first|composite)\b/;
 const PERSONAS = /\b(persona|personas|composite|puttaswamy|manjula|character|characters)\b/;
+const REGIONAL_FOLLOWUP =
+  /\b(region|regional|neighbou?rs?|neighbou?ring|nearby|other districts|compare|comparison|similar|across)\b/;
 const DEICTIC = /\b(this district|this region|here|there|this one|the selected|it)\b/;
 const MAX_DISTRICTS = 6;
 const MAX_REGIONS = 3;
@@ -116,6 +118,13 @@ export function routeContext(
   for (const id of districtIds.slice(0, MAX_DISTRICTS)) {
     const t = pack.districts[id];
     if (t) optional.push({ name: `DISTRICT ${id}`, text: t });
+  }
+  // "…the other districts in its region" after a district question: bring in that district's region section.
+  if (REGIONAL_FOLLOWUP.test(lower)) {
+    for (const id of districtIds.slice(0, 2)) {
+      const rid = pack.index.districts.find((d) => d.id === id)?.regionId;
+      if (rid && !regionIds.includes(rid)) regionIds.push(rid);
+    }
   }
   for (const id of regionIds.slice(0, MAX_REGIONS)) {
     const t = pack.regions[id];

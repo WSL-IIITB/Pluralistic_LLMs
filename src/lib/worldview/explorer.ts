@@ -9,7 +9,7 @@
 
 import { create } from "zustand";
 
-export const DASHBOARD_TABS = ["Map", "Personas", "Divergence", "Data", "History"] as const;
+export const DASHBOARD_TABS = ["Map", "Ask", "Personas", "Divergence", "Data", "History"] as const;
 export type DashboardTab = (typeof DASHBOARD_TABS)[number];
 
 export interface ExplorerState {

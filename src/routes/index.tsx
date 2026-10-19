@@ -3,6 +3,7 @@ import { RotateCw } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 import { WorldviewMap } from "@/components/dashboard/map/WorldviewMap";
+import { AskPanel } from "@/components/chat/AskPanel";
 import { PersonasPanel } from "@/components/persona/PersonasPanel";
 import { DataViewPanels } from "@/components/dataview/DataViewPanels";
 import { DivergenceView } from "@/components/divergence/DivergenceView";
@@ -132,6 +133,7 @@ function Index() {
         )}
 
         {activeTab === "Map" && !SHOW_QUERY_CONTROLS && <OverviewPanel />}
+        {activeTab === "Ask" && <AskPanel />}
         {activeTab === "Personas" && <PersonasPanel />}
         {activeTab === "Divergence" && <DivergenceView />}
         {activeTab === "Data" && <DataViewPanels />}

@@ -1,23 +1,177 @@
 [
-  {"id": "fact-kalaburagi-oosc", "category": "district fact", "question": "How many out-of-school children did the two surveys count in Kalaburagi?", "include": ["11,?137", "\\b225\\b"]},
-  {"id": "fact-raichur-rescued", "category": "district fact", "question": "How many child labourers were rescued in Raichur?", "include": ["1,?290"]},
-  {"id": "fact-haveri-halltickets", "category": "district fact", "question": "What happened with SSLC hall tickets in Haveri?", "include": ["\\b30\\b", "hall ticket"], "exclude": ["arrears"]},
-  {"id": "fact-mysuru-complaints", "category": "district fact", "question": "How many child marriage complaints did Mysuru receive between April and September 2024?", "include": ["\\b105\\b"]},
-  {"id": "fact-kolar-kgf", "category": "district fact", "question": "What do the sources say about the government school in Kolar Gold Fields?", "include": ["\\b38\\b", "(four|\\b4\\b) teachers"]},
-  {"id": "oos-other-state", "category": "out of scope", "question": "What is the secondary school dropout rate in Tamil Nadu?", "refuse": true},
-  {"id": "oos-news", "category": "out of scope", "question": "Who won the most recent election in Karnataka?", "refuse": true},
-  {"id": "oos-policy", "category": "out of scope", "question": "What should the state government do to fix dropouts?", "refuse": true},
-  {"id": "thin-bagalkote", "category": "thin coverage", "question": "What causes students to drop out in Bagalkote?", "include": ["(no evidence|thin|limited|did not find|not find|few sources|little)"]},
-  {"id": "thin-gadag-number", "category": "thin coverage", "question": "How many students drop out in Gadag each year?", "include": ["(no |not |did not |didn't )(district|dropout|evidence|figure|find|found|count|data)"]},
-  {"id": "thin-davanagere-infra", "category": "thin coverage", "question": "Is school infrastructure a documented problem in Davanagere?", "include": ["(no evidence|thin|limited|did not find|not find|not documented|nothing)"]},
-  {"id": "trap-chikkaballapur-statewide", "category": "statewide vs district", "question": "Is it true that 35-40% of students in Chikkaballapur drop out between Class 10 and 12?", "include": ["statewide"], "exclude": ["in Chikkaballapur,? (about |roughly |nearly )?35"]},
-  {"id": "trap-koppal-labour", "category": "statewide vs district", "question": "How many children in Koppal work in agriculture?", "include": ["(regional|region|Hyderabad-Karnataka|not .{0,20}district)"]},
-  {"id": "trap-udupi-rate", "category": "statewide vs district", "question": "What is Udupi's dropout rate, and how does its SSLC pass rate relate to it?", "include": ["1\\.4", "pass rate"]},
-  {"id": "trap-sslc-trend", "category": "sslc trap", "question": "Did Mysuru's SSLC pass rate improve from 2025 to 2026?", "include": ["(not comparable|cannot|can't|conflict|different|not a trend|no evidence|should not|unreliable)"]},
-  {"id": "trap-passrate-dropout", "category": "sslc trap", "question": "Does Dakshina Kannada's high SSLC pass rate prove its dropout is low?", "include": ["(not|isn't|doesn't|cannot|can't)", "pass rate"]},
-  {"id": "uidai-compare-values", "category": "uidai", "question": "The NITI sanitation value is higher in Raichur than in Mysuru, so does sanitation matter more in Raichur?", "include": ["(cannot|can't|not compare|unverified|not verified|unclear|do not know|don't know|should not)"]},
-  {"id": "uidai-explain", "category": "uidai", "question": "Do the UIDAI/NITI dominant factors explain dropout in Karnataka's districts?", "include": ["(no evidence|silent|did not find|not find|not mean|does not mean|doesn't mean)"]},
-  {"id": "casefile-dk", "category": "unexplained rate", "question": "Why is Dakshina Kannada's dropout rate so low?", "include": ["(not explained|no source|don't know|do not know|not .{0,15}explain|no evidence|did not find|not find|unexplained)"]},
-  {"id": "persona-real", "category": "persona", "question": "What did Puttaswamy tell the researchers about his son's school?", "include": ["(composite|not a real|character|not real|fictional|persona)"]},
-  {"id": "agg-highest-region", "category": "aggregate", "question": "Which region has the highest average dropout rate in the casefile?", "include": ["Kalyana Karnataka", "29\\.3"]}
+ {
+  "id": "fact-kalaburagi-oosc",
+  "category": "district fact",
+  "question": "How many out-of-school children did the two surveys count in Kalaburagi?",
+  "include": [
+   "11,?137",
+   "\\b225\\b"
+  ]
+ },
+ {
+  "id": "fact-raichur-rescued",
+  "category": "district fact",
+  "question": "How many child labourers were rescued in Raichur?",
+  "include": [
+   "1,?290"
+  ]
+ },
+ {
+  "id": "fact-haveri-halltickets",
+  "category": "district fact",
+  "question": "What happened with SSLC hall tickets in Haveri?",
+  "include": [
+   "\\b30\\b",
+   "hall ticket"
+  ],
+  "exclude": [
+   "arrears"
+  ]
+ },
+ {
+  "id": "fact-mysuru-complaints",
+  "category": "district fact",
+  "question": "How many child marriage complaints did Mysuru receive between April and September 2024?",
+  "include": [
+   "\\b105\\b"
+  ]
+ },
+ {
+  "id": "fact-kolar-kgf",
+  "category": "district fact",
+  "question": "What do the sources say about the government school in Kolar Gold Fields?",
+  "include": [
+   "\\b38\\b",
+   "(four|\\b4\\b) teachers"
+  ]
+ },
+ {
+  "id": "oos-other-state",
+  "category": "out of scope",
+  "question": "What is the secondary school dropout rate in Tamil Nadu?",
+  "refuse": true
+ },
+ {
+  "id": "oos-news",
+  "category": "out of scope",
+  "question": "Who won the most recent election in Karnataka?",
+  "refuse": true
+ },
+ {
+  "id": "oos-policy",
+  "category": "out of scope",
+  "question": "What should the state government do to fix dropouts?",
+  "refuse": true
+ },
+ {
+  "id": "thin-bagalkote",
+  "category": "thin coverage",
+  "question": "What causes students to drop out in Bagalkote?",
+  "include": [
+   "(no evidence|thin|limited|did not find|not find|few sources|little)"
+  ]
+ },
+ {
+  "id": "thin-gadag-number",
+  "category": "thin coverage",
+  "question": "How many students drop out in Gadag each year?",
+  "include": [
+   "(no |not |did not |didn't )(district|dropout|evidence|figure|find|found|count|data)"
+  ]
+ },
+ {
+  "id": "thin-davanagere-infra",
+  "category": "thin coverage",
+  "question": "Is school infrastructure a documented problem in Davanagere?",
+  "include": [
+   "(no evidence|thin|limited|did not find|not find|not documented|nothing)"
+  ]
+ },
+ {
+  "id": "trap-chikkaballapur-statewide",
+  "category": "statewide vs district",
+  "question": "Is it true that 35-40% of students in Chikkaballapur drop out between Class 10 and 12?",
+  "include": [
+   "statewide"
+  ],
+  "exclude": [
+   "in Chikkaballapur,? (about |roughly |nearly )?35"
+  ]
+ },
+ {
+  "id": "trap-koppal-labour",
+  "category": "statewide vs district",
+  "question": "How many children in Koppal work in agriculture?",
+  "include": [
+   "(regional|region|Hyderabad-Karnataka|not .{0,20}district)"
+  ]
+ },
+ {
+  "id": "trap-udupi-rate",
+  "category": "statewide vs district",
+  "question": "What is Udupi's dropout rate, and how does its SSLC pass rate relate to it?",
+  "include": [
+   "1\\.4",
+   "pass rate"
+  ]
+ },
+ {
+  "id": "trap-sslc-trend",
+  "category": "sslc trap",
+  "question": "Did Mysuru's SSLC pass rate improve from 2025 to 2026?",
+  "include": [
+   "(not comparable|cannot|can't|conflict|different|not a trend|no evidence|should not|unreliable)"
+  ]
+ },
+ {
+  "id": "trap-passrate-dropout",
+  "category": "sslc trap",
+  "question": "Does Dakshina Kannada's high SSLC pass rate prove its dropout is low?",
+  "include": [
+   "(not|isn't|doesn't|cannot|can't)",
+   "pass rate"
+  ]
+ },
+ {
+  "id": "uidai-compare-values",
+  "category": "uidai",
+  "question": "The NITI sanitation value is higher in Raichur than in Mysuru, so does sanitation matter more in Raichur?",
+  "include": [
+   "(cannot|can't|not compare|unverified|not verified|unclear|do not know|don't know|should not)"
+  ]
+ },
+ {
+  "id": "uidai-explain",
+  "category": "uidai",
+  "question": "Do the UIDAI/NITI dominant factors explain dropout in Karnataka's districts?",
+  "include": [
+   "(no evidence|silent|did not find|not find|not mean|does not mean|doesn't mean)"
+  ]
+ },
+ {
+  "id": "casefile-dk",
+  "category": "unexplained rate",
+  "question": "Why is Dakshina Kannada's dropout rate so low?",
+  "include": [
+   "(not explained|no source|don't know|do not know|not .{0,15}explain|no evidence|did not find|not find|unexplained)"
+  ]
+ },
+ {
+  "id": "persona-real",
+  "category": "persona",
+  "question": "What did Puttaswamy tell the researchers about his son's school?",
+  "include": [
+   "(composite|not a real|character|not real|fictional|persona)"
+  ],
+  "allowRefusal": true
+ },
+ {
+  "id": "agg-highest-region",
+  "category": "aggregate",
+  "question": "Which region has the highest average dropout rate in the casefile?",
+  "include": [
+   "Kalyana Karnataka",
+   "29\\.3"
+  ]
+ }
 ]
