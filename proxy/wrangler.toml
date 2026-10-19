@@ -2,10 +2,26 @@ name = "worldview-model-proxy"
 main = "src/worker.ts"
 compatibility_date = "2026-09-01"
 
+# Public, non-secret settings for POST /chat (the only route browsers may call):
+[vars]
+# Exact origins (scheme + host [+ port], no path) allowed to call /chat from a browser.
+ALLOWED_ORIGINS = "https://wsl-iiitb.github.io,https://c-viswanath.github.io,http://localhost:8080,http://localhost:4173"
+GEMMA_MODEL = "Firworks/gemma-4-26B-A4B-it-fp8"
+
+# Per-IP rate limit for /chat (runs before the passphrase check, so guessing is throttled too).
+# Uses Cloudflare's Workers Rate Limiting binding: confirm it is available on your plan at deploy time.
+[[ratelimits]]
+name = "CHAT_LIMITER"
+namespace_id = "1001"
+  [ratelimits.simple]
+  limit = 10
+  period = 60
+
 # Secrets are NOT set here -- wrangler.toml is committed to the repo, and
 # anything in it would be exactly the leak this proxy exists to prevent. Set
 # them with `wrangler secret put <NAME>` instead (see ../README.md):
-#   SHARED_PASSPHRASE            the passphrase you hand out to the lab
+#   SHARED_PASSPHRASE            the passphrase you hand out to the lab (backend only: /gemma, /claude)
+#   CHAT_PASSPHRASE              the TEAM passphrase typed into the dashboard's chat (/chat only)
 #   GEMMA_UPSTREAM_URL           real self-hosted Gemma base URL, e.g. http://<ip>:<port>
 #   AZURE_ANTHROPIC_UPSTREAM_URL real Azure AI Foundry endpoint for Claude
 #   AZURE_ANTHROPIC_API_KEY      real Azure AI Foundry API key

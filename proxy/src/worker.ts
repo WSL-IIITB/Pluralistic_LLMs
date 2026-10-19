@@ -7,7 +7,9 @@
  * for setup and rotation.
  */
 
-export interface Env {
+import { handleChat, safeEqual, type ChatEnv } from "./chat";
+
+export interface Env extends ChatEnv {
   SHARED_PASSPHRASE: string;
   GEMMA_UPSTREAM_URL: string;
   AZURE_ANTHROPIC_UPSTREAM_URL: string;
@@ -66,7 +68,7 @@ async function forward(request: Request, upstreamUrl: string, headers: Headers):
 async function proxyGemma(request: Request, env: Env, suffix: string): Promise<Response> {
   const authHeader = request.headers.get("authorization") ?? "";
   const provided = authHeader.replace(/^Bearer\s+/i, "").trim();
-  if (!env.SHARED_PASSPHRASE || provided !== env.SHARED_PASSPHRASE) {
+  if (!env.SHARED_PASSPHRASE || !(await safeEqual(provided, env.SHARED_PASSPHRASE))) {
     console.log("gemma proxy: rejected request with invalid passphrase");
     return unauthorized();
   }
@@ -86,7 +88,7 @@ async function proxyGemma(request: Request, env: Env, suffix: string): Promise<R
  * BOTH `x-api-key` and `api-key` -- check either, since either could be set. */
 async function proxyClaude(request: Request, env: Env, suffix: string): Promise<Response> {
   const provided = request.headers.get("x-api-key") ?? request.headers.get("api-key") ?? "";
-  if (!env.SHARED_PASSPHRASE || provided !== env.SHARED_PASSPHRASE) {
+  if (!env.SHARED_PASSPHRASE || !(await safeEqual(provided, env.SHARED_PASSPHRASE))) {
     console.log("claude proxy: rejected request with invalid passphrase");
     return unauthorized();
   }
@@ -111,6 +113,8 @@ export default {
     if (url.pathname === "/" || url.pathname === "/health") {
       return new Response("ok", { status: 200 });
     }
+    // The one browser-facing route (CORS, rate limit, own passphrase) -- see chat.ts.
+    if (url.pathname === "/chat") return handleChat(request, env);
     if (url.pathname.startsWith("/gemma")) {
       return proxyGemma(request, env, url.pathname.slice("/gemma".length) + url.search);
     }
