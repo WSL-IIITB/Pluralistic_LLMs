@@ -189,7 +189,7 @@ export function ConsolidatedPanel() {
                 return (
                   <li
                     key={`b-${i}`}
-                    className="group -mx-1.5 flex cursor-default gap-2.5 rounded-md px-1.5 py-0.5 transition-colors hover:bg-white/5"
+                    className="group -mx-1.5 flex cursor-default gap-2.5 rounded-md px-1.5 py-0.5 transition-colors hover:bg-foreground/5"
                     onMouseEnter={
                       item.clusterId ? () => setHoveredCluster(item.clusterId ?? null) : undefined
                     }
@@ -199,7 +199,7 @@ export function ConsolidatedPanel() {
                     }
                   >
                     <span
-                      className="mt-1.5 size-2 shrink-0 rounded-full ring-0 transition-all group-hover:ring-2 group-hover:ring-white/20"
+                      className="mt-1.5 size-2 shrink-0 rounded-full ring-0 transition-all group-hover:ring-2 group-hover:ring-foreground/20"
                       style={{
                         backgroundColor: color ? rgbaCss(color) : "var(--muted-foreground)",
                       }}
@@ -334,9 +334,7 @@ function PersonaReply({
   return (
     <div>
       <p className="label-micro text-foreground/60">{persona.label}</p>
-      {tldr && (
-        <p className="mt-1 text-[12.5px] leading-relaxed text-foreground/90">{tldr.text}</p>
-      )}
+      {tldr && <p className="mt-1 text-[12.5px] leading-relaxed text-foreground/90">{tldr.text}</p>}
       {rest.length > 0 && (
         <ul className="mt-1.5 space-y-1.5">
           {rest.map((seg, i) => (
@@ -346,11 +344,11 @@ function PersonaReply({
                 "text-[12px] leading-snug " +
                 (seg.kind === "recommendation"
                   ? "text-muted-foreground"
-                  : "text-muted-foreground/75")
+                  : "text-muted-foreground/90")
               }
             >
               {seg.kind === "recommendation" && (
-                <span className="mr-1.5 text-muted-foreground/50">•</span>
+                <span className="mr-1.5 text-muted-foreground/90">•</span>
               )}
               {seg.text}
               {seg.citations && <CitationMarks ids={seg.citations} />}
@@ -374,7 +372,7 @@ function SourcesSection({
     return (
       <div className="mt-4 border-t border-panel-border pt-3">
         <p className="label-micro">Sources</p>
-        <p className="mt-2 text-[11px] leading-relaxed text-muted-foreground/60">
+        <p className="mt-2 text-[11px] leading-relaxed text-muted-foreground/90">
           Gathering sources from the open web…
         </p>
       </div>
@@ -386,7 +384,7 @@ function SourcesSection({
       <ol className="mt-2 space-y-1.5">
         {documents.map((doc) => (
           <li key={doc.id} id={`source-${doc.id}`} className="flex gap-2 text-[12px] leading-snug">
-            <span className="w-4 shrink-0 tabular-nums text-muted-foreground/60">{doc.id}.</span>
+            <span className="w-4 shrink-0 tabular-nums text-muted-foreground/90">{doc.id}.</span>
             <a
               href={doc.url}
               target="_blank"
@@ -395,7 +393,7 @@ function SourcesSection({
               title={doc.url}
             >
               <span className="line-clamp-2 group-hover:underline">{doc.title}</span>
-              <span className="mt-0.5 flex items-center gap-1 text-[10px] text-muted-foreground/60">
+              <span className="mt-0.5 flex items-center gap-1 text-[10px] text-muted-foreground/90">
                 <ExternalLink className="size-2.5 shrink-0" />
                 <span className="truncate">{doc.domain}</span>
               </span>
@@ -433,23 +431,23 @@ function EmptyState({ isStreaming }: { isStreaming: boolean }) {
   if (isStreaming) {
     return (
       <div className="space-y-2.5 py-1" aria-live="polite">
-        <p className="text-[13px] text-muted-foreground/70">
+        <p className="text-[13px] text-muted-foreground/90">
           Synthesizing the Karnataka-wide answer…
         </p>
         <div className="space-y-2">
-          <div className="h-2.5 w-[92%] animate-pulse rounded bg-white/5" />
-          <div className="h-2.5 w-[78%] animate-pulse rounded bg-white/5" />
-          <div className="h-2.5 w-[85%] animate-pulse rounded bg-white/5" />
+          <div className="h-2.5 w-[92%] animate-pulse rounded bg-foreground/5" />
+          <div className="h-2.5 w-[78%] animate-pulse rounded bg-foreground/5" />
+          <div className="h-2.5 w-[85%] animate-pulse rounded bg-foreground/5" />
         </div>
       </div>
     );
   }
   return (
-    <p className="text-[13px] leading-relaxed text-muted-foreground/70">
+    <p className="text-[13px] leading-relaxed text-muted-foreground/90">
       Enter a topic and press <span className="text-foreground">Explore</span>. Posts and sources
       are gathered across Karnataka's six regions, then a Karnataka-wide answer and a male and a
-      female persona reply per region — Old Mysuru, Bayaluseeme, Karavali, Malnad, Kitturu
-      Karnataka and Kalyana Karnataka — are written here, with citations to the sources used.
+      female persona reply per region — Old Mysuru, Bayaluseeme, Karavali, Malnad, Kitturu Karnataka
+      and Kalyana Karnataka — are written here, with citations to the sources used.
     </p>
   );
 }

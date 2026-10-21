@@ -31,7 +31,9 @@ export function ProgressBar({ onGoDeeper }: ProgressBarProps) {
     <section className="panel-surface pointer-events-auto flex w-full items-center gap-4 rounded-xl px-4 py-3">
       <div className="min-w-0 flex-1">
         <div className="flex items-baseline justify-between gap-2">
-          <p className="label-micro truncate">Live collection{mode !== "medium" ? ` · ${mode}` : ""}</p>
+          <p className="label-micro truncate">
+            Live collection{mode !== "medium" ? ` · ${mode}` : ""}
+          </p>
           <span className="shrink-0 text-[11px] tabular-nums text-muted-foreground">{pct}%</span>
         </div>
         <Progress value={pct} className="mt-2 h-1.5 bg-secondary" />
@@ -47,7 +49,7 @@ export function ProgressBar({ onGoDeeper }: ProgressBarProps) {
         >
           Go deeper
         </Button>
-        <p className="w-[110px] text-[10px] leading-tight text-muted-foreground/70">
+        <p className="w-[110px] text-[10px] leading-tight text-muted-foreground/90">
           {isStreaming ? "collecting…" : "escalate mode for more sources"}
         </p>
         <CollapseButton onClick={collapse} label="Collapse live-collection panel" />

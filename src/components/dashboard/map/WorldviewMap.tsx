@@ -34,7 +34,7 @@ function MapBackdrop() {
         className="absolute inset-0 opacity-[0.35]"
         style={{
           backgroundImage:
-            "linear-gradient(to right, oklch(1 0 0 / 4%) 1px, transparent 1px), linear-gradient(to bottom, oklch(1 0 0 / 4%) 1px, transparent 1px)",
+            "linear-gradient(to right, color-mix(in oklch, var(--foreground) 6%, transparent) 1px, transparent 1px), linear-gradient(to bottom, color-mix(in oklch, var(--foreground) 6%, transparent) 1px, transparent 1px)",
           backgroundSize: "72px 72px",
         }}
       />
@@ -132,7 +132,7 @@ export function WorldviewMap() {
       <MapDetailSheet />
 
       {readMapboxToken() && (
-        <div className="pointer-events-none absolute bottom-3 left-3 rounded-md border border-panel-border bg-panel px-2 py-1 text-[10px] text-muted-foreground/70 backdrop-blur-sm">
+        <div className="pointer-events-none absolute bottom-3 left-3 rounded-md border border-panel-border bg-panel px-2 py-1 text-[10px] text-muted-foreground/90 backdrop-blur-sm">
           © Mapbox · © OpenStreetMap
         </div>
       )}

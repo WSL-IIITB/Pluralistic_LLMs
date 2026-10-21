@@ -80,9 +80,9 @@ export function HistoryPanel({ onOpenRun }: HistoryPanelProps) {
         </div>
 
         {loading ? (
-          <p className="mt-3 text-[12px] text-muted-foreground/70">Loading…</p>
+          <p className="mt-3 text-[12px] text-muted-foreground/90">Loading…</p>
         ) : runs.length === 0 ? (
-          <p className="mt-3 text-[12px] leading-snug text-muted-foreground/70">
+          <p className="mt-3 text-[12px] leading-snug text-muted-foreground/90">
             No saved runs yet — every completed query is saved here automatically.
           </p>
         ) : (
@@ -91,11 +91,11 @@ export function HistoryPanel({ onOpenRun }: HistoryPanelProps) {
               <li
                 key={run.id}
                 onClick={() => void handleOpen(run.id)}
-                className="flex cursor-pointer items-center gap-3 rounded-md px-2 py-2 -mx-2 transition-colors hover:bg-white/5"
+                className="flex cursor-pointer items-center gap-3 rounded-md px-2 py-2 -mx-2 transition-colors hover:bg-foreground/5"
               >
                 <div className="min-w-0 flex-1">
                   <p className="truncate text-[13px] text-foreground">{run.query}</p>
-                  <p className="mt-0.5 truncate text-[11px] text-muted-foreground/60">
+                  <p className="mt-0.5 truncate text-[11px] text-muted-foreground/90">
                     {new Date(run.createdAt).toLocaleString()} · {MODE_LABEL[run.mode] ?? run.mode}{" "}
                     · {PROVIDER_LABEL[run.provider] ?? run.provider} ·{" "}
                     {run.scope === "india-districts"
@@ -106,13 +106,13 @@ export function HistoryPanel({ onOpenRun }: HistoryPanelProps) {
                   </p>
                 </div>
                 {openingId === run.id ? (
-                  <span className="shrink-0 text-[11px] text-muted-foreground/60">Opening…</span>
+                  <span className="shrink-0 text-[11px] text-muted-foreground/90">Opening…</span>
                 ) : (
                   <button
                     type="button"
                     onClick={(e) => void handleDelete(run.id, e)}
                     aria-label="Delete saved run"
-                    className="shrink-0 rounded-md p-1.5 text-muted-foreground/50 transition-colors hover:bg-white/10 hover:text-destructive"
+                    className="shrink-0 rounded-md p-1.5 text-muted-foreground/90 transition-colors hover:bg-foreground/10 hover:text-destructive"
                   >
                     <Trash2 className="size-3.5" />
                   </button>

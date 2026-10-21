@@ -116,7 +116,7 @@ export function BudgetAllocationPanel() {
         <h2 className="text-xs font-medium tracking-wide text-foreground">Budget Allocation</h2>
 
         {!isStateSelected && (
-          <p className="mt-2 text-[12px] text-muted-foreground/70">
+          <p className="mt-2 text-[12px] text-muted-foreground/90">
             Select a state, or a district with data, on the map first.
           </p>
         )}
@@ -149,9 +149,9 @@ export function BudgetAllocationPanel() {
         <div className="rounded-lg border border-panel-border bg-background/40 p-3">
           <p className="label-micro">Allocation by factor</p>
           {!isStateSelected ? (
-            <p className="mt-2 text-[12px] text-muted-foreground/70">No state selected.</p>
+            <p className="mt-2 text-[12px] text-muted-foreground/90">No state selected.</p>
           ) : shares.length === 0 ? (
-            <p className="mt-2 text-[12px] text-muted-foreground/70">
+            <p className="mt-2 text-[12px] text-muted-foreground/90">
               {totalBudget > 0 ? "Loading…" : "Enter a budget to see the allocation."}
             </p>
           ) : (
@@ -173,7 +173,7 @@ export function BudgetAllocationPanel() {
                       <span className="text-[11px] font-medium text-foreground/90">
                         {BUCKET_LABELS[bucket]}
                       </span>
-                      <span className="text-[10px] text-muted-foreground/60">
+                      <span className="text-[10px] text-muted-foreground/90">
                         · {formatRupees(subtotal)}
                       </span>
                     </div>
@@ -186,7 +186,7 @@ export function BudgetAllocationPanel() {
                           >
                             {s.factorName}
                           </span>
-                          <div className="h-2 flex-1 overflow-hidden rounded-full bg-white/5">
+                          <div className="h-2 flex-1 overflow-hidden rounded-full bg-foreground/5">
                             <div
                               className="h-full rounded-full"
                               style={{
@@ -206,7 +206,7 @@ export function BudgetAllocationPanel() {
               })}
             </div>
           )}
-          <p className="mt-3 text-[10px] leading-relaxed text-muted-foreground/50">
+          <p className="mt-3 text-[10px] leading-relaxed text-muted-foreground/90">
             A relative split of the entered budget by required change magnitude and bucket priority
             — not a genuinely costed estimate (no unit-cost data exists in the source).
           </p>

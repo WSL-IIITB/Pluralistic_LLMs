@@ -11,6 +11,7 @@ import { GeoJsonLayer, TextLayer } from "@deck.gl/layers";
 import type { Layer } from "@deck.gl/core";
 import type { Feature, FeatureCollection } from "geojson";
 
+import type { Theme } from "@/lib/theme";
 import { regionColor, withAlpha, type RGBAColor } from "@/lib/worldview";
 import type { DistrictFeatureProps, DistrictGeo } from "@/lib/worldview/geo/districts";
 import type { StateFeatureCollection } from "@/lib/worldview/geo/states";
@@ -24,16 +25,68 @@ export interface BuildLayersParams {
   districtToRegion: Record<string, string>;
   regionId: string | null;
   districtId: string | null;
+  theme: Theme;
 }
 
-const LANDMASS_BASE_RGBA: RGBAColor = [42, 39, 36, 225];
-const OTHER_STATE_FILL_RGBA: RGBAColor = [42, 39, 36, 55];
-const OTHER_STATE_BORDER_RGBA: RGBAColor = [232, 218, 195, 42];
-const STATE_BORDER_RGBA: RGBAColor = [232, 218, 195, 205];
-const REGION_BORDER_RGBA: RGBAColor = [244, 238, 226, 235];
+interface MapPalette {
+  landmassBase: RGBAColor;
+  otherStateFill: RGBAColor;
+  otherStateBorder: RGBAColor;
+  stateBorder: RGBAColor;
+  halo: RGBAColor;
+  regionBorder: RGBAColor;
+  regionBorderDim: RGBAColor;
+  districtHighlight: RGBAColor;
+  outlineSelected: RGBAColor;
+  outline: RGBAColor;
+  outlineDim: RGBAColor;
+  /** district fill alphas: selected / in focus / out of focus */
+  fillAlpha: readonly [number, number, number];
+  labelText: RGBAColor;
+  labelBg: RGBAColor;
+  labelBgDistrict: RGBAColor;
+}
+
+const PALETTES: Record<Theme, MapPalette> = {
+  dark: {
+    landmassBase: [42, 39, 36, 225],
+    otherStateFill: [42, 39, 36, 55],
+    otherStateBorder: [232, 218, 195, 42],
+    stateBorder: [232, 218, 195, 205],
+    halo: [255, 236, 200, 38],
+    regionBorder: [244, 238, 226, 235],
+    regionBorderDim: [244, 238, 226, 70],
+    districtHighlight: [255, 255, 255, 60],
+    outlineSelected: [255, 255, 255, 255],
+    outline: [255, 255, 255, 85],
+    outlineDim: [255, 255, 255, 24],
+    fillAlpha: [240, 150, 38],
+    labelText: [244, 240, 232, 240],
+    labelBg: [20, 20, 24, 190],
+    labelBgDistrict: [20, 20, 24, 170],
+  },
+  light: {
+    landmassBase: [255, 253, 248, 240],
+    otherStateFill: [120, 112, 100, 26],
+    otherStateBorder: [90, 80, 65, 45],
+    stateBorder: [60, 52, 42, 200],
+    halo: [90, 70, 40, 30],
+    regionBorder: [45, 40, 34, 225],
+    regionBorderDim: [45, 40, 34, 60],
+    districtHighlight: [0, 0, 0, 45],
+    outlineSelected: [30, 25, 20, 255],
+    outline: [255, 255, 255, 200],
+    outlineDim: [255, 255, 255, 70],
+    fillAlpha: [245, 195, 60],
+    labelText: [30, 28, 26, 245],
+    labelBg: [255, 255, 255, 220],
+    labelBgDistrict: [255, 255, 255, 205],
+  },
+};
 const KARNATAKA_STATE_CODE = "29";
 
-const districtProps = (f: Feature): DistrictFeatureProps => f.properties as unknown as DistrictFeatureProps;
+const districtProps = (f: Feature): DistrictFeatureProps =>
+  f.properties as unknown as DistrictFeatureProps;
 
 export function buildLayers({
   geo,
@@ -42,8 +95,10 @@ export function buildLayers({
   districtToRegion,
   regionId,
   districtId,
+  theme,
 }: BuildLayersParams): Layer[] {
   const layers: Layer[] = [];
+  const pal = PALETTES[theme];
 
   if (stateGeo && stateGeo.features.length > 0) {
     const isKarnataka = (f: unknown): boolean =>
@@ -59,7 +114,9 @@ export function buildLayers({
         data: stateGeo as unknown as FeatureCollection,
         stroked: false,
         filled: true,
-        getFillColor: (f: Feature): RGBAColor => (isKarnataka(f) ? LANDMASS_BASE_RGBA : OTHER_STATE_FILL_RGBA),
+        getFillColor: (f: Feature): RGBAColor =>
+          isKarnataka(f) ? pal.landmassBase : pal.otherStateFill,
+        updateTriggers: { getFillColor: [theme] },
         parameters: { depthCompare: "always" },
       }),
       new GeoJsonLayer({
@@ -67,7 +124,9 @@ export function buildLayers({
         data: stateGeo as unknown as FeatureCollection,
         stroked: true,
         filled: false,
-        getLineColor: (f: Feature): RGBAColor => (isKarnataka(f) ? STATE_BORDER_RGBA : OTHER_STATE_BORDER_RGBA),
+        getLineColor: (f: Feature): RGBAColor =>
+          isKarnataka(f) ? pal.stateBorder : pal.otherStateBorder,
+        updateTriggers: { getLineColor: [theme] },
         lineWidthUnits: "pixels",
         getLineWidth: (f: Feature) => (isKarnataka(f) ? 2 : 1),
         lineWidthMinPixels: 0.8,
@@ -80,7 +139,8 @@ export function buildLayers({
         data: karnataka,
         stroked: true,
         filled: false,
-        getLineColor: [255, 236, 200, 38],
+        getLineColor: pal.halo,
+        updateTriggers: { getLineColor: [theme] },
         lineWidthUnits: "pixels",
         getLineWidth: 9,
         lineJointRounded: true,
@@ -109,14 +169,14 @@ export function buildLayers({
       filled: true,
       pickable: true,
       autoHighlight: true,
-      highlightColor: [255, 255, 255, 60],
+      highlightColor: pal.districtHighlight,
       getFillColor: (f: Feature): RGBAColor => {
         const id = districtProps(f).districtId;
         const base = regionColor(districtToRegion[id] ?? "");
-        if (id === districtId) return withAlpha(base, 240);
-        return withAlpha(base, inFocus(id) ? 150 : 38);
+        if (id === districtId) return withAlpha(base, pal.fillAlpha[0]);
+        return withAlpha(base, inFocus(id) ? pal.fillAlpha[1] : pal.fillAlpha[2]);
       },
-      updateTriggers: { getFillColor: [regionId, districtId, districtToRegion] },
+      updateTriggers: { getFillColor: [regionId, districtId, districtToRegion, theme] },
     }),
     new GeoJsonLayer({
       id: "district-outlines",
@@ -126,8 +186,12 @@ export function buildLayers({
       lineWidthUnits: "pixels",
       getLineWidth: (f: Feature) => (districtProps(f).districtId === districtId ? 2.6 : 0.7),
       getLineColor: (f: Feature): RGBAColor =>
-        districtProps(f).districtId === districtId ? [255, 255, 255, 255] : [255, 255, 255, inFocus(districtProps(f).districtId) ? 85 : 24],
-      updateTriggers: { getLineWidth: [districtId], getLineColor: [regionId, districtId] },
+        districtProps(f).districtId === districtId
+          ? pal.outlineSelected
+          : inFocus(districtProps(f).districtId)
+            ? pal.outline
+            : pal.outlineDim,
+      updateTriggers: { getLineWidth: [districtId], getLineColor: [regionId, districtId, theme] },
       parameters: { depthCompare: "always" },
     }),
     new GeoJsonLayer({
@@ -137,22 +201,22 @@ export function buildLayers({
       filled: false,
       getLineColor: (f: Feature): RGBAColor => {
         const id = (f as RegionFeature).properties.regionId;
-        return !regionId || id === regionId ? REGION_BORDER_RGBA : [244, 238, 226, 70];
+        return !regionId || id === regionId ? pal.regionBorder : pal.regionBorderDim;
       },
       lineWidthUnits: "pixels",
       getLineWidth: 1.8,
       lineJointRounded: true,
       parameters: { depthCompare: "always" },
-      updateTriggers: { getLineColor: [regionId] },
+      updateTriggers: { getLineColor: [regionId, theme] },
     }),
   );
 
   const labelStyle = {
-    getColor: [244, 240, 232, 240] as RGBAColor,
+    getColor: pal.labelText,
     fontFamily: "Inter, system-ui, sans-serif",
     fontWeight: 600,
     background: true,
-    getBackgroundColor: [20, 20, 24, 190] as RGBAColor,
+    getBackgroundColor: pal.labelBg,
     backgroundPadding: [6, 3] as [number, number],
     characterSet: "auto" as const,
     parameters: { depthCompare: "always" as const },
@@ -179,7 +243,7 @@ export function buildLayers({
         getText: (f) => districtProps(f).districtName,
         getSize: 12,
         ...labelStyle,
-        getBackgroundColor: [20, 20, 24, 170],
+        getBackgroundColor: pal.labelBgDistrict,
       }),
     );
   }

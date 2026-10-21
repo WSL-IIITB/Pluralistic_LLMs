@@ -46,7 +46,7 @@ function Section({
   return (
     <section>
       <p className="label-micro">{title}</p>
-      {hint && <p className="mt-1 text-[11px] leading-snug text-muted-foreground/70">{hint}</p>}
+      {hint && <p className="mt-1 text-[11px] leading-snug text-muted-foreground/90">{hint}</p>}
       <div className="mt-3">{children}</div>
     </section>
   );
@@ -229,7 +229,7 @@ export function OverviewPanel() {
                           ) : null,
                         )}
                       </div>
-                      <p className="mt-1 text-[10.5px] text-muted-foreground/80">
+                      <p className="mt-1 text-[10.5px] text-muted-foreground/90">
                         {VERDICTS.filter((v) => tally[v])
                           .map((v) => `${VERDICT_LABEL[v]} ${tally[v]}`)
                           .join(" · ")}
@@ -237,14 +237,14 @@ export function OverviewPanel() {
                     </div>
                   );
                 })}
-                <p className="text-[10.5px] leading-snug text-muted-foreground/60">
+                <p className="text-[10.5px] leading-snug text-muted-foreground/90">
                   &quot;No local evidence&quot; means the sources were silent on the factor — not
                   that it is irrelevant.
                 </p>
               </div>
             </Section>
 
-            <p className="text-[10.5px] leading-snug text-muted-foreground/60">
+            <p className="text-[10.5px] leading-snug text-muted-foreground/90">
               Built from {agg.sources} sources across {agg.outlets} outlets. Coverage:{" "}
               {agg.coverage["moderate"] ?? 0} districts moderate, {agg.coverage["thin"] ?? 0} thin.
               Every figure was checked against its cited page; claims that were not about the

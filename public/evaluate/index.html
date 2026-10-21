@@ -6,14 +6,18 @@
 <title>Persona response evaluation</title>
 <meta name="robots" content="noindex" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" />
+<script>try{if(localStorage.getItem("wv.theme")==="dark")document.documentElement.dataset.theme="dark"}catch(e){}</script>
 <style>
+  /* Light by default; dark when the dashboard's theme toggle (localStorage "wv.theme") is set to dark. */
   :root {
-    --bg: #131316; --panel: #1b1b20; --panel-2: #222228; --border: rgba(255,255,255,.09);
-    --text: #f1efe9; --muted: #a3a1a8; --faint: #6f6d76; --accent: #f0a43a; --accent-ink: #231705;
-    --ok: #4cc38a; --bad: #e5645a; --radius: 14px;
+    --bg:#f6f4ef; --panel:#fff; --panel-2:#f0eee8; --border:rgba(0,0,0,.1);
+    --text:#1c1b1f; --muted:#5d5b63; --faint:#6e6c75; --accent:#a85e08; --accent-ink:#fff;
+    --ok:#1f8a5b; --bad:#c2410c; --radius:14px; color-scheme: light;
   }
-  @media (prefers-color-scheme: light) {
-    :root { --bg:#f6f4ef; --panel:#fff; --panel-2:#f0eee8; --border:rgba(0,0,0,.1); --text:#1c1b1f; --muted:#5d5b63; --faint:#8b8991; --accent:#c9740a; --accent-ink:#fff; }
+  :root[data-theme="dark"] {
+    --bg: #131316; --panel: #1b1b20; --panel-2: #222228; --border: rgba(255,255,255,.09);
+    --text: #f1efe9; --muted: #a3a1a8; --faint: #8a8891; --accent: #f0a43a; --accent-ink: #231705;
+    --ok: #4cc38a; --bad: #e5645a; color-scheme: dark;
   }
   * { box-sizing: border-box; }
   body { margin:0; background:var(--bg); color:var(--text); font:400 15px/1.55 Inter,system-ui,sans-serif; -webkit-font-smoothing:antialiased; }

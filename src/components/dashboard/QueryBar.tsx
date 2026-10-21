@@ -143,7 +143,7 @@ export function QueryBar({
           />
           {locked && (
             <Lock
-              className="pointer-events-none absolute top-1/2 right-2 size-3.5 -translate-y-1/2 text-muted-foreground/60"
+              className="pointer-events-none absolute top-1/2 right-2 size-3.5 -translate-y-1/2 text-muted-foreground/90"
               aria-hidden
             />
           )}
@@ -219,7 +219,7 @@ export function QueryBar({
             </ToggleGroupItem>
           ))}
         </ToggleGroup>
-        <span className="min-w-0 truncate text-[11px] text-muted-foreground/70">
+        <span className="min-w-0 truncate text-[11px] text-muted-foreground/90">
           {activeHint}
           {localWarning}
         </span>
@@ -240,7 +240,7 @@ export function QueryBar({
             />
           </span>
           {isStreaming && (
-            <Loader2 className="size-3 shrink-0 animate-spin text-muted-foreground/70" />
+            <Loader2 className="size-3 shrink-0 animate-spin text-muted-foreground/90" />
           )}
           <p className="min-w-0 flex-1 truncate text-[11px] text-muted-foreground">{ticker}</p>
           <span className="shrink-0 text-[11px] tabular-nums text-muted-foreground">{pct}%</span>

@@ -15,8 +15,15 @@ import { FlyToInterpolator, WebMercatorViewport, type PickingInfo } from "@deck.
 import Map from "react-map-gl/mapbox";
 import "mapbox-gl/dist/mapbox-gl.css";
 
-import { KARNATAKA_VIEW, regionShortName, useExplorerStore, type MapViewState } from "@/lib/worldview";
+import {
+  KARNATAKA_VIEW,
+  regionShortName,
+  useExplorerStore,
+  type MapViewState,
+} from "@/lib/worldview";
 import type { BBox, DistrictFeatureProps, DistrictGeo } from "@/lib/worldview/geo/districts";
+import { useTheme } from "@/lib/theme";
+
 import { buildLayers } from "./layers";
 import { useRegionGeo } from "./useRegionGeo";
 import { useStateGeo } from "./useStateGeo";
@@ -31,7 +38,23 @@ type ViewState = MapViewState & {
   transitionInterpolator?: FlyToInterpolator;
 };
 
-const MAP_STYLE = "mapbox://styles/mapbox/dark-v11";
+const MAP_STYLE = {
+  dark: "mapbox://styles/mapbox/dark-v11",
+  light: "mapbox://styles/mapbox/light-v11",
+} as const;
+
+const TOOLTIP_STYLE = {
+  dark: {
+    background: "rgba(20,20,24,0.92)",
+    color: "#f4f2ee",
+    border: "1px solid rgba(255,255,255,0.1)",
+  },
+  light: {
+    background: "rgba(255,255,255,0.96)",
+    color: "#1c1b1f",
+    border: "1px solid rgba(0,0,0,0.12)",
+  },
+} as const;
 
 const KARNATAKA_BOUNDS: BBox = [74.0, 11.5, 78.6, 18.5];
 const FALLBACK_VIEW: ViewState = { ...KARNATAKA_VIEW, pitch: 0, bearing: 0 };
@@ -50,7 +73,13 @@ const NO_INTERACTION = {
   keyboard: false,
 } as const;
 
-function frame(bbox: BBox, width: number, height: number, focused: boolean, maxZoom: number): ViewState {
+function frame(
+  bbox: BBox,
+  width: number,
+  height: number,
+  focused: boolean,
+  maxZoom: number,
+): ViewState {
   const bottom = focused ? Math.round(height * SHEET_FRACTION) : 24;
   try {
     const fit = new WebMercatorViewport({ width, height }).fitBounds(
@@ -60,7 +89,13 @@ function frame(bbox: BBox, width: number, height: number, focused: boolean, maxZ
       ],
       { padding: { top: topInset(width), bottom, left: 28, right: 28 }, maxZoom },
     );
-    return { longitude: fit.longitude, latitude: fit.latitude, zoom: fit.zoom, pitch: 0, bearing: 0 };
+    return {
+      longitude: fit.longitude,
+      latitude: fit.latitude,
+      zoom: fit.zoom,
+      pitch: 0,
+      bearing: 0,
+    };
   } catch {
     return FALLBACK_VIEW;
   }
@@ -74,6 +109,7 @@ export default function DeckMap({ geo, mapboxToken }: DeckMapProps) {
 
   const regionId = useExplorerStore((s) => s.regionId);
   const districtId = useExplorerStore((s) => s.districtId);
+  const theme = useTheme();
 
   const districtToRegion = useMemo(() => {
     const out: Record<string, string> = {};
@@ -84,8 +120,8 @@ export default function DeckMap({ geo, mapboxToken }: DeckMapProps) {
   }, [regionGeo]);
 
   const layers = useMemo(
-    () => buildLayers({ geo, stateGeo, regionGeo, districtToRegion, regionId, districtId }),
-    [geo, stateGeo, regionGeo, districtToRegion, regionId, districtId],
+    () => buildLayers({ geo, stateGeo, regionGeo, districtToRegion, regionId, districtId, theme }),
+    [geo, stateGeo, regionGeo, districtToRegion, regionId, districtId, theme],
   );
 
   // ── Camera ────────────────────────────────────────────────────────────────
@@ -101,7 +137,9 @@ export default function DeckMap({ geo, mapboxToken }: DeckMapProps) {
       bbox = geo.districts[districtId]?.bbox ?? bbox;
       maxZoom = 9.2;
     } else if (regionId) {
-      bbox = regionGeo?.features.find((f) => f.properties.regionId === regionId)?.properties.bbox ?? bbox;
+      bbox =
+        regionGeo?.features.find((f) => f.properties.regionId === regionId)?.properties.bbox ??
+        bbox;
       maxZoom = 8;
     }
     const next = frame(bbox, size.width, size.height, !!(districtId || regionId), maxZoom);
@@ -125,7 +163,8 @@ export default function DeckMap({ geo, mapboxToken }: DeckMapProps) {
 
   // ── Interaction ───────────────────────────────────────────────────────────
   const pickedDistrict = (info: PickingInfo): DistrictFeatureProps | null => {
-    const props = (info.object as { properties?: Partial<DistrictFeatureProps> } | null)?.properties;
+    const props = (info.object as { properties?: Partial<DistrictFeatureProps> } | null)
+      ?.properties;
     return props?.districtId ? (props as DistrictFeatureProps) : null;
   };
 
@@ -151,16 +190,14 @@ export default function DeckMap({ geo, mapboxToken }: DeckMapProps) {
       return {
         html: `<div style="font-weight:600">${escapeHtml(d.districtName)}</div><div style="opacity:.7">${escapeHtml(regionShortName(rid))}</div>`,
         style: {
-          background: "rgba(20,20,24,0.92)",
-          color: "#f4f2ee",
+          ...TOOLTIP_STYLE[theme],
           fontSize: "11px",
           padding: "7px 10px",
           borderRadius: "8px",
-          border: "1px solid rgba(255,255,255,0.1)",
         },
       };
     },
-    [districtToRegion],
+    [districtToRegion, theme],
   );
 
   return (
@@ -179,7 +216,7 @@ export default function DeckMap({ geo, mapboxToken }: DeckMapProps) {
       {mapboxToken ? (
         <Map
           reuseMaps
-          mapStyle={MAP_STYLE}
+          mapStyle={MAP_STYLE[theme]}
           mapboxAccessToken={mapboxToken}
           attributionControl={false}
         />

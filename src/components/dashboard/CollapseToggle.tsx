@@ -15,7 +15,7 @@ export function CollapseButton({ onClick, label }: { onClick: () => void; label:
       onClick={onClick}
       aria-label={label}
       title={label}
-      className="flex size-5 shrink-0 items-center justify-center rounded-md text-muted-foreground/60 transition-colors hover:bg-white/10 hover:text-foreground"
+      className="flex size-5 shrink-0 items-center justify-center rounded-md text-muted-foreground/90 transition-colors hover:bg-foreground/10 hover:text-foreground"
     >
       <ChevronUp className="size-3" />
     </button>

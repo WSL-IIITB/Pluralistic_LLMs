@@ -217,7 +217,7 @@ export function DataDistrictInfoPanel() {
   if (selection.kind !== "district") {
     return (
       <section className="panel-surface pointer-events-auto w-full rounded-xl px-4 py-3">
-        <p className="text-[12px] leading-relaxed text-muted-foreground/70">
+        <p className="text-[12px] leading-relaxed text-muted-foreground/90">
           Select a district on the map to see its data profile and prescriptive model.
         </p>
       </section>
@@ -244,9 +244,9 @@ export function DataDistrictInfoPanel() {
           <div className="min-w-0">
             <p className="label-micro">District</p>
             <h2 className="text-sm leading-snug font-medium text-foreground">
-              {districtName ?? <span className="text-muted-foreground/50">Loading…</span>}
+              {districtName ?? <span className="text-muted-foreground/90">Loading…</span>}
             </h2>
-            {stateName && <p className="text-[11px] text-muted-foreground/70">{stateName}</p>}
+            {stateName && <p className="text-[11px] text-muted-foreground/90">{stateName}</p>}
           </div>
           <button
             type="button"
@@ -257,7 +257,7 @@ export function DataDistrictInfoPanel() {
             <X className="size-4" />
           </button>
         </header>
-        <p className="px-4 py-4 text-[12px] leading-relaxed text-muted-foreground/70">
+        <p className="px-4 py-4 text-[12px] leading-relaxed text-muted-foreground/90">
           No Data View data for this district — it isn't in the LKI-SSM dropout dataset's district
           crosswalk (a small share of districts don't match, e.g. post-2016 reorganizations the
           source data predates). Try another district.
@@ -272,7 +272,7 @@ export function DataDistrictInfoPanel() {
         <div className="min-w-0">
           <p className="label-micro">District</p>
           <h2 className="text-sm leading-snug font-medium text-foreground">{districtName}</h2>
-          {stateName && <p className="text-[11px] text-muted-foreground/70">{stateName}</p>}
+          {stateName && <p className="text-[11px] text-muted-foreground/90">{stateName}</p>}
         </div>
         <button
           type="button"
@@ -288,7 +288,7 @@ export function DataDistrictInfoPanel() {
         {/* ── District Profile ────────────────────────────────────────── */}
         <div>
           <p className="label-micro">District Profile · Factor Sensitivity</p>
-          {profileLoading && <p className="mt-2 text-[12px] text-muted-foreground/70">Loading…</p>}
+          {profileLoading && <p className="mt-2 text-[12px] text-muted-foreground/90">Loading…</p>}
           {profileError && (
             <p className="mt-2 text-[12px] text-destructive">Could not load district profile.</p>
           )}
@@ -324,7 +324,7 @@ export function DataDistrictInfoPanel() {
             </>
           )}
           {!profileLoading && !profileError && !profile && (
-            <p className="mt-2 text-[12px] text-muted-foreground/70">No profile data.</p>
+            <p className="mt-2 text-[12px] text-muted-foreground/90">No profile data.</p>
           )}
         </div>
 
@@ -360,7 +360,7 @@ export function DataDistrictInfoPanel() {
               {prescription ? prescription.confidenceValue.toFixed(2) : "—"}
             </span>
             {prescriptionLoading && (
-              <span className="text-[11px] text-muted-foreground/70">Recomputing…</span>
+              <span className="text-[11px] text-muted-foreground/90">Recomputing…</span>
             )}
             {!prescriptionLoading && prescriptionError && (
               <span className="text-[11px] text-destructive">Could not load prescription.</span>
@@ -372,7 +372,7 @@ export function DataDistrictInfoPanel() {
         <div>
           <p className="label-micro">Original vs. Prescribed</p>
           {!prescription && !prescriptionLoading && !prescriptionError && (
-            <p className="mt-2 text-[12px] text-muted-foreground/70">
+            <p className="mt-2 text-[12px] text-muted-foreground/90">
               Adjust the sliders above to compute a prescription.
             </p>
           )}
@@ -438,7 +438,7 @@ export function DataDistrictInfoPanel() {
             </div>
           )}
           {prescription && groupedPrescriptionFactors.length === 0 && (
-            <p className="mt-2 text-[12px] text-muted-foreground/70">
+            <p className="mt-2 text-[12px] text-muted-foreground/90">
               All buckets are set to Nil priority — nothing to show.
             </p>
           )}

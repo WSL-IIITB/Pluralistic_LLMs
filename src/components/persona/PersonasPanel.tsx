@@ -9,6 +9,7 @@
 import { ChevronDown } from "lucide-react";
 import { useEffect, useState } from "react";
 
+import { useTheme } from "@/lib/theme";
 import {
   KARNATAKA_REGIONS,
   personaCard,
@@ -20,6 +21,13 @@ import {
   type RGBAColor,
 } from "@/lib/worldview";
 
+/** Region colour for TEXT: darkened on the light theme so it stays readable (fills use the raw colour). */
+function useInk(color: RGBAColor): string {
+  const theme = useTheme();
+  const k = theme === "light" ? 0.58 : 1;
+  return `rgb(${Math.round(color[0] * k)} ${Math.round(color[1] * k)} ${Math.round(color[2] * k)})`;
+}
+
 // ── Cast picker ─────────────────────────────────────────────────────────────
 
 function CastPicker() {
@@ -27,11 +35,19 @@ function CastPicker() {
   const select = useExplorerStore((s) => s.selectPersona);
 
   return (
-    <div className="grid grid-cols-3 gap-2 @2xl:grid-cols-6" role="tablist" aria-label="Choose a persona">
+    <div
+      className="grid grid-cols-3 gap-2 @2xl:grid-cols-6"
+      role="tablist"
+      aria-label="Choose a persona"
+    >
       {KARNATAKA_REGIONS.map((r) => (
         <div key={r.id} className="rounded-xl border border-panel-border bg-secondary/30 p-2">
           <p className="mb-2 flex items-center justify-center gap-1.5 text-center text-[10px] leading-tight font-medium text-muted-foreground">
-            <span className="size-1.5 shrink-0 rounded-full" style={{ backgroundColor: rgbaCss(r.color) }} aria-hidden />
+            <span
+              className="size-1.5 shrink-0 rounded-full"
+              style={{ backgroundColor: rgbaCss(r.color) }}
+              aria-hidden
+            />
             <span className="truncate">{r.shortName}</span>
           </p>
           <div className="flex justify-center gap-1.5">
@@ -49,11 +65,15 @@ function CastPicker() {
                   onClick={() => select(r.id, p.id)}
                   className={
                     "flex size-10 items-center justify-center rounded-full text-xl leading-none transition-all duration-200 " +
-                    (active ? "scale-110 ring-2 ring-offset-2 ring-offset-background" : "opacity-70 hover:scale-105 hover:opacity-100")
+                    (active
+                      ? "scale-110 ring-2 ring-offset-2 ring-offset-background"
+                      : "opacity-70 hover:scale-105 hover:opacity-100")
                   }
                   style={{
                     backgroundColor: rgbaCss(r.color, active ? 0.45 : 0.22),
-                    ...(active ? ({ "--tw-ring-color": rgbaCss(r.color) } as React.CSSProperties) : {}),
+                    ...(active
+                      ? ({ "--tw-ring-color": rgbaCss(r.color) } as React.CSSProperties)
+                      : {}),
                   }}
                 >
                   {card?.emoji ?? "👤"}
@@ -61,7 +81,9 @@ function CastPicker() {
               );
             })}
           </div>
-          <p className="mt-1.5 text-center text-[9px] tracking-wide text-muted-foreground/60 uppercase">♂ · ♀</p>
+          <p className="mt-1.5 text-center text-[9px] tracking-wide text-muted-foreground/90 uppercase">
+            ♂ · ♀
+          </p>
         </div>
       ))}
     </div>
@@ -70,7 +92,15 @@ function CastPicker() {
 
 // ── Card sections ───────────────────────────────────────────────────────────
 
-function Section({ title, children, className = "" }: { title: string; children: React.ReactNode; className?: string }) {
+function Section({
+  title,
+  children,
+  className = "",
+}: {
+  title: string;
+  children: React.ReactNode;
+  className?: string;
+}) {
   return (
     <section className={className}>
       <p className="label-micro mb-2.5">{title}</p>
@@ -79,16 +109,31 @@ function Section({ title, children, className = "" }: { title: string; children:
   );
 }
 
-function Hero({ card, color, regionName, genderLabel }: { card: PersonaCard; color: RGBAColor; regionName: string; genderLabel: string }) {
+function Hero({
+  card,
+  color,
+  regionName,
+  genderLabel,
+}: {
+  card: PersonaCard;
+  color: RGBAColor;
+  regionName: string;
+  genderLabel: string;
+}) {
   return (
     <div
       className="relative overflow-hidden rounded-2xl border border-panel-border p-5"
-      style={{ background: `linear-gradient(135deg, ${rgbaCss(color, 0.22)}, ${rgbaCss(color, 0.04)} 70%)` }}
+      style={{
+        background: `linear-gradient(135deg, ${rgbaCss(color, 0.22)}, ${rgbaCss(color, 0.04)} 70%)`,
+      }}
     >
       <div className="flex items-start gap-4">
         <div
           className="flex size-20 shrink-0 items-center justify-center rounded-full text-[44px] leading-none shadow-lg ring-4"
-          style={{ backgroundColor: rgbaCss(color, 0.35), ["--tw-ring-color" as string]: rgbaCss(color, 0.55) }}
+          style={{
+            backgroundColor: rgbaCss(color, 0.35),
+            ["--tw-ring-color" as string]: rgbaCss(color, 0.55),
+          }}
           aria-hidden
         >
           {card.emoji}
@@ -106,7 +151,9 @@ function Hero({ card, color, regionName, genderLabel }: { card: PersonaCard; col
           </p>
           <div className="mt-2 flex flex-wrap gap-1.5">
             {card.community && (
-              <span className="rounded-full bg-background/50 px-2.5 py-0.5 text-[11px] text-foreground">{card.community}</span>
+              <span className="rounded-full bg-background/50 px-2.5 py-0.5 text-[11px] text-foreground">
+                {card.community}
+              </span>
             )}
           </div>
         </div>
@@ -119,12 +166,18 @@ function Hero({ card, color, regionName, genderLabel }: { card: PersonaCard; col
 function Household({ card, color }: { card: PersonaCard; color: RGBAColor }) {
   return (
     <div className="flex flex-wrap gap-2">
-      <div className="flex items-center gap-2 rounded-full py-1 pr-3.5 pl-1.5 text-[12px] font-medium text-foreground" style={{ backgroundColor: rgbaCss(color, 0.3) }}>
+      <div
+        className="flex items-center gap-2 rounded-full py-1 pr-3.5 pl-1.5 text-[12px] font-medium text-foreground"
+        style={{ backgroundColor: rgbaCss(color, 0.3) }}
+      >
         <span className="text-lg leading-none">{card.emoji}</span>
         {card.name.startsWith("The ") ? "Them" : card.name.split(" ")[0]}
       </div>
       {card.household.map((m, i) => (
-        <div key={i} className="flex items-center gap-2 rounded-full bg-secondary py-1 pr-3.5 pl-1.5 text-[12px] text-muted-foreground">
+        <div
+          key={i}
+          className="flex items-center gap-2 rounded-full bg-secondary py-1 pr-3.5 pl-1.5 text-[12px] text-muted-foreground"
+        >
           <span className="text-lg leading-none">{m.emoji}</span>
           {m.who}
         </div>
@@ -134,14 +187,23 @@ function Household({ card, color }: { card: PersonaCard; color: RGBAColor }) {
 }
 
 function Vitals({ card, color }: { card: PersonaCard; color: RGBAColor }) {
+  const ink = useInk(color);
   return (
     <div className="grid grid-cols-2 gap-2 @xl:grid-cols-4">
       {card.vitals.map((v) => (
-        <div key={v.label} className="rounded-xl border border-panel-border bg-secondary/40 px-3 py-2.5">
-          <p className="text-[15px] leading-tight font-semibold text-foreground" style={{ color: rgbaCss(color) }}>
+        <div
+          key={v.label}
+          className="rounded-xl border border-panel-border bg-secondary/40 px-3 py-2.5"
+        >
+          <p
+            className="text-[15px] leading-tight font-semibold text-foreground"
+            style={{ color: ink }}
+          >
             {v.value}
           </p>
-          <p className="mt-0.5 text-[10px] tracking-wide text-muted-foreground uppercase">{v.label}</p>
+          <p className="mt-0.5 text-[10px] tracking-wide text-muted-foreground uppercase">
+            {v.label}
+          </p>
         </div>
       ))}
     </div>
@@ -149,17 +211,22 @@ function Vitals({ card, color }: { card: PersonaCard; color: RGBAColor }) {
 }
 
 function DayInLife({ card, color }: { card: PersonaCard; color: RGBAColor }) {
+  const ink = useInk(color);
   return (
     <ol className="relative ml-3.5 space-y-3.5 border-l border-border pl-6">
       {card.dayInLife.map((b, i) => (
-        <li key={i} className="relative animate-in fade-in slide-in-from-left-2 fill-mode-both" style={{ animationDelay: `${i * 70}ms` }}>
+        <li
+          key={i}
+          className="relative animate-in fade-in slide-in-from-left-2 fill-mode-both"
+          style={{ animationDelay: `${i * 70}ms` }}
+        >
           <span
             className="absolute top-0 -left-[2.35rem] flex size-8 items-center justify-center rounded-full bg-background text-base ring-2"
             style={{ ["--tw-ring-color" as string]: rgbaCss(color, 0.6) }}
           >
             {b.emoji}
           </span>
-          <p className="text-[11px] font-semibold tracking-wide uppercase" style={{ color: rgbaCss(color) }}>
+          <p className="text-[11px] font-semibold tracking-wide uppercase" style={{ color: ink }}>
             {b.when}
           </p>
           <p className="text-[13px] leading-snug text-foreground/90">{b.text}</p>
@@ -178,6 +245,7 @@ function TopicExplorer({
   color: RGBAColor;
   fullText: Record<string, string>;
 }) {
+  const ink = useInk(color);
   const [active, setActive] = useState(card.topics[0]?.key ?? "");
   const [showFull, setShowFull] = useState(false);
   const topic = card.topics.find((t) => t.key === active) ?? card.topics[0];
@@ -201,9 +269,15 @@ function TopicExplorer({
               onClick={() => setActive(t.key)}
               className={
                 "flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-[12px] font-medium transition-all " +
-                (on ? "text-foreground" : "border-panel-border bg-secondary/40 text-muted-foreground hover:text-foreground")
+                (on
+                  ? "text-foreground"
+                  : "border-panel-border bg-secondary/40 text-muted-foreground hover:text-foreground")
               }
-              style={on ? { backgroundColor: rgbaCss(color, 0.25), borderColor: rgbaCss(color, 0.7) } : undefined}
+              style={
+                on
+                  ? { backgroundColor: rgbaCss(color, 0.25), borderColor: rgbaCss(color, 0.7) }
+                  : undefined
+              }
             >
               <span className="text-sm leading-none">{t.emoji}</span>
               {t.label}
@@ -212,22 +286,34 @@ function TopicExplorer({
         })}
       </div>
 
-      <div key={topic.key} className="mt-3 rounded-2xl border border-panel-border bg-secondary/30 p-4 animate-in fade-in zoom-in-95 duration-300">
+      <div
+        key={topic.key}
+        className="mt-3 rounded-2xl border border-panel-border bg-secondary/30 p-4 animate-in fade-in zoom-in-95 duration-300"
+      >
         <p className="text-[14px] leading-snug font-semibold text-foreground">{topic.headline}</p>
         <ul className="mt-3 space-y-2">
           {topic.points.map((pt, i) => (
             <li key={i} className="flex gap-2.5 text-[13px] leading-snug text-foreground/85">
-              <span className="mt-[7px] size-1.5 shrink-0 rounded-full" style={{ backgroundColor: rgbaCss(color) }} aria-hidden />
+              <span
+                className="mt-[7px] size-1.5 shrink-0 rounded-full"
+                style={{ backgroundColor: rgbaCss(color) }}
+                aria-hidden
+              />
               {pt}
             </li>
           ))}
         </ul>
         {topic.stat && (
           <div className="mt-4 flex items-center gap-3 rounded-xl bg-background/50 px-3.5 py-3">
-            <span className="text-[26px] leading-none font-semibold tabular-nums" style={{ color: rgbaCss(color) }}>
+            <span
+              className="text-[26px] leading-none font-semibold tabular-nums"
+              style={{ color: ink }}
+            >
               {topic.stat.value}
             </span>
-            <span className="text-[12px] leading-snug text-muted-foreground">{topic.stat.label}</span>
+            <span className="text-[12px] leading-snug text-muted-foreground">
+              {topic.stat.label}
+            </span>
           </div>
         )}
         {full && (
@@ -238,7 +324,10 @@ function TopicExplorer({
               aria-expanded={showFull}
               className="label-micro mt-3.5 flex items-center gap-1.5 transition-colors hover:text-foreground"
             >
-              <ChevronDown className={`size-3 transition-transform ${showFull ? "" : "-rotate-90"}`} aria-hidden />
+              <ChevronDown
+                className={`size-3 transition-transform ${showFull ? "" : "-rotate-90"}`}
+                aria-hidden
+              />
               Read the full profile
             </button>
             {showFull && (
@@ -267,7 +356,10 @@ function SchoolPressures({ card, color }: { card: PersonaCard; color: RGBAColor 
           className="flex gap-3 rounded-xl border border-panel-border bg-secondary/30 p-3 transition-colors hover:bg-secondary/60 animate-in fade-in zoom-in-95 fill-mode-both"
           style={{ animationDelay: `${i * 60}ms` }}
         >
-          <span className="flex size-9 shrink-0 items-center justify-center rounded-lg text-lg" style={{ backgroundColor: rgbaCss(color, 0.22) }}>
+          <span
+            className="flex size-9 shrink-0 items-center justify-center rounded-lg text-lg"
+            style={{ backgroundColor: rgbaCss(color, 0.22) }}
+          >
             {p.emoji}
           </span>
           <div className="min-w-0">
@@ -280,7 +372,15 @@ function SchoolPressures({ card, color }: { card: PersonaCard; color: RGBAColor 
   );
 }
 
-function TheirAnswer({ regionId, personaId, name }: { regionId: string; personaId: string; name: string }) {
+function TheirAnswer({
+  regionId,
+  personaId,
+  name,
+}: {
+  regionId: string;
+  personaId: string;
+  name: string;
+}) {
   const answer = useWorldviewStore((s) => s.answer);
   const query = useWorldviewStore((s) => s.query);
   const segs = answer.filter((a) => a.regionId === regionId && a.personaId === personaId);
@@ -297,7 +397,9 @@ function TheirAnswer({ regionId, personaId, name }: { regionId: string; personaI
   return (
     <div className="rounded-2xl border border-panel-border bg-secondary/30 p-4">
       {query && <p className="mb-2 text-[11px] text-muted-foreground">On “{query}”</p>}
-      {tldr && <p className="text-[13.5px] leading-snug font-semibold text-foreground">{tldr.text}</p>}
+      {tldr && (
+        <p className="text-[13.5px] leading-snug font-semibold text-foreground">{tldr.text}</p>
+      )}
       <div className="mt-2 space-y-2 text-[12.5px] leading-relaxed text-muted-foreground">
         {rest.map((s, i) => (
           <p key={i}>{s.text}</p>
@@ -316,15 +418,27 @@ function PersonaView({ regionId, personaId }: { regionId: string; personaId: str
   const [showDescription, setShowDescription] = useState(false);
 
   if (!card || !region) {
-    return <p className="py-8 text-center text-[13px] text-muted-foreground">No card available for this persona.</p>;
+    return (
+      <p className="py-8 text-center text-[13px] text-muted-foreground">
+        No card available for this persona.
+      </p>
+    );
   }
   const fullText: Record<string, string> = {};
   for (const t of profile?.topics ?? []) fullText[t.key] = t.profile;
   const genderLabel = personaId === "female" ? "Woman" : "Man";
 
   return (
-    <div key={`${regionId}-${personaId}`} className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-300">
-      <Hero card={card} color={region.color} regionName={region.shortName} genderLabel={genderLabel} />
+    <div
+      key={`${regionId}-${personaId}`}
+      className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-300"
+    >
+      <Hero
+        card={card}
+        color={region.color}
+        regionName={region.shortName}
+        genderLabel={genderLabel}
+      />
 
       {profile?.definition && (
         <div>
@@ -334,7 +448,10 @@ function PersonaView({ regionId, personaId }: { regionId: string; personaId: str
             aria-expanded={showDescription}
             className="label-micro flex items-center gap-1.5 transition-colors hover:text-foreground"
           >
-            <ChevronDown className={`size-3 transition-transform ${showDescription ? "" : "-rotate-90"}`} aria-hidden />
+            <ChevronDown
+              className={`size-3 transition-transform ${showDescription ? "" : "-rotate-90"}`}
+              aria-hidden
+            />
             Full persona description
           </button>
           {showDescription && (
@@ -355,7 +472,12 @@ function PersonaView({ regionId, personaId }: { regionId: string; personaId: str
         <DayInLife card={card} color={region.color} />
       </Section>
       <Section title="Explore their world">
-        <TopicExplorer key={`${regionId}-${personaId}`} card={card} color={region.color} fullText={fullText} />
+        <TopicExplorer
+          key={`${regionId}-${personaId}`}
+          card={card}
+          color={region.color}
+          fullText={fullText}
+        />
       </Section>
       <Section title="What pulls kids out of school here">
         <SchoolPressures card={card} color={region.color} />
@@ -363,7 +485,10 @@ function PersonaView({ regionId, personaId }: { regionId: string; personaId: str
       <Section title="What keeps them up at night">
         <div className="flex flex-wrap gap-2">
           {card.worries.map((w) => (
-            <span key={w} className="rounded-full border border-panel-border bg-secondary/50 px-3 py-1 text-[12px] text-foreground/90">
+            <span
+              key={w}
+              className="rounded-full border border-panel-border bg-secondary/50 px-3 py-1 text-[12px] text-foreground/90"
+            >
               {w}
             </span>
           ))}
@@ -389,7 +514,9 @@ export function PersonasPanel() {
     <div className="panel-surface @container pointer-events-auto flex min-h-0 flex-1 flex-col overflow-hidden rounded-xl">
       <header className="border-b border-panel-border px-5 py-3.5">
         <p className="label-micro">Meet the personas</p>
-        <h2 className="mt-1 text-sm font-medium text-foreground">Twelve composite residents, two from each region</h2>
+        <h2 className="mt-1 text-sm font-medium text-foreground">
+          Twelve composite residents, two from each region
+        </h2>
       </header>
       <div className="min-h-0 flex-1 space-y-6 overflow-y-auto px-5 py-4 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-border">
         <CastPicker />

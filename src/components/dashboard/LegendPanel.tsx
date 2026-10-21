@@ -38,7 +38,7 @@ function ClusterRow({
 }) {
   return (
     <li
-      className="flex cursor-default items-start gap-2.5 rounded-md px-1 py-1 -mx-1 transition-colors hover:bg-white/5"
+      className="flex cursor-default items-start gap-2.5 rounded-md px-1 py-1 -mx-1 transition-colors hover:bg-foreground/5"
       onMouseEnter={() => onHover(cluster.id)}
       onMouseLeave={() => onHover(null)}
     >
@@ -51,7 +51,7 @@ function ClusterRow({
         {cluster.label}
       </span>
       {cluster.postCount > 0 && (
-        <span className="mt-[1px] shrink-0 text-[10px] tabular-nums text-muted-foreground/50">
+        <span className="mt-[1px] shrink-0 text-[10px] tabular-nums text-muted-foreground/90">
           {cluster.postCount.toLocaleString("en-IN")}
         </span>
       )}
@@ -105,12 +105,12 @@ function GroupedClusterList({
               <button
                 type="button"
                 onClick={() => toggle(group.key)}
-                className="flex w-full cursor-pointer items-start gap-1.5 rounded-md px-1 py-1 -mx-1 text-left transition-colors hover:bg-white/5"
+                className="flex w-full cursor-pointer items-start gap-1.5 rounded-md px-1 py-1 -mx-1 text-left transition-colors hover:bg-foreground/5"
               >
                 {expanded ? (
-                  <ChevronDown className="mt-[3px] size-3 shrink-0 text-muted-foreground/60" />
+                  <ChevronDown className="mt-[3px] size-3 shrink-0 text-muted-foreground/90" />
                 ) : (
-                  <ChevronRight className="mt-[3px] size-3 shrink-0 text-muted-foreground/60" />
+                  <ChevronRight className="mt-[3px] size-3 shrink-0 text-muted-foreground/90" />
                 )}
                 <span
                   className="mt-[3px] size-2.5 shrink-0 rounded-[3px]"
@@ -123,7 +123,7 @@ function GroupedClusterList({
                 >
                   {group.label}
                 </span>
-                <span className="mt-[1px] shrink-0 text-[10px] tabular-nums text-muted-foreground/50">
+                <span className="mt-[1px] shrink-0 text-[10px] tabular-nums text-muted-foreground/90">
                   {group.clusters.length} · {group.totalPostCount.toLocaleString("en-IN")}
                 </span>
               </button>
@@ -160,7 +160,7 @@ function PanelHeader({
           onClick={onToggleWide}
           aria-label={isWide ? "Narrow this panel" : "Widen this panel so labels aren't cut off"}
           title={isWide ? "Narrow panel" : "Widen panel"}
-          className="flex size-5 shrink-0 items-center justify-center rounded-md text-muted-foreground/60 transition-colors hover:bg-white/10 hover:text-foreground"
+          className="flex size-5 shrink-0 items-center justify-center rounded-md text-muted-foreground/90 transition-colors hover:bg-foreground/10 hover:text-foreground"
         >
           {isWide ? <Minimize2 className="size-3" /> : <Maximize2 className="size-3" />}
         </button>
@@ -242,7 +242,7 @@ export function LegendPanel() {
             onCollapse={collapse}
           />
           {items.length === 0 ? (
-            <p className="mt-3 text-[12px] leading-snug text-muted-foreground/70">
+            <p className="mt-3 text-[12px] leading-snug text-muted-foreground/90">
               Clusters appear here as distinct viewpoints are found.
             </p>
           ) : (

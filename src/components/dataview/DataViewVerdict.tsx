@@ -128,7 +128,7 @@ function VerdictSection({ target, unresolvedDistrictLabel }: VerdictSectionProps
   return (
     <section className="panel-surface shrink-0 rounded-xl p-4">
       <h2 className="text-xs font-medium tracking-wide text-foreground">Verdict</h2>
-      <p className="mt-1 text-[10px] leading-relaxed text-muted-foreground/60">
+      <p className="mt-1 text-[10px] leading-relaxed text-muted-foreground/90">
         A generated narrative grounded in this area's own computed factors and prescriptive model —
         not a live database record, and it can take up to a minute for a real model call.
       </p>
@@ -141,12 +141,12 @@ function VerdictSection({ target, unresolvedDistrictLabel }: VerdictSectionProps
           never be reached (it would always lose to the generic "select
           something" placeholder). */}
       {unresolvedDistrictLabel ? (
-        <p className="mt-2.5 text-[12px] leading-relaxed text-muted-foreground/70">
+        <p className="mt-2.5 text-[12px] leading-relaxed text-muted-foreground/90">
           No Data View data for {unresolvedDistrictLabel} — it isn&apos;t in the LKI-SSM dropout
           dataset&apos;s district crosswalk. Try another district, or select its state.
         </p>
       ) : !target ? (
-        <p className="mt-2.5 text-[12px] leading-relaxed text-muted-foreground/70">
+        <p className="mt-2.5 text-[12px] leading-relaxed text-muted-foreground/90">
           Select a state or district on the map to generate its verdict.
         </p>
       ) : verdictLoading ? (
@@ -155,13 +155,13 @@ function VerdictSection({ target, unresolvedDistrictLabel }: VerdictSectionProps
             className="size-3.5 shrink-0 animate-spin rounded-full border-2 border-muted-foreground/25 border-t-foreground"
             aria-hidden
           />
-          <p className="text-[12px] text-muted-foreground/70">
+          <p className="text-[12px] text-muted-foreground/90">
             Generating verdict… a real model call, this can take up to a minute.
           </p>
         </div>
       ) : isCurrent && verdict ? (
         <>
-          <p className="mt-2 text-[11px] text-muted-foreground/70">
+          <p className="mt-2 text-[11px] text-muted-foreground/90">
             {verdict.areaKind === "district"
               ? `${verdict.areaName} · ${verdict.stateName}`
               : verdict.areaName}
@@ -181,7 +181,7 @@ function VerdictSection({ target, unresolvedDistrictLabel }: VerdictSectionProps
       ) : verdictError ? (
         <p className="mt-2.5 text-[12px] text-destructive">{verdictError}</p>
       ) : (
-        <p className="mt-2.5 text-[12px] text-muted-foreground/70">Loading…</p>
+        <p className="mt-2.5 text-[12px] text-muted-foreground/90">Loading…</p>
       )}
     </section>
   );
@@ -330,7 +330,7 @@ export function DataViewVerdict() {
             className="mt-2 h-2.5 w-full rounded-full"
             style={{ backgroundImage: gradientCss }}
           />
-          <div className="mt-1 flex justify-between text-[10px] text-muted-foreground/70">
+          <div className="mt-1 flex justify-between text-[10px] text-muted-foreground/90">
             {colorMode === "dropoutRate" ? (
               <>
                 <span>{dropoutDomain[0].toFixed(1)}</span>
@@ -352,7 +352,7 @@ export function DataViewVerdict() {
           <>
             <p className="label-micro">{selectedStateName}</p>
             {selectedDistrict && (
-              <p className="mt-0.5 text-[11px] text-muted-foreground/70">
+              <p className="mt-0.5 text-[11px] text-muted-foreground/90">
                 District selected: <span className="text-foreground">{selectedDistrict.name}</span>{" "}
                 — see Intervention &amp; Budget for its own breakdown.
               </p>
@@ -377,7 +377,7 @@ export function DataViewVerdict() {
                 </li>
               </ul>
             ) : (
-              <p className="mt-1.5 text-[11px] text-muted-foreground/70">
+              <p className="mt-1.5 text-[11px] text-muted-foreground/90">
                 No model summary loaded yet for this state.
               </p>
             )}
@@ -428,11 +428,11 @@ export function DataViewVerdict() {
                 </Table>
               </div>
             ) : (
-              <p className="mt-1.5 text-[11px] text-muted-foreground/70">
+              <p className="mt-1.5 text-[11px] text-muted-foreground/90">
                 No active factors loaded yet for this state.
               </p>
             )}
-            <p className="mt-2 text-[10px] leading-relaxed text-muted-foreground/60">
+            <p className="mt-2 text-[10px] leading-relaxed text-muted-foreground/90">
               Click a row to see which other states also have that factor in their own top 5.
             </p>
 
@@ -446,7 +446,7 @@ export function DataViewVerdict() {
                     ))}
                   </ul>
                 ) : (
-                  <p className="mt-1.5 text-[11px] text-muted-foreground/70">
+                  <p className="mt-1.5 text-[11px] text-muted-foreground/90">
                     No other states have &ldquo;{expandedFactorLabel}&rdquo; in their own top 5.
                   </p>
                 )}
@@ -454,7 +454,7 @@ export function DataViewVerdict() {
             )}
           </>
         ) : (
-          <p className="text-[12px] leading-relaxed text-muted-foreground/70">
+          <p className="text-[12px] leading-relaxed text-muted-foreground/90">
             Select a state on the map to see its top factors.
           </p>
         )}

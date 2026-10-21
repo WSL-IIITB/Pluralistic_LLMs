@@ -60,7 +60,11 @@ export function RegionPills() {
                 : "border-panel-border bg-panel text-muted-foreground hover:text-foreground")
             }
           >
-            <span className="size-2 rounded-full" style={{ backgroundColor: rgbaCss(r.color) }} aria-hidden />
+            <span
+              className="size-2 rounded-full"
+              style={{ backgroundColor: rgbaCss(r.color) }}
+              aria-hidden
+            />
             {r.shortName}
           </button>
         );
@@ -87,7 +91,15 @@ function ordinal(n: number): string {
 }
 
 /** All districts on a 0–max axis, one dot each; the selected one is ringed. */
-function RateStrip({ rates, current, color }: { rates: number[]; current: number | null; color: string }) {
+function RateStrip({
+  rates,
+  current,
+  color,
+}: {
+  rates: number[];
+  current: number | null;
+  color: string;
+}) {
   const max = Math.max(40, ...rates);
   const pos = (v: number) => `${(v / max) * 100}%`;
   return (
@@ -108,7 +120,7 @@ function RateStrip({ rates, current, color }: { rates: number[]; current: number
           />
         )}
       </div>
-      <div className="mt-1 flex justify-between text-[10px] tabular-nums text-muted-foreground/60">
+      <div className="mt-1 flex justify-between text-[10px] tabular-nums text-muted-foreground/90">
         <span>0%</span>
         <span>{Math.round(max / 2)}%</span>
         <span>{Math.round(max)}%</span>
@@ -145,10 +157,9 @@ function PersonaButtons({ regionId }: { regionId: string }) {
   );
 }
 
-
 const EVIDENCE_STYLE: Record<DistrictResearch["reasons"][number]["evidence"], string> = {
-  strong: "bg-emerald-500/15 text-emerald-300",
-  moderate: "bg-amber-500/15 text-amber-300",
+  strong: "bg-emerald-500/15 text-emerald-700 dark:text-emerald-300",
+  moderate: "bg-amber-500/15 text-amber-800 dark:text-amber-300",
   thin: "bg-secondary text-muted-foreground",
 };
 
@@ -175,11 +186,24 @@ function SourceChips({ ids, sources }: { ids: number[]; sources: DistrictResearc
   );
 }
 
-function ResearchState({ districtId, name, view }: { districtId: string; name: string; view: "reasons" | "media" }) {
+function ResearchState({
+  districtId,
+  name,
+  view,
+}: {
+  districtId: string;
+  name: string;
+  view: "reasons" | "media";
+}) {
   const entry = useDistrictResearch(districtId);
-  if (entry.status === "loading") return <p className="text-[12px] text-muted-foreground">Loading research…</p>;
+  if (entry.status === "loading")
+    return <p className="text-[12px] text-muted-foreground">Loading research…</p>;
   if (entry.status === "none")
-    return <p className="text-[12px] leading-snug text-muted-foreground">No in-depth research has been added for {name} yet.</p>;
+    return (
+      <p className="text-[12px] leading-snug text-muted-foreground">
+        No in-depth research has been added for {name} yet.
+      </p>
+    );
   const r = entry.data;
 
   if (view === "media") {
@@ -190,11 +214,19 @@ function ResearchState({ districtId, name, view }: { districtId: string; name: s
           <ul className="space-y-3">
             {r.headlines.map((h) => (
               <li key={h.url}>
-                <a href={h.url} target="_blank" rel="noopener noreferrer" className="group flex items-start gap-1.5 text-[12.5px] leading-snug font-medium text-foreground hover:underline">
+                <a
+                  href={h.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-start gap-1.5 text-[12.5px] leading-snug font-medium text-foreground hover:underline"
+                >
                   <span>{h.title}</span>
-                  <ExternalLink className="mt-0.5 size-3 shrink-0 text-muted-foreground/60 group-hover:text-foreground" aria-hidden />
+                  <ExternalLink
+                    className="mt-0.5 size-3 shrink-0 text-muted-foreground/90 group-hover:text-foreground"
+                    aria-hidden
+                  />
                 </a>
-                <p className="mt-0.5 text-[10.5px] text-muted-foreground/70">
+                <p className="mt-0.5 text-[10.5px] text-muted-foreground/90">
                   {h.outlet}
                   {h.date && ` · ${h.date}`}
                 </p>
@@ -208,8 +240,15 @@ function ResearchState({ districtId, name, view }: { districtId: string; name: s
           <ol className="space-y-1.5">
             {r.sources.map((s) => (
               <li key={s.id} className="flex gap-2 text-[11px] leading-snug text-muted-foreground">
-                <span className="w-4 shrink-0 text-right tabular-nums text-muted-foreground/60">{s.id}</span>
-                <a href={s.url} target="_blank" rel="noopener noreferrer" className="min-w-0 hover:text-foreground">
+                <span className="w-4 shrink-0 text-right tabular-nums text-muted-foreground/90">
+                  {s.id}
+                </span>
+                <a
+                  href={s.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="min-w-0 hover:text-foreground"
+                >
                   <span className="text-foreground/85">{s.title}</span> — {s.outlet}
                   {s.date && `, ${s.date}`} <span className="uppercase opacity-60">· {s.type}</span>
                 </a>
@@ -226,8 +265,10 @@ function ResearchState({ districtId, name, view }: { districtId: string; name: s
       <section>
         <p className="text-[14px] leading-snug font-semibold text-foreground">{r.headline}</p>
         <p className="mt-2 text-[12.5px] leading-relaxed text-muted-foreground">{r.summary}</p>
-        <div className="mt-2 flex flex-wrap items-center gap-2 text-[10.5px] text-muted-foreground/70">
-          <span className="rounded-full bg-secondary px-2 py-0.5 uppercase">{r.coverage} coverage</span>
+        <div className="mt-2 flex flex-wrap items-center gap-2 text-[10.5px] text-muted-foreground/90">
+          <span className="rounded-full bg-secondary px-2 py-0.5 uppercase">
+            {r.coverage} coverage
+          </span>
           <span>Researched {r.researchedOn}</span>
         </div>
       </section>
@@ -242,7 +283,12 @@ function ResearchState({ districtId, name, view }: { districtId: string; name: s
                   <span className="mr-1.5">{CATEGORY_EMOJI[x.category] ?? "📌"}</span>
                   {x.factor}
                 </p>
-                <span className={"shrink-0 rounded-full px-2 py-0.5 text-[10px] font-medium uppercase " + EVIDENCE_STYLE[x.evidence]}>
+                <span
+                  className={
+                    "shrink-0 rounded-full px-2 py-0.5 text-[10px] font-medium uppercase " +
+                    EVIDENCE_STYLE[x.evidence]
+                  }
+                >
                   {x.evidence}
                 </span>
               </div>
@@ -260,7 +306,10 @@ function ResearchState({ districtId, name, view }: { districtId: string; name: s
           <p className="label-micro mb-2">Key facts</p>
           <div className="grid gap-2 @lg:grid-cols-2">
             {r.keyFacts.map((f, i) => (
-              <div key={i} className="rounded-xl border border-panel-border bg-secondary/30 px-3 py-2.5">
+              <div
+                key={i}
+                className="rounded-xl border border-panel-border bg-secondary/30 px-3 py-2.5"
+              >
                 <p className="text-[14px] leading-tight font-semibold text-foreground">{f.value}</p>
                 <p className="mt-0.5 text-[11px] leading-snug text-muted-foreground">
                   {f.label}
@@ -286,24 +335,40 @@ function ResearchState({ districtId, name, view }: { districtId: string; name: s
         </section>
       )}
 
-      {r.gaps && <p className="text-[10.5px] leading-snug text-muted-foreground/60">Gaps: {r.gaps}</p>}
+      {r.gaps && (
+        <p className="text-[10.5px] leading-snug text-muted-foreground/90">Gaps: {r.gaps}</p>
+      )}
       {researchSnapshotActive() && (
-        <p className="text-[10.5px] leading-snug text-amber-300/80">
+        <p className="text-[10.5px] leading-snug text-amber-800 dark:text-amber-300/80">
           Showing the research as it was when this run was saved.
         </p>
       )}
       {r.verificationNotes && (
-        <p className="text-[10.5px] leading-snug text-muted-foreground/60">Checked against cited pages: {r.verificationNotes}</p>
+        <p className="text-[10.5px] leading-snug text-muted-foreground/90">
+          Checked against cited pages: {r.verificationNotes}
+        </p>
       )}
     </div>
   );
 }
 
-const VERDICT_STYLE: Record<NonNullable<DistrictResearch["officialFactorCheck"]>[number]["verdict"], { label: string; className: string }> = {
-  supports: { label: "Local evidence supports", className: "bg-emerald-500/15 text-emerald-300" },
-  contradicts: { label: "Local evidence contradicts", className: "bg-red-500/15 text-red-300" },
-  unclear: { label: "Unclear", className: "bg-amber-500/15 text-amber-300" },
-  "no-evidence": { label: "No local evidence found", className: "bg-secondary text-muted-foreground" },
+const VERDICT_STYLE: Record<
+  NonNullable<DistrictResearch["officialFactorCheck"]>[number]["verdict"],
+  { label: string; className: string }
+> = {
+  supports: {
+    label: "Local evidence supports",
+    className: "bg-emerald-500/15 text-emerald-700 dark:text-emerald-300",
+  },
+  contradicts: {
+    label: "Local evidence contradicts",
+    className: "bg-red-500/15 text-red-700 dark:text-red-300",
+  },
+  unclear: { label: "Unclear", className: "bg-amber-500/15 text-amber-800 dark:text-amber-300" },
+  "no-evidence": {
+    label: "No local evidence found",
+    className: "bg-secondary text-muted-foreground",
+  },
 };
 
 function DistrictNumbers({
@@ -326,7 +391,8 @@ function DistrictNumbers({
   const median = sorted.length ? sorted[Math.floor(sorted.length / 2)]! : null;
   const rank = rate !== null ? sorted.findIndex((r) => r <= rate) + 1 : null;
 
-  const byMethod = (m: DistrictNitiFactor["method"]) => (profile?.nitiFactors ?? []).filter((f) => f.method === m);
+  const byMethod = (m: DistrictNitiFactor["method"]) =>
+    (profile?.nitiFactors ?? []).filter((f) => f.method === m);
 
   return (
     <div className="grid gap-5 @lg:grid-cols-2">
@@ -335,7 +401,9 @@ function DistrictNumbers({
         {rate !== null ? (
           <>
             <div className="mt-1.5 flex items-baseline gap-2">
-              <span className="text-[34px] leading-none font-semibold tracking-tight text-foreground">{percent(rate)}</span>
+              <span className="text-[34px] leading-none font-semibold tracking-tight text-foreground">
+                {percent(rate)}
+              </span>
               {rank !== null && (
                 <span className="text-[11px] text-muted-foreground">
                   {ordinal(rank)} highest of {sorted.length} districts
@@ -353,13 +421,21 @@ function DistrictNumbers({
         {(profile?.subAreas.length ?? 0) > 0 && (
           <div className="mt-3 flex flex-wrap gap-1.5">
             {profile!.subAreas.map((s) => (
-              <span key={s.name} className="rounded-md bg-secondary px-2 py-1 text-[11px] text-muted-foreground">
-                {s.name} <span className="font-medium text-foreground tabular-nums">{percent(s.dropoutRate)}</span>
+              <span
+                key={s.name}
+                className="rounded-md bg-secondary px-2 py-1 text-[11px] text-muted-foreground"
+              >
+                {s.name}{" "}
+                <span className="font-medium text-foreground tabular-nums">
+                  {percent(s.dropoutRate)}
+                </span>
               </span>
             ))}
           </div>
         )}
-        <p className="mt-3 text-[10px] leading-snug text-muted-foreground/60">Source: LKI-SSM casefile.</p>
+        <p className="mt-3 text-[10px] leading-snug text-muted-foreground/90">
+          Source: LKI-SSM casefile.
+        </p>
       </section>
 
       <section>
@@ -370,10 +446,15 @@ function DistrictNumbers({
           const check = checks.find((c) => c.method === m);
           return (
             <div key={m} className="mt-2.5">
-              <p className="text-[10px] font-medium tracking-wide text-muted-foreground/70 uppercase">{METHOD_TITLE[m]}</p>
+              <p className="text-[10px] font-medium tracking-wide text-muted-foreground/90 uppercase">
+                {METHOD_TITLE[m]}
+              </p>
               <ul className="mt-1 space-y-1.5">
                 {rows.map((f, i) => (
-                  <li key={i} className="flex items-start justify-between gap-3 text-[12px] leading-snug">
+                  <li
+                    key={i}
+                    className="flex items-start justify-between gap-3 text-[12px] leading-snug"
+                  >
                     <span className="text-foreground/90">
                       {f.factor}
                       {f.area.toLowerCase() !== name.toLowerCase() && (
@@ -388,7 +469,12 @@ function DistrictNumbers({
               </ul>
               {check && (
                 <div className="mt-2 rounded-lg border border-panel-border bg-secondary/30 px-2.5 py-2">
-                  <span className={"rounded-full px-2 py-0.5 text-[10px] font-medium " + VERDICT_STYLE[check.verdict].className}>
+                  <span
+                    className={
+                      "rounded-full px-2 py-0.5 text-[10px] font-medium " +
+                      VERDICT_STYLE[check.verdict].className
+                    }
+                  >
                     {VERDICT_STYLE[check.verdict].label}
                   </span>
                   <p className="mt-1.5 text-[11.5px] leading-snug text-muted-foreground">
@@ -401,10 +487,13 @@ function DistrictNumbers({
           );
         })}
         {(profile?.nitiFactors.length ?? 0) === 0 && (
-          <p className="mt-2 text-[12px] text-muted-foreground">No UIDAI/NITI factor rows for this district.</p>
+          <p className="mt-2 text-[12px] text-muted-foreground">
+            No UIDAI/NITI factor rows for this district.
+          </p>
         )}
-        <p className="mt-3 text-[10px] leading-snug text-muted-foreground/60">
-          The two methods are shown separately and never blended; values are as published in each file.
+        <p className="mt-3 text-[10px] leading-snug text-muted-foreground/90">
+          The two methods are shown separately and never blended; values are as published in each
+          file.
         </p>
       </section>
     </div>
@@ -442,7 +531,9 @@ function DistrictBody({
             onClick={() => setTab(t.id)}
             className={
               "flex-1 rounded-md px-2.5 py-1.5 text-[11.5px] font-medium transition-colors " +
-              (tab === t.id ? "bg-background text-foreground shadow-sm" : "text-muted-foreground hover:text-foreground")
+              (tab === t.id
+                ? "bg-background text-foreground shadow-sm"
+                : "text-muted-foreground hover:text-foreground")
             }
           >
             {t.label}
@@ -450,7 +541,12 @@ function DistrictBody({
         ))}
       </div>
       {tab === "numbers" ? (
-        <DistrictNumbers districtId={districtId} profile={profile} name={name} allRates={allRates} />
+        <DistrictNumbers
+          districtId={districtId}
+          profile={profile}
+          name={name}
+          allRates={allRates}
+        />
       ) : (
         <ResearchState districtId={districtId} name={name} view={tab} />
       )}
@@ -458,14 +554,28 @@ function DistrictBody({
   );
 }
 
-function RegionBody({ regionId, byId, names }: { regionId: string; byId: Record<string, DistrictProfile>; names: Record<string, string> }) {
+function RegionBody({
+  regionId,
+  byId,
+  names,
+}: {
+  regionId: string;
+  byId: Record<string, DistrictProfile>;
+  names: Record<string, string>;
+}) {
   const focusDistrict = useExplorerStore((s) => s.focusDistrict);
   const ids = Object.values(byId)
     .filter((d) => d.regionId === regionId)
     .map((d) => d.districtId);
-  const rates = ids.map((id) => byId[id]?.dropoutRate).filter((r): r is number => typeof r === "number");
+  const rates = ids
+    .map((id) => byId[id]?.dropoutRate)
+    .filter((r): r is number => typeof r === "number");
   const avg = rates.length ? rates.reduce((a, b) => a + b, 0) / rates.length : null;
-  const hi = ids.reduce<string | null>((best, id) => ((byId[id]?.dropoutRate ?? -1) > (byId[best ?? ""]?.dropoutRate ?? -1) ? id : best), null);
+  const hi = ids.reduce<string | null>(
+    (best, id) =>
+      (byId[id]?.dropoutRate ?? -1) > (byId[best ?? ""]?.dropoutRate ?? -1) ? id : best,
+    null,
+  );
   const lo = ids.reduce<string | null>((best, id) => {
     const r = byId[id]?.dropoutRate;
     if (r == null) return best;
@@ -476,7 +586,9 @@ function RegionBody({ regionId, byId, names }: { regionId: string; byId: Record<
     <div className="grid gap-5 @lg:grid-cols-2">
       <section>
         <p className="label-micro">Average dropout rate · {ids.length} districts</p>
-        <p className="mt-1.5 text-[34px] leading-none font-semibold tracking-tight text-foreground">{avg !== null ? percent(avg) : "—"}</p>
+        <p className="mt-1.5 text-[34px] leading-none font-semibold tracking-tight text-foreground">
+          {avg !== null ? percent(avg) : "—"}
+        </p>
         <p className="mt-2 text-[11px] leading-snug text-muted-foreground">
           {hi && `Highest: ${names[hi] ?? hi} ${percent(byId[hi]?.dropoutRate ?? 0)}`}
           {hi && lo && " · "}
@@ -495,7 +607,9 @@ function RegionBody({ regionId, byId, names }: { regionId: string; byId: Record<
             >
               {names[id] ?? id}
               {byId[id]?.dropoutRate != null && (
-                <span className="ml-1.5 tabular-nums text-foreground/80">{percent(byId[id]!.dropoutRate!)}</span>
+                <span className="ml-1.5 tabular-nums text-foreground/80">
+                  {percent(byId[id]!.dropoutRate!)}
+                </span>
               )}
             </button>
           ))}
@@ -519,7 +633,10 @@ export function MapDetailSheet() {
     return out;
   }, [geo]);
   const allRates = useMemo(
-    () => Object.values(byId).map((d) => d.dropoutRate).filter((r): r is number => typeof r === "number"),
+    () =>
+      Object.values(byId)
+        .map((d) => d.dropoutRate)
+        .filter((r): r is number => typeof r === "number"),
     [byId],
   );
 
@@ -534,12 +651,20 @@ export function MapDetailSheet() {
       className="panel-surface @container pointer-events-auto absolute inset-x-3 bottom-3 z-10 flex max-h-[46%] flex-col overflow-hidden rounded-xl shadow-2xl animate-in fade-in slide-in-from-bottom-3 duration-300"
     >
       <header className="flex items-start gap-3 border-b border-panel-border px-4 py-3">
-        <span className="mt-1 h-8 w-1 shrink-0 rounded-full" style={{ backgroundColor: rgbaCss(regionColor(rid)) }} aria-hidden />
+        <span
+          className="mt-1 h-8 w-1 shrink-0 rounded-full"
+          style={{ backgroundColor: rgbaCss(regionColor(rid)) }}
+          aria-hidden
+        />
         <div className="min-w-0 flex-1">
           <h2 className="truncate text-[15px] font-semibold text-foreground">{title}</h2>
           <div className="mt-0.5 flex flex-wrap items-center gap-x-2 gap-y-1 text-[11px] text-muted-foreground">
             {districtId && meta && (
-              <button type="button" onClick={() => focusRegion(rid)} className="underline-offset-2 hover:text-foreground hover:underline">
+              <button
+                type="button"
+                onClick={() => focusRegion(rid)}
+                className="underline-offset-2 hover:text-foreground hover:underline"
+              >
                 {meta.shortName} region
               </button>
             )}
@@ -557,7 +682,13 @@ export function MapDetailSheet() {
       </header>
       <div className="min-h-0 flex-1 overflow-y-auto px-4 py-4 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-border">
         {districtId ? (
-          <DistrictBody key={districtId} districtId={districtId} profile={byId[districtId]} name={title} allRates={allRates} />
+          <DistrictBody
+            key={districtId}
+            districtId={districtId}
+            profile={byId[districtId]}
+            name={title}
+            allRates={allRates}
+          />
         ) : (
           <RegionBody regionId={rid} byId={byId} names={names} />
         )}

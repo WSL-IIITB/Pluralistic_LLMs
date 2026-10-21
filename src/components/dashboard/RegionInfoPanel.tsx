@@ -28,8 +28,8 @@ const METHOD_LABEL: Record<ResolutionMethod, string> = {
 };
 
 const CONFIDENCE_STYLE: Record<ConfidenceTier, string> = {
-  high: "text-emerald-300/90 border-emerald-400/30",
-  medium: "text-amber-300/90 border-amber-400/30",
+  high: "text-emerald-700 dark:text-emerald-300/90 border-emerald-400/30",
+  medium: "text-amber-800 dark:text-amber-300/90 border-amber-400/30",
   low: "text-muted-foreground border-panel-border",
 };
 
@@ -60,7 +60,7 @@ export function RegionInfoPanel() {
             {regionMeta(regionId)?.name ?? regionShortName(regionId)}
           </h2>
           {regions[regionId]?.districtIds && (
-            <p className="text-[11px] text-muted-foreground/70">
+            <p className="text-[11px] text-muted-foreground/90">
               {regions[regionId]?.districtIds.length} districts
             </p>
           )}
@@ -92,7 +92,7 @@ export function RegionInfoPanel() {
           {stats ? (
             <RegionBody stats={stats} clusters={clusters} />
           ) : (
-            <p className="text-[13px] text-muted-foreground/70">No posts have resolved here yet.</p>
+            <p className="text-[13px] text-muted-foreground/90">No posts have resolved here yet.</p>
           )}
         </div>
       </div>
@@ -162,7 +162,7 @@ function RegionBody({
               <span className="flex-1 text-[12px] leading-snug text-muted-foreground">
                 {clusters[id]?.label ?? id}
               </span>
-              <span className="mt-[2px] text-[11px] tabular-nums text-muted-foreground/60">
+              <span className="mt-[2px] text-[11px] tabular-nums text-muted-foreground/90">
                 {stats.volume > 0 ? Math.round((vol / stats.volume) * 100) : 0}%
               </span>
             </li>
@@ -205,7 +205,7 @@ function SamplePosts({
                 style={{ backgroundColor: rgbaCss(clusterColor(clusters, post.clusterId)) }}
                 aria-hidden
               />
-              <span className="text-[10px] tracking-wide text-muted-foreground/60 uppercase">
+              <span className="text-[10px] tracking-wide text-muted-foreground/90 uppercase">
                 {post.platform === "research" ? "news / official" : post.platform}
               </span>
               {post.url && (
@@ -215,7 +215,7 @@ function SamplePosts({
                   rel="noopener noreferrer"
                   aria-label="View source"
                   title="View source"
-                  className="ml-auto text-muted-foreground/50 transition-colors hover:text-foreground"
+                  className="ml-auto text-muted-foreground/90 transition-colors hover:text-foreground"
                 >
                   <ExternalLink className="size-3" />
                 </a>

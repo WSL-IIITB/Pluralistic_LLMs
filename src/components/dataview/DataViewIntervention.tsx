@@ -81,13 +81,13 @@ export function DataViewIntervention() {
           Back to Verdict
         </button>
         {selectionLabel && (
-          <p className="truncate text-[11px] text-muted-foreground/70">{selectionLabel}</p>
+          <p className="truncate text-[11px] text-muted-foreground/90">{selectionLabel}</p>
         )}
       </div>
 
       {selection.kind === null && (
         <section className="panel-surface shrink-0 rounded-xl px-4 py-3">
-          <p className="text-[12px] leading-relaxed text-muted-foreground/70">
+          <p className="text-[12px] leading-relaxed text-muted-foreground/90">
             Select a state or district on the map first.
           </p>
         </section>
@@ -95,7 +95,7 @@ export function DataViewIntervention() {
 
       {selection.kind === "state" && (
         <>
-          <p className="shrink-0 text-[11px] text-muted-foreground/70">
+          <p className="shrink-0 text-[11px] text-muted-foreground/90">
             Click a district on the map for its own prescriptive breakdown.
           </p>
           <div className="max-w-2xl shrink-0">

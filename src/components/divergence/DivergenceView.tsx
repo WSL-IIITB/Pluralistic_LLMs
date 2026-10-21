@@ -40,13 +40,21 @@ function AreaSummary({
     <div className="rounded-lg border border-panel-border px-3.5 py-3">
       <div className="flex items-center gap-2">
         {accentColor && (
-          <span className="size-2.5 shrink-0 rounded-[3px]" style={{ backgroundColor: accentColor }} aria-hidden />
+          <span
+            className="size-2.5 shrink-0 rounded-[3px]"
+            style={{ backgroundColor: accentColor }}
+            aria-hidden
+          />
         )}
         <span className="text-[12.5px] font-medium text-foreground">{row.regionName}</span>
         <span className="text-[10.5px] text-muted-foreground">
-          {hasStory ? `${row.storyPoints.length} persona repl${row.storyPoints.length === 1 ? "y" : "ies"}` : "no persona reply"}
+          {hasStory
+            ? `${row.storyPoints.length} persona repl${row.storyPoints.length === 1 ? "y" : "ies"}`
+            : "no persona reply"}
           {" · "}
-          {hasOfficial ? `${row.officialFactors.length} UIDAI/NITI row${row.officialFactors.length === 1 ? "" : "s"}` : "no UIDAI/NITI match"}
+          {hasOfficial
+            ? `${row.officialFactors.length} UIDAI/NITI row${row.officialFactors.length === 1 ? "" : "s"}`
+            : "no UIDAI/NITI match"}
         </span>
       </div>
 
@@ -57,10 +65,14 @@ function AreaSummary({
       ) : (
         <>
           {row.consolidatedAnswer && (
-            <p className="mt-2 text-[12.5px] leading-relaxed text-foreground/90">{row.consolidatedAnswer}</p>
+            <p className="mt-2 text-[12.5px] leading-relaxed text-foreground/90">
+              {row.consolidatedAnswer}
+            </p>
           )}
           {row.comparison && (
-            <p className="mt-2 text-[12px] leading-relaxed text-muted-foreground">{row.comparison}</p>
+            <p className="mt-2 text-[12px] leading-relaxed text-muted-foreground">
+              {row.comparison}
+            </p>
           )}
 
           <button
@@ -69,7 +81,10 @@ function AreaSummary({
             aria-expanded={open}
             className="label-micro mt-2.5 flex items-center gap-1.5 transition-colors hover:text-foreground"
           >
-            <ChevronDown className={"size-3 transition-transform " + (open ? "" : "-rotate-90")} aria-hidden />
+            <ChevronDown
+              className={"size-3 transition-transform " + (open ? "" : "-rotate-90")}
+              aria-hidden
+            />
             Underlying evidence
           </button>
 
@@ -86,17 +101,19 @@ function AreaSummary({
                     ))}
                   </ul>
                 ) : (
-                  <p className="mt-1.5 text-[12px] text-muted-foreground/60">
+                  <p className="mt-1.5 text-[12px] text-muted-foreground/90">
                     No persona reply for this area this run.
                   </p>
                 )}
               </div>
               <div>
-                <p className="label-micro">UIDAI/NITI dominant factors — {row.officialFactors.length}</p>
+                <p className="label-micro">
+                  UIDAI/NITI dominant factors — {row.officialFactors.length}
+                </p>
                 {hasOfficial ? (
                   <FactorTable factors={row.officialFactors} />
                 ) : (
-                  <p className="mt-1.5 text-[12px] text-muted-foreground/60">
+                  <p className="mt-1.5 text-[12px] text-muted-foreground/90">
                     No UIDAI/NITI row matched this area's districts.
                   </p>
                 )}
@@ -130,7 +147,7 @@ function FactorTable({ factors }: { factors: NitiFactor[] }) {
           ))}
         </tbody>
       </table>
-      <p className="mt-1 text-[10px] leading-snug text-muted-foreground/60">
+      <p className="mt-1 text-[10px] leading-snug text-muted-foreground/90">
         Two different methods appear (hover a row for which); their values are never comparable to
         each other.
       </p>
@@ -145,8 +162,9 @@ export function DivergenceView() {
   const isStreaming = runState === "streaming" || runState === "connecting";
 
   const stateRow = storyVsOfficial[STATEWIDE_REGION_ID];
-  const regionRows = KARNATAKA_REGIONS.map((r) => storyVsOfficial[r.id])
-    .filter((r): r is StoryVsOfficial => !!r);
+  const regionRows = KARNATAKA_REGIONS.map((r) => storyVsOfficial[r.id]).filter(
+    (r): r is StoryVsOfficial => !!r,
+  );
   const hasAny = !!stateRow || regionRows.length > 0;
 
   return (
@@ -155,17 +173,17 @@ export function DivergenceView() {
         <header className="border-b border-panel-border px-5 py-3.5">
           <h2 className="text-sm font-medium text-foreground">Story Mode vs. UIDAI/NITI data</h2>
           <p className="mt-1 max-w-[900px] text-[12px] leading-relaxed text-muted-foreground">
-            Story Mode's answer for {query ? <>“{query}”</> : "this query"} — regional, persona-driven,
-            grounded in social and web evidence — compared against UIDAI/NITI's official
-            district-level dominant-factor model, which has no region or persona of its own. Each
-            area below gets one consolidated answer drawing on both, plus the comparison and the raw
-            evidence behind it.
+            Story Mode's answer for {query ? <>“{query}”</> : "this query"} — regional,
+            persona-driven, grounded in social and web evidence — compared against UIDAI/NITI's
+            official district-level dominant-factor model, which has no region or persona of its
+            own. Each area below gets one consolidated answer drawing on both, plus the comparison
+            and the raw evidence behind it.
           </p>
         </header>
 
         <div className="min-h-0 flex-1 overflow-y-auto px-5 py-4 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-border">
           {!hasAny ? (
-            <p className="py-10 text-center text-[13px] text-muted-foreground/70">
+            <p className="py-10 text-center text-[13px] text-muted-foreground/90">
               {isStreaming
                 ? "Story Mode and UIDAI/NITI data are compared at the end of a run, once every region's persona reply is written…"
                 : "Run a query to compare Story Mode's answer with UIDAI/NITI's official data, region by region and statewide."}

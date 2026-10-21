@@ -85,7 +85,7 @@ function useRenderer(pack: KnowledgePack | null) {
               <span
                 key={k}
                 title="This source was not among the sources the model was given — treat the claim as unverified."
-                className="mx-0.5 inline-block rounded bg-red-500/20 px-1.5 align-baseline text-[10px] leading-4 text-red-300"
+                className="mx-0.5 inline-block rounded bg-red-500/20 px-1.5 align-baseline text-[10px] leading-4 text-red-700 dark:text-red-300"
               >
                 ?
               </span>
@@ -186,7 +186,7 @@ function Bubble({ m, render }: { m: ChatMessage; render: (t: string, k: string[]
             <span className="size-1.5 animate-bounce rounded-full bg-muted-foreground/60" />
           </span>
         ) : m.status === "error" && !m.content ? (
-          <span className="text-red-300">{m.error ?? "That didn't work."}</span>
+          <span className="text-red-700 dark:text-red-300">{m.error ?? "That didn't work."}</span>
         ) : (
           <>
             {render(m.content, m.sourceIds)}
@@ -197,24 +197,24 @@ function Bubble({ m, render }: { m: ChatMessage; render: (t: string, k: string[]
               />
             )}
             {m.status === "stopped" && (
-              <p className="mt-1 text-[11px] text-muted-foreground/70">Stopped.</p>
+              <p className="mt-1 text-[11px] text-muted-foreground/90">Stopped.</p>
             )}
           </>
         )}
         {m.status === "done" && m.checks && m.checks.unseenNumbers.length > 0 && (
-          <p className="mt-2 rounded-md bg-amber-500/10 px-2 py-1 text-[11px] leading-snug text-amber-300/90">
+          <p className="mt-2 rounded-md bg-amber-500/10 px-2 py-1 text-[11px] leading-snug text-amber-800 dark:text-amber-300/90">
             Some figures here ({m.checks.unseenNumbers.slice(0, 4).join(", ")}) were not found in
             the research text the model was given — check the sources.
           </p>
         )}
         {m.status === "done" && m.checks && m.checks.unknownIds.length > 0 && (
-          <p className="mt-2 rounded-md bg-red-500/10 px-2 py-1 text-[11px] leading-snug text-red-300/90">
+          <p className="mt-2 rounded-md bg-red-500/10 px-2 py-1 text-[11px] leading-snug text-red-700 dark:text-red-300/90">
             This answer cites a source that wasn&apos;t provided to the model (marked ?). Treat that
             claim as unverified.
           </p>
         )}
         {m.refused && (
-          <p className="mt-1.5 text-[11px] text-muted-foreground/70">
+          <p className="mt-1.5 text-[11px] text-muted-foreground/90">
             Try asking about a district or region, why students leave school, the UIDAI/NITI check,
             or the personas.
           </p>
@@ -349,7 +349,7 @@ export function AskPanel() {
             </p>
           </div>
         ) : packFailed ? (
-          <p className="text-[12.5px] text-red-300">
+          <p className="text-[12.5px] text-red-700 dark:text-red-300">
             The research text could not be loaded. Please reload the page.
           </p>
         ) : !pack ? (
@@ -395,7 +395,7 @@ export function AskPanel() {
                 "flex items-center justify-between gap-3 rounded-lg px-3 py-2 text-[12px] " +
                 (notice.kind === "locked"
                   ? "bg-secondary/60 text-foreground/90"
-                  : "bg-red-500/10 text-red-300")
+                  : "bg-red-500/10 text-red-700 dark:text-red-300")
               }
             >
               <span>
@@ -487,7 +487,7 @@ export function AskPanel() {
               )}
             </form>
           )}
-          <p className="text-[10.5px] leading-snug text-muted-foreground/60">
+          <p className="text-[10.5px] leading-snug text-muted-foreground/90">
             AI-written from the research as of {builtOn}. Check the cited sources before relying on
             a figure.
           </p>
