@@ -18,6 +18,7 @@ import {
   type CollectionCounts,
   type DeflectionDatum,
   type LlmProvider,
+  type PersonaSimilarityMap,
   type PersonaSimilarityRegion,
   type QueryRunId,
   type QueryType,
@@ -69,6 +70,8 @@ export interface RunSnapshot {
   storyVsOfficial: Record<RegionId, StoryVsOfficial>;
   /** Regional persona replies compared with one Karnataka-wide answer. */
   personaSimilarity: Record<RegionId, PersonaSimilarityRegion>;
+  /** 2-D layout of those answers (saved runs only). */
+  personaSimilarityMap: PersonaSimilarityMap | null;
   status: StatusSnapshot;
 }
 
@@ -137,6 +140,7 @@ export interface WorldviewStore {
   storyVsOfficial: Record<RegionId, StoryVsOfficial>;
   /** Regional persona replies compared with one Karnataka-wide answer. */
   personaSimilarity: Record<RegionId, PersonaSimilarityRegion>;
+  personaSimilarityMap: PersonaSimilarityMap | null;
 
   // ── view state ──────────────────────────────────────────────────────────────
   layers: LayerToggles;
@@ -239,6 +243,7 @@ const EMPTY_DATA = {
   researchDocuments: [],
   storyVsOfficial: {},
   personaSimilarity: {},
+  personaSimilarityMap: null,
 } satisfies Omit<RunSnapshot, "status">;
 
 export const useWorldviewStore = create<WorldviewStore>((set, get) => ({
@@ -469,6 +474,7 @@ export const useWorldviewStore = create<WorldviewStore>((set, get) => ({
       researchDocuments: s.researchDocuments,
       storyVsOfficial: s.storyVsOfficial,
       personaSimilarity: s.personaSimilarity,
+      personaSimilarityMap: s.personaSimilarityMap,
       status: s.status,
     };
   },
@@ -499,6 +505,7 @@ export const useWorldviewStore = create<WorldviewStore>((set, get) => ({
       // that run just reloads without a Divergence tab.
       storyVsOfficial: data.storyVsOfficial ?? {},
       personaSimilarity: data.personaSimilarity ?? {},
+      personaSimilarityMap: data.personaSimilarityMap ?? null,
       status: data.status,
       selection: NO_SELECTION,
       hoveredClusterId: null,
@@ -533,7 +540,6 @@ export const useWorldviewStore = create<WorldviewStore>((set, get) => ({
     });
   },
 }));
-
 
 /**
  * Streaming answer reducer. Consecutive `body` chunks that share region/cluster

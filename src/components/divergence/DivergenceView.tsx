@@ -12,6 +12,8 @@
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 
+import { PersonaMap } from "@/components/divergence/PersonaMap";
+
 import {
   KARNATAKA_REGIONS,
   regionColor,
@@ -182,6 +184,7 @@ export function DivergenceView() {
         </header>
 
         <div className="min-h-0 flex-1 overflow-y-auto px-5 py-4 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-border">
+          <PersonaMap />
           {!hasAny ? (
             <p className="py-10 text-center text-[13px] text-muted-foreground/90">
               {isStreaming

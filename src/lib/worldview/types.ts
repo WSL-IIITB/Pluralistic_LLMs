@@ -280,6 +280,25 @@ export interface PersonaSimilarityRegion {
   femaleReply?: string;
 }
 
+/** One persona answer (or the generic answer) placed on the 2-D similarity map. */
+export interface PersonaMapPoint {
+  regionId: RegionId;
+  /** "baseline" = the answer without a persona; "male"/"female" = with that persona. */
+  condition: "baseline" | "male" | "female";
+  /** Start of the reply text, for the hover card. */
+  text: string;
+  /** Coordinates in [-1, 1] from t-SNE and from classical MDS (both on cosine distance). */
+  tsne: [number, number];
+  mds: [number, number];
+}
+
+/** 2-D map of every persona answer, precomputed by scripts/build_persona_map.py. */
+export interface PersonaSimilarityMap {
+  embeddingModel: string;
+  perplexity: number;
+  points: PersonaMapPoint[];
+}
+
 /** The single load-bearing proposition two viewpoints fork on. */
 export interface DeflectionDatum {
   id: string;
