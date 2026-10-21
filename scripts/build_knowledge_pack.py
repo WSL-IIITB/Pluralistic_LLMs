@@ -121,6 +121,7 @@ def build() -> dict:
     sources: list[dict] = []
     gid_by_url: dict[str, str] = {}
     local_to_global: dict[str, dict[int, str]] = {}
+    why_to_global: dict[str, dict[int, str]] = {}
     for did in sorted(research):
         local_to_global[did] = {}
         for s in research[did]["sources"]:
@@ -129,6 +130,14 @@ def build() -> dict:
                 gid_by_url[s["url"]] = gid
                 sources.append({"id": gid, "title": s["title"][:150], "outlet": s["outlet"], "date": s["date"], "type": s["type"], "url": s["url"]})
             local_to_global[did][s["id"]] = gid_by_url[s["url"]]
+        # the "why is this factor dominant" answer carries its own source list (ids local to that block)
+        why_to_global[did] = {}
+        for s in (research[did].get("dominantFactorWhy") or {}).get("sources", []):
+            if s["url"] not in gid_by_url:
+                gid = f"S{len(sources) + 1}"
+                gid_by_url[s["url"]] = gid
+                sources.append({"id": gid, "title": s["title"][:150], "outlet": s["outlet"], "date": s["date"], "type": s["type"], "url": s["url"]})
+            why_to_global[did][s["id"]] = gid_by_url[s["url"]]
 
     def cites(did: str, ids: list[int]) -> str:
         return "".join(f"[{local_to_global[did][i]}]" for i in ids if i in local_to_global[did])
@@ -190,6 +199,21 @@ def build() -> dict:
             L.append("UIDAI/NITI factors checked against local evidence:")
             for c in checks:
                 L.append(f"- {c['method']}-method factor \"{c['factor']}\": {c['verdict']}. {c['note']} {cites(did, c['sources'])}".rstrip())
+        why = d.get("dominantFactorWhy") or {}
+        if why.get("entries"):
+            L.append("Why each dominant factor may or may not matter here (deep-research answers, each proof item checked against its page):")
+            for e in why["entries"]:
+                def proofs(scope: str) -> str:
+                    return " ".join(
+                        f"{p['claim']} " + "".join(f"[{why_to_global[did][i]}]" for i in p["sources"] if i in why_to_global[did])
+                        for p in e["proof"] if p["scope"] == scope
+                    )
+                parts = [f"- {e['method']}-method factor \"{e['factor']}\": {e['verdict']}. {e['why']}"]
+                if proofs("district"):
+                    parts.append(f"Proof about this district (DISTRICT): {proofs('district')}")
+                if proofs("general"):
+                    parts.append(f"General research from elsewhere, not local evidence (GENERAL): {proofs('general')}")
+                L.append(" ".join(parts))
         if d["headlines"]:
             L.append("Recent coverage:")
             for h in d["headlines"][:3]:

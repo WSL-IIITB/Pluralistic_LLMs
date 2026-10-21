@@ -62,6 +62,26 @@ def check_file(path: str) -> list[str]:
             problems.append(f"bad verdict {chk.get('verdict')!r}")
         if chk.get("method") not in {"state", "district"}:
             problems.append(f"bad method {chk.get('method')!r}")
+    why = d.get("dominantFactorWhy")
+    if why is not None:
+        wn = len(why.get("sources", []))
+        if [x.get("id") for x in why.get("sources", [])] != list(range(1, wn + 1)):
+            problems.append("dominantFactorWhy: source ids are not 1..n")
+        for e in why.get("entries", []):
+            if e.get("verdict") not in {"supported", "partly", "not-supported", "no-evidence"}:
+                problems.append(f"dominantFactorWhy: bad verdict {e.get('verdict')!r}")
+            if e.get("method") not in {"state", "district"}:
+                problems.append(f"dominantFactorWhy: bad method {e.get('method')!r}")
+            has_local = False
+            for p in e.get("proof", []):
+                if p.get("scope") not in {"district", "general"}:
+                    problems.append(f"dominantFactorWhy: bad proof scope {p.get('scope')!r}")
+                has_local |= p.get("scope") == "district"
+                for sid in p.get("sources", []):
+                    if not isinstance(sid, int) or not 1 <= sid <= wn:
+                        problems.append(f"dominantFactorWhy: proof source {sid} out of range")
+            if e.get("verdict") == "supported" and not has_local:
+                problems.append("dominantFactorWhy: 'supported' without district-specific proof")
     if d["coverage"] not in {"rich", "moderate", "thin"}:
         problems.append(f"bad coverage {d['coverage']!r}")
     return problems

@@ -23,6 +23,36 @@ export interface ResearchSource {
   type: "news" | "government" | "ngo" | "research" | "data";
 }
 
+/** One proof item for a dominant factor: "district" proof comes from a page about this district, "general" from research elsewhere. */
+export interface FactorWhyProof {
+  scope: "district" | "general";
+  claim: string;
+  quote: string;
+  /** ids into DominantFactorWhy.sources (not the district's main sources) */
+  sources: number[];
+}
+
+export interface FactorWhyEntry {
+  factor: string;
+  method: "state" | "district";
+  area: string;
+  verdict: "supported" | "partly" | "not-supported" | "no-evidence";
+  why: string;
+  /** Causal route in general terms — not local evidence. */
+  mechanism: string;
+  proof: FactorWhyProof[];
+}
+
+/** Deep-research answer to "why is this factor dominant here?", verified against the cited pages. */
+export interface DominantFactorWhy {
+  researchedOn: string;
+  entries: FactorWhyEntry[];
+  sources: ResearchSource[];
+  gaps: string;
+  /** What was dropped or downgraded during verification. */
+  notes: string[];
+}
+
 export interface DistrictResearch {
   districtId: string;
   name: string;
@@ -49,6 +79,8 @@ export interface DistrictResearch {
     note: string;
     sources: number[];
   }[];
+  /** Why each UIDAI/NITI dominant factor would drive dropout here, with verified proof (absent until researched). */
+  dominantFactorWhy?: DominantFactorWhy;
   coverage: "rich" | "moderate" | "thin";
   gaps: string;
   /** What was dropped or corrected when the report was checked against its cited pages. */
@@ -93,7 +125,10 @@ function load(districtId: string): void {
   if (STATIC_DATA) {
     // No per-district endpoint in a static build: read it out of the bulk snapshot.
     void fetchAllDistrictResearch().then((all) => {
-      cache.set(districtId, all?.[districtId] ? { status: "ready", data: all[districtId] } : { status: "none" });
+      cache.set(
+        districtId,
+        all?.[districtId] ? { status: "ready", data: all[districtId] } : { status: "none" },
+      );
       listeners.forEach((notify) => notify());
     });
     return;
