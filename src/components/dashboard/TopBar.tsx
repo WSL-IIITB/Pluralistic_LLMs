@@ -1,4 +1,4 @@
-import { STATIC_DATA } from "@/lib/worldview/api";
+import { assetUrl, STATIC_DATA } from "@/lib/worldview/api";
 import { DASHBOARD_TABS, type DashboardTab } from "@/lib/worldview/explorer";
 
 export { DASHBOARD_TABS, type DashboardTab };
@@ -11,11 +11,18 @@ type TopBarProps = {
 export function TopBar({ activeTab, onTabChange }: TopBarProps) {
   return (
     <header className="fixed inset-x-0 top-0 z-40 flex h-14 items-center justify-between border-b border-panel-border bg-background/80 px-5 backdrop-blur-xl">
-      <div className="flex items-baseline gap-3">
+      <div className="flex items-center gap-3">
+        <img
+          src={assetUrl("favicon.svg")}
+          alt=""
+          width={24}
+          height={24}
+          className="size-6 rounded-md"
+        />
         <h1 className="text-sm font-medium tracking-tight text-foreground">
           Pluralistic Karnataka
         </h1>
-        <span className="label-micro">Worldview Explorer</span>
+        <span className="label-micro self-end pb-px">Worldview Explorer</span>
       </div>
 
       <nav aria-label="Dashboard sections" className="flex items-center gap-1">

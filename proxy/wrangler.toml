@@ -22,6 +22,7 @@ namespace_id = "1001"
 # them with `wrangler secret put <NAME>` instead (see ../README.md):
 #   SHARED_PASSPHRASE            the passphrase you hand out to the lab (backend only: /gemma, /claude)
 #   CHAT_PASSPHRASE              the TEAM passphrase typed into the dashboard's chat (/chat only)
+#   GEMMA_API_KEY                optional bearer token for the model server
 #   GEMMA_UPSTREAM_URL           real self-hosted Gemma base URL, e.g. http://<ip>:<port>
 #   AZURE_ANTHROPIC_UPSTREAM_URL real Azure AI Foundry endpoint for Claude
 #   AZURE_ANTHROPIC_API_KEY      real Azure AI Foundry API key

@@ -23,6 +23,8 @@ export interface ChatEnv {
   CHAT_PASSPHRASE?: string;
   GEMMA_UPSTREAM_URL?: string;
   GEMMA_MODEL?: string;
+  /** Optional bearer token for the model server (Worker secret). */
+  GEMMA_API_KEY?: string;
   /** Comma-separated exact origins (scheme + host [+ port], no path), e.g. https://org.github.io */
   ALLOWED_ORIGINS?: string;
   CHAT_LIMITER?: RateLimiter;
@@ -121,9 +123,11 @@ export async function handleChat(request: Request, env: ChatEnv): Promise<Respon
   if (hasOrigin && !origin) return fail(403, "forbidden_origin", "This origin is not allowed.", null);
 
   // Throttle first, per IP, so passphrase guessing is limited as much as normal use.
+  if (!env.CHAT_LIMITER) console.log("chat: no rate limiter bound -- requests are NOT being throttled");
   if (env.CHAT_LIMITER) {
     const ip = request.headers.get("cf-connecting-ip") ?? "unknown";
     const { success } = await env.CHAT_LIMITER.limit({ key: `chat:${ip}` });
+    console.log(`chat: rate limiter ${success ? "allowed" : "blocked"} a request (key ${ip === "unknown" ? "unknown" : "ip"})`);
     if (!success) return fail(429, "rate_limited", "Too many requests. Try again in a minute.", origin, { "retry-after": "60" });
   }
 
@@ -163,7 +167,7 @@ export async function handleChat(request: Request, env: ChatEnv): Promise<Respon
   try {
     upstream = await fetch(`${env.GEMMA_UPSTREAM_URL.replace(/\/$/, "")}/v1/chat/completions`, {
       method: "POST",
-      headers: { "content-type": "application/json", authorization: "Bearer not-needed" },
+      headers: { "content-type": "application/json", authorization: `Bearer ${env.GEMMA_API_KEY || "not-needed"}` },
       body: JSON.stringify(upstreamBody),
       signal: abort.signal,
     });
@@ -176,7 +180,7 @@ export async function handleChat(request: Request, env: ChatEnv): Promise<Respon
   }
   if (!upstream.ok) {
     const detail = (await upstream.text().catch(() => "")).slice(0, 400);
-    console.log(`chat: upstream status ${upstream.status}`);
+    console.log(`chat: upstream status ${upstream.status} server=${upstream.headers.get("server") ?? "?"} type=${upstream.headers.get("content-type") ?? "?"} body=${detail.slice(0, 160).replace(/\s+/g, " ")}`);
     if (upstream.status === 400 && /context length|maximum context/i.test(detail))
       return fail(413, "too_large", "That question needed too much context. Try a narrower question.", origin);
     return fail(502, "upstream_unavailable", "The model is unavailable right now.", origin);

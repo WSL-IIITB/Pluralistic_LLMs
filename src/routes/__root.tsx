@@ -11,6 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { assetUrl } from "../lib/worldview/api";
 
 function NotFoundComponent() {
   return (
@@ -103,8 +104,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
-      { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
+      { rel: "icon", href: assetUrl("favicon.svg"), type: "image/svg+xml" },
+      { rel: "icon", href: assetUrl("favicon-32.png"), type: "image/png", sizes: "32x32" },
+      { rel: "icon", href: assetUrl("favicon.ico"), sizes: "any" },
+      { rel: "apple-touch-icon", href: assetUrl("apple-touch-icon.png") },
     ],
   }),
 
