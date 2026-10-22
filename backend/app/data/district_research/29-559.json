@@ -294,5 +294,49 @@
   ],
   "coverage": "moderate",
   "gaps": "Rescue figure and survey are several years old; no recent dropout rate or SSLC rank. No Raichur-specific data found on child marriage, Lambani tanda access, cotton or paddy child labour, or current out-of-school counts; Deccan Herald and The Hindu pages could not be fetched, so the flood-year report is undated and snippet-based.",
-  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages.",
+  "dominantFactorWhy": {
+    "researchedOn": "2026-10-22",
+    "entries": [
+      {
+        "factor": "% Population Living in Households with Improved Sanitation",
+        "method": "state",
+        "area": "Raichur",
+        "verdict": "partly",
+        "why": "Raichur has sizable rural population with sanitation challenges. If many schools lack toilets, girls missing school during menstruation could raise dropouts.",
+        "mechanism": "Lack of toilets at school -> girls skip classes monthly -> fall behind and drop out",
+        "proof": [
+          {
+            "scope": "general",
+            "claim": "Millions of Indian girls drop out annually due to menstruation issues",
+            "quote": "Millions of adolescent girls drop out of school every year",
+            "sources": [
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Schools with instruction medium 1 (English)",
+        "method": "district",
+        "area": "Raichur",
+        "verdict": "no-evidence",
+        "why": "No specific studies for Raichur on English-medium schooling and dropout. It remains unclear how language medium influences local dropout rates.",
+        "mechanism": "Heavy reliance on English in schools can make learning hard for non-English speakers, which may indirectly cause dropouts",
+        "proof": []
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11086754/",
+        "title": "Menstrual hygiene management and menstrual problems among adolescent girls in an urban area in north India: A cross-sectional study - PMC",
+        "outlet": "Journal of Family Medicine and Primary Care",
+        "date": "2024-04-04",
+        "type": "research"
+      }
+    ],
+    "gaps": "Local surveys or reports on sanitation and English-medium schools in Raichur are lacking, so conclusions rely on general research findings.",
+    "notes": []
+  }
 }

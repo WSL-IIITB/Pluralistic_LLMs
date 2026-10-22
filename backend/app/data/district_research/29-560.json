@@ -345,5 +345,49 @@
   ],
   "coverage": "moderate",
   "gaps": "No dropout counts or SSLC figures; the labour statistic is regional, not district-level. No Koppal-specific figures found on out-of-school counts, SSLC dropout by gender, Devadasi-linked exits or tanda access; sugarcane migration is mentioned without counts. Deccan Herald and The Hindu pages could not be fetched.",
-  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages.",
+  "dominantFactorWhy": {
+    "researchedOn": "2026-10-22",
+    "entries": [
+      {
+        "factor": "% Population Living in Households with Improved Sanitation",
+        "method": "state",
+        "area": "Koppal",
+        "verdict": "partly",
+        "why": "Koppal’s rural areas often lack proper sanitation. Girls may skip school during menstruation if toilets are unavailable, making dropout likely.",
+        "mechanism": "No sanitation facilities at school -> girls miss school cyclically -> lose learning and eventually drop out",
+        "proof": [
+          {
+            "scope": "general",
+            "claim": "Millions of Indian girls drop out annually due to menstruation issues",
+            "quote": "Millions of adolescent girls drop out of school every year",
+            "sources": [
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Schools with instruction medium 1 (English)",
+        "method": "district",
+        "area": "Koppal",
+        "verdict": "no-evidence",
+        "why": "No Koppal-specific data on English-medium instruction impacting dropout was found. The effect of language medium here is unclear.",
+        "mechanism": "English-only instruction may be challenging for local students, which could contribute to dropout in theory",
+        "proof": []
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11086754/",
+        "title": "Menstrual hygiene management and menstrual problems among adolescent girls in an urban area in north India: A cross-sectional study - PMC",
+        "outlet": "Journal of Family Medicine and Primary Care",
+        "date": "2024-04-04",
+        "type": "research"
+      }
+    ],
+    "gaps": "Unable to find any local evidence on sanitation or English-medium schooling affecting dropouts in Koppal; analysis depends on general studies.",
+    "notes": []
+  }
 }

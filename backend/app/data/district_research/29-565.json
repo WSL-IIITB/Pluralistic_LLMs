@@ -262,5 +262,76 @@
   ],
   "coverage": "moderate",
   "gaps": "Mining-belt, poverty and mass-wedding claims were dropped (social-media post; statewide article); no SSLC or migration data. Vijayanagara not separately covered. No Ballari or Vijayanagara source on mining-belt effects, child labour, Devadasi practice, child marriage, Lambani tanda access or migration; no UDISE+ dropout rate; Vijayanagara-specific dropout counts missing; The Hindu and Times of India items not retrievable.",
-  "verificationNotes": "Dropped reason 'Mass weddings used to marry girls': cited page(s) do not name the district. Dropped news item (cite 42): page does not name the district."
+  "verificationNotes": "Dropped reason 'Mass weddings used to marry girls': cited page(s) do not name the district. Dropped news item (cite 42): page does not name the district.",
+  "dominantFactorWhy": {
+    "researchedOn": "2026-10-22",
+    "entries": [
+      {
+        "factor": "% Population Living in Households with Improved Sanitation",
+        "method": "state",
+        "area": "Ballari",
+        "verdict": "partly",
+        "why": "Ballari (including Vijayanagara) has many rural areas with poor sanitation. Lack of toilets in schools can force menstruating girls to miss classes and drop out.",
+        "mechanism": "No toilets at school -> girls skip school monthly -> attendance drops -> exit from school",
+        "proof": [
+          {
+            "scope": "general",
+            "claim": "Millions of Indian girls drop out annually due to menstruation issues",
+            "quote": "Millions of adolescent girls drop out of school every year",
+            "sources": [
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Population Living in Households with Improved Sanitation",
+        "method": "state",
+        "area": "Vijayanagara",
+        "verdict": "partly",
+        "why": "Vijayanagara taluk (carved from Ballari) similarly struggles with sanitation. Inadequate school toilets may lead to girls leaving school when menstruating.",
+        "mechanism": "Poor sanitation in school -> girls absent on periods -> ultimately drop out",
+        "proof": [
+          {
+            "scope": "general",
+            "claim": "Millions of Indian girls drop out annually due to menstruation issues",
+            "quote": "Millions of adolescent girls drop out of school every year",
+            "sources": [
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Schools with instruction medium 1 (English)",
+        "method": "district",
+        "area": "Ballari",
+        "verdict": "no-evidence",
+        "why": "No evidence specific to Ballari on English-medium schooling affecting dropout. The district’s high dropout rate likely has other causes.",
+        "mechanism": "Instruction in English could be difficult for students who speak local languages, potentially contributing to dropout in theory",
+        "proof": []
+      },
+      {
+        "factor": "% Schools with instruction medium 1 (English)",
+        "method": "district",
+        "area": "Vijayanagara",
+        "verdict": "no-evidence",
+        "why": "No specific studies for Vijayanagara taluk on this factor. We found no data linking English instruction to dropouts here.",
+        "mechanism": "English-only classes may hinder learning for some students, risking dropout in general",
+        "proof": []
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11086754/",
+        "title": "Menstrual hygiene management and menstrual problems among adolescent girls in an urban area in north India: A cross-sectional study - PMC",
+        "outlet": "Journal of Family Medicine and Primary Care",
+        "date": "2024-04-04",
+        "type": "research"
+      }
+    ],
+    "gaps": "Local information on sanitation facilities and medium of instruction in Ballari and Vijayanagara taluk was unavailable, so we rely on general findings.",
+    "notes": []
+  }
 }
