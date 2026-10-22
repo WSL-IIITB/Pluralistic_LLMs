@@ -123,7 +123,10 @@ function useRenderer(pack: KnowledgePack | null) {
       // The default scope tag, and any section name the model wrongly wrote as a "citation", are noise.
       const text = rawText
         .replace(/\s*\((?:DISTRICT|GENERAL)\)/g, "")
-        .replace(/\s*\[(?:DIGEST|CAVEATS|UIDAI|ANALYSIS|PERSONAS|REGION|DISTRICT|SYNTHESIS|GENERAL|STATEWIDE|REGIONAL|PERSONA|SOURCES)[^\]]*\]/g, "");
+        .replace(
+          /\s*\[(?:DIGEST|CAVEATS|UIDAI|ANALYSIS|PERSONAS|REGION|DISTRICT|SYNTHESIS|GENERAL|STATEWIDE|REGIONAL|PERSONA|SOURCES)[^\]]*\]/g,
+          "",
+        );
       const blocks: ReactNode[] = [];
       let list: string[] = [];
       const flush = () => {
