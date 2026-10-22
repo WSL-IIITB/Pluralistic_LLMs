@@ -9,11 +9,14 @@
 import { ChevronDown } from "lucide-react";
 import { useEffect, useState } from "react";
 
+import { WHY_STYLE } from "@/components/dashboard/map/factorWhyStyle";
 import { useTheme } from "@/lib/theme";
 import {
   KARNATAKA_REGIONS,
   personaCard,
   rgbaCss,
+  useDistrictProfiles,
+  useDistrictResearch,
   useExplorerStore,
   usePersonaProfile,
   useWorldviewStore,
@@ -347,6 +350,108 @@ function TopicExplorer({
   );
 }
 
+/** The region's two UIDAI/NITI dominant factors, how each could reach this persona, and what the research says for their district. */
+function DominantFactors({ card, regionId }: { card: PersonaCard; regionId: string }) {
+  const fx = card.factorEffects;
+  const { byId } = useDistrictProfiles();
+  const research = useDistrictResearch(fx?.districtId ?? null);
+  const focusDistrict = useExplorerStore((s) => s.focusDistrict);
+  if (!fx) return null;
+
+  const profile = byId[fx.districtId];
+  const districtName = research.status === "ready" ? research.data.name : card.place;
+  const why = research.status === "ready" ? research.data.dominantFactorWhy : undefined;
+  const blocks = [
+    { method: "state", title: "State-level factor", line: fx.sanitation },
+    { method: "district", title: "District-level factor", line: fx.district },
+  ] as const;
+
+  return (
+    <div className="space-y-2.5">
+      <div className="grid gap-2.5 @xl:grid-cols-2">
+        {blocks.map((b) => {
+          const rows = (profile?.nitiFactors ?? []).filter((f) => f.method === b.method);
+          const entries = why?.entries.filter((e) => e.method === b.method) ?? [];
+          return (
+            <div
+              key={b.method}
+              className="rounded-xl border border-panel-border bg-secondary/30 p-3.5"
+            >
+              <p className="label-micro">{b.title}</p>
+              {rows[0] && (
+                <p className="mt-1 text-[12.5px] font-semibold text-foreground">{rows[0].factor}</p>
+              )}
+              {rows.length > 0 && (
+                <p className="mt-1 text-[11px] text-muted-foreground">
+                  {districtName}:{" "}
+                  {rows
+                    .map(
+                      (f) =>
+                        `${f.area.toLowerCase() === districtName.toLowerCase() ? "" : `${f.area} `}${f.value}`,
+                    )
+                    .join(" · ")}
+                </p>
+              )}
+              <p className="mt-2 text-[12px] leading-snug text-foreground/90">{b.line}</p>
+              <div className="mt-2.5 border-t border-panel-border pt-2">
+                <p className="text-[10px] font-medium tracking-wide text-muted-foreground uppercase">
+                  What the research found in {districtName}
+                </p>
+                {research.status === "loading" ? (
+                  <p className="mt-1 text-[11px] text-muted-foreground">Loading…</p>
+                ) : entries.length > 0 ? (
+                  <div className="mt-1.5 space-y-1.5">
+                    {entries.slice(0, 2).map((e, i) => (
+                      <div key={i}>
+                        <span
+                          className={
+                            "rounded-full px-2 py-0.5 text-[10px] font-medium " +
+                            WHY_STYLE[e.verdict].className
+                          }
+                        >
+                          {WHY_STYLE[e.verdict].label}
+                        </span>
+                        {entries.length > 1 && e.area && (
+                          <span className="ml-1.5 text-[10.5px] text-muted-foreground">
+                            {e.area}
+                          </span>
+                        )}
+                        {i === 0 && (
+                          <p className="mt-1 line-clamp-3 text-[11px] leading-snug text-muted-foreground">
+                            {e.why}
+                          </p>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <p className="mt-1 text-[11px] leading-snug text-muted-foreground">
+                    Not yet researched for this district.
+                  </p>
+                )}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <p className="max-w-[560px] text-[10.5px] leading-snug text-muted-foreground">
+          The sentences above are an interpretation of this persona&apos;s profile, written
+          conditionally: the persona data does not measure these factors. The research verdicts are
+          real, checked against cited pages.
+        </p>
+        <button
+          type="button"
+          onClick={() => focusDistrict(fx.districtId, regionId)}
+          className="rounded-full border border-panel-border px-3 py-1.5 text-[11px] font-medium text-foreground transition-colors hover:bg-secondary"
+        >
+          See the proof for {districtName} on the map
+        </button>
+      </div>
+    </div>
+  );
+}
+
 function SchoolPressures({ card, color }: { card: PersonaCard; color: RGBAColor }) {
   return (
     <div className="grid gap-2 @xl:grid-cols-2">
@@ -365,6 +470,15 @@ function SchoolPressures({ card, color }: { card: PersonaCard; color: RGBAColor 
           <div className="min-w-0">
             <p className="text-[12.5px] font-semibold text-foreground">{p.label}</p>
             <p className="mt-0.5 text-[12px] leading-snug text-muted-foreground">{p.detail}</p>
+            {card.factorEffects?.pressures[i] && (
+              <p
+                className="mt-2 border-l-2 pl-2.5 text-[11.5px] leading-snug text-foreground/90"
+                style={{ borderColor: rgbaCss(color, 0.75) }}
+              >
+                <span className="font-semibold">What it does: </span>
+                {card.factorEffects.pressures[i]}
+              </p>
+            )}
           </div>
         </div>
       ))}
@@ -482,6 +596,11 @@ function PersonaView({ regionId, personaId }: { regionId: string; personaId: str
       <Section title="What pulls kids out of school here">
         <SchoolPressures card={card} color={region.color} />
       </Section>
+      {card.factorEffects && (
+        <Section title="How the dominant factors reach them">
+          <DominantFactors card={card} regionId={regionId} />
+        </Section>
+      )}
       <Section title="What keeps them up at night">
         <div className="flex flex-wrap gap-2">
           {card.worries.map((w) => (

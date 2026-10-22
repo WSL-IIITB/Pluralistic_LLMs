@@ -9,6 +9,17 @@ export interface PersonaCardTopic {
   stat?: { value: string; label: string };
 }
 
+export interface PersonaFactorEffects {
+  /** District this persona lives in (e.g. "29-573"); used to look up its dominant-factor rows and research. */
+  districtId: string;
+  /** One line per `schoolPressures` item, same order: what that pressure does to this household. */
+  pressures: string[];
+  /** If-then line for the state-level factor (household sanitation). */
+  sanitation: string;
+  /** Line for the district-level factor, anchored in what the card itself shows. */
+  district: string;
+}
+
 export interface PersonaCard {
   name: string;
   ageLabel: string;
@@ -23,6 +34,8 @@ export interface PersonaCard {
   topics: PersonaCardTopic[];
   schoolPressures: { emoji: string; label: string; detail: string }[];
   worries: string[];
+  /** How each listed pressure and the region's dominant factors would reach this persona (see SCHEMA.md). */
+  factorEffects?: PersonaFactorEffects;
 }
 
 type RegionCards = Record<string, PersonaCard>;

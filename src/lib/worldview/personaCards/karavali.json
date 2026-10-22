@@ -190,7 +190,18 @@
       "Monsoon road damage",
       "Ghats ESA restrictions",
       "Daughter's schooling"
-    ]
+    ],
+    "factorEffects": {
+      "districtId": "29-563",
+      "pressures": [
+        "The pre-university colleges are in Sirsi and Siddapur, so infrequent buses and washed-out monsoon roads decide whether his daughter can keep going after Class 10.",
+        "Kyasanur Forest Disease months and precaution drives can keep his daughter home, and each missed spell makes it harder to catch up.",
+        "In a small hamlet the government school is more likely to be understaffed or single-teacher, so what she learns by Class 10 depends on who is posted.",
+        "During harvest weeks she sorts and dries areca nuts after school, which eats study time just when the family is busiest."
+      ],
+      "sanitation": "If his household lacked a proper toilet, his 15-year-old daughter would feel it first; the card gives no sign this is his family's problem.",
+      "district": "The factor flags the share of English-medium schools in Uttara Kannada. The card shows distance, disease months, thin hamlet schools and harvest chores as the pressures, not language."
+    }
   },
   "female": {
     "name": "The Malpe fisherman's wife",
@@ -379,6 +390,17 @@
       "Unstable hospital referrals",
       "2019 CRZ changes",
       "Kids finishing Class 10"
-    ]
+    ],
+    "factorEffects": {
+      "districtId": "29-569",
+      "pressures": [
+        "A boat owner's steady wages can pull her Class 10 son into paid harbour work, so a ready job competes with the exam year.",
+        "Peak-season fish processing draws adolescent girls into paid work, which could affect her 12-year-old daughter as she grows older.",
+        "Better-off families move to private English-medium schools, leaving poorer ones in thinner government schools, so her children get less from the same years.",
+        "A distant pre-university college raises cost and safety worries for her daughter, so the commute may end her schooling after Class 10."
+      ],
+      "sanitation": "If her household lacked a proper toilet, her 12-year-old daughter's attendance would suffer first as she nears puberty.",
+      "district": "The factor flags the share of English-medium schools in Udupi. The card notes that private English-medium schools draw better-off families, leaving poorer ones in thinner government schools, which is how it could touch her children."
+    }
   }
 }

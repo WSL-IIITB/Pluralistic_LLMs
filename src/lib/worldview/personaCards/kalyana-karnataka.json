@@ -8,23 +8,67 @@
     "community": "Lingayat",
     "tagline": "A rainfed Lingayat farmer whose year rides on tur-dal and cotton prices.",
     "household": [
-      { "who": "Wife", "emoji": "👩" },
-      { "who": "Widowed mother, in her seventies", "emoji": "👵" },
-      { "who": "Two sons", "emoji": "👦" },
-      { "who": "Daughter", "emoji": "👧" }
+      {
+        "who": "Wife",
+        "emoji": "👩"
+      },
+      {
+        "who": "Widowed mother, in her seventies",
+        "emoji": "👵"
+      },
+      {
+        "who": "Two sons",
+        "emoji": "👦"
+      },
+      {
+        "who": "Daughter",
+        "emoji": "👧"
+      }
     ],
     "vitals": [
-      { "label": "Land", "value": "3-4 acres, rainfed" },
-      { "label": "Crops", "value": "Tur dal & cotton" },
-      { "label": "His schooling", "value": "Up to class 8" },
-      { "label": "Children", "value": "3 (2 sons, 1 daughter)" }
+      {
+        "label": "Land",
+        "value": "3-4 acres, rainfed"
+      },
+      {
+        "label": "Crops",
+        "value": "Tur dal & cotton"
+      },
+      {
+        "label": "His schooling",
+        "value": "Up to class 8"
+      },
+      {
+        "label": "Children",
+        "value": "3 (2 sons, 1 daughter)"
+      }
     ],
     "dayInLife": [
-      { "when": "Before sunrise", "emoji": "🐂", "text": "Feeds the pair of bullocks, then walks his plot checking tur dal for pod borer damage." },
-      { "when": "Market weeks", "emoji": "🏪", "text": "Sells tur at the Kalaburagi APMC yard, sometimes waiting days for a fair price." },
-      { "when": "Winter", "emoji": "🌼", "text": "Cotton is picked by hand over several weeks, with his wife and mother helping." },
-      { "when": "Lean months", "emoji": "🧱", "text": "Farm income all but stops for two to three months; he has taken hired labour nearby." },
-      { "when": "Drought year", "emoji": "🚌", "text": "Once travelled to Hyderabad for a season of construction work after a poor monsoon." }
+      {
+        "when": "Before sunrise",
+        "emoji": "🐂",
+        "text": "Feeds the pair of bullocks, then walks his plot checking tur dal for pod borer damage."
+      },
+      {
+        "when": "Market weeks",
+        "emoji": "🏪",
+        "text": "Sells tur at the Kalaburagi APMC yard, sometimes waiting days for a fair price."
+      },
+      {
+        "when": "Winter",
+        "emoji": "🌼",
+        "text": "Cotton is picked by hand over several weeks, with his wife and mother helping."
+      },
+      {
+        "when": "Lean months",
+        "emoji": "🧱",
+        "text": "Farm income all but stops for two to three months; he has taken hired labour nearby."
+      },
+      {
+        "when": "Drought year",
+        "emoji": "🚌",
+        "text": "Once travelled to Hyderabad for a season of construction work after a poor monsoon."
+      }
     ],
     "topics": [
       {
@@ -37,7 +81,10 @@
           "Lean period of two to three months between tur and cotton seasons, when farm income all but stops.",
           "Draws groundwater with a diesel pump-set from a shared borewell; there is no canal command in his part of Aland."
         ],
-        "stat": { "value": "Rs 12,750 → 6,250", "label": "Tur price per quintal, Kalaburagi, 2016-17 glut" }
+        "stat": {
+          "value": "Rs 12,750 → 6,250",
+          "label": "Tur price per quintal, Kalaburagi, 2016-17 glut"
+        }
       },
       {
         "key": "family_and_household",
@@ -60,7 +107,10 @@
           "His daughter's secondary school is several kilometres away, reached by a KKRTC bus that does not always match school hours.",
           "He hopes Article 371(J) domicile quotas might help his younger son reach a polytechnic or government job."
         ],
-        "stat": { "value": "Up to 70%", "label": "Professional-course seats reserved in the region under Article 371(J) (2012)" }
+        "stat": {
+          "value": "Up to 70%",
+          "label": "Professional-course seats reserved in the region under Article 371(J) (2012)"
+        }
       },
       {
         "key": "health_and_wellbeing",
@@ -94,7 +144,10 @@
           "Gets Anna Bhagya grain and gas refills and Gruha Jyothi relief; his wife and daughter ride Shakti buses free.",
           "Finds KKRDB-funded projects announced for his taluk slow to materialise."
         ],
-        "stat": { "value": "28,000+", "label": "Works sanctioned 2013-14 to 2021-22; thousands not begun (CAG 2022)" }
+        "stat": {
+          "value": "28,000+",
+          "label": "Works sanctioned 2013-14 to 2021-22; thousands not begun (CAG 2022)"
+        }
       },
       {
         "key": "worldview_and_concerns",
@@ -109,10 +162,26 @@
       }
     ],
     "schoolPressures": [
-      { "emoji": "🌿", "label": "Cotton season", "detail": "His elder son missed what would have been his first PUC year because he was needed for cotton-picking." },
-      { "emoji": "🚌", "label": "Costly commutes", "detail": "The nearest PUC with a science stream needs a daily bus commute the family judged too costly." },
-      { "emoji": "🌧️", "label": "Bad monsoon", "detail": "A poor monsoon can turn into hired labour or short migration for the whole family." },
-      { "emoji": "👧", "label": "Girls' care work", "detail": "His daughter helps with cooking and sibling care after school, which can make girls fall behind." }
+      {
+        "emoji": "🌿",
+        "label": "Cotton season",
+        "detail": "His elder son missed what would have been his first PUC year because he was needed for cotton-picking."
+      },
+      {
+        "emoji": "🚌",
+        "label": "Costly commutes",
+        "detail": "The nearest PUC with a science stream needs a daily bus commute the family judged too costly."
+      },
+      {
+        "emoji": "🌧️",
+        "label": "Bad monsoon",
+        "detail": "A poor monsoon can turn into hired labour or short migration for the whole family."
+      },
+      {
+        "emoji": "👧",
+        "label": "Girls' care work",
+        "detail": "His daughter helps with cooking and sibling care after school, which can make girls fall behind."
+      }
     ],
     "worries": [
       "Tur-dal price crashes",
@@ -121,7 +190,18 @@
       "Daughter's dowry costs",
       "Slow domicile-quota delivery",
       "Distance to specialist care"
-    ]
+    ],
+    "factorEffects": {
+      "districtId": "29-579",
+      "pressures": [
+        "His elder son missed his first PUC year for cotton-picking. When the crop needs hands, schooling is what gets traded away, and his younger children face the same choice.",
+        "The PUC with a science stream needs a daily bus commute the family judged too costly, so the fee and fare decide the stream, or whether the next child continues.",
+        "A poor monsoon can turn the whole family to hired labour or short migration, taking children out of class for the season.",
+        "Falling behind is what makes leaving feel reasonable later, so his daughter's after-school chores are an early step toward her exit."
+      ],
+      "sanitation": "If his household lacks a proper toilet, his daughter, who already juggles cooking and sibling care, would be the first to miss school.",
+      "district": "The factor flags the share of English-medium schools in Kalaburagi. The card shows cotton season, commute cost and a bad monsoon as what costs his children school, not language."
+    }
   },
   "female": {
     "name": "The Sandur Lambani woman",
@@ -132,23 +212,67 @@
     "community": "Lambani (Banjara)",
     "tagline": "A Lambani embroiderer stitching piecework and farm wages to hold a mining household together.",
     "household": [
-      { "who": "Husband, daily-wage labourer", "emoji": "👨" },
-      { "who": "Two daughters", "emoji": "👧" },
-      { "who": "Son", "emoji": "👦" },
-      { "who": "Husband's parents, nearby", "emoji": "👴" }
+      {
+        "who": "Husband, daily-wage labourer",
+        "emoji": "👨"
+      },
+      {
+        "who": "Two daughters",
+        "emoji": "👧"
+      },
+      {
+        "who": "Son",
+        "emoji": "👦"
+      },
+      {
+        "who": "Husband's parents, nearby",
+        "emoji": "👴"
+      }
     ],
     "vitals": [
-      { "label": "Children", "value": "3 (2 daughters, 1 son)" },
-      { "label": "Still in school", "value": "2 of 3" },
-      { "label": "Her schooling", "value": "Primary, not completed" },
-      { "label": "Embroidery GI tag", "value": "2010" }
+      {
+        "label": "Children",
+        "value": "3 (2 daughters, 1 son)"
+      },
+      {
+        "label": "Still in school",
+        "value": "2 of 3"
+      },
+      {
+        "label": "Her schooling",
+        "value": "Primary, not completed"
+      },
+      {
+        "label": "Embroidery GI tag",
+        "value": "2010"
+      }
     ],
     "dayInLife": [
-      { "when": "Before dawn", "emoji": "💧", "text": "Fetches water, cooks, and gets the two younger children ready for school." },
-      { "when": "In season", "emoji": "🌾", "text": "Weeds or harvests on a nearby farm, taking whatever wage work is available that day." },
-      { "when": "Between jobs", "emoji": "🧵", "text": "Stitches Lambani embroidery by hand for a buyer linked to Sandur Kushala Kala Kendra." },
-      { "when": "Lean spells", "emoji": "📋", "text": "Registers for MGNREGA work through the gram panchayat when farm and embroidery orders run out." },
-      { "when": "Market trips", "emoji": "🚌", "text": "Carries finished pieces to Sandur or Ballari town, riding the free Shakti bus instead of an auto." }
+      {
+        "when": "Before dawn",
+        "emoji": "💧",
+        "text": "Fetches water, cooks, and gets the two younger children ready for school."
+      },
+      {
+        "when": "In season",
+        "emoji": "🌾",
+        "text": "Weeds or harvests on a nearby farm, taking whatever wage work is available that day."
+      },
+      {
+        "when": "Between jobs",
+        "emoji": "🧵",
+        "text": "Stitches Lambani embroidery by hand for a buyer linked to Sandur Kushala Kala Kendra."
+      },
+      {
+        "when": "Lean spells",
+        "emoji": "📋",
+        "text": "Registers for MGNREGA work through the gram panchayat when farm and embroidery orders run out."
+      },
+      {
+        "when": "Market trips",
+        "emoji": "🚌",
+        "text": "Carries finished pieces to Sandur or Ballari town, riding the free Shakti bus instead of an auto."
+      }
     ],
     "topics": [
       {
@@ -161,7 +285,10 @@
           "Her husband works at a stone-crushing and ore-loading unit near Sandur; wages depend on which units are operating.",
           "No fixed monthly income; expenses are managed week to week, and one bad stretch strains food and school costs."
         ],
-        "stat": { "value": "2010", "label": "Year Sandur Lambani embroidery received Geographical Indication status" }
+        "stat": {
+          "value": "2010",
+          "label": "Year Sandur Lambani embroidery received Geographical Indication status"
+        }
       },
       {
         "key": "family_and_household",
@@ -231,10 +358,26 @@
       }
     ],
     "schoolPressures": [
-      { "emoji": "💰", "label": "Secondary costs", "detail": "Transport, uniforms and notebooks outweighed her son's potential wage once school was outside the tanda." },
-      { "emoji": "🪙", "label": "Daily wages", "detail": "Even small daily wages can outweigh a classroom seat when the household is short of cash." },
-      { "emoji": "🌧️", "label": "Monsoon roads", "detail": "Poor road connectivity to some tandas makes attendance harder in the monsoon months." },
-      { "emoji": "🗣️", "label": "Language gap", "detail": "Gor Boli at home, Kannada at school; her younger daughter needed an extra year to adjust." }
+      {
+        "emoji": "💰",
+        "label": "Secondary costs",
+        "detail": "Transport, uniforms and notebooks outweighed her son's potential wage once school was outside the tanda."
+      },
+      {
+        "emoji": "🪙",
+        "label": "Daily wages",
+        "detail": "Even small daily wages can outweigh a classroom seat when the household is short of cash."
+      },
+      {
+        "emoji": "🌧️",
+        "label": "Monsoon roads",
+        "detail": "Poor road connectivity to some tandas makes attendance harder in the monsoon months."
+      },
+      {
+        "emoji": "🗣️",
+        "label": "Language gap",
+        "detail": "Gor Boli at home, Kannada at school; her younger daughter needed an extra year to adjust."
+      }
     ],
     "worries": [
       "Husband's persistent cough",
@@ -243,6 +386,17 @@
       "Uneven Ayushman coverage",
       "Unreliable borewell supply",
       "Specialist care too far"
-    ]
+    ],
+    "factorEffects": {
+      "districtId": "29-565",
+      "pressures": [
+        "Transport, uniforms and notebooks outweighed her son's potential wage once school was outside the tanda, so the cost of continuing is what decides it for him.",
+        "Her husband is a daily-wage labourer, so any wage a child can earn looks large next to a classroom seat in a lean week.",
+        "Poor roads into some tandas make attendance hardest in monsoon months, so a child can fall behind for weeks at a time.",
+        "At home the family speaks Gor Boli but school is in Kannada. Her younger daughter needed an extra year to adjust, which is a quiet way to fall behind."
+      ],
+      "sanitation": "If her tanda household lacks a proper toilet, her two daughters' attendance would suffer first, adding to cost and distance.",
+      "district": "The factor flags the share of English-medium schools in Ballari. The card's own language gap is Gor Boli at home to Kannada at school, and costs and wages are what she names as pressures."
+    }
   }
 }

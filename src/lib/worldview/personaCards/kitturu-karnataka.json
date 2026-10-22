@@ -8,23 +8,67 @@
     "community": "Kuruba",
     "tagline": "A landless cane cutter who migrates each October with his wife, on a mukadam's advance.",
     "household": [
-      { "who": "Wife", "emoji": "👩" },
-      { "who": "Son", "emoji": "👦" },
-      { "who": "Daughter", "emoji": "👧" },
-      { "who": "Elderly parents", "emoji": "🧓" }
+      {
+        "who": "Wife",
+        "emoji": "👩"
+      },
+      {
+        "who": "Son",
+        "emoji": "👦"
+      },
+      {
+        "who": "Daughter",
+        "emoji": "👧"
+      },
+      {
+        "who": "Elderly parents",
+        "emoji": "🧓"
+      }
     ],
     "vitals": [
-      { "label": "Cutting season", "value": "About 6 months" },
-      { "label": "Own schooling", "value": "Up to Class 7" },
-      { "label": "Land", "value": "Landless; small leased plot" },
-      { "label": "Children", "value": "2" }
+      {
+        "label": "Cutting season",
+        "value": "About 6 months"
+      },
+      {
+        "label": "Own schooling",
+        "value": "Up to Class 7"
+      },
+      {
+        "label": "Land",
+        "value": "Landless; small leased plot"
+      },
+      {
+        "label": "Children",
+        "value": "2"
+      }
     ],
     "dayInLife": [
-      { "when": "October", "emoji": "💰", "text": "Takes a cash advance from the mukadam and heads to the sugar factories with his wife." },
-      { "when": "Before sunrise", "emoji": "🌅", "text": "The couple cuts cane with the koyta blade to avoid the worst heat." },
-      { "when": "Through the day", "emoji": "🐂", "text": "They load bullock carts or tractors bound for the factory weighbridge." },
-      { "when": "At the camp", "emoji": "⛺", "text": "The family lives in a makeshift tarpaulin shelter near the field or factory." },
-      { "when": "May to September", "emoji": "🌱", "text": "Back home for daily-wage farm work and a small leased plot of jowar or cotton." }
+      {
+        "when": "October",
+        "emoji": "💰",
+        "text": "Takes a cash advance from the mukadam and heads to the sugar factories with his wife."
+      },
+      {
+        "when": "Before sunrise",
+        "emoji": "🌅",
+        "text": "The couple cuts cane with the koyta blade to avoid the worst heat."
+      },
+      {
+        "when": "Through the day",
+        "emoji": "🐂",
+        "text": "They load bullock carts or tractors bound for the factory weighbridge."
+      },
+      {
+        "when": "At the camp",
+        "emoji": "⛺",
+        "text": "The family lives in a makeshift tarpaulin shelter near the field or factory."
+      },
+      {
+        "when": "May to September",
+        "emoji": "🌱",
+        "text": "Back home for daily-wage farm work and a small leased plot of jowar or cotton."
+      }
     ],
     "topics": [
       {
@@ -37,7 +81,10 @@
           "Wages are calculated by tonnage cut, with no written contract, fixed hours or formal safety net.",
           "May to September means daily-wage farm work and a small leased plot of jowar or cotton."
         ],
-        "stat": { "value": "About 6 months", "label": "cane-cutting season each year, October to April" }
+        "stat": {
+          "value": "About 6 months",
+          "label": "cane-cutting season each year, October to April"
+        }
       },
       {
         "key": "family_and_household",
@@ -49,7 +96,10 @@
           "While the couple migrates, his parents stay behind to manage the children and the small plot.",
           "His priority for now is to delay both children's marriages until they finish school."
         ],
-        "stat": { "value": "78", "label": "child-marriage cases in Belagavi in 2024-25, second-highest in Karnataka" }
+        "stat": {
+          "value": "78",
+          "label": "child-marriage cases in Belagavi in 2024-25, second-highest in Karnataka"
+        }
       },
       {
         "key": "education_and_schooling",
@@ -61,7 +111,10 @@
           "His son, nearing Class 9, has missed stretches of school when he could not stay with his grandmother.",
           "His daughter attends the local Kannada-medium government school and stays with her grandmother during migration months."
         ],
-        "stat": { "value": "22.09%", "label": "Karnataka Class 9-10 dropout rate in 2023-24 (UDISE+)" }
+        "stat": {
+          "value": "22.09%",
+          "label": "Karnataka Class 9-10 dropout rate in 2023-24 (UDISE+)"
+        }
       },
       {
         "key": "health_and_wellbeing",
@@ -84,7 +137,10 @@
           "Families from neighbouring villages migrate under one mukadam, pooling money for emergencies and informal childcare.",
           "They occasionally visit the Saundatti Yellamma fair and mark Kittur Utsav each October, recalling Rani Chennamma's 1824 revolt."
         ],
-        "stat": { "value": "7.5%", "label": "Kuruba share of Karnataka's population, 2015 survey placed before cabinet April 2025" }
+        "stat": {
+          "value": "7.5%",
+          "label": "Kuruba share of Karnataka's population, 2015 survey placed before cabinet April 2025"
+        }
       },
       {
         "key": "civic_life_and_government",
@@ -96,7 +152,10 @@
           "His wife and daughter ride free on state buses under Shakti; his son expects the new student bus pass.",
           "Contact with panchayats is limited; the cane season often keeps him away from election campaigns and polling day."
         ],
-        "stat": { "value": "Rs 3,300", "label": "a tonne announced after the November 2025 strike (farmers sought Rs 3,500)" }
+        "stat": {
+          "value": "Rs 3,300",
+          "label": "a tonne announced after the November 2025 strike (farmers sought Rs 3,500)"
+        }
       },
       {
         "key": "worldview_and_concerns",
@@ -111,10 +170,26 @@
       }
     ],
     "schoolPressures": [
-      { "emoji": "🚜", "label": "Cane migration", "detail": "Six months away takes parents, and sometimes older children, from home across two school terms." },
-      { "emoji": "🔪", "label": "Cane-cutting work", "detail": "He fears his son, old enough to be a second hand in a koyta pair, will leave before Class 10." },
-      { "emoji": "🏕️", "label": "No camp schools", "detail": "The High Court ordered tent schools and seasonal hostels near labour camps, but implementation is patchy." },
-      { "emoji": "💸", "label": "Debt and costs", "detail": "The mukadam's advance and the cane price decide whether school fees and uniforms can be met." }
+      {
+        "emoji": "🚜",
+        "label": "Cane migration",
+        "detail": "Six months away takes parents, and sometimes older children, from home across two school terms."
+      },
+      {
+        "emoji": "🔪",
+        "label": "Cane-cutting work",
+        "detail": "He fears his son, old enough to be a second hand in a koyta pair, will leave before Class 10."
+      },
+      {
+        "emoji": "🏕️",
+        "label": "No camp schools",
+        "detail": "The High Court ordered tent schools and seasonal hostels near labour camps, but implementation is patchy."
+      },
+      {
+        "emoji": "💸",
+        "label": "Debt and costs",
+        "detail": "The mukadam's advance and the cane price decide whether school fees and uniforms can be met."
+      }
     ],
     "worries": [
       "Debt to the mukadam",
@@ -123,7 +198,18 @@
       "Cane price fixed late",
       "No camp schooling",
       "Regional neglect"
-    ]
+    ],
+    "factorEffects": {
+      "districtId": "29-555",
+      "pressures": [
+        "Six months away at the cane harvest takes the parents, and sometimes older children, from home across two school terms, so his children are in and out of class.",
+        "His son is old enough to be a second hand in a koyta pair, so he may leave before Class 10 when the season calls.",
+        "The High Court ordered tent schools and seasonal hostels near labour camps, but they are patchy, so his children often have no class to attend at the camp.",
+        "The mukadam's advance and the cane price decide whether fees and uniforms can be paid, so one bad payment can end a child's year."
+      ],
+      "sanitation": "If the family's camp or village home lacks a proper toilet, his daughter's attendance would suffer first.",
+      "district": "The factor flags the share of English-medium schools in Belagavi. The card shows cane migration, his son's farm-work future, missing camp schools and debt as the pressures, not language."
+    }
   },
   "female": {
     "name": "The Lambani tanda labourer",
@@ -134,23 +220,67 @@
     "community": "Lambani (Banjara)",
     "tagline": "A Lambani mother holding the household together while her husband works in Goa or Pune.",
     "household": [
-      { "who": "Husband (often away)", "emoji": "👨" },
-      { "who": "Teenage daughter", "emoji": "👧" },
-      { "who": "Younger son", "emoji": "👦" },
-      { "who": "Husband's parents", "emoji": "🧓" }
+      {
+        "who": "Husband (often away)",
+        "emoji": "👨"
+      },
+      {
+        "who": "Teenage daughter",
+        "emoji": "👧"
+      },
+      {
+        "who": "Younger son",
+        "emoji": "👦"
+      },
+      {
+        "who": "Husband's parents",
+        "emoji": "🧓"
+      }
     ],
     "vitals": [
-      { "label": "Own schooling", "value": "Around Class 5" },
-      { "label": "Children", "value": "2" },
-      { "label": "Gruha Lakshmi", "value": "Rs 2,000 a month" },
-      { "label": "Female literacy, Vijayapura", "value": "56.7%" }
+      {
+        "label": "Own schooling",
+        "value": "Around Class 5"
+      },
+      {
+        "label": "Children",
+        "value": "2"
+      },
+      {
+        "label": "Gruha Lakshmi",
+        "value": "Rs 2,000 a month"
+      },
+      {
+        "label": "Female literacy, Vijayapura",
+        "value": "56.7%"
+      }
     ],
     "dayInLife": [
-      { "when": "Before dawn", "emoji": "💧", "text": "She rises to fetch water and prepare the household's morning meal." },
-      { "when": "Daytime", "emoji": "🍇", "text": "She walks or cycles to whichever grape, pomegranate or cotton field is hiring that week." },
-      { "when": "Slack days", "emoji": "⛏️", "text": "Without field work she does MGNREGA earthwork at whichever site the gram panchayat opens." },
-      { "when": "All day, every day", "emoji": "🏠", "text": "Cooking, water collection and care of her two children fall almost entirely on her." },
-      { "when": "Month to month", "emoji": "📱", "text": "Her husband's remittances from Goa or Pune arrive irregularly, so she cannot budget around them." }
+      {
+        "when": "Before dawn",
+        "emoji": "💧",
+        "text": "She rises to fetch water and prepare the household's morning meal."
+      },
+      {
+        "when": "Daytime",
+        "emoji": "🍇",
+        "text": "She walks or cycles to whichever grape, pomegranate or cotton field is hiring that week."
+      },
+      {
+        "when": "Slack days",
+        "emoji": "⛏️",
+        "text": "Without field work she does MGNREGA earthwork at whichever site the gram panchayat opens."
+      },
+      {
+        "when": "All day, every day",
+        "emoji": "🏠",
+        "text": "Cooking, water collection and care of her two children fall almost entirely on her."
+      },
+      {
+        "when": "Month to month",
+        "emoji": "📱",
+        "text": "Her husband's remittances from Goa or Pune arrive irregularly, so she cannot budget around them."
+      }
     ],
     "topics": [
       {
@@ -163,7 +293,10 @@
           "When farm work is scarce she takes MGNREGA earthwork at whichever site the gram panchayat opens.",
           "Her husband's irregular remittances are the main cushion, alongside a monthly state cash transfer."
         ],
-        "stat": { "value": "70%", "label": "of Karnataka's annual MGNREGA person-days used within six months, 2023 drought" }
+        "stat": {
+          "value": "70%",
+          "label": "of Karnataka's annual MGNREGA person-days used within six months, 2023 drought"
+        }
       },
       {
         "key": "family_and_household",
@@ -175,7 +308,10 @@
           "She and her mother-in-law decide daily food, schooling and healthcare; big decisions wait for her husband's visits.",
           "Her teenage daughter already helps with cooking, fetching water and minding her younger brother."
         ],
-        "stat": { "value": "3,300", "label": "tandas (Lambani hamlets) in Karnataka, typically set apart from the main village" }
+        "stat": {
+          "value": "3,300",
+          "label": "tandas (Lambani hamlets) in Karnataka, typically set apart from the main village"
+        }
       },
       {
         "key": "education_and_schooling",
@@ -187,7 +323,10 @@
           "Tandas typically have only a primary school nearby; high school means travelling several kilometres to a town like Indi.",
           "Vijayapura's Class 10 pass rate was 94.16% in 2026; her worry is her daughter reaching the exam at all."
         ],
-        "stat": { "value": "56.7%", "label": "female literacy in Vijayapura district versus 77.2% for men, 2011 Census" }
+        "stat": {
+          "value": "56.7%",
+          "label": "female literacy in Vijayapura district versus 77.2% for men, 2011 Census"
+        }
       },
       {
         "key": "health_and_wellbeing",
@@ -199,7 +338,10 @@
           "Her tanda drinks borewell water; neither she nor her children have a formal fluorosis diagnosis.",
           "A trip to the taluk hospital costs a full day's wages; she has had no recent health check-up."
         ],
-        "stat": { "value": "1.22 mg/L", "label": "mean fluoride in borewells across 22 Indi taluk villages" }
+        "stat": {
+          "value": "1.22 mg/L",
+          "label": "mean fluoride in borewells across 22 Indi taluk villages"
+        }
       },
       {
         "key": "community_and_belief",
@@ -222,7 +364,10 @@
           "She holds an MGNREGA job card, used when field labour is unavailable, especially in drought periods.",
           "Shakti free bus travel eases her trips; she expects her daughter to use the new student bus pass from 2026-27."
         ],
-        "stat": { "value": "Rs 28,608 crore", "label": "allocated to Gruha Lakshmi in the 2026-27 state budget" }
+        "stat": {
+          "value": "Rs 28,608 crore",
+          "label": "allocated to Gruha Lakshmi in the 2026-27 state budget"
+        }
       },
       {
         "key": "worldview_and_concerns",
@@ -237,10 +382,26 @@
       }
     ],
     "schoolPressures": [
-      { "emoji": "🚌", "label": "Distance to school", "detail": "Only primary schools are nearby; Class 9 means daily travel to a town high school." },
-      { "emoji": "🍳", "label": "Care work", "detail": "With her mother in the fields and father away, her daughter is relied on for cooking and sibling care." },
-      { "emoji": "💧", "label": "Fluoride in water", "detail": "Elevated fluoride in Indi taluk borewells is linked to joint pain and deformities that can reduce school attendance." },
-      { "emoji": "💍", "label": "Early marriage", "detail": "Early marriage is a live risk at the Class 8-10 age, especially if the household hits a financial crisis." }
+      {
+        "emoji": "🚌",
+        "label": "Distance to school",
+        "detail": "Only primary schools are nearby; Class 9 means daily travel to a town high school."
+      },
+      {
+        "emoji": "🍳",
+        "label": "Care work",
+        "detail": "With her mother in the fields and father away, her daughter is relied on for cooking and sibling care."
+      },
+      {
+        "emoji": "💧",
+        "label": "Fluoride in water",
+        "detail": "Elevated fluoride in Indi taluk borewells is linked to joint pain and deformities that can reduce school attendance."
+      },
+      {
+        "emoji": "💍",
+        "label": "Early marriage",
+        "detail": "Early marriage is a live risk at the Class 8-10 age, especially if the household hits a financial crisis."
+      }
     ],
     "worries": [
       "Safe drinking water",
@@ -249,6 +410,17 @@
       "Early marriage",
       "Unaffordable medical emergency",
       "Late MGNREGA funds"
-    ]
+    ],
+    "factorEffects": {
+      "districtId": "29-557",
+      "pressures": [
+        "Only primary schools are nearby, so Class 9 means daily travel to a town high school, and the journey decides whether her daughter goes on.",
+        "With her mother in the fields and her father away, her daughter handles cooking and sibling care, so school competes with the home.",
+        "Elevated fluoride in Indi's borewell water is linked to joint pain and deformities that can reduce attendance, a health cost that adds to the others.",
+        "At 13 to 15 an early marriage is a live risk, especially if the household hits a financial crisis, and it ends schooling at once."
+      ],
+      "sanitation": "If her tanda household lacks a proper toilet, her teenage daughter, already relied on for cooking and care, would be the first to miss school.",
+      "district": "The factor flags the share of English-medium schools in Vijayapura. The card shows distance, care work, fluoride-linked illness and early marriage as the pressures, not language."
+    }
   }
 }

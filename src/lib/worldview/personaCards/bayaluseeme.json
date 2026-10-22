@@ -206,7 +206,18 @@
       "Slow drought compensation",
       "Few local jobs",
       "Daughter's schooling"
-    ]
+    ],
+    "factorEffects": {
+      "districtId": "29-566",
+      "pressures": [
+        "His 16-year-old son's daily trip to Challakere town costs hours and fare money. The commute is where his schooling is likeliest to break, and his 13-year-old daughter faces the same road next.",
+        "In groundnut-harvest and lambing weeks his son is needed in the field or with the flock, so attendance drops in just those weeks.",
+        "Herding now means longer walks, so the son who helps move the flock loses school days and the family leans on his labour more.",
+        "In a drought year his teenage son earns daily wages while staying on the rolls: he looks enrolled but is missing class, a hidden dropout risk."
+      ],
+      "sanitation": "If his farm household lacks a proper toilet, his adolescent daughter's attendance would suffer first, making an early exit easier to accept.",
+      "district": "The factor flags the share of English-medium schools in Chitradurga. His own schooling ended at Class 7, and the card shows distance, harvest and herding as what pulls his children out, not language."
+    }
   },
   "female": {
     "name": "The Chintamani silkworm rearer",
@@ -407,6 +418,17 @@
       "Husband's migration income",
       "Distant high school",
       "Few non-farm jobs"
-    ]
+    ],
+    "factorEffects": {
+      "districtId": "29-582",
+      "pressures": [
+        "Her daughter, just out of Class 8, faces a several-kilometre trip to a Class 9-10 school. With safety weighing heavily, the commute alone can decide whether she continues.",
+        "Leaf-feeding and rearing cannot wait, so the work lands on her 14-year-old daughter, especially when her husband is away. School hours compete directly with the cocoon cycle.",
+        "With her husband away on brick-kiln or construction work, nobody shares the load, so both children's attendance bends around her workload.",
+        "Her daughter's next step hinges on a hostel seat. If none comes, the household has no other route to Class 9."
+      ],
+      "sanitation": "If her rented-patch household lacks a proper toilet, her daughter's attendance would suffer first once she reaches puberty.",
+      "district": "The factor flags the share of English-medium schools in Chikkaballapur. The card shows commute, rearing work, her husband's migration and hostel seats as the pressures, not language."
+    }
   }
 }

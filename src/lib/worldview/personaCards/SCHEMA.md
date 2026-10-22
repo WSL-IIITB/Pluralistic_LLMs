@@ -27,3 +27,18 @@ Card = {
   "worries": [ "<= 4 words", ... ]       // 4-6 short chips from the worldview/concerns topic
 }
 Style: plain, warm, concrete. No markdown. No [S1]-style citation markers. Composite persona -- describe in third person, present tense.
+
+## `factorEffects` (added for the "how the factors affect them" section)
+
+```
+"factorEffects": {
+  "districtId": "29-573",                 // the district the persona lives in (place field)
+  "pressures": [ "<= 35 words", ... ],    // EXACTLY one per schoolPressures item, same order: what that pressure does to THIS household's schooling
+  "sanitation": "<= 30 words",            // "If ... lacks a proper toilet, ..." -- conditional, built only from facts on the card
+  "district": "<= 40 words"               // the district-level factor (English-medium share, or protected wells in Bengaluru Urban/Mysuru),
+                                          // anchored in the card's own pressures; says what the card shows instead
+}
+```
+Rules: no new facts, numbers or places; never claim what research found (the UI shows the district's real research status from
+`dominantFactorWhy`); write conditionally ("if ...") for the dominant factors, since the persona data does not measure them.
+
