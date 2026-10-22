@@ -41,13 +41,25 @@ export function dataUrl(path: string): string {
   return file ? assetUrl(file) : path;
 }
 
-/** Fetch-once JSON loader with a module-level cache; resolves null on failure. */
+/**
+ * Fetch-once JSON loader with a module-level cache; resolves null on failure. If the backend is
+ * unreachable, the static snapshot in /data stands in for it (same files a Pages build serves), and a
+ * failed load is not cached, so the next call retries instead of staying empty for the whole session.
+ */
 export function cachedJson<T>(path: string): () => Promise<T | null> {
   let inflight: Promise<T | null> | null = null;
-  return () => {
-    inflight ??= fetch(dataUrl(path))
+  const get = (url: string): Promise<T | null> =>
+    fetch(url)
       .then((r) => (r.ok ? (r.json() as Promise<T>) : null))
       .catch(() => null);
+  return () => {
+    inflight ??= get(dataUrl(path)).then(async (data) => {
+      if (data !== null) return data;
+      const file = STATIC_FILES[path];
+      const snapshot = !STATIC_DATA && file ? await get(assetUrl(file)) : null;
+      if (snapshot === null) inflight = null; // let the next caller try again
+      return snapshot;
+    });
     return inflight;
   };
 }

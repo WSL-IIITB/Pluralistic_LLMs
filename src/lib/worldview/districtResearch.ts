@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-import { dataUrl, STATIC_DATA } from "./api";
+import { assetUrl, dataUrl, STATIC_DATA } from "./api";
 
 export type ReasonCategory =
   | "economic"
@@ -108,11 +108,24 @@ export function researchSnapshotActive(): boolean {
 
 let allInflight: Promise<Record<string, DistrictResearch> | null> | null = null;
 
-/** Every district's research as it stands now (for embedding into a saved run). */
-export function fetchAllDistrictResearch(): Promise<Record<string, DistrictResearch> | null> {
-  allInflight ??= fetch(dataUrl("/api/karnataka/districts-research"))
-    .then((r) => (r.ok ? (r.json() as Promise<Record<string, DistrictResearch>>) : null))
-    .catch(() => null)
+type ResearchMap = Record<string, DistrictResearch>;
+
+const readJson = <T>(url: string): Promise<T | null> =>
+  fetch(url)
+    .then((r) => (r.ok ? (r.json() as Promise<T>) : null))
+    .catch(() => null);
+
+/**
+ * Every district's research as it stands now (for embedding into a saved run). If the backend is
+ * unreachable, the bundled snapshot in /data stands in, so the dashboard is never left empty.
+ */
+export function fetchAllDistrictResearch(): Promise<ResearchMap | null> {
+  allInflight ??= readJson<ResearchMap>(dataUrl("/api/karnataka/districts-research"))
+    .then(
+      (live) =>
+        live ??
+        (STATIC_DATA ? null : readJson<ResearchMap>(assetUrl("data/districts-research.json"))),
+    )
     .finally(() => {
       allInflight = null; // always re-read: the files can change between runs
     });
@@ -133,9 +146,8 @@ function load(districtId: string): void {
     });
     return;
   }
-  fetch(dataUrl(`/api/karnataka/districts/${districtId}/research`))
-    .then((r) => (r.ok ? (r.json() as Promise<DistrictResearch>) : null))
-    .catch(() => null)
+  readJson<DistrictResearch>(dataUrl(`/api/karnataka/districts/${districtId}/research`))
+    .then((live) => live ?? fetchAllDistrictResearch().then((all) => all?.[districtId] ?? null))
     .then((data) => {
       cache.set(districtId, data ? { status: "ready", data } : { status: "none" });
       listeners.forEach((notify) => notify());

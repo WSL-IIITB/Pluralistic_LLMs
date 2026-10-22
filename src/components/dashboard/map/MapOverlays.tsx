@@ -640,10 +640,12 @@ function RegionBody({
   regionId,
   byId,
   names,
+  ready,
 }: {
   regionId: string;
   byId: Record<string, DistrictProfile>;
   names: Record<string, string>;
+  ready: boolean;
 }) {
   const focusDistrict = useExplorerStore((s) => s.focusDistrict);
   const ids = Object.values(byId)
@@ -664,6 +666,33 @@ function RegionBody({
     return best === null || r < (byId[best]?.dropoutRate ?? Infinity) ? id : best;
   }, null);
 
+  // The region's UIDAI/NITI dominant-factor rows, grouped by method then factor (values as published).
+  const factorGroups = (["state", "district"] as const).map((method) => {
+    const byFactor = new Map<string, { label: string; value: number }[]>();
+    for (const id of ids) {
+      for (const f of byId[id]?.nitiFactors ?? []) {
+        if (f.method !== method) continue;
+        const base = names[id] ?? id;
+        const label = f.area.toLowerCase() === base.toLowerCase() ? base : f.area;
+        byFactor.set(f.factor, [...(byFactor.get(f.factor) ?? []), { label, value: f.value }]);
+      }
+    }
+    return { method, factors: [...byFactor.entries()] };
+  });
+
+  if (!ready) {
+    return (
+      <p className="text-[12px] text-muted-foreground">Loading this region&apos;s district data…</p>
+    );
+  }
+  if (ids.length === 0) {
+    return (
+      <p className="text-[12px] text-muted-foreground">
+        District data is unavailable right now. Reload the page to try again.
+      </p>
+    );
+  }
+
   return (
     <div className="grid gap-5 @lg:grid-cols-2">
       <section>
@@ -675,6 +704,11 @@ function RegionBody({
           {hi && `Highest: ${names[hi] ?? hi} ${percent(byId[hi]?.dropoutRate ?? 0)}`}
           {hi && lo && " · "}
           {lo && `Lowest: ${names[lo] ?? lo} ${percent(byId[lo]?.dropoutRate ?? 0)}`}
+        </p>
+        <p className="mt-2 text-[10px] leading-snug text-muted-foreground">
+          From the data: the mean of {rates.length} district secondary dropout rates in the LKI-SSM
+          casefile
+          {rates.length < ids.length ? " (districts reported only as sub-areas are left out)" : ""}.
         </p>
       </section>
       <section>
@@ -697,6 +731,46 @@ function RegionBody({
           ))}
         </div>
       </section>
+      <section className="@lg:col-span-2">
+        <p className="label-micro">Dominant factors · UIDAI / NITI (from the data)</p>
+        <div className="mt-2 grid gap-3 @lg:grid-cols-2">
+          {factorGroups.map(({ method, factors }) =>
+            factors.length === 0 ? null : (
+              <div
+                key={method}
+                className="rounded-lg border border-panel-border bg-secondary/30 px-3 py-2.5"
+              >
+                <p className="text-[10px] font-medium tracking-wide text-muted-foreground/90 uppercase">
+                  {METHOD_TITLE[method]}
+                </p>
+                {factors.map(([factor, rows]) => (
+                  <div key={factor} className="mt-1.5">
+                    <p className="text-[12px] font-medium text-foreground/90">{factor}</p>
+                    <div className="mt-1 flex flex-wrap gap-1.5">
+                      {rows.map((r, i) => (
+                        <span
+                          key={i}
+                          className="rounded bg-secondary px-1.5 py-0.5 text-[11px] text-muted-foreground"
+                        >
+                          {r.label}{" "}
+                          <span className="font-medium text-foreground tabular-nums">
+                            {r.value}
+                          </span>
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ),
+          )}
+        </div>
+        <p className="mt-2 text-[10px] leading-snug text-muted-foreground">
+          Official UIDAI / NITI Aayog statistics, values as published. The two methods are shown
+          separately and never blended, and what the values measure is unverified, so they are not
+          comparable across districts.
+        </p>
+      </section>
     </div>
   );
 }
@@ -706,7 +780,7 @@ export function MapDetailSheet() {
   const districtId = useExplorerStore((s) => s.districtId);
   const focusRegion = useExplorerStore((s) => s.focusRegion);
   const resetFocus = useExplorerStore((s) => s.resetFocus);
-  const { byId } = useDistrictProfiles();
+  const { byId, ready } = useDistrictProfiles();
   const { geo } = useDistrictGeo();
 
   const names = useMemo(() => {
@@ -772,7 +846,7 @@ export function MapDetailSheet() {
             allRates={allRates}
           />
         ) : (
-          <RegionBody regionId={rid} byId={byId} names={names} />
+          <RegionBody regionId={rid} byId={byId} names={names} ready={ready} />
         )}
         <div className="mt-5 border-t border-panel-border pt-4">
           <p className="label-micro mb-2">Who lives here</p>
