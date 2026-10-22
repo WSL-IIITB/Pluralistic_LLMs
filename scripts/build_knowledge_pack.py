@@ -146,6 +146,8 @@ def build() -> dict:
     cat_districts: dict[str, set] = {}
     region_cats: dict[str, dict[str, int]] = {}
     verdicts = {"state": {}, "district": {}}
+    why_tally: dict[str, dict[str, int]] = {"state": {}, "district": {}}
+    why_districts = 0
     coverage: dict[str, int] = {}
     outlets = set()
     headlines = 0
@@ -159,6 +161,11 @@ def build() -> dict:
             rc[r["category"]] = rc.get(r["category"], 0) + EVIDENCE_WEIGHT[r["evidence"]]
         for c in d.get("officialFactorCheck", []):
             verdicts[c["method"]][c["verdict"]] = verdicts[c["method"]].get(c["verdict"], 0) + 1
+        why_block = d.get("dominantFactorWhy") or {}
+        if why_block.get("entries"):
+            why_districts += 1
+            for e in why_block["entries"]:
+                why_tally[e["method"]][e["verdict"]] = why_tally[e["method"]].get(e["verdict"], 0) + 1
     categories = sorted(cat_districts.items(), key=lambda kv: -len(kv[1]))
     stats = {
         "districts": len(research), "sources": len(sources), "outlets": len(outlets), "headlines": headlines,
@@ -208,7 +215,7 @@ def build() -> dict:
                         f"{p['claim']} " + "".join(f"[{why_to_global[did][i]}]" for i in p["sources"] if i in why_to_global[did])
                         for p in e["proof"] if p["scope"] == scope
                     )
-                parts = [f"- {e['method']}-method factor \"{e['factor']}\": {e['verdict']}. {e['why']}"]
+                parts = [f"- {e['method']}-method factor \"{e['factor']}\": {e['verdict']}. Model-written reasoning, not verified (SYNTHESIS): {e['why']}"]
                 if proofs("district"):
                     parts.append(f"Proof about this district (DISTRICT): {proofs('district')}")
                 if proofs("general"):
@@ -251,6 +258,9 @@ def build() -> dict:
          "Verdicts from checking each district's factor against local media/government/NGO evidence: " +
          "; ".join(f"{m}-method: " + ", ".join(f"{v} {n}" for v, n in sorted(t.items())) for m, t in verdicts.items()) +
          ". 'no-evidence' means the sources were silent, not that the factor is irrelevant.",
+         *([f"Deep-research answers to 'why is this district's dominant factor dominant?' (each proof item checked against its page) exist for {why_districts} of {len(research)} districts. Verdicts: " +
+            "; ".join(f"{m}-method: " + ", ".join(f"{v} {n}" for v, n in sorted(t.items())) for m, t in why_tally.items() if t) +
+            ". 'partly' means only general research from elsewhere supports the mechanism, not local evidence; 'no-evidence' means nothing was found; none was supported by district-specific proof."] if why_districts else []),
          "Factor rows per district (value meaning unverified; never blend methods):"]
     for did in sorted(profiles):
         p = profiles[did]

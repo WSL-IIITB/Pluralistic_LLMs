@@ -417,8 +417,18 @@ function DominantFactors({ card, regionId }: { card: PersonaCard; regionId: stri
                           </span>
                         )}
                         {i === 0 && (
-                          <p className="mt-1 line-clamp-3 text-[11px] leading-snug text-muted-foreground">
-                            {e.why}
+                          <p className="mt-1 text-[11px] leading-snug text-muted-foreground">
+                            Verified proof:{" "}
+                            {
+                              entries.flatMap((x) => x.proof).filter((x) => x.scope === "district")
+                                .length
+                            }{" "}
+                            about this district,{" "}
+                            {
+                              entries.flatMap((x) => x.proof).filter((x) => x.scope === "general")
+                                .length
+                            }{" "}
+                            from elsewhere.
                           </p>
                         )}
                       </div>

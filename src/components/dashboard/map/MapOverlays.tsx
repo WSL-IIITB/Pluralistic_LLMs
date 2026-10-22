@@ -399,7 +399,10 @@ function FactorWhy({ entries, why }: { entries: FactorWhyEntry[]; why: DominantF
                 <span className="text-[10.5px] text-muted-foreground">{e.area}</span>
               )}
             </div>
-            <p className="mt-1.5 text-[11.5px] leading-snug text-foreground/90">{e.why}</p>
+            <p className="mt-1.5 text-[11.5px] leading-snug text-foreground/90">
+              <span className="font-medium">Reasoning (model-written, not verified): </span>
+              {e.why}
+            </p>
             {e.mechanism && (
               <p className="mt-1.5 text-[11px] leading-snug text-muted-foreground">
                 <span className="font-medium text-foreground/80">
@@ -436,10 +439,10 @@ function FactorWhy({ entries, why }: { entries: FactorWhyEntry[]; why: DominantF
           </div>
         ))}
         <p className="text-[10px] leading-snug text-muted-foreground">
-          Each proof item was checked against the page it cites (the page opens, the numbers appear
-          on it, and district proof names the district). That shows the fact is real — not that the
-          factor causes dropout. “Elsewhere” items are research from other places, not local
-          evidence.
+          The reasoning above is the researcher's own words. Each proof item below it was checked
+          against the page it cites (the page opens, the numbers appear on it, and district proof
+          names the district). That shows the fact is real — not that the factor causes dropout.
+          “Elsewhere” items are research from other places, not local evidence.
           {why.notes.length > 0 &&
             ` ${why.notes.length} item(s) failed the check and were removed.`}
         </p>
