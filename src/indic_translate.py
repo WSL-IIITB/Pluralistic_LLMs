@@ -6,6 +6,7 @@ Replaces the cloud Sarvam translate API. Uses:
 """
 import json
 import logging
+import re
 import time
 from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 from IndicTransToolkit import IndicProcessor
@@ -45,6 +46,22 @@ SARVAM_TO_FLORES = {
 
 SRC_LANG = "eng_Latn"
 EN_TAG = "eng_Latn"
+
+
+def strip_markdown(text: str) -> str:
+    """Strip markdown-ish formatting that makes IndicTrans2 emit garbage.
+
+    Models frequently answer numbered questions with ``**bold**`` headings and
+    ``1.`` list markers. Fed raw into IndicTrans2 (indic->en), those literal
+    ``**``/``*``/number tokens can trigger degenerate decoding (repeated ``*``
+    runs) or raw-Unicode escape leaks. Removing them keeps the *content* while
+    avoiding the failure mode. Only applied on the indic->en path; the
+    caller-facing ``native_answer`` keeps its original markdown.
+    """
+    out = re.sub(r"\*\*", "", text)                     # bold markers
+    out = re.sub(r"^\s*\*+\s*", "", out, flags=re.M)    # asterisk bullets
+    out = re.sub(r"^\s*\d+[\.\)]?\s*", "", out, flags=re.M)  # list numbering
+    return out
 
 
 def _flores_for(sarvam_code: str) -> str:
@@ -115,6 +132,7 @@ class TranslationModels:
     def translate_to_english(self, text: str, sarvam_code: str) -> str:
         """Native Indic -> English (back-translation)."""
         src = _flores_for(sarvam_code)
+        text = strip_markdown(text)  # markdown/list chars trip IndicTrans2
         self._ensure("indic-en")
         batch = self._processor.preprocess_batch([text], src_lang=src, tgt_lang=EN_TAG)
         self._tokenizer._switch_to_input_mode()

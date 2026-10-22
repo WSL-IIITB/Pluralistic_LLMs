@@ -1,6 +1,9 @@
 # Secrets
 config/secrets.json
 
+# Local architecture notes
+ARCHITECTURE.md
+
 # Large / generated artifacts
 *.pdf
 *.ftz
@@ -10,6 +13,7 @@ config/secrets.json
 models/
 data/
 logs/
+docs/
 *.ipynb_checkpoints/
 
 # Virtual environments

@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 
 @dataclass
@@ -12,3 +12,4 @@ class EvaluationRecord:
     back_translated_answer_en: str
     timestamp: str
     notes: str = ""
+    validation: dict = field(default_factory=dict)

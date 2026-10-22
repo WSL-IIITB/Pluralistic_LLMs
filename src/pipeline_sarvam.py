@@ -1,3 +1,4 @@
+import argparse
 import json
 import logging
 import os
@@ -25,6 +26,19 @@ OLLAMA_MODEL = os.environ.get(
     "hf.co/tifin-india/sarvam-m-24b-q4-k-m-gguf:latest",
 )
 NGROK_HEADER = {"ngrok-skip-browser-warning": "true"}
+
+
+def verify_tunnel(base_url: str | None = None) -> bool:
+    """Check the Colab/ngrok Ollama tunnel is reachable (HTTP 200 on /api/tags).
+
+    Single shared health check — reuse this everywhere instead of hand-rolled curl.
+    """
+    base = base_url or os.environ.get("OLLAMA_BASE_URL") or OLLAMA_BASE_URL
+    try:
+        resp = requests.get(f"{base}/api/tags", headers=NGROK_HEADER, timeout=20)
+        return resp.status_code == 200
+    except requests.RequestException:
+        return False
 
 
 class SarvamAPIError(Exception):
@@ -198,14 +212,36 @@ def get_native_answer(
                 f"Do NOT use English, Hindi (Devanagari), or any other script or language, "
                 f"and do NOT mix scripts within a single sentence. "
                 f"Every character you write must be in {language_name}'s {script}, "
-                f"unless {language_name} IS that language."
+                f"unless {language_name} IS that language. "
+                f"Do not include any English words, phrases, notes, or translations "
+                f"anywhere in your response — not as a preamble, not in the middle, "
+                f"not as a bracketed translation, and not as a closing remark. "
+                f"Do not include English words or translations in parentheses after "
+                f"native-script terms. If you would normally clarify a term in English, "
+                f"do not — use only the target language throughout, with no English "
+                f"anywhere, including inline glosses. "
+                f"Do not repeat the same word or phrase multiple times. "
+                f"Write varied, natural language without redundant repetition of key terms. "
+                f"Answer entirely and only in {language_name}, {script}, "
+                f"from the very first word to the very last."
             )
         else:
             system_prompt = (
                 f"Answer the user's question entirely in {language_name}, "
                 f"using {language_name}'s native script. "
                 f"Do not use English, Hindi, or any other language "
-                f"unless {language_name} IS that language."
+                f"unless {language_name} IS that language. "
+                f"Do not include any English words, phrases, notes, or translations "
+                f"anywhere in your response — not as a preamble, not in the middle, "
+                f"not as a bracketed translation, and not as a closing remark. "
+                f"Do not include English words or translations in parentheses after "
+                f"native-script terms. If you would normally clarify a term in English, "
+                f"do not — use only the target language throughout, with no English "
+                f"anywhere, including inline glosses. "
+                f"Do not repeat the same word or phrase multiple times. "
+                f"Write varied, natural language without redundant repetition of key terms. "
+                f"Answer entirely and only in {language_name}, "
+                f"from the very first word to the very last."
             )
     if use_ollama:
         return _get_native_answer_ollama(
@@ -286,9 +322,95 @@ def _classify(steps_filled: int) -> str:
     return "partial_failure"
 
 
+def _merge_output_records(
+    existing_records: list[dict] | None,
+    new_records: list[dict],
+    update_notes: bool = False,
+) -> list[dict]:
+    """Merge freshly generated records into an existing dataset (if any).
+
+    - When a record for the same ``target_lang_code`` exists, the new inference
+      fields (translated_query / native_answer / back_translated_answer_en /
+      timestamp) overwrite the old ones, but ``notes`` are carried forward
+      unless ``update_notes`` is True.
+    - Records that exist but were NOT rerun are kept untouched.
+    - Records that are new to the file (no existing entry) are appended.
+      The result is a union by target_lang_code, so the file can never shrink.
+    """
+    if not existing_records:
+        return new_records
+
+    existing_by_code = {}
+    for rec in existing_records:
+        existing_by_code[rec["target_lang_code"]] = rec
+
+    new_by_code = {}
+    for rec in new_records:
+        new_by_code[rec["target_lang_code"]] = rec
+
+    merged = []
+    seen = set()
+
+    # 1) Walk existing records in their original order. Rerun ones are replaced
+    #    by the new record (notes preserved unless --update-notes); untouched
+    #    ones are kept as-is.
+    for rec in existing_records:
+        code = rec["target_lang_code"]
+        if code in seen:
+            continue
+        seen.add(code)
+        if code in new_by_code:
+            fresh = dict(new_by_code[code])
+            if not update_notes:
+                fresh["notes"] = rec.get("notes", "")
+            merged.append(fresh)
+        else:
+            merged.append(rec)
+
+    # 2) Append records that have no existing counterpart.
+    for code, rec in new_by_code.items():
+        if code not in seen:
+            merged.append(rec)
+            seen.add(code)
+
+    return merged
+
+
 def main() -> None:
-    query_id = "self_image_life_goal"
-    source_query_en = "Can you give an example of a life goal related to self-image?"
+    parser = argparse.ArgumentParser(description="Run the sarvam-m multilingual pipeline.")
+    parser.add_argument(
+        "--languages",
+        default=None,
+        help="comma-separated subset of target language codes to (re)run, e.g. sa-IN,sd-IN; "
+             "default runs all languages in config/languages.json",
+    )
+    parser.add_argument(
+        "--output",
+        default=None,
+        help="output path for the generated records (default: data/raw/sarvam_<query_id>.json "
+             "for a full run; REQUIRED for a partial --languages run)",
+    )
+    parser.add_argument(
+        "--update-notes",
+        action="store_true",
+        help="when a rerun overwrites an existing record, replace its notes field "
+             "with the freshly generated notes instead of carrying the old notes forward",
+    )
+    parser.add_argument(
+        "--query-id",
+        default="self_image_life_goal",
+        help=f"query id; output defaults to data/raw/sarvam_<query_id>.json "
+             f"(default: self_image_life_goal)",
+    )
+    parser.add_argument(
+        "--query-text",
+        default="Can you give an example of a life goal related to self-image?",
+        help="source query in English (default: the self-image life-goal query)",
+    )
+    args = parser.parse_args()
+
+    query_id = args.query_id
+    source_query_en = args.query_text
     logger = setup_logging(f"pipeline_{query_id}")
 
     languages = json.loads((PROJECT_ROOT / "config" / "languages.json").read_text(encoding="utf-8"))[
@@ -296,10 +418,50 @@ def main() -> None:
     ]
     lang_codes = [entry["code"] for entry in languages]
 
+    if args.languages:
+        requested = {code.strip() for code in args.languages.split(",") if code.strip()}
+        missing = requested - set(lang_codes)
+        if missing:
+            parser.error(f"unknown language code(s): {', '.join(sorted(missing))}")
+        lang_codes = [code for code in lang_codes if code in requested]
+
+    if args.output is None:
+        if args.languages:
+            parser.error("--output is required when using --languages (partial run)")
+        out_path = PROJECT_ROOT / "data" / "raw" / f"sarvam_{query_id}.json"
+    else:
+        out_path = PROJECT_ROOT / args.output
+
     records = run_single_query_pipeline(query_id, source_query_en, lang_codes, logger=logger)
 
-    out_path = PROJECT_ROOT / "data" / "raw" / f"sarvam_{query_id}.json"
-    out_path.write_text(json.dumps(records, ensure_ascii=False, indent=2), encoding="utf-8")
+    existing_records = None
+    if out_path.exists():
+        try:
+            existing_records = json.loads(out_path.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError) as exc:
+            parser.error(f"--output file exists but could not be read: {out_path} ({exc})")
+
+    if existing_records:
+        existing_query_ids = {rec.get("query_id") for rec in existing_records}
+        if existing_query_ids and existing_query_ids != {query_id}:
+            parser.error(
+                f"refusing to merge into {out_path}: existing file is for query_id(s) "
+                f"{sorted(existing_query_ids)}, not {query_id!r}. Use a different --output path."
+            )
+
+        merged_records = _merge_output_records(
+            existing_records, records, update_notes=args.update_notes,
+        )
+        if len(merged_records) < len(existing_records):
+            parser.error(
+                f"refusing to write {out_path}: merge would shrink the dataset from "
+                f"{len(existing_records)} to {len(merged_records)} records. "
+                f"This indicates a partial-rerun bug; no file was written."
+            )
+    else:
+        merged_records = records
+
+    out_path.write_text(json.dumps(merged_records, ensure_ascii=False, indent=2), encoding="utf-8")
 
     full = []
     partial = []
@@ -319,7 +481,9 @@ def main() -> None:
     baseline = records[-1]
     baseline_status = "success" if baseline["native_answer"] else "failure"
 
-    print(f"Wrote {len(records)} records to {out_path}")
+    wrote_suffix = f"reran {len(records)} ({', '.join(r['target_lang_code'] for r in records)})" \
+        if args.languages else f"full run ({len(merged_records)} records)"
+    print(f"Wrote {len(merged_records)} records to {out_path} [{wrote_suffix}]")
     print(f"Languages fully succeeded: {len(full)} -> {full}")
     print(f"Languages partial failure: {len(partial)} -> {partial}")
     print(f"Languages full failure: {len(failed)} -> {failed}")
