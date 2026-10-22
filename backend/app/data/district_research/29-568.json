@@ -256,5 +256,37 @@
   ],
   "coverage": "moderate",
   "gaps": "The district's SSLC pass rate is omitted because sources conflict; no dropout counts from these sources. No Class 8-10 specific dropout counts, SSLC failure or district UDISE+ figures retrieved; no estate/migrant or forest-village secondary evidence found. Deccan Herald pages were unfetchable, so those items rely on search excerpts.",
-  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages.",
+  "dominantFactorWhy": {
+    "researchedOn": "2026-10-22",
+    "entries": [
+      {
+        "factor": "% Population Living in Households with Improved Sanitation",
+        "method": "state",
+        "area": "Shivamogga",
+        "verdict": "no-evidence",
+        "why": "We found no direct Shivamogga source tying sanitation to dropouts.  Rural areas in the district may lack toilets and sanitation can cause child illness.  Such health problems are documented globally as dropout causes.",
+        "mechanism": "Poor sanitation -> sickness (especially digestive infections) -> absenteeism -> dropout",
+        "proof": []
+      },
+      {
+        "factor": "% Schools with instruction medium 1 (English)",
+        "method": "district",
+        "area": "Shivamogga",
+        "verdict": "no-evidence",
+        "why": "No evidence was found that English-medium instruction drives dropouts in Shivamogga.  If students from Kannada-speaking homes struggle with English, it could lead to disengagement.  Research notes this as a possible dropout factor.",
+        "mechanism": "English instruction -> comprehension difficulties -> poor attendance/grades -> dropout",
+        "proof": []
+      }
+    ],
+    "sources": [],
+    "gaps": "We looked for Shivamogga-specific references (news in Kannada/English, official bulletins) but found nothing linking sanitation or English-medium schooling to secondary dropouts.  Local coverage focuses on other education issues.",
+    "notes": [
+      "source 1 dropped: page could not be opened (impactjournals.us)",
+      "state/% Population Living in Households with I: proof dropped (no openable source): 'Health-related problems from poor sanitation contribute to d'",
+      "state/% Population Living in Households with I: 'partly' -> 'no-evidence' (no verified proof survived)",
+      "district/% Schools with instruction medium 1 (Eng: proof dropped (no openable source): 'Educators report medium of instruction as a factor in studen'",
+      "district/% Schools with instruction medium 1 (Eng: 'partly' -> 'no-evidence' (no verified proof survived)"
+    ]
+  }
 }

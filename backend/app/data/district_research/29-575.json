@@ -193,5 +193,35 @@
   ],
   "coverage": "moderate",
   "gaps": "No Class 8-10 dropout counts or recent out-of-school survey; the migration survey is several years old; nothing explains the very low casefile dropout rate.",
-  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages.",
+  "dominantFactorWhy": {
+    "researchedOn": "2026-10-22",
+    "entries": [
+      {
+        "factor": "% Population Living in Households with Improved Sanitation",
+        "method": "state",
+        "area": "Dakshina Kannada",
+        "verdict": "no-evidence",
+        "why": "Dakshina Kannada has a very low dropout rate (1.2%) and generally good infrastructure.  No evidence suggests sanitation is an issue here; most households have toilets, and we found no reports linking sanitation to dropouts.",
+        "mechanism": "Poor sanitation -> illness -> absences -> dropout",
+        "proof": []
+      },
+      {
+        "factor": "% Schools with instruction medium 1 (English)",
+        "method": "district",
+        "area": "Dakshina Kannada",
+        "verdict": "no-evidence",
+        "why": "Dropout is almost negligible in Dakshina Kannada (1.2%). We found no link between English-medium schooling and dropout locally; in fact, many students here attend quality schools with English instruction successfully.",
+        "mechanism": "English instruction -> comprehension issues -> dropout",
+        "proof": []
+      }
+    ],
+    "sources": [],
+    "gaps": "No local evidence was found linking sanitation or English-medium instruction to dropouts in Dakshina Kannada.  District dropout reports emphasize quality schooling and literacy; sanitation/medium issues are not mentioned in sources we consulted.",
+    "notes": [
+      "source 1 dropped: page could not be opened (impactjournals.us)",
+      "state/% Population Living in Households with I: proof dropped (no openable source): 'Health-related absenteeism is generally known to contribute '",
+      "district/% Schools with instruction medium 1 (Eng: proof dropped (no openable source): 'Language barriers can cause dropouts in under-resourced cont'"
+    ]
+  }
 }

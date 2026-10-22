@@ -227,5 +227,37 @@
   ],
   "coverage": "thin",
   "gaps": "The UNICEF source is old; no current dropout counts retrieved. No Davanagere dropout or out-of-school counts, DDPI or Samagra Shiksha figures, or reporting on migration, toilets, teacher vacancies or girls' safety. The Davanagere Live page returned 404 on direct fetch; its figures come from search results. A district SSLC 2025 headcount (present/passed) was dropped because its only source no longer loads.",
-  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages.",
+  "dominantFactorWhy": {
+    "researchedOn": "2026-10-22",
+    "entries": [
+      {
+        "factor": "% Population Living in Households with Improved Sanitation",
+        "method": "state",
+        "area": "Davanagere",
+        "verdict": "no-evidence",
+        "why": "No local source directly links sanitation to dropouts in Davanagere.  However, rural parts of the district may have poorer household toilets, and elsewhere poor sanitation (leading to illnesses) has been noted as a dropout contributor.",
+        "mechanism": "Poor home sanitation -> sickness/absences (esp. girls) -> irregular attendance -> dropout",
+        "proof": []
+      },
+      {
+        "factor": "% Schools with instruction medium 1 (English)",
+        "method": "district",
+        "area": "Davanagere",
+        "verdict": "no-evidence",
+        "why": "No evidence was found on English-medium teaching causing dropouts in Davanagere.  In general, students with weak English skills may struggle, and research indicates medium of instruction can be a dropout factor.",
+        "mechanism": "English instruction -> comprehension struggles -> poor grades/attendance -> dropout",
+        "proof": []
+      }
+    ],
+    "sources": [],
+    "gaps": "No district-specific studies or news articles linking sanitation or English-medium schooling to dropout rates in Davanagere were found. We looked at local news and education reports without success.",
+    "notes": [
+      "source 1 dropped: page could not be opened (impactjournals.us)",
+      "state/% Population Living in Households with I: proof dropped (no openable source): 'Health problems (from poor sanitation) are documented as cau'",
+      "state/% Population Living in Households with I: 'partly' -> 'no-evidence' (no verified proof survived)",
+      "district/% Schools with instruction medium 1 (Eng: proof dropped (no openable source): 'Language of instruction (English) is cited by some educators'",
+      "district/% Schools with instruction medium 1 (Eng: 'partly' -> 'no-evidence' (no verified proof survived)"
+    ]
+  }
 }

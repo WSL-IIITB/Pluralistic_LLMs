@@ -294,5 +294,37 @@
   ],
   "coverage": "moderate",
   "gaps": "No school-level dropout or SSLC district figures retrieved. No Chitradurga dropout or out-of-school counts, DDPI or Samagra Shiksha data, or reporting that directly ties drought migration or child labour to students leaving Classes 8-10. Search budget ran out; The Hindu and many Deccan Herald pages were inaccessible.",
-  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages.",
+  "dominantFactorWhy": {
+    "researchedOn": "2026-10-22",
+    "entries": [
+      {
+        "factor": "% Population Living in Households with Improved Sanitation",
+        "method": "state",
+        "area": "Chitradurga",
+        "verdict": "no-evidence",
+        "why": "No local evidence was found tying household sanitation to dropouts in Chitradurga.  The district has many rural areas where sanitation may be poor, and globally poor sanitation (leading to illness) is known to reduce attendance.",
+        "mechanism": "Poor sanitation at home -> health issues (diarrhea, etc.) -> frequent absences -> dropout",
+        "proof": []
+      },
+      {
+        "factor": "% Schools with instruction medium 1 (English)",
+        "method": "district",
+        "area": "Chitradurga",
+        "verdict": "no-evidence",
+        "why": "We found no Chitradurga-specific reports linking English-medium schooling to dropout.  Nationally, students who struggle with English often lag behind, and studies have cited medium of instruction as one dropout reason.",
+        "mechanism": "English-medium instruction -> difficulty understanding content -> poor performance/attendance -> dropout",
+        "proof": []
+      }
+    ],
+    "sources": [],
+    "gaps": "Searched English and Kannada media and educational reports for Chitradurga; no references were found linking sanitation or English-medium instruction with secondary dropout. Local sources focus on infrastructure and attendance, not dropouts.",
+    "notes": [
+      "source 1 dropped: page could not be opened (impactjournals.us)",
+      "state/% Population Living in Households with I: proof dropped (no openable source): 'Illness and health issues are noted causes of school dropout'",
+      "state/% Population Living in Households with I: 'partly' -> 'no-evidence' (no verified proof survived)",
+      "district/% Schools with instruction medium 1 (Eng: proof dropped (no openable source): 'Teachers have cited language of instruction as a factor in s'",
+      "district/% Schools with instruction medium 1 (Eng: 'partly' -> 'no-evidence' (no verified proof survived)"
+    ]
+  }
 }

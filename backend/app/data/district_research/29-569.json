@@ -317,5 +317,35 @@
   ],
   "coverage": "moderate",
   "gaps": "No Class 8-10 dropout counts; most sources are SSLC-result coverage; the district's very low casefile dropout rate is unexplained. Article dates mostly unknown; several pages returned 403 or 404 so details rest on search excerpts. No UDISE+ figures, post-COVID trend, girls or child marriage evidence, or source explaining the low rate (reporting differences, migration out) found.",
-  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages.",
+  "dominantFactorWhy": {
+    "researchedOn": "2026-10-22",
+    "entries": [
+      {
+        "factor": "% Population Living in Households with Improved Sanitation",
+        "method": "state",
+        "area": "Udupi",
+        "verdict": "no-evidence",
+        "why": "Udupi’s dropout rate is very low (1.4%) and it is a well-developed district with high literacy.  We found no references to sanitation problems causing dropouts; most households have good sanitation, so this factor seems irrelevant here.",
+        "mechanism": "Poor sanitation -> illness -> absences -> dropout",
+        "proof": []
+      },
+      {
+        "factor": "% Schools with instruction medium 1 (English)",
+        "method": "district",
+        "area": "Udupi",
+        "verdict": "no-evidence",
+        "why": "With dropout at only 1.4%, Udupi has no known problem with English-medium schooling causing students to quit.  Schools here generally function well and no reports indicate language of instruction issues.",
+        "mechanism": "English instruction -> comprehension issues -> dropout",
+        "proof": []
+      }
+    ],
+    "sources": [],
+    "gaps": "Searched for evidence in Udupi specifically; found none linking sanitation or English-medium instruction to dropouts. Local education bulletins and news focus on enrolment, not dropouts, so no relevant data was located.",
+    "notes": [
+      "source 1 dropped: page could not be opened (impactjournals.us)",
+      "state/% Population Living in Households with I: proof dropped (no openable source): 'Illness from poor sanitation can contribute to dropouts'",
+      "district/% Schools with instruction medium 1 (Eng: proof dropped (no openable source): 'Students lacking language support may drop out'"
+    ]
+  }
 }

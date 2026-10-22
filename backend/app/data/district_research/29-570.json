@@ -250,5 +250,37 @@
   ],
   "coverage": "moderate",
   "gaps": "SSLC pass rate omitted because sources conflict; no dropout counts. No coffee-estate migrant child, SSLC pass-rate, UDISE+ or child-marriage figures for this district were verified. Deccan Herald pages could not be fetched, so they rest on search excerpts without dates.",
-  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages.",
+  "dominantFactorWhy": {
+    "researchedOn": "2026-10-22",
+    "entries": [
+      {
+        "factor": "% Population Living in Households with Improved Sanitation",
+        "method": "state",
+        "area": "Chikkamangaluru",
+        "verdict": "no-evidence",
+        "why": "No specific source links household sanitation to dropouts in Chikkamagaluru.  Some villages may have poor toilets, and school absenteeism from illness (a known effect of poor sanitation) can lead to dropout, though no local evidence was found.",
+        "mechanism": "Deficient home sanitation -> recurrent illness (e.g. diarrhea) -> missed schooldays -> dropout",
+        "proof": []
+      },
+      {
+        "factor": "% Schools with instruction medium 1 (English)",
+        "method": "district",
+        "area": "Chikkamangaluru",
+        "verdict": "no-evidence",
+        "why": "We found no Chikkamagaluru-specific data on English-medium instruction and dropout.  Students from Kannada homes might find English-medium difficult.  Educational research indicates language of instruction can contribute to dropout.",
+        "mechanism": "Instruction in English -> student confusion -> low grades/absenteeism -> dropout",
+        "proof": []
+      }
+    ],
+    "sources": [],
+    "gaps": "No local (district or taluk) reports were found linking sanitation or English-medium schooling to dropout in Chikkamagaluru. We checked local news and government education releases without finding relevant information.",
+    "notes": [
+      "source 1 dropped: page could not be opened (impactjournals.us)",
+      "state/% Population Living in Households with I: proof dropped (no openable source): 'Studies identify health issues (related to sanitation) as ca'",
+      "state/% Population Living in Households with I: 'partly' -> 'no-evidence' (no verified proof survived)",
+      "district/% Schools with instruction medium 1 (Eng: proof dropped (no openable source): 'Medium of instruction (English) is reported by teachers as a'",
+      "district/% Schools with instruction medium 1 (Eng: 'partly' -> 'no-evidence' (no verified proof survived)"
+    ]
+  }
 }

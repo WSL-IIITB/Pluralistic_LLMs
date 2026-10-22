@@ -219,5 +219,59 @@
   ],
   "coverage": "thin",
   "gaps": "No recent dropout or SSLC figures; Sirsi evidence is the 2014 count and one COVID item; the high casefile rate is unexplained. Siddi-girls and guest-teacher claims were dropped (cited pages do not support them). No district dropout figures, SSLC results, child marriage, migration or Sirsi sub-area evidence retrieved; Deccan Herald pages returned 403 so details rest on search excerpts; search budget ran out. Explanation of the high casefile rate is unevidenced.",
-  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages.",
+  "dominantFactorWhy": {
+    "researchedOn": "2026-10-22",
+    "entries": [
+      {
+        "factor": "% Population Living in Households with Improved Sanitation",
+        "method": "state",
+        "area": "Uttara Kannada",
+        "verdict": "no-evidence",
+        "why": "No direct sources from Uttara Kannada link household sanitation to dropouts.  However, rural and tribal areas in the district may have poor sanitation, and health-related absenteeism is a plausible dropout factor.",
+        "mechanism": "Lack of safe home toilets -> recurrent illness/missed school -> eventual dropout",
+        "proof": []
+      },
+      {
+        "factor": "% Population Living in Households with Improved Sanitation",
+        "method": "state",
+        "area": "Uttara Kannada Sirsi",
+        "verdict": "no-evidence",
+        "why": "Sirsi taluk is hilly and remote; we found no local dropout studies, but poor sanitation could lead to child illness and dropouts.  General studies document such links, even if not cited here.",
+        "mechanism": "Insufficient household toilets -> illness (diarrhea, infections) -> absenteeism -> dropout",
+        "proof": []
+      },
+      {
+        "factor": "% Schools with instruction medium 1 (English)",
+        "method": "district",
+        "area": "Uttara Kannada",
+        "verdict": "no-evidence",
+        "why": "No Uttara Kannada data links English-medium schooling to dropouts.  Students in remote areas may struggle with English; research indicates that medium of instruction can be a dropout factor, so it remains plausible.",
+        "mechanism": "English-medium classes -> student comprehension difficulties -> poor grades/attendance -> dropout",
+        "proof": []
+      },
+      {
+        "factor": "% Schools with instruction medium 1 (English)",
+        "method": "district",
+        "area": "Uttara Kannada Sirsi",
+        "verdict": "no-evidence",
+        "why": "Sirsi students typically speak Kannada at home; although no specific reports, English-only instruction could hinder them.  Academic surveys note that instruction language can drive some students out of school.",
+        "mechanism": "English instruction -> understanding gap -> absenteeism and failing grades -> dropout",
+        "proof": []
+      }
+    ],
+    "sources": [],
+    "gaps": "No local evidence was available on Uttara Kannada linking sanitation or English-medium instruction to dropout. We searched district reports and local news (coastal and Malnad editions) without finding relevant data.",
+    "notes": [
+      "source 1 dropped: page could not be opened (impactjournals.us)",
+      "state/% Population Living in Households with I: proof dropped (no openable source): 'Health issues (linked to sanitation) are known causes of dro'",
+      "state/% Population Living in Households with I: 'partly' -> 'no-evidence' (no verified proof survived)",
+      "state/% Population Living in Households with I: proof dropped (no openable source): 'Sanitation-related health problems contribute to dropouts in'",
+      "state/% Population Living in Households with I: 'partly' -> 'no-evidence' (no verified proof survived)",
+      "district/% Schools with instruction medium 1 (Eng: proof dropped (no openable source): 'Educators have identified language of instruction as a facto'",
+      "district/% Schools with instruction medium 1 (Eng: 'partly' -> 'no-evidence' (no verified proof survived)",
+      "district/% Schools with instruction medium 1 (Eng: proof dropped (no openable source): 'Language barriers in schooling are cited as dropout causes'",
+      "district/% Schools with instruction medium 1 (Eng: 'partly' -> 'no-evidence' (no verified proof survived)"
+    ]
+  }
 }

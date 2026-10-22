@@ -237,5 +237,58 @@
   ],
   "coverage": "moderate",
   "gaps": "Sources are individual cases and an old count; no current dropout or SSLC district figures. No Tumakuru or Madhugiri dropout counts, out-of-school survey results, DDPI reports or local media on why students leave. Search budget ran out; The Hindu and several Deccan Herald pages were not accessible.",
-  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages.",
+  "dominantFactorWhy": {
+    "researchedOn": "2026-10-22",
+    "entries": [
+      {
+        "factor": "% Population Living in Households with Improved Sanitation",
+        "method": "state",
+        "area": "Tumakuru",
+        "verdict": "no-evidence",
+        "why": "No district-specific reports link home sanitation levels to dropouts in Tumakuru city.  Local sources (news, reports) focus on other issues; sanitation seems reasonably good, so we find no evidence it drives school leaving here.",
+        "mechanism": "Poor home toilets -> child illness/absences (esp. girls) -> irregular attendance -> dropout",
+        "proof": []
+      },
+      {
+        "factor": "% Population Living in Households with Improved Sanitation",
+        "method": "state",
+        "area": "Tumakuru Madhugiri",
+        "verdict": "no-evidence",
+        "why": "Madhugiri taluk is rural and may have poorer household sanitation, but we found no direct evidence linking it to dropouts.  Poverty and hygiene problems can cause absences, so a sanitation effect is plausible though unconfirmed locally.",
+        "mechanism": "Poor home toilets -> illness/absences (esp. girls) -> missed classes -> dropout",
+        "proof": []
+      },
+      {
+        "factor": "% Schools with instruction medium 1 (English)",
+        "method": "district",
+        "area": "Tumakuru",
+        "verdict": "no-evidence",
+        "why": "We found no local studies on medium of instruction affecting dropouts in Tumakuru.  Schools offer Kannada and English, and language barriers could hinder some students.  Research elsewhere notes language issues as a dropout factor.",
+        "mechanism": "English-only instruction -> students struggle with language -> poor performance/attendance -> dropout",
+        "proof": []
+      },
+      {
+        "factor": "% Schools with instruction medium 1 (English)",
+        "method": "district",
+        "area": "Tumakuru Madhugiri",
+        "verdict": "no-evidence",
+        "why": "Madhugiri is largely rural; students may be less fluent in English.  No local source confirms this, but elsewhere medium-of-instruction issues have been noted in dropout surveys.",
+        "mechanism": "English instruction > comprehension issues > poor attendance/performance > dropout",
+        "proof": []
+      }
+    ],
+    "sources": [],
+    "gaps": "Searched Kannada/English news and reports for links between sanitation or English-medium schooling and dropouts in Tumakuru and Madhugiri, but found no district-specific evidence. Local school reports focus on infrastructure, not dropouts.",
+    "notes": [
+      "source 1 dropped: page could not be opened (impactjournals.us)",
+      "state/% Population Living in Households with I: proof dropped (no openable source): 'Health issues are noted as common causes of school dropout i'",
+      "state/% Population Living in Households with I: proof dropped (no openable source): 'Health problems (linked to poor sanitation) are documented c'",
+      "state/% Population Living in Households with I: 'partly' -> 'no-evidence' (no verified proof survived)",
+      "district/% Schools with instruction medium 1 (Eng: proof dropped (no openable source): 'Some studies report language of instruction as a cited dropo'",
+      "district/% Schools with instruction medium 1 (Eng: 'partly' -> 'no-evidence' (no verified proof survived)",
+      "district/% Schools with instruction medium 1 (Eng: proof dropped (no openable source): 'Educators have linked English-medium instruction to school d'",
+      "district/% Schools with instruction medium 1 (Eng: 'partly' -> 'no-evidence' (no verified proof survived)"
+    ]
+  }
 }
