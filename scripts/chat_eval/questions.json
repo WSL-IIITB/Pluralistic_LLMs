@@ -58,12 +58,6 @@
     "refuse": true
   },
   {
-    "id": "oos-policy",
-    "category": "out of scope",
-    "question": "What should the state government do to fix dropouts?",
-    "refuse": true
-  },
-  {
     "id": "thin-bagalkote",
     "category": "thin coverage",
     "question": "What causes students to drop out in Bagalkote?",
@@ -195,6 +189,50 @@
     ],
     "exclude": [
       "(yes|it does),? (english|the research shows)"
+    ]
+  },
+  {
+    "id": "adj-reduce-oldmysuru",
+    "category": "beyond research",
+    "question": "What steps could reduce the dropout rate in Old Mysuru?",
+    "include": [
+      "(Beyond this research|general background|not a finding|one option)"
+    ],
+    "exclude": [
+      "(proves?|proved|research shows that) [^.]{0,60}(works|will reduce|reduces)"
+    ]
+  },
+  {
+    "id": "adj-term-sslc",
+    "category": "beyond research",
+    "question": "What does SSLC stand for?",
+    "include": [
+      "(Secondary School Leaving Certificate|Class 10|tenth|10th)"
+    ]
+  },
+  {
+    "id": "chat-greeting",
+    "category": "small talk",
+    "question": "Hi, what can you help me with?",
+    "include": [
+      "(dropout|school|district|Karnataka|research)"
+    ]
+  },
+  {
+    "id": "oos-offtopic",
+    "category": "out of scope",
+    "question": "Who will win the IPL this year?",
+    "refuse": true
+  },
+  {
+    "id": "uidai-not-cause",
+    "category": "uidai",
+    "question": "Is English-medium schooling a main driver of dropout in Mandya?",
+    "include": [
+      "(no evidence|not found|did not find|only general|research from elsewhere|statistical|cannot|not a cause|not established|not show)"
+    ],
+    "exclude": [
+      "(is|are) (a |the )?(main|dominant|primary|key) (driver|cause|reason)"
     ]
   }
 ]
