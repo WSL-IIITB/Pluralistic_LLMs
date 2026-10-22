@@ -211,5 +211,86 @@
   ],
   "coverage": "thin",
   "gaps": "No district dropout, out-of-school or SSLC pass-rate figures; the 35-40% figure is statewide and was not used as a district finding. No Chikkaballapur SSLC pass rates, UDISE dropout counts, silk or migration child-labour studies, or Telugu-medium analysis found; Deccan Herald pages returned 403 (search excerpt only); indiastat timed out; profile figures varied between retrievals.",
-  "verificationNotes": "Dropped reason 'SSLC malpractice': cited page(s) do not name the district."
+  "verificationNotes": "Dropped reason 'SSLC malpractice': cited page(s) do not name the district.",
+  "dominantFactorWhy": {
+    "researchedOn": "2026-10-22",
+    "entries": [
+      {
+        "factor": "% Population Living in Households with Improved Sanitation",
+        "method": "state",
+        "area": "Chikkaballapura",
+        "verdict": "partly",
+        "why": "Chikkaballapur’s rural population likely lacks household toilets; girls may drop out due to no sanitation facilities.",
+        "mechanism": "Poor home sanitation → illness or girls skip school → dropout",
+        "proof": [
+          {
+            "scope": "general",
+            "claim": "Girls’ attendance is boosted by separate toilet facilities",
+            "quote": "",
+            "sources": [
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Schools with instruction medium 1 (English)",
+        "method": "district",
+        "area": "Chikkaballapura",
+        "verdict": "partly",
+        "why": "Limited English-medium schools exist; studies show learning in an unfamiliar language increases dropout.",
+        "mechanism": "Teaching in a non-native language → poor comprehension → dropout",
+        "proof": [
+          {
+            "scope": "general",
+            "claim": "Change in medium of instruction impacts student dropout",
+            "quote": "",
+            "sources": [
+              3
+            ]
+          },
+          {
+            "scope": "general",
+            "claim": "Students struggle to understand lessons in an unfamiliar language",
+            "quote": "",
+            "sources": [
+              2
+            ]
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "url": "https://www.who.int/news-room/fact-sheets/detail/sanitation",
+        "title": "Sanitation",
+        "outlet": "World Health Organization",
+        "date": "2024-03-22",
+        "type": "government"
+      },
+      {
+        "id": 2,
+        "url": "https://socialscienceresearch.org/index.php/GJHSS/article/download/104022/38985/55230",
+        "title": "The Impact of Medium of Instruction on Dropout Rates and Academic Performance: A Case Study of Tribal Students in Wayanad District, Kerala",
+        "outlet": "Global Journal of Human Social Science",
+        "date": "2024",
+        "type": "research"
+      },
+      {
+        "id": 3,
+        "url": "https://saudijournals.com/media/articles/SJHSS-23194-202_fkf5lHt.pdf",
+        "title": "Impact of English Medium Instruction on the Dropout Rate of Students at Government High Schools in Lahore",
+        "outlet": "Saudi Journal of Humanities and Social Sciences",
+        "date": "2017-03",
+        "type": "research"
+      }
+    ],
+    "gaps": "No local research linking sanitation or medium-of-instruction to dropouts was found for Chikkaballapur.",
+    "notes": [
+      "state/% Population Living in Households with I: quote removed (not found on the page)",
+      "district/% Schools with instruction medium 1 (Eng: quote removed (not found on the page)",
+      "district/% Schools with instruction medium 1 (Eng: quote removed (not found on the page)"
+    ]
+  }
 }

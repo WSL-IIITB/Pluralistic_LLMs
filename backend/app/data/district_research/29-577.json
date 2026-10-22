@@ -344,5 +344,31 @@
   ],
   "coverage": "moderate",
   "gaps": "The report's claim about residential schools for rescued child labourers cites a source that does not mention Mysuru and was dropped. No recent district out-of-school count for Classes 8-10, UDISE+ or DDPI figures, or Deccan Herald articles with confirmed dates were retrievable. SSLC pass rates differ by exam attempt basis across years, and no direct SSLC-failure-to-dropout evidence was found.",
-  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages.",
+  "dominantFactorWhy": {
+    "researchedOn": "2026-10-22",
+    "entries": [
+      {
+        "factor": "% Population Living in Households with Improved Sanitation",
+        "method": "state",
+        "area": "Mysuru",
+        "verdict": "no-evidence",
+        "why": "No evidence found linking household sanitation to secondary dropouts in Mysuru; dropout rates are relatively low and sanitation facilities are largely in place.",
+        "mechanism": "Poor home sanitation → illness or girls skip school → dropout",
+        "proof": []
+      },
+      {
+        "factor": "% Schools with Functional Protected Well",
+        "method": "district",
+        "area": "Mysuru",
+        "verdict": "no-evidence",
+        "why": "No evidence found linking school water supply (protected wells) to dropouts in Mysuru. Water access at schools has not been identified as a dropout cause.",
+        "mechanism": "Lack of water at school → hygiene/health issues → dropout",
+        "proof": []
+      }
+    ],
+    "sources": [],
+    "gaps": "No local evidence was found linking sanitation or school water supply to dropouts in Mysuru.",
+    "notes": []
+  }
 }

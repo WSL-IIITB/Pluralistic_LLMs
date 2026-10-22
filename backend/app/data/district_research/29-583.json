@@ -204,5 +204,86 @@
   ],
   "coverage": "thin",
   "gaps": "No district dropout counts; the child-labour figure comes from a statewide report. No district-specific dropout/out-of-school counts, SSLC pass rates, child-labour (garment/industrial) or taluk-level evidence found for Bengaluru Rural; Deccan Herald pages were blocked, so the 66-vs-12 figure rests on a search snippet.",
-  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages.",
+  "dominantFactorWhy": {
+    "researchedOn": "2026-10-22",
+    "entries": [
+      {
+        "factor": "% Population Living in Households with Improved Sanitation",
+        "method": "state",
+        "area": "Bengaluru Rural",
+        "verdict": "partly",
+        "why": "Many rural Bengaluru homes lack toilets; girls often drop out without sanitation.",
+        "mechanism": "No home sanitation → illness or girls skip school (menstruation) → dropout",
+        "proof": [
+          {
+            "scope": "general",
+            "claim": "Girls’ attendance is boosted by separate toilet facilities",
+            "quote": "",
+            "sources": [
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Schools with instruction medium 1 (English)",
+        "method": "district",
+        "area": "Bengaluru Rural",
+        "verdict": "partly",
+        "why": "Few English-medium schools exist; research shows an unfamiliar language can increase dropouts.",
+        "mechanism": "Teaching in a non-native language → poor comprehension → dropout",
+        "proof": [
+          {
+            "scope": "general",
+            "claim": "Change in medium of instruction impacts student dropout",
+            "quote": "",
+            "sources": [
+              3
+            ]
+          },
+          {
+            "scope": "general",
+            "claim": "Students struggle to understand lessons in an unfamiliar language",
+            "quote": "",
+            "sources": [
+              2
+            ]
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "url": "https://www.who.int/news-room/fact-sheets/detail/sanitation",
+        "title": "Sanitation",
+        "outlet": "World Health Organization",
+        "date": "2024-03-22",
+        "type": "government"
+      },
+      {
+        "id": 2,
+        "url": "https://socialscienceresearch.org/index.php/GJHSS/article/download/104022/38985/55230",
+        "title": "The Impact of Medium of Instruction on Dropout Rates and Academic Performance: A Case Study of Tribal Students in Wayanad District, Kerala",
+        "outlet": "Global Journal of Human Social Science",
+        "date": "2024",
+        "type": "research"
+      },
+      {
+        "id": 3,
+        "url": "https://saudijournals.com/media/articles/SJHSS-23194-202_fkf5lHt.pdf",
+        "title": "Impact of English Medium Instruction on the Dropout Rate of Students at Government High Schools in Lahore",
+        "outlet": "Saudi Journal of Humanities and Social Sciences",
+        "date": "2017-03",
+        "type": "research"
+      }
+    ],
+    "gaps": "No local studies found on sanitation or medium-of-instruction effects on dropouts in Bengaluru Rural.",
+    "notes": [
+      "state/% Population Living in Households with I: quote removed (not found on the page)",
+      "district/% Schools with instruction medium 1 (Eng: quote removed (not found on the page)",
+      "district/% Schools with instruction medium 1 (Eng: quote removed (not found on the page)"
+    ]
+  }
 }

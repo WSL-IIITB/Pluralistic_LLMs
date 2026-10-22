@@ -205,5 +205,57 @@
   ],
   "coverage": "moderate",
   "gaps": "Sources are mostly 2013-2017 and 2022; no recent dropout, out-of-school or SSLC figures. No Gadag-specific news, DDPI/Samagra Shiksha reports, SSLC figures, out-of-school counts or migration evidence retrieved; a Gadag child-protection report was unavailable (404). Search quota ran out; major outlets were inaccessible.",
-  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages.",
+  "dominantFactorWhy": {
+    "researchedOn": "2026-10-22",
+    "entries": [
+      {
+        "factor": "% Population Living in Households with Improved Sanitation",
+        "method": "state",
+        "area": "Gadag",
+        "verdict": "partly",
+        "why": "Gadag is a relatively underdeveloped district; rural sanitation may be incomplete. No district report was found on sanitation and dropout. Generally, lack of household sanitation leads to health issues and girls missing school, which can increase dropout.",
+        "mechanism": "Poor sanitation -> disease/menstrual hygiene issues -> absenteeism -> dropout (general).",
+        "proof": [
+          {
+            "scope": "general",
+            "claim": "Poor sanitation reduces education opportunities",
+            "quote": "lost opportunities for education and work",
+            "sources": [
+              1
+            ]
+          },
+          {
+            "scope": "general",
+            "claim": "Separate toilets boost girls’ attendance",
+            "quote": "girls’ school attendance is particularly boosted",
+            "sources": [
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Schools with instruction medium 1 (English)",
+        "method": "district",
+        "area": "Gadag",
+        "verdict": "no-evidence",
+        "why": "No evidence was found that English-medium instruction affects dropouts in Gadag. Local sources do not mention language as a dropout factor here.",
+        "mechanism": "Instruction in English (when not mother tongue) can hinder learning and lead to dropout (general).",
+        "proof": []
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "url": "https://www.who.int/news-room/fact-sheets/detail/sanitation",
+        "title": "Sanitation",
+        "outlet": "World Health Organization",
+        "date": "2024-03-22",
+        "type": "data"
+      }
+    ],
+    "gaps": "We found no information on how these factors relate to dropouts in Gadag. District education reports and news are silent on sanitation and language issues.",
+    "notes": []
+  }
 }

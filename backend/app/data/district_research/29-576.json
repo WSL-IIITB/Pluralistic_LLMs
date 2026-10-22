@@ -239,5 +239,57 @@
   ],
   "coverage": "moderate",
   "gaps": "Single-case evidence only; SSLC pass rate omitted because sources conflict. No Kodagu Class 8-10 dropout or out-of-school counts, tribal-hamlet (Yerava, Jenu Kuruba) secondary evidence or UDISE+ figures verified. Deccan Herald pages were unfetchable, so those items rest on search excerpts without dates.",
-  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages.",
+  "dominantFactorWhy": {
+    "researchedOn": "2026-10-22",
+    "entries": [
+      {
+        "factor": "% Population Living in Households with Improved Sanitation",
+        "method": "state",
+        "area": "Kodagu",
+        "verdict": "partly",
+        "why": "Kodagu has many rural areas where household toilets may be scarce. No local reports link sanitation directly to dropout, but lack of toilets can cause illnesses and girls to miss school, aligning with general patterns of dropout risk.",
+        "mechanism": "Poor household sanitation -> health/menstrual hygiene issues -> absenteeism -> dropout (general).",
+        "proof": [
+          {
+            "scope": "general",
+            "claim": "Poor sanitation reduces education opportunities",
+            "quote": "lost opportunities for education and work",
+            "sources": [
+              1
+            ]
+          },
+          {
+            "scope": "general",
+            "claim": "Separate toilets boost girls’ attendance",
+            "quote": "girls’ school attendance is particularly boosted",
+            "sources": [
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Schools with instruction medium 1 (English)",
+        "method": "district",
+        "area": "Kodagu",
+        "verdict": "no-evidence",
+        "why": "In Kodagu, the local language (Kannada/Kodava) predominates. We found no evidence that English-medium schooling is causing dropouts here.",
+        "mechanism": "Instruction in an unfamiliar language can hinder comprehension and lead to dropout (general).",
+        "proof": []
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "url": "https://www.who.int/news-room/fact-sheets/detail/sanitation",
+        "title": "Sanitation",
+        "outlet": "World Health Organization",
+        "date": "2024-03-22",
+        "type": "data"
+      }
+    ],
+    "gaps": "No district-specific evidence was found linking sanitation or medium of instruction to dropouts. Local reports on these factors are absent.",
+    "notes": []
+  }
 }

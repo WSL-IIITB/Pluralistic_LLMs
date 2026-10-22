@@ -337,5 +337,105 @@
   ],
   "coverage": "moderate",
   "gaps": "An earlier undated Deccan Herald snippet gave 2,682 for Bengaluru South; the dated Bangalore Mirror figure (2,028, 2023-24) is used. casefile sub-areas North and South are not separated in most sources. No recent district-level Class 8-10 dropout counts, SSLC pass rates for Bengaluru North/South, or UDISE+ figures retrieved; UDISE+ girls' dropout data found is state-level only; Deccan Herald pages were blocked and known only via search snippets.",
-  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages.",
+  "dominantFactorWhy": {
+    "researchedOn": "2026-10-22",
+    "entries": [
+      {
+        "factor": "% Population Living in Households with Improved Sanitation",
+        "method": "state",
+        "area": "Bengaluru U North",
+        "verdict": "partly",
+        "why": "Bengaluru: poverty and factors cause many to drop out; girls' attendance needs toilets.",
+        "mechanism": "Poor home sanitation → health issues or girls skip school → dropout",
+        "proof": [
+          {
+            "scope": "district",
+            "claim": "Poverty causes thousands of Bengaluru children to drop out",
+            "quote": "",
+            "sources": [
+              1
+            ]
+          },
+          {
+            "scope": "general",
+            "claim": "Girls’ attendance is boosted by separate toilet facilities",
+            "quote": "",
+            "sources": [
+              2
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Population Living in Households with Improved Sanitation",
+        "method": "state",
+        "area": "Bengaluru U South",
+        "verdict": "partly",
+        "why": "Bengaluru: poverty and factors cause many to drop out; girls' attendance needs toilets.",
+        "mechanism": "Poor home sanitation → health issues or girls skip school → dropout",
+        "proof": [
+          {
+            "scope": "district",
+            "claim": "Poverty causes thousands of Bengaluru children to drop out",
+            "quote": "",
+            "sources": [
+              1
+            ]
+          },
+          {
+            "scope": "general",
+            "claim": "Girls’ attendance is boosted by separate toilet facilities",
+            "quote": "",
+            "sources": [
+              2
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Schools with Functional Protected Well",
+        "method": "district",
+        "area": "Bengaluru U North",
+        "verdict": "no-evidence",
+        "why": "No evidence found linking school water supply (protected wells) to dropouts in Bengaluru. Issues of water have not been cited as causes locally.",
+        "mechanism": "Lack of drinking water at school → hygiene/health issues → dropout",
+        "proof": []
+      },
+      {
+        "factor": "% Schools with Functional Protected Well",
+        "method": "district",
+        "area": "Bengaluru U South",
+        "verdict": "no-evidence",
+        "why": "No evidence found linking school water supply (protected wells) to dropouts in Bengaluru. Issues of water have not been cited as causes locally.",
+        "mechanism": "Lack of drinking water at school → hygiene/health issues → dropout",
+        "proof": []
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "url": "https://kannada.oneindia.com/news/bengaluru/number-of-children-dropping-out-of-school-increasing-in-bengaluru-403735.html",
+        "title": "ಬೆಂಗಳೂರಿನಲ್ಲಿ ಶಾಲೆ ಬಿಡುವ ಮಕ್ಕಳ ಸಂಖ್ಯೆ ಹೆಚ್ಚಳ!",
+        "outlet": "Oneindia Kannada",
+        "date": "2025-03-12",
+        "type": "news"
+      },
+      {
+        "id": 2,
+        "url": "https://www.who.int/news-room/fact-sheets/detail/sanitation",
+        "title": "Sanitation",
+        "outlet": "World Health Organization",
+        "date": "2024-03-22",
+        "type": "government"
+      }
+    ],
+    "gaps": "No district-specific data found linking household sanitation or school water supply to dropouts in Bengaluru.",
+    "notes": [
+      "state/% Population Living in Households with I: quote removed (not found on the page)",
+      "state/% Population Living in Households with I: quote removed (not found on the page)",
+      "state/% Population Living in Households with I: quote removed (not found on the page)",
+      "state/% Population Living in Households with I: quote removed (not found on the page)"
+    ]
+  }
 }

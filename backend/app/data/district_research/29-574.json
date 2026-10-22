@@ -233,5 +233,57 @@
   ],
   "coverage": "thin",
   "gaps": "The out-of-school survey and child-marriage report are several years old; SSLC pass rate omitted because sources conflict. No Hassan dropout or out-of-school counts, district SSLC pass rate (conflicting snippets), estate-worker or Sakleshpur migrant-child evidence, or UDISE+ figures verified. Deccan Herald pages were unfetchable; dates unknown.",
-  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages.",
+  "dominantFactorWhy": {
+    "researchedOn": "2026-10-22",
+    "entries": [
+      {
+        "factor": "% Population Living in Households with Improved Sanitation",
+        "method": "state",
+        "area": "Hassan",
+        "verdict": "partly",
+        "why": "Hassan has rural areas with limited sanitation. No district report on sanitation effects on dropouts was found. However, generally poor household toilets can lead to illness and cause students (especially girls) to miss school and drop out.",
+        "mechanism": "Poor sanitation -> hygiene/health problems -> absenteeism -> dropout (general).",
+        "proof": [
+          {
+            "scope": "general",
+            "claim": "Poor sanitation reduces education opportunities",
+            "quote": "lost opportunities for education and work",
+            "sources": [
+              1
+            ]
+          },
+          {
+            "scope": "general",
+            "claim": "Separate toilets boost girls’ attendance",
+            "quote": "girls’ school attendance is particularly boosted",
+            "sources": [
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Schools with instruction medium 1 (English)",
+        "method": "district",
+        "area": "Hassan",
+        "verdict": "no-evidence",
+        "why": "Most schools in Hassan teach in Kannada. We found no evidence that English-medium schooling is causing dropouts here.",
+        "mechanism": "Instruction in an unfamiliar language can hinder comprehension and lead to dropout (general).",
+        "proof": []
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "url": "https://www.who.int/news-room/fact-sheets/detail/sanitation",
+        "title": "Sanitation",
+        "outlet": "World Health Organization",
+        "date": "2024-03-22",
+        "type": "data"
+      }
+    ],
+    "gaps": "No local evidence was found linking sanitation or English-medium instruction to dropouts in Hassan. We searched district reports and news without success.",
+    "notes": []
+  }
 }

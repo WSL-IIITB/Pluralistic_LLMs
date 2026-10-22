@@ -312,5 +312,92 @@
   ],
   "coverage": "moderate",
   "gaps": "No district dropout, out-of-school or Class 8-10 retention figures; the SSLC figure is for the whole division; Chikkodi sub-area not covered. No Belagavi or Chikkodi dropout counts, UDISE+ figures, Class 8-10 exit surveys or Athani/Raibag-specific reporting retrieved; Deccan Herald pages blocked fetching, so its figures rest on search snippets. Evidence is mostly primary-age migration.",
-  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages.",
+  "dominantFactorWhy": {
+    "researchedOn": "2026-10-22",
+    "entries": [
+      {
+        "factor": "% Population Living in Households with Improved Sanitation",
+        "method": "state",
+        "area": "Belagavi",
+        "verdict": "partly",
+        "why": "Belagavi includes rural areas where household sanitation may be poor. No district-specific source links sanitation to dropouts, but lack of toilets can cause illness and girls to miss school, contributing to dropout risk.",
+        "mechanism": "Poor sanitation -> health and hygiene issues -> absenteeism -> dropout (general).",
+        "proof": [
+          {
+            "scope": "general",
+            "claim": "Poor sanitation reduces education opportunities",
+            "quote": "lost opportunities for education and work",
+            "sources": [
+              1
+            ]
+          },
+          {
+            "scope": "general",
+            "claim": "Separate toilets boost girls’ attendance",
+            "quote": "girls’ school attendance is particularly boosted",
+            "sources": [
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Population Living in Households with Improved Sanitation",
+        "method": "state",
+        "area": "Belagavi Chikkodi",
+        "verdict": "partly",
+        "why": "Chikkodi (in Belagavi) is largely rural, possibly lacking sanitation. We found no evidence tying sanitation to dropouts in Chikkodi specifically, but poor home sanitation can lead to illness and missed school.",
+        "mechanism": "Poor sanitation -> illness/menstrual hygiene issues -> irregular attendance -> dropout (general).",
+        "proof": [
+          {
+            "scope": "general",
+            "claim": "Poor sanitation reduces education opportunities",
+            "quote": "lost opportunities for education and work",
+            "sources": [
+              1
+            ]
+          },
+          {
+            "scope": "general",
+            "claim": "Separate toilets boost girls’ attendance",
+            "quote": "girls’ school attendance is particularly boosted",
+            "sources": [
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Schools with instruction medium 1 (English)",
+        "method": "district",
+        "area": "Belagavi",
+        "verdict": "no-evidence",
+        "why": "Belagavi has a mix of language communities (Kannada, Marathi) and no clear link between English-medium schools and dropouts was found. Local sources do not mention language as a cause of dropout.",
+        "mechanism": "Teaching in a non-native language can cause comprehension difficulties and dropout (general).",
+        "proof": []
+      },
+      {
+        "factor": "% Schools with instruction medium 1 (English)",
+        "method": "district",
+        "area": "Belagavi Chikkodi",
+        "verdict": "no-evidence",
+        "why": "Chikkodi schools mostly follow Kannada or Marathi medium. We found no evidence that English-medium instruction is causing dropouts here.",
+        "mechanism": "Classes in English can be hard for students not fluent in English, leading to dropout (general).",
+        "proof": []
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "url": "https://www.who.int/news-room/fact-sheets/detail/sanitation",
+        "title": "Sanitation",
+        "outlet": "World Health Organization",
+        "date": "2024-03-22",
+        "type": "data"
+      }
+    ],
+    "gaps": "No Belagavi-specific data was found linking sanitation or medium of instruction to dropouts. District reports and news on dropout factors are lacking.",
+    "notes": []
+  }
 }

@@ -25,9 +25,10 @@ import json
 import os
 import re
 import sys
+import urllib.request
 from urllib.parse import urlparse
 
-from build_converted import ALIASES, OUTLETS, fetch, page_meta, page_text
+from build_converted import ALIASES, CACHE, OUTLETS, page_meta, page_text
 from build_prompts import NAMES
 from ingest_responses import BAD_HOSTS, BLOCK, OUT
 
@@ -37,6 +38,25 @@ DISTRICTS = os.path.join(ROOT, "public", "data", "districts.json")
 VERDICTS = {"supported", "partly", "not-supported", "no-evidence"}
 SOURCE_TYPES = {"news", "government", "ngo", "research", "data"}
 NUM = re.compile(r"(?<![\w.])\d+(?:\.\d+)?(?![\w])")
+
+
+BROWSER_UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
+
+
+def fetch(url: str) -> str:
+    """Page body as text ("" if it cannot be opened). Binary PDFs come back as their raw bytes decoded loosely, so
+    their text is unreadable: quotes/numbers/district names cannot be confirmed on them and those proof items drop."""
+    os.makedirs(CACHE, exist_ok=True)
+    path = os.path.join(CACHE, "why_" + re.sub(r"\W+", "_", url)[-140:])
+    if os.path.isfile(path):
+        return open(path, encoding="utf-8", errors="ignore").read()
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": BROWSER_UA, "Accept-Language": "en"})
+        body = urllib.request.urlopen(req, timeout=30).read(2_000_000).decode("utf-8", "ignore")
+    except Exception:  # noqa: BLE001
+        body = ""
+    open(path, "w", encoding="utf-8").write(body)
+    return body
 
 
 def aliases_for(did: str) -> list[str]:

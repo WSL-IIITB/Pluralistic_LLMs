@@ -271,5 +271,57 @@
   ],
   "coverage": "moderate",
   "gaps": "No dropout, out-of-school or SSLC pass-rate figures retrieved for recent years; sources are mostly 2015-2016 and one 2023 fraud case. No recent (2022-26) Vijayapura reporting, SSLC district results, UDISE+ counts or teacher vacancy data retrieved. Deccan Herald pages returned access errors, so the 4,417 figure rests on search snippets; the 2016 newsletter is dated.",
-  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages.",
+  "dominantFactorWhy": {
+    "researchedOn": "2026-10-22",
+    "entries": [
+      {
+        "factor": "% Population Living in Households with Improved Sanitation",
+        "method": "state",
+        "area": "Vijayapura",
+        "verdict": "partly",
+        "why": "Vijayapura (Bijapur) is largely rural; household sanitation may be lacking in many villages. No specific source was found linking sanitation to dropout, but generally poor sanitation can cause illness and absenteeism, leading to dropout.",
+        "mechanism": "Poor sanitation -> health issues/menstrual hygiene problems -> absenteeism -> dropout (general).",
+        "proof": [
+          {
+            "scope": "general",
+            "claim": "Poor sanitation reduces education opportunities",
+            "quote": "lost opportunities for education and work",
+            "sources": [
+              1
+            ]
+          },
+          {
+            "scope": "general",
+            "claim": "Separate toilets boost girls’ attendance",
+            "quote": "girls’ school attendance is particularly boosted",
+            "sources": [
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Schools with instruction medium 1 (English)",
+        "method": "district",
+        "area": "Vijayapura",
+        "verdict": "no-evidence",
+        "why": "No evidence was found that English-medium schooling impacts dropout in Vijayapura. The district’s dropout issues seem more related to rural poverty than language of instruction.",
+        "mechanism": "Instruction in English (not native) -> comprehension difficulties -> dropout (general).",
+        "proof": []
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "url": "https://www.who.int/news-room/fact-sheets/detail/sanitation",
+        "title": "Sanitation",
+        "outlet": "World Health Organization",
+        "date": "2024-03-22",
+        "type": "data"
+      }
+    ],
+    "gaps": "We found no local studies or news on these factors and dropouts. District records do not discuss sanitation or medium of instruction as causes of dropout.",
+    "notes": []
+  }
 }

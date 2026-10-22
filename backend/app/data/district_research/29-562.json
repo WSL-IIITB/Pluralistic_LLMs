@@ -280,5 +280,51 @@
   ],
   "coverage": "moderate",
   "gaps": "The dropout study is from 2019; no recent district dropout or out-of-school counts. Searching stopped early (search quota exhausted). Not found: Dharwad SSLC pass percentage, school distance or teacher vacancy, girls' safety or child marriage, post-COVID drop, official UDISE dropout figures. Several major outlets blocked or inaccessible.",
-  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages.",
+  "dominantFactorWhy": {
+    "researchedOn": "2026-10-22",
+    "entries": [
+      {
+        "factor": "% Population Living in Households with Improved Sanitation",
+        "method": "state",
+        "area": "Dharwad",
+        "verdict": "partly",
+        "why": "A study of Dharwad district dropouts notes poverty (\"economic conditions of the parents\") as a top cause. Poor sanitation often accompanies poverty, causing illness and absence. No direct mention of sanitation was found in local sources.",
+        "mechanism": "Poor sanitation -> health/menstrual issues -> absenteeism -> dropout (general).",
+        "proof": [
+          {
+            "scope": "general",
+            "claim": "Poor sanitation reduces education opportunities",
+            "quote": "lost opportunities for education and work",
+            "sources": [
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Schools with instruction medium 1 (English)",
+        "method": "district",
+        "area": "Dharwad",
+        "verdict": "no-evidence",
+        "why": "Dharwad (urban + rural) has schools in Kannada and English. We found no sources linking English-medium instruction to dropouts here.",
+        "mechanism": "Teaching in English when students speak another language at home can hinder learning and cause dropout (general).",
+        "proof": []
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "url": "https://www.who.int/news-room/fact-sheets/detail/sanitation",
+        "title": "Sanitation",
+        "outlet": "World Health Organization",
+        "date": "2024-03-22",
+        "type": "data"
+      }
+    ],
+    "gaps": "No local source was found linking school sanitation or medium of instruction to dropouts. A local study only mentioned poverty as a cause, not sanitation or language.",
+    "notes": [
+      "state/% Population Living in Households with I: district proof dropped, cited page does not name the district: 'Poverty of families causes dropouts'"
+    ]
+  }
 }

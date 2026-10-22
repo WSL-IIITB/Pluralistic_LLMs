@@ -230,5 +230,57 @@
   ],
   "coverage": "thin",
   "gaps": "No dropout, out-of-school, SSLC pass-rate or migration data for the district was retrieved; child-marriage figures are thin. No Bagalkot dropout or out-of-school counts, SSLC results, sugarcane-migration, UDISE+ or teacher-vacancy data retrieved; district statistics page timed out and search quota ran out. Child-marriage evidence is indirect for Class 8-10 exits.",
-  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages.",
+  "dominantFactorWhy": {
+    "researchedOn": "2026-10-22",
+    "entries": [
+      {
+        "factor": "% Population Living in Households with Improved Sanitation",
+        "method": "state",
+        "area": "Bagalkot",
+        "verdict": "partly",
+        "why": "Bagalkote is an agrarian district with likely sanitation gaps in rural households. No specific dropout studies mention sanitation here. Generally, lack of sanitation can cause health issues and girls to skip school, contributing to dropout.",
+        "mechanism": "Poor sanitation -> health/hygiene problems -> absenteeism -> dropout (general).",
+        "proof": [
+          {
+            "scope": "general",
+            "claim": "Poor sanitation reduces education opportunities",
+            "quote": "lost opportunities for education and work",
+            "sources": [
+              1
+            ]
+          },
+          {
+            "scope": "general",
+            "claim": "Separate toilets boost girls’ attendance",
+            "quote": "girls’ school attendance is particularly boosted",
+            "sources": [
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Schools with instruction medium 1 (English)",
+        "method": "district",
+        "area": "Bagalkot",
+        "verdict": "no-evidence",
+        "why": "We found no evidence linking English-medium schooling to dropouts in Bagalkot. Language of instruction has not been cited as a cause; dropout likely relates to socioeconomic factors.",
+        "mechanism": "Teaching in a second language -> comprehension problems -> dropout (general).",
+        "proof": []
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "url": "https://www.who.int/news-room/fact-sheets/detail/sanitation",
+        "title": "Sanitation",
+        "outlet": "World Health Organization",
+        "date": "2024-03-22",
+        "type": "data"
+      }
+    ],
+    "gaps": "No local information was found on these factors. District education reports or news did not discuss sanitation or English-medium instruction in relation to dropouts.",
+    "notes": []
+  }
 }

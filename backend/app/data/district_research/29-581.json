@@ -218,5 +218,86 @@
   ],
   "coverage": "thin",
   "gaps": "No district dropout or out-of-school counts retrieved; the bus-fare claim was dropped (cited article does not tie it to Kolar). No Kolar-specific SSLC pass rates, UDISE dropout counts, migration, school-distance or Telugu-medium analysis found; Deccan Herald pages returned 403 so those items rest on search excerpts; indiastat pages timed out.",
-  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages."
+  "verificationNotes": "All kept figures and attributions were confirmed on the cited pages.",
+  "dominantFactorWhy": {
+    "researchedOn": "2026-10-22",
+    "entries": [
+      {
+        "factor": "% Population Living in Households with Improved Sanitation",
+        "method": "state",
+        "area": "Kolar",
+        "verdict": "partly",
+        "why": "Kolar’s rural areas often lack sanitation at home; girls may leave school due to no toilet facilities.",
+        "mechanism": "Poor home sanitation → illness or girls skip school → dropout",
+        "proof": [
+          {
+            "scope": "general",
+            "claim": "Girls’ attendance is boosted by separate toilet facilities",
+            "quote": "",
+            "sources": [
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Schools with instruction medium 1 (English)",
+        "method": "district",
+        "area": "Kolar",
+        "verdict": "partly",
+        "why": "English-medium schooling is limited; research indicates that learning in an unfamiliar language increases dropout.",
+        "mechanism": "Teaching in a non-native language → poor comprehension → dropout",
+        "proof": [
+          {
+            "scope": "general",
+            "claim": "Change in medium of instruction impacts student dropout",
+            "quote": "",
+            "sources": [
+              3
+            ]
+          },
+          {
+            "scope": "general",
+            "claim": "Students struggle to understand lessons in an unfamiliar language",
+            "quote": "",
+            "sources": [
+              2
+            ]
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "url": "https://www.who.int/news-room/fact-sheets/detail/sanitation",
+        "title": "Sanitation",
+        "outlet": "World Health Organization",
+        "date": "2024-03-22",
+        "type": "government"
+      },
+      {
+        "id": 2,
+        "url": "https://socialscienceresearch.org/index.php/GJHSS/article/download/104022/38985/55230",
+        "title": "The Impact of Medium of Instruction on Dropout Rates and Academic Performance: A Case Study of Tribal Students in Wayanad District, Kerala",
+        "outlet": "Global Journal of Human Social Science",
+        "date": "2024",
+        "type": "research"
+      },
+      {
+        "id": 3,
+        "url": "https://saudijournals.com/media/articles/SJHSS-23194-202_fkf5lHt.pdf",
+        "title": "Impact of English Medium Instruction on the Dropout Rate of Students at Government High Schools in Lahore",
+        "outlet": "Saudi Journal of Humanities and Social Sciences",
+        "date": "2017-03",
+        "type": "research"
+      }
+    ],
+    "gaps": "No district-specific evidence found linking sanitation or language-medium factors to dropouts in Kolar.",
+    "notes": [
+      "state/% Population Living in Households with I: quote removed (not found on the page)",
+      "district/% Schools with instruction medium 1 (Eng: quote removed (not found on the page)",
+      "district/% Schools with instruction medium 1 (Eng: quote removed (not found on the page)"
+    ]
+  }
 }
