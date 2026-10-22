@@ -1,0 +1,2145 @@
+{
+ "builtOn": "2026-10-22",
+ "count": 102,
+ "sources": [
+  {
+   "id": "L001",
+   "url": "https://saiindia.gov.in/uploads/download_audit_report/2024/Report-No.-6,-2024,-Karnataka-06a2bcfb2a0b281.70901985.pdf",
+   "title": "CAG Report No. 6 of 2024, Karnataka (school education)",
+   "publisher": "Comptroller & Auditor General",
+   "year": "2024",
+   "kind": "official-report",
+   "scope": "statewide",
+   "districts": "all",
+   "tier": 1,
+   "note": "Has a section on out-of-school children and, per the snippet, an appendix (2.2) with district-wise dropout rate for 2021-22.",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 0,
+    "content_type": "",
+    "state": "unreachable"
+   }
+  },
+  {
+   "id": "L002",
+   "url": "https://www.deccanherald.com/india/karnataka/34000-children-out-of-school-in-karnataka-6000-in-bbmp-limits-1046869.html",
+   "title": "34,000 children out of school in Karnataka, 6,000 in BBMP limits",
+   "publisher": "Deccan Herald",
+   "year": "2021",
+   "kind": "news",
+   "scope": "statewide",
+   "districts": [
+    "29-558",
+    "29-569",
+    "29-572"
+   ],
+   "tier": 1,
+   "note": "Samagra Shikshana Karnataka door-to-door survey: 34,411 out of school; Bidar 2,609 (highest after BBMP), Udupi 172 (lowest); reasons health, finances, family.",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L003",
+   "url": "https://deccanherald.com/opinion/editorial/rise-school-drop-outs-worrying-717277.html",
+   "title": "Rise in school drop-outs worrying (editorial)",
+   "publisher": "Deccan Herald",
+   "year": "2019",
+   "kind": "news",
+   "scope": "statewide",
+   "districts": [
+    "29-565",
+    "29-557",
+    "29-579",
+    "29-580"
+   ],
+   "tier": 1,
+   "note": "State survey counted 70,116 out-of-school children in 2018-19 (14,000 the year before; age cover widened); migration and disinterest cited; district counts include Ballari 5,132 and Vijayapura 4,417.",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L004",
+   "url": "https://www.deccanherald.com/amp/story/india%2Fkarnataka%2Fat-222-school-dropout-rate-in-karnataka-much-above-natl-avg-3592712",
+   "title": "At 22.2%, school dropout rate in Karnataka much above national average",
+   "publisher": "Deccan Herald",
+   "year": "2025",
+   "kind": "news",
+   "scope": "statewide",
+   "districts": "all",
+   "tier": 1,
+   "note": "Samagra Shiksha 2025-26 review: Karnataka secondary dropout 22.2% (2023-24) vs 14.1% national; Ministry asked high-burden states to run door-to-door surveys.",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L005",
+   "url": "https://www.thenewsminute.com/karnataka/karnataka-records-high-dropout-rate-in-secondary-schools-udise-data",
+   "title": "Karnataka records high dropout rate in secondary schools: UDISE data",
+   "publisher": "The News Minute",
+   "year": "2025",
+   "kind": "news",
+   "scope": "statewide",
+   "districts": "all",
+   "tier": 1,
+   "note": "UDISE+ 2023-24: Karnataka secondary dropout 22.09% vs 14.1% national.",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L006",
+   "url": "https://educationforallinindia.com/progress-in-retention-amid-persistent-challenges-analysis-based-on-udise-2025-26/",
+   "title": "Progress in retention amid persistent challenges (UDISE+ 2025-26)",
+   "publisher": "Education For All in India",
+   "year": "2026",
+   "kind": "analysis",
+   "scope": "statewide",
+   "districts": "all",
+   "tier": 1,
+   "note": "State-wise retention/dropout analysis of UDISE+ 2025-26.",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=UTF-8",
+    "reads_dropout": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L007",
+   "url": "https://educationforallinindia.com/state-wise-analysis-of-sdg-4-education-indicators-in-india-2024-25-by-aruncmehta/",
+   "title": "State-wise analysis of SDG 4 education indicators in India (2024-25)",
+   "publisher": "Education For All in India",
+   "year": "2025",
+   "kind": "analysis",
+   "scope": "statewide",
+   "districts": "all",
+   "tier": 1,
+   "note": "UDISE+ 2024-25 state table; Karnataka secondary dropout shown as 18.3% (column headers unclear in snippet).",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=UTF-8",
+    "reads_dropout": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L008",
+   "url": "https://educationforallinindia.com/?p=14274",
+   "title": "Number of dropped-out children based on UDISE+ 2022-23 and 2023-24 data",
+   "publisher": "Education For All in India",
+   "year": "2024",
+   "kind": "analysis",
+   "scope": "statewide",
+   "districts": "all",
+   "tier": 1,
+   "note": "State-wise counts of dropped-out children from UDISE+.",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=UTF-8",
+    "reads_dropout": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L009",
+   "url": "https://educationforallinindia.com/wp-content/uploads/2023/08/out-of-school-children-UDISEPlus-2021-22-ArunCMehta.pdf",
+   "title": "Out-of-school children, UDISE+ 2021-22",
+   "publisher": "Education For All in India",
+   "year": "2023",
+   "kind": "analysis",
+   "scope": "statewide",
+   "districts": "all",
+   "tier": 1,
+   "note": "UDISE+ based out-of-school children estimates by state.",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "application/pdf",
+    "state": "opens (pdf, text not checked)"
+   }
+  },
+  {
+   "id": "L010",
+   "url": "https://www.deccanherald.com/india/govt-hails-fall-in-girls-dropout-rates-raises-concern-for-boys-3841967",
+   "title": "Govt hails fall in girls' dropout rates, raises concern for boys",
+   "publisher": "Deccan Herald",
+   "year": "2026",
+   "kind": "news",
+   "scope": "statewide",
+   "districts": "all",
+   "tier": 1,
+   "note": "UDISE+ 2025-26: girls' secondary dropout down from 19.6% (2023-24); boys' rate a concern.",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L011",
+   "url": "https://www.deccanherald.com/india/karnataka/more-teachers-lower-enrolment-how-karnataka-schools-fared-in-udise-2025-26-data-4066244",
+   "title": "More teachers, lower enrolment: how Karnataka schools fared in UDISE+ 2025-26",
+   "publisher": "Deccan Herald",
+   "year": "2026",
+   "kind": "news",
+   "scope": "statewide",
+   "districts": "all",
+   "tier": 1,
+   "note": "UDISE+ 2025-26 Karnataka summary: secondary dropout 18.1% (highest among states, per snippet), GER figures.",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L012",
+   "url": "https://www.drishtiias.com/state-pcs-current-affairs/karnataka-records-highest-dropout-rate-among-boys-at-secondary-level/print_manually",
+   "title": "Karnataka records highest dropout rate among boys at secondary level",
+   "publisher": "Drishti IAS",
+   "year": "2026",
+   "kind": "aggregator",
+   "scope": "statewide",
+   "districts": "all",
+   "tier": 1,
+   "note": "Summary of UDISE+ 2025-26: boys' secondary dropout 18.1%, overall 14.3% (figures conflict with other outlets; check original).",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=UTF-8",
+    "reads_dropout": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L013",
+   "url": "https://eparlib.sansad.in/bitstream/123456789/2988252/1/AU969_BxOT3C.pdf",
+   "title": "Lok Sabha answer AU969 (school dropouts)",
+   "publisher": "Parliament of India",
+   "year": "2025",
+   "kind": "parliament",
+   "scope": "statewide",
+   "districts": "all",
+   "tier": 1,
+   "note": "State-wise dropout data in a parliamentary answer (content not read).",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 0,
+    "content_type": "",
+    "state": "unreachable"
+   }
+  },
+  {
+   "id": "L014",
+   "url": "https://eparlib.sansad.in/bitstream/123456789/2988976/1/AU176_2TtAMH.pdf",
+   "title": "Lok Sabha answer AU176 (out-of-school children survey, PRABANDH)",
+   "publisher": "Parliament of India",
+   "year": "2025",
+   "kind": "parliament",
+   "scope": "statewide",
+   "districts": "all",
+   "tier": 1,
+   "note": "States asked to run annual household surveys to identify out-of-school children; tracked on PRABANDH.",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 0,
+    "content_type": "",
+    "state": "unreachable"
+   }
+  },
+  {
+   "id": "L015",
+   "url": "https://eparlib.sansad.in/bitstream/123456789/2989089/1/AU101_9ISW0K.pdf",
+   "title": "Lok Sabha answer AU101 (out-of-school children)",
+   "publisher": "Parliament of India",
+   "year": "2025",
+   "kind": "parliament",
+   "scope": "statewide",
+   "districts": "all",
+   "tier": 1,
+   "note": "Parliamentary answer on out-of-school children/dropouts (content not read).",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 0,
+    "content_type": "",
+    "state": "unreachable"
+   }
+  },
+  {
+   "id": "L016",
+   "url": "https://img.asercentre.org/docs/ASER%202022%20report%20pdfs/District%20estimates/karnataka.pdf",
+   "title": "ASER 2022 Karnataka district estimates",
+   "publisher": "ASER Centre (Pratham)",
+   "year": "2022",
+   "kind": "survey-data",
+   "scope": "statewide",
+   "districts": "all",
+   "tier": 1,
+   "note": "District-wise rural estimates incl. share of 6-14 not enrolled and school type, for Karnataka districts.",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "application/pdf",
+    "state": "opens (pdf, text not checked)"
+   }
+  },
+  {
+   "id": "L017",
+   "url": "https://asercentre.org/wp-content/uploads/2022/12/Karnataka_District-Estimates.pdf",
+   "title": "ASER Karnataka district estimates (latest edition)",
+   "publisher": "ASER Centre (Pratham)",
+   "year": "2024",
+   "kind": "survey-data",
+   "scope": "statewide",
+   "districts": "all",
+   "tier": 1,
+   "note": "District-wise rural enrolment estimates; e.g. Bagalkot shows 0.5% of 6-14 not in school (column reading unconfirmed).",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "application/pdf",
+    "state": "opens (pdf, text not checked)"
+   }
+  },
+  {
+   "id": "L018",
+   "url": "https://asercentre.org/wp-content/uploads/2022/12/ASER-2024-All-India-ppt-Jan-27-11am.pdf",
+   "title": "ASER 2024 all-India release",
+   "publisher": "ASER Centre (Pratham)",
+   "year": "2025",
+   "kind": "survey-data",
+   "scope": "statewide",
+   "districts": "all",
+   "tier": 1,
+   "note": "National context: 15-16-year-olds out of school fell from 16.6% (2014) to 7.9% (2024); girls remain above 10%.",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "application/pdf",
+    "state": "opens (pdf, text not checked)"
+   }
+  },
+  {
+   "id": "L019",
+   "url": "https://dhsprogram.com/pubs/pdf/FR374/FR374_Karnataka.pdf",
+   "title": "NFHS-5 Karnataka state report (2019-21)",
+   "publisher": "IIPS / DHS Program",
+   "year": "2021",
+   "kind": "survey-data",
+   "scope": "statewide",
+   "districts": "all",
+   "tier": 1,
+   "note": "Fieldwork in all 30 districts; state tables on schooling, child marriage and adolescent girls.",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "application/pdf",
+    "state": "opens (pdf, text not checked)"
+   }
+  },
+  {
+   "id": "L020",
+   "url": "https://www.data.gov.in/catalog/national-family-health-survey-5-nfhs-5-india-districts-factsheet-data-provisional",
+   "title": "NFHS-5 India districts factsheet data (provisional)",
+   "publisher": "Open Government Data (data.gov.in)",
+   "year": "2021",
+   "kind": "data-portal",
+   "scope": "statewide",
+   "districts": "all",
+   "tier": 1,
+   "note": "Bulk district factsheet data; filter to Karnataka for female schooling and child-marriage indicators.",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": false,
+    "state": "opens, relevance not confirmed"
+   }
+  },
+  {
+   "id": "L021",
+   "url": "https://www.data.gov.in/resource/india-districts-factsheets-national-family-health-survey-nfhs-5-2019-2021",
+   "title": "India districts factsheets, NFHS-5 2019-2021",
+   "publisher": "Open Government Data (data.gov.in)",
+   "year": "2021",
+   "kind": "data-portal",
+   "scope": "statewide",
+   "districts": "all",
+   "tier": 1,
+   "note": "District factsheet resource (xls/zip).",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": false,
+    "state": "opens, relevance not confirmed"
+   }
+  },
+  {
+   "id": "L022",
+   "url": "https://www.indiastatdistricts.com/karnataka/all-districts/education/dropoutratesofgeneralcategoriesstudents",
+   "title": "Dropout rates (general category) by stage, all Karnataka districts, 2021-22",
+   "publisher": "IndiaStat Districts",
+   "year": "2022",
+   "kind": "aggregator",
+   "scope": "statewide",
+   "districts": "all",
+   "tier": 1,
+   "note": "All-district table of dropout rates by stage (secondary compilation of UDISE+); figures not read.",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L023",
+   "url": "https://www.deccanherald.com/india/karnataka/high-dropouts-dog-kasturba-girls-schools-880174.html",
+   "title": "High dropouts dog Kasturba girls' schools",
+   "publisher": "Deccan Herald",
+   "year": "",
+   "kind": "news",
+   "scope": "statewide",
+   "districts": [
+    "29-565"
+   ],
+   "tier": 1,
+   "note": "Karnataka Child Rights Commission member from Ballari on classes only up to 8 and hostels in a different location causing girls to drop out.",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L024",
+   "url": "https://www.deccanherald.com/india/karnataka/education-rights-adalat-made-mandatory-2067930",
+   "title": "Education Rights Adalat made mandatory",
+   "publisher": "Deccan Herald",
+   "year": "",
+   "kind": "news",
+   "scope": "statewide",
+   "districts": [
+    "29-565",
+    "29-570",
+    "29-572",
+    "29-577"
+   ],
+   "tier": 1,
+   "note": "KSCPCR chair's district tally of children leaving school (undated): Ballari 2,018, Bengaluru South 1,468, Mysuru 1,002, Chikkamagaluru 102.",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L025",
+   "url": "https://www.deccanherald.com/india/karnataka/bengaluru/highest-number-school-dropouts-bangalore-2174993",
+   "title": "Highest number of school dropouts in Bangalore (district comparison)",
+   "publisher": "Deccan Herald",
+   "year": "",
+   "kind": "news",
+   "scope": "statewide",
+   "districts": [
+    "29-572",
+    "29-579",
+    "29-580"
+   ],
+   "tier": 1,
+   "note": "Names Bengaluru Urban, Kalaburagi and Yadgir as districts with the most dropouts (date unclear).",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L026",
+   "url": "https://www.deccanherald.com/india/karnataka/activists-contest-claim-over-dip-2110371",
+   "title": "Activists contest claim over dip (out-of-school figures)",
+   "publisher": "Deccan Herald",
+   "year": "",
+   "kind": "news",
+   "scope": "statewide",
+   "districts": [
+    "29-579",
+    "29-580"
+   ],
+   "tier": 1,
+   "note": "Activists dispute official out-of-school counts; Yadgir figures disputed (SSA 11,197 vs NGO pilot of 900 in eight villages).",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L027",
+   "url": "https://www.deccanherald.com/india/karnataka/82k-children-quit-schools-701638.html",
+   "title": "82k children quit schools",
+   "publisher": "Deccan Herald",
+   "year": "2018",
+   "kind": "news",
+   "scope": "statewide",
+   "districts": "all",
+   "tier": 1,
+   "note": "Education department recorded 82,713 dropouts in a year; school-level survey ordered via Grama Sabha and SATS.",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L028",
+   "url": "https://www.deccanherald.com/india/karnataka/bengaluru/cs-orders-survey-to-find-school-dropouts-744631.html",
+   "title": "CS orders survey to find school dropouts",
+   "publisher": "Deccan Herald",
+   "year": "2019",
+   "kind": "news",
+   "scope": "statewide",
+   "districts": "all",
+   "tier": 1,
+   "note": "Chief Secretary order for a dropout survey; mentions SATS 60-day absence rule (per other results).",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L029",
+   "url": "https://strive.lshtm.ac.uk/resources/correlates-school-dropout-and-absenteeism-among-adolescent-girls-marginalized-community",
+   "title": "Correlates of school dropout and absenteeism among adolescent girls from a marginalized community in north Karnataka",
+   "publisher": "LSHTM STRIVE (Prakash et al., J. Adolescence 2017)",
+   "year": "2017",
+   "kind": "research",
+   "scope": "regional",
+   "districts": [
+    "29-556",
+    "29-557"
+   ],
+   "tier": 2,
+   "note": "Survey of 2,275 SC/ST girls: 8.7% dropped out; poverty, work migration, child marriage and school environment linked to dropout (Bagalkot and Vijayapura).",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 403,
+    "content_type": "",
+    "state": "http 403"
+   }
+  },
+  {
+   "id": "L030",
+   "url": "https://researchonline.lshtm.ac.uk/id/eprint/4523800",
+   "title": "Prakash et al. 2017 (LSHTM repository record)",
+   "publisher": "LSHTM Research Online",
+   "year": "2017",
+   "kind": "research",
+   "scope": "regional",
+   "districts": [
+    "29-556",
+    "29-557"
+   ],
+   "tier": 2,
+   "note": "Repository record for the north Karnataka adolescent girls dropout study.",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L031",
+   "url": "https://strive.lshtm.ac.uk/system/files/attachments/Evidence brief - Samata intervention to increase secondary school completion.pdf",
+   "title": "Evidence brief: Samata intervention to increase secondary school completion",
+   "publisher": "LSHTM STRIVE",
+   "year": "2020",
+   "kind": "research",
+   "scope": "regional",
+   "districts": [
+    "29-556",
+    "29-557"
+   ],
+   "tier": 2,
+   "note": "SC/ST girls in north Karnataka: highest dropout risk in the state (11% vs 5.8% statewide, grades 8-9); trial found no overall effect.",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "application/pdf",
+    "state": "opens (pdf, text not checked)"
+   }
+  },
+  {
+   "id": "L032",
+   "url": "https://www.joghr.org/article/12345-assessing-the-effect-of-the-samata-intervention-on-factors-hypothesised-to-be-on-the-pathway-to-child-marriage-and-school-drop-out-results-from-a-clu",
+   "title": "Assessing the effect of the Samata intervention on child marriage and school drop-out pathways",
+   "publisher": "Journal of Global Health Reports (Beattie et al.)",
+   "year": "2020",
+   "kind": "research",
+   "scope": "regional",
+   "districts": [
+    "29-556",
+    "29-557"
+   ],
+   "tier": 2,
+   "note": "Cluster-randomised trial in two districts by KHPT; mixed results.",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L033",
+   "url": "https://cdn.clinicaltrials.gov/large-docs/41/NCT01996241/Prot_001.pdf",
+   "title": "Samata trial protocol (Bagalkot and Vijayapura)",
+   "publisher": "ClinicalTrials.gov / KHPT-LSHTM",
+   "year": "2014",
+   "kind": "research",
+   "scope": "regional",
+   "districts": [
+    "29-556",
+    "29-557"
+   ],
+   "tier": 2,
+   "note": "Background cites SSA data: 17% (Vijayapura) and 12% (Bagalkot) of girls lost between 7th and 8th standard in 2010-11.",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "application/pdf",
+    "state": "opens (pdf, text not checked)"
+   }
+  },
+  {
+   "id": "L034",
+   "url": "https://strive.lshtm.ac.uk/sites/strive.lshtm.ac.uk/files/SAMATA Samachara  May 2016.pdf",
+   "title": "SAMATA Samachara newsletter, May 2016",
+   "publisher": "KHPT / LSHTM STRIVE",
+   "year": "2016",
+   "kind": "ngo",
+   "scope": "district",
+   "districts": [
+    "29-557"
+   ],
+   "tier": 2,
+   "note": "Vijayapura Deputy Commissioner: dropout down marginally, high in summer when families migrate for work.",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "application/pdf",
+    "state": "opens (pdf, text not checked)"
+   }
+  },
+  {
+   "id": "L035",
+   "url": "https://www.ngji.in/index.php/ngji/article/view/355",
+   "title": "Out of school / dropout children in Dharwad district, Karnataka: a geographical study",
+   "publisher": "National Geographical Journal of India (Saviramath & Dadugoudar)",
+   "year": "2022",
+   "kind": "research",
+   "scope": "district",
+   "districts": [
+    "29-562"
+   ],
+   "tier": 2,
+   "note": "Field survey plus secondary data on dropout in Dharwad district; causes and measures (findings not read).",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "names_district": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L036",
+   "url": "https://newskarnataka.com/education/150-kids-still-out-of-school-in-dharwad-ahead-of-new-academic-year/09052025/",
+   "title": "150 kids still out of school in Dharwad ahead of new academic year",
+   "publisher": "News Karnataka",
+   "year": "2025",
+   "kind": "news",
+   "scope": "district",
+   "districts": [
+    "29-562"
+   ],
+   "tier": 3,
+   "note": "Joint survey: about 150 children not enrolled; Navalgund 53, Kundgol 36; many from migrant farm families.",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "names_district": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L037",
+   "url": "https://newskarnataka.com/karnataka/gadag/gadags-heartfelt-mission-bringing-dropouts-back-to-school-one-child-at-a-time/09062025/",
+   "title": "Gadag's heartfelt mission: bringing dropouts back to school one child at a time",
+   "publisher": "News Karnataka",
+   "year": "2025",
+   "kind": "news",
+   "scope": "district",
+   "districts": [
+    "29-561"
+   ],
+   "tier": 3,
+   "note": "'Come, come to school' drive: survey of farms and worksites; 14 in Gadag town, 11 in Ron and 8 in rural Gadag returned.",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "names_district": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L038",
+   "url": "https://www.siasat.com/karnataka-police-go-beyond-policing-return-200-school-dropouts-3517781/amp/",
+   "title": "Karnataka police go beyond policing, return 200 school dropouts",
+   "publisher": "Siasat",
+   "year": "2025",
+   "kind": "news",
+   "scope": "district",
+   "districts": [
+    "29-568"
+   ],
+   "tier": 3,
+   "note": "Shivamogga police 'Back to School' drive: 946 identified dropouts, Bhadravathi highest, 200+ returned.",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=UTF-8",
+    "reads_dropout": true,
+    "names_district": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L039",
+   "url": "https://www.deccanherald.com/content/392724/udupi-district-boasts-lowest-number.html",
+   "title": "Udupi district boasts lowest number (of out-of-school children)",
+   "publisher": "Deccan Herald",
+   "year": "2014",
+   "kind": "news",
+   "scope": "district",
+   "districts": [
+    "29-569"
+   ],
+   "tier": 3,
+   "note": "2013-14 survey: Udupi 1,008 out-of-school children, third lowest in the state.",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "names_district": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L040",
+   "url": "https://www.deccanherald.com/india/karnataka/142-govt-schools-shut-in-u-k-over-17-years-4006584",
+   "title": "142 govt schools shut in Uttara Kannada over 17 years",
+   "publisher": "Deccan Herald",
+   "year": "2026",
+   "kind": "news",
+   "scope": "district",
+   "districts": [
+    "29-563"
+   ],
+   "tier": 3,
+   "note": "School closures and zero enrolment (access/supply context for dropout).",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": false,
+    "names_district": true,
+    "state": "opens, relevance not confirmed"
+   }
+  },
+  {
+   "id": "L041",
+   "url": "https://deccanherald.com/india/karnataka/35-govt-schools-in-uttara-kannada-record-zero-admissions-this-academic-year-4082304",
+   "title": "35 govt schools in Uttara Kannada record zero admissions this academic year",
+   "publisher": "Deccan Herald",
+   "year": "2026",
+   "kind": "news",
+   "scope": "district",
+   "districts": [
+    "29-563"
+   ],
+   "tier": 3,
+   "note": "Zero-admission schools in Uttara Kannada and Sirsi educational districts.",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": false,
+    "names_district": true,
+    "state": "opens, relevance not confirmed"
+   }
+  },
+  {
+   "id": "L042",
+   "url": "https://www.deccanherald.com/content/403089/2151-school-dropouts-mandya-district.html",
+   "title": "2,151 school dropouts in Mandya district",
+   "publisher": "Deccan Herald",
+   "year": "2014",
+   "kind": "news",
+   "scope": "district",
+   "districts": [
+    "29-573"
+   ],
+   "tier": 3,
+   "note": "2013-14 DPI survey: 2,151 dropouts aged 6-14 (1,297 boys, 854 girls); Srirangapatna 443; parental illiteracy, poverty, migration, sibling care.",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "names_district": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L043",
+   "url": "https://www.deccanherald.com/state/districts/mysuru-has-over-2600-school-drop-outs-428768.html",
+   "title": "Mysuru has over 2,600 school drop-outs",
+   "publisher": "Deccan Herald",
+   "year": "2014",
+   "kind": "news",
+   "scope": "district",
+   "districts": [
+    "29-577"
+   ],
+   "tier": 3,
+   "note": "December 2013 survey (counts in the coverage vary: 5,512 identified, 2,855 re-enrolled); about 60% girls.",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "names_district": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L044",
+   "url": "https://www.downtoearth.org.in/news/governance/bleak-future-ahead-covid-19-pushes-karnataka-s-first-generation-adivasi-learners-off-schools-78637",
+   "title": "Bleak future ahead: COVID-19 pushes Karnataka's first-generation Adivasi learners off schools",
+   "publisher": "Down To Earth",
+   "year": "2020",
+   "kind": "news",
+   "scope": "district",
+   "districts": [
+    "29-578",
+    "29-577"
+   ],
+   "tier": 2,
+   "note": "Jenu Kuruba and tribal children in Chamarajanagar and Mysuru; ashram schools inside the tiger reserve; meals lost during closures.",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "names_district": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L045",
+   "url": "https://antrocom.net/archives/2012/volume-8-number-2/an-investigative-study-on-school-drop-outs-in-tribal-settings-a-case-of-three-selected-tribes-in-south-karnataka/",
+   "title": "An investigative study on school drop-outs in tribal settings: three tribes in South Karnataka",
+   "publisher": "ANTROCOM Online Journal of Anthropology",
+   "year": "2012",
+   "kind": "research",
+   "scope": "district",
+   "districts": [
+    "29-578"
+   ],
+   "tier": 2,
+   "note": "Soliga, Jenu Kuruba and Betta Kuruba dropouts in Chamarajanagar district (findings not read).",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 0,
+    "content_type": "",
+    "state": "unreachable"
+   }
+  },
+  {
+   "id": "L046",
+   "url": "https://antrocom.net/archives/2021/volume-17-number-1/status-and-problems-of-jenukuruba-tribal-students-in-mysuru-district-of-karnataka/",
+   "title": "Status and problems of Jenukuruba tribal students in Mysuru district",
+   "publisher": "ANTROCOM Online Journal of Anthropology",
+   "year": "2021",
+   "kind": "research",
+   "scope": "district",
+   "districts": [
+    "29-577"
+   ],
+   "tier": 2,
+   "note": "Jenu Kuruba students in Mysuru district; culturally linked education overlooked (findings not read).",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 0,
+    "content_type": "",
+    "state": "unreachable"
+   }
+  },
+  {
+   "id": "L047",
+   "url": "https://patrika.com/en/education-news/100-out-of-228-dropout-children-return-to-school-19106540",
+   "title": "100 out of 228 dropout children return to school",
+   "publisher": "Patrika",
+   "year": "2024",
+   "kind": "news",
+   "scope": "district",
+   "districts": [
+    "29-578"
+   ],
+   "tier": 3,
+   "note": "Chamarajanagar education survey: dropouts concentrated in Hanur taluk; poverty and parents sending children to fields.",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "names_district": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L048",
+   "url": "https://www.deccanherald.com/content/495086/number-school-dropouts-falls-single.html",
+   "title": "Number of school dropouts falls to single digits",
+   "publisher": "Deccan Herald",
+   "year": "",
+   "kind": "news",
+   "scope": "district",
+   "districts": [
+    "29-575"
+   ],
+   "tier": 3,
+   "note": "Dakshina Kannada dropout decline (details not read).",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "names_district": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L049",
+   "url": "https://www.deccanherald.com/india/karnataka/sharp-decline-school-dropouts-dk-2251961",
+   "title": "Sharp decline in school dropouts in DK",
+   "publisher": "Deccan Herald",
+   "year": "",
+   "kind": "news",
+   "scope": "district",
+   "districts": [
+    "29-575"
+   ],
+   "tier": 3,
+   "note": "Dakshina Kannada dropout count fell from 7,800 (2001-02) to 132 (2012-13), credited to SSA drives.",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "names_district": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L050",
+   "url": "https://www.deccanherald.com/india/karnataka/stark-decline-school-dropouts-dk-2422554",
+   "title": "Stark decline in school dropouts in DK",
+   "publisher": "Deccan Herald",
+   "year": "",
+   "kind": "news",
+   "scope": "district",
+   "districts": [
+    "29-575"
+   ],
+   "tier": 3,
+   "note": "Dakshina Kannada dropout decline (details not read).",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "names_district": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L051",
+   "url": "https://newskarnataka.com/mangaluru/90-schools-in-dakshina-kannada-record-zero-admissions-in-five-years/29082025/",
+   "title": "90 schools in Dakshina Kannada record zero admissions in five years",
+   "publisher": "News Karnataka",
+   "year": "2025",
+   "kind": "news",
+   "scope": "district",
+   "districts": [
+    "29-575"
+   ],
+   "tier": 3,
+   "note": "Zero-admission schools; aided schools converting to English/CBSE (enrolment context).",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": false,
+    "names_district": true,
+    "state": "opens, relevance not confirmed"
+   }
+  },
+  {
+   "id": "L052",
+   "url": "https://www.ijfmr.com/research-paper.php?id=1809",
+   "title": "Economic analysis of primary school dropouts in Kodagu district",
+   "publisher": "International Journal for Multidisciplinary Research",
+   "year": "2023",
+   "kind": "research",
+   "scope": "district",
+   "districts": [
+    "29-576"
+   ],
+   "tier": 2,
+   "note": "Socio-economic factors behind primary dropouts in Kodagu (primary level, not secondary).",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "names_district": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L053",
+   "url": "https://www.deccanherald.com/amp/story/india%2Fkarnataka%2Fkalaburagi-tops-state-in-school-absenteeism-782699.html",
+   "title": "Kalaburagi tops state in school absenteeism",
+   "publisher": "Deccan Herald",
+   "year": "2019",
+   "kind": "news",
+   "scope": "district",
+   "districts": [
+    "29-579"
+   ],
+   "tier": 3,
+   "note": "1,648 children absent seven days running (highest in state); migration and ill health cited.",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "names_district": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L054",
+   "url": "https://azimpremjifoundation.org/field-update",
+   "title": "Azim Premji Foundation field updates (lists 'Who drops out of school: dropout study of Yadgir')",
+   "publisher": "Azim Premji Foundation",
+   "year": "",
+   "kind": "ngo",
+   "scope": "district",
+   "districts": [
+    "29-580"
+   ],
+   "tier": 2,
+   "note": "Foundation lists a Yadgir dropout study under Karnataka; report itself not found.",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 403,
+    "content_type": "",
+    "state": "http 403"
+   }
+  },
+  {
+   "id": "L055",
+   "url": "https://clpr.org.in/?p=7693",
+   "title": "CLPR: Karnataka High Court out-of-school children case",
+   "publisher": "Centre for Law and Policy Research",
+   "year": "2021",
+   "kind": "ngo",
+   "scope": "statewide",
+   "districts": "all",
+   "tier": 2,
+   "note": "Karnataka HC suo motu case on out-of-school children; household survey ordered (rural survey began December 2020).",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=UTF-8",
+    "reads_dropout": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L056",
+   "url": "https://dspace.sduaher.ac.in/jspui/handle/123456789/4635",
+   "title": "Thesis: irregularity and dropout among children at Anganwadi centres in Kolar district",
+   "publisher": "SDUAHER dspace (G M Nagaraja)",
+   "year": "2014",
+   "kind": "research",
+   "scope": "district",
+   "districts": [
+    "29-581"
+   ],
+   "tier": 2,
+   "note": "Anganwadi-level dropout in Kolar (early childhood, not secondary).",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "reads_dropout": true,
+    "names_district": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L057",
+   "url": "https://www.isec.ac.in/wp-content/uploads/2025/10/WP-595-Manasi-and-Chennamma-Kambara-et-al1-Final.pdf",
+   "title": "ISEC Working Paper 595: educational disparities among children of informal migrant workers in Bengaluru",
+   "publisher": "Institute for Social and Economic Change",
+   "year": "2025",
+   "kind": "research",
+   "scope": "district",
+   "districts": [
+    "29-572"
+   ],
+   "tier": 2,
+   "note": "656 migrant workers in construction, garment and domestic work: children's schooling.",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "application/pdf",
+    "state": "opens (pdf, text not checked)"
+   }
+  },
+  {
+   "id": "L058",
+   "url": "https://www.deccanherald.com/city/life-in-bengaluru/makeshift-schools-for-kids-of-construction-workers-759392.html",
+   "title": "Makeshift schools for kids of construction workers",
+   "publisher": "Deccan Herald",
+   "year": "2019",
+   "kind": "news",
+   "scope": "district",
+   "districts": [
+    "29-572"
+   ],
+   "tier": 3,
+   "note": "Tent schools after High Court suo motu petition; 415 dropouts found in Bengaluru survey, 193 readmitted.",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "names_district": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L059",
+   "url": "https://www.deccanherald.com/india/karnataka/mcc-begins-h2h-mobile-app-survey-on-school-dropouts-941373.html",
+   "title": "MCC begins house-to-house mobile app survey on school dropouts",
+   "publisher": "Deccan Herald",
+   "year": "2021",
+   "kind": "news",
+   "scope": "district",
+   "districts": [
+    "29-577"
+   ],
+   "tier": 3,
+   "note": "Mysuru City Corporation app-based survey of children aged 6-14.",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "names_district": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L060",
+   "url": "https://sussex.figshare.com/articles/report/Distress_Seasonal_Migration_and_its_Impact_on_Children_s_Education/23313065",
+   "title": "Distress seasonal migration and its impact on children's education",
+   "publisher": "University of Sussex / CREATE",
+   "year": "",
+   "kind": "research",
+   "scope": "national",
+   "districts": "all",
+   "tier": 2,
+   "note": "National study; 40-60 lakh children in distress seasonal migration (brick kilns, sugarcane harvesting).",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 202,
+    "content_type": "text/html; charset=UTF-8",
+    "state": "http 202"
+   }
+  },
+  {
+   "id": "L061",
+   "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9980764",
+   "title": "Determinants of school dropouts among adolescents: evidence from a longitudinal study in India",
+   "publisher": "PMC / Population Council",
+   "year": "2022",
+   "kind": "research",
+   "scope": "national",
+   "districts": "all",
+   "tier": 2,
+   "note": "Cites north Karnataka findings on poverty, girls' work migration, bullying; national longitudinal evidence.",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L062",
+   "url": "https://www.gov.uk/research-for-development-outputs/diverging-pathways-when-and-why-children-discontinue-education-in-india",
+   "title": "Diverging pathways: when and why children discontinue education in India",
+   "publisher": "Young Lives / UK R4D",
+   "year": "",
+   "kind": "research",
+   "scope": "national",
+   "districts": "all",
+   "tier": 2,
+   "note": "Pulled-out / pushed-out / opted-out framework; pull factors above 60% (Andhra Pradesh and Telangana).",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L063",
+   "url": "https://www.deccanherald.com/india/karnataka/700-child-marriages-in-a-year-cm-siddaramaiah-pulls-up-officials-3565338",
+   "title": "700 child marriages in a year: CM pulls up officials",
+   "publisher": "Deccan Herald",
+   "year": "2025",
+   "kind": "news",
+   "scope": "statewide",
+   "districts": "all",
+   "tier": 2,
+   "note": "Child marriage cases 418 (2021-22) to 719 (2023-24) per the department; district counts appear in related reports.",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": false,
+    "state": "opens, relevance not confirmed"
+   }
+  },
+  {
+   "id": "L064",
+   "url": "https://thesouthfirst.com/health/karnataka-has-teen-pregnancy-problem-more-than-28500-underage-girls-reported-pregnant-in-11-months",
+   "title": "Karnataka has a teen pregnancy problem: 28,500 underage girls reported pregnant in 11 months",
+   "publisher": "The South First",
+   "year": "2024",
+   "kind": "news",
+   "scope": "statewide",
+   "districts": "all",
+   "tier": 2,
+   "note": "Adolescent pregnancy counts (a schooling-exit pathway for girls).",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": false,
+    "state": "opens, relevance not confirmed"
+   }
+  },
+  {
+   "id": "L065",
+   "url": "https://www.deccanherald.com/amp/story/india%2Fkarnataka%2Fpoverty-school-closure-push-up-child-marriages-in-karnataka-997144.html",
+   "title": "Poverty, school closure push up child marriages in Karnataka",
+   "publisher": "Deccan Herald",
+   "year": "2021",
+   "kind": "news",
+   "scope": "statewide",
+   "districts": "all",
+   "tier": 2,
+   "note": "Links COVID school closures and poverty to child marriage.",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": false,
+    "state": "opens, relevance not confirmed"
+   }
+  },
+  {
+   "id": "L066",
+   "url": "https://www.deccanherald.com/amp/story/india%2Fkarnataka%2Fintl-day-against-child-labour-3-kids-rescued-from-child-labour-every-2-days-since-2021-in-karnataka-3581896",
+   "title": "3 kids rescued from child labour every 2 days since 2021 in Karnataka",
+   "publisher": "Deccan Herald",
+   "year": "2025",
+   "kind": "news",
+   "scope": "statewide",
+   "districts": "all",
+   "tier": 2,
+   "note": "2,589 children rescued 2021 to April 2025; 781 in 2024.",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": false,
+    "state": "opens, relevance not confirmed"
+   }
+  },
+  {
+   "id": "L067",
+   "url": "https://deccanherald.com/india/karnataka/32-child-workers-rescued-last-year-and-11-this-year-in-mysuru-district-3065768",
+   "title": "32 child workers rescued last year and 11 this year in Mysuru district",
+   "publisher": "Deccan Herald",
+   "year": "2024",
+   "kind": "news",
+   "scope": "district",
+   "districts": [
+    "29-577"
+   ],
+   "tier": 3,
+   "note": "Labour department raids in Mysuru, April 2023 to May 2024.",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": false,
+    "names_district": true,
+    "state": "opens, relevance not confirmed"
+   }
+  },
+  {
+   "id": "L068",
+   "url": "https://www.deccanchronicle.com/southern-states/karnataka/800-child-labourers-rescued-in-karnataka-during-a-special-ongoing-drive-1987042",
+   "title": "800 child labourers rescued in Karnataka during special drive",
+   "publisher": "Deccan Chronicle",
+   "year": "",
+   "kind": "news",
+   "scope": "statewide",
+   "districts": [
+    "29-572",
+    "29-577",
+    "29-562",
+    "29-579",
+    "29-583"
+   ],
+   "tier": 3,
+   "note": "One-day statewide drive; district-wise rescue counts (date unclear).",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": false,
+    "state": "opens, relevance not confirmed"
+   }
+  },
+  {
+   "id": "L069",
+   "url": "https://www.deccanherald.com/amp/story/india%2Fkarnataka%2Fchildren-of-ex-devadasis-need-not-write-fathers-name-karnataka-government-1169995.html",
+   "title": "Children of ex-Devadasis need not write father's name: Karnataka government",
+   "publisher": "Deccan Herald",
+   "year": "2022",
+   "kind": "news",
+   "scope": "statewide",
+   "districts": [
+    "29-560",
+    "29-565",
+    "29-555",
+    "29-557"
+   ],
+   "tier": 2,
+   "note": "Mandatory father's name in admission forms cited as a driver of high dropout among Devadasi children.",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L070",
+   "url": "https://www.terredeshommes.nl/en/projects/children-empowerment-for-getting-out-of-the-devadasi-system",
+   "title": "Children empowerment for getting out of the Devadasi system",
+   "publisher": "Terre des Hommes Netherlands",
+   "year": "",
+   "kind": "ngo",
+   "scope": "regional",
+   "districts": [
+    "29-555",
+    "29-560",
+    "29-565",
+    "29-557"
+   ],
+   "tier": 2,
+   "note": "GOOD project in five north Karnataka districts, 51 villages.",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=UTF-8",
+    "reads_dropout": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L071",
+   "url": "https://www.theweek.in/wire-updates/national/2025/05/02/mes16-ka-sslc-results.html",
+   "title": "Karnataka Class 10 results 2025: pass percentage",
+   "publisher": "The Week (PTI)",
+   "year": "2025",
+   "kind": "news",
+   "scope": "statewide",
+   "districts": [
+    "29-579",
+    "29-557",
+    "29-580"
+   ],
+   "tier": 3,
+   "note": "SSLC 2025 district pass percentages at the bottom (Kalaburagi 42.43, Vijayapura 49.58, Yadgir 51.6). Pass rate is not a dropout rate.",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html",
+    "reads_dropout": false,
+    "state": "opens, relevance not confirmed"
+   }
+  },
+  {
+   "id": "L072",
+   "url": "https://www.deccanherald.com/amp/story/india%2Fkarnataka%2Fkarnataka-sslc-results-improve-by-8-percentage-points-to-6234-22-students-get-625625-2-3521589",
+   "title": "Karnataka SSLC results improve by 8 percentage points to 62.34%",
+   "publisher": "Deccan Herald",
+   "year": "2025",
+   "kind": "news",
+   "scope": "statewide",
+   "districts": "all",
+   "tier": 3,
+   "note": "SSLC 2025 results; Yadgir 33rd from bottom per DH; sources disagree on last district. Not a dropout rate.",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": false,
+    "state": "opens, relevance not confirmed"
+   }
+  },
+  {
+   "id": "L073",
+   "url": "https://www.deccanherald.com/india/karnataka/govt-comes-up-with-29-point-norms-to-tackle-poor-sslc-results-3625364",
+   "title": "Govt comes up with 29-point norms to tackle poor SSLC results",
+   "publisher": "Deccan Herald",
+   "year": "2025",
+   "kind": "news",
+   "scope": "statewide",
+   "districts": "all",
+   "tier": 3,
+   "note": "Policy response to poor SSLC results (exam-linked exits).",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": false,
+    "state": "opens, relevance not confirmed"
+   }
+  },
+  {
+   "id": "L074",
+   "url": "https://www.indiastatdistricts.com/karnataka/belagavi-belgaum/education/dropoutratesofgeneralcategoriesstudents",
+   "title": "IndiaStat district dropout table: Belagavi",
+   "publisher": "IndiaStat Districts",
+   "year": "2013-2022",
+   "kind": "aggregator",
+   "scope": "district",
+   "districts": [
+    "29-555"
+   ],
+   "tier": 1,
+   "note": "Dropout rates by stage and category, 2013-14 to 2021-22 (UDISE-based compilation). Table values not read.",
+   "found_via": "web search + URL pattern probe",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "names_district": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L075",
+   "url": "https://www.indiastatdistricts.com/karnataka/bagalkot/education/dropoutratesofgeneralcategoriesstudents",
+   "title": "IndiaStat district dropout table: Bagalkote",
+   "publisher": "IndiaStat Districts",
+   "year": "2013-2022",
+   "kind": "aggregator",
+   "scope": "district",
+   "districts": [
+    "29-556"
+   ],
+   "tier": 1,
+   "note": "Dropout rates by stage and category, 2013-14 to 2021-22 (UDISE-based compilation). Table values not read.",
+   "found_via": "web search + URL pattern probe",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "names_district": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L076",
+   "url": "https://www.indiastatdistricts.com/karnataka/vijayapura-bijapur/education/dropoutratesofgeneralcategoriesstudents",
+   "title": "IndiaStat district dropout table: Vijayapura",
+   "publisher": "IndiaStat Districts",
+   "year": "2013-2022",
+   "kind": "aggregator",
+   "scope": "district",
+   "districts": [
+    "29-557"
+   ],
+   "tier": 1,
+   "note": "Dropout rates by stage and category, 2013-14 to 2021-22 (UDISE-based compilation). Table values not read.",
+   "found_via": "web search + URL pattern probe",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "names_district": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L077",
+   "url": "https://www.indiastatdistricts.com/karnataka/bidar/education/dropoutratesofgeneralcategoriesstudents",
+   "title": "IndiaStat district dropout table: Bidar",
+   "publisher": "IndiaStat Districts",
+   "year": "2013-2022",
+   "kind": "aggregator",
+   "scope": "district",
+   "districts": [
+    "29-558"
+   ],
+   "tier": 1,
+   "note": "Dropout rates by stage and category, 2013-14 to 2021-22 (UDISE-based compilation). Table values not read.",
+   "found_via": "web search + URL pattern probe",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "names_district": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L078",
+   "url": "https://www.indiastatdistricts.com/karnataka/raichur/education/dropoutratesofgeneralcategoriesstudents",
+   "title": "IndiaStat district dropout table: Raichur",
+   "publisher": "IndiaStat Districts",
+   "year": "2013-2022",
+   "kind": "aggregator",
+   "scope": "district",
+   "districts": [
+    "29-559"
+   ],
+   "tier": 1,
+   "note": "Dropout rates by stage and category, 2013-14 to 2021-22 (UDISE-based compilation). Table values not read.",
+   "found_via": "web search + URL pattern probe",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "names_district": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L079",
+   "url": "https://www.indiastatdistricts.com/karnataka/koppal/education/dropoutratesofgeneralcategoriesstudents",
+   "title": "IndiaStat district dropout table: Koppal",
+   "publisher": "IndiaStat Districts",
+   "year": "2013-2022",
+   "kind": "aggregator",
+   "scope": "district",
+   "districts": [
+    "29-560"
+   ],
+   "tier": 1,
+   "note": "Dropout rates by stage and category, 2013-14 to 2021-22 (UDISE-based compilation). Table values not read.",
+   "found_via": "web search + URL pattern probe",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "names_district": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L080",
+   "url": "https://www.indiastatdistricts.com/karnataka/gadag/education/dropoutratesofgeneralcategoriesstudents",
+   "title": "IndiaStat district dropout table: Gadag",
+   "publisher": "IndiaStat Districts",
+   "year": "2013-2022",
+   "kind": "aggregator",
+   "scope": "district",
+   "districts": [
+    "29-561"
+   ],
+   "tier": 1,
+   "note": "Dropout rates by stage and category, 2013-14 to 2021-22 (UDISE-based compilation). Table values not read.",
+   "found_via": "web search + URL pattern probe",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "names_district": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L081",
+   "url": "https://www.indiastatdistricts.com/karnataka/dharwad/education/dropoutratesofgeneralcategoriesstudents",
+   "title": "IndiaStat district dropout table: Dharwad",
+   "publisher": "IndiaStat Districts",
+   "year": "2013-2022",
+   "kind": "aggregator",
+   "scope": "district",
+   "districts": [
+    "29-562"
+   ],
+   "tier": 1,
+   "note": "Dropout rates by stage and category, 2013-14 to 2021-22 (UDISE-based compilation). Table values not read.",
+   "found_via": "web search + URL pattern probe",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "names_district": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L082",
+   "url": "https://www.indiastatdistricts.com/karnataka/uttarakannada/education/dropoutratesofgeneralcategoriesstudents",
+   "title": "IndiaStat district dropout table: Uttara Kannada",
+   "publisher": "IndiaStat Districts",
+   "year": "2013-2022",
+   "kind": "aggregator",
+   "scope": "district",
+   "districts": [
+    "29-563"
+   ],
+   "tier": 1,
+   "note": "Dropout rates by stage and category, 2013-14 to 2021-22 (UDISE-based compilation). Table values not read.",
+   "found_via": "web search + URL pattern probe",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "names_district": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L083",
+   "url": "https://www.indiastatdistricts.com/karnataka/haveri/education/dropoutratesofgeneralcategoriesstudents",
+   "title": "IndiaStat district dropout table: Haveri",
+   "publisher": "IndiaStat Districts",
+   "year": "2013-2022",
+   "kind": "aggregator",
+   "scope": "district",
+   "districts": [
+    "29-564"
+   ],
+   "tier": 1,
+   "note": "Dropout rates by stage and category, 2013-14 to 2021-22 (UDISE-based compilation). Table values not read.",
+   "found_via": "web search + URL pattern probe",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "names_district": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L084",
+   "url": "https://www.indiastatdistricts.com/karnataka/bellary/education/dropoutratesofgeneralcategoriesstudents",
+   "title": "IndiaStat district dropout table: Ballari",
+   "publisher": "IndiaStat Districts",
+   "year": "2013-2022",
+   "kind": "aggregator",
+   "scope": "district",
+   "districts": [
+    "29-565"
+   ],
+   "tier": 1,
+   "note": "Dropout rates by stage and category, 2013-14 to 2021-22 (UDISE-based compilation). Table values not read.",
+   "found_via": "web search + URL pattern probe",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "names_district": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L085",
+   "url": "https://www.indiastatdistricts.com/karnataka/chitradurga/education/dropoutratesofgeneralcategoriesstudents",
+   "title": "IndiaStat district dropout table: Chitradurga",
+   "publisher": "IndiaStat Districts",
+   "year": "2013-2022",
+   "kind": "aggregator",
+   "scope": "district",
+   "districts": [
+    "29-566"
+   ],
+   "tier": 1,
+   "note": "Dropout rates by stage and category, 2013-14 to 2021-22 (UDISE-based compilation). Table values not read.",
+   "found_via": "web search + URL pattern probe",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "names_district": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L086",
+   "url": "https://www.indiastatdistricts.com/karnataka/davanagere/education/dropoutratesofgeneralcategoriesstudents",
+   "title": "IndiaStat district dropout table: Davanagere",
+   "publisher": "IndiaStat Districts",
+   "year": "2013-2022",
+   "kind": "aggregator",
+   "scope": "district",
+   "districts": [
+    "29-567"
+   ],
+   "tier": 1,
+   "note": "Dropout rates by stage and category, 2013-14 to 2021-22 (UDISE-based compilation). Table values not read.",
+   "found_via": "web search + URL pattern probe",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "names_district": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L087",
+   "url": "https://www.indiastatdistricts.com/karnataka/shimoga/education/dropoutratesofgeneralcategoriesstudents",
+   "title": "IndiaStat district dropout table: Shivamogga",
+   "publisher": "IndiaStat Districts",
+   "year": "2013-2022",
+   "kind": "aggregator",
+   "scope": "district",
+   "districts": [
+    "29-568"
+   ],
+   "tier": 1,
+   "note": "Dropout rates by stage and category, 2013-14 to 2021-22 (UDISE-based compilation). Table values not read.",
+   "found_via": "web search + URL pattern probe",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "names_district": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L088",
+   "url": "https://www.indiastatdistricts.com/karnataka/udupi/education/dropoutratesofgeneralcategoriesstudents",
+   "title": "IndiaStat district dropout table: Udupi",
+   "publisher": "IndiaStat Districts",
+   "year": "2013-2022",
+   "kind": "aggregator",
+   "scope": "district",
+   "districts": [
+    "29-569"
+   ],
+   "tier": 1,
+   "note": "Dropout rates by stage and category, 2013-14 to 2021-22 (UDISE-based compilation). Table values not read.",
+   "found_via": "web search + URL pattern probe",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "names_district": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L089",
+   "url": "https://www.indiastatdistricts.com/karnataka/chikmagalur/education/dropoutratesofgeneralcategoriesstudents",
+   "title": "IndiaStat district dropout table: Chikkamagaluru",
+   "publisher": "IndiaStat Districts",
+   "year": "2013-2022",
+   "kind": "aggregator",
+   "scope": "district",
+   "districts": [
+    "29-570"
+   ],
+   "tier": 1,
+   "note": "Dropout rates by stage and category, 2013-14 to 2021-22 (UDISE-based compilation). Table values not read.",
+   "found_via": "web search + URL pattern probe",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "names_district": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L090",
+   "url": "https://www.indiastatdistricts.com/karnataka/tumkur/education/dropoutratesofgeneralcategoriesstudents",
+   "title": "IndiaStat district dropout table: Tumakuru",
+   "publisher": "IndiaStat Districts",
+   "year": "2013-2022",
+   "kind": "aggregator",
+   "scope": "district",
+   "districts": [
+    "29-571"
+   ],
+   "tier": 1,
+   "note": "Dropout rates by stage and category, 2013-14 to 2021-22 (UDISE-based compilation). Table values not read.",
+   "found_via": "web search + URL pattern probe",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "names_district": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L091",
+   "url": "https://www.indiastatdistricts.com/karnataka/mandya/education/dropoutratesofgeneralcategoriesstudents",
+   "title": "IndiaStat district dropout table: Mandya",
+   "publisher": "IndiaStat Districts",
+   "year": "2013-2022",
+   "kind": "aggregator",
+   "scope": "district",
+   "districts": [
+    "29-573"
+   ],
+   "tier": 1,
+   "note": "Dropout rates by stage and category, 2013-14 to 2021-22 (UDISE-based compilation). Table values not read.",
+   "found_via": "web search + URL pattern probe",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "names_district": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L092",
+   "url": "https://www.indiastatdistricts.com/karnataka/hassan/education/dropoutratesofgeneralcategoriesstudents",
+   "title": "IndiaStat district dropout table: Hassan",
+   "publisher": "IndiaStat Districts",
+   "year": "2013-2022",
+   "kind": "aggregator",
+   "scope": "district",
+   "districts": [
+    "29-574"
+   ],
+   "tier": 1,
+   "note": "Dropout rates by stage and category, 2013-14 to 2021-22 (UDISE-based compilation). Table values not read.",
+   "found_via": "web search + URL pattern probe",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "names_district": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L093",
+   "url": "https://www.indiastatdistricts.com/karnataka/dakshinakannada/education/dropoutratesofgeneralcategoriesstudents",
+   "title": "IndiaStat district dropout table: Dakshina Kannada",
+   "publisher": "IndiaStat Districts",
+   "year": "2013-2022",
+   "kind": "aggregator",
+   "scope": "district",
+   "districts": [
+    "29-575"
+   ],
+   "tier": 1,
+   "note": "Dropout rates by stage and category, 2013-14 to 2021-22 (UDISE-based compilation). Table values not read.",
+   "found_via": "web search + URL pattern probe",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "names_district": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L094",
+   "url": "https://www.indiastatdistricts.com/karnataka/kodagu/education/dropoutratesofgeneralcategoriesstudents",
+   "title": "IndiaStat district dropout table: Kodagu",
+   "publisher": "IndiaStat Districts",
+   "year": "2013-2022",
+   "kind": "aggregator",
+   "scope": "district",
+   "districts": [
+    "29-576"
+   ],
+   "tier": 1,
+   "note": "Dropout rates by stage and category, 2013-14 to 2021-22 (UDISE-based compilation). Table values not read.",
+   "found_via": "web search + URL pattern probe",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "names_district": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L095",
+   "url": "https://www.indiastatdistricts.com/karnataka/mysore/education/dropoutratesofgeneralcategoriesstudents",
+   "title": "IndiaStat district dropout table: Mysuru",
+   "publisher": "IndiaStat Districts",
+   "year": "2013-2022",
+   "kind": "aggregator",
+   "scope": "district",
+   "districts": [
+    "29-577"
+   ],
+   "tier": 1,
+   "note": "Dropout rates by stage and category, 2013-14 to 2021-22 (UDISE-based compilation). Table values not read.",
+   "found_via": "web search + URL pattern probe",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "names_district": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L096",
+   "url": "https://www.indiastatdistricts.com/karnataka/chamarajanagar/education/dropoutratesofgeneralcategoriesstudents",
+   "title": "IndiaStat district dropout table: Chamarajanagara",
+   "publisher": "IndiaStat Districts",
+   "year": "2013-2022",
+   "kind": "aggregator",
+   "scope": "district",
+   "districts": [
+    "29-578"
+   ],
+   "tier": 1,
+   "note": "Dropout rates by stage and category, 2013-14 to 2021-22 (UDISE-based compilation). Table values not read.",
+   "found_via": "web search + URL pattern probe",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "names_district": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L097",
+   "url": "https://www.indiastatdistricts.com/karnataka/kalaburagi-gulbarga/education/dropoutratesofgeneralcategoriesstudents",
+   "title": "IndiaStat district dropout table: Kalaburagi",
+   "publisher": "IndiaStat Districts",
+   "year": "2013-2022",
+   "kind": "aggregator",
+   "scope": "district",
+   "districts": [
+    "29-579"
+   ],
+   "tier": 1,
+   "note": "Dropout rates by stage and category, 2013-14 to 2021-22 (UDISE-based compilation). Table values not read.",
+   "found_via": "web search + URL pattern probe",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "names_district": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L098",
+   "url": "https://www.indiastatdistricts.com/karnataka/yadgir/education/dropoutratesofgeneralcategoriesstudents",
+   "title": "IndiaStat district dropout table: Yadgir",
+   "publisher": "IndiaStat Districts",
+   "year": "2013-2022",
+   "kind": "aggregator",
+   "scope": "district",
+   "districts": [
+    "29-580"
+   ],
+   "tier": 1,
+   "note": "Dropout rates by stage and category, 2013-14 to 2021-22 (UDISE-based compilation). Table values not read.",
+   "found_via": "web search + URL pattern probe",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "names_district": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L099",
+   "url": "https://www.indiastatdistricts.com/karnataka/kolar/education/dropoutratesofgeneralcategoriesstudents",
+   "title": "IndiaStat district dropout table: Kolar",
+   "publisher": "IndiaStat Districts",
+   "year": "2013-2022",
+   "kind": "aggregator",
+   "scope": "district",
+   "districts": [
+    "29-581"
+   ],
+   "tier": 1,
+   "note": "Dropout rates by stage and category, 2013-14 to 2021-22 (UDISE-based compilation). Table values not read.",
+   "found_via": "web search + URL pattern probe",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "names_district": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L100",
+   "url": "https://www.indiastatdistricts.com/karnataka/chikballapur/education/dropoutratesofgeneralcategoriesstudents",
+   "title": "IndiaStat district dropout table: Chikkaballapur",
+   "publisher": "IndiaStat Districts",
+   "year": "2013-2022",
+   "kind": "aggregator",
+   "scope": "district",
+   "districts": [
+    "29-582"
+   ],
+   "tier": 1,
+   "note": "Dropout rates by stage and category, 2013-14 to 2021-22 (UDISE-based compilation). Table values not read.",
+   "found_via": "web search + URL pattern probe",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "names_district": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L101",
+   "url": "https://www.indiastatdistricts.com/karnataka/bangalorerural/education/dropoutratesofgeneralcategoriesstudents",
+   "title": "IndiaStat district dropout table: Bengaluru Rural",
+   "publisher": "IndiaStat Districts",
+   "year": "2013-2022",
+   "kind": "aggregator",
+   "scope": "district",
+   "districts": [
+    "29-583"
+   ],
+   "tier": 1,
+   "note": "Dropout rates by stage and category, 2013-14 to 2021-22 (UDISE-based compilation). Table values not read.",
+   "found_via": "web search + URL pattern probe",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "names_district": true,
+    "state": "verified"
+   }
+  },
+  {
+   "id": "L102",
+   "url": "https://www.indiastatdistricts.com/karnataka/ramanagara/education/dropoutratesofgeneralcategoriesstudents",
+   "title": "IndiaStat district dropout table: Ramanagara",
+   "publisher": "IndiaStat Districts",
+   "year": "2013-2022",
+   "kind": "aggregator",
+   "scope": "district",
+   "districts": [
+    "29-584"
+   ],
+   "tier": 1,
+   "note": "Dropout rates by stage and category, 2013-14 to 2021-22 (UDISE-based compilation). Table values not read.",
+   "found_via": "web search + URL pattern probe",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": true,
+    "names_district": true,
+    "state": "verified"
+   }
+  }
+ ]
+}
