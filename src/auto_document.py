@@ -50,6 +50,16 @@ def build_auto_notes(record: dict, names: dict[str, str]) -> tuple[list[str], li
     name = names.get(code, code)
     v = record.get("validation", {})
 
+    # A failed generation means there is no answer to validate at all; say so
+    # plainly and queue it for review instead of emitting derivative notes.
+    if record.get("generation_failed"):
+        notes.append(
+            f"generation: no native_answer for {name} ({code}) after all retry "
+            f"attempts - tunnel/model failure; record is empty and was not validated."
+        )
+        review.append("generation FAILED")
+        return notes, review
+
     # --- language / script (fastText LID) ---
     lid = v.get("language_id", {})
     lid_status = lid.get("status")

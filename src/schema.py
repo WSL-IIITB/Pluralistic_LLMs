@@ -15,3 +15,4 @@ class EvaluationRecord:
     validation: dict = field(default_factory=dict)
     auto_notes: list = field(default_factory=list)
     review_required: bool = False
+    generation_failed: bool = False

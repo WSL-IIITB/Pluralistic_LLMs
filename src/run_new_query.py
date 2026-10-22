@@ -111,6 +111,13 @@ def main() -> None:
         action="store_true",
         help="skip the auto-documentation step (notes/review_required)",
     )
+    parser.add_argument(
+        "--answer-retries",
+        type=int,
+        default=2,
+        help="retries for a blank/failed native answer per language "
+             "(default: 2 -> 3 total attempts)",
+    )
     args = parser.parse_args()
 
     url = args.url or os.environ.get("OLLAMA_BASE_URL") or OLLAMA_BASE_URL
@@ -122,6 +129,7 @@ def main() -> None:
 
     # 2. Generation.
     pipeline_args = ["--query-id", args.query_id, "--query-text", args.query_text]
+    pipeline_args += ["--answer-retries", str(args.answer_retries)]
     if args.output:
         pipeline_args += ["--output", args.output]
     if args.languages:

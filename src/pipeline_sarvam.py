@@ -250,12 +250,52 @@ def get_native_answer(
     return _get_native_answer_cloud(query_text, lang_code, system_prompt)
 
 
+def _get_native_answer_with_retries(
+    query_text: str,
+    lang_code: str,
+    logger: logging.Logger,
+    enable_thinking: bool,
+    retries: int,
+) -> tuple[str, str | None]:
+    """Return (native_answer, last_error).
+
+    A blank answer arrives as HTTP 200 with empty content, which the
+    transport-level retry does not catch, so it needs this outer loop.
+    Total attempts = retries + 1. Backoff: 5s, 15s, then 30s thereafter.
+    """
+    attempts = max(0, retries) + 1
+    last_error: str | None = None
+    for i in range(attempts):
+        try:
+            answer = get_native_answer(
+                query_text, lang_code, enable_thinking=enable_thinking,
+            )
+            if answer and answer.strip():
+                return answer, None
+            last_error = "empty answer"
+        except Exception as exc:  # noqa: BLE001 - retry any failure, mark if exhausted
+            last_error = str(exc)
+        if i < attempts - 1:
+            wait = [5, 15, 30][min(i, 2)]
+            logger.warning(
+                "native answer attempt %d/%d failed for %s (%s); retrying in %ds",
+                i + 1, attempts, lang_code, last_error, wait,
+            )
+            time.sleep(wait)
+    logger.error(
+        "native answer failed after %d attempts | lang=%s | error=%s",
+        attempts, lang_code, last_error,
+    )
+    return "", last_error
+
+
 def run_single_query_pipeline(
     query_id: str,
     source_query_en: str,
     lang_codes: list[str],
     logger: logging.Logger | None = None,
     enable_thinking: bool = False,
+    answer_retries: int = 2,
 ) -> list[dict]:
     logger = logger or logging.getLogger("pipeline_sarvam")
     timestamp = datetime.now(timezone.utc).isoformat()
@@ -269,12 +309,9 @@ def run_single_query_pipeline(
             translated_query = translate_text(source_query_en, "en-IN", lang_code)
         except Exception as exc:
             logger.error("forward translate failed | lang=%s | error=%s", lang_code, exc)
-        try:
-            native_answer = get_native_answer(
-                source_query_en, lang_code, enable_thinking=enable_thinking,
-            )
-        except Exception as exc:
-            logger.error("native answer failed | lang=%s | error=%s", lang_code, exc)
+        native_answer, _ = _get_native_answer_with_retries(
+            source_query_en, lang_code, logger, enable_thinking, answer_retries,
+        )
         if native_answer:
             try:
                 back_translated_answer_en = translate_text(native_answer, lang_code, "en-IN")
@@ -290,14 +327,13 @@ def run_single_query_pipeline(
                 native_answer=native_answer,
                 back_translated_answer_en=back_translated_answer_en,
                 timestamp=timestamp,
+                generation_failed=not bool(native_answer.strip()),
             )
         )
 
-    try:
-        baseline_answer = get_native_answer(source_query_en, "en")
-    except Exception as exc:
-        logger.error("baseline english answer failed | error=%s", exc)
-        baseline_answer = ""
+    baseline_answer, _ = _get_native_answer_with_retries(
+        source_query_en, "en", logger, enable_thinking, answer_retries,
+    )
     records.append(
         EvaluationRecord(
             query_id=query_id,
@@ -308,6 +344,7 @@ def run_single_query_pipeline(
             native_answer=baseline_answer,
             back_translated_answer_en=baseline_answer,
             timestamp=timestamp,
+            generation_failed=not bool(baseline_answer.strip()),
         )
     )
 
@@ -407,6 +444,13 @@ def main() -> None:
         default="Can you give an example of a life goal related to self-image?",
         help="source query in English (default: the self-image life-goal query)",
     )
+    parser.add_argument(
+        "--answer-retries",
+        type=int,
+        default=2,
+        help="retries for a blank/failed native answer per language "
+             "(default: 2 -> 3 total attempts)",
+    )
     args = parser.parse_args()
 
     query_id = args.query_id
@@ -432,7 +476,10 @@ def main() -> None:
     else:
         out_path = PROJECT_ROOT / args.output
 
-    records = run_single_query_pipeline(query_id, source_query_en, lang_codes, logger=logger)
+    records = run_single_query_pipeline(
+        query_id, source_query_en, lang_codes, logger=logger,
+        answer_retries=args.answer_retries,
+    )
 
     existing_records = None
     if out_path.exists():
@@ -467,6 +514,9 @@ def main() -> None:
     partial = []
     failed = []
     for record in records[:-1]:
+        if record.get("generation_failed"):
+            failed.append(record["target_lang_code"])
+            continue
         steps = sum(
             1 for field in ("translated_query", "native_answer", "back_translated_answer_en")
             if record[field]
