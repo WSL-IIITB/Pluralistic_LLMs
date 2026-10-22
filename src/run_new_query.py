@@ -86,6 +86,12 @@ def summarize(query_id: str) -> None:
         if val:
             print(f"  {key}: {val}")
 
+    documented = sum(1 for r in records if r.get("auto_notes"))
+    review = [r["target_lang_code"] for r in records if r.get("review_required")]
+    print()
+    print(f"  auto-documented records (self-explaining): {documented}")
+    print(f"  needs manual review: {len(review)} -> {review or 'none'}")
+
 
 def main() -> None:
     parser = argparse.ArgumentParser(
@@ -99,6 +105,11 @@ def main() -> None:
         "--languages",
         default=None,
         help="comma-separated subset of target language codes (passes through to pipeline)",
+    )
+    parser.add_argument(
+        "--no-auto-document",
+        action="store_true",
+        help="skip the auto-documentation step (notes/review_required)",
     )
     args = parser.parse_args()
 
@@ -132,7 +143,13 @@ def main() -> None:
     _run(VENV_IT2, "validate_query_roundtrip", query_args)
     _run(VENV_IT2, "validate_syntax", query_args)
 
-    # 4. Final summary.
+    # 4. Auto-documentation — makes the dataset self-documenting without hand
+    #    editing: structural flags are explained automatically and genuine
+    #    content flags are queued for review.
+    if not args.no_auto_document:
+        _run(VENV_IT2, "auto_document", query_args)
+
+    # 5. Final summary.
     summarize(args.query_id)
 
 

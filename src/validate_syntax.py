@@ -321,6 +321,7 @@ def main(raw_file) -> None:
             score_val = layer2_scores.get(code)
         results_by_code[code] = {
             "script_check": s1,
+            "script_reason": "; ".join(layer1_flags[code]) if layer1_flags[code] else "",
             "fluency_check": s2,
             "fluency_score": score_val,
             "checked_at": now_iso(),
