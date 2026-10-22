@@ -234,5 +234,13 @@
     "exclude": [
       "(is|are) (a |the )?(main|dominant|primary|key) (driver|cause|reason)"
     ]
+  },
+  {
+    "id": "adj-budget-draft",
+    "category": "beyond research",
+    "question": "Can you draft a rough budget estimate for a community awareness programme to reduce dropout in Raichur?",
+    "include": [
+      "(assum|illustrative|placeholder|replace|estimate|indicative)"
+    ]
   }
 ]
