@@ -260,6 +260,28 @@ S = [
     ("https://www.deccanherald.com/india/karnataka/govt-comes-up-with-29-point-norms-to-tackle-poor-sslc-results-3625364",
      "Govt comes up with 29-point norms to tackle poor SSLC results", "Deccan Herald", "2025", "news", "statewide", ALL, 3,
      "Policy response to poor SSLC results (exam-linked exits)."),
+    # ---- added after checking leads from the two unsourced thin-district reports (pages fetched; numbers found on page) ----
+    ("https://etvbharat.com/en/!state/authorities-foil-25-child-marriages-in-april-may-in-karnataka-davanagere-enn24070806000",
+     "Authorities foil 25 child marriages in April-May in Karnataka's Davanagere", "ETV Bharat", "2024", "news", "district", d("Davanagere"), 3,
+     "Verified on page: 25 of 26 reported child marriages stopped in April-May 2024; 194 prevented in 2023; counts by taluk. Marriage-stopping counts, not a dropout statistic."),
+    ("https://newskarnataka.com/davanagere/preventing-child-marriages-in-davanagere-karnataka-a-success-story/09072024/",
+     "Preventing child marriages in Davanagere: a success story", "News Karnataka", "2024", "news", "district", d("Davanagere"), 3,
+     "Verified on page: 25 of 26 child marriages prevented in April-May 2024; children report cases through a toll-free number."),
+    ("https://newskarnataka.com/karnataka/bengaluru/karnataka-police-rescue-800-child-labourers-in-statewide-operation/14092026/",
+     "Karnataka police rescue 800 child labourers in statewide operation", "News Karnataka", "2026", "news", "district", d("Tumakuru"), 3,
+     "Verified on page: Tumakuru 660 premises inspected, 33 children rescued (statewide drive, 16,951 premises, about 800 rescued)."),
+    ("https://www.siasat.com/800-child-labourers-rescued-in-statewide-police-crackdown-3541250/",
+     "800 child labourers rescued in statewide police crackdown", "Siasat", "2026", "news", "statewide", d("Tumakuru", "Bengaluru Urban"), 3,
+     "Statewide drive; Tumakuru 33 rescued (the 660-premises figure was not on this page, it is on the News Karnataka one)."),
+    ("https://www.deccanherald.com/amp/story/india%2Fkarnataka%2Fkscpcr-asks-school-education-department-to-submit-report-on-closure-of-schools-in-karnataka-3801344",
+     "KSCPCR asks School Education Department to submit report on closure of schools in Karnataka", "Deccan Herald", "2026", "news", "statewide", ALL, 2,
+     "Child-rights commission suo motu complaint on proposed merger/closure of low-enrolment schools into Karnataka Public Schools; distance and access concerns. Not specific to Ramanagara."),
+    ("https://www.thesouthfirst.com/karnataka/officials-activists-worry-about-girls-as-details-of-murugha-matha-sexual-assault-case-emerge/",
+     "Officials, activists worry about girls as details of Murugha Matha sexual assault case emerge", "The South First", "2022", "news", "district", d("Chitradurga"), 3,
+     "Girls from the Murugha Matha hostel moved to Morarji Desai residential schools and CWCs (counts in coverage range from about 80 to 106; not 38)."),
+    ("https://english.udayavani.com/article/raichur-27-child-labourers-rescued/913557",
+     "Raichur: 27 child labourers rescued", "Udayavani", "2020", "news", "district", d("Raichur"), 3,
+     "Search snippet only (page would not open here): nine vehicles stopped, 27 children rescued and returned to parents."),
 ]
 
 INDIASTAT = json.load(open(os.path.join(HERE, "indiastat_urls.json"))) if os.path.exists(os.path.join(HERE, "indiastat_urls.json")) else {}

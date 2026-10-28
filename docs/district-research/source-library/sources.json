@@ -1,6 +1,6 @@
 {
- "builtOn": "2026-10-22",
- "count": 102,
+ "builtOn": "2026-10-28",
+ "count": 109,
  "sources": [
   {
    "id": "L001",
@@ -1505,6 +1505,155 @@
   },
   {
    "id": "L074",
+   "url": "https://etvbharat.com/en/!state/authorities-foil-25-child-marriages-in-april-may-in-karnataka-davanagere-enn24070806000",
+   "title": "Authorities foil 25 child marriages in April-May in Karnataka's Davanagere",
+   "publisher": "ETV Bharat",
+   "year": "2024",
+   "kind": "news",
+   "scope": "district",
+   "districts": [
+    "29-567"
+   ],
+   "tier": 3,
+   "note": "Verified on page: 25 of 26 reported child marriages stopped in April-May 2024; 194 prevented in 2023; counts by taluk. Marriage-stopping counts, not a dropout statistic.",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": false,
+    "names_district": true,
+    "state": "opens, relevance not confirmed"
+   }
+  },
+  {
+   "id": "L075",
+   "url": "https://newskarnataka.com/davanagere/preventing-child-marriages-in-davanagere-karnataka-a-success-story/09072024/",
+   "title": "Preventing child marriages in Davanagere: a success story",
+   "publisher": "News Karnataka",
+   "year": "2024",
+   "kind": "news",
+   "scope": "district",
+   "districts": [
+    "29-567"
+   ],
+   "tier": 3,
+   "note": "Verified on page: 25 of 26 child marriages prevented in April-May 2024; children report cases through a toll-free number.",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": false,
+    "names_district": true,
+    "state": "opens, relevance not confirmed"
+   }
+  },
+  {
+   "id": "L076",
+   "url": "https://newskarnataka.com/karnataka/bengaluru/karnataka-police-rescue-800-child-labourers-in-statewide-operation/14092026/",
+   "title": "Karnataka police rescue 800 child labourers in statewide operation",
+   "publisher": "News Karnataka",
+   "year": "2026",
+   "kind": "news",
+   "scope": "district",
+   "districts": [
+    "29-571"
+   ],
+   "tier": 3,
+   "note": "Verified on page: Tumakuru 660 premises inspected, 33 children rescued (statewide drive, 16,951 premises, about 800 rescued).",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": false,
+    "names_district": true,
+    "state": "opens, relevance not confirmed"
+   }
+  },
+  {
+   "id": "L077",
+   "url": "https://www.siasat.com/800-child-labourers-rescued-in-statewide-police-crackdown-3541250/",
+   "title": "800 child labourers rescued in statewide police crackdown",
+   "publisher": "Siasat",
+   "year": "2026",
+   "kind": "news",
+   "scope": "statewide",
+   "districts": [
+    "29-571",
+    "29-572"
+   ],
+   "tier": 3,
+   "note": "Statewide drive; Tumakuru 33 rescued (the 660-premises figure was not on this page, it is on the News Karnataka one).",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=UTF-8",
+    "reads_dropout": false,
+    "state": "opens, relevance not confirmed"
+   }
+  },
+  {
+   "id": "L078",
+   "url": "https://www.deccanherald.com/amp/story/india%2Fkarnataka%2Fkscpcr-asks-school-education-department-to-submit-report-on-closure-of-schools-in-karnataka-3801344",
+   "title": "KSCPCR asks School Education Department to submit report on closure of schools in Karnataka",
+   "publisher": "Deccan Herald",
+   "year": "2026",
+   "kind": "news",
+   "scope": "statewide",
+   "districts": "all",
+   "tier": 2,
+   "note": "Child-rights commission suo motu complaint on proposed merger/closure of low-enrolment schools into Karnataka Public Schools; distance and access concerns. Not specific to Ramanagara.",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": false,
+    "state": "opens, relevance not confirmed"
+   }
+  },
+  {
+   "id": "L079",
+   "url": "https://www.thesouthfirst.com/karnataka/officials-activists-worry-about-girls-as-details-of-murugha-matha-sexual-assault-case-emerge/",
+   "title": "Officials, activists worry about girls as details of Murugha Matha sexual assault case emerge",
+   "publisher": "The South First",
+   "year": "2022",
+   "kind": "news",
+   "scope": "district",
+   "districts": [
+    "29-566"
+   ],
+   "tier": 3,
+   "note": "Girls from the Murugha Matha hostel moved to Morarji Desai residential schools and CWCs (counts in coverage range from about 80 to 106; not 38).",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "reads_dropout": false,
+    "names_district": true,
+    "state": "opens, relevance not confirmed"
+   }
+  },
+  {
+   "id": "L080",
+   "url": "https://english.udayavani.com/article/raichur-27-child-labourers-rescued/913557",
+   "title": "Raichur: 27 child labourers rescued",
+   "publisher": "Udayavani",
+   "year": "2020",
+   "kind": "news",
+   "scope": "district",
+   "districts": [
+    "29-559"
+   ],
+   "tier": 3,
+   "note": "Search snippet only (page would not open here): nine vehicles stopped, 27 children rescued and returned to parents.",
+   "found_via": "web search (this session)",
+   "check": {
+    "status": 0,
+    "content_type": "",
+    "state": "unreachable"
+   }
+  },
+  {
+   "id": "L081",
    "url": "https://www.indiastatdistricts.com/karnataka/belagavi-belgaum/education/dropoutratesofgeneralcategoriesstudents",
    "title": "IndiaStat district dropout table: Belagavi",
    "publisher": "IndiaStat Districts",
@@ -1526,7 +1675,7 @@
    }
   },
   {
-   "id": "L075",
+   "id": "L082",
    "url": "https://www.indiastatdistricts.com/karnataka/bagalkot/education/dropoutratesofgeneralcategoriesstudents",
    "title": "IndiaStat district dropout table: Bagalkote",
    "publisher": "IndiaStat Districts",
@@ -1548,7 +1697,7 @@
    }
   },
   {
-   "id": "L076",
+   "id": "L083",
    "url": "https://www.indiastatdistricts.com/karnataka/vijayapura-bijapur/education/dropoutratesofgeneralcategoriesstudents",
    "title": "IndiaStat district dropout table: Vijayapura",
    "publisher": "IndiaStat Districts",
@@ -1570,7 +1719,7 @@
    }
   },
   {
-   "id": "L077",
+   "id": "L084",
    "url": "https://www.indiastatdistricts.com/karnataka/bidar/education/dropoutratesofgeneralcategoriesstudents",
    "title": "IndiaStat district dropout table: Bidar",
    "publisher": "IndiaStat Districts",
@@ -1592,7 +1741,7 @@
    }
   },
   {
-   "id": "L078",
+   "id": "L085",
    "url": "https://www.indiastatdistricts.com/karnataka/raichur/education/dropoutratesofgeneralcategoriesstudents",
    "title": "IndiaStat district dropout table: Raichur",
    "publisher": "IndiaStat Districts",
@@ -1614,7 +1763,7 @@
    }
   },
   {
-   "id": "L079",
+   "id": "L086",
    "url": "https://www.indiastatdistricts.com/karnataka/koppal/education/dropoutratesofgeneralcategoriesstudents",
    "title": "IndiaStat district dropout table: Koppal",
    "publisher": "IndiaStat Districts",
@@ -1636,7 +1785,7 @@
    }
   },
   {
-   "id": "L080",
+   "id": "L087",
    "url": "https://www.indiastatdistricts.com/karnataka/gadag/education/dropoutratesofgeneralcategoriesstudents",
    "title": "IndiaStat district dropout table: Gadag",
    "publisher": "IndiaStat Districts",
@@ -1658,7 +1807,7 @@
    }
   },
   {
-   "id": "L081",
+   "id": "L088",
    "url": "https://www.indiastatdistricts.com/karnataka/dharwad/education/dropoutratesofgeneralcategoriesstudents",
    "title": "IndiaStat district dropout table: Dharwad",
    "publisher": "IndiaStat Districts",
@@ -1680,7 +1829,7 @@
    }
   },
   {
-   "id": "L082",
+   "id": "L089",
    "url": "https://www.indiastatdistricts.com/karnataka/uttarakannada/education/dropoutratesofgeneralcategoriesstudents",
    "title": "IndiaStat district dropout table: Uttara Kannada",
    "publisher": "IndiaStat Districts",
@@ -1702,7 +1851,7 @@
    }
   },
   {
-   "id": "L083",
+   "id": "L090",
    "url": "https://www.indiastatdistricts.com/karnataka/haveri/education/dropoutratesofgeneralcategoriesstudents",
    "title": "IndiaStat district dropout table: Haveri",
    "publisher": "IndiaStat Districts",
@@ -1724,7 +1873,7 @@
    }
   },
   {
-   "id": "L084",
+   "id": "L091",
    "url": "https://www.indiastatdistricts.com/karnataka/bellary/education/dropoutratesofgeneralcategoriesstudents",
    "title": "IndiaStat district dropout table: Ballari",
    "publisher": "IndiaStat Districts",
@@ -1746,7 +1895,7 @@
    }
   },
   {
-   "id": "L085",
+   "id": "L092",
    "url": "https://www.indiastatdistricts.com/karnataka/chitradurga/education/dropoutratesofgeneralcategoriesstudents",
    "title": "IndiaStat district dropout table: Chitradurga",
    "publisher": "IndiaStat Districts",
@@ -1768,7 +1917,7 @@
    }
   },
   {
-   "id": "L086",
+   "id": "L093",
    "url": "https://www.indiastatdistricts.com/karnataka/davanagere/education/dropoutratesofgeneralcategoriesstudents",
    "title": "IndiaStat district dropout table: Davanagere",
    "publisher": "IndiaStat Districts",
@@ -1790,7 +1939,7 @@
    }
   },
   {
-   "id": "L087",
+   "id": "L094",
    "url": "https://www.indiastatdistricts.com/karnataka/shimoga/education/dropoutratesofgeneralcategoriesstudents",
    "title": "IndiaStat district dropout table: Shivamogga",
    "publisher": "IndiaStat Districts",
@@ -1812,7 +1961,7 @@
    }
   },
   {
-   "id": "L088",
+   "id": "L095",
    "url": "https://www.indiastatdistricts.com/karnataka/udupi/education/dropoutratesofgeneralcategoriesstudents",
    "title": "IndiaStat district dropout table: Udupi",
    "publisher": "IndiaStat Districts",
@@ -1834,7 +1983,7 @@
    }
   },
   {
-   "id": "L089",
+   "id": "L096",
    "url": "https://www.indiastatdistricts.com/karnataka/chikmagalur/education/dropoutratesofgeneralcategoriesstudents",
    "title": "IndiaStat district dropout table: Chikkamagaluru",
    "publisher": "IndiaStat Districts",
@@ -1856,7 +2005,7 @@
    }
   },
   {
-   "id": "L090",
+   "id": "L097",
    "url": "https://www.indiastatdistricts.com/karnataka/tumkur/education/dropoutratesofgeneralcategoriesstudents",
    "title": "IndiaStat district dropout table: Tumakuru",
    "publisher": "IndiaStat Districts",
@@ -1878,7 +2027,7 @@
    }
   },
   {
-   "id": "L091",
+   "id": "L098",
    "url": "https://www.indiastatdistricts.com/karnataka/mandya/education/dropoutratesofgeneralcategoriesstudents",
    "title": "IndiaStat district dropout table: Mandya",
    "publisher": "IndiaStat Districts",
@@ -1900,7 +2049,7 @@
    }
   },
   {
-   "id": "L092",
+   "id": "L099",
    "url": "https://www.indiastatdistricts.com/karnataka/hassan/education/dropoutratesofgeneralcategoriesstudents",
    "title": "IndiaStat district dropout table: Hassan",
    "publisher": "IndiaStat Districts",
@@ -1922,7 +2071,7 @@
    }
   },
   {
-   "id": "L093",
+   "id": "L100",
    "url": "https://www.indiastatdistricts.com/karnataka/dakshinakannada/education/dropoutratesofgeneralcategoriesstudents",
    "title": "IndiaStat district dropout table: Dakshina Kannada",
    "publisher": "IndiaStat Districts",
@@ -1944,7 +2093,7 @@
    }
   },
   {
-   "id": "L094",
+   "id": "L101",
    "url": "https://www.indiastatdistricts.com/karnataka/kodagu/education/dropoutratesofgeneralcategoriesstudents",
    "title": "IndiaStat district dropout table: Kodagu",
    "publisher": "IndiaStat Districts",
@@ -1966,7 +2115,7 @@
    }
   },
   {
-   "id": "L095",
+   "id": "L102",
    "url": "https://www.indiastatdistricts.com/karnataka/mysore/education/dropoutratesofgeneralcategoriesstudents",
    "title": "IndiaStat district dropout table: Mysuru",
    "publisher": "IndiaStat Districts",
@@ -1988,7 +2137,7 @@
    }
   },
   {
-   "id": "L096",
+   "id": "L103",
    "url": "https://www.indiastatdistricts.com/karnataka/chamarajanagar/education/dropoutratesofgeneralcategoriesstudents",
    "title": "IndiaStat district dropout table: Chamarajanagara",
    "publisher": "IndiaStat Districts",
@@ -2010,7 +2159,7 @@
    }
   },
   {
-   "id": "L097",
+   "id": "L104",
    "url": "https://www.indiastatdistricts.com/karnataka/kalaburagi-gulbarga/education/dropoutratesofgeneralcategoriesstudents",
    "title": "IndiaStat district dropout table: Kalaburagi",
    "publisher": "IndiaStat Districts",
@@ -2032,7 +2181,7 @@
    }
   },
   {
-   "id": "L098",
+   "id": "L105",
    "url": "https://www.indiastatdistricts.com/karnataka/yadgir/education/dropoutratesofgeneralcategoriesstudents",
    "title": "IndiaStat district dropout table: Yadgir",
    "publisher": "IndiaStat Districts",
@@ -2054,7 +2203,7 @@
    }
   },
   {
-   "id": "L099",
+   "id": "L106",
    "url": "https://www.indiastatdistricts.com/karnataka/kolar/education/dropoutratesofgeneralcategoriesstudents",
    "title": "IndiaStat district dropout table: Kolar",
    "publisher": "IndiaStat Districts",
@@ -2076,7 +2225,7 @@
    }
   },
   {
-   "id": "L100",
+   "id": "L107",
    "url": "https://www.indiastatdistricts.com/karnataka/chikballapur/education/dropoutratesofgeneralcategoriesstudents",
    "title": "IndiaStat district dropout table: Chikkaballapur",
    "publisher": "IndiaStat Districts",
@@ -2098,7 +2247,7 @@
    }
   },
   {
-   "id": "L101",
+   "id": "L108",
    "url": "https://www.indiastatdistricts.com/karnataka/bangalorerural/education/dropoutratesofgeneralcategoriesstudents",
    "title": "IndiaStat district dropout table: Bengaluru Rural",
    "publisher": "IndiaStat Districts",
@@ -2120,7 +2269,7 @@
    }
   },
   {
-   "id": "L102",
+   "id": "L109",
    "url": "https://www.indiastatdistricts.com/karnataka/ramanagara/education/dropoutratesofgeneralcategoriesstudents",
    "title": "IndiaStat district dropout table: Ramanagara",
    "publisher": "IndiaStat Districts",
