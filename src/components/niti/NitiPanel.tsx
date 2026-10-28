@@ -10,7 +10,6 @@
 import { MessageCircleQuestion } from "lucide-react";
 import { useMemo, useState } from "react";
 
-import { WHY_STYLE } from "@/components/dashboard/map/factorWhyStyle";
 import {
   KARNATAKA_REGIONS,
   rgbaCss,
@@ -60,36 +59,6 @@ const WHY_SHORT: Record<string, string> = {
   "not-supported": "not supported",
   "no-evidence": "no evidence",
 };
-
-function Pill({ text, className }: { text: string; className: string }) {
-  return (
-    <span
-      className={"rounded-full px-1.5 py-px text-[10px] font-medium whitespace-nowrap " + className}
-    >
-      {text}
-    </span>
-  );
-}
-
-/** Research verdicts for one method of one district: the earlier local-evidence check, then the "why" research. */
-/** The "why is this factor dominant here?" verdicts for one method, leaving out "no evidence found". */
-function Verdicts({ r, method }: { r: DistrictResearch | undefined; method: Method }) {
-  const why = [
-    ...new Set(
-      (r?.dominantFactorWhy?.entries ?? [])
-        .filter((e) => e.method === method && e.verdict !== "no-evidence")
-        .map((e) => e.verdict),
-    ),
-  ];
-  if (!why.length) return null;
-  return (
-    <div className="flex flex-wrap gap-1">
-      {why.map((v) => (
-        <Pill key={v} text={WHY_STYLE[v].label} className={WHY_STYLE[v].className} />
-      ))}
-    </div>
-  );
-}
 
 function valuesFor(
   p: DistrictProfile,
@@ -211,7 +180,6 @@ function KarnatakaTable({
                             <span className="text-foreground">{v.value}</span>
                           </span>
                         ))}
-                        <Verdicts r={r} method="state" />
                       </div>
                       <span className="text-muted-foreground">District-level</span>
                       <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
@@ -224,7 +192,6 @@ function KarnatakaTable({
                             <span className="tabular-nums text-foreground">{v.value}</span>
                           </span>
                         ))}
-                        <Verdicts r={r} method="district" />
                       </div>
                     </div>
                   </div>
@@ -492,7 +459,8 @@ export function NitiPanel() {
                 <li>
                   A dominant factor is a statistical flag, not a proven cause. Our research checked
                   each Karnataka flag against local evidence: none was supported by
-                  district-specific proof (see the research column and summary below).
+                  district-specific proof (see the summary below, and each district's sheet on the
+                  map).
                 </li>
                 <li>
                   * The dropout rate comes from a different source, the LKI-SSM casefile, and is
