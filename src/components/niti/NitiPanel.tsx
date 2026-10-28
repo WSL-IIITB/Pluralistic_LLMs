@@ -7,9 +7,10 @@
  * never compared or blended: what they measure is not verified.
  */
 
+import { MessageCircleQuestion } from "lucide-react";
 import { useMemo, useState } from "react";
 
-import { CHECK_STYLE, WHY_STYLE } from "@/components/dashboard/map/factorWhyStyle";
+import { WHY_STYLE } from "@/components/dashboard/map/factorWhyStyle";
 import {
   KARNATAKA_REGIONS,
   rgbaCss,
@@ -22,6 +23,7 @@ import {
   type DistrictResearch,
   type NitiRow,
 } from "@/lib/worldview";
+import { useChatStore } from "@/lib/worldview/chatStore";
 
 type Method = "state" | "district";
 
@@ -52,17 +54,11 @@ function Stat({ value, label }: { value: string | number; label: string }) {
   );
 }
 
-const CHECK_SHORT: Record<string, string> = {
-  supports: "supports",
-  contradicts: "contradicts",
-  unclear: "unclear",
-  "no-evidence": "none found",
-};
 const WHY_SHORT: Record<string, string> = {
   supported: "supported",
   partly: "partly",
   "not-supported": "not supported",
-  "no-evidence": "none found",
+  "no-evidence": "no evidence",
 };
 
 function Pill({ text, className }: { text: string; className: string }) {
@@ -76,27 +72,20 @@ function Pill({ text, className }: { text: string; className: string }) {
 }
 
 /** Research verdicts for one method of one district: the earlier local-evidence check, then the "why" research. */
+/** The "why is this factor dominant here?" verdicts for one method, leaving out "no evidence found". */
 function Verdicts({ r, method }: { r: DistrictResearch | undefined; method: Method }) {
-  const check = r?.officialFactorCheck?.find((c) => c.method === method);
   const why = [
     ...new Set(
       (r?.dominantFactorWhy?.entries ?? [])
-        .filter((e) => e.method === method)
+        .filter((e) => e.method === method && e.verdict !== "no-evidence")
         .map((e) => e.verdict),
     ),
   ];
+  if (!why.length) return null;
   return (
     <div className="flex flex-wrap gap-1">
-      {check ? (
-        <Pill
-          text={`check: ${CHECK_SHORT[check.verdict]}`}
-          className={CHECK_STYLE[check.verdict].className}
-        />
-      ) : (
-        <span className="text-[10px] text-muted-foreground">no check</span>
-      )}
       {why.map((v) => (
-        <Pill key={v} text={`why: ${WHY_SHORT[v]}`} className={WHY_STYLE[v].className} />
+        <Pill key={v} text={WHY_STYLE[v].label} className={WHY_STYLE[v].className} />
       ))}
     </div>
   );
@@ -116,6 +105,25 @@ function valuesFor(
     }));
 }
 
+/** The question an Ask button sends: this district's rate and both UIDAI/NITI flags, asking for reasons and interventions. */
+function askQuestion(
+  name: string,
+  rate: string,
+  st: { label: string; value: number; factor: string }[],
+  di: { label: string; value: number; factor: string }[],
+): string {
+  const vals = (xs: typeof st) =>
+    xs.map((v) => `${v.label ? `${v.label} ` : ""}${v.value}`).join(", ");
+  const sf = st[0] ? `${shortFactor(st[0].factor).toLowerCase()} (${vals(st)})` : "";
+  const df = di[0] ? `${shortFactor(di[0].factor).toLowerCase()} (${vals(di)})` : "";
+  const flags = [sf, df].filter(Boolean).join(" and ");
+  return (
+    `Why might ${name} have a secondary dropout rate of ${rate}? ` +
+    (flags ? `Its UIDAI/NITI dominant-factor flags are ${flags}. ` : "") +
+    `Using the research on ${name}, explain the likely reasons and suggest possible interventions.`
+  );
+}
+
 function KarnatakaTable({
   byId,
   research,
@@ -124,6 +132,8 @@ function KarnatakaTable({
   research: Record<string, DistrictResearch> | null;
 }) {
   const focusDistrict = useExplorerStore((s) => s.focusDistrict);
+  const setTab = useExplorerStore((s) => s.setTab);
+  const queue = useChatStore((s) => s.queue);
   const stateFactor = Object.values(byId)[0]?.nitiFactors.find((f) => f.method === "state")?.factor;
 
   return (
@@ -166,7 +176,7 @@ function KarnatakaTable({
                         .join(" · ");
                 return (
                   <div key={id} className="border-b border-panel-border px-3 py-2.5 last:border-0">
-                    <div className="flex items-baseline justify-between gap-3">
+                    <div className="flex items-baseline gap-2">
                       <button
                         type="button"
                         onClick={() => focusDistrict(id, region.id)}
@@ -175,9 +185,22 @@ function KarnatakaTable({
                       >
                         {name}
                       </button>
-                      <span className="shrink-0 text-[11px] text-muted-foreground">
+                      <span className="ml-auto shrink-0 text-[11px] text-muted-foreground">
                         dropout* <span className="tabular-nums text-foreground/90">{rate}</span>
                       </span>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          queue(askQuestion(name, rate, st, di));
+                          focusDistrict(id, region.id);
+                          setTab("Ask");
+                        }}
+                        className="inline-flex shrink-0 items-center gap-1 rounded-full border border-panel-border px-2 py-0.5 text-[10.5px] font-medium text-primary transition-colors hover:bg-secondary"
+                        title={`Ask the research assistant why ${name}'s rate may be what it is and what could help`}
+                      >
+                        <MessageCircleQuestion className="size-3" aria-hidden />
+                        Ask
+                      </button>
                     </div>
                     <div className="mt-1.5 grid grid-cols-[5.5rem_1fr] gap-x-2 gap-y-1.5 text-[11.5px]">
                       <span className="text-muted-foreground">State-level</span>
@@ -217,15 +240,12 @@ function KarnatakaTable({
 
 function VerdictTally({ research }: { research: Record<string, DistrictResearch> }) {
   const tally = (method: Method) => {
-    const check: Record<string, number> = {};
     const why: Record<string, number> = {};
     for (const r of Object.values(research)) {
-      for (const c of r.officialFactorCheck ?? [])
-        if (c.method === method) check[c.verdict] = (check[c.verdict] ?? 0) + 1;
       for (const e of r.dominantFactorWhy?.entries ?? [])
         if (e.method === method) why[e.verdict] = (why[e.verdict] ?? 0) + 1;
     }
-    return { check, why };
+    return { why };
   };
   const line = (counts: Record<string, number>, short: Record<string, string>) =>
     Object.entries(counts)
@@ -245,10 +265,6 @@ function VerdictTally({ research }: { research: Record<string, DistrictResearch>
               {m === "state" ? "State-level factor rows" : "District-level factor rows"}
             </p>
             <p className="mt-1 text-muted-foreground">
-              <span className="text-foreground/80">Local-evidence check:</span>{" "}
-              {line(t.check, CHECK_SHORT)}
-            </p>
-            <p className="mt-0.5 text-muted-foreground">
               <span className="text-foreground/80">“Why dominant” research:</span>{" "}
               {line(t.why, WHY_SHORT)}
             </p>

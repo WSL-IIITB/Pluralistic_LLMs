@@ -41,6 +41,10 @@ interface ChatStore {
   passphrase: string | null;
   notice: ChatNotice | null;
   lastQuestion: string | null;
+  /** A question handed over by another tab (e.g. the UIDAI / NITI page's Ask buttons), sent when the Ask tab opens. */
+  pending: string | null;
+  queue(question: string): void;
+  takePending(): string | null;
   setPassphrase(p: string): void;
   lock(): void;
   clear(): void;
@@ -78,6 +82,14 @@ export const useChatStore = create<ChatStore>((set, get) => ({
   passphrase: typeof window === "undefined" ? null : readPass(),
   notice: null,
   lastQuestion: null,
+  pending: null,
+
+  queue: (question) => set({ pending: question }),
+  takePending: () => {
+    const q = get().pending;
+    if (q) set({ pending: null });
+    return q;
+  },
 
   setPassphrase: (p) => {
     const clean = p.trim();

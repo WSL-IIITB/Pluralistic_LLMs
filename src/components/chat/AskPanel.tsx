@@ -287,6 +287,15 @@ export function AskPanel() {
     setDraft("");
     void send(q, pack, { districtId, regionId });
   };
+  // A question queued from another tab (an Ask button): sent as soon as the chat is unlocked and idle.
+  const pending = useChatStore((s) => s.pending);
+  const takePending = useChatStore((s) => s.takePending);
+  useEffect(() => {
+    if (!pending || !pack || busy || !passphrase) return;
+    const q = takePending();
+    if (q) void send(q, pack, { districtId, regionId });
+  }, [pending, pack, busy, passphrase, takePending, send, districtId, regionId]);
+
   const lastAnswer = [...messages]
     .reverse()
     .find((m) => m.role === "assistant" && m.status === "done");
@@ -421,6 +430,14 @@ export function AskPanel() {
             </div>
           )}
 
+          {!passphrase && pending && (
+            <p className="mb-2 rounded-lg border border-panel-border bg-secondary/40 px-3 py-2 text-[12px] leading-snug text-foreground/90">
+              <span className="font-medium">Ready to ask:</span> {pending}
+              <span className="mt-1 block text-[11px] text-muted-foreground">
+                Unlock with the team passphrase and it is sent straight away.
+              </span>
+            </p>
+          )}
           {!passphrase ? (
             <form
               className="flex items-center gap-2"

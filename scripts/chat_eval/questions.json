@@ -292,5 +292,25 @@
       "(Yadgir|37\\.4)",
       "(Kalaburagi|30\\.0)"
     ]
+  },
+  {
+    "id": "ask-button-haveri",
+    "category": "ask button",
+    "question": "Why might Haveri have a secondary dropout rate of 24.3%? Its UIDAI/NITI dominant-factor flags are household sanitation (4.48) and english-medium schools (0.25). Using the research on Haveri, explain the likely reasons and suggest possible interventions.",
+    "include": [
+      "\\[S\\d+\\]",
+      "(Beyond this research|one option|could)"
+    ],
+    "exclude": [
+      "(sanitation|english[- ]medium)[^.]{0,40}(is|are) (a |the )?(main|dominant|primary|key) (driver|cause|reason)"
+    ]
+  },
+  {
+    "id": "ask-button-bengaluru-urban",
+    "category": "ask button",
+    "question": "Why might Bengaluru Urban have a secondary dropout rate of Bengaluru U North 7.3% · Bengaluru U South 12.5%? Its UIDAI/NITI dominant-factor flags are household sanitation (Bengaluru U North 1.35, Bengaluru U South 2.3) and schools with a protected well (Bengaluru U North 0.02, Bengaluru U South 0.05). Using the research on Bengaluru Urban, explain the likely reasons and suggest possible interventions.",
+    "include": [
+      "\\[S\\d+\\]"
+    ]
   }
 ]
