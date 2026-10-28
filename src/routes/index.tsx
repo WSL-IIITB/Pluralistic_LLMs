@@ -7,6 +7,7 @@ import { AskPanel } from "@/components/chat/AskPanel";
 import { PersonasPanel } from "@/components/persona/PersonasPanel";
 import { DataViewPanels } from "@/components/dataview/DataViewPanels";
 import { DivergenceView } from "@/components/divergence/DivergenceView";
+import { NitiPanel } from "@/components/niti/NitiPanel";
 import { HistoryPanel } from "@/components/dashboard/HistoryPanel";
 import { OverviewPanel } from "@/components/dashboard/OverviewPanel";
 import { QueryBar } from "@/components/dashboard/QueryBar";
@@ -136,6 +137,7 @@ function Index() {
         {activeTab === "Ask" && <AskPanel />}
         {activeTab === "Personas" && <PersonasPanel />}
         {activeTab === "Divergence" && <DivergenceView />}
+        {activeTab === "UIDAI / NITI" && <NitiPanel />}
         {activeTab === "Data" && <DataViewPanels />}
         {activeTab === "History" && <HistoryPanel onOpenRun={() => setActiveTab("Map")} />}
       </div>

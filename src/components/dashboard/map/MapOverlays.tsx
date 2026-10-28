@@ -24,7 +24,7 @@ import {
   type DominantFactorWhy,
   type FactorWhyEntry,
 } from "@/lib/worldview";
-import { WHY_STYLE } from "./factorWhyStyle";
+import { CHECK_STYLE as VERDICT_STYLE, WHY_STYLE } from "./factorWhyStyle";
 import { useDistrictGeo } from "./useDistrictGeo";
 
 // ── Top: region pills ───────────────────────────────────────────────────────
@@ -354,25 +354,6 @@ function ResearchState({
     </div>
   );
 }
-
-const VERDICT_STYLE: Record<
-  NonNullable<DistrictResearch["officialFactorCheck"]>[number]["verdict"],
-  { label: string; className: string }
-> = {
-  supports: {
-    label: "Local evidence supports",
-    className: "bg-emerald-500/15 text-emerald-700 dark:text-emerald-300",
-  },
-  contradicts: {
-    label: "Local evidence contradicts",
-    className: "bg-red-500/15 text-red-700 dark:text-red-300",
-  },
-  unclear: { label: "Unclear", className: "bg-amber-500/15 text-amber-800 dark:text-amber-300" },
-  "no-evidence": {
-    label: "No local evidence found",
-    className: "bg-secondary text-muted-foreground",
-  },
-};
 
 /** "Why is this factor dominant here?" — verdict, reasoning and verified proof for each factor row of one method. */
 function FactorWhy({ entries, why }: { entries: FactorWhyEntry[]; why: DominantFactorWhy }) {

@@ -5,6 +5,7 @@ Write the JSON snapshots the GitHub Pages build reads in place of the backend:
     public/data/personas.json             <- GET /api/personas
     public/data/districts-research.json   <- GET /api/karnataka/districts-research
     (default-run.json also gets `personaSimilarityMap`, from scripts/build_persona_map.py)
+    public/data/niti-factors.json         <- all-India UIDAI/NITI workbooks (scripts/export_niti_data.py)
     public/data/knowledge-pack.json       <- built from the files above (scripts/build_knowledge_pack.py)
     public/data/default-run.json          <- the newest saved run that has both Story-vs-UIDAI/NITI
                                              and persona-similarity results (what the dashboard opens on)
@@ -67,6 +68,7 @@ def main() -> None:
     # 2-D map of the persona answers needs sentence-transformers/scikit-learn -> the backend's interpreter
     backend_python = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "backend", ".venv", "bin", "python")
     subprocess.run([backend_python, os.path.join(os.path.dirname(os.path.abspath(__file__)), "build_persona_map.py")], check=True)
+    subprocess.run([backend_python, os.path.join(os.path.dirname(os.path.abspath(__file__)), "export_niti_data.py")], check=True)
     # The chat's knowledge pack is derived from the files above -- rebuild it so it never goes stale.
     subprocess.run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), "build_knowledge_pack.py")], check=True)
 
