@@ -95,7 +95,14 @@ export function routeContext(
     .join(" \n ");
   const lower = text.toLowerCase();
 
-  const mentions = findMentions(pack, text);
+  let mentions = findMentions(pack, text);
+  // A follow-up that names nothing ("why do you think so?") keeps talking about the place discussed most recently.
+  if (!mentions.length) {
+    for (const turn of userTurns.slice(-8, -2).reverse()) {
+      mentions = findMentions(pack, turn.content);
+      if (mentions.length) break;
+    }
+  }
   const districtIds: string[] = [];
   const regionIds: string[] = [];
   for (const m of mentions) {

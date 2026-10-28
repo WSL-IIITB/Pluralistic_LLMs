@@ -34,9 +34,10 @@ REFUSAL = RULES["refusal"]
 SYSTEM = RULES["system"].replace("{{REFUSAL}}", f'"{REFUSAL}"')
 
 
-def build_messages(context: str, question: str) -> list[dict]:
+def build_messages(context: str, question: str, history: list[dict] | None = None) -> list[dict]:
     return [
         {"role": "system", "content": f"{SYSTEM}\n\n<CONTEXT>\n{context}\n</CONTEXT>"},
+        *(history or []),
         {"role": "user", "content": question},
     ]
 
@@ -56,7 +57,7 @@ async def main() -> int:
             try:
                 resp = await llm.client.chat.completions.create(
                     model=llm._model, temperature=0.0, max_tokens=700,
-                    messages=build_messages(c["context"], q["question"]), timeout=120,
+                    messages=build_messages(c["context"], q["question"], q.get("history")), timeout=120,
                 )
                 answer = (resp.choices[0].message.content or "").strip()
             except Exception as exc:  # noqa: BLE001

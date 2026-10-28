@@ -8,7 +8,7 @@ const pack = JSON.parse(readFileSync(new URL("../../public/data/knowledge-pack.j
 const questions = JSON.parse(readFileSync(new URL("questions.json", here), "utf8"));
 
 const out = questions.map((q) => {
-  const r = routeContext(pack, [{ role: "user", content: q.question }], { focus: q.focus });
+  const r = routeContext(pack, [...(q.history ?? []), { role: "user", content: q.question }], { focus: q.focus });
   return { id: q.id, context: r.context, sourceIds: r.sourceIds, included: r.included, tokenEstimate: r.tokenEstimate };
 });
 writeFileSync(new URL("contexts.json", here), JSON.stringify(out));

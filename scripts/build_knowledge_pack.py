@@ -241,6 +241,10 @@ def build() -> dict:
         L.append("Districts:")
         for did, d in sorted(members, key=lambda m: m[1]["name"]):
             L.append(sslc(f"- {d['name']} (casefile rate {rate_text(did)}, {d['coverage']} coverage): {d['headline']}"))
+            top = sorted(d["reasons"], key=lambda r: EVIDENCE_ORDER[r["evidence"]])[:3]
+            if top:
+                L.append("    Top documented reasons here (DISTRICT): " + "; ".join(
+                    f"{r['factor']} [{r['evidence']}] {cites(did, r['sources'])}".rstrip() for r in top))
         if rid in ps and ps[rid].get("status") == "ok":
             p = ps[rid]
             L.append(

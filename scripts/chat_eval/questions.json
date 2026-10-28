@@ -242,5 +242,55 @@
     "include": [
       "(assum|illustrative|placeholder|replace|estimate|indicative)"
     ]
+  },
+  {
+    "id": "multi-why-followup",
+    "category": "multi-turn",
+    "history": [
+      {
+        "role": "user",
+        "content": "What are the main reasons for dropout in the Kalyana Karnataka region?"
+      },
+      {
+        "role": "assistant",
+        "content": "In Kalyana Karnataka the most documented reasons are governance, tracking and exams, and school infrastructure."
+      },
+      {
+        "role": "user",
+        "content": "tell me the numbers"
+      },
+      {
+        "role": "assistant",
+        "content": "The average casefile dropout rate for the Kalyana Karnataka region is 29.3%."
+      }
+    ],
+    "question": "why do you think so and what interventions can be made?",
+    "include": [
+      "(Yadgir|Kalaburagi|Raichur|Bidar|Koppal|Ballari)",
+      "\\[S\\d+\\]"
+    ],
+    "exclude": [
+      "does not state why"
+    ]
+  },
+  {
+    "id": "multi-numbers",
+    "category": "multi-turn",
+    "history": [
+      {
+        "role": "user",
+        "content": "What are the main reasons for dropout in the Kalyana Karnataka region?"
+      },
+      {
+        "role": "assistant",
+        "content": "In Kalyana Karnataka the most documented reasons are governance, tracking and exams, and school infrastructure."
+      }
+    ],
+    "question": "tell me the numbers",
+    "include": [
+      "29\\.3",
+      "(Yadgir|37\\.4)",
+      "(Kalaburagi|30\\.0)"
+    ]
   }
 ]
