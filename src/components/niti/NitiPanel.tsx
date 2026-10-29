@@ -91,7 +91,7 @@ function askQuestion(
   return (
     `Why might ${name} have a secondary dropout rate of ${rate}? ` +
     (flags ? `Its UIDAI/NITI dominant-factor flags are ${flags}. ` : "") +
-    `Using the research on ${name}, explain the likely reasons and suggest possible interventions.`
+    `Using the research on ${name}, explain the likely reasons, how each flagged factor could be linked to dropout, and suggest possible interventions.`
   );
 }
 

@@ -276,7 +276,7 @@ function districtQuestion(name: string, d: NewsVsDataDistrict): string {
   const news = d.news.topCategories.slice(0, 2).join(" and ") || "several reasons";
   return (
     `In ${name}, the news on secondary school dropout mostly reports ${news}, but the UIDAI/NITI data flags ` +
-    `${factor} as the dominant factor. Why do the news and the data differ here, and what does each suggest could help?`
+    `${factor} as the dominant factor. Why might the data flag ${factor} here, why do the news and the data differ, and what does each suggest could help?`
   );
 }
 

@@ -10,6 +10,7 @@ line ending in source ids like [S12][S40] and tagged with its scope:
 
     (DISTRICT)   a fact about that district      (REGIONAL) / (STATEWIDE)  NOT a district's own figure
     (SYNTHESIS)  model-written summary, not a sourced fact      (PERSONA)  composite, not a real person
+    (REASONING)  general reasoning on how an indicator could be linked to dropout: possible reasons, not findings
 
 Inputs : public/data/{districts-research,districts,default-run,news-vs-data}.json, src/lib/worldview/personaCards/*.json,
          backend/app/data/karnataka_regions.json
@@ -54,12 +55,40 @@ CAVEATS = """\
 These rules always apply when you answer.
 1. SCOPE. This research covers why students leave or stop attending secondary school (Classes 8-10 and the SSLC exam) in Karnataka's 30 districts. It says nothing about other states, other education levels or other topics.
 2. COVERAGE VARIES. Some districts are rated "thin", and even "moderate" districts often have no district-level dropout, out-of-school or SSLC figures. Many sources are old (2013-2019). Say "we found no evidence", never "it is not a factor".
-3. SCOPE TAGS. A (DISTRICT) fact is about that district. A (REGIONAL) or (STATEWIDE) fact must NEVER be given as a district's own number. (SYNTHESIS) is a model-written summary, not a sourced fact. (PERSONA) is a composite character, not a real person.
+3. SCOPE TAGS. A (DISTRICT) fact is about that district. A (REGIONAL) or (STATEWIDE) fact must NEVER be given as a district's own number. (SYNTHESIS) is a model-written summary, not a sourced fact. (PERSONA) is a composite character, not a real person. (REASONING) is general reasoning about how an indicator could be linked to dropout: give it as possible reasons, with no citation.
 4. CASEFILE RATES. Each district has a dropout rate from the LKI-SSM casefile dataset. The very low rates for Udupi and Dakshina Kannada, and the high rate for Uttara Kannada, are not explained by any source we found. Vijayanagara is not covered separately from Ballari; sub-areas (Bengaluru North/South, Chikkodi, Madhugiri, Sirsi) are not separately covered.
-5. UIDAI/NITI FACTORS. Two official files name a "dominant factor" per district. The state-level method gives the same factor (household sanitation) to every district and differs only in the value; the district-level method picks a factor per district. What the numeric "value" measures is UNVERIFIED: do not interpret values, compare them across districts, or blend the two methods. Our check against local evidence mostly found "no evidence": the sources were silent, which does not mean the factor is irrelevant.
+5. UIDAI/NITI FACTORS. Two official files name a "dominant factor" per district. The state-level method gives the same factor (household sanitation) to every district and differs only in the value; the district-level method picks a factor per district. What the numeric "value" measures is UNVERIFIED: do not interpret values, compare them across districts, or blend the two methods. A dominant factor is a statistical flag, not a proven cause. When asked why a factor is dominant or how it relates to dropout, explain the possible links: the (REASONING) pathways in the UIDAI section, the district's "how it could work" line, and the district's documented reasons where they connect. The evidence-check results are there too, for when the user asks for proof.
 6. SSLC. A pass rate is not a dropout rate. The 2025 and 2026 pass rates in the sources conflict and use different bases; never present them as a trend.
 7. PERSONAS AND SYNTHESES. The 12 personas are composites built from public data. Persona replies and "consolidated answers" are model-written, not evidence.
 8. Do not give policy advice or opinions beyond what the research states."""
+
+
+# How each Karnataka factor could be linked to dropout. General reasoning about what the indicator measures
+# (tagged REASONING), so the chat can explain a flag instead of only reporting that local sources were silent.
+# No statistics, places or claims about districts here.
+FACTOR_REASONING = [
+    "HOW EACH KARNATAKA FACTOR COULD BE LINKED TO DROPOUT (REASONING: general reasoning about what each indicator measures; possible links, not findings of this study). "
+    "The workbooks do not say whether more or less of an indicator goes with higher dropout, so a link can run either way.",
+    "- Household sanitation (% population in households with improved sanitation), the state-level factor (REASONING): without a toilet at home, "
+    "adolescent girls may have to go out in the open, which raises safety worries and can lead families to keep older girls at home; poor sanitation "
+    "spreads diarrhoea and other infections, so children miss days and fall behind; girls need privacy and water for menstrual hygiene and may miss "
+    "days each month without it; and low household sanitation also marks poorer, more remote households, where pressures such as work, early "
+    "marriage and distance are stronger, so it can stand in for household deprivation as much as act directly.",
+    "- English-medium schools (% schools with instruction medium English), the district-level factor in most districts (REASONING): a child who "
+    "studied in Kannada or another home language can struggle when lessons, textbooks or exams lean on English, fail, and leave; where English-medium "
+    "private schools are common, families who can afford them move children out of government schools, which then shrink or close, leaving poorer "
+    "children with longer distances; English-medium private schooling usually means fees that strain poorer households; children of migrant "
+    "families whose home language differs from the school's can feel shut out; and the share of English-medium schools also tracks how urban and "
+    "how well-off an area is, so it may stand in for household means and access to schooling rather than language alone.",
+    "- Schools with a functional protected well (% schools), the district-level factor for Bengaluru Urban and Mysuru (REASONING): it indicates "
+    "whether a school has a safe, protected drinking-water source; without safe water children may fall ill from unsafe water or leave school "
+    "grounds to drink, losing time; girls need water for toilets and menstrual hygiene and may stay home on some days without it; an open or "
+    "unprotected well on school grounds is a safety hazard that can worry parents; and depending on wells rather than piped supply can mark "
+    "under-served or fast-growing peri-urban schools with weaker facilities and crowded classrooms, so the factor may stand in for overall school "
+    "conditions; seasonal water shortages can add to all of these.",
+    "- Any other indicator (REASONING): reason the same way: what it measures at home or at school, and how that could stop a child attending, "
+    "keeping up, or staying in school.",
+]
 
 
 def read(path: str):
@@ -204,12 +233,12 @@ def build() -> dict:
                 L.append(f"- {r['text']} {cites(did, r['sources'])}".rstrip())
         checks = d.get("officialFactorCheck") or []
         if checks:
-            L.append("UIDAI/NITI factors checked against local evidence:")
+            L.append("Evidence check on the UIDAI/NITI factors (for questions about evidence or proof; when asked WHY a factor is dominant, give the possible reasons instead):")
             for c in checks:
                 L.append(f"- {c['method']}-method factor \"{c['factor']}\": {c['verdict']}. {c['note']} {cites(did, c['sources'])}".rstrip())
         why = d.get("dominantFactorWhy") or {}
         if why.get("entries"):
-            L.append("Why each dominant factor may or may not matter here (deep-research answers, each proof item checked against its page):")
+            L.append("Deep-research answers on why each dominant factor may matter here (the verdict is the evidence check: report it only when asked for evidence or proof; each proof item was checked against its page):")
             for e in why["entries"]:
                 def proofs(scope: str) -> str:
                     return " ".join(
@@ -217,6 +246,8 @@ def build() -> dict:
                         for p in e["proof"] if p["scope"] == scope
                     )
                 parts = [f"- {e['method']}-method factor \"{e['factor']}\": {e['verdict']}. Model-written reasoning, not verified (SYNTHESIS): {e['why']}"]
+                if e.get("mechanism"):
+                    parts.append(f"How it could work (REASONING): {e['mechanism']}")
                 if proofs("district"):
                     parts.append(f"Proof about this district (DISTRICT): {proofs('district')}")
                 if proofs("general"):
@@ -266,6 +297,7 @@ def build() -> dict:
          *([f"Deep-research answers to 'why is this district's dominant factor dominant?' (each proof item checked against its page) exist for {why_districts} of {len(research)} districts. Verdicts: " +
             "; ".join(f"{m}-method: " + ", ".join(f"{v} {n}" for v, n in sorted(t.items())) for m, t in why_tally.items() if t) +
             ". 'partly' means only general research from elsewhere supports the mechanism, not local evidence; 'no-evidence' means nothing was found; none was supported by district-specific proof."] if why_districts else []),
+         *FACTOR_REASONING,
          "Factor rows per district (value meaning unverified; never blend methods):"]
     for did in sorted(profiles):
         p = profiles[did]

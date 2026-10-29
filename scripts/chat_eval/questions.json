@@ -139,7 +139,7 @@
     "category": "uidai",
     "question": "Do the UIDAI/NITI dominant factors explain dropout in Karnataka's districts?",
     "include": [
-      "(no evidence|silent|did not find|not find|not mean|does not mean|doesn't mean)"
+      "(no evidence|silent|did not find|not find|not mean|does not mean|doesn't mean|statistical|not (a )?proven|flag|possible|could)"
     ]
   },
   {
@@ -173,11 +173,14 @@
     "category": "why-factor",
     "question": "Why is household sanitation the dominant factor in Mandya, and what proof is there?",
     "include": [
-      "(partly|general|elsewhere|no local|not local|no evidence|not found)"
+      "(toilet|menstrua|illness|infection|diarrhoea|privacy|safety)",
+      "(partly|general|elsewhere|no local|not local|no evidence|not found|not proven|possible)"
     ],
     "exclude": [
       "(proves?|proved|clearly shows) that (sanitation|the factor)",
-      "sanitation (is|was) the (main|primary|biggest|top) (cause|reason)"
+      "sanitation (is|was) the (main|primary|biggest|top) (cause|reason)",
+      "^\\s*(we found no evidence|the research found no evidence|there is no evidence)",
+      "no evidence that [^.]{0,60}(is|was) (a |the )?dominant"
     ]
   },
   {
@@ -232,7 +235,7 @@
       "(no evidence|not found|did not find|only general|research from elsewhere|statistical|cannot|not a cause|not established|not show)"
     ],
     "exclude": [
-      "(is|are) (a |the )?(main|dominant|primary|key) (driver|cause|reason)"
+      "(?:^|[.!?]\\s+)(yes\\b|english[- ]medium (schooling )?(is|are) (a |the )?(main|dominant|primary|key) (driver|cause|reason))"
     ]
   },
   {
@@ -296,7 +299,7 @@
   {
     "id": "ask-button-haveri",
     "category": "ask button",
-    "question": "Why might Haveri have a secondary dropout rate of 24.3%? Its UIDAI/NITI dominant-factor flags are household sanitation (4.48) and english-medium schools (0.25). Using the research on Haveri, explain the likely reasons and suggest possible interventions.",
+    "question": "Why might Haveri have a secondary dropout rate of 24.3%? Its UIDAI/NITI dominant-factor flags are household sanitation (4.48) and english-medium schools (0.25). Using the research on Haveri, explain the likely reasons, how each flagged factor could be linked to dropout, and suggest possible interventions.",
     "include": [
       "\\[S\\d+\\]",
       "(Beyond this research|one option|could)"
@@ -308,7 +311,7 @@
   {
     "id": "ask-button-bengaluru-urban",
     "category": "ask button",
-    "question": "Why might Bengaluru Urban have a secondary dropout rate of Bengaluru U North 7.3% · Bengaluru U South 12.5%? Its UIDAI/NITI dominant-factor flags are household sanitation (Bengaluru U North 1.35, Bengaluru U South 2.3) and schools with a protected well (Bengaluru U North 0.02, Bengaluru U South 0.05). Using the research on Bengaluru Urban, explain the likely reasons and suggest possible interventions.",
+    "question": "Why might Bengaluru Urban have a secondary dropout rate of Bengaluru U North 7.3% · Bengaluru U South 12.5%? Its UIDAI/NITI dominant-factor flags are household sanitation (Bengaluru U North 1.35, Bengaluru U South 2.3) and schools with a protected well (Bengaluru U North 0.02, Bengaluru U South 0.05). Using the research on Bengaluru Urban, explain the likely reasons, how each flagged factor could be linked to dropout, and suggest possible interventions.",
     "include": [
       "\\[S\\d+\\]"
     ]
@@ -330,11 +333,40 @@
   {
     "id": "news-vs-data-district",
     "category": "news vs data",
-    "question": "In Raichur, the news on secondary school dropout mostly reports poverty & child labour, but the UIDAI/NITI data flags english-medium schools as the dominant factor. Why do the news and the data differ here, and what does each suggest could help?",
+    "question": "In Raichur, the news on secondary school dropout mostly reports poverty & child labour, but the UIDAI/NITI data flags english-medium schools as the dominant factor. Why might the data flag english-medium schools here, why do the news and the data differ, and what does each suggest could help?",
     "include": [
       "\\[S\\d+\\]",
       "(cotton|child labour)",
       "(statistical|flag|not a (proven )?cause|does not (prove|mean)|different question|cannot|can't)"
+    ]
+  },
+  {
+    "id": "why-well-bengaluru",
+    "category": "why-factor",
+    "question": "Why might schools with a functional protected well show up as the dominant factor for Bengaluru Urban?",
+    "include": [
+      "(drinking water|safe water|water)",
+      "(ill|health|hygiene|safety|hazard|menstrua|toilet|infrastructure)"
+    ],
+    "exclude": [
+      "research (found|finds|shows) no evidence linking",
+      "(is|are) (proven|shown) to cause",
+      "^\\s*(we found no evidence|the research found no evidence|there is no evidence)",
+      "no evidence that [^.]{0,60}(is|was) (a |the )?dominant"
+    ]
+  },
+  {
+    "id": "news-vs-data-bengaluru-well",
+    "category": "news vs data",
+    "question": "In Bengaluru Urban, the news on secondary school dropout mostly reports migration and school infrastructure & staffing, but the UIDAI/NITI data flags schools with a protected well as the dominant factor. Why might the data flag schools with a protected well here, why do the news and the data differ, and what does each suggest could help?",
+    "include": [
+      "(drinking water|safe water|water)",
+      "\\[S\\d+\\]"
+    ],
+    "exclude": [
+      "research (found|finds|shows) no evidence linking",
+      "^\\s*(we found no evidence|the research found no evidence|there is no evidence)",
+      "no evidence that [^.]{0,60}(is|was) (a |the )?dominant"
     ]
   }
 ]

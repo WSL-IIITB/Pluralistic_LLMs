@@ -122,9 +122,9 @@ function useRenderer(pack: KnowledgePack | null) {
     return function render(rawText: string, known: string[]): ReactNode {
       // The default scope tag, and any section name the model wrongly wrote as a "citation", are noise.
       const text = rawText
-        .replace(/\s*\((?:DISTRICT|GENERAL)\)/g, "")
+        .replace(/\s*\((?:DISTRICT|GENERAL|REASONING)\)/g, "")
         .replace(
-          /\s*\[(?:DIGEST|CAVEATS|UIDAI|NEWS VS DATA|ANALYSIS|PERSONAS|REGION|DISTRICT|SYNTHESIS|GENERAL|STATEWIDE|REGIONAL|PERSONA|SOURCES)[^\]]*\]/g,
+          /\s*\[(?:DIGEST|CAVEATS|UIDAI|NEWS VS DATA|ANALYSIS|PERSONAS|REGION|DISTRICT|SYNTHESIS|GENERAL|STATEWIDE|REGIONAL|PERSONA|REASONING|SOURCES)[^\]]*\]/g,
           "",
         );
       const blocks: ReactNode[] = [];
