@@ -24,6 +24,8 @@ import {
 } from "@/lib/worldview";
 import { useChatStore } from "@/lib/worldview/chatStore";
 
+import { NewsVsDataSummary } from "./NewsVsData";
+
 type Method = "state" | "district";
 
 function Section({
@@ -145,7 +147,7 @@ function KarnatakaTable({
                         .join(" · ");
                 return (
                   <div key={id} className="border-b border-panel-border px-3 py-2.5 last:border-0">
-                    <div className="flex items-baseline gap-2">
+                    <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
                       <button
                         type="button"
                         onClick={() => focusDistrict(id, region.id)}
@@ -154,9 +156,17 @@ function KarnatakaTable({
                       >
                         {name}
                       </button>
-                      <span className="ml-auto shrink-0 text-[11px] text-muted-foreground">
+                      <span className="text-[11px] text-muted-foreground">
                         dropout* <span className="tabular-nums text-foreground/90">{rate}</span>
                       </span>
+                      <button
+                        type="button"
+                        onClick={() => focusDistrict(id, region.id, "compare")}
+                        className="ml-auto shrink-0 rounded-full border border-panel-border px-2 py-0.5 text-[10.5px] font-medium text-foreground/90 transition-colors hover:bg-secondary"
+                        title={`Open ${name}'s sheet on the map at News vs data`}
+                      >
+                        News vs data
+                      </button>
                       <button
                         type="button"
                         onClick={() => {
@@ -440,6 +450,13 @@ export function NitiPanel() {
                 label="Distinct factors (state / district)"
               />
             </div>
+
+            <Section
+              title="News vs data: why they point to different factors"
+              hint="The news research and these workbooks name different “main” factors. What each says, what our checks found, and why they differ."
+            >
+              <NewsVsDataSummary />
+            </Section>
 
             <Section title="How to read this data">
               <ul className="space-y-1.5 rounded-xl border border-panel-border bg-secondary/30 px-3.5 py-3 text-[11.5px] leading-snug text-muted-foreground">

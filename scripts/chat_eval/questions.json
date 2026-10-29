@@ -312,5 +312,29 @@
     "include": [
       "\\[S\\d+\\]"
     ]
+  },
+  {
+    "id": "news-vs-data-statewide",
+    "category": "news vs data",
+    "question": "why does child labour seem the most dominant factor according to news articles but in the data the medium of instruction is showing up as the dominant factor",
+    "include": [
+      "(different question|answer(s)? (to )?different|not the same question)",
+      "(cannot|can't|could never|does not|doesn't|not)[^.]{0,80}(measure|include|capture|see|indicator|factor)[^.]{0,60}(child labour|labour)|(child labour|labour)[^.]{0,80}(not|never)[^.]{0,40}(indicator|factor|measured|in the data|among)",
+      "(32 of 35|263)"
+    ],
+    "exclude": [
+      "english[- ]medium[^.]{0,40}(is|are) (a |the )?(main|dominant|primary|key) (driver|cause|reason)",
+      "(causes|caused by) (secondary )?(school )?dropout"
+    ]
+  },
+  {
+    "id": "news-vs-data-district",
+    "category": "news vs data",
+    "question": "In Raichur, the news on secondary school dropout mostly reports poverty & child labour, but the UIDAI/NITI data flags english-medium schools as the dominant factor. Why do the news and the data differ here, and what does each suggest could help?",
+    "include": [
+      "\\[S\\d+\\]",
+      "(cotton|child labour)",
+      "(statistical|flag|not a (proven )?cause|does not (prove|mean)|different question|cannot|can't)"
+    ]
   }
 ]

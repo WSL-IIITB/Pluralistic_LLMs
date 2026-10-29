@@ -11,11 +11,11 @@ line ending in source ids like [S12][S40] and tagged with its scope:
     (DISTRICT)   a fact about that district      (REGIONAL) / (STATEWIDE)  NOT a district's own figure
     (SYNTHESIS)  model-written summary, not a sourced fact      (PERSONA)  composite, not a real person
 
-Inputs : public/data/{districts-research,districts,default-run}.json, src/lib/worldview/personaCards/*.json,
+Inputs : public/data/{districts-research,districts,default-run,news-vs-data}.json, src/lib/worldview/personaCards/*.json,
          backend/app/data/karnataka_regions.json
 Output : public/data/knowledge-pack.json
          {version, builtAt, sourceHash, tokenEstimate, stats, sources[], index, caveats, digest,
-          regions{}, districts{}, uidai, analysis, personas}
+          regions{}, districts{}, uidai, newsVsData, analysis, personas}
 
 Sections the chat always sends: caveats + digest. Everything else is added by the router
 (src/lib/worldview/knowledgeRouter.ts) only when the question mentions it, to fit Gemma's 32k window.
@@ -77,6 +77,7 @@ def input_files() -> list[str]:
             os.path.join(DATA, "districts-research.json"),
             os.path.join(DATA, "districts.json"),
             os.path.join(DATA, "default-run.json"),
+            os.path.join(DATA, "news-vs-data.json"),
             os.path.join(ROOT, "backend", "app", "data", "karnataka_regions.json"),
             *glob.glob(os.path.join(ROOT, "src", "lib", "worldview", "personaCards", "*.json")),
             os.path.abspath(__file__),
@@ -273,6 +274,43 @@ def build() -> dict:
         U.append(f"- {name}: {rows or 'no rows'}")
     uidai = "\n".join(U)
 
+    # ---- news vs data (scripts/build_news_vs_data.py: counts + templated sentences, no LLM) -------
+    nvd = read(os.path.join(DATA, "news-vs-data.json"))
+    s = nvd["statewide"]
+    cl = s["news"]["childLabour"]
+    hl = s["news"]["headlines"]
+    nat = s["data"]["national"]
+    N = ["NEWS VS DATA: why the news research and the UIDAI/NITI data name different main factors. Built from counts over the "
+         "verified research files and the two workbooks (no model-written text), except where marked NOT TESTED.",
+         f"Overview: {s['lead']}",
+         "What the news says (districts where the research found each reason, of " + str(s["districts"]) + "): " +
+         "; ".join(f"{c['label']} {c['districts']} ({c['strong']} strong, {c['moderate']} moderate, {c['thin']} thin reasons)" for c in s["news"]["categories"]) + ".",
+         f"Child labour is named outright in {len(cl['districts'])} districts ({', '.join(cl['districts'])}): {cl['reasons']} reasons, "
+         f"{cl['strong']} strong, {cl['moderate']} moderate, {cl['thin']} thin evidence. Of {hl['total']} headlines, {hl['childMarriage']} are about child marriage, "
+         f"{hl['childLabour']} about child labour and {hl['language']} about the language of instruction.",
+         "What the data says: state-level factor " + "; ".join(f"{f['factor']} on {f['rows']} Karnataka rows" for f in s["data"]["stateFactors"]) +
+         ". District-level factor " + "; ".join(f"{f['factor']} on {f['rows']} rows" for f in s["data"]["districtFactors"]) +
+         f". Across India the district-level factor '{nat['topDistrictFactor']}' is named for {nat['topDistrictFactorRows']} of {nat['rows']} districts "
+         f"(rank {nat['topDistrictFactorRank']} of {len(nat['districtFactorNames'])} factors). Factors in the workbooks that measure child labour, marriage, migration or income: "
+         f"{', '.join(nat['socialFactors']) or 'none'}.",
+         "What our checks found: 'why is this factor dominant?' deep research, district-level rows: " +
+         ", ".join(f"{v} {k}" for k, v in sorted(s["found"]["why"]["district"].items())) + "; state-level rows: " +
+         ", ".join(f"{v} {k}" for k, v in sorted(s["found"]["why"]["state"].items())) +
+         f". Verified proof for the district-level factor: about a Karnataka district itself {s['found']['districtLevelProof']['district']}; general proof from elsewhere "
+         f"{s['found']['districtLevelProof']['general']} items ({'; '.join(s['found']['generalClaims'])}). News reasons that touch the language of instruction: " +
+         ("; ".join(f"{x['name']} \"{x['factor']}\" ({x['evidence']})" for x in s["news"]["touchingLanguage"]) or "none") + ".",
+         "Why they differ:"]
+    for i, d in enumerate(s["differ"], 1):
+        N.append(f"{i}. {d['title']}: {d['text']}")
+    N.append(f"How both could be true (NOT TESTED, a hypothesis): {s['connect']['text']} {s['connect']['untested']}")
+    N.append("Per district (news: most-documented reason groups | data: district-level factor | news reasons touching that factor | 'why dominant' verdict):")
+    for did, d in sorted(nvd["districts"].items(), key=lambda kv: kv[1]["name"]):
+        dfac = next((f["short"] for f in d["data"] if f["method"] == "district"), "none")
+        touch = "; ".join(f"\"{x['factor']}\" ({x['evidence']})" for x in d["touching"]) or "none"
+        N.append(f"- {d['name']}: news {', '.join(d['news']['topCategories'][:3])}{' (child labour named)' if d['news']['childLabour'] else ''} | "
+                 f"data {dfac} | touching: {touch} | why: {', '.join(d['found']['district']['why']) or 'not researched'}")
+    news_vs_data = "\n".join(N)
+
     # ---- analysis (story vs official + persona similarity, from the saved run) -------------------
     A = [f"ANALYSIS FROM A SAVED MODEL RUN (everything here is SYNTHESIS, model-written, not sourced evidence). Question asked: \"{run['query']}\" ({run.get('mode', '?')} mode)."]
     if sv.get("karnataka-statewide"):
@@ -341,17 +379,18 @@ def build() -> dict:
         "regions": region_sections,
         "districts": districts,
         "uidai": uidai,
+        "newsVsData": news_vs_data,
         "analysis": analysis,
         "personas": personas,
     }
-    sections = [CAVEATS, digest, uidai, analysis, personas, *region_sections.values(), *districts.values()]
+    sections = [CAVEATS, digest, uidai, news_vs_data, analysis, personas, *region_sections.values(), *districts.values()]
     known = {s["id"] for s in sources}
     dangling = sorted({m for t in sections for m in re.findall(r"\[(S\d+)\]", t)} - known)
     if dangling:
         raise SystemExit(f"knowledge pack references unknown source ids: {dangling}")
     pack["tokenEstimate"] = {
         "alwaysSent": toks(CAVEATS) + toks(digest),
-        "uidai": toks(uidai), "analysis": toks(analysis), "personas": toks(personas),
+        "uidai": toks(uidai), "newsVsData": toks(news_vs_data), "analysis": toks(analysis), "personas": toks(personas),
         "regionMax": max(toks(t) for t in region_sections.values()),
         "districtMax": max(toks(t) for t in districts.values()),
         "wholePack": sum(toks(t) for t in sections),
@@ -381,7 +420,7 @@ def main() -> int:
     t = pack["tokenEstimate"]
     print(f"wrote {os.path.relpath(OUT, ROOT)} ({os.path.getsize(OUT) // 1024} KB, hash {pack['sourceHash']})")
     print(f"  always sent (caveats+digest): ~{t['alwaysSent']} tokens | biggest district ~{t['districtMax']} | biggest region ~{t['regionMax']}")
-    print(f"  uidai ~{t['uidai']} | analysis ~{t['analysis']} | personas ~{t['personas']} | whole pack ~{t['wholePack']} (Gemma window: 32,768)")
+    print(f"  uidai ~{t['uidai']} | news vs data ~{t['newsVsData']} | analysis ~{t['analysis']} | personas ~{t['personas']} | whole pack ~{t['wholePack']} (Gemma window: 32,768)")
     print(f"  {pack['stats']['districts']} districts, {pack['stats']['sources']} global sources")
     return 0
 

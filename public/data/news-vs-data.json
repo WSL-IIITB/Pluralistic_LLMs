@@ -1,0 +1,2706 @@
+{
+ "version": 1,
+ "inputs": [
+  "districts-research.json",
+  "districts.json",
+  "niti-factors.json"
+ ],
+ "statewide": {
+  "districts": 30,
+  "lead": "In the news, the most widely reported reasons are poverty & child labour (24 of 30 districts) and child marriage & girls' exits (23). Child labour is named outright in 14 districts, though child marriage gets more headlines (35 against 12). In the UIDAI/NITI data, the district-level dominant factor for 32 of 35 Karnataka rows is the share of English-medium schools. They look like two answers to one question, but they are answers to two different questions.",
+  "news": {
+   "categories": [
+    {
+     "category": "economic",
+     "label": "poverty & child labour",
+     "districts": 24,
+     "reasons": 40,
+     "strong": 3,
+     "moderate": 16,
+     "thin": 21
+    },
+    {
+     "category": "gender",
+     "label": "child marriage & girls' exits",
+     "districts": 23,
+     "reasons": 40,
+     "strong": 6,
+     "moderate": 18,
+     "thin": 16
+    },
+    {
+     "category": "governance",
+     "label": "governance, tracking & exams",
+     "districts": 23,
+     "reasons": 35,
+     "strong": 4,
+     "moderate": 13,
+     "thin": 18
+    },
+    {
+     "category": "school-infrastructure",
+     "label": "school infrastructure & staffing",
+     "districts": 21,
+     "reasons": 27,
+     "strong": 3,
+     "moderate": 10,
+     "thin": 14
+    },
+    {
+     "category": "social-norms",
+     "label": "social norms & customs",
+     "districts": 15,
+     "reasons": 18,
+     "strong": 0,
+     "moderate": 8,
+     "thin": 10
+    },
+    {
+     "category": "migration",
+     "label": "migration",
+     "districts": 14,
+     "reasons": 16,
+     "strong": 2,
+     "moderate": 8,
+     "thin": 6
+    },
+    {
+     "category": "health",
+     "label": "health",
+     "districts": 2,
+     "reasons": 2,
+     "strong": 0,
+     "moderate": 0,
+     "thin": 2
+    }
+   ],
+   "childLabour": {
+    "districts": [
+     "Belagavi",
+     "Bengaluru Rural",
+     "Bidar",
+     "Chikkaballapur",
+     "Chikkamagaluru",
+     "Davanagere",
+     "Dharwad",
+     "Koppal",
+     "Mysuru",
+     "Raichur",
+     "Ramanagara",
+     "Tumakuru",
+     "Udupi",
+     "Uttara Kannada"
+    ],
+    "reasons": 17,
+    "strong": 1,
+    "moderate": 4,
+    "thin": 12
+   },
+   "childMarriageDistricts": 23,
+   "headlines": {
+    "total": 182,
+    "childLabour": 12,
+    "childMarriage": 35,
+    "language": 3
+   },
+   "touchingLanguage": [
+    {
+     "districtId": "29-555",
+     "name": "Belagavi",
+     "family": "english",
+     "factor": "Language gap for migrant children",
+     "evidence": "thin"
+    },
+    {
+     "districtId": "29-563",
+     "name": "Uttara Kannada",
+     "family": "english",
+     "factor": "Village school closures, falling enrolment",
+     "evidence": "thin"
+    }
+   ],
+   "touchingLanguageDistricts": [
+    "Belagavi",
+    "Uttara Kannada"
+   ]
+  },
+  "data": {
+   "methods": {
+    "state": "One factor is ranked highest for the whole state; each district's value is its own figure for that factor.",
+    "district": "A factor is selected for each district on its own; the value is that factor's fitted weight in the analysis, not a raw percentage."
+   },
+   "stateFactors": [
+    {
+     "factor": "% Population Living in Households with Improved Sanitation",
+     "rows": 35
+    }
+   ],
+   "districtFactors": [
+    {
+     "factor": "% Schools with instruction medium 1 (English)",
+     "rows": 32
+    },
+    {
+     "factor": "% Schools with Functional Protected Well",
+     "rows": 3
+    }
+   ],
+   "karnatakaWorkbookRows": 35,
+   "national": {
+    "rows": 776,
+    "topDistrictFactor": "% Schools with instruction medium 1 (English)",
+    "topDistrictFactorRows": 263,
+    "topDistrictFactorRank": 1,
+    "stateFactorNames": [
+     "% Functional Boys Toilets (minus CWSN)",
+     "% Functional Girls Toilets (minus CWSN)",
+     "% Households using Clean Cooking Fuel",
+     "% PCs with Learning Devices",
+     "% Population Living In Households With Electricity",
+     "% Population Living in Households with Improved Sanitation",
+     "% Schools located in Areas (Urban)",
+     "% Schools with Boundary Wall (Pucca)",
+     "% Schools with Classrooms in Good Condition",
+     "% Schools with Computer/ICT Labs",
+     "% Schools with Handwash Facility for Meal",
+     "% Schools with Handwash near toilet",
+     "% Schools with Internet access",
+     "% Schools with PTR < 30",
+     "% Schools with Playground",
+     "% Schools with availability of tap water",
+     "% Schools with building status (Government Owned)",
+     "% Schools with instruction medium 1 (English)",
+     "% Share - Academic Inspections as a share of the state total",
+     "% Share - Block Officer visits as a share of the state total",
+     "% Teachers Trained in ICT/Computers",
+     "% Women with 10+ Years Schooling",
+     "% of female teachers"
+    ],
+    "districtFactorNames": [
+     "% Functional Boys Toilets (minus CWSN)",
+     "% Functional Girls Toilets (minus CWSN)",
+     "% Households using Clean Cooking Fuel",
+     "% PCs with Learning Devices",
+     "% Part-time Teachers",
+     "% Population Living In Households With Electricity",
+     "% Population Living in Households with Improved Sanitation",
+     "% Schools located in Areas (Urban)",
+     "% Schools with Boundary Wall (Hedges)",
+     "% Schools with Boundary Wall (Pucca)",
+     "% Schools with Boundary Wall (Under Construction)",
+     "% Schools with Computer/ICT Labs",
+     "% Schools with Functional Hand Pump",
+     "% Schools with Functional Protected Well",
+     "% Schools with Handwash near toilet",
+     "% Schools with Internet access",
+     "% Schools with Library",
+     "% Schools with PTR < 30",
+     "% Schools with Playground",
+     "% Schools with SDMC as per Samagra Shiksha (Same as SMC)",
+     "% Schools with Smart Classrooms",
+     "% Schools with Solar Panel",
+     "% Schools with Student Classroom Ratio > 40",
+     "% Schools with building status (Government Owned)",
+     "% Schools with building status (Government School in a Rent free building)",
+     "% Schools with building status (NO Building (Running in Open Place))",
+     "% Schools with building status (Rented)",
+     "% Schools with building status (School Running in other Department Building)",
+     "% Schools with instruction medium 1 (English)",
+     "% Share - Academic Inspections as a share of the state total",
+     "% Share - Block Officer visits as a share of the state total",
+     "% Share - District/State Officer visits as a share of the state total",
+     "% Share of CRC coordinator visits out of all visits in state",
+     "% Teachers Trained in ICT/Computers",
+     "% Women with 10+ Years Schooling",
+     "% of female teachers",
+     "Availability of Functional Other sources of water in school",
+     "Desktop per 100 students",
+     "Teachers per 100 students"
+    ],
+    "socialFactors": []
+   }
+  },
+  "found": {
+   "check": {
+    "state": {
+     "no-evidence": 26,
+     "unclear": 4
+    },
+    "district": {
+     "no-evidence": 28,
+     "unclear": 2
+    }
+   },
+   "why": {
+    "state": {
+     "partly": 24,
+     "no-evidence": 11
+    },
+    "district": {
+     "no-evidence": 29,
+     "partly": 6
+    }
+   },
+   "districtLevelProof": {
+    "district": 0,
+    "general": 12
+   },
+   "generalClaims": [
+    "Change in medium of instruction impacts student dropout",
+    "Students struggle to understand lessons in an unfamiliar language"
+   ]
+  },
+  "differ": [
+   {
+    "title": "They answer different questions",
+    "text": "The data asks which measured school or household indicator best tracks the differences in dropout between districts. The news reports what pushes particular children out of school. A factor can track dropout across districts without being what families describe, and the other way round."
+   },
+   {
+    "title": "The data cannot see child labour",
+    "text": "Across all 776 district rows in India, the workbooks name 23 different state-level and 39 district-level factors. Every one is a school-facility, teacher, inspection, household-amenity or women's-schooling indicator. None measures child labour, child marriage, migration or household income, so child labour could never come out as a data factor."
+   },
+   {
+    "title": "News follows events",
+    "text": "Rescue raids, enforcement drives and NGO reports make stories, and each names a district. A school's language of instruction rarely does. Of the 17 child-labour reasons we found, 1 rests on strong evidence, 4 on moderate and 12 on thin. Child labour is widely mentioned, but the evidence behind each mention is usually thin."
+   },
+   {
+    "title": "One indicator for almost every district",
+    "text": "English-medium share is the district-level factor for 32 of 35 Karnataka rows and for 263 of 776 districts nationally, the most common factor in India. When the same indicator is picked nearly everywhere, it behaves like a broad background marker rather than a local explanation. Its value is described as a fitted weight from the analysis, not a share of schools."
+   }
+  ],
+  "connect": {
+   "text": "Both can be true. The share of English-medium schools may track access to private and urban schooling and household means, which are the same conditions under which the news reports children working instead of studying. General research from elsewhere, found during our checks, also links a change in the medium of instruction, or lessons in an unfamiliar language, to students dropping out (2 page-verified claims, none about a Karnataka district).",
+   "untested": "We have not tested this. Our files hold neither each district's actual share of English-medium schools nor a district-level measure of child labour. Testing it would need both, analysed together against dropout."
+  }
+ },
+ "districts": {
+  "29-556": {
+   "name": "Bagalkote",
+   "regionId": "kitturu-karnataka",
+   "coverage": "thin",
+   "news": {
+    "reasons": 6,
+    "topCategories": [
+     "child marriage & girls' exits",
+     "social norms & customs",
+     "poverty & child labour"
+    ],
+    "top": [
+     {
+      "factor": "Hijab-related exam boycott",
+      "category": "social-norms",
+      "evidence": "moderate"
+     },
+     {
+      "factor": "Child marriage in distress",
+      "category": "gender",
+      "evidence": "moderate"
+     },
+     {
+      "factor": "Child marriage of girls",
+      "category": "gender",
+      "evidence": "thin"
+     },
+     {
+      "factor": "Livelihood loss and migrant return",
+      "category": "economic",
+      "evidence": "thin"
+     }
+    ],
+    "childLabour": false
+   },
+   "data": [
+    {
+     "method": "state",
+     "factor": "% Population Living in Households with Improved Sanitation",
+     "short": "household sanitation",
+     "area": "Bagalkot",
+     "value": 3.0
+    },
+    {
+     "method": "district",
+     "factor": "% Schools with instruction medium 1 (English)",
+     "short": "English-medium schools",
+     "area": "Bagalkot",
+     "value": 0.15
+    }
+   ],
+   "found": {
+    "state": {
+     "check": "no-evidence",
+     "why": [
+      "partly"
+     ],
+     "districtProof": 0,
+     "generalProof": 2
+    },
+    "district": {
+     "check": "no-evidence",
+     "why": [
+      "no-evidence"
+     ],
+     "districtProof": 0,
+     "generalProof": 0
+    }
+   },
+   "touching": [],
+   "differ": [
+    "The news for Bagalkote is mostly about child marriage & girls' exits and social norms & customs. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so child marriage could never come out as Bagalkote's data factor.",
+    "None of the 6 reasons the news gives for Bagalkote mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
+    "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
+    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Bagalkote in particular.",
+    "News coverage of Bagalkote is thin, so the news picture itself rests on few stories."
+   ]
+  },
+  "29-565": {
+   "name": "Ballari (incl. Vijayanagara)",
+   "regionId": "kalyana-karnataka",
+   "coverage": "moderate",
+   "news": {
+    "reasons": 5,
+    "topCategories": [
+     "governance, tracking & exams",
+     "school infrastructure & staffing"
+    ],
+    "top": [
+     {
+      "factor": "Teacher vacancies in high schools",
+      "category": "school-infrastructure",
+      "evidence": "strong"
+     },
+     {
+      "factor": "Weak SSLC outcomes",
+      "category": "governance",
+      "evidence": "strong"
+     },
+     {
+      "factor": "Low reintegration of out-of-school children",
+      "category": "governance",
+      "evidence": "moderate"
+     },
+     {
+      "factor": "Hostel far from school",
+      "category": "school-infrastructure",
+      "evidence": "moderate"
+     }
+    ],
+    "childLabour": false
+   },
+   "data": [
+    {
+     "method": "state",
+     "factor": "% Population Living in Households with Improved Sanitation",
+     "short": "household sanitation",
+     "area": "Ballari",
+     "value": 4.48
+    },
+    {
+     "method": "state",
+     "factor": "% Population Living in Households with Improved Sanitation",
+     "short": "household sanitation",
+     "area": "Vijayanagara",
+     "value": 4.37
+    },
+    {
+     "method": "district",
+     "factor": "% Schools with instruction medium 1 (English)",
+     "short": "English-medium schools",
+     "area": "Ballari",
+     "value": 0.11
+    },
+    {
+     "method": "district",
+     "factor": "% Schools with instruction medium 1 (English)",
+     "short": "English-medium schools",
+     "area": "Vijayanagara",
+     "value": 0.18
+    }
+   ],
+   "found": {
+    "state": {
+     "check": "no-evidence",
+     "why": [
+      "partly"
+     ],
+     "districtProof": 0,
+     "generalProof": 2
+    },
+    "district": {
+     "check": "no-evidence",
+     "why": [
+      "no-evidence"
+     ],
+     "districtProof": 0,
+     "generalProof": 0
+    }
+   },
+   "touching": [],
+   "differ": [
+    "None of the 5 reasons the news gives for Ballari (incl. Vijayanagara) mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
+    "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
+    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Ballari (incl. Vijayanagara) in particular."
+   ]
+  },
+  "29-555": {
+   "name": "Belagavi",
+   "regionId": "kitturu-karnataka",
+   "coverage": "moderate",
+   "news": {
+    "reasons": 8,
+    "topCategories": [
+     "poverty & child labour",
+     "governance, tracking & exams",
+     "child marriage & girls' exits"
+    ],
+    "top": [
+     {
+      "factor": "Child marriage of adolescent girls",
+      "category": "gender",
+      "evidence": "moderate"
+     },
+     {
+      "factor": "Sugarcane-season migrant families",
+      "category": "migration",
+      "evidence": "moderate"
+     },
+     {
+      "factor": "Child labour in local businesses",
+      "category": "economic",
+      "evidence": "thin"
+     },
+     {
+      "factor": "Sugarcane-economy household stress",
+      "category": "economic",
+      "evidence": "thin"
+     }
+    ],
+    "childLabour": true
+   },
+   "data": [
+    {
+     "method": "state",
+     "factor": "% Population Living in Households with Improved Sanitation",
+     "short": "household sanitation",
+     "area": "Belagavi",
+     "value": 4.09
+    },
+    {
+     "method": "state",
+     "factor": "% Population Living in Households with Improved Sanitation",
+     "short": "household sanitation",
+     "area": "Belagavi Chikkodi",
+     "value": 4.13
+    },
+    {
+     "method": "district",
+     "factor": "% Schools with instruction medium 1 (English)",
+     "short": "English-medium schools",
+     "area": "Belagavi",
+     "value": 0.19
+    },
+    {
+     "method": "district",
+     "factor": "% Schools with instruction medium 1 (English)",
+     "short": "English-medium schools",
+     "area": "Belagavi Chikkodi",
+     "value": 0.26
+    }
+   ],
+   "found": {
+    "state": {
+     "check": "no-evidence",
+     "why": [
+      "partly"
+     ],
+     "districtProof": 0,
+     "generalProof": 4
+    },
+    "district": {
+     "check": "no-evidence",
+     "why": [
+      "no-evidence"
+     ],
+     "districtProof": 0,
+     "generalProof": 0
+    }
+   },
+   "touching": [
+    {
+     "family": "english",
+     "factor": "Language gap for migrant children",
+     "detail": "For Marathi-speaking cutter children, the education department proposed tent schools near cane fields with Marathi teachers, implying existing Kannada-medium provision was not reaching them.",
+     "evidence": "thin"
+    }
+   ],
+   "differ": [
+    "The news for Belagavi is mostly about poverty & child labour and governance, tracking & exams. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so child labour could never come out as Belagavi's data factor.",
+    "One news reason does touch the language a school teaches in: \"Language gap for migrant children\" (thin evidence). So here the news and the data do meet, on one point.",
+    "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
+    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Belagavi in particular."
+   ]
+  },
+  "29-583": {
+   "name": "Bengaluru Rural",
+   "regionId": "old-mysuru",
+   "coverage": "thin",
+   "news": {
+    "reasons": 5,
+    "topCategories": [
+     "poverty & child labour",
+     "school infrastructure & staffing",
+     "child marriage & girls' exits"
+    ],
+    "top": [
+     {
+      "factor": "Child labour near the metro",
+      "category": "economic",
+      "evidence": "moderate"
+     },
+     {
+      "factor": "Pandemic closures and income loss",
+      "category": "economic",
+      "evidence": "moderate"
+     },
+     {
+      "factor": "Schools without toilets",
+      "category": "school-infrastructure",
+      "evidence": "thin"
+     },
+     {
+      "factor": "Child marriage after school exit",
+      "category": "gender",
+      "evidence": "thin"
+     }
+    ],
+    "childLabour": true
+   },
+   "data": [
+    {
+     "method": "state",
+     "factor": "% Population Living in Households with Improved Sanitation",
+     "short": "household sanitation",
+     "area": "Bengaluru Rural",
+     "value": 2.73
+    },
+    {
+     "method": "district",
+     "factor": "% Schools with instruction medium 1 (English)",
+     "short": "English-medium schools",
+     "area": "Bengaluru Rural",
+     "value": 0.1
+    }
+   ],
+   "found": {
+    "state": {
+     "check": "unclear",
+     "why": [
+      "partly"
+     ],
+     "districtProof": 0,
+     "generalProof": 1
+    },
+    "district": {
+     "check": "no-evidence",
+     "why": [
+      "partly"
+     ],
+     "districtProof": 0,
+     "generalProof": 2
+    }
+   },
+   "touching": [
+    {
+     "family": "sanitation",
+     "factor": "Schools without toilets",
+     "detail": "A 2023 High Court report found five government schools in Bengaluru Rural without toilets.",
+     "evidence": "thin"
+    }
+   ],
+   "differ": [
+    "The news for Bengaluru Rural is mostly about poverty & child labour and school infrastructure & staffing. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so child labour could never come out as Bengaluru Rural's data factor.",
+    "None of the 5 reasons the news gives for Bengaluru Rural mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
+    "When we asked deep research why this factor would be dominant here, the result was: partly: only research from elsewhere backs the mechanism (0 verified proof items about Bengaluru Rural, 2 from elsewhere).",
+    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Bengaluru Rural in particular.",
+    "News coverage of Bengaluru Rural is thin, so the news picture itself rests on few stories."
+   ]
+  },
+  "29-572": {
+   "name": "Bengaluru Urban",
+   "regionId": "old-mysuru",
+   "coverage": "moderate",
+   "news": {
+    "reasons": 7,
+    "topCategories": [
+     "migration",
+     "school infrastructure & staffing",
+     "poverty & child labour"
+    ],
+    "top": [
+     {
+      "factor": "Migrant families lacking documents",
+      "category": "migration",
+      "evidence": "strong"
+     },
+     {
+      "factor": "Language gap for non-Kannada speakers",
+      "category": "school-infrastructure",
+      "evidence": "moderate"
+     },
+     {
+      "factor": "Survival income outweighs schooling",
+      "category": "economic",
+      "evidence": "moderate"
+     },
+     {
+      "factor": "Pandemic hardship and early marriage",
+      "category": "gender",
+      "evidence": "moderate"
+     }
+    ],
+    "childLabour": false
+   },
+   "data": [
+    {
+     "method": "state",
+     "factor": "% Population Living in Households with Improved Sanitation",
+     "short": "household sanitation",
+     "area": "Bengaluru U North",
+     "value": 1.35
+    },
+    {
+     "method": "state",
+     "factor": "% Population Living in Households with Improved Sanitation",
+     "short": "household sanitation",
+     "area": "Bengaluru U South",
+     "value": 2.3
+    },
+    {
+     "method": "district",
+     "factor": "% Schools with Functional Protected Well",
+     "short": "schools with a protected well",
+     "area": "Bengaluru U North",
+     "value": 0.02
+    },
+    {
+     "method": "district",
+     "factor": "% Schools with Functional Protected Well",
+     "short": "schools with a protected well",
+     "area": "Bengaluru U South",
+     "value": 0.05
+    }
+   ],
+   "found": {
+    "state": {
+     "check": "unclear",
+     "why": [
+      "partly"
+     ],
+     "districtProof": 2,
+     "generalProof": 2
+    },
+    "district": {
+     "check": "no-evidence",
+     "why": [
+      "no-evidence"
+     ],
+     "districtProof": 0,
+     "generalProof": 0
+    }
+   },
+   "touching": [
+    {
+     "family": "sanitation",
+     "factor": "Schools without toilets",
+     "detail": "A 2023 High Court report found one government school in Bengaluru North and four in Bengaluru South without toilets.",
+     "evidence": "thin"
+    }
+   ],
+   "differ": [
+    "The news for Bengaluru Urban is mostly about migration and school infrastructure & staffing. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so migration could never come out as Bengaluru Urban's data factor.",
+    "None of the 7 reasons the news gives for Bengaluru Urban mentions drinking water at school. The sources are silent on it, which is not the same as contradicting the data.",
+    "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
+    "This factor is named for only 3 of 35 Karnataka district-level rows; the rest get English-medium schools."
+   ]
+  },
+  "29-558": {
+   "name": "Bidar",
+   "regionId": "kalyana-karnataka",
+   "coverage": "moderate",
+   "news": {
+    "reasons": 6,
+    "topCategories": [
+     "governance, tracking & exams",
+     "poverty & child labour",
+     "child marriage & girls' exits"
+    ],
+    "top": [
+     {
+      "factor": "Festival-linked child marriage",
+      "category": "gender",
+      "evidence": "moderate"
+     },
+     {
+      "factor": "Weak SSLC outcomes in district",
+      "category": "governance",
+      "evidence": "moderate"
+     },
+     {
+      "factor": "Very poor SSLC outcomes",
+      "category": "governance",
+      "evidence": "thin"
+     },
+     {
+      "factor": "Enrolled children working in scrap shops",
+      "category": "economic",
+      "evidence": "thin"
+     }
+    ],
+    "childLabour": true
+   },
+   "data": [
+    {
+     "method": "state",
+     "factor": "% Population Living in Households with Improved Sanitation",
+     "short": "household sanitation",
+     "area": "Bidar",
+     "value": 5.38
+    },
+    {
+     "method": "district",
+     "factor": "% Schools with instruction medium 1 (English)",
+     "short": "English-medium schools",
+     "area": "Bidar",
+     "value": 0.24
+    }
+   ],
+   "found": {
+    "state": {
+     "check": "no-evidence",
+     "why": [
+      "partly"
+     ],
+     "districtProof": 0,
+     "generalProof": 1
+    },
+    "district": {
+     "check": "no-evidence",
+     "why": [
+      "no-evidence"
+     ],
+     "districtProof": 0,
+     "generalProof": 0
+    }
+   },
+   "touching": [],
+   "differ": [
+    "The news for Bidar is mostly about governance, tracking & exams and poverty & child labour. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so child labour could never come out as Bidar's data factor.",
+    "None of the 6 reasons the news gives for Bidar mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
+    "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
+    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Bidar in particular."
+   ]
+  },
+  "29-578": {
+   "name": "Chamarajanagara",
+   "regionId": "old-mysuru",
+   "coverage": "moderate",
+   "news": {
+    "reasons": 7,
+    "topCategories": [
+     "poverty & child labour",
+     "social norms & customs",
+     "school infrastructure & staffing"
+    ],
+    "top": [
+     {
+      "factor": "Severe poverty, household problems",
+      "category": "economic",
+      "evidence": "strong"
+     },
+     {
+      "factor": "Parents sending children to field work",
+      "category": "economic",
+      "evidence": "strong"
+     },
+     {
+      "factor": "Social customs in a tribal-dominated district",
+      "category": "social-norms",
+      "evidence": "moderate"
+     },
+     {
+      "factor": "Festival selling in MM Hills",
+      "category": "economic",
+      "evidence": "moderate"
+     }
+    ],
+    "childLabour": false
+   },
+   "data": [
+    {
+     "method": "state",
+     "factor": "% Population Living in Households with Improved Sanitation",
+     "short": "household sanitation",
+     "area": "Chamarajanagara",
+     "value": 4.28
+    },
+    {
+     "method": "district",
+     "factor": "% Schools with instruction medium 1 (English)",
+     "short": "English-medium schools",
+     "area": "Chamarajanagara",
+     "value": 0.25
+    }
+   ],
+   "found": {
+    "state": {
+     "check": "no-evidence",
+     "why": [
+      "partly"
+     ],
+     "districtProof": 0,
+     "generalProof": 1
+    },
+    "district": {
+     "check": "no-evidence",
+     "why": [
+      "partly"
+     ],
+     "districtProof": 0,
+     "generalProof": 2
+    }
+   },
+   "touching": [],
+   "differ": [
+    "The news for Chamarajanagara is mostly about poverty & child labour and social norms & customs. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so poverty or child labour could never come out as Chamarajanagara's data factor.",
+    "None of the 7 reasons the news gives for Chamarajanagara mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
+    "When we asked deep research why this factor would be dominant here, the result was: partly: only research from elsewhere backs the mechanism (0 verified proof items about Chamarajanagara, 2 from elsewhere).",
+    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Chamarajanagara in particular."
+   ]
+  },
+  "29-582": {
+   "name": "Chikkaballapur",
+   "regionId": "bayaluseeme",
+   "coverage": "thin",
+   "news": {
+    "reasons": 5,
+    "topCategories": [
+     "child marriage & girls' exits",
+     "poverty & child labour",
+     "school infrastructure & staffing"
+    ],
+    "top": [
+     {
+      "factor": "Girl pulled out of school and married",
+      "category": "gender",
+      "evidence": "thin"
+     },
+     {
+      "factor": "Child marriage in border villages",
+      "category": "gender",
+      "evidence": "thin"
+     },
+     {
+      "factor": "Child labour in the district",
+      "category": "economic",
+      "evidence": "thin"
+     },
+     {
+      "factor": "Girls out of education after school age",
+      "category": "gender",
+      "evidence": "thin"
+     }
+    ],
+    "childLabour": true
+   },
+   "data": [
+    {
+     "method": "state",
+     "factor": "% Population Living in Households with Improved Sanitation",
+     "short": "household sanitation",
+     "area": "Chikkaballapura",
+     "value": 2.91
+    },
+    {
+     "method": "district",
+     "factor": "% Schools with instruction medium 1 (English)",
+     "short": "English-medium schools",
+     "area": "Chikkaballapura",
+     "value": 0.16
+    }
+   ],
+   "found": {
+    "state": {
+     "check": "no-evidence",
+     "why": [
+      "partly"
+     ],
+     "districtProof": 0,
+     "generalProof": 1
+    },
+    "district": {
+     "check": "unclear",
+     "why": [
+      "partly"
+     ],
+     "districtProof": 0,
+     "generalProof": 2
+    }
+   },
+   "touching": [],
+   "differ": [
+    "The news for Chikkaballapur is mostly about child marriage & girls' exits and poverty & child labour. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so child labour could never come out as Chikkaballapur's data factor.",
+    "None of the 5 reasons the news gives for Chikkaballapur mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
+    "When we asked deep research why this factor would be dominant here, the result was: partly: only research from elsewhere backs the mechanism (0 verified proof items about Chikkaballapur, 2 from elsewhere).",
+    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Chikkaballapur in particular.",
+    "News coverage of Chikkaballapur is thin, so the news picture itself rests on few stories."
+   ]
+  },
+  "29-570": {
+   "name": "Chikkamagaluru",
+   "regionId": "malnad",
+   "coverage": "moderate",
+   "news": {
+    "reasons": 7,
+    "topCategories": [
+     "school infrastructure & staffing",
+     "poverty & child labour",
+     "migration"
+    ],
+    "top": [
+     {
+      "factor": "Seasonal plantation migration",
+      "category": "migration",
+      "evidence": "strong"
+     },
+     {
+      "factor": "Students registered as private candidates",
+      "category": "governance",
+      "evidence": "moderate"
+     },
+     {
+      "factor": "Forest-hamlet tribal families and school access",
+      "category": "school-infrastructure",
+      "evidence": "moderate"
+     },
+     {
+      "factor": "Hijab dispute",
+      "category": "social-norms",
+      "evidence": "thin"
+     }
+    ],
+    "childLabour": true
+   },
+   "data": [
+    {
+     "method": "state",
+     "factor": "% Population Living in Households with Improved Sanitation",
+     "short": "household sanitation",
+     "area": "Chikkamangaluru",
+     "value": 3.61
+    },
+    {
+     "method": "district",
+     "factor": "% Schools with instruction medium 1 (English)",
+     "short": "English-medium schools",
+     "area": "Chikkamangaluru",
+     "value": 0.2
+    }
+   ],
+   "found": {
+    "state": {
+     "check": "no-evidence",
+     "why": [
+      "no-evidence"
+     ],
+     "districtProof": 0,
+     "generalProof": 0
+    },
+    "district": {
+     "check": "no-evidence",
+     "why": [
+      "no-evidence"
+     ],
+     "districtProof": 0,
+     "generalProof": 0
+    }
+   },
+   "touching": [],
+   "differ": [
+    "The news for Chikkamagaluru is mostly about school infrastructure & staffing and poverty & child labour. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so child labour could never come out as Chikkamagaluru's data factor.",
+    "None of the 7 reasons the news gives for Chikkamagaluru mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
+    "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
+    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Chikkamagaluru in particular."
+   ]
+  },
+  "29-566": {
+   "name": "Chitradurga",
+   "regionId": "bayaluseeme",
+   "coverage": "moderate",
+   "news": {
+    "reasons": 7,
+    "topCategories": [
+     "social norms & customs",
+     "governance, tracking & exams",
+     "child marriage & girls' exits"
+    ],
+    "top": [
+     {
+      "factor": "Child marriage of girls",
+      "category": "gender",
+      "evidence": "strong"
+     },
+     {
+      "factor": "Landless poverty",
+      "category": "economic",
+      "evidence": "moderate"
+     },
+     {
+      "factor": "Social customs in a tribal-dominated district",
+      "category": "social-norms",
+      "evidence": "moderate"
+     },
+     {
+      "factor": "Child marriage of schoolgirls",
+      "category": "social-norms",
+      "evidence": "moderate"
+     }
+    ],
+    "childLabour": false
+   },
+   "data": [
+    {
+     "method": "state",
+     "factor": "% Population Living in Households with Improved Sanitation",
+     "short": "household sanitation",
+     "area": "Chitradurga",
+     "value": 4.48
+    },
+    {
+     "method": "district",
+     "factor": "% Schools with instruction medium 1 (English)",
+     "short": "English-medium schools",
+     "area": "Chitradurga",
+     "value": 0.29
+    }
+   ],
+   "found": {
+    "state": {
+     "check": "no-evidence",
+     "why": [
+      "no-evidence"
+     ],
+     "districtProof": 0,
+     "generalProof": 0
+    },
+    "district": {
+     "check": "no-evidence",
+     "why": [
+      "no-evidence"
+     ],
+     "districtProof": 0,
+     "generalProof": 0
+    }
+   },
+   "touching": [],
+   "differ": [
+    "The news for Chitradurga is mostly about social norms & customs and governance, tracking & exams. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so social customs could never come out as Chitradurga's data factor.",
+    "None of the 7 reasons the news gives for Chitradurga mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
+    "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
+    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Chitradurga in particular."
+   ]
+  },
+  "29-575": {
+   "name": "Dakshina Kannada",
+   "regionId": "karavali",
+   "coverage": "moderate",
+   "news": {
+    "reasons": 3,
+    "topCategories": [
+     "migration",
+     "governance, tracking & exams"
+    ],
+    "top": [
+     {
+      "factor": "Parents' seasonal labour migration",
+      "category": "migration",
+      "evidence": "moderate"
+     },
+     {
+      "factor": "Intensive Class 10 retention drive",
+      "category": "governance",
+      "evidence": "moderate"
+     },
+     {
+      "factor": "Skipping SSLC papers",
+      "category": "other",
+      "evidence": "thin"
+     }
+    ],
+    "childLabour": false
+   },
+   "data": [
+    {
+     "method": "state",
+     "factor": "% Population Living in Households with Improved Sanitation",
+     "short": "household sanitation",
+     "area": "Dakshina Kannada",
+     "value": 0.22
+    },
+    {
+     "method": "district",
+     "factor": "% Schools with instruction medium 1 (English)",
+     "short": "English-medium schools",
+     "area": "Dakshina Kannada",
+     "value": 0.01
+    }
+   ],
+   "found": {
+    "state": {
+     "check": "no-evidence",
+     "why": [
+      "no-evidence"
+     ],
+     "districtProof": 0,
+     "generalProof": 0
+    },
+    "district": {
+     "check": "unclear",
+     "why": [
+      "no-evidence"
+     ],
+     "districtProof": 0,
+     "generalProof": 0
+    }
+   },
+   "touching": [],
+   "differ": [
+    "The news for Dakshina Kannada is mostly about migration and governance, tracking & exams. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so migration could never come out as Dakshina Kannada's data factor.",
+    "None of the 3 reasons the news gives for Dakshina Kannada mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
+    "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
+    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Dakshina Kannada in particular."
+   ]
+  },
+  "29-567": {
+   "name": "Davanagere",
+   "regionId": "bayaluseeme",
+   "coverage": "thin",
+   "news": {
+    "reasons": 5,
+    "topCategories": [
+     "governance, tracking & exams",
+     "poverty & child labour",
+     "social norms & customs"
+    ],
+    "top": [
+     {
+      "factor": "Child labour",
+      "category": "economic",
+      "evidence": "moderate"
+     },
+     {
+      "factor": "Child marriage driven by poverty",
+      "category": "social-norms",
+      "evidence": "moderate"
+     },
+     {
+      "factor": "Volatile SSLC results",
+      "category": "governance",
+      "evidence": "thin"
+     },
+     {
+      "factor": "High-school distance and early marriage",
+      "category": "gender",
+      "evidence": "thin"
+     }
+    ],
+    "childLabour": true
+   },
+   "data": [
+    {
+     "method": "state",
+     "factor": "% Population Living in Households with Improved Sanitation",
+     "short": "household sanitation",
+     "area": "Davanagere",
+     "value": 2.17
+    },
+    {
+     "method": "district",
+     "factor": "% Schools with instruction medium 1 (English)",
+     "short": "English-medium schools",
+     "area": "Davanagere",
+     "value": 0.07
+    }
+   ],
+   "found": {
+    "state": {
+     "check": "no-evidence",
+     "why": [
+      "no-evidence"
+     ],
+     "districtProof": 0,
+     "generalProof": 0
+    },
+    "district": {
+     "check": "no-evidence",
+     "why": [
+      "no-evidence"
+     ],
+     "districtProof": 0,
+     "generalProof": 0
+    }
+   },
+   "touching": [],
+   "differ": [
+    "The news for Davanagere is mostly about governance, tracking & exams and poverty & child labour. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so child labour could never come out as Davanagere's data factor.",
+    "None of the 5 reasons the news gives for Davanagere mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
+    "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
+    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Davanagere in particular.",
+    "News coverage of Davanagere is thin, so the news picture itself rests on few stories."
+   ]
+  },
+  "29-562": {
+   "name": "Dharwad",
+   "regionId": "kitturu-karnataka",
+   "coverage": "moderate",
+   "news": {
+    "reasons": 8,
+    "topCategories": [
+     "governance, tracking & exams",
+     "poverty & child labour",
+     "child marriage & girls' exits"
+    ],
+    "top": [
+     {
+      "factor": "Hardship, disinterest and migration",
+      "category": "economic",
+      "evidence": "moderate"
+     },
+     {
+      "factor": "Child marriage of girls",
+      "category": "gender",
+      "evidence": "moderate"
+     },
+     {
+      "factor": "Migrant farm-labour families",
+      "category": "migration",
+      "evidence": "moderate"
+     },
+     {
+      "factor": "Never enrolled or not readmitted",
+      "category": "governance",
+      "evidence": "moderate"
+     }
+    ],
+    "childLabour": true
+   },
+   "data": [
+    {
+     "method": "state",
+     "factor": "% Population Living in Households with Improved Sanitation",
+     "short": "household sanitation",
+     "area": "Dharwad",
+     "value": 2.36
+    },
+    {
+     "method": "district",
+     "factor": "% Schools with instruction medium 1 (English)",
+     "short": "English-medium schools",
+     "area": "Dharwad",
+     "value": 0.07
+    }
+   ],
+   "found": {
+    "state": {
+     "check": "no-evidence",
+     "why": [
+      "partly"
+     ],
+     "districtProof": 0,
+     "generalProof": 1
+    },
+    "district": {
+     "check": "no-evidence",
+     "why": [
+      "no-evidence"
+     ],
+     "districtProof": 0,
+     "generalProof": 0
+    }
+   },
+   "touching": [],
+   "differ": [
+    "The news for Dharwad is mostly about governance, tracking & exams and poverty & child labour. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so child labour could never come out as Dharwad's data factor.",
+    "None of the 8 reasons the news gives for Dharwad mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
+    "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
+    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Dharwad in particular."
+   ]
+  },
+  "29-561": {
+   "name": "Gadag",
+   "regionId": "kitturu-karnataka",
+   "coverage": "moderate",
+   "news": {
+    "reasons": 6,
+    "topCategories": [
+     "child marriage & girls' exits",
+     "social norms & customs",
+     "poverty & child labour"
+    ],
+    "top": [
+     {
+      "factor": "Bonded shepherding of boys",
+      "category": "economic",
+      "evidence": "thin"
+     },
+     {
+      "factor": "Child marriage at mass weddings",
+      "category": "gender",
+      "evidence": "thin"
+     },
+     {
+      "factor": "Hijab row at SSLC",
+      "category": "social-norms",
+      "evidence": "thin"
+     },
+     {
+      "factor": "Girls leaving education by late teens",
+      "category": "gender",
+      "evidence": "thin"
+     }
+    ],
+    "childLabour": false
+   },
+   "data": [
+    {
+     "method": "state",
+     "factor": "% Population Living in Households with Improved Sanitation",
+     "short": "household sanitation",
+     "area": "Gadag",
+     "value": 3.81
+    },
+    {
+     "method": "district",
+     "factor": "% Schools with instruction medium 1 (English)",
+     "short": "English-medium schools",
+     "area": "Gadag",
+     "value": 0.18
+    }
+   ],
+   "found": {
+    "state": {
+     "check": "no-evidence",
+     "why": [
+      "partly"
+     ],
+     "districtProof": 0,
+     "generalProof": 2
+    },
+    "district": {
+     "check": "no-evidence",
+     "why": [
+      "no-evidence"
+     ],
+     "districtProof": 0,
+     "generalProof": 0
+    }
+   },
+   "touching": [],
+   "differ": [
+    "The news for Gadag is mostly about child marriage & girls' exits and social norms & customs. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so child marriage could never come out as Gadag's data factor.",
+    "None of the 6 reasons the news gives for Gadag mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
+    "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
+    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Gadag in particular."
+   ]
+  },
+  "29-574": {
+   "name": "Hassan",
+   "regionId": "malnad",
+   "coverage": "thin",
+   "news": {
+    "reasons": 6,
+    "topCategories": [
+     "child marriage & girls' exits",
+     "school infrastructure & staffing",
+     "social norms & customs"
+    ],
+    "top": [
+     {
+      "factor": "Child marriage doubling",
+      "category": "gender",
+      "evidence": "strong"
+     },
+     {
+      "factor": "Girls taken in love-affair marriages",
+      "category": "gender",
+      "evidence": "moderate"
+     },
+     {
+      "factor": "Out-of-school children",
+      "category": "other",
+      "evidence": "moderate"
+     },
+     {
+      "factor": "Girls leaving high school, child marriage",
+      "category": "gender",
+      "evidence": "thin"
+     }
+    ],
+    "childLabour": false
+   },
+   "data": [
+    {
+     "method": "state",
+     "factor": "% Population Living in Households with Improved Sanitation",
+     "short": "household sanitation",
+     "area": "Hassan",
+     "value": 2.91
+    },
+    {
+     "method": "district",
+     "factor": "% Schools with instruction medium 1 (English)",
+     "short": "English-medium schools",
+     "area": "Hassan",
+     "value": 0.16
+    }
+   ],
+   "found": {
+    "state": {
+     "check": "no-evidence",
+     "why": [
+      "partly"
+     ],
+     "districtProof": 0,
+     "generalProof": 2
+    },
+    "district": {
+     "check": "no-evidence",
+     "why": [
+      "no-evidence"
+     ],
+     "districtProof": 0,
+     "generalProof": 0
+    }
+   },
+   "touching": [],
+   "differ": [
+    "The news for Hassan is mostly about child marriage & girls' exits and school infrastructure & staffing. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so child marriage could never come out as Hassan's data factor.",
+    "None of the 6 reasons the news gives for Hassan mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
+    "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
+    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Hassan in particular.",
+    "News coverage of Hassan is thin, so the news picture itself rests on few stories."
+   ]
+  },
+  "29-564": {
+   "name": "Haveri",
+   "regionId": "kitturu-karnataka",
+   "coverage": "moderate",
+   "news": {
+    "reasons": 6,
+    "topCategories": [
+     "child marriage & girls' exits",
+     "governance, tracking & exams",
+     "school infrastructure & staffing"
+    ],
+    "top": [
+     {
+      "factor": "Hall tickets withheld by a school",
+      "category": "governance",
+      "evidence": "moderate"
+     },
+     {
+      "factor": "Child marriage and teenage pregnancy",
+      "category": "gender",
+      "evidence": "moderate"
+     },
+     {
+      "factor": "School closure and merger fears",
+      "category": "school-infrastructure",
+      "evidence": "thin"
+     },
+     {
+      "factor": "Girls out of education after school",
+      "category": "gender",
+      "evidence": "thin"
+     }
+    ],
+    "childLabour": false
+   },
+   "data": [
+    {
+     "method": "state",
+     "factor": "% Population Living in Households with Improved Sanitation",
+     "short": "household sanitation",
+     "area": "Haveri",
+     "value": 4.48
+    },
+    {
+     "method": "district",
+     "factor": "% Schools with instruction medium 1 (English)",
+     "short": "English-medium schools",
+     "area": "Haveri",
+     "value": 0.25
+    }
+   ],
+   "found": {
+    "state": {
+     "check": "no-evidence",
+     "why": [
+      "partly"
+     ],
+     "districtProof": 0,
+     "generalProof": 1
+    },
+    "district": {
+     "check": "no-evidence",
+     "why": [
+      "no-evidence"
+     ],
+     "districtProof": 0,
+     "generalProof": 0
+    }
+   },
+   "touching": [],
+   "differ": [
+    "The news for Haveri is mostly about child marriage & girls' exits and governance, tracking & exams. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so child marriage could never come out as Haveri's data factor.",
+    "None of the 6 reasons the news gives for Haveri mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
+    "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
+    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Haveri in particular."
+   ]
+  },
+  "29-579": {
+   "name": "Kalaburagi",
+   "regionId": "kalyana-karnataka",
+   "coverage": "moderate",
+   "news": {
+    "reasons": 8,
+    "topCategories": [
+     "child marriage & girls' exits",
+     "governance, tracking & exams",
+     "school infrastructure & staffing"
+    ],
+    "top": [
+     {
+      "factor": "Child marriage of adolescent girls",
+      "category": "gender",
+      "evidence": "strong"
+     },
+     {
+      "factor": "Departments disagree on dropout counts",
+      "category": "governance",
+      "evidence": "strong"
+     },
+     {
+      "factor": "Migration for work",
+      "category": "migration",
+      "evidence": "moderate"
+     },
+     {
+      "factor": "Teacher shortage and absenteeism",
+      "category": "school-infrastructure",
+      "evidence": "moderate"
+     }
+    ],
+    "childLabour": false
+   },
+   "data": [
+    {
+     "method": "state",
+     "factor": "% Population Living in Households with Improved Sanitation",
+     "short": "household sanitation",
+     "area": "Kalburgi",
+     "value": 5.53
+    },
+    {
+     "method": "district",
+     "factor": "% Schools with instruction medium 1 (English)",
+     "short": "English-medium schools",
+     "area": "Kalburgi",
+     "value": 0.21
+    }
+   ],
+   "found": {
+    "state": {
+     "check": "no-evidence",
+     "why": [
+      "partly"
+     ],
+     "districtProof": 0,
+     "generalProof": 1
+    },
+    "district": {
+     "check": "no-evidence",
+     "why": [
+      "no-evidence"
+     ],
+     "districtProof": 0,
+     "generalProof": 0
+    }
+   },
+   "touching": [
+    {
+     "family": "sanitation",
+     "factor": "Water and toilet shortages",
+     "detail": "A Kalaburagi teacher says scarce water leaves school toilets unusable, so girls go home at lunch and do not return. Reported as a single teacher's account.",
+     "evidence": "thin"
+    }
+   ],
+   "differ": [
+    "The news for Kalaburagi is mostly about child marriage & girls' exits and governance, tracking & exams. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so child marriage could never come out as Kalaburagi's data factor.",
+    "None of the 8 reasons the news gives for Kalaburagi mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
+    "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
+    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Kalaburagi in particular."
+   ]
+  },
+  "29-576": {
+   "name": "Kodagu",
+   "regionId": "malnad",
+   "coverage": "moderate",
+   "news": {
+    "reasons": 5,
+    "topCategories": [
+     "child marriage & girls' exits",
+     "migration",
+     "social norms & customs"
+    ],
+    "top": [
+     {
+      "factor": "Marriage pressure after SSLC",
+      "category": "gender",
+      "evidence": "thin"
+     },
+     {
+      "factor": "Migrant estate labour families",
+      "category": "migration",
+      "evidence": "thin"
+     },
+     {
+      "factor": "Child marriage on estates",
+      "category": "social-norms",
+      "evidence": "thin"
+     },
+     {
+      "factor": "Girls under marriage pressure",
+      "category": "gender",
+      "evidence": "thin"
+     }
+    ],
+    "childLabour": false
+   },
+   "data": [
+    {
+     "method": "state",
+     "factor": "% Population Living in Households with Improved Sanitation",
+     "short": "household sanitation",
+     "area": "Kodagu",
+     "value": 2.62
+    },
+    {
+     "method": "district",
+     "factor": "% Schools with instruction medium 1 (English)",
+     "short": "English-medium schools",
+     "area": "Kodagu",
+     "value": 0.08
+    }
+   ],
+   "found": {
+    "state": {
+     "check": "no-evidence",
+     "why": [
+      "partly"
+     ],
+     "districtProof": 0,
+     "generalProof": 2
+    },
+    "district": {
+     "check": "no-evidence",
+     "why": [
+      "no-evidence"
+     ],
+     "districtProof": 0,
+     "generalProof": 0
+    }
+   },
+   "touching": [],
+   "differ": [
+    "The news for Kodagu is mostly about child marriage & girls' exits and migration. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so child marriage could never come out as Kodagu's data factor.",
+    "None of the 5 reasons the news gives for Kodagu mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
+    "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
+    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Kodagu in particular."
+   ]
+  },
+  "29-581": {
+   "name": "Kolar",
+   "regionId": "bayaluseeme",
+   "coverage": "thin",
+   "news": {
+    "reasons": 5,
+    "topCategories": [
+     "child marriage & girls' exits",
+     "school infrastructure & staffing",
+     "governance, tracking & exams"
+    ],
+    "top": [
+     {
+      "factor": "Teacher shortage and mass failure",
+      "category": "school-infrastructure",
+      "evidence": "strong"
+     },
+     {
+      "factor": "Child marriage among adolescent girls",
+      "category": "gender",
+      "evidence": "moderate"
+     },
+     {
+      "factor": "Child marriage",
+      "category": "gender",
+      "evidence": "thin"
+     },
+     {
+      "factor": "Gap between age cohort and secondary enrolment",
+      "category": "other",
+      "evidence": "thin"
+     }
+    ],
+    "childLabour": false
+   },
+   "data": [
+    {
+     "method": "state",
+     "factor": "% Population Living in Households with Improved Sanitation",
+     "short": "household sanitation",
+     "area": "Kolar",
+     "value": 4.07
+    },
+    {
+     "method": "district",
+     "factor": "% Schools with instruction medium 1 (English)",
+     "short": "English-medium schools",
+     "area": "Kolar",
+     "value": 0.16
+    }
+   ],
+   "found": {
+    "state": {
+     "check": "no-evidence",
+     "why": [
+      "partly"
+     ],
+     "districtProof": 0,
+     "generalProof": 1
+    },
+    "district": {
+     "check": "no-evidence",
+     "why": [
+      "partly"
+     ],
+     "districtProof": 0,
+     "generalProof": 2
+    }
+   },
+   "touching": [],
+   "differ": [
+    "The news for Kolar is mostly about child marriage & girls' exits and school infrastructure & staffing. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so child marriage could never come out as Kolar's data factor.",
+    "None of the 5 reasons the news gives for Kolar mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
+    "When we asked deep research why this factor would be dominant here, the result was: partly: only research from elsewhere backs the mechanism (0 verified proof items about Kolar, 2 from elsewhere).",
+    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Kolar in particular.",
+    "News coverage of Kolar is thin, so the news picture itself rests on few stories."
+   ]
+  },
+  "29-560": {
+   "name": "Koppal",
+   "regionId": "kalyana-karnataka",
+   "coverage": "moderate",
+   "news": {
+    "reasons": 8,
+    "topCategories": [
+     "child marriage & girls' exits",
+     "governance, tracking & exams",
+     "social norms & customs"
+    ],
+    "top": [
+     {
+      "factor": "Early marriage ends schooling",
+      "category": "gender",
+      "evidence": "strong"
+     },
+     {
+      "factor": "Distance and unreliable transport",
+      "category": "school-infrastructure",
+      "evidence": "strong"
+     },
+     {
+      "factor": "Dedication of girls as Devadasis",
+      "category": "social-norms",
+      "evidence": "moderate"
+     },
+     {
+      "factor": "Forged age records for child marriage",
+      "category": "gender",
+      "evidence": "moderate"
+     }
+    ],
+    "childLabour": true
+   },
+   "data": [
+    {
+     "method": "state",
+     "factor": "% Population Living in Households with Improved Sanitation",
+     "short": "household sanitation",
+     "area": "Koppal",
+     "value": 4.74
+    },
+    {
+     "method": "district",
+     "factor": "% Schools with instruction medium 1 (English)",
+     "short": "English-medium schools",
+     "area": "Koppal",
+     "value": 0.24
+    }
+   ],
+   "found": {
+    "state": {
+     "check": "no-evidence",
+     "why": [
+      "partly"
+     ],
+     "districtProof": 0,
+     "generalProof": 1
+    },
+    "district": {
+     "check": "no-evidence",
+     "why": [
+      "no-evidence"
+     ],
+     "districtProof": 0,
+     "generalProof": 0
+    }
+   },
+   "touching": [],
+   "differ": [
+    "The news for Koppal is mostly about child marriage & girls' exits and governance, tracking & exams. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so child labour could never come out as Koppal's data factor.",
+    "None of the 8 reasons the news gives for Koppal mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
+    "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
+    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Koppal in particular."
+   ]
+  },
+  "29-573": {
+   "name": "Mandya",
+   "regionId": "old-mysuru",
+   "coverage": "moderate",
+   "news": {
+    "reasons": 6,
+    "topCategories": [
+     "child marriage & girls' exits",
+     "poverty & child labour",
+     "migration"
+    ],
+    "top": [
+     {
+      "factor": "Child marriage of girls",
+      "category": "gender",
+      "evidence": "strong"
+     },
+     {
+      "factor": "Single-parent households",
+      "category": "economic",
+      "evidence": "moderate"
+     },
+     {
+      "factor": "Poverty and parental illiteracy",
+      "category": "economic",
+      "evidence": "moderate"
+     },
+     {
+      "factor": "Sugarcane harvest in-migration",
+      "category": "migration",
+      "evidence": "moderate"
+     }
+    ],
+    "childLabour": false
+   },
+   "data": [
+    {
+     "method": "state",
+     "factor": "% Population Living in Households with Improved Sanitation",
+     "short": "household sanitation",
+     "area": "Mandya",
+     "value": 3.81
+    },
+    {
+     "method": "district",
+     "factor": "% Schools with instruction medium 1 (English)",
+     "short": "English-medium schools",
+     "area": "Mandya",
+     "value": 0.22
+    }
+   ],
+   "found": {
+    "state": {
+     "check": "no-evidence",
+     "why": [
+      "partly"
+     ],
+     "districtProof": 0,
+     "generalProof": 1
+    },
+    "district": {
+     "check": "no-evidence",
+     "why": [
+      "partly"
+     ],
+     "districtProof": 0,
+     "generalProof": 2
+    }
+   },
+   "touching": [],
+   "differ": [
+    "The news for Mandya is mostly about child marriage & girls' exits and poverty & child labour. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so poverty or child labour could never come out as Mandya's data factor.",
+    "None of the 6 reasons the news gives for Mandya mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
+    "When we asked deep research why this factor would be dominant here, the result was: partly: only research from elsewhere backs the mechanism (0 verified proof items about Mandya, 2 from elsewhere).",
+    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Mandya in particular."
+   ]
+  },
+  "29-577": {
+   "name": "Mysuru",
+   "regionId": "old-mysuru",
+   "coverage": "moderate",
+   "news": {
+    "reasons": 8,
+    "topCategories": [
+     "child marriage & girls' exits",
+     "poverty & child labour",
+     "social norms & customs"
+    ],
+    "top": [
+     {
+      "factor": "Child marriage of girls",
+      "category": "gender",
+      "evidence": "strong"
+     },
+     {
+      "factor": "Single-parent households",
+      "category": "economic",
+      "evidence": "moderate"
+     },
+     {
+      "factor": "Girls withdrawn at puberty, married",
+      "category": "gender",
+      "evidence": "moderate"
+     },
+     {
+      "factor": "Low awareness in SC/ST, minority blocks",
+      "category": "social-norms",
+      "evidence": "moderate"
+     }
+    ],
+    "childLabour": true
+   },
+   "data": [
+    {
+     "method": "state",
+     "factor": "% Population Living in Households with Improved Sanitation",
+     "short": "household sanitation",
+     "area": "Mysuru",
+     "value": 2.12
+    },
+    {
+     "method": "district",
+     "factor": "% Schools with Functional Protected Well",
+     "short": "schools with a protected well",
+     "area": "Mysuru",
+     "value": 0.07
+    }
+   ],
+   "found": {
+    "state": {
+     "check": "no-evidence",
+     "why": [
+      "no-evidence"
+     ],
+     "districtProof": 0,
+     "generalProof": 0
+    },
+    "district": {
+     "check": "no-evidence",
+     "why": [
+      "no-evidence"
+     ],
+     "districtProof": 0,
+     "generalProof": 0
+    }
+   },
+   "touching": [],
+   "differ": [
+    "The news for Mysuru is mostly about child marriage & girls' exits and poverty & child labour. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so child labour could never come out as Mysuru's data factor.",
+    "None of the 8 reasons the news gives for Mysuru mentions drinking water at school. The sources are silent on it, which is not the same as contradicting the data.",
+    "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
+    "This factor is named for only 3 of 35 Karnataka district-level rows; the rest get English-medium schools."
+   ]
+  },
+  "29-559": {
+   "name": "Raichur",
+   "regionId": "kalyana-karnataka",
+   "coverage": "moderate",
+   "news": {
+    "reasons": 7,
+    "topCategories": [
+     "governance, tracking & exams",
+     "poverty & child labour",
+     "school infrastructure & staffing"
+    ],
+    "top": [
+     {
+      "factor": "Cotton-field child labour",
+      "category": "economic",
+      "evidence": "strong"
+     },
+     {
+      "factor": "SSLC failure and exam-related exits",
+      "category": "governance",
+      "evidence": "strong"
+     },
+     {
+      "factor": "Under-reported out-of-school children",
+      "category": "governance",
+      "evidence": "moderate"
+     },
+     {
+      "factor": "High schools far from villages",
+      "category": "school-infrastructure",
+      "evidence": "moderate"
+     }
+    ],
+    "childLabour": true
+   },
+   "data": [
+    {
+     "method": "state",
+     "factor": "% Population Living in Households with Improved Sanitation",
+     "short": "household sanitation",
+     "area": "Raichur",
+     "value": 5.44
+    },
+    {
+     "method": "district",
+     "factor": "% Schools with instruction medium 1 (English)",
+     "short": "English-medium schools",
+     "area": "Raichur",
+     "value": 0.22
+    }
+   ],
+   "found": {
+    "state": {
+     "check": "no-evidence",
+     "why": [
+      "partly"
+     ],
+     "districtProof": 0,
+     "generalProof": 1
+    },
+    "district": {
+     "check": "no-evidence",
+     "why": [
+      "no-evidence"
+     ],
+     "districtProof": 0,
+     "generalProof": 0
+    }
+   },
+   "touching": [],
+   "differ": [
+    "The news for Raichur is mostly about governance, tracking & exams and poverty & child labour. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so child labour could never come out as Raichur's data factor.",
+    "None of the 7 reasons the news gives for Raichur mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
+    "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
+    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Raichur in particular."
+   ]
+  },
+  "29-584": {
+   "name": "Ramanagara",
+   "regionId": "old-mysuru",
+   "coverage": "moderate",
+   "news": {
+    "reasons": 6,
+    "topCategories": [
+     "child marriage & girls' exits",
+     "poverty & child labour",
+     "school infrastructure & staffing"
+    ],
+    "top": [
+     {
+      "factor": "Child marriage of girls",
+      "category": "gender",
+      "evidence": "moderate"
+     },
+     {
+      "factor": "School mergers and longer distances",
+      "category": "school-infrastructure",
+      "evidence": "moderate"
+     },
+     {
+      "factor": "Girls' safety and transport costs",
+      "category": "gender",
+      "evidence": "moderate"
+     },
+     {
+      "factor": "Rising child labour",
+      "category": "economic",
+      "evidence": "thin"
+     }
+    ],
+    "childLabour": true
+   },
+   "data": [
+    {
+     "method": "state",
+     "factor": "% Population Living in Households with Improved Sanitation",
+     "short": "household sanitation",
+     "area": "Ramanagara",
+     "value": 4.55
+    },
+    {
+     "method": "district",
+     "factor": "% Schools with instruction medium 1 (English)",
+     "short": "English-medium schools",
+     "area": "Ramanagara",
+     "value": 0.19
+    }
+   ],
+   "found": {
+    "state": {
+     "check": "no-evidence",
+     "why": [
+      "partly"
+     ],
+     "districtProof": 0,
+     "generalProof": 1
+    },
+    "district": {
+     "check": "no-evidence",
+     "why": [
+      "partly"
+     ],
+     "districtProof": 0,
+     "generalProof": 2
+    }
+   },
+   "touching": [],
+   "differ": [
+    "The news for Ramanagara is mostly about child marriage & girls' exits and poverty & child labour. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so child labour could never come out as Ramanagara's data factor.",
+    "None of the 6 reasons the news gives for Ramanagara mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
+    "When we asked deep research why this factor would be dominant here, the result was: partly: only research from elsewhere backs the mechanism (0 verified proof items about Ramanagara, 2 from elsewhere).",
+    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Ramanagara in particular."
+   ]
+  },
+  "29-568": {
+   "name": "Shivamogga",
+   "regionId": "malnad",
+   "coverage": "moderate",
+   "news": {
+    "reasons": 7,
+    "topCategories": [
+     "school infrastructure & staffing",
+     "child marriage & girls' exits",
+     "poverty & child labour"
+    ],
+    "top": [
+     {
+      "factor": "Hostel conditions for SC/ST students",
+      "category": "school-infrastructure",
+      "evidence": "moderate"
+     },
+     {
+      "factor": "Child marriage",
+      "category": "gender",
+      "evidence": "moderate"
+     },
+     {
+      "factor": "Poverty and need to earn",
+      "category": "economic",
+      "evidence": "moderate"
+     },
+     {
+      "factor": "Academic struggle and lost confidence",
+      "category": "other",
+      "evidence": "moderate"
+     }
+    ],
+    "childLabour": false
+   },
+   "data": [
+    {
+     "method": "state",
+     "factor": "% Population Living in Households with Improved Sanitation",
+     "short": "household sanitation",
+     "area": "Shivamogga",
+     "value": 2.38
+    },
+    {
+     "method": "district",
+     "factor": "% Schools with instruction medium 1 (English)",
+     "short": "English-medium schools",
+     "area": "Shivamogga",
+     "value": 0.13
+    }
+   ],
+   "found": {
+    "state": {
+     "check": "no-evidence",
+     "why": [
+      "no-evidence"
+     ],
+     "districtProof": 0,
+     "generalProof": 0
+    },
+    "district": {
+     "check": "no-evidence",
+     "why": [
+      "no-evidence"
+     ],
+     "districtProof": 0,
+     "generalProof": 0
+    }
+   },
+   "touching": [
+    {
+     "family": "sanitation",
+     "factor": "Tribal-area school without teachers or toilets",
+     "detail": "A tribal-majority government school at Elige in Sagar taluk reportedly had no permanent teachers for eight years and lacked proper toilets for girls; this was a primary school.",
+     "evidence": "thin"
+    }
+   ],
+   "differ": [
+    "The news for Shivamogga is mostly about school infrastructure & staffing and child marriage & girls' exits. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so poverty or child labour could never come out as Shivamogga's data factor.",
+    "None of the 7 reasons the news gives for Shivamogga mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
+    "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
+    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Shivamogga in particular."
+   ]
+  },
+  "29-571": {
+   "name": "Tumakuru",
+   "regionId": "bayaluseeme",
+   "coverage": "moderate",
+   "news": {
+    "reasons": 7,
+    "topCategories": [
+     "poverty & child labour",
+     "school infrastructure & staffing",
+     "governance, tracking & exams"
+    ],
+    "top": [
+     {
+      "factor": "Madhugiri dropouts to unorganised labour",
+      "category": "economic",
+      "evidence": "moderate"
+     },
+     {
+      "factor": "Hall ticket withheld over school fees",
+      "category": "economic",
+      "evidence": "thin"
+     },
+     {
+      "factor": "Child labour exploitation",
+      "category": "economic",
+      "evidence": "thin"
+     },
+     {
+      "factor": "Child labour in establishments",
+      "category": "economic",
+      "evidence": "thin"
+     }
+    ],
+    "childLabour": true
+   },
+   "data": [
+    {
+     "method": "state",
+     "factor": "% Population Living in Households with Improved Sanitation",
+     "short": "household sanitation",
+     "area": "Tumakuru",
+     "value": 3.58
+    },
+    {
+     "method": "state",
+     "factor": "% Population Living in Households with Improved Sanitation",
+     "short": "household sanitation",
+     "area": "Tumakuru Madhugiri",
+     "value": 5.03
+    },
+    {
+     "method": "district",
+     "factor": "% Schools with instruction medium 1 (English)",
+     "short": "English-medium schools",
+     "area": "Tumakuru",
+     "value": 0.2
+    },
+    {
+     "method": "district",
+     "factor": "% Schools with instruction medium 1 (English)",
+     "short": "English-medium schools",
+     "area": "Tumakuru Madhugiri",
+     "value": 0.32
+    }
+   ],
+   "found": {
+    "state": {
+     "check": "no-evidence",
+     "why": [
+      "no-evidence"
+     ],
+     "districtProof": 0,
+     "generalProof": 0
+    },
+    "district": {
+     "check": "no-evidence",
+     "why": [
+      "no-evidence"
+     ],
+     "districtProof": 0,
+     "generalProof": 0
+    }
+   },
+   "touching": [
+    {
+     "family": "sanitation",
+     "factor": "Border-school teacher and toilet gaps",
+     "detail": "A Deccan Herald report on a minister's visit described border-area schools, including Pavagada, hit by teacher shortages, dilapidated buildings, poor drinking water and improper toilets. Undated in the result and older; current position unverified.",
+     "evidence": "thin"
+    }
+   ],
+   "differ": [
+    "The news for Tumakuru is mostly about poverty & child labour and school infrastructure & staffing. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so child labour could never come out as Tumakuru's data factor.",
+    "None of the 7 reasons the news gives for Tumakuru mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
+    "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
+    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Tumakuru in particular."
+   ]
+  },
+  "29-569": {
+   "name": "Udupi",
+   "regionId": "karavali",
+   "coverage": "moderate",
+   "news": {
+    "reasons": 6,
+    "topCategories": [
+     "governance, tracking & exams",
+     "poverty & child labour",
+     "migration"
+    ],
+    "top": [
+     {
+      "factor": "Intensive slow-learner coaching",
+      "category": "governance",
+      "evidence": "moderate"
+     },
+     {
+      "factor": "Child labour at Malpe harbour",
+      "category": "economic",
+      "evidence": "moderate"
+     },
+     {
+      "factor": "Skipping SSLC board papers",
+      "category": "other",
+      "evidence": "thin"
+     },
+     {
+      "factor": "Children from other districts working",
+      "category": "migration",
+      "evidence": "thin"
+     }
+    ],
+    "childLabour": true
+   },
+   "data": [
+    {
+     "method": "state",
+     "factor": "% Population Living in Households with Improved Sanitation",
+     "short": "household sanitation",
+     "area": "Udupi",
+     "value": 0.26
+    },
+    {
+     "method": "district",
+     "factor": "% Schools with instruction medium 1 (English)",
+     "short": "English-medium schools",
+     "area": "Udupi",
+     "value": 0.01
+    }
+   ],
+   "found": {
+    "state": {
+     "check": "unclear",
+     "why": [
+      "no-evidence"
+     ],
+     "districtProof": 0,
+     "generalProof": 0
+    },
+    "district": {
+     "check": "no-evidence",
+     "why": [
+      "no-evidence"
+     ],
+     "districtProof": 0,
+     "generalProof": 0
+    }
+   },
+   "touching": [],
+   "differ": [
+    "The news for Udupi is mostly about governance, tracking & exams and poverty & child labour. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so child labour could never come out as Udupi's data factor.",
+    "None of the 6 reasons the news gives for Udupi mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
+    "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
+    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Udupi in particular."
+   ]
+  },
+  "29-563": {
+   "name": "Uttara Kannada",
+   "regionId": "karavali",
+   "coverage": "thin",
+   "news": {
+    "reasons": 5,
+    "topCategories": [
+     "health",
+     "school infrastructure & staffing",
+     "governance, tracking & exams"
+    ],
+    "top": [
+     {
+      "factor": "Few out-of-school children (2014)",
+      "category": "other",
+      "evidence": "moderate"
+     },
+     {
+      "factor": "COVID-era exam avoidance in Sirsi",
+      "category": "health",
+      "evidence": "thin"
+     },
+     {
+      "factor": "Village school closures, falling enrolment",
+      "category": "school-infrastructure",
+      "evidence": "thin"
+     },
+     {
+      "factor": "Zero-admission government schools",
+      "category": "governance",
+      "evidence": "thin"
+     }
+    ],
+    "childLabour": true
+   },
+   "data": [
+    {
+     "method": "state",
+     "factor": "% Population Living in Households with Improved Sanitation",
+     "short": "household sanitation",
+     "area": "Uttara Kannada",
+     "value": 2.3
+    },
+    {
+     "method": "state",
+     "factor": "% Population Living in Households with Improved Sanitation",
+     "short": "household sanitation",
+     "area": "Uttara Kannada Sirsi",
+     "value": 3.17
+    },
+    {
+     "method": "district",
+     "factor": "% Schools with instruction medium 1 (English)",
+     "short": "English-medium schools",
+     "area": "Uttara Kannada",
+     "value": 0.14
+    },
+    {
+     "method": "district",
+     "factor": "% Schools with instruction medium 1 (English)",
+     "short": "English-medium schools",
+     "area": "Uttara Kannada Sirsi",
+     "value": 0.35
+    }
+   ],
+   "found": {
+    "state": {
+     "check": "unclear",
+     "why": [
+      "no-evidence"
+     ],
+     "districtProof": 0,
+     "generalProof": 0
+    },
+    "district": {
+     "check": "no-evidence",
+     "why": [
+      "no-evidence"
+     ],
+     "districtProof": 0,
+     "generalProof": 0
+    }
+   },
+   "touching": [
+    {
+     "family": "english",
+     "factor": "Village school closures, falling enrolment",
+     "detail": "Many small Kannada-medium government schools in Karwar and Joida taluks were shut over 17 years, reportedly as parents shifted priorities. Closures can lengthen travel to the next school, though the source does not link them to secondary dropout.",
+     "evidence": "thin"
+    }
+   ],
+   "differ": [
+    "The news for Uttara Kannada is mostly about health and school infrastructure & staffing. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so child labour could never come out as Uttara Kannada's data factor.",
+    "One news reason does touch the language a school teaches in: \"Village school closures, falling enrolment\" (thin evidence). So here the news and the data do meet, on one point.",
+    "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
+    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Uttara Kannada in particular.",
+    "News coverage of Uttara Kannada is thin, so the news picture itself rests on few stories."
+   ]
+  },
+  "29-557": {
+   "name": "Vijayapura",
+   "regionId": "kitturu-karnataka",
+   "coverage": "moderate",
+   "news": {
+    "reasons": 8,
+    "topCategories": [
+     "child marriage & girls' exits",
+     "governance, tracking & exams",
+     "poverty & child labour"
+    ],
+    "top": [
+     {
+      "factor": "Child marriage through mass weddings",
+      "category": "gender",
+      "evidence": "moderate"
+     },
+     {
+      "factor": "Summer migration for work",
+      "category": "migration",
+      "evidence": "moderate"
+     },
+     {
+      "factor": "Early marriage of girls",
+      "category": "gender",
+      "evidence": "moderate"
+     },
+     {
+      "factor": "Low perceived value of schooling",
+      "category": "social-norms",
+      "evidence": "moderate"
+     }
+    ],
+    "childLabour": false
+   },
+   "data": [
+    {
+     "method": "state",
+     "factor": "% Population Living in Households with Improved Sanitation",
+     "short": "household sanitation",
+     "area": "Vijayapura",
+     "value": 4.02
+    },
+    {
+     "method": "district",
+     "factor": "% Schools with instruction medium 1 (English)",
+     "short": "English-medium schools",
+     "area": "Vijayapura",
+     "value": 0.2
+    }
+   ],
+   "found": {
+    "state": {
+     "check": "no-evidence",
+     "why": [
+      "partly"
+     ],
+     "districtProof": 0,
+     "generalProof": 2
+    },
+    "district": {
+     "check": "no-evidence",
+     "why": [
+      "no-evidence"
+     ],
+     "districtProof": 0,
+     "generalProof": 0
+    }
+   },
+   "touching": [],
+   "differ": [
+    "The news for Vijayapura is mostly about child marriage & girls' exits and governance, tracking & exams. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so child marriage could never come out as Vijayapura's data factor.",
+    "None of the 8 reasons the news gives for Vijayapura mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
+    "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
+    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Vijayapura in particular."
+   ]
+  },
+  "29-580": {
+   "name": "Yadgir",
+   "regionId": "kalyana-karnataka",
+   "coverage": "moderate",
+   "news": {
+    "reasons": 8,
+    "topCategories": [
+     "migration",
+     "poverty & child labour",
+     "governance, tracking & exams"
+    ],
+    "top": [
+     {
+      "factor": "SSLC failure, results pressure",
+      "category": "governance",
+      "evidence": "strong"
+     },
+     {
+      "factor": "Distress migration of labour families",
+      "category": "migration",
+      "evidence": "moderate"
+     },
+     {
+      "factor": "Chronic absenteeism",
+      "category": "other",
+      "evidence": "moderate"
+     },
+     {
+      "factor": "Economic bottleneck at the move to secondary school",
+      "category": "economic",
+      "evidence": "moderate"
+     }
+    ],
+    "childLabour": false
+   },
+   "data": [
+    {
+     "method": "state",
+     "factor": "% Population Living in Households with Improved Sanitation",
+     "short": "household sanitation",
+     "area": "Yadagiri",
+     "value": 6.89
+    },
+    {
+     "method": "district",
+     "factor": "% Schools with instruction medium 1 (English)",
+     "short": "English-medium schools",
+     "area": "Yadagiri",
+     "value": 0.32
+    }
+   ],
+   "found": {
+    "state": {
+     "check": "no-evidence",
+     "why": [
+      "partly"
+     ],
+     "districtProof": 0,
+     "generalProof": 1
+    },
+    "district": {
+     "check": "no-evidence",
+     "why": [
+      "no-evidence"
+     ],
+     "districtProof": 0,
+     "generalProof": 0
+    }
+   },
+   "touching": [],
+   "differ": [
+    "The news for Yadgir is mostly about migration and poverty & child labour. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so poverty or child labour could never come out as Yadgir's data factor.",
+    "None of the 8 reasons the news gives for Yadgir mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
+    "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
+    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Yadgir in particular."
+   ]
+  }
+ }
+}

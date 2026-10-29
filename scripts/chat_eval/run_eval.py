@@ -67,7 +67,7 @@ async def main() -> int:
         bad = sorted(cited - set(c["sourceIds"]))
         if bad:
             fails.append(f"cites ids not in context: {bad}")
-        if re.search(r"\[(DIGEST|CAVEATS|UIDAI|ANALYSIS|PERSONAS|REGION|DISTRICT)", answer):
+        if re.search(r"\[(DIGEST|CAVEATS|UIDAI|NEWS VS DATA|ANALYSIS|PERSONAS|REGION|DISTRICT)", answer):
             warns.append("cites a section name instead of a source id")
         is_refusal = answer.strip().strip('"') == REFUSAL
         if q.get("refuse"):

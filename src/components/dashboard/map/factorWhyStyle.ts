@@ -1,5 +1,12 @@
 import type { DistrictResearch, FactorWhyEntry } from "@/lib/worldview";
 
+/** Pill colours for how well each researched reason is evidenced. */
+export const EVIDENCE_STYLE: Record<DistrictResearch["reasons"][number]["evidence"], string> = {
+  strong: "bg-emerald-500/15 text-emerald-700 dark:text-emerald-300",
+  moderate: "bg-amber-500/15 text-amber-800 dark:text-amber-300",
+  thin: "bg-secondary text-muted-foreground",
+};
+
 /** Pill label + colours for the "why is this factor dominant here?" verdicts. */
 export const WHY_STYLE: Record<FactorWhyEntry["verdict"], { label: string; className: string }> = {
   supported: {

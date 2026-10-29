@@ -30,6 +30,7 @@ export { usePersonaProfile, type PersonaProfile } from "./personaProfiles";
 export { personaCard, type PersonaCard, type PersonaCardTopic } from "./personaCards";
 export * from "./districtResearch";
 export * from "./nitiData";
+export * from "./newsVsData";
 export { loadDefaultRun } from "./defaultRun";
 export { CATEGORY_LABEL, CATEGORY_EMOJI } from "./reasonCategories";
 export * from "./aggregate";

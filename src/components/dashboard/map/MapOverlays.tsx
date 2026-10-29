@@ -21,10 +21,13 @@ import {
   type DistrictNitiFactor,
   type DistrictProfile,
   type DistrictResearch,
+  type DistrictSheetTab,
   type DominantFactorWhy,
   type FactorWhyEntry,
 } from "@/lib/worldview";
-import { CHECK_STYLE as VERDICT_STYLE, WHY_STYLE } from "./factorWhyStyle";
+import { DistrictNewsVsData } from "@/components/niti/NewsVsData";
+
+import { CHECK_STYLE as VERDICT_STYLE, EVIDENCE_STYLE, WHY_STYLE } from "./factorWhyStyle";
 import { useDistrictGeo } from "./useDistrictGeo";
 
 // ── Top: region pills ───────────────────────────────────────────────────────
@@ -159,12 +162,6 @@ function PersonaButtons({ regionId }: { regionId: string }) {
     </div>
   );
 }
-
-const EVIDENCE_STYLE: Record<DistrictResearch["reasons"][number]["evidence"], string> = {
-  strong: "bg-emerald-500/15 text-emerald-700 dark:text-emerald-300",
-  moderate: "bg-amber-500/15 text-amber-800 dark:text-amber-300",
-  thin: "bg-secondary text-muted-foreground",
-};
 
 function SourceChips({ ids, sources }: { ids: number[]; sources: DistrictResearch["sources"] }) {
   return (
@@ -563,9 +560,9 @@ function DistrictNumbers({
   );
 }
 
-type DistrictTab = "numbers" | "reasons" | "media";
-const DISTRICT_TABS: { id: DistrictTab; label: string }[] = [
+const DISTRICT_TABS: { id: DistrictSheetTab; label: string }[] = [
   { id: "reasons", label: "On the ground" },
+  { id: "compare", label: "News vs data" },
   { id: "numbers", label: "Numbers" },
   { id: "media", label: "Media & sources" },
 ];
@@ -581,7 +578,8 @@ function DistrictBody({
   name: string;
   allRates: number[];
 }) {
-  const [tab, setTab] = useState<DistrictTab>("reasons");
+  const tab = useExplorerStore((s) => s.districtTab);
+  const setTab = useExplorerStore((s) => s.setDistrictTab);
   return (
     <div>
       <div className="mb-4 flex gap-1 rounded-lg bg-secondary/60 p-1" role="tablist">
@@ -610,6 +608,8 @@ function DistrictBody({
           name={name}
           allRates={allRates}
         />
+      ) : tab === "compare" ? (
+        <DistrictNewsVsData districtId={districtId} name={name} />
       ) : (
         <ResearchState districtId={districtId} name={name} view={tab} />
       )}

@@ -34,6 +34,11 @@ export interface RouteOptions {
 
 const UIDAI =
   /\b(uidai|niti|aayog|dominant factors?|sanitation|english[- ]medium|protected well|official (data|statistics)|statistical)\b/;
+// "news vs data": the question sets what the news reports against what the official data shows.
+const NEWS = /\b(news|media|articles?|stories|story|headlines?|reports?|reported|reporting)\b/;
+const DATA =
+  /\b(data|uidai|niti|dominant|statistics?|statistical|official|english[- ]medium|medium of instruction)\b/;
+const RECONCILE = /\b(reconcil\w*|differ\w*|mismatch\w*|contradict\w*|versus|vs)\b/;
 const ANALYSIS =
   /\b(persona|personas|generic answer|similarity|divergen\w*|story mode|consolidated|region[- ]first|composite)\b/;
 const PERSONAS = /\b(persona|personas|composite|puttaswamy|manjula|character|characters)\b/;
@@ -126,6 +131,8 @@ export function routeContext(
     const t = pack.districts[id];
     if (t) optional.push({ name: `DISTRICT ${id}`, text: t });
   }
+  if (pack.newsVsData && DATA.test(lower) && (NEWS.test(lower) || RECONCILE.test(lower)))
+    optional.push({ name: "NEWS VS DATA", text: pack.newsVsData });
   // "…the other districts in its region" after a district question: bring in that district's region section.
   if (REGIONAL_FOLLOWUP.test(lower)) {
     for (const id of districtIds.slice(0, 2)) {

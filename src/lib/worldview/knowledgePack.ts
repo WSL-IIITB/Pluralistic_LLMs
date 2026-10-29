@@ -35,6 +35,8 @@ export interface KnowledgePack {
   regions: Record<string, string>;
   districts: Record<string, string>;
   uidai: string;
+  /** Why the news research and the UIDAI/NITI data name different main factors. */
+  newsVsData: string;
   analysis: string;
   personas: string;
   tokenEstimate: Record<string, number>;
