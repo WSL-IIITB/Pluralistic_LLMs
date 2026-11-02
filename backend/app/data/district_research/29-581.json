@@ -299,5 +299,99 @@
       "district/% Schools with instruction medium 1 (Eng: quote removed (not found on the page)",
       "district/% Schools with instruction medium 1 (Eng: quote removed (not found on the page)"
     ]
+  },
+  "prescriptiveEvidence": {
+    "researchedOn": "2026-11-03",
+    "ranking": "feasible",
+    "changes": [
+      {
+        "factor": "% Classrooms in Good Condition",
+        "summary": "A 2023 news report and two NGO project pages show Kolar government schools with few usable rooms: roof flaking at Gandhinagar, holes in walls at Malur, and poor rooms at Kamasamudram, where new classrooms are being built.",
+        "findings": [
+          {
+            "claim": "At a government model higher primary school in Gandhinagar, Kolar, only 3 of 11 rooms were usable, with repairs reportedly overdue for nearly seven years.",
+            "quote": "There are 11 rooms of which only 3 can be occupied.",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              1
+            ]
+          },
+          {
+            "claim": "A girls' school in Malur town, Kolar district, had only one good room among more than 8 before an NGO-built block was completed in 2020.",
+            "quote": "The school had multiple buildings with more than 8 rooms, but only one room was is in good condition.",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              2
+            ]
+          },
+          {
+            "claim": "A government school in Kamasamudram, Bangarapet taluk, has 14 rooms, most in poor condition; an NGO began building 8 classrooms in 2025.",
+            "quote": "The school has 14 rooms in multiple buildings, most of the rooms are in poor condition.",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              3
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% of female teachers",
+        "summary": "",
+        "findings": []
+      },
+      {
+        "factor": "% Population Living in Households with Improved Sanitation",
+        "summary": "A 2017 report says Kolar zilla panchayat was the first to reach its 100% toilet target, building 74,854 toilets in a year. No recent usage or coverage data was reachable.",
+        "findings": [
+          {
+            "claim": "Kolar was reported in 2017 as the first zilla panchayat to hit its full toilet-construction target, with 74,854 toilets built that financial year.",
+            "quote": "Kolar district is the first zilla panchayat administration to achieve its 100 percent target",
+            "scope": "district",
+            "stance": "progress",
+            "sources": [
+              4
+            ]
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "url": "https://educationworld.in/karnataka-fearing-for-students-lives-parent-seeks-repair-of-government-school-building/",
+        "title": "Karnataka: Fearing for students’ lives, parent seeks repair of government school building",
+        "outlet": "EducationWorld",
+        "date": "2023-03-09",
+        "type": "news"
+      },
+      {
+        "id": 2,
+        "url": "https://osaat.org/?p=17698",
+        "title": "Malur Karnataka - OSAAT",
+        "outlet": "OSAAT (One School At A Time)",
+        "date": "2022-01-26",
+        "type": "ngo"
+      },
+      {
+        "id": 3,
+        "url": "https://osaat.org/kamasamudram-karnataka/",
+        "title": "None, None School Project | OSAAT",
+        "outlet": "OSAAT (One School At A Time)",
+        "date": "2025-05-12",
+        "type": "ngo"
+      },
+      {
+        "id": 4,
+        "url": "https://smartcity.eletsonline.com/karnatakas-kolar-district-is-first-to-achieve-100-odf-target/",
+        "title": "Karnataka leads sanitation drive in India, Kolar district is first to achieve 100% target",
+        "outlet": "Elets SmartCity",
+        "date": "2017-10-07",
+        "type": "news"
+      }
+    ],
+    "notes": []
   }
 }

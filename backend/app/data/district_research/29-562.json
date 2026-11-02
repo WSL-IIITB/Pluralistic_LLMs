@@ -326,5 +326,64 @@
     "notes": [
       "state/% Population Living in Households with I: district proof dropped, cited page does not name the district: 'Poverty of families causes dropouts'"
     ]
+  },
+  "prescriptiveEvidence": {
+    "researchedOn": "2026-11-03",
+    "ranking": "feasible",
+    "changes": [
+      {
+        "factor": "% Classrooms in Good Condition",
+        "summary": "In May 2025 officials counted 376 Dharwad district government schools in disrepair, 84 urgent, and 325 dilapidated classrooms; 494 classrooms were being repaired, up from 286 the year before.",
+        "findings": [
+          {
+            "claim": "In May 2025, 376 Dharwad district government schools were in disrepair, 84 urgently; officials found 325 dilapidated classrooms in 132 schools, and 494 classrooms were being repaired.",
+            "quote": "District education officials have identified 325 dilapidated classrooms in 132 schools",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              1
+            ]
+          },
+          {
+            "claim": "Ahead of the 2025 reopening, Hubballi-Dharwad education officials directed that children not be seated in unsafe rooms and that repairs use available funds.",
+            "quote": "The education department has strictly directed that children should not be seated in any unsafe rooms and that repairs should be carried out using available funds.",
+            "scope": "district",
+            "stance": "context",
+            "sources": [
+              2
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Schools with CCE Implemented",
+        "summary": "",
+        "findings": []
+      },
+      {
+        "factor": "% of female teachers",
+        "summary": "",
+        "findings": []
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "url": "https://newskarnataka.com/education/dharwads-84-schools-in-urgent-need-of-repair-ahead-of-reopening/27052025/",
+        "title": "Dharwad's 84 Schools in Urgent Need of Repair Ahead of Reopening",
+        "outlet": "News Karnataka",
+        "date": "2025-05-27",
+        "type": "news"
+      },
+      {
+        "id": 2,
+        "url": "https://newskarnataka.com/education/hubballi-govt-schools-gear-up-for-joyful-reopening-amid-monsoon-prep/30052025/",
+        "title": "Hubballi Govt Schools Gear Up for Joyful Reopening Amid Monsoon Prep",
+        "outlet": "News Karnataka",
+        "date": "2025-05-30",
+        "type": "news"
+      }
+    ],
+    "notes": []
   }
 }

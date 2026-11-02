@@ -347,5 +347,65 @@
       "district/% Schools with instruction medium 1 (Eng: quote removed (not found on the page)",
       "district/% Schools with instruction medium 1 (Eng: quote removed (not found on the page)"
     ]
+  },
+  "prescriptiveEvidence": {
+    "researchedOn": "2026-11-03",
+    "ranking": "feasible",
+    "changes": [
+      {
+        "factor": "% Classrooms in Good Condition",
+        "summary": "",
+        "findings": []
+      },
+      {
+        "factor": "% Schools with Furniture available for students",
+        "summary": "No district-specific report of a furniture gap found; University of Mysore adopted schools in Chamarajanagar district in 2021 and pledged wooden furniture, toilets and drinking water.",
+        "findings": [
+          {
+            "claim": "The University of Mysore adopted government schools in Chamarajanagar district, including Kunagalli and Komaranapura, and promised basic facilities such as wooden furniture, toilets and drinking water.",
+            "quote": "We will provide basic facilities to all the adopted schools such as wooden furniture, toilets and drinking water soon",
+            "scope": "district",
+            "stance": "context",
+            "sources": [
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Schools with All-Weather Roads",
+        "summary": "A 2020 Star of Mysore report describes a forest-fringe village in Hanur taluk whose only link road is unpaved, so high-school children walk through the forest to school.",
+        "findings": [
+          {
+            "claim": "Pachchedoddi village in Hanur taluk, over 15 km from the town, has only an unasphalted link road, and children walk through forest to reach high school.",
+            "quote": "Pachchedoddi village is over 15 kilometres from Hanur town in Chamarajanagar and the only link road to this village is not asphalted.",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              2
+            ]
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "url": "https://starofmysore.com/after-adopting-10-govt-schools-uom-adopts-six-villages/",
+        "title": "After adopting 10 Govt. Schools, UoM adopts six villages - Star of Mysore",
+        "outlet": "Star of Mysore",
+        "date": "2021-01-04",
+        "type": "news"
+      },
+      {
+        "id": 2,
+        "url": "https://starofmysore.com/special-bus-to-ferry-children-through-forest/",
+        "title": "Special bus to ferry children through forest - Star of Mysore",
+        "outlet": "Star of Mysore",
+        "date": "2020-02-11",
+        "type": "news"
+      }
+    ],
+    "notes": []
   }
 }

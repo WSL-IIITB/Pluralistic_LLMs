@@ -290,5 +290,117 @@
       "district/% Schools with instruction medium 1 (Eng: proof dropped (no openable source): 'Educators have linked English-medium instruction to school d'",
       "district/% Schools with instruction medium 1 (Eng: 'partly' -> 'no-evidence' (no verified proof survived)"
     ]
+  },
+  "prescriptiveEvidence": {
+    "researchedOn": "2026-11-03",
+    "ranking": "feasible",
+    "changes": [
+      {
+        "factor": "% Women with 10+ Years Schooling",
+        "summary": "Only an aggregator profile was found: it reports 24.3% of girls aged 15 to 21 in Tumakuru out of education, better than the typical district. No news or government source on women's schooling there was reachable.",
+        "findings": [
+          {
+            "claim": "A district youth-opportunity profile says 24.3% of girls aged 15 to 21 in Tumakuru are out of education, better than the typical district (source and year not stated).",
+            "quote": "In Tumakuru, 24.3% of girls aged 15 to 21 are out of education, better than the typical district.",
+            "scope": "district",
+            "stance": "context",
+            "sources": [
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Classrooms in Good Condition",
+        "summary": "NGO project pages for schools in Gubbi and Sira taluks of Tumakuru district describe many classrooms in poor condition, with new classrooms built in 2024 and 2026. No Madhugiri-specific page was found.",
+        "findings": [
+          {
+            "claim": "A school at Chandrashekharapura, Gubbi taluk, Tumakuru district, had 8 of its 15 classrooms in poor condition before new facilities opened in 2024.",
+            "quote": "The school has 15 classrooms in 6 buildings(4 RCC, 1 tiled,1 asbestos), 8 classrooms are in poor condition.",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              2
+            ]
+          },
+          {
+            "claim": "A government high school at Bukkapatna, Sira taluk, Tumakuru district, had only 7 of 12 rooms in good condition before a new building was inaugurated in January 2026.",
+            "quote": "total 12 rooms, out of which only 7 rooms were in good condition",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              3
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Schools with Furniture available for students",
+        "summary": "A 2026 report says Dharmasthala's rural development project gave 1,731 desk-bench sets to 212 Tumakuru government schools, and a 2023 NGO post covers a bench donation in Madhugiri. Both indicate gaps being filled.",
+        "findings": [
+          {
+            "claim": "Dharmasthala's rural development project reportedly gave 1,731 pairs of desks and benches free to 212 schools in Tumakuru district (report in Kannada, February 2026).",
+            "quote": "ತುಮಕೂರು ಜಿಲ್ಲೆಯ 212 ಶಾಲೆಗಳಿಗೆ 1731ಜೊತೆ ಡೆಸ್ಕ್‌ ಮತ್ತು ಬೆಂಚುಗಳನ್ನು ಉಚಿತವಾಗಿ ನೀಡಲಾಗಿದೆ",
+            "scope": "district",
+            "stance": "progress",
+            "sources": [
+              4
+            ]
+          },
+          {
+            "claim": "An NGO donated new benches and desks to the government higher primary school in Kodagadala, Madhugiri, Tumkur, in July 2023.",
+            "quote": "With a generous donation of brand new benches and desks, Uthishta is empowering education",
+            "scope": "district",
+            "stance": "progress",
+            "sources": [
+              5
+            ]
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "url": "https://youthpower.in/institution/karnataka/tumakuru/kgbv",
+        "title": "KGBV (Kasturba Gandhi Balika Vidyalaya) in Tumakuru, Karnataka | YouthPOWER",
+        "outlet": "YouthPOWER",
+        "date": "",
+        "type": "news"
+      },
+      {
+        "id": 2,
+        "url": "https://osaat.org/?p=19939",
+        "title": "Chandrashekharapura Karnataka - OSAAT",
+        "outlet": "OSAAT (One School At A Time)",
+        "date": "2023-04-11",
+        "type": "ngo"
+      },
+      {
+        "id": 3,
+        "url": "https://osaat.org/?p=21577",
+        "title": "Bukkapatna, Karnataka School Project | OSAAT",
+        "outlet": "OSAAT (One School At A Time)",
+        "date": "2024-11-04",
+        "type": "ngo"
+      },
+      {
+        "id": 4,
+        "url": "https://eesanje.com/fresh-updates/dharmasthala-distribution-free-benches-schools/",
+        "title": "ಧರ್ಮಸ್ಥಳದಿಂದ 212 ಸರ್ಕಾರಿ ಶಾಲೆಗೆ ಉಚಿತ 1731 ಜೊತೆ ಡೆಸ್ಕ್‌-ಬೆಂಚು ವಿತರಣೆ - Eesanje",
+        "outlet": "Eesanje",
+        "date": "2026-02-14",
+        "type": "news"
+      },
+      {
+        "id": 5,
+        "url": "https://uthishta.org/node/209",
+        "title": "Donation of brand new benches and desks | Uthishta",
+        "outlet": "Uthishta",
+        "date": "2023-07-29",
+        "type": "ngo"
+      }
+    ],
+    "notes": []
   }
 }

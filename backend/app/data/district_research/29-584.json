@@ -326,5 +326,92 @@
       "district/% Schools with instruction medium 1 (Eng: quote removed (not found on the page)",
       "district/% Schools with instruction medium 1 (Eng: quote removed (not found on the page)"
     ]
+  },
+  "prescriptiveEvidence": {
+    "researchedOn": "2026-11-03",
+    "ranking": "feasible",
+    "changes": [
+      {
+        "factor": "% Classrooms in Good Condition",
+        "summary": "A Magadi taluk school has most rooms dilapidated, and an Urdu primary school in Ramanagara city had to move out of a dilapidated building; new classrooms are planned or proposed.",
+        "findings": [
+          {
+            "claim": "A government school in Gudemaranahalli, Magadi taluk, has 14 rooms, but only 6 are in good condition and 8 are dilapidated; 2 of the good ones are too small.",
+            "quote": "Only 6 rooms are in good condition, out of which 2 rooms are very small and can't be used as classrooms; 8 rooms are in dilapidated condition",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              1
+            ]
+          },
+          {
+            "claim": "In Ramanagara city, an Urdu primary school's classes ran in an open shed because its building was dilapidated; the old building was demolished and a three-classroom building is planned.",
+            "quote": "The old dilapidated building has already been demolished, and plans for a new building with three classrooms, a kitchen, and toilets have been included in this year’s action plan by the department.",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              2
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Schools with Furniture available for students",
+        "summary": "One NGO project page for a Magadi taluk school shows benches and desks being proposed along with new classrooms; no news source on furniture shortage found for Ramanagara.",
+        "findings": [
+          {
+            "claim": "For the Gudemaranahalli school in Magadi taluk, the NGO proposes to build 4 classrooms and also supply benches and desks for all 4.",
+            "quote": "OSAAT proposes to construct 4 classrooms. OSAAT also proposes to provide benches and desks in all 4 classrooms.",
+            "scope": "district",
+            "stance": "context",
+            "sources": [
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Population Living in Households with Improved Sanitation",
+        "summary": "No Ramanagara-specific source found; a statewide NFHS-5 explainer gives Karnataka's improved sanitation coverage and says access is much better closer to Bengaluru.",
+        "findings": [
+          {
+            "claim": "NFHS-5 puts improved sanitation access at 84.4% of Karnataka's urban and 68.5% of rural population; the article says the situation is much better closer to Bengaluru and the coast.",
+            "quote": "At state level, Karnataka records 84.4% of the Urban population and 68.5% of the rural population as having access to improved sanitation facilities.",
+            "scope": "state",
+            "stance": "context",
+            "sources": [
+              3
+            ]
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "url": "https://osaat.org/?p=18451",
+        "title": "Gudemaranahalli Karnataka - OSAAT",
+        "outlet": "OSAAT",
+        "date": "2022-04-13",
+        "type": "ngo"
+      },
+      {
+        "id": 2,
+        "url": "https://newskarnataka.com/karnataka/bengaluru/school-shifted-from-shed-to-room-due-to-building-condition/20062024/",
+        "title": "School shifted from shed to room due to building condition",
+        "outlet": "News Karnataka",
+        "date": "2024-06-20",
+        "type": "news"
+      },
+      {
+        "id": 3,
+        "url": "https://opencity.in/what-the-nfhs-5-data-tells-about-karnataka/",
+        "title": "What the NFHS-5 data tells about Karnataka - OpenCity",
+        "outlet": "OpenCity",
+        "date": "2022-12-27",
+        "type": "news"
+      }
+    ],
+    "notes": []
   }
 }

@@ -53,6 +53,24 @@ export interface DominantFactorWhy {
   notes: string[];
 }
 
+export interface PrescriptiveFinding {
+  claim: string;
+  quote: string;
+  scope: "district" | "state";
+  /** gap = the problem exists there; progress = being fixed; context = background. */
+  stance: "gap" | "progress" | "context";
+  sources: number[];
+}
+
+/** Verified web sources for the NITI prescriptive model's top three changes in this district. */
+export interface PrescriptiveEvidence {
+  researchedOn: string;
+  ranking: "feasible" | "niti";
+  changes: { factor: string; summary: string; findings: PrescriptiveFinding[] }[];
+  sources: ResearchSource[];
+  notes: string[];
+}
+
 export interface DistrictResearch {
   districtId: string;
   name: string;
@@ -81,6 +99,8 @@ export interface DistrictResearch {
   }[];
   /** Why each UIDAI/NITI dominant factor would drive dropout here, with verified proof (absent until researched). */
   dominantFactorWhy?: DominantFactorWhy;
+  /** Web sources for the NITI model's top three changes, page-verified (absent until researched). */
+  prescriptiveEvidence?: PrescriptiveEvidence;
   coverage: "rich" | "moderate" | "thin";
   gaps: string;
   /** What was dropped or corrected when the report was checked against its cited pages. */

@@ -13,11 +13,15 @@ import { MessageCircleQuestion } from "lucide-react";
 import { EVIDENCE_STYLE } from "@/components/dashboard/map/factorWhyStyle";
 import {
   CATEGORY_EMOJI,
+  formatFactorValue,
   shortFactor,
+  useDistrictResearch,
   useExplorerStore,
   useNewsVsData,
+  type ChangeVerdict,
   type NewsVsDataDistrict,
   type NewsVsDataStatewide,
+  type TopChange,
 } from "@/lib/worldview";
 import { useChatStore } from "@/lib/worldview/chatStore";
 
@@ -90,6 +94,161 @@ function AskButton({ question, label }: { question: string; label: string }) {
       <MessageCircleQuestion className="size-3.5" aria-hidden />
       {label}
     </button>
+  );
+}
+
+const CHANGE_STYLE: Record<ChangeVerdict, { label: string; className: string }> = {
+  agree: {
+    label: "Model, sources and news agree",
+    className: "bg-emerald-500/15 text-emerald-700 dark:text-emerald-300",
+  },
+  "web-only": {
+    label: "Sources describe it, news silent",
+    className: "bg-amber-500/15 text-amber-800 dark:text-amber-300",
+  },
+  "news-only": {
+    label: "Only the news names it",
+    className: "bg-sky-500/15 text-sky-800 dark:text-sky-300",
+  },
+  untested: { label: "Nothing verified yet", className: "bg-secondary text-muted-foreground" },
+};
+
+const STANCE_LABEL: Record<string, string> = {
+  gap: "shows the gap",
+  progress: "reports progress",
+  context: "background",
+};
+
+/** The model's top changes vs the verified web sources vs the news research, for the whole state. */
+function PrescriptiveReconcile({ s }: { s: NewsVsDataStatewide }) {
+  const p = s.prescriptive;
+  if (!p) return null;
+  return (
+    <div className="rounded-xl border border-panel-border bg-secondary/30 p-3.5">
+      <p className="text-[12px] font-semibold text-foreground">
+        The NITI model&apos;s top three changes vs what the sources say
+      </p>
+      <p className="mt-1.5 text-[11.5px] leading-snug text-muted-foreground">{p.text}</p>
+      <div className="mt-2.5 flex flex-wrap gap-1.5">
+        {(Object.keys(CHANGE_STYLE) as ChangeVerdict[]).map((v) => (
+          <span
+            key={v}
+            className={
+              "rounded-full px-2 py-0.5 text-[10.5px] font-medium " + CHANGE_STYLE[v].className
+            }
+          >
+            {CHANGE_STYLE[v].label} · {p.verdicts[v] ?? 0}
+          </span>
+        ))}
+      </div>
+      <ul className="mt-3 space-y-1 text-[11.5px]">
+        {p.byFactor.slice(0, 8).map((f) => (
+          <li key={f.short} className="flex items-baseline justify-between gap-2">
+            <span className="text-foreground/90">{f.short}</span>
+            <span className="shrink-0 text-[11px] text-muted-foreground tabular-nums">
+              top 3 in {f.districts} · sources in {f.withSources} · agree in {f.agree}
+            </span>
+          </li>
+        ))}
+      </ul>
+      <p className="mt-2 text-[10.5px] leading-snug text-muted-foreground">
+        {p.districtFindings} of {p.findings} verified web findings are about the district itself;
+        each was re-opened and checked (the page names the district, its numbers and quote appear on
+        it). Each district&apos;s changes, with the sources, are in its sheet under “News vs data”.
+      </p>
+    </div>
+  );
+}
+
+/** One district's top three changes: what the model says, the verified web sources, and the news research. */
+function DistrictTopChanges({
+  districtId,
+  name,
+  changes,
+}: {
+  districtId: string;
+  name: string;
+  changes: TopChange[];
+}) {
+  const research = useDistrictResearch(districtId);
+  const pre = research.status === "ready" ? research.data.prescriptiveEvidence : undefined;
+  if (!changes.length) return null;
+  return (
+    <div>
+      <p className="label-micro mb-2">Top three changes · NITI model vs sources</p>
+      <div className="space-y-2.5">
+        {changes.map((c) => {
+          const ev = pre?.changes.find((x) => x.factor === c.factor);
+          return (
+            <div
+              key={c.factor}
+              className="rounded-xl border border-panel-border bg-secondary/30 p-3"
+            >
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="flex size-5 shrink-0 items-center justify-center rounded-full bg-primary/15 text-[10.5px] font-semibold text-primary tabular-nums">
+                  {c.rank}
+                </span>
+                <span className="text-[12px] font-semibold text-foreground">{c.short}</span>
+                {c.value != null && (
+                  <span className="text-[11px] text-muted-foreground tabular-nums">
+                    {formatFactorValue(c.factor, c.value)} · rank {c.karnatakaRank} of 35
+                  </span>
+                )}
+                <span
+                  className={
+                    "ml-auto rounded-full px-2 py-0.5 text-[10px] font-medium " +
+                    CHANGE_STYLE[c.verdict].className
+                  }
+                >
+                  {CHANGE_STYLE[c.verdict].label}
+                </span>
+              </div>
+              <p className="mt-1.5 text-[11.5px] leading-snug text-muted-foreground">{c.line}</p>
+              {ev && ev.findings.length > 0 && (
+                <ul className="mt-2 space-y-1.5">
+                  {ev.findings.map((f, i) => (
+                    <li key={i} className="text-[11px] leading-snug text-muted-foreground">
+                      <span
+                        className={
+                          "mr-1.5 rounded px-1.5 py-px text-[9.5px] font-medium tracking-wide uppercase " +
+                          (f.scope === "district"
+                            ? "bg-primary/15 text-primary"
+                            : "bg-secondary text-muted-foreground")
+                        }
+                      >
+                        {f.scope === "district" ? name : "Statewide"} · {STANCE_LABEL[f.stance]}
+                      </span>
+                      <span className="text-foreground/90">{f.claim}</span>
+                      {f.quote && <span className="italic"> “{f.quote}”</span>}
+                      {f.sources.map((sid) => {
+                        const src = pre!.sources.find((x) => x.id === sid);
+                        return src ? (
+                          <a
+                            key={sid}
+                            href={src.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            title={`${src.outlet}${src.date ? ` · ${src.date}` : ""} — ${src.title}`}
+                            className="ml-1 rounded bg-secondary px-1.5 text-[10px] leading-4 text-muted-foreground transition-colors hover:text-foreground"
+                          >
+                            {src.outlet}
+                          </a>
+                        ) : null;
+                      })}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          );
+        })}
+      </div>
+      <p className="mt-2 text-[10px] leading-snug text-muted-foreground">
+        Changes from the NITI prescriptive model (feasible ranking). Sources were found by web
+        search and re-checked against each page; the claim lines are summaries of those pages. “News
+        silent” means the earlier news research did not list it as a reason students leave.
+      </p>
+    </div>
   );
 }
 
@@ -244,6 +403,8 @@ export function NewsVsDataSummary() {
         </ol>
       </div>
 
+      <PrescriptiveReconcile s={s} />
+
       <div className="rounded-xl border border-dashed border-panel-border px-3.5 py-3">
         <p className="text-[12px] font-semibold text-foreground">How both could be true</p>
         <p className="mt-1.5 text-[11.5px] leading-snug text-muted-foreground">{s.connect.text}</p>
@@ -367,6 +528,8 @@ export function DistrictNewsVsData({ districtId, name }: { districtId: string; n
         </Block>
       </div>
 
+      <DistrictTopChanges districtId={districtId} name={name} changes={d.topChanges ?? []} />
+
       <div>
         <p className="label-micro mb-2">Why they may differ here</p>
         <ul className="space-y-1.5">
@@ -381,8 +544,9 @@ export function DistrictNewsVsData({ districtId, name }: { districtId: string; n
 
       <div className="flex flex-wrap items-center justify-between gap-2">
         <p className="max-w-[440px] text-[10px] leading-snug text-muted-foreground">
-          Built from this district&apos;s verified research and its UIDAI/NITI rows; no
-          model-written text. The Ask button gets a model-written answer from the same research.
+          Built from this district&apos;s verified research, its UIDAI/NITI rows and the NITI model.
+          The source claims are short summaries of the cited pages; the Ask button gets a
+          model-written answer from the same research.
         </p>
         <AskButton label={`Ask about ${name}`} question={districtQuestion(name, d)} />
       </div>

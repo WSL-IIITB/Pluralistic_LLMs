@@ -70,6 +70,30 @@ FAMILIES = {
     },
 }
 
+# Which researched news reasons touch each factor of the NITI prescriptive model (public/data/niti-prescriptive.json).
+CHANGE_TOUCH = {
+    "% Classrooms in Good Condition": r"classroom|school building|dilapidat|roof|leak|collaps|repair|crumbl",
+    "% Schools with Functional Total Toilets": r"toilet|washroom|sanitar",
+    "% Schools with Library": r"librar",
+    "% Schools with Furniture available for students": r"furniture|desk|bench|sit on the floor",
+    "% of female teachers": r"female teacher|women teacher|woman teacher|lady teacher",
+    "% Women with 10+ Years Schooling": r"mother|parental illitera|female literacy|women.{0,20}literacy|illiterate parent",
+    "% Population Living in Households with Improved Sanitation": r"toilet|sanitation|open defecation",
+    "% Schools with CCE Implemented": r"evaluation|assessment|\\bcce\\b|tracking",
+    "% Schools with Playground": r"playground|sport",
+    "% Schools with All-Weather Roads": r"\\broads?\\b|\\bbus\\b|transport|commute",
+    "% Teachers Trained in ICT/Computers": r"computer|digital|\\bict\\b|smart class|online",
+    "% Schools with Computer/ICT Labs": r"computer|digital|\\bict\\b|smart class|online",
+    "% Schools with Functional Protected Well": r"drinking water|water supply|\\bwells?\\b",
+    "Teachers per 100 students": r"teacher (vacanc|shortage)|shortage of teachers|single-teacher|zero-teacher|teacherless",
+}
+VERDICT_TEXT = {
+    "agree": "the model, the web sources and the news research point the same way",
+    "web-only": "web sources describe the condition, but the news research does not link it to dropout",
+    "news-only": "the news research mentions it, but no district source was verified in this pass",
+    "untested": "no district source was verified in this pass and the news research is silent on it",
+}
+
 WHY_TEXT = {
     "supported": "supported by proof about this district",
     "partly": "partly: only research from elsewhere backs the mechanism",
@@ -108,6 +132,8 @@ def build() -> dict:
     research = read("districts-research.json")
     profiles = {d["districtId"]: d for d in read("districts.json")["districts"]}
     niti = read("niti-factors.json")
+    pres = read("niti-prescriptive.json")
+    pres_info = {f["name"]: f for f in pres["factors"]}
     rows = niti["rows"]
     ka_rows = [r for r in rows if r["state"] == "Karnataka"]
     n = len(research)
@@ -237,6 +263,37 @@ def build() -> dict:
         if d["coverage"] == "thin":
             differ.append(f"News coverage of {name} is thin, so the news picture itself rests on few stories.")
 
+        # the NITI prescriptive model's top three changes vs the verified web sources vs the news research
+        pre = d.get("prescriptiveEvidence") or {}
+        best: dict[str, dict] = {}
+        for a in pres["districts"].get(did, {}).get("areas", []):
+            for f in a["factors"]:
+                if f["feasible"]["contribution"] > best.get(f["name"], {}).get("feasible", {}).get("contribution", -1):
+                    best[f["name"]] = {**f, "area": a["area"]}
+        top_changes = []
+        for i, c in enumerate(pre.get("changes", []), 1):
+            rx = re.compile(CHANGE_TOUCH.get(c["factor"], r"(?!x)x"), re.I)
+            hits = [r["factor"] for r in d["reasons"] if rx.search(f"{r['factor']} {r['detail']}")]
+            local = [k for k in c["findings"] if k["scope"] == "district"]
+            stance = count(local, lambda k: k["stance"])
+            verdict = "agree" if hits and local else "web-only" if local else "news-only" if hits else "untested"
+            short = pres_info[c["factor"]]["short"]
+            f = best.get(c["factor"], {})
+            if local:
+                label = {"gap": "showing the gap", "progress": "reporting progress", "context": "background"}
+                web = f"{plural(len(local), 'verified source')} about {name} {'discusses' if len(local) == 1 else 'discuss'} it" + (
+                    f" ({', '.join(f'{n} {label[s]}' for s, n in sorted(stance.items()))})" if stance else "")
+            else:
+                web = "no verified source about the district was found in this pass"
+            news = f"the news research names \"{hits[0]}\"" if hits else "none of the news research's reasons mention it"
+            top_changes.append({
+                "rank": i, "factor": c["factor"], "short": short, "area": f.get("area", ""),
+                "value": f.get("value"), "karnatakaRank": f.get("rank"), "contribution": f.get("feasible", {}).get("contribution"),
+                "findings": len(c["findings"]), "districtFindings": len(local), "stances": stance, "newsReasons": hits[:3],
+                "verdict": verdict,
+                "line": f"{short} (model's #{i}): {web}; {news}. So {VERDICT_TEXT[verdict]}.",
+            })
+
         districts[did] = {
             "name": name,
             "regionId": d["regionId"],
@@ -252,6 +309,7 @@ def build() -> dict:
             "found": found,
             "touching": touching,
             "differ": differ,
+            "topChanges": top_changes,
         }
 
     # ---- statewide explanation -----------------------------------------------------------------
@@ -312,6 +370,33 @@ def build() -> dict:
                     "district-level measure of child labour. Testing it would need both, analysed together against dropout.",
     }
 
+    all_changes = [c for x in districts.values() for c in x["topChanges"]]
+    verdicts_pre = count(all_changes, lambda c: c["verdict"])
+    pre_factor: dict[str, dict[str, int]] = {}
+    for c in all_changes:
+        pf = pre_factor.setdefault(c["short"], {"districts": 0, "withSources": 0, "agree": 0})
+        pf["districts"] += 1
+        pf["withSources"] += bool(c["districtFindings"])
+        pf["agree"] += c["verdict"] == "agree"
+    top_pf = next(({"short": k, **v} for k, v in sorted(pre_factor.items(), key=lambda kv: -kv[1]["districts"])), None)
+    prescriptive = {
+        "changes": len(all_changes),
+        "verdicts": verdicts_pre,
+        "byFactor": [{"short": k, **v} for k, v in sorted(pre_factor.items(), key=lambda kv: -kv[1]["districts"])],
+        "findings": sum(c["findings"] for c in all_changes),
+        "districtFindings": sum(c["districtFindings"] for c in all_changes),
+        "text": (
+            f"The NITI model's top three changes give {len(all_changes)} district-change pairs. Web sources about the district itself "
+            f"were verified for {sum(1 for c in all_changes if c['districtFindings'])} of them. For {verdicts_pre.get('agree', 0)}, the model, "
+            f"the web sources and the earlier news research all point the same way; for {verdicts_pre.get('web-only', 0)}, web sources describe "
+            f"the condition but the news research never links it to dropout; {verdicts_pre.get('news-only', 0)} are named only in the news research; "
+            f"and {verdicts_pre.get('untested', 0)} have no verified district source yet. The model points at school conditions; the news "
+            "research mostly documented household pressures (poverty, work, marriage, migration), so the two rarely name the same thing."
+            + (f" The model's most frequent pick, {top_pf['short'].lower()} ({top_pf['districts']} districts), has verified district sources in "
+               f"{top_pf['withSources']} of them." if top_pf else "")
+        ),
+    }
+
     statewide = {
         "districts": n,
         "lead": lead,
@@ -347,6 +432,7 @@ def build() -> dict:
         "found": {"check": checks, "why": why, "districtLevelProof": proof, "generalClaims": general_claims},
         "differ": differ_state,
         "connect": connect,
+        "prescriptive": prescriptive,
     }
     return {"version": 1, "inputs": ["districts-research.json", "districts.json", "niti-factors.json"], "statewide": statewide, "districts": districts}
 

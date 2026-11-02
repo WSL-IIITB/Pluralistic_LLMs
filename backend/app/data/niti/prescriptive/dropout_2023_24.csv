@@ -1,0 +1,783 @@
+State,District,Field Name,Field Value
+ANDAMAN & NICOBAR ISLANDS,Andamans,Dropout rate,4.4
+ANDAMAN & NICOBAR ISLANDS,Middle And North Andamans,Dropout rate,6.4
+ANDAMAN & NICOBAR ISLANDS,Nicobars,Dropout rate,10.7
+ANDHRA PRADESH,Anakapalli,Dropout rate,22.4
+ANDHRA PRADESH,Anantapur,Dropout rate,15.1
+ANDHRA PRADESH,Annamayya,Dropout rate,21.0
+ANDHRA PRADESH,Asr,Dropout rate,20.7
+ANDHRA PRADESH,Bapatla,Dropout rate,25.6
+ANDHRA PRADESH,Chittoor,Dropout rate,19.6
+ANDHRA PRADESH,East Godavari,Dropout rate,7.8
+ANDHRA PRADESH,Eluru,Dropout rate,18.3
+ANDHRA PRADESH,Guntur,Dropout rate,2.1
+ANDHRA PRADESH,Kadapa,Dropout rate,19.6
+ANDHRA PRADESH,Kakinada,Dropout rate,16.1
+ANDHRA PRADESH,Konaseema,Dropout rate,17.1
+ANDHRA PRADESH,Krishna,Dropout rate,0.8
+ANDHRA PRADESH,Kurnool,Dropout rate,9.5
+ANDHRA PRADESH,Manyam,Dropout rate,15.6
+ANDHRA PRADESH,Nandyal,Dropout rate,11.6
+ANDHRA PRADESH,Nellore,Dropout rate,5.0
+ANDHRA PRADESH,Ntr,Dropout rate,1.8
+ANDHRA PRADESH,Palnadu,Dropout rate,20.7
+ANDHRA PRADESH,Prakasam,Dropout rate,20.4
+ANDHRA PRADESH,Sri Satyasai,Dropout rate,27.1
+ANDHRA PRADESH,Srikakulam,Dropout rate,19.4
+ANDHRA PRADESH,Tirupati,Dropout rate,2.3
+ANDHRA PRADESH,Visakhapatnam,Dropout rate,0.8
+ANDHRA PRADESH,Vizianagaram,Dropout rate,14.2
+ANDHRA PRADESH,West Godavari,Dropout rate,7.8
+ARUNACHAL PRADESH,Anjaw,Dropout rate,35.6
+ARUNACHAL PRADESH,Capital Complex Itanagar,Dropout rate,14.8
+ARUNACHAL PRADESH,Changlang,Dropout rate,27.3
+ARUNACHAL PRADESH,Dibang Valley,Dropout rate,17.9
+ARUNACHAL PRADESH,East Kameng,Dropout rate,20.9
+ARUNACHAL PRADESH,East Siang,Dropout rate,10.2
+ARUNACHAL PRADESH,Kamle,Dropout rate,27.5
+ARUNACHAL PRADESH,Kra Dadi,Dropout rate,20.7
+ARUNACHAL PRADESH,Kurung Kumey,Dropout rate,35.0
+ARUNACHAL PRADESH,Lepa Rada,Dropout rate,11.8
+ARUNACHAL PRADESH,Lohit,Dropout rate,17.3
+ARUNACHAL PRADESH,Longding,Dropout rate,14.4
+ARUNACHAL PRADESH,Lower Dibang Valley,Dropout rate,20.7
+ARUNACHAL PRADESH,Lower Siang,Dropout rate,20.6
+ARUNACHAL PRADESH,Lower Subansiri,Dropout rate,17.9
+ARUNACHAL PRADESH,Namsai,Dropout rate,21.1
+ARUNACHAL PRADESH,Pakke Kessang,Dropout rate,27.5
+ARUNACHAL PRADESH,Papum Pare,Dropout rate,29.3
+ARUNACHAL PRADESH,Shi Yomi,Dropout rate,23.2
+ARUNACHAL PRADESH,Siang,Dropout rate,16.9
+ARUNACHAL PRADESH,Tawang,Dropout rate,15.3
+ARUNACHAL PRADESH,Tirap,Dropout rate,20.4
+ARUNACHAL PRADESH,Upper Siang,Dropout rate,19.4
+ARUNACHAL PRADESH,Upper Subansiri,Dropout rate,11.8
+ARUNACHAL PRADESH,West Kameng,Dropout rate,26.0
+ARUNACHAL PRADESH,West Siang,Dropout rate,18.9
+ASSAM,Bajali,Dropout rate,9.9
+ASSAM,Baksa,Dropout rate,25.4
+ASSAM,Barpeta,Dropout rate,29.4
+ASSAM,Biswanath,Dropout rate,31.4
+ASSAM,Bongaigaon,Dropout rate,32.0
+ASSAM,Cachar,Dropout rate,27.1
+ASSAM,Charaideo,Dropout rate,23.3
+ASSAM,Chirang,Dropout rate,27.2
+ASSAM,Darrang,Dropout rate,18.9
+ASSAM,Dhemaji,Dropout rate,13.4
+ASSAM,Dhubri,Dropout rate,24.6
+ASSAM,Dibrugarh,Dropout rate,19.4
+ASSAM,Dima Hasao,Dropout rate,15.7
+ASSAM,Goalpara,Dropout rate,29.0
+ASSAM,Golaghat,Dropout rate,23.6
+ASSAM,Hailakandi,Dropout rate,22.7
+ASSAM,Hojai,Dropout rate,28.3
+ASSAM,Jorhat,Dropout rate,22.6
+ASSAM,Kamrup-Metro,Dropout rate,13.8
+ASSAM,Kamrup-Rural,Dropout rate,34.9
+ASSAM,Karbi Anglong,Dropout rate,25.8
+ASSAM,Karimganj,Dropout rate,26.7
+ASSAM,Kokrajhar,Dropout rate,20.3
+ASSAM,Lakhimpur,Dropout rate,21.4
+ASSAM,Majuli,Dropout rate,18.5
+ASSAM,Morigaon,Dropout rate,29.4
+ASSAM,Nagaon,Dropout rate,30.0
+ASSAM,Nalbari,Dropout rate,18.8
+ASSAM,Sibsagar,Dropout rate,20.0
+ASSAM,Sonitpur,Dropout rate,31.5
+ASSAM,South Salmara-Mankachar,Dropout rate,27.2
+ASSAM,Tamulpur,Dropout rate,24.4
+ASSAM,Tinsukia,Dropout rate,30.7
+ASSAM,Udalguri,Dropout rate,18.2
+ASSAM,West Karbi Anglong,Dropout rate,33.8
+BIHAR,Araria,Dropout rate,28.2
+BIHAR,Arwal,Dropout rate,24.1
+BIHAR,Aurangabad (Bihar),Dropout rate,24.3
+BIHAR,Banka,Dropout rate,20.4
+BIHAR,Begusarai,Dropout rate,22.9
+BIHAR,Bhagalpur,Dropout rate,27.1
+BIHAR,Bhojpur,Dropout rate,25.8
+BIHAR,Buxar,Dropout rate,28.1
+BIHAR,Darbhanga,Dropout rate,27.4
+BIHAR,Gaya,Dropout rate,31.9
+BIHAR,Gopalganj,Dropout rate,24.3
+BIHAR,Jamui,Dropout rate,19.6
+BIHAR,Jehanabad,Dropout rate,22.6
+BIHAR,Kaimur (Bhabua),Dropout rate,30.0
+BIHAR,Katihar,Dropout rate,29.4
+BIHAR,Khagaria,Dropout rate,26.4
+BIHAR,Kishanganj,Dropout rate,35.5
+BIHAR,Lakhisarai,Dropout rate,23.4
+BIHAR,Madhepura,Dropout rate,20.7
+BIHAR,Madhubani,Dropout rate,26.3
+BIHAR,Munger,Dropout rate,28.6
+BIHAR,Muzaffarpur,Dropout rate,30.0
+BIHAR,Nalanda,Dropout rate,23.6
+BIHAR,Nawada,Dropout rate,27.0
+BIHAR,Pashchim Champaran,Dropout rate,29.7
+BIHAR,Patna,Dropout rate,23.5
+BIHAR,Purba Champaran,Dropout rate,24.7
+BIHAR,Purnia,Dropout rate,15.5
+BIHAR,Rohtas,Dropout rate,17.5
+BIHAR,Saharsa,Dropout rate,30.6
+BIHAR,Samastipur,Dropout rate,26.3
+BIHAR,Saran,Dropout rate,24.3
+BIHAR,Sheikhpura,Dropout rate,19.2
+BIHAR,Sheohar,Dropout rate,11.7
+BIHAR,Sitamarhi,Dropout rate,22.2
+BIHAR,Siwan,Dropout rate,29.3
+BIHAR,Supaul,Dropout rate,30.2
+BIHAR,Vaishali,Dropout rate,27.7
+CHHATTISGARH,Balod,Dropout rate,14.5
+CHHATTISGARH,Balodabazar,Dropout rate,19.3
+CHHATTISGARH,Balrampur,Dropout rate,19.6
+CHHATTISGARH,Baster,Dropout rate,12.8
+CHHATTISGARH,Bemetara,Dropout rate,21.0
+CHHATTISGARH,Bijapur,Dropout rate,13.7
+CHHATTISGARH,Bilaspur,Dropout rate,20.0
+CHHATTISGARH,Dantewada,Dropout rate,9.8
+CHHATTISGARH,Dhamtari,Dropout rate,16.9
+CHHATTISGARH,Durg,Dropout rate,13.0
+CHHATTISGARH,Gariaband,Dropout rate,17.5
+CHHATTISGARH,Gourela Pendra Marvahi,Dropout rate,21.6
+CHHATTISGARH,Janjgir - Champa,Dropout rate,16.2
+CHHATTISGARH,Jashpur,Dropout rate,13.9
+CHHATTISGARH,Kanker,Dropout rate,12.4
+CHHATTISGARH,Kawardha,Dropout rate,18.5
+CHHATTISGARH,Khairagarh-Chuikhadan-Gandai,Dropout rate,21.2
+CHHATTISGARH,Kondagaon,Dropout rate,13.7
+CHHATTISGARH,Korba,Dropout rate,15.3
+CHHATTISGARH,Koriya,Dropout rate,18.2
+CHHATTISGARH,Mahasamund,Dropout rate,17.4
+CHHATTISGARH,Manendragarh-Chirmiri-Bharatpur,Dropout rate,15.4
+CHHATTISGARH,Mohla-Manpur-Chowki,Dropout rate,13.5
+CHHATTISGARH,Mungeli,Dropout rate,21.9
+CHHATTISGARH,Narayanpur,Dropout rate,13.5
+CHHATTISGARH,Raigarh,Dropout rate,16.6
+CHHATTISGARH,Raipur,Dropout rate,14.5
+CHHATTISGARH,Rajnandgaon,Dropout rate,15.5
+CHHATTISGARH,Sakti,Dropout rate,13.3
+CHHATTISGARH,Sarangarh-Bilaigarh,Dropout rate,14.8
+CHHATTISGARH,Sukma,Dropout rate,12.4
+CHHATTISGARH,Surajpur,Dropout rate,15.1
+CHHATTISGARH,Surguja,Dropout rate,14.5
+DADRA & NAGAR HAVELI AND DAMAN & DIU,Dadra And Nagar Haveli(Dist),Dropout rate,18.7
+DADRA & NAGAR HAVELI AND DAMAN & DIU,Daman (Dist),Dropout rate,18.8
+DADRA & NAGAR HAVELI AND DAMAN & DIU,Diu (Dist),Dropout rate,18.2
+DELHI,Central,Dropout rate,13.6
+DELHI,East,Dropout rate,11.2
+DELHI,New Delhi,Dropout rate,5.6
+DELHI,North,Dropout rate,12.7
+DELHI,North East I,Dropout rate,0.0
+DELHI,North East Ii,Dropout rate,0.0
+DELHI,North West A,Dropout rate,7.4
+DELHI,North West B-I,Dropout rate,0.0
+DELHI,North West B-Ii,Dropout rate,0.0
+DELHI,South,Dropout rate,11.6
+DELHI,South East,Dropout rate,10.3
+DELHI,South West A,Dropout rate,4.0
+DELHI,South West B-I,Dropout rate,0.0
+DELHI,South West B-Ii,Dropout rate,0.0
+DELHI,West A,Dropout rate,17.9
+DELHI,West B,Dropout rate,11.9
+GUJARAT,Ahmedabad,Dropout rate,18.5
+GUJARAT,Amreli,Dropout rate,24.0
+GUJARAT,Anand,Dropout rate,24.2
+GUJARAT,Aravalli,Dropout rate,22.3
+GUJARAT,Banas Kantha,Dropout rate,19.8
+GUJARAT,Bharuch,Dropout rate,25.6
+GUJARAT,Bhavnagar,Dropout rate,19.6
+GUJARAT,Botad,Dropout rate,22.2
+GUJARAT,Chhotaudepur,Dropout rate,23.4
+GUJARAT,Devbhoomi Dwarka,Dropout rate,31.8
+GUJARAT,Dohad,Dropout rate,29.7
+GUJARAT,Gandhinagar,Dropout rate,15.9
+GUJARAT,Gir Somnath,Dropout rate,23.2
+GUJARAT,Jamnagar,Dropout rate,21.7
+GUJARAT,Junagadh,Dropout rate,22.6
+GUJARAT,Kachchh,Dropout rate,25.1
+GUJARAT,Kheda,Dropout rate,26.1
+GUJARAT,Mahesana,Dropout rate,22.6
+GUJARAT,Mahisagar,Dropout rate,25.0
+GUJARAT,Morbi,Dropout rate,17.8
+GUJARAT,Narmada,Dropout rate,27.8
+GUJARAT,Navsari,Dropout rate,17.5
+GUJARAT,Panch Mahals,Dropout rate,27.2
+GUJARAT,Patan,Dropout rate,25.4
+GUJARAT,Porbandar,Dropout rate,26.4
+GUJARAT,Rajkot,Dropout rate,14.1
+GUJARAT,Sabar Kantha,Dropout rate,22.6
+GUJARAT,Surat,Dropout rate,13.4
+GUJARAT,Surendranagar,Dropout rate,23.9
+GUJARAT,Tapi,Dropout rate,24.1
+GUJARAT,The Dangs,Dropout rate,21.4
+GUJARAT,Vadodara,Dropout rate,22.1
+GUJARAT,Valsad,Dropout rate,19.2
+HARYANA,Ambala,Dropout rate,13.9
+HARYANA,Bhiwani,Dropout rate,11.3
+HARYANA,Charkhi Dadri,Dropout rate,10.0
+HARYANA,Faridabad,Dropout rate,13.4
+HARYANA,Fatehabad,Dropout rate,17.3
+HARYANA,Gurugram,Dropout rate,10.6
+HARYANA,Hisar,Dropout rate,16.7
+HARYANA,Jhajjar,Dropout rate,10.6
+HARYANA,Jind,Dropout rate,10.9
+HARYANA,Kaithal,Dropout rate,13.1
+HARYANA,Karnal,Dropout rate,10.0
+HARYANA,Kurukshetra,Dropout rate,12.6
+HARYANA,Mahendragarh,Dropout rate,8.6
+HARYANA,Nuh,Dropout rate,27.8
+HARYANA,Palwal,Dropout rate,23.2
+HARYANA,Panchkula,Dropout rate,19.5
+HARYANA,Panipat,Dropout rate,12.5
+HARYANA,Rewari,Dropout rate,8.5
+HARYANA,Rohtak,Dropout rate,12.6
+HARYANA,Sirsa,Dropout rate,18.3
+HARYANA,Sonipat,Dropout rate,13.1
+HARYANA,Yamunanagar,Dropout rate,10.2
+HIMACHAL PRADESH,Bilaspur (H.P.),Dropout rate,1.5
+HIMACHAL PRADESH,Chamba,Dropout rate,8.7
+HIMACHAL PRADESH,Hamirpur (H.P.),Dropout rate,0.8
+HIMACHAL PRADESH,Kangra,Dropout rate,2.4
+HIMACHAL PRADESH,Kinnaur,Dropout rate,15.0
+HIMACHAL PRADESH,Kullu,Dropout rate,7.3
+HIMACHAL PRADESH,Lahul & Spiti,Dropout rate,27.0
+HIMACHAL PRADESH,Mandi,Dropout rate,5.5
+HIMACHAL PRADESH,Shimla,Dropout rate,5.7
+HIMACHAL PRADESH,Sirmaur,Dropout rate,9.1
+HIMACHAL PRADESH,Solan,Dropout rate,5.7
+HIMACHAL PRADESH,Una,Dropout rate,1.7
+JAMMU & KASHMIR,Anantnag,Dropout rate,9.9
+JAMMU & KASHMIR,Badgam,Dropout rate,14.8
+JAMMU & KASHMIR,Bandipora,Dropout rate,19.0
+JAMMU & KASHMIR,Baramula,Dropout rate,16.9
+JAMMU & KASHMIR,Doda,Dropout rate,18.4
+JAMMU & KASHMIR,Ganderbal,Dropout rate,12.4
+JAMMU & KASHMIR,Jammu,Dropout rate,6.9
+JAMMU & KASHMIR,Kathua,Dropout rate,12.1
+JAMMU & KASHMIR,Kishtwar,Dropout rate,17.3
+JAMMU & KASHMIR,Kulgam,Dropout rate,5.5
+JAMMU & KASHMIR,Kupwara,Dropout rate,13.5
+JAMMU & KASHMIR,Pulwama,Dropout rate,3.7
+JAMMU & KASHMIR,Punch,Dropout rate,25.3
+JAMMU & KASHMIR,Rajauri,Dropout rate,12.4
+JAMMU & KASHMIR,Ramban,Dropout rate,28.8
+JAMMU & KASHMIR,Reasi,Dropout rate,22.9
+JAMMU & KASHMIR,Samba,Dropout rate,10.5
+JAMMU & KASHMIR,Shopian,Dropout rate,8.8
+JAMMU & KASHMIR,Srinagar,Dropout rate,6.1
+JAMMU & KASHMIR,Udhampur,Dropout rate,19.3
+JHARKHAND,Bokaro,Dropout rate,6.5
+JHARKHAND,Chatra,Dropout rate,27.1
+JHARKHAND,Deoghar,Dropout rate,10.6
+JHARKHAND,Dhanbad,Dropout rate,20.8
+JHARKHAND,Dumka,Dropout rate,20.9
+JHARKHAND,Garhwa,Dropout rate,20.0
+JHARKHAND,Giridih,Dropout rate,15.2
+JHARKHAND,Godda,Dropout rate,22.0
+JHARKHAND,Gumla,Dropout rate,25.2
+JHARKHAND,Hazaribag,Dropout rate,10.8
+JHARKHAND,Jamtara,Dropout rate,21.5
+JHARKHAND,Khunti,Dropout rate,17.0
+JHARKHAND,Kodarma,Dropout rate,14.8
+JHARKHAND,Latehar,Dropout rate,17.1
+JHARKHAND,Lohardaga,Dropout rate,16.0
+JHARKHAND,Pakaur,Dropout rate,23.0
+JHARKHAND,Palamu,Dropout rate,14.4
+JHARKHAND,Pashchimi Singhbhum,Dropout rate,15.6
+JHARKHAND,Purbi Singhbhum,Dropout rate,10.7
+JHARKHAND,Ramgarh,Dropout rate,8.9
+JHARKHAND,Ranchi,Dropout rate,12.9
+JHARKHAND,Sahibganj,Dropout rate,17.7
+JHARKHAND,Saraikela-Kharsawan,Dropout rate,20.7
+JHARKHAND,Simdega,Dropout rate,28.7
+KARNATAKA,Bagalkot,Dropout rate,16.8
+KARNATAKA,Ballari,Dropout rate,24.2
+KARNATAKA,Belagavi,Dropout rate,24.4
+KARNATAKA,Belagavi Chikkodi,Dropout rate,23.2
+KARNATAKA,Bengaluru Rural,Dropout rate,20.4
+KARNATAKA,Bengaluru U North,Dropout rate,17.4
+KARNATAKA,Bengaluru U South,Dropout rate,25.6
+KARNATAKA,Bidar,Dropout rate,38.3
+KARNATAKA,Chamarajanagara,Dropout rate,23.3
+KARNATAKA,Chikkaballapura,Dropout rate,13.6
+KARNATAKA,Chikkamangaluru,Dropout rate,20.3
+KARNATAKA,Chitradurga,Dropout rate,21.4
+KARNATAKA,Dakshina Kannada,Dropout rate,1.4
+KARNATAKA,Davanagere,Dropout rate,11.7
+KARNATAKA,Dharwad,Dropout rate,16.5
+KARNATAKA,Gadag,Dropout rate,21.3
+KARNATAKA,Hassan,Dropout rate,17.8
+KARNATAKA,Haveri,Dropout rate,25.6
+KARNATAKA,Kalburgi,Dropout rate,31.3
+KARNATAKA,Kodagu,Dropout rate,18.4
+KARNATAKA,Kolar,Dropout rate,27.2
+KARNATAKA,Koppal,Dropout rate,34.2
+KARNATAKA,Mandya,Dropout rate,21.8
+KARNATAKA,Mysuru,Dropout rate,9.4
+KARNATAKA,Raichur,Dropout rate,33.2
+KARNATAKA,Ramanagara,Dropout rate,27.2
+KARNATAKA,Shivamogga,Dropout rate,22.1
+KARNATAKA,Tumakuru,Dropout rate,16.5
+KARNATAKA,Tumakuru Madhugiri,Dropout rate,23.4
+KARNATAKA,Udupi,Dropout rate,1.3
+KARNATAKA,Uttara Kannada,Dropout rate,15.1
+KARNATAKA,Uttara Kannada Sirsi,Dropout rate,21.2
+KARNATAKA,Vijayanagara,Dropout rate,30.5
+KARNATAKA,Vijayapura,Dropout rate,27.5
+KARNATAKA,Yadagiri,Dropout rate,31.8
+KERALA,Alappuzha,Dropout rate,4.1
+KERALA,Ernakulam,Dropout rate,0.8
+KERALA,Idukki,Dropout rate,5.0
+KERALA,Kannur,Dropout rate,3.4
+KERALA,Kasaragod,Dropout rate,7.3
+KERALA,Kollam,Dropout rate,3.4
+KERALA,Kottayam,Dropout rate,0.0
+KERALA,Kozhikode,Dropout rate,3.0
+KERALA,Malappuram,Dropout rate,7.5
+KERALA,Palakkad,Dropout rate,7.6
+KERALA,Pathanamthitta,Dropout rate,0.4
+KERALA,Thiruvananthapuram,Dropout rate,1.3
+KERALA,Thrissur,Dropout rate,3.1
+KERALA,Wayanad,Dropout rate,6.5
+MADHYA PRADESH,Agar Malwa,Dropout rate,21.8
+MADHYA PRADESH,Alirajpur,Dropout rate,18.2
+MADHYA PRADESH,Anuppur,Dropout rate,19.0
+MADHYA PRADESH,Ashoknagar,Dropout rate,22.3
+MADHYA PRADESH,Balaghat,Dropout rate,16.0
+MADHYA PRADESH,Barwani,Dropout rate,19.7
+MADHYA PRADESH,Betul,Dropout rate,19.0
+MADHYA PRADESH,Bhind,Dropout rate,20.8
+MADHYA PRADESH,Bhopal,Dropout rate,12.5
+MADHYA PRADESH,Burhanpur,Dropout rate,19.6
+MADHYA PRADESH,Chhatarpur,Dropout rate,20.0
+MADHYA PRADESH,Chhindwara,Dropout rate,16.7
+MADHYA PRADESH,Damoh,Dropout rate,14.9
+MADHYA PRADESH,Datia,Dropout rate,21.3
+MADHYA PRADESH,Dewas,Dropout rate,15.1
+MADHYA PRADESH,Dhar,Dropout rate,18.0
+MADHYA PRADESH,Dindori,Dropout rate,14.8
+MADHYA PRADESH,Guna,Dropout rate,23.0
+MADHYA PRADESH,Gwalior,Dropout rate,17.0
+MADHYA PRADESH,Harda,Dropout rate,22.0
+MADHYA PRADESH,Hoshangabad,Dropout rate,18.3
+MADHYA PRADESH,Indore,Dropout rate,7.2
+MADHYA PRADESH,Jabalpur,Dropout rate,17.7
+MADHYA PRADESH,Jhabua,Dropout rate,21.7
+MADHYA PRADESH,Katni,Dropout rate,20.7
+MADHYA PRADESH,Khandwa,Dropout rate,22.0
+MADHYA PRADESH,Khargone,Dropout rate,22.1
+MADHYA PRADESH,Mandla,Dropout rate,16.8
+MADHYA PRADESH,Mandsaur,Dropout rate,19.6
+MADHYA PRADESH,Morena,Dropout rate,15.9
+MADHYA PRADESH,Narsimhapur,Dropout rate,12.1
+MADHYA PRADESH,Neemuch,Dropout rate,19.8
+MADHYA PRADESH,Niwari,Dropout rate,25.0
+MADHYA PRADESH,Panna,Dropout rate,18.4
+MADHYA PRADESH,Raisen,Dropout rate,21.2
+MADHYA PRADESH,Rajgarh,Dropout rate,16.3
+MADHYA PRADESH,Ratlam,Dropout rate,25.3
+MADHYA PRADESH,Rewa,Dropout rate,17.3
+MADHYA PRADESH,Sagar,Dropout rate,7.7
+MADHYA PRADESH,Satna,Dropout rate,22.6
+MADHYA PRADESH,Sehore,Dropout rate,10.8
+MADHYA PRADESH,Seoni,Dropout rate,18.7
+MADHYA PRADESH,Shahdol,Dropout rate,19.5
+MADHYA PRADESH,Shajapur,Dropout rate,17.1
+MADHYA PRADESH,Sheopur,Dropout rate,22.9
+MADHYA PRADESH,Shivpuri,Dropout rate,20.3
+MADHYA PRADESH,Sidhi,Dropout rate,13.4
+MADHYA PRADESH,Singrauli,Dropout rate,17.2
+MADHYA PRADESH,Tikamgarh,Dropout rate,27.2
+MADHYA PRADESH,Ujjain,Dropout rate,19.5
+MADHYA PRADESH,Umaria,Dropout rate,23.6
+MADHYA PRADESH,Vidisha,Dropout rate,21.4
+MAHARASHTRA,Ahmadnagar,Dropout rate,9.4
+MAHARASHTRA,Akola,Dropout rate,7.3
+MAHARASHTRA,Amravati,Dropout rate,11.4
+MAHARASHTRA,Bhandara,Dropout rate,4.0
+MAHARASHTRA,Bid,Dropout rate,7.7
+MAHARASHTRA,Buldana,Dropout rate,12.4
+MAHARASHTRA,Chandrapur,Dropout rate,8.4
+MAHARASHTRA,Chhatrapati Sambhajinagar,Dropout rate,0.0
+MAHARASHTRA,Dharashiv,Dropout rate,0.0
+MAHARASHTRA,Dhule,Dropout rate,16.3
+MAHARASHTRA,Gadchiroli,Dropout rate,9.4
+MAHARASHTRA,Gondiya,Dropout rate,2.7
+MAHARASHTRA,Hingoli,Dropout rate,10.4
+MAHARASHTRA,Jalgaon,Dropout rate,17.2
+MAHARASHTRA,Jalna,Dropout rate,8.0
+MAHARASHTRA,Kolhapur,Dropout rate,6.6
+MAHARASHTRA,Latur,Dropout rate,10.2
+MAHARASHTRA,Mumbai (Suburban),Dropout rate,49.5
+MAHARASHTRA,Mumbai Ii,Dropout rate,1.7
+MAHARASHTRA,Nagpur,Dropout rate,4.5
+MAHARASHTRA,Nanded,Dropout rate,12.0
+MAHARASHTRA,Nandurbar,Dropout rate,17.3
+MAHARASHTRA,Nashik,Dropout rate,14.8
+MAHARASHTRA,Palghar,Dropout rate,19.2
+MAHARASHTRA,Parbhani,Dropout rate,12.6
+MAHARASHTRA,Pune,Dropout rate,8.1
+MAHARASHTRA,Raigarh (Maharashtra),Dropout rate,12.0
+MAHARASHTRA,Ratnagiri,Dropout rate,9.7
+MAHARASHTRA,Sangli,Dropout rate,9.2
+MAHARASHTRA,Satara,Dropout rate,8.7
+MAHARASHTRA,Sindhudurg,Dropout rate,6.6
+MAHARASHTRA,Solapur,Dropout rate,12.9
+MAHARASHTRA,Thane,Dropout rate,10.9
+MAHARASHTRA,Wardha,Dropout rate,7.9
+MAHARASHTRA,Washim,Dropout rate,5.8
+MAHARASHTRA,Yavatmal,Dropout rate,11.1
+MANIPUR,Bishnupur,Dropout rate,22.1
+MANIPUR,Chandel,Dropout rate,25.9
+MANIPUR,Churachandpur,Dropout rate,33.4
+MANIPUR,Imphal East,Dropout rate,18.2
+MANIPUR,Imphal West,Dropout rate,2.5
+MANIPUR,Jiribam,Dropout rate,21.8
+MANIPUR,Kakching,Dropout rate,30.5
+MANIPUR,Kamjong,Dropout rate,12.2
+MANIPUR,Kangpokpi,Dropout rate,25.5
+MANIPUR,Noney,Dropout rate,34.3
+MANIPUR,Pherzawl,Dropout rate,41.9
+MANIPUR,Senapati,Dropout rate,4.9
+MANIPUR,Tamenglong,Dropout rate,16.9
+MANIPUR,Tengnoupal,Dropout rate,29.7
+MANIPUR,Thoubal,Dropout rate,8.2
+MANIPUR,Ukhrul,Dropout rate,22.5
+MEGHALAYA,East Garo Hills,Dropout rate,14.6
+MEGHALAYA,East Jaintia Hills,Dropout rate,38.6
+MEGHALAYA,East Khasi Hills,Dropout rate,11.2
+MEGHALAYA,Eastern West Khasi Hills,Dropout rate,19.8
+MEGHALAYA,North Garo Hills,Dropout rate,44.0
+MEGHALAYA,Ri Bhoi,Dropout rate,16.9
+MEGHALAYA,South Garo Hills,Dropout rate,30.7
+MEGHALAYA,South West Garo Hills,Dropout rate,29.2
+MEGHALAYA,South West Khasi Hills,Dropout rate,26.3
+MEGHALAYA,West Garo Hills,Dropout rate,25.4
+MEGHALAYA,West Jaintia Hills,Dropout rate,20.6
+MEGHALAYA,West Khasi Hills,Dropout rate,32.1
+MIZORAM,Aizawl,Dropout rate,0.6
+MIZORAM,Champhai,Dropout rate,20.3
+MIZORAM,Hnahthial,Dropout rate,32.5
+MIZORAM,Khawzawl,Dropout rate,24.7
+MIZORAM,Kolasib,Dropout rate,23.3
+MIZORAM,Lawngtlai,Dropout rate,29.5
+MIZORAM,Lunglei,Dropout rate,24.6
+MIZORAM,Mamit,Dropout rate,40.0
+MIZORAM,Saiha,Dropout rate,1.9
+MIZORAM,Saitual,Dropout rate,29.8
+MIZORAM,Serchhip,Dropout rate,23.1
+NAGALAND,Dimapur,Dropout rate,5.6
+NAGALAND,Kiphire,Dropout rate,27.9
+NAGALAND,Kohima,Dropout rate,4.5
+NAGALAND,Longleng,Dropout rate,14.6
+NAGALAND,Mokokchung,Dropout rate,14.2
+NAGALAND,Mon,Dropout rate,26.7
+NAGALAND,Peren,Dropout rate,16.0
+NAGALAND,Phek,Dropout rate,25.5
+NAGALAND,Tuensang,Dropout rate,21.9
+NAGALAND,Wokha,Dropout rate,33.6
+NAGALAND,Zunheboto,Dropout rate,26.7
+ODISHA,Angul,Dropout rate,17.2
+ODISHA,Balasore,Dropout rate,12.7
+ODISHA,Baragarh,Dropout rate,15.1
+ODISHA,Bhadrak,Dropout rate,18.7
+ODISHA,Bolangir,Dropout rate,17.0
+ODISHA,Boudh,Dropout rate,18.4
+ODISHA,Cuttack,Dropout rate,3.4
+ODISHA,Deogarh,Dropout rate,14.2
+ODISHA,Dhenkanal,Dropout rate,16.4
+ODISHA,Gajapati,Dropout rate,16.6
+ODISHA,Ganjam,Dropout rate,12.7
+ODISHA,Jagatsinghpur,Dropout rate,15.2
+ODISHA,Jajpur,Dropout rate,9.0
+ODISHA,Jharsuguda,Dropout rate,21.6
+ODISHA,Kalahandi,Dropout rate,19.0
+ODISHA,Kandhamal,Dropout rate,14.0
+ODISHA,Kendrapara,Dropout rate,16.4
+ODISHA,Keonjhar,Dropout rate,18.6
+ODISHA,Khurdha,Dropout rate,0.0
+ODISHA,Koraput,Dropout rate,19.0
+ODISHA,Malkangiri,Dropout rate,14.0
+ODISHA,Mayurbhanj,Dropout rate,15.5
+ODISHA,Nabarangpur,Dropout rate,22.2
+ODISHA,Nayagarh,Dropout rate,8.0
+ODISHA,Nuapada,Dropout rate,17.9
+ODISHA,Puri,Dropout rate,7.0
+ODISHA,Rayagada,Dropout rate,18.1
+ODISHA,Sambalpur,Dropout rate,3.4
+ODISHA,Sonepur,Dropout rate,7.9
+ODISHA,Sundergarh,Dropout rate,11.2
+PUDUCHERRY,Karaikal,Dropout rate,11.8
+PUDUCHERRY,Mahe,Dropout rate,4.8
+PUDUCHERRY,Pondicherry,Dropout rate,6.8
+PUDUCHERRY,Yanam,Dropout rate,16.5
+PUNJAB,Amritsar,Dropout rate,7.8
+PUNJAB,Barnala,Dropout rate,4.4
+PUNJAB,Bathinda,Dropout rate,3.5
+PUNJAB,Faridkot,Dropout rate,6.0
+PUNJAB,Fatehgarh Sahib,Dropout rate,4.8
+PUNJAB,Fazilka,Dropout rate,8.5
+PUNJAB,Firozpur,Dropout rate,4.6
+PUNJAB,Gurdaspur,Dropout rate,6.0
+PUNJAB,Hoshiarpur,Dropout rate,5.4
+PUNJAB,Jalandhar,Dropout rate,5.6
+PUNJAB,Kapurthala,Dropout rate,6.5
+PUNJAB,Ludhiana,Dropout rate,6.6
+PUNJAB,Malerkotla,Dropout rate,2.2
+PUNJAB,Mansa,Dropout rate,8.0
+PUNJAB,Moga,Dropout rate,5.7
+PUNJAB,Mohali,Dropout rate,7.3
+PUNJAB,Muktsar,Dropout rate,7.2
+PUNJAB,Nawanshahr,Dropout rate,4.7
+PUNJAB,Pathankot,Dropout rate,5.7
+PUNJAB,Patiala,Dropout rate,4.3
+PUNJAB,Rupnagar,Dropout rate,6.1
+PUNJAB,Sangrur,Dropout rate,4.0
+PUNJAB,Taran Taran,Dropout rate,8.4
+RAJASTHAN,Ajmer,Dropout rate,48.5
+RAJASTHAN,Alwar,Dropout rate,48.6
+RAJASTHAN,Anoopgarh,Dropout rate,0.0
+RAJASTHAN,Balotara,Dropout rate,0.0
+RAJASTHAN,Banswara,Dropout rate,11.2
+RAJASTHAN,Baran,Dropout rate,18.2
+RAJASTHAN,Barmer,Dropout rate,45.7
+RAJASTHAN,Beawar,Dropout rate,0.0
+RAJASTHAN,Bharatpur,Dropout rate,43.4
+RAJASTHAN,Bhilwara,Dropout rate,41.9
+RAJASTHAN,Bikaner,Dropout rate,12.1
+RAJASTHAN,Bundi,Dropout rate,13.1
+RAJASTHAN,Chittaurgarh,Dropout rate,16.5
+RAJASTHAN,Churu,Dropout rate,9.3
+RAJASTHAN,Dausa,Dropout rate,7.3
+RAJASTHAN,Deeg,Dropout rate,0.0
+RAJASTHAN,Dhaulpur,Dropout rate,16.4
+RAJASTHAN,Didwana-Kuchaman,Dropout rate,0.0
+RAJASTHAN,Dudu,Dropout rate,0.0
+RAJASTHAN,Dungarpur,Dropout rate,9.2
+RAJASTHAN,Ganganagar,Dropout rate,42.9
+RAJASTHAN,Gangapur City,Dropout rate,0.0
+RAJASTHAN,Hanumangarh,Dropout rate,8.8
+RAJASTHAN,Jaipur,Dropout rate,57.4
+RAJASTHAN,Jaipur(Rural),Dropout rate,0.0
+RAJASTHAN,Jaisalmer,Dropout rate,20.7
+RAJASTHAN,Jalor,Dropout rate,56.8
+RAJASTHAN,Jhalawar,Dropout rate,11.6
+RAJASTHAN,Jhunjhunu,Dropout rate,25.4
+RAJASTHAN,Jodhpur,Dropout rate,76.1
+RAJASTHAN,Jodhpur(Rural),Dropout rate,0.0
+RAJASTHAN,Karauli,Dropout rate,37.0
+RAJASTHAN,Kekri,Dropout rate,0.0
+RAJASTHAN,Khairthal-Tijara,Dropout rate,0.0
+RAJASTHAN,Kota,Dropout rate,3.3
+RAJASTHAN,Kotputli-Behror,Dropout rate,0.0
+RAJASTHAN,Nagaur,Dropout rate,55.8
+RAJASTHAN,Neem Ka Thana,Dropout rate,0.0
+RAJASTHAN,Pali,Dropout rate,33.3
+RAJASTHAN,Phalodi,Dropout rate,0.0
+RAJASTHAN,Pratapgarh (Raj.),Dropout rate,13.6
+RAJASTHAN,Rajsamand,Dropout rate,17.2
+RAJASTHAN,Salumbar,Dropout rate,0.0
+RAJASTHAN,Sanchore,Dropout rate,0.0
+RAJASTHAN,Sawai Madhopur,Dropout rate,49.8
+RAJASTHAN,Shahpura,Dropout rate,0.0
+RAJASTHAN,Sikar,Dropout rate,16.0
+RAJASTHAN,Sirohi,Dropout rate,16.4
+RAJASTHAN,Tonk,Dropout rate,16.9
+RAJASTHAN,Udaipur,Dropout rate,31.1
+SIKKIM,Gangtok,Dropout rate,14.4
+SIKKIM,Gyalshing,Dropout rate,19.7
+SIKKIM,Mangan,Dropout rate,22.4
+SIKKIM,Namchi,Dropout rate,18.8
+SIKKIM,Pakyong,Dropout rate,24.1
+SIKKIM,Soreng,Dropout rate,22.9
+TAMILNADU,Ariyalur,Dropout rate,8.8
+TAMILNADU,Chengalpattu,Dropout rate,6.4
+TAMILNADU,Chennai (Ext. Gcc),Dropout rate,5.1
+TAMILNADU,Coimbatore,Dropout rate,6.6
+TAMILNADU,Cuddalore,Dropout rate,9.6
+TAMILNADU,Dharmapuri,Dropout rate,8.3
+TAMILNADU,Dindigul,Dropout rate,11.9
+TAMILNADU,Erode,Dropout rate,6.8
+TAMILNADU,Kallakurichi,Dropout rate,10.2
+TAMILNADU,Kancheepuram,Dropout rate,6.5
+TAMILNADU,Kanniyakumari,Dropout rate,3.5
+TAMILNADU,Karur,Dropout rate,9.6
+TAMILNADU,Krishnagiri,Dropout rate,15.1
+TAMILNADU,Madurai,Dropout rate,6.5
+TAMILNADU,Mayiladuthurai,Dropout rate,10.4
+TAMILNADU,Nagapattinam,Dropout rate,9.9
+TAMILNADU,Namakkal,Dropout rate,1.5
+TAMILNADU,Perambalur,Dropout rate,2.7
+TAMILNADU,Pudukkottai,Dropout rate,10.1
+TAMILNADU,Ramanathapuram,Dropout rate,8.0
+TAMILNADU,Ranipet,Dropout rate,11.0
+TAMILNADU,Salem,Dropout rate,8.9
+TAMILNADU,Sivagangai,Dropout rate,5.7
+TAMILNADU,Tenkasi,Dropout rate,7.7
+TAMILNADU,Thanjavur,Dropout rate,5.9
+TAMILNADU,The Nilgiris,Dropout rate,11.0
+TAMILNADU,Theni,Dropout rate,7.9
+TAMILNADU,Thoothukkudi,Dropout rate,9.1
+TAMILNADU,Tiruchirappalli,Dropout rate,4.0
+TAMILNADU,Tirunelveli,Dropout rate,7.5
+TAMILNADU,Tirupathur,Dropout rate,9.8
+TAMILNADU,Tiruppur,Dropout rate,9.8
+TAMILNADU,Tiruvallur,Dropout rate,7.5
+TAMILNADU,Tiruvannamalai,Dropout rate,8.6
+TAMILNADU,Tiruvarur,Dropout rate,9.7
+TAMILNADU,Vellore,Dropout rate,8.8
+TAMILNADU,Villupuram,Dropout rate,8.4
+TAMILNADU,Virudhunagar,Dropout rate,7.6
+TELANGANA,Adilabad,Dropout rate,16.4
+TELANGANA,Bhadradri Kothagudem,Dropout rate,17.0
+TELANGANA,Hanumakonda,Dropout rate,0.0
+TELANGANA,Hyderabad,Dropout rate,15.6
+TELANGANA,Jagtial,Dropout rate,20.6
+TELANGANA,Jangaon,Dropout rate,21.7
+TELANGANA,Jayashankar Bhupalapally,Dropout rate,0.0
+TELANGANA,Jogulamba Gadwal,Dropout rate,28.8
+TELANGANA,Kamareddy,Dropout rate,15.9
+TELANGANA,Karimnagar,Dropout rate,0.0
+TELANGANA,Khammam,Dropout rate,0.1
+TELANGANA,Kumuram Bheem Asifabad,Dropout rate,15.5
+TELANGANA,Mahabubabad,Dropout rate,28.1
+TELANGANA,Mahabubnagar,Dropout rate,10.0
+TELANGANA,Mancherial,Dropout rate,20.3
+TELANGANA,Medak,Dropout rate,21.5
+TELANGANA,Medchal Malkajgiri,Dropout rate,0.0
+TELANGANA,Mulugu,Dropout rate,21.5
+TELANGANA,Nagarkurnool,Dropout rate,20.8
+TELANGANA,Nalgonda,Dropout rate,19.6
+TELANGANA,Narayanapet,Dropout rate,23.2
+TELANGANA,Nirmal,Dropout rate,17.7
+TELANGANA,Nizamabad,Dropout rate,17.8
+TELANGANA,Peddapalli,Dropout rate,18.9
+TELANGANA,Rajanna Siricilla,Dropout rate,19.8
+TELANGANA,Rangareddy,Dropout rate,2.8
+TELANGANA,Sangareddy,Dropout rate,14.3
+TELANGANA,Siddipet,Dropout rate,15.3
+TELANGANA,Suryapet,Dropout rate,22.3
+TELANGANA,Vikarabad,Dropout rate,24.6
+TELANGANA,Wanaparthy,Dropout rate,8.8
+TELANGANA,Warangal,Dropout rate,22.4
+TELANGANA,Yadadri Bhuvanagiri,Dropout rate,19.8
+TRIPURA,Dhalai,Dropout rate,11.9
+TRIPURA,Gomati,Dropout rate,12.0
+TRIPURA,Khowai,Dropout rate,14.1
+TRIPURA,North Tripura,Dropout rate,13.9
+TRIPURA,Sepahijala,Dropout rate,13.2
+TRIPURA,South Tripura,Dropout rate,11.6
+TRIPURA,Unakoti,Dropout rate,13.3
+TRIPURA,West Tripura,Dropout rate,3.7
+UTTAR PRADESH,Agra,Dropout rate,6.0
+UTTAR PRADESH,Aligarh,Dropout rate,11.9
+UTTAR PRADESH,Ambedkar Nagar,Dropout rate,9.6
+UTTAR PRADESH,Amethi - Csm Nagar,Dropout rate,10.1
+UTTAR PRADESH,Auraiya,Dropout rate,9.0
+UTTAR PRADESH,Azamgarh,Dropout rate,13.9
+UTTAR PRADESH,Baghpat,Dropout rate,6.1
+UTTAR PRADESH,Bahraich,Dropout rate,16.2
+UTTAR PRADESH,Ballia,Dropout rate,15.4
+UTTAR PRADESH,Balrampur,Dropout rate,12.3
+UTTAR PRADESH,Banda,Dropout rate,12.7
+UTTAR PRADESH,Barabanki,Dropout rate,16.4
+UTTAR PRADESH,Bareilly,Dropout rate,6.9
+UTTAR PRADESH,Basti,Dropout rate,12.0
+UTTAR PRADESH,Bhadoi,Dropout rate,9.8
+UTTAR PRADESH,Bijnor,Dropout rate,11.1
+UTTAR PRADESH,Budaun,Dropout rate,10.5
+UTTAR PRADESH,Bulandshahr,Dropout rate,2.4
+UTTAR PRADESH,Chandauli,Dropout rate,9.5
+UTTAR PRADESH,Chitrakoot,Dropout rate,10.0
+UTTAR PRADESH,Deoria,Dropout rate,13.1
+UTTAR PRADESH,Etah,Dropout rate,10.5
+UTTAR PRADESH,Etawah,Dropout rate,7.4
+UTTAR PRADESH,Faizabad,Dropout rate,7.1
+UTTAR PRADESH,Farrukhabad,Dropout rate,10.5
+UTTAR PRADESH,Fatehpur,Dropout rate,12.0
+UTTAR PRADESH,Firozabad,Dropout rate,8.9
+UTTAR PRADESH,Gautam Buddha Nagar,Dropout rate,2.3
+UTTAR PRADESH,Ghaziabad,Dropout rate,3.8
+UTTAR PRADESH,Ghazipur,Dropout rate,15.9
+UTTAR PRADESH,Gonda,Dropout rate,9.4
+UTTAR PRADESH,Gorakhpur,Dropout rate,5.5
+UTTAR PRADESH,Hamirpur (U.P.),Dropout rate,6.5
+UTTAR PRADESH,Hapur (Panchsheel Nagar),Dropout rate,6.9
+UTTAR PRADESH,Hardoi,Dropout rate,12.9
+UTTAR PRADESH,Hathras,Dropout rate,10.7
+UTTAR PRADESH,Jalaun,Dropout rate,8.5
+UTTAR PRADESH,Jaunpur,Dropout rate,7.8
+UTTAR PRADESH,Jhansi,Dropout rate,5.8
+UTTAR PRADESH,Jyotiba Phule Nagar (Amroha),Dropout rate,7.6
+UTTAR PRADESH,Kannauj,Dropout rate,14.9
+UTTAR PRADESH,Kanpur Dehat,Dropout rate,10.9
+UTTAR PRADESH,Kanpur Nagar,Dropout rate,5.4
+UTTAR PRADESH,Kanshiram Nagar,Dropout rate,9.3
+UTTAR PRADESH,Kaushambi,Dropout rate,13.1
+UTTAR PRADESH,Kheri,Dropout rate,8.5
+UTTAR PRADESH,Kushinagar,Dropout rate,13.1
+UTTAR PRADESH,Lalitpur,Dropout rate,12.5
+UTTAR PRADESH,Lucknow,Dropout rate,4.6
+UTTAR PRADESH,Maharajganj,Dropout rate,13.2
+UTTAR PRADESH,Mahoba,Dropout rate,14.7
+UTTAR PRADESH,Mainpuri,Dropout rate,12.3
+UTTAR PRADESH,Mathura,Dropout rate,7.4
+UTTAR PRADESH,Mau,Dropout rate,12.7
+UTTAR PRADESH,Meerut,Dropout rate,2.2
+UTTAR PRADESH,Mirzapur,Dropout rate,10.4
+UTTAR PRADESH,Moradabad,Dropout rate,12.4
+UTTAR PRADESH,Muzaffarnagar,Dropout rate,7.0
+UTTAR PRADESH,Pilibhit,Dropout rate,10.3
+UTTAR PRADESH,Pratapgarh,Dropout rate,10.1
+UTTAR PRADESH,Prayagraj,Dropout rate,9.1
+UTTAR PRADESH,Rae Bareli,Dropout rate,6.7
+UTTAR PRADESH,Rampur,Dropout rate,8.2
+UTTAR PRADESH,Saharanpur,Dropout rate,7.0
+UTTAR PRADESH,Sambhal (Bhim Nagar),Dropout rate,2.7
+UTTAR PRADESH,Sant Kabir Nagar,Dropout rate,13.7
+UTTAR PRADESH,Shahjahanpur,Dropout rate,14.0
+UTTAR PRADESH,Shamli (Prabudh Nagar),Dropout rate,5.7
+UTTAR PRADESH,Shrawasti,Dropout rate,13.1
+UTTAR PRADESH,Siddharthnagar,Dropout rate,15.9
+UTTAR PRADESH,Sitapur,Dropout rate,10.0
+UTTAR PRADESH,Sonbhadra,Dropout rate,10.5
+UTTAR PRADESH,Sultanpur,Dropout rate,7.6
+UTTAR PRADESH,Unnao,Dropout rate,9.9
+UTTAR PRADESH,Varanasi,Dropout rate,6.8
+UTTARAKHAND,Almora,Dropout rate,6.9
+UTTARAKHAND,Bageshwar,Dropout rate,6.0
+UTTARAKHAND,Chamoli,Dropout rate,5.4
+UTTARAKHAND,Champawat,Dropout rate,8.2
+UTTARAKHAND,Dehradun,Dropout rate,5.0
+UTTARAKHAND,Hardwar,Dropout rate,6.7
+UTTARAKHAND,Nainital,Dropout rate,6.0
+UTTARAKHAND,Pauri,Dropout rate,6.1
+UTTARAKHAND,Pithoragarh,Dropout rate,6.0
+UTTARAKHAND,Rudraprayag,Dropout rate,5.4
+UTTARAKHAND,Tehri Garhwal,Dropout rate,5.6
+UTTARAKHAND,Udham Singh Nagar,Dropout rate,12.9
+UTTARAKHAND,Uttarkashi,Dropout rate,8.6
+WEST BENGAL,Alipurduar,Dropout rate,13.4
+WEST BENGAL,Bankura,Dropout rate,15.5
+WEST BENGAL,Birbhum,Dropout rate,24.7
+WEST BENGAL,Coochbehar,Dropout rate,19.9
+WEST BENGAL,Dakshin Dinajpur,Dropout rate,21.2
+WEST BENGAL,Darjiling,Dropout rate,2.6
+WEST BENGAL,Hooghly,Dropout rate,17.7
+WEST BENGAL,Howrah,Dropout rate,19.6
+WEST BENGAL,Jalpaiguri,Dropout rate,16.3
+WEST BENGAL,Jhargram,Dropout rate,14.5
+WEST BENGAL,Kalimpong,Dropout rate,0.0
+WEST BENGAL,Kolkata,Dropout rate,7.3
+WEST BENGAL,Maldah,Dropout rate,20.5
+WEST BENGAL,Murshidabad,Dropout rate,21.9
+WEST BENGAL,Nadia,Dropout rate,13.9
+WEST BENGAL,North Twenty Four Parganas,Dropout rate,0.0
+WEST BENGAL,Paschim Bardhaman,Dropout rate,11.6
+WEST BENGAL,Paschim Medinipur,Dropout rate,18.6
+WEST BENGAL,Purba Bardhaman,Dropout rate,22.2
+WEST BENGAL,Purba Medinipur,Dropout rate,18.3
+WEST BENGAL,Puruliya,Dropout rate,12.4
+WEST BENGAL,Siliguri,Dropout rate,12.5
+WEST BENGAL,South Twenty Four Parganas,Dropout rate,0.0
+WEST BENGAL,Uttar Dinajpur,Dropout rate,23.2

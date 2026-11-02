@@ -205,3 +205,187 @@
     transparent 5px
   );
 }
+
+/* ── Persona intro "video" (src/components/persona/PersonaIntro.tsx) ───────────────────────────────── */
+/* The wrapper is a size container so text scales with the stage, like a video; narrow stages go portrait. */
+.intro-wrap {
+  container-type: inline-size;
+}
+.intro-stage {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #9fd4f0;
+}
+.intro-avatar {
+  position: absolute;
+  left: 5%;
+  top: 50%;
+  width: 24cqw;
+  translate: 0 -60%;
+}
+.intro-panel {
+  position: absolute;
+  right: 4%;
+  top: 9%;
+  width: 58%;
+  max-height: 68%;
+}
+.intro-caption {
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  bottom: 4%;
+}
+.intro-t-xs {
+  font-size: max(9.5px, 1.3cqw);
+}
+.intro-t-sm {
+  font-size: max(10.5px, 1.55cqw);
+}
+.intro-t-md {
+  font-size: max(11.5px, 1.85cqw);
+}
+.intro-t-lg {
+  font-size: max(14px, 2.6cqw);
+}
+.intro-t-xl {
+  font-size: max(17px, 3.6cqw);
+}
+.intro-emoji {
+  font-size: 12cqw;
+}
+@container (max-width: 560px) {
+  .intro-stage {
+    aspect-ratio: 1 / 1;
+  }
+  .intro-avatar {
+    left: 50%;
+    top: 10%;
+    width: 20cqw;
+    translate: -50% 0;
+  }
+  .intro-panel {
+    left: 5%;
+    right: 5%;
+    top: 33%;
+    width: auto;
+    max-height: 44%;
+  }
+  .intro-t-xs {
+    font-size: 2.9cqw;
+  }
+  .intro-t-sm {
+    font-size: 3.3cqw;
+  }
+  .intro-t-md {
+    font-size: 3.7cqw;
+  }
+  .intro-t-lg {
+    font-size: 5cqw;
+  }
+  .intro-t-xl {
+    font-size: 6.6cqw;
+  }
+  .intro-emoji {
+    font-size: 15cqw;
+  }
+}
+@container (max-width: 380px) {
+  .intro-stage {
+    aspect-ratio: 3 / 4;
+  }
+  .intro-avatar {
+    top: 7%;
+    width: 28cqw;
+  }
+  .intro-panel {
+    top: 34%;
+    max-height: 44%;
+  }
+}
+.intro-fade {
+  transition: opacity 1.6s ease;
+}
+.intro-sun {
+  transition: transform 1.6s ease;
+}
+@keyframes intro-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3%);
+  }
+}
+@keyframes intro-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.45);
+    opacity: 0;
+  }
+}
+@keyframes intro-cloud {
+  from {
+    transform: translateX(-450px);
+  }
+  to {
+    transform: translateX(1800px);
+  }
+}
+@keyframes intro-sway {
+  0%,
+  100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+@keyframes intro-wave {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-200px);
+  }
+}
+@keyframes intro-boat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-1.5deg);
+  }
+  50% {
+    transform: translateY(8px) rotate(1.5deg);
+  }
+}
+@keyframes intro-mist {
+  0%,
+  100% {
+    transform: translateX(-120px);
+  }
+  50% {
+    transform: translateX(160px);
+  }
+}
+@keyframes intro-rise {
+  0% {
+    transform: translateY(0) scale(0.6);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-170px) scale(1.7);
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .intro-stage *,
+  .intro-loop {
+    animation: none !important;
+    transition: none !important;
+  }
+}

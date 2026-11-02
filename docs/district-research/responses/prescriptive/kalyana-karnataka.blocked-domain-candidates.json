@@ -1,0 +1,397 @@
+{
+ "region": "kalyana-karnataka",
+ "researchedOn": "2026-11-03",
+ "note": "NOT part of the main result. Candidate findings from publishers whose pages WebFetch refuses to open (The Hindu, Hindustan Times, New Indian Express, Bangalore Mirror, Times of India, ANI). Quotes were checked verbatim against a direct HTTP read, but the pages were not opened with WebFetch, so they do not meet hard rule 1.",
+ "districts": [
+  {
+   "districtId": "29-579",
+   "name": "Kalaburagi",
+   "changes": [
+    {
+     "factor": "% Schools with Library",
+     "summary": "A student at Rajapur government high school says there is no separate library room. A 2021 mobile library bus carrying over 4,000 books reached remote villages. No recent school library survey found.",
+     "findings": [
+      {
+       "claim": "A student at Government High School, Rajapur, Kalaburagi told a child-rights panel member that the school has no proper toilet and no separate room for a library.",
+       "quote": "There is no proper toilet. Nor is there a separate room for library.",
+       "url": "https://www.thehindu.com/news/national/karnataka/students-in-kalaburagi-district-demand-classrooms-toilets-and-bus-services/article68886566.ece",
+       "title": "Students in Kalaburagi district demand classrooms, toilets and bus services",
+       "outlet": "The Hindu",
+       "date": "2024-11-20",
+       "scope": "district",
+       "stance": "gap"
+      },
+      {
+       "claim": "A mobile library bus carrying over 4,000 books was launched by NEKRTC with the Zilla Panchayat and education department to bring reading to children in remote Kalaburagi villages.",
+       "quote": "The unconventional library, in an old bus with over 4,000 books and about a hundred magazines, will soon allow students to issue books and return them the next time the bus visits.",
+       "url": "https://www.hindustantimes.com/education/news/mobile-library-rolled-out-for-children-in-kalaburagi-s-remote-areas-in-karnataka-101614416347267.html",
+       "title": "Mobile library rolled out for children in Kalaburagi's remote areas in Karnataka",
+       "outlet": "Hindustan Times",
+       "date": "2021-02-27",
+       "scope": "district",
+       "stance": "context"
+      }
+     ]
+    },
+    {
+     "factor": "% Classrooms in Good Condition",
+     "summary": "Reports describe a cracked, leaking school roof in Gulab Wadi and a classroom roof collapse injuring three students in Sedam taluk; a regional claim cites 18,022 Kalyana Karnataka classrooms needing repair.",
+     "findings": [
+      {
+       "claim": "Activists say a government lower primary school in Gulab Wadi, Kalaburagi has a cracked roof that leaks in the monsoon, disrupting classes and endangering students.",
+       "quote": "The roof of the building is cracked and leaks during the monsoon, disrupting classes and posing a threat to student safety.",
+       "url": "https://www.thehindu.com/news/national/karnataka/parents-activists-demand-urgent-repairs-to-government-school-in-kalaburagi/article69602923.ece",
+       "title": "Parents, activists demand urgent repairs to government school in Kalaburagi",
+       "outlet": "The Hindu",
+       "date": "2025-05-22",
+       "scope": "district",
+       "stance": "gap"
+      },
+      {
+       "claim": "Three students were hurt, one seriously, when roof soil fell inside a classroom of a government higher primary school at Malkapally, Sedam taluk, Kalaburagi district.",
+       "quote": "Three students of Government Higher Primary school sustained injuries, one seriously when the soil of the roof of the class room in which they were studying fell on them at Malkapally village of Sedam taluk on Friday.",
+       "url": "https://www.newindianexpress.com/states/karnataka/2025/Aug/23/classroom-wall-collapses-three-students-sustain-injuries-in-kalaburagi",
+       "title": "Classroom wall collapses; three students sustain injuries in Kalaburagi",
+       "outlet": "The New Indian Express",
+       "date": "2025-08-22",
+       "scope": "district",
+       "stance": "gap"
+      }
+     ]
+    },
+    {
+     "factor": "% Schools with CCE Implemented",
+     "summary": "No district-specific source found.",
+     "findings": []
+    }
+   ]
+  },
+  {
+   "districtId": "29-558",
+   "name": "Bidar",
+   "changes": [
+    {
+     "factor": "% Schools with Functional Total Toilets",
+     "summary": "A CSR-built toilet block with water facilities opened at a girls' school in Rajeshwar, Basavakalyan taluk (2025). An older 2017 report described a Bidar school with neglected toilets and girls forced to go outdoors.",
+     "findings": [
+      {
+       "claim": "A CSR-funded toilet block with water facilities and ventilation was inaugurated at the Government Girls School in Rajeshwar village, Basavakalyan taluk, which had only minimal sanitary facilities before.",
+       "quote": "The school, which had been functioning with minimal sanitary facilities, will now benefit from a modern toilet complex equipped with water facilities and proper ventilation.",
+       "url": "https://www.thehindu.com/news/national/karnataka/deccan-tollways-builds-toilet-block-at-government-girls-school-in-bidar/article69869868.ece",
+       "title": "Deccan Tollways builds toilet block at Government Girls School in Bidar",
+       "outlet": "The Hindu",
+       "date": "2025-07-30",
+       "scope": "district",
+       "stance": "progress"
+      },
+      {
+       "claim": "A 2017 Bangalore Mirror report on a Bidar government high school said its old toilets were overgrown with weeds and full of waste, and girls were scared to use them.",
+       "quote": "The existing toilets which include urinals are in such a bad state that weeds have grown around and it is filled with waste including plastic bottles.",
+       "url": "https://bangaloremirror.indiatimes.com/news/state/no-proper-toilets-for-girls-in-bidar-school/articleshow/57068192.cms",
+       "title": "No proper toilets for girls in Bidar school",
+       "outlet": "Bangalore Mirror",
+       "date": "2017-02-10",
+       "scope": "district",
+       "stance": "gap"
+      }
+     ]
+    },
+    {
+     "factor": "% Classrooms in Good Condition",
+     "summary": "In 2025 Bidar's in-charge minister sought a report on dilapidated school buildings and ordered immediate repair or reconstruction of unsafe ones; a regional claim cites 18,022 Kalyana Karnataka classrooms needing repair.",
+     "findings": [
+      {
+       "claim": "After complaints about school infrastructure in Bidar, the district in-charge minister sought a detailed report from the Education Department on all dilapidated school and college buildings.",
+       "quote": "Responding to complaints about the condition of school infrastructure, Mr. Khandre sought a detailed report from the Education Department on all dilapidated school and college buildings.",
+       "url": "https://www.thehindu.com/news/national/karnataka/minister-vows-serious-action-on-fertilizer-shortage-dilapidated-school-buildings-and-poor-quality-of-food-in-bidar/article69883767.ece",
+       "title": "Minister vows serious action on fertilizer shortage, dilapidated school buildings, and poor quality of food in Bidar",
+       "outlet": "The Hindu",
+       "date": "2025-08-01",
+       "scope": "district",
+       "stance": "gap"
+      },
+      {
+       "claim": "During a monsoon review in Bidar district, the minister ordered immediate repair, or demolition and reconstruction, of unsafe school structures and said funds would not be a constraint.",
+       "quote": "Immediate repairs, or demolition and reconstruction of unsafe structures, must be undertaken, he said, stressing that funds would not be a constraint.",
+       "url": "https://www.thehindu.com/news/national/karnataka/minister-eshwar-khandre-orders-immediate-crop-insurance-relief-school-repairs-flood-measures-in-bidar-district-of-karnataka/article69989151.ece",
+       "title": "Karnataka rain: Minister Eshwar Khandre orders immediate crop insurance relief, school repairs, flood measures in Bidar district",
+       "outlet": "The Hindu",
+       "date": "2025-08-30",
+       "scope": "district",
+       "stance": "context"
+      }
+     ]
+    },
+    {
+     "factor": "% Schools with Library",
+     "summary": "A digital library with 4,600 books under the Oduva Belaku scheme is housed in a government primary school at Aliyabad (2023). A regional report cites missing libraries in many Kalyana Karnataka government schools.",
+     "findings": [
+      {
+       "claim": "A digital library with 4,600 books, set up under the Oduva Belaku scheme, is housed in a government primary school at Aliyabad in Bidar district.",
+       "quote": "The library is housed in a government primary school at Aliyabad. It has become a beacon of hope for many, especially those who are seriously preparing for competitive examination.",
+       "url": "https://www.thehindu.com/news/national/karnataka/digital-library-that-is-all-set-to-transform-the-lives-of-rural-students-including-visually-impaired-in-bidar/article66536877.ece",
+       "title": "Digital library that is all set to transform the lives of rural students, including visually impaired, in Bidar",
+       "outlet": "The Hindu",
+       "date": "2023-02-21",
+       "scope": "district",
+       "stance": "progress"
+      },
+      {
+       "claim": "Across Kalyana Karnataka, many government schools are reported to have poor infrastructure, including a lack of libraries, classrooms, toilets and drinking water; a region-wide statement.",
+       "quote": "Apart from the shortage of teachers, many govt schools also have poor infrastructure, including inadequate drinking water, toilet facilities, electricity, lack of classrooms, libraries, playgrounds and compound walls.",
+       "url": "https://timesofindia.indiatimes.com/city/hubballi/22595-teacher-posts-vacant-in-kalyana-karnataka/articleshow/131118728.cms",
+       "title": "22,595 teacher posts vacant In Kalyana Karnataka",
+       "outlet": "The Times of India",
+       "date": "2026-05-15",
+       "scope": "state",
+       "stance": "gap"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "districtId": "29-580",
+   "name": "Yadgir",
+   "changes": [
+    {
+     "factor": "% Schools with Functional Total Toilets",
+     "summary": "Parents at a Parasapur school (Shahapur taluk) say it lacks clean water and toilets, and activists link missing toilets and water to poor results in Yadgir. A regional report also flags toilet gaps.",
+     "findings": [
+      {
+       "claim": "Parents and villagers say the Government Kannada Lower Primary School in Parasapur, Yadgir district lacks basic amenities including clean drinking water and toilets.",
+       "quote": "According to the parents and community members, the school lacks basic amenities, including clean drinking water and toilets.",
+       "url": "https://www.hindustantimes.com/india-news/premises-of-government-school-in-yadgir-become-cattle-shelter-101750616875595.html",
+       "title": "Premises of government school in Yadgir become cattle shelter",
+       "outlet": "Hindustan Times",
+       "date": "2025-06-23",
+       "scope": "district",
+       "stance": "gap"
+      },
+      {
+       "claim": "Across Kalyana Karnataka, many government schools are reported to have poor infrastructure, including a lack of libraries, classrooms, toilets and drinking water; a region-wide statement.",
+       "quote": "Apart from the shortage of teachers, many govt schools also have poor infrastructure, including inadequate drinking water, toilet facilities, electricity, lack of classrooms, libraries, playgrounds and compound walls.",
+       "url": "https://timesofindia.indiatimes.com/city/hubballi/22595-teacher-posts-vacant-in-kalyana-karnataka/articleshow/131118728.cms",
+       "title": "22,595 teacher posts vacant In Kalyana Karnataka",
+       "outlet": "The Times of India",
+       "date": "2026-05-15",
+       "scope": "state",
+       "stance": "gap"
+      }
+     ]
+    },
+    {
+     "factor": "% Classrooms in Good Condition",
+     "summary": "On reopening day in 2025, students at a Dariyapur school in Shahapur taluk waded through ankle-deep water to reach classrooms. A regional claim cites 18,022 Kalyana Karnataka classrooms needing repair.",
+     "findings": []
+    },
+    {
+     "factor": "% Schools with CCE Implemented",
+     "summary": "No district-specific source found.",
+     "findings": []
+    }
+   ]
+  },
+  {
+   "districtId": "29-559",
+   "name": "Raichur",
+   "changes": [
+    {
+     "factor": "% Schools with Library",
+     "summary": "At the Askihal school near Raichur city an activist demanded a laboratory and library alongside new classrooms (2026). A regional report cites missing libraries in many Kalyana Karnataka government schools.",
+     "findings": [
+      {
+       "claim": "An activist at the Askihal government school near Raichur city demanded that a laboratory and library also be established there, alongside temporary classrooms.",
+       "quote": "A laboratory and library should also be established at the school",
+       "url": "https://www.hindustantimes.com/india-news/kids-waiting-for-safer-classrooms-forced-outdoors-in-raichur-101789156039573.html",
+       "title": "190 Raichur students forced outdoors, await safer classrooms month after demolition",
+       "outlet": "Hindustan Times",
+       "date": "2026-09-12",
+       "scope": "district",
+       "stance": "gap"
+      },
+      {
+       "claim": "Across Kalyana Karnataka, many government schools are reported to have poor infrastructure, including a lack of libraries, classrooms, toilets and drinking water; a region-wide statement.",
+       "quote": "Apart from the shortage of teachers, many govt schools also have poor infrastructure, including inadequate drinking water, toilet facilities, electricity, lack of classrooms, libraries, playgrounds and compound walls.",
+       "url": "https://timesofindia.indiatimes.com/city/hubballi/22595-teacher-posts-vacant-in-kalyana-karnataka/articleshow/131118728.cms",
+       "title": "22,595 teacher posts vacant In Kalyana Karnataka",
+       "outlet": "The Times of India",
+       "date": "2026-05-15",
+       "scope": "state",
+       "stance": "gap"
+      }
+     ]
+    },
+    {
+     "factor": "% Classrooms in Good Condition",
+     "summary": "Askihal government school in Raichur has held primary classes outdoors for about 18 months after unsafe rooms were demolished; reconstruction awaits KKRDB funds. A regional claim cites 18,022 classrooms needing repair.",
+     "findings": [
+      {
+       "claim": "The Askihal government higher primary school in Raichur has lacked enough classrooms since old structures were removed on safety grounds, with primary classes often held outdoors.",
+       "quote": "The Government Higher Primary School in Askihal village has been without enough classrooms since the old structures were removed on safety grounds about one-and-a-half years ago.",
+       "url": "https://www.hindustantimes.com/india-news/kids-waiting-for-safer-classrooms-forced-outdoors-in-raichur-101789156039573.html",
+       "title": "190 Raichur students forced outdoors, await safer classrooms month after demolition",
+       "outlet": "Hindustan Times",
+       "date": "2026-09-12",
+       "scope": "district",
+       "stance": "gap"
+      },
+      {
+       "claim": "ANI reports an acute classroom shortage at the government high and primary school in Askihal, Raichur district, forcing mainly primary students to study outdoors.",
+       "quote": "An acute classroom shortage at the Government High School and Primary School in Askihal village, Raichur district, has forced students to study outdoors, with mainly the primary section facing the brunt of the crisis.",
+       "url": "https://www.aninews.in/news/national/general-news/we-need-new-classrooms-soon-students-attend-classes-outdoors-in-karnatakas-raichur-amid-classroom-shortage20260919091651/",
+       "title": "\"We need new classrooms soon\": Students attend classes outdoors in Karnataka's Raichur amid classroom shortage",
+       "outlet": "Asian News International",
+       "date": "2026-09-19",
+       "scope": "district",
+       "stance": "gap"
+      }
+     ]
+    },
+    {
+     "factor": "% of female teachers",
+     "summary": "No district-specific source found.",
+     "findings": []
+    }
+   ]
+  },
+  {
+   "districtId": "29-560",
+   "name": "Koppal",
+   "changes": [
+    {
+     "factor": "% Schools with Functional Total Toilets",
+     "summary": "In early 2025 an inspection found no doors on toilets and bathrooms at the Kasturba Gandhi Balika Vidyalaya hostel in Betageri, Koppal taluk; the head teacher faced suspension. Covered by two outlets.",
+     "findings": [
+      {
+       "claim": "An inspection found the girls' residential school (Kasturba Gandhi Balika Vidyalaya) at Betageri, Koppal had toilets and bathrooms without doors; the head teacher faced suspension.",
+       "quote": "A girls-only residential school in Koppal district in North Karnataka doesn't have doors for its toilets and bathrooms",
+       "url": "https://timesofindia.indiatimes.com/city/hubballi/toilets-bathrooms-in-this-karnataka-girls-hostel-have-no-doors/articleshow/117934733.cms",
+       "title": "Toilets, bathrooms in this Karnataka girls' hostel have no doors",
+       "outlet": "The Times of India",
+       "date": "2025-02-05",
+       "scope": "district",
+       "stance": "gap"
+      }
+     ]
+    },
+    {
+     "factor": "% Schools with Library",
+     "summary": "Kalike (Tata Trusts) found most schools in Koppal and Yadgir lacked library rooms and books and now supports 300+ school libraries; a Kushtagi headmaster built a school library with public support (2026).",
+     "findings": [
+      {
+       "claim": "A headmaster at a government higher primary school in Madnal, Kushtagi taluk, Koppal set up a school library with public support and started a home-library drive reaching around 100 houses.",
+       "quote": "Sharanappa Tumarikoppa, headmaster of the govt higher primary school in Madnal village, set up a special library in the school with public support",
+       "url": "https://timesofindia.indiatimes.com/city/hubballi/koppal-rural-school-hm-launches-childs-home-library-drive-to-cut-screen-time/articleshow/129578892.cms",
+       "title": "Koppal rural school HM launches 'child's home library' drive to cut screen time",
+       "outlet": "The Times of India",
+       "date": "2026-03-14",
+       "scope": "district",
+       "stance": "progress"
+      }
+     ]
+    },
+    {
+     "factor": "% Classrooms in Good Condition",
+     "summary": "Villagers in Vanageri (Kushtagi taluk) built three classrooms themselves when pupils sat in corridors (2025). A 2017 report found a Koppal school building ready to crumble. A regional claim cites 18,022 classrooms needing repair.",
+     "findings": [
+      {
+       "claim": "Villagers of Vanageri in Kushtagi taluk, Koppal built three additional classrooms for a government higher primary school after children had to sit in corridors due to lack of space.",
+       "quote": "Confronted with the reality that their children had to sit in corridors for lessons due to a lack of classroom space, the community took proactive steps.",
+       "url": "https://timesofindia.indiatimes.com/city/hubballi/temple-donations-help-villagers-build-three-classrooms/articleshow/118187359.cms",
+       "title": "Temple donations help villagers build three classrooms",
+       "outlet": "The Times of India",
+       "date": "2025-02-12",
+       "scope": "district",
+       "stance": "progress"
+      },
+      {
+       "claim": "In 2017 the roof of a passage collapsed at the Government Central Model Higher Primary School in Koppal, and its 50-year-old building was described as ready to crumble.",
+       "quote": "The Government Central Model Higher Primary School building in Koppal, about 400km from Bengaluru, is ready to crumble anytime.",
+       "url": "https://timesofindia.indiatimes.com/city/hubballi/roof-of-50-year-old-govt-school-building-in-koppal-collapses-students-unhurt/articleshow/57202032.cms",
+       "title": "Roof of 50-year-old govt school building in Koppal collapses, students unhurt",
+       "outlet": "The Times of India",
+       "date": "2017-02-17",
+       "scope": "district",
+       "stance": "gap"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "districtId": "29-565",
+   "name": "Ballari (incl. Vijayanagara)",
+   "changes": [
+    {
+     "factor": "% Schools with Functional Total Toilets",
+     "summary": "Villagers at Kolur, Ballari district protested for toilets and drinking water at their government school (2025); officials promised toilet repairs within 15 days. A 2026 complaint flags unhygienic washrooms at a Hosapete school.",
+     "findings": [
+      {
+       "claim": "Villagers in Kolur, Ballari district demanded a permanent building, toilets and clean water for the government higher primary school; officials promised to repair existing toilets within 15 days.",
+       "quote": "The protesters submitted a memorandum urging the authorities to construct a permanent school building on the available government land and provide essential facilities such as toilets and clean drinking water.",
+       "url": "https://www.thehindu.com/news/national/karnataka/protest-against-lack-of-infrastructure-at-govt-school-in-ballari-district/article69800766.ece",
+       "title": "Protest against lack of infrastructure at govt. school in Ballari district",
+       "outlet": "The Hindu",
+       "date": "2025-07-11",
+       "scope": "district",
+       "stance": "gap"
+      },
+      {
+       "claim": "A complaint on the Namma Shaale platform flags unhygienic washrooms at GMHPS Mariyammana Halli in Hosapete needing cleaning, repairs and running water.",
+       "quote": "At GMHPS Mariyammana Halli in Hosapete, Ballari, a complaint highlights unhygienic washrooms that require cleaning, repairs, running water and regular maintenance.",
+       "url": "https://bangaloremirror.indiatimes.com/bangalore/others/citizen-platform-flags-urgent-issues-in-karnatakas-government-schools/articleshow/133658381.cms",
+       "title": "Citizen platform flags urgent issues in Karnataka's government schools",
+       "outlet": "Bangalore Mirror",
+       "date": "2026-09-01",
+       "scope": "district",
+       "stance": "gap"
+      }
+     ]
+    },
+    {
+     "factor": "% Schools with Library",
+     "summary": "No district-specific source found for Ballari or Vijayanagara; only a region-wide report mentioning missing libraries in many Kalyana Karnataka government schools.",
+     "findings": [
+      {
+       "claim": "Across Kalyana Karnataka, many government schools are reported to have poor infrastructure, including a lack of libraries, classrooms, toilets and drinking water; a region-wide statement.",
+       "quote": "Apart from the shortage of teachers, many govt schools also have poor infrastructure, including inadequate drinking water, toilet facilities, electricity, lack of classrooms, libraries, playgrounds and compound walls.",
+       "url": "https://timesofindia.indiatimes.com/city/hubballi/22595-teacher-posts-vacant-in-kalyana-karnataka/articleshow/131118728.cms",
+       "title": "22,595 teacher posts vacant In Kalyana Karnataka",
+       "outlet": "The Times of India",
+       "date": "2026-05-15",
+       "scope": "state",
+       "stance": "gap"
+      }
+     ]
+    },
+    {
+     "factor": "% Classrooms in Good Condition",
+     "summary": "Ballari district reports show a crumbling school at Yattinabudihal with classes held outdoors (2025) and a roof collapse at Sirawar school with 9 of 19 rooms old. A regional claim cites 18,022 classrooms needing repair.",
+     "findings": [
+      {
+       "claim": "At Yattinabudihal government school in Ballari district a crumbling wall left classes being held in the open; parents say more than 80 students crowd one usable classroom.",
+       "quote": "The crumbling wall of Yattinabudihal Government School in Ballari district has resulted in classes being held out in the open.",
+       "url": "https://www.newindianexpress.com/states/karnataka/2025/Sep/18/creaky-building-forces-classes-on-to-open-ground-in-ballari",
+       "title": "Creaky building forces classes on to open ground in Ballari",
+       "outlet": "The New Indian Express",
+       "date": "2025-09-17",
+       "scope": "district",
+       "stance": "gap"
+      },
+      {
+       "claim": "A roof layer fell in a deteriorated room at the Sirawar government higher primary school in Ballari taluk, seriously injuring a student; 9 of its 19 rooms are old.",
+       "quote": "The school has 19 rooms, of which 9 are old, and a student sustained a serious head injury when the layer of the roof of a deteriorated room fell.",
+       "url": "https://timesofindia.indiatimes.com/city/hubballi/child-rights-panel-registers-suo-motu-case-on-school-roof-collapse/articleshow/121959060.cms",
+       "title": "Child rights panel registers suo motu case on school roof collapse",
+       "outlet": "The Times of India",
+       "date": "2025-06-19",
+       "scope": "district",
+       "stance": "gap"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

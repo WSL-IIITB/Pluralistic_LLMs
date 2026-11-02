@@ -347,5 +347,82 @@
       "state/% Population Living in Households with I: proof dropped (no openable source): 'Illness from poor sanitation can contribute to dropouts'",
       "district/% Schools with instruction medium 1 (Eng: proof dropped (no openable source): 'Students lacking language support may drop out'"
     ]
+  },
+  "prescriptiveEvidence": {
+    "researchedOn": "2026-11-03",
+    "ranking": "feasible",
+    "changes": [
+      {
+        "factor": "% Schools with Functional Protected Well",
+        "summary": "Reports from 2019 and 2023 show Udupi schools hit by summer water shortages, relying on campus wells that can dry up and on irregular municipal supply. No data on protected-well coverage was found.",
+        "findings": [
+          {
+            "claim": "A headmistress of an Udupi school said the well it relied on has dried up in summer, leaving it dependent on municipal water supplied twice a week.",
+            "quote": "We used to rely on a local well but it has dried up because of summer.",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              1
+            ]
+          },
+          {
+            "claim": "Volakadu Government High School in Udupi said it was managing basic sanitation with water from campus wells during the May 2019 water crisis.",
+            "quote": "The school has been managing basic sanitation as the students are provided with water from the wells in the campus.",
+            "scope": "district",
+            "stance": "context",
+            "sources": [
+              2
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% of female teachers",
+        "summary": "",
+        "findings": []
+      },
+      {
+        "factor": "% Teachers Trained in ICT/Computers",
+        "summary": "One July 2025 workshop in Udupi on digital literacy drew over 70 schoolteachers; the article does not say whether they teach in government schools. No government ICT-training coverage was found.",
+        "findings": [
+          {
+            "claim": "A digital-literacy and skill-development workshop in Udupi drew over 70 schoolteachers from across the district; the article does not say if they teach in government schools.",
+            "quote": "brought together over 70 schoolteachers from across the district to address the growing importance of integrating skill development and digital literacy into the school curriculum",
+            "scope": "district",
+            "stance": "progress",
+            "sources": [
+              3
+            ]
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "url": "https://www.thenewsminute.com/article/hit-severe-water-scarcity-udupi-schools-seek-time-reopening-177857",
+        "title": "Hit by severe water scarcity, Udupi schools seek time for reopening",
+        "outlet": "The News Minute",
+        "date": "2023-05-30",
+        "type": "news"
+      },
+      {
+        "id": 2,
+        "url": "https://www.thenewsminute.com/amp/story/karnataka/water-scarcity-forces-schools-coastal-karnataka-postpone-reopening-102768",
+        "title": "Water scarcity forces schools in coastal Karnataka to postpone reopening",
+        "outlet": "The News Minute",
+        "date": "2019-05-31",
+        "type": "news"
+      },
+      {
+        "id": 3,
+        "url": "https://www.mangalorean.com/udupi-teachers-urged-to-prioritize-skill-development-in-students-for-modern-age/",
+        "title": "Udupi: Teachers Urged to Prioritize Skill Development in Students for Modern Age - Mangalorean.com",
+        "outlet": "Mangalorean.com",
+        "date": "2025-07-30",
+        "type": "news"
+      }
+    ],
+    "notes": []
   }
 }

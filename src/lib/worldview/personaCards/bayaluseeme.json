@@ -217,6 +217,103 @@
       ],
       "sanitation": "If his farm household lacks a proper toilet, his adolescent daughter's attendance would suffer first, making an early exit easier to accept.",
       "district": "The factor flags the share of English-medium schools in Chitradurga. His own schooling ended at Class 7, and the card shows distance, harvest and herding as what pulls his children out, not language."
+    },
+    "dataLens": {
+      "area": "Chitradurga",
+      "changes": [
+        {
+          "factor": "% Schools with Furniture available for students",
+          "effect": "His son, about 16, spends long days at the government high school; without desks and benches, writing and staying through the day is harder."
+        },
+        {
+          "factor": "% Classrooms in Good Condition",
+          "effect": "If his son's school has rooms that need repair, lessons get crowded or cut short, one more strain while harvest and drought work pull at the household."
+        },
+        {
+          "factor": "% Women with 10+ Years Schooling",
+          "effect": "Where more mothers have ten years of schooling, daughters tend to stay on longer; that could matter for his daughter, about 13, nearing high school."
+        }
+      ],
+      "lag": {
+        "factor": "% Schools with instruction medium 1 (English)",
+        "effect": "Chitradurga has one of the lowest shares of English-medium schools in the state, so his children's schooling stays in Kannada; an English-heavy step later could be hard."
+      }
+    },
+    "intro": {
+      "backdrop": "dry-plains",
+      "lines": [
+        {
+          "scene": "hello",
+          "text": "Hello. I farm groundnut and onion on about three rainfed acres in Challakere taluk, Chitradurga. I'm about 44, a Kuruba farmer."
+        },
+        {
+          "scene": "household",
+          "text": "My wife farms and tends our sheep. Our son, about 16, is in high school; our daughter is about 13. My parents live nearby.",
+          "show": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "scene": "day",
+          "text": "Before sunrise I check the two borewells, then take my eight to ten sheep to graze on what is left of the kaval commons.",
+          "show": [
+            0,
+            1
+          ]
+        },
+        {
+          "scene": "day",
+          "text": "In bad crop years I sell sheep to get by, because groundnut and onion prices swing so much.",
+          "show": [
+            4
+          ]
+        },
+        {
+          "scene": "world",
+          "text": "Our household earns about Rs 8,000 to 14,000 a month.",
+          "say": "Our household earns about eight to fourteen thousand rupees a month.",
+          "topic": "daily_life_and_work"
+        },
+        {
+          "scene": "school",
+          "text": "There is no secondary school within walking distance, so my son travels several kilometres to Challakere town.",
+          "show": [
+            0
+          ]
+        },
+        {
+          "scene": "school",
+          "text": "At harvest and lambing time, children are pulled into the work.",
+          "show": [
+            1
+          ]
+        },
+        {
+          "scene": "district",
+          "text": "For Chitradurga, the NITI model ranks three changes highest: desks and benches, classrooms in good repair, and more women finishing school.",
+          "show": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "scene": "worries",
+          "text": "What keeps me up at night: failing borewells, too few local jobs, and my daughter's schooling.",
+          "show": [
+            0,
+            4,
+            5
+          ]
+        },
+        {
+          "scene": "outro",
+          "text": "That's my story. I'm a composite persona, built from public data. Explore my full card below."
+        }
+      ]
     }
   },
   "female": {
@@ -429,6 +526,105 @@
       ],
       "sanitation": "If her rented-patch household lacks a proper toilet, her daughter's attendance would suffer first once she reaches puberty.",
       "district": "The factor flags the share of English-medium schools in Chikkaballapur. The card shows commute, rearing work, her husband's migration and hostel seats as the pressures, not language."
+    },
+    "dataLens": {
+      "area": "Chikkaballapura",
+      "changes": [
+        {
+          "factor": "% Classrooms in Good Condition",
+          "effect": "Her son, 15, studies in a government high school; repaired classrooms would keep his lessons running while rearing work pulls at the household."
+        },
+        {
+          "factor": "% Population Living in Households with Improved Sanitation",
+          "effect": "If her home lacked a toilet, her daughter, 14, would face the safety and privacy worries that can keep older girls at home."
+        },
+        {
+          "factor": "% Women with 10+ Years Schooling",
+          "effect": "Where more mothers finished ten years of school, families tend to keep daughters in school longer; her daughter's next step, a hostel seat or a long commute, is still open."
+        }
+      ],
+      "lag": {
+        "factor": "% Schools with Furniture available for students",
+        "effect": "Chikkaballapur ranks near the bottom of Karnataka for desks and benches, so her children could be sitting on the floor through long secondary-school days."
+      }
+    },
+    "intro": {
+      "backdrop": "fields",
+      "lines": [
+        {
+          "scene": "hello",
+          "text": "Hello. I'm 34. I rear silkworms and work daily wages in Chintamani taluk, Chikkaballapur."
+        },
+        {
+          "scene": "household",
+          "text": "My husband migrates for brick-kiln and construction work, so I run the home with his mother, my son, 15, and my daughter, 14.",
+          "show": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "scene": "day",
+          "text": "Before sunrise I cut mulberry leaves; then I feed the worms several times a day and clean the trays by hand.",
+          "show": [
+            0,
+            1
+          ]
+        },
+        {
+          "scene": "day",
+          "text": "Between batches I take daily wages in the tomato and grape fields, with no work guaranteed.",
+          "show": [
+            2
+          ]
+        },
+        {
+          "scene": "world",
+          "text": "In nearby Chikkaballapur taluk, about 40% of tested groundwater samples are over the fluoride limit.",
+          "say": "In nearby Chikkaballapur taluk, about forty percent of tested groundwater samples are over the fluoride limit.",
+          "topic": "health_and_wellbeing"
+        },
+        {
+          "scene": "school",
+          "text": "The nearest Class 9 and 10 school is several kilometres away, and we weigh that commute and my daughter's safety.",
+          "say": "The nearest class nine and ten school is several kilometres away, and we weigh that commute and my daughter's safety.",
+          "show": [
+            0
+          ]
+        },
+        {
+          "scene": "school",
+          "text": "When my husband is away, rearing work falls to my daughter, and her next step depends on a hostel seat.",
+          "show": [
+            1,
+            3
+          ]
+        },
+        {
+          "scene": "district",
+          "text": "For Chikkaballapur, the NITI model ranks three changes highest: classrooms in good repair, toilets at home, and more women finishing school.",
+          "show": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "scene": "worries",
+          "text": "What keeps me up at night: cocoon prices, uncertain wage days, and that distant high school.",
+          "show": [
+            0,
+            1,
+            4
+          ]
+        },
+        {
+          "scene": "outro",
+          "text": "That's my story. I'm a composite persona, built from public data. Explore my full card below."
+        }
+      ]
     }
   }
 }

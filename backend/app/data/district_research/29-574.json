@@ -285,5 +285,47 @@
     ],
     "gaps": "No local evidence was found linking sanitation or English-medium instruction to dropouts in Hassan. We searched district reports and news without success.",
     "notes": []
+  },
+  "prescriptiveEvidence": {
+    "researchedOn": "2026-11-03",
+    "ranking": "feasible",
+    "changes": [
+      {
+        "factor": "% Population Living in Households with Improved Sanitation",
+        "summary": "",
+        "findings": []
+      },
+      {
+        "factor": "% Classrooms in Good Condition",
+        "summary": "A September 2026 Deccan Chronicle report says a social-welfare residential school at Shantigrama in Hassan taluk ran in a shed, with a permanent building expected in about 6 months. No education-department classroom coverage was found.",
+        "findings": [
+          {
+            "claim": "A social-welfare residential school at Shantigrama in Hassan taluk was run in a shed; a new building there is being readied, expected to open in about 6 months.",
+            "quote": "A new building is getting ready at Shantigrama which is expected to be inaugurated in about 6-months.",
+            "scope": "district",
+            "stance": "progress",
+            "sources": [
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Women with 10+ Years Schooling",
+        "summary": "",
+        "findings": []
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "url": "https://www.deccanchronicle.com/southern-states/karnataka/karnataka-residential-school-shifted-against-wishes-of-studentsparents-temporarily-in-hassan-1985335",
+        "title": "Karnataka: Residential School Shifted Against Wishes Of Students/Parents Temporarily In Hassan",
+        "outlet": "Deccan Chronicle",
+        "date": "2026-09-06",
+        "type": "news"
+      }
+    ],
+    "notes": []
   }
 }

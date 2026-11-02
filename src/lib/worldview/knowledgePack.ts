@@ -37,6 +37,8 @@ export interface KnowledgePack {
   uidai: string;
   /** Why the news research and the UIDAI/NITI data name different main factors. */
   newsVsData: string;
+  /** The NITI team's prescriptive model: method, the 18 factors explained, statewide reconciliation. */
+  prescriptive: string;
   analysis: string;
   personas: string;
   tokenEstimate: Record<string, number>;

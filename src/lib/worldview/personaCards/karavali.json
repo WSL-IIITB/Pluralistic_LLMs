@@ -201,6 +201,103 @@
       ],
       "sanitation": "If his household lacked a proper toilet, his 15-year-old daughter would feel it first; the card gives no sign this is his family's problem.",
       "district": "The factor flags the share of English-medium schools in Uttara Kannada. The card shows distance, disease months, thin hamlet schools and harvest chores as the pressures, not language."
+    },
+    "dataLens": {
+      "area": "Uttara Kannada Sirsi",
+      "changes": [
+        {
+          "factor": "% Classrooms in Good Condition",
+          "effect": "The Sirsi area has the lowest share of classrooms in good condition in Karnataka; in heavy monsoons a leaking or unsafe room can stop lessons in its thin village schools."
+        },
+        {
+          "factor": "% Schools with All-Weather Roads",
+          "effect": "It also has the lowest share of schools on all-weather roads; for his daughter, 15, a washed-out road on hilly terrain can mean days without school."
+        },
+        {
+          "factor": "% of female teachers",
+          "effect": "More women teachers could make his daughter more comfortable staying on in high school, where the village schools are already thin."
+        }
+      ],
+      "lag": {
+        "factor": "% Schools with Computer/ICT Labs",
+        "effect": "Very few schools here have computer labs, so his daughter may get little of the digital learning that matters for work in a city like Bengaluru, where his elder son now lives."
+      }
+    },
+    "intro": {
+      "backdrop": "hills-forest",
+      "lines": [
+        {
+          "scene": "hello",
+          "text": "Hello. I grow arecanut on two and a half acres near Sirsi, in Uttara Kannada. I'm in my late forties."
+        },
+        {
+          "scene": "household",
+          "text": "My wife and I live here; my elder son is in Bengaluru, my daughter is 15, and my mother lives nearby.",
+          "show": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "scene": "day",
+          "text": "Before sunrise I walk the plantation to check the palms and the drip lines from the check-dam.",
+          "show": [
+            0
+          ]
+        },
+        {
+          "scene": "day",
+          "text": "From October it's disease-watch and harvest, then weeks of husking, boiling and sun-drying the nuts.",
+          "show": [
+            2
+          ]
+        },
+        {
+          "scene": "world",
+          "text": "In 2024-25, CAMPCO bought more than 65,000 tonnes of arecanut.",
+          "say": "In twenty twenty-four, CAMPCO bought more than sixty-five thousand tonnes of arecanut.",
+          "topic": "daily_life_and_work"
+        },
+        {
+          "scene": "school",
+          "text": "Pre-university colleges are in Sirsi and Siddapur, and the roads wash out in the monsoon.",
+          "show": [
+            0
+          ]
+        },
+        {
+          "scene": "school",
+          "text": "In harvest weeks my daughter sorts and dries nuts after school, and hamlet schools here are often short of teachers.",
+          "show": [
+            3,
+            2
+          ]
+        },
+        {
+          "scene": "district",
+          "text": "For the Sirsi area, the NITI model ranks three changes highest: classrooms in good repair, all-weather roads, and more women teachers.",
+          "show": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "scene": "worries",
+          "text": "What keeps me up at night: koleroga and leaf disease, monsoon road damage, and my daughter's schooling.",
+          "show": [
+            0,
+            3,
+            5
+          ]
+        },
+        {
+          "scene": "outro",
+          "text": "That's my story. I'm a composite persona, built from public data. Explore my full card below."
+        }
+      ]
     }
   },
   "female": {
@@ -401,6 +498,105 @@
       ],
       "sanitation": "If her household lacked a proper toilet, her 12-year-old daughter's attendance would suffer first as she nears puberty.",
       "district": "The factor flags the share of English-medium schools in Udupi. The card notes that private English-medium schools draw better-off families, leaving poorer ones in thinner government schools, which is how it could touch her children."
+    },
+    "dataLens": {
+      "area": "Udupi",
+      "changes": [
+        {
+          "factor": "% Schools with Functional Protected Well",
+          "effect": "Udupi already leads Karnataka on protected wells at schools; keeping safe water at school protects her children from illness that costs school days."
+        },
+        {
+          "factor": "% of female teachers",
+          "effect": "Many of Udupi's teachers are women; for her daughter, 12, that can make the move up to high school feel safer."
+        },
+        {
+          "factor": "% Teachers Trained in ICT/Computers",
+          "effect": "Teachers trained in computers can make lessons clearer and more engaging for her son, 16, when boat work pulls at the family."
+        }
+      ],
+      "lag": {
+        "factor": "% Schools with Boundary Wall (No boundary walls)",
+        "effect": "Some schools here still lack a boundary wall, a safety worry for a family that already weighs the commute and safety on the way to school."
+      }
+    },
+    "intro": {
+      "backdrop": "coast",
+      "lines": [
+        {
+          "scene": "hello",
+          "text": "Hello. I'm a Mogaveera woman in my late thirties. I cure fish at a drying yard in Malpe, near Udupi."
+        },
+        {
+          "scene": "household",
+          "text": "My husband is trawler crew, often at sea for days. Our son is 16, our daughter is 12, and his mother lives nearby.",
+          "show": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "scene": "day",
+          "text": "Before dawn I'm at Malpe harbour as the boats come back and the catch is auctioned.",
+          "show": [
+            0
+          ]
+        },
+        {
+          "scene": "day",
+          "text": "Then I sort, salt and sun-dry fish on a cooperative plot, paid by the piece.",
+          "show": [
+            1
+          ]
+        },
+        {
+          "scene": "world",
+          "text": "Since the 2019 coastal rules, the no-development zone here is 50 metres, down from 200.",
+          "say": "Since the twenty nineteen coastal rules, the no-development zone here is fifty metres, down from two hundred.",
+          "topic": "civic_life_and_government"
+        },
+        {
+          "scene": "school",
+          "text": "A boat owner's steady wages can pull a Class 10 boy like my son into harbour work.",
+          "say": "A boat owner's steady wages can pull a class ten boy like my son into harbour work.",
+          "show": [
+            0
+          ]
+        },
+        {
+          "scene": "school",
+          "text": "In peak season girls are drawn into fish processing, and a distant college means safety and cost worries.",
+          "show": [
+            1,
+            3
+          ]
+        },
+        {
+          "scene": "district",
+          "text": "For Udupi, the NITI model ranks three changes highest: safe wells at schools, women teachers, and teachers trained in computers.",
+          "show": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "scene": "worries",
+          "text": "What keeps me up at night: my husband's safety at sea, the monsoon fishing ban, and my children finishing Class 10.",
+          "say": "What keeps me up at night: my husband's safety at sea, the monsoon fishing ban, and my children finishing class ten.",
+          "show": [
+            0,
+            1,
+            5
+          ]
+        },
+        {
+          "scene": "outro",
+          "text": "That's my story. I'm a composite persona, built from public data. Explore my full card below."
+        }
+      ]
     }
   }
 }

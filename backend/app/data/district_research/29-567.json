@@ -259,5 +259,64 @@
       "district/% Schools with instruction medium 1 (Eng: proof dropped (no openable source): 'Language of instruction (English) is cited by some educators'",
       "district/% Schools with instruction medium 1 (Eng: 'partly' -> 'no-evidence' (no verified proof survived)"
     ]
+  },
+  "prescriptiveEvidence": {
+    "researchedOn": "2026-11-03",
+    "ranking": "feasible",
+    "changes": [
+      {
+        "factor": "% Classrooms in Good Condition",
+        "summary": "A 2018 news report from Harappanahalli and an NGO page for a Honnali school show Davanagere schools short of usable classrooms; the Honnali school got a new building in 2022. No recent district-wide report was reachable.",
+        "findings": [
+          {
+            "claim": "At Chigateri in Harappanahalli, Davanagere district, 57 Class 4 pupils studied under a tree for lack of a classroom (report from 2018).",
+            "quote": "The 57 students of Class 4 of the government higher primary school in Chigateri study under a tree",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              1
+            ]
+          },
+          {
+            "claim": "A government school at Arabagatte, Honnali taluk, Davanagere district, had 2 of its 8 rooms in poor condition; a new building was inaugurated in 2022.",
+            "quote": "The school has 8 rooms out of which 2 rooms are in poor condition.",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              2
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Schools with Playground",
+        "summary": "",
+        "findings": []
+      },
+      {
+        "factor": "% Population Living in Households with Improved Sanitation",
+        "summary": "",
+        "findings": []
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "url": "https://www.thenewsminute.com/article/only-3-rooms-govt-school-ktaka-so-these-kids-have-study-under-tree-85056",
+        "title": "Only 3 rooms in this govt school in K'taka, so these kids have to study under a tree",
+        "outlet": "The News Minute",
+        "date": "2018-07-19",
+        "type": "news"
+      },
+      {
+        "id": 2,
+        "url": "https://osaat.org/?p=16902",
+        "title": "Arabagatte Karnataka - OSAAT",
+        "outlet": "OSAAT (One School At A Time)",
+        "date": "2022-01-25",
+        "type": "ngo"
+      }
+    ],
+    "notes": []
   }
 }

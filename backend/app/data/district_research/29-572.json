@@ -437,5 +437,51 @@
       "state/% Population Living in Households with I: quote removed (not found on the page)",
       "state/% Population Living in Households with I: quote removed (not found on the page)"
     ]
+  },
+  "prescriptiveEvidence": {
+    "researchedOn": "2026-11-03",
+    "ranking": "feasible",
+    "changes": [
+      {
+        "factor": "% Teachers Trained in ICT/Computers",
+        "summary": "",
+        "findings": []
+      },
+      {
+        "factor": "% of female teachers",
+        "summary": "No Bengaluru-specific source found. A statewide report notes women teachers dominate only primary classes while men dominate upper primary and secondary teaching.",
+        "findings": [
+          {
+            "claim": "A statewide UDISE+ based report says women teachers dominate only the primary level, while male teachers still dominate upper primary and secondary teaching in Karnataka.",
+            "quote": "",
+            "scope": "state",
+            "stance": "context",
+            "sources": [
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Schools with Computer/ICT Labs",
+        "summary": "",
+        "findings": []
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "url": "https://www.deccanherald.com/state/top-karnataka-stories/female-teachers-outnumber-male-teachers-in-school-education-report-1005321.html",
+        "title": "Female teachers outnumber male teachers in school education: Report",
+        "outlet": "Deccan Herald",
+        "date": "2021-07-05",
+        "type": "news"
+      }
+    ],
+    "notes": [
+      "% Teachers Trained in ICT/Computer | \"Karnataka's school education department began trai\": dropped, number(s) 1000, 750 not on the page",
+      "% of female teachers | 'A statewide UDISE+ based report says women teacher': quote removed (not found on the page)",
+      "% Schools with Computer/ICT Labs | 'Bengaluru Smart City Limited has set up seven ICT ': dropped, number(s) 60 not on the page"
+    ]
   }
 }

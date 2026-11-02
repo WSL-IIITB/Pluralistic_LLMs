@@ -201,6 +201,103 @@
       ],
       "sanitation": "If his household lacks a proper toilet, his daughter, who already juggles cooking and sibling care, would be the first to miss school.",
       "district": "The factor flags the share of English-medium schools in Kalaburagi. The card shows cotton season, commute cost and a bad monsoon as what costs his children school, not language."
+    },
+    "dataLens": {
+      "area": "Kalburgi",
+      "changes": [
+        {
+          "factor": "% Schools with Library",
+          "effect": "A stocked school library would give his children a place to study; at home, cotton-season work and care work leave little time for it."
+        },
+        {
+          "factor": "% Classrooms in Good Condition",
+          "effect": "Repaired classrooms would keep lessons running for his sons and daughter, especially in a bad monsoon, one of the pressures on his family."
+        },
+        {
+          "factor": "% Schools with CCE Implemented",
+          "effect": "Kalaburagi ranks last in Karnataka for continuous evaluation, so a child who misses weeks in cotton season may only be found to be behind at the SSLC exam."
+        }
+      ],
+      "lag": {
+        "factor": "% Population Living in Households with Improved Sanitation",
+        "effect": "Kalaburagi also has the lowest household-sanitation share in the state; if his home lacked a toilet, his daughter would face the risks that keep older girls at home."
+      }
+    },
+    "intro": {
+      "backdrop": "dry-plains",
+      "lines": [
+        {
+          "scene": "hello",
+          "text": "Hello. I grow tur dal and cotton on three to four rainfed acres in Aland taluk, Kalaburagi. I'm in my mid-forties."
+        },
+        {
+          "scene": "household",
+          "text": "I live with my wife, my widowed mother in her seventies, our two sons and our daughter.",
+          "show": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "scene": "day",
+          "text": "Before sunrise I feed the bullocks and check the tur for pod borer.",
+          "show": [
+            0
+          ]
+        },
+        {
+          "scene": "day",
+          "text": "In winter my wife, my mother and I pick cotton by hand for weeks.",
+          "show": [
+            2
+          ]
+        },
+        {
+          "scene": "world",
+          "text": "In the 2016-17 glut, tur prices here fell from Rs 12,750 to 6,250 a quintal.",
+          "say": "In the twenty sixteen glut, tur prices here fell from twelve thousand seven hundred and fifty rupees to six thousand two hundred and fifty a quintal.",
+          "topic": "daily_life_and_work"
+        },
+        {
+          "scene": "school",
+          "text": "My elder son missed what would have been his first PUC year, because we needed him for cotton picking.",
+          "say": "My elder son missed what would have been his first P U C year, because we needed him for cotton picking.",
+          "show": [
+            0
+          ]
+        },
+        {
+          "scene": "school",
+          "text": "My daughter cooks and minds the younger ones after school, and that can make a girl fall behind.",
+          "show": [
+            3
+          ]
+        },
+        {
+          "scene": "district",
+          "text": "For Kalaburagi, the NITI model ranks three changes highest: school libraries, classrooms in good repair, and regular evaluation of students.",
+          "show": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "scene": "worries",
+          "text": "What keeps me up at night: tur-dal price crashes, delayed drought compensation, and my daughter's dowry.",
+          "show": [
+            0,
+            1,
+            3
+          ]
+        },
+        {
+          "scene": "outro",
+          "text": "That's my story. I'm a composite persona, built from public data. Explore my full card below."
+        }
+      ]
     }
   },
   "female": {
@@ -397,6 +494,102 @@
       ],
       "sanitation": "If her tanda household lacks a proper toilet, her two daughters' attendance would suffer first, adding to cost and distance.",
       "district": "The factor flags the share of English-medium schools in Ballari. The card's own language gap is Gor Boli at home to Kannada at school, and costs and wages are what she names as pressures."
+    },
+    "dataLens": {
+      "area": "Ballari",
+      "changes": [
+        {
+          "factor": "% Schools with Functional Total Toilets",
+          "effect": "Ballari's schools have nearly full toilet coverage but still rank among the lowest in the state; a working girls' toilet is what lets her two daughters stay through the day."
+        },
+        {
+          "factor": "% Classrooms in Good Condition",
+          "effect": "Safe, repaired classrooms would keep her children's lessons going in the monsoon, when bad roads already make the trip to school hard."
+        },
+        {
+          "factor": "% Schools with CCE Implemented",
+          "effect": "Regular checks would show early if her children are slipping, perhaps because of the language gap they face, before the SSLC exam decides it."
+        }
+      ],
+      "lag": {
+        "factor": "Teachers per 100 students",
+        "effect": "Ballari has among the fewest teachers per student in Karnataka; in large classes, a child who struggles with the school's language gets little help."
+      }
+    },
+    "intro": {
+      "backdrop": "dry-plains",
+      "lines": [
+        {
+          "scene": "hello",
+          "text": "Hello. I'm a Lambani embroiderer in Sandur taluk, Ballari, in my early thirties. I stitch piecework and take farm wages."
+        },
+        {
+          "scene": "household",
+          "text": "My husband is a daily-wage labourer. We have two daughters and a son, and his parents live nearby.",
+          "show": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "scene": "day",
+          "text": "Before dawn I fetch water, cook, and get the two younger children ready for school.",
+          "show": [
+            0
+          ]
+        },
+        {
+          "scene": "day",
+          "text": "Between jobs I stitch Lambani embroidery by hand for a buyer linked to Sandur Kushala Kala Kendra.",
+          "show": [
+            2
+          ]
+        },
+        {
+          "scene": "world",
+          "text": "Our Sandur Lambani embroidery received a Geographical Indication tag in 2010.",
+          "say": "Our Sandur Lambani embroidery received a Geographical Indication tag in twenty ten.",
+          "topic": "daily_life_and_work"
+        },
+        {
+          "scene": "school",
+          "text": "Once school was outside the tanda, transport, uniforms and notebooks cost more than the wage my son could bring home.",
+          "show": [
+            0
+          ]
+        },
+        {
+          "scene": "school",
+          "text": "At home we speak Gor Boli; at school it's Kannada. My younger daughter needed an extra year to adjust.",
+          "show": [
+            3
+          ]
+        },
+        {
+          "scene": "district",
+          "text": "For Ballari, the NITI model ranks three changes highest: working toilets in every school, classrooms in good repair, and regular evaluation.",
+          "show": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "scene": "worries",
+          "text": "What keeps me up at night: my husband's cough, the mining dust, and wages that never come regularly.",
+          "show": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "scene": "outro",
+          "text": "That's my story. I'm a composite persona, built from public data. Explore my full card below."
+        }
+      ]
     }
   }
 }

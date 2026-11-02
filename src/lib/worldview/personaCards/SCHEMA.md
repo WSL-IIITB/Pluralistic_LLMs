@@ -42,3 +42,35 @@ Style: plain, warm, concrete. No markdown. No [S1]-style citation markers. Compo
 Rules: no new facts, numbers or places; never claim what research found (the UI shows the district's real research status from
 `dominantFactorWhy`); write conditionally ("if ...") for the dominant factors, since the persona data does not measure them.
 
+
+## `dataLens` (the persona's district through the NITI prescriptive model)
+
+```
+"dataLens": {
+  "area": "Belagavi Chikkodi",            // the NITI workbook row the persona lives in (public/data/niti-prescriptive.json)
+  "changes": [ { "factor": "<exact NITI factor name>", "effect": "<= 36 words" }, x3 ],  // the area's top three changes (feasible
+                                          // ranking), same order: how that change would reach THIS household
+  "lag": { "factor": "<exact NITI factor name>", "effect": "<= 36 words" }  // the factor where the area ranks lowest in Karnataka,
+                                          // if not already in the top three
+}
+```
+Rules: the numbers (values, ranks, dropout rates) are shown live from niti-prescriptive.json, so the lines carry none except facts
+already on the card (ages). Any "lowest / leads / among the fewest" wording must match the area's rank among Karnataka's 35 rows.
+Household facts come only from the card. Write conditionally where the card does not show the factor ("if her home lacked a
+toilet..."). The UI labels these lines as an interpretation, not data.
+
+## `intro` (the animated self-introduction)
+
+```
+"intro": {
+  "backdrop": "fields" | "city" | "dry-plains" | "coast" | "hills-forest",
+  "lines": [ { "scene": "hello|household|day|world|school|district|worries|outro",
+               "text": "first-person caption, <= 25 words",
+               "say": "optional spoken form (numbers and acronyms written out)",
+               "show": [indices into household / dayInLife / schoolPressures / worries; for district, dataLens.changes],
+               "topic": "topic key whose headline + stat the 'world' scene shows" } ]
+}
+```
+Rules: scenes in that order; 130-215 words in all (about a minute); every fact from this card only, every number on the card;
+no added greetings, language or culture beyond the card; the outro says it is a composite persona built from public data.
+`python3 scripts/check_persona_intros.py` must pass.

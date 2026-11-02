@@ -1,0 +1,230 @@
+/**
+ * Playback for the persona intro "video" (src/components/persona/PersonaIntro.tsx).
+ *
+ * The intro is a script of short lines ("beats"). Each line is spoken with the viewer's own browser voice (Web
+ * Speech API), one utterance per line, which keeps clear of Chrome's cut-off on long utterances. When muted, or when
+ * the browser has no voice, each line is timed from its length instead, so captions alone still play through.
+ * Pausing cancels the speech and resuming replays the current line: speechSynthesis.pause() is unreliable across
+ * browsers. A run token makes callbacks from a cancelled utterance ignore themselves.
+ */
+
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+
+import type { PersonaIntroLine } from "./personaCards";
+
+export type IntroStatus = "poster" | "playing" | "paused" | "ended";
+
+const VOICE_KEY = "wv.introVoice";
+const GAP_MS = 350;
+const RATE = 0.98;
+// Voice names that say which gender they are (macOS, Windows, Android and Chrome voices for Indian/British English).
+const MALE = /\b(rishi|aman|ravi|prabhat|hemant|daniel|arthur|male)\b/i;
+const FEMALE =
+  /\b(tara|veena|lekha|heera|neerja|isha|kajal|swara|female|samantha|karen|moira|serena|kate)\b/i;
+
+export function speechSupported(): boolean {
+  return (
+    typeof window !== "undefined" &&
+    "speechSynthesis" in window &&
+    typeof SpeechSynthesisUtterance !== "undefined"
+  );
+}
+
+/** The browser's English voices; the list arrives asynchronously in most browsers. */
+export function useVoices(): SpeechSynthesisVoice[] {
+  const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([]);
+  useEffect(() => {
+    if (!speechSupported()) return;
+    const synth = window.speechSynthesis;
+    const load = () => setVoices(synth.getVoices().filter((v) => /^en/i.test(v.lang)));
+    load();
+    synth.addEventListener("voiceschanged", load);
+    return () => synth.removeEventListener("voiceschanged", load);
+  }, []);
+  return voices;
+}
+
+const langOf = (v: SpeechSynthesisVoice) => v.lang.replace("_", "-").toLowerCase();
+
+/** Prefer a voice of the persona's gender, Indian English first, then British, then any English; failing that, a
+ * voice that is not of the other gender; failing that, any voice with its pitch nudged. */
+export function pickVoice(
+  voices: SpeechSynthesisVoice[],
+  gender: "male" | "female",
+  savedName: string | null,
+): { voice: SpeechSynthesisVoice | null; pitch: number } {
+  const nudge = gender === "male" ? 0.85 : 1.1;
+  const saved = savedName ? voices.find((v) => v.name === savedName) : undefined;
+  if (saved) return { voice: saved, pitch: 1 };
+  if (!voices.length) return { voice: null, pitch: nudge };
+  const want = gender === "male" ? MALE : FEMALE;
+  const avoid = gender === "male" ? FEMALE : MALE;
+  const byLang = ["en-in", "en-gb", "en"].map((pref) =>
+    voices.filter((v) => langOf(v).startsWith(pref)),
+  );
+  for (const pool of byLang) {
+    const match = pool.find((v) => want.test(v.name));
+    if (match) return { voice: match, pitch: 1 };
+  }
+  for (const pool of byLang) {
+    const neutral = pool.find((v) => !avoid.test(v.name));
+    if (neutral) return { voice: neutral, pitch: nudge };
+  }
+  return { voice: voices[0]!, pitch: nudge };
+}
+
+export function readSavedVoice(): string | null {
+  try {
+    return localStorage.getItem(VOICE_KEY);
+  } catch {
+    return null;
+  }
+}
+
+export function saveVoice(name: string | null): void {
+  try {
+    if (name) localStorage.setItem(VOICE_KEY, name);
+    else localStorage.removeItem(VOICE_KEY);
+  } catch {
+    // storage unavailable (private window, blocked site data): the choice just isn't remembered
+  }
+}
+
+/** How long a line takes at a natural pace: about 2.6 words a second, never under 2.2 s. */
+export function estimateMs(text: string): number {
+  return Math.max(2200, (text.trim().split(/\s+/).length / 2.6) * 1000);
+}
+
+export interface IntroPlayer {
+  status: IntroStatus;
+  beat: number;
+  /** True while the current line is being voiced (or, muted, while it is on screen). */
+  speaking: boolean;
+  /** 0..1 through the current line, from the clock (or the voice's word boundaries when it reports them). */
+  progress: number;
+  /** Estimated length of each line, ms. */
+  durations: number[];
+  play(): void;
+  pause(): void;
+  seek(beat: number): void;
+}
+
+export function useIntroPlayer(
+  lines: PersonaIntroLine[],
+  opts: { voice: SpeechSynthesisVoice | null; pitch: number; muted: boolean },
+): IntroPlayer {
+  const [status, setStatus] = useState<IntroStatus>("poster");
+  const [beat, setBeat] = useState(0);
+  const [speaking, setSpeaking] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const durations = useMemo(() => lines.map((l) => estimateMs(l.say ?? l.text)), [lines]);
+
+  const token = useRef(0);
+  const timers = useRef<number[]>([]);
+  const startedAt = useRef(0);
+  const boundary = useRef<number | null>(null);
+  const optsRef = useRef(opts);
+  optsRef.current = opts;
+  const statusRef = useRef(status);
+  statusRef.current = status;
+  const beatRef = useRef(beat);
+  beatRef.current = beat;
+
+  const stopAll = useCallback(() => {
+    token.current += 1;
+    for (const t of timers.current) window.clearTimeout(t);
+    timers.current = [];
+    if (speechSupported()) window.speechSynthesis.cancel();
+    setSpeaking(false);
+  }, []);
+
+  const runRef = useRef<(i: number) => void>(() => {});
+  runRef.current = (i: number) => {
+    stopAll();
+    const my = token.current;
+    if (i >= lines.length) {
+      setStatus("ended");
+      setProgress(1);
+      return;
+    }
+    setBeat(i);
+    setProgress(0);
+    boundary.current = null;
+    startedAt.current = performance.now();
+    const line = lines[i]!;
+    const spoken = line.say ?? line.text;
+    const est = durations[i]!;
+    const advance = () => {
+      if (token.current !== my) return;
+      setSpeaking(false);
+      timers.current.push(
+        window.setTimeout(() => token.current === my && runRef.current(i + 1), GAP_MS),
+      );
+    };
+    const { voice, pitch, muted } = optsRef.current;
+    if (!muted && speechSupported() && voice) {
+      const u = new SpeechSynthesisUtterance(spoken);
+      u.voice = voice;
+      u.lang = voice.lang;
+      u.pitch = pitch;
+      u.rate = RATE;
+      u.onstart = () => token.current === my && setSpeaking(true);
+      u.onboundary = (e) => {
+        // Map word boundaries onto the caption only when the caption is what is being said.
+        if (token.current === my && !line.say) boundary.current = e.charIndex / spoken.length;
+      };
+      u.onend = advance;
+      u.onerror = advance;
+      window.speechSynthesis.speak(u);
+      setSpeaking(true);
+      // Some voices never fire `end`: move on anyway after a generous wait.
+      timers.current.push(window.setTimeout(advance, est * 1.8 + 1500));
+    } else {
+      setSpeaking(true);
+      timers.current.push(window.setTimeout(advance, est));
+    }
+  };
+
+  // Progress clock for captions and the chapter bar (10 updates a second is plenty).
+  useEffect(() => {
+    if (status !== "playing") return;
+    const id = window.setInterval(() => {
+      const t = (performance.now() - startedAt.current) / (durations[beatRef.current] ?? 1);
+      setProgress(Math.min(1, Math.max(boundary.current ?? 0, t)));
+    }, 100);
+    return () => window.clearInterval(id);
+  }, [status, durations]);
+
+  const play = useCallback(() => {
+    setStatus("playing");
+    const s = statusRef.current;
+    runRef.current(s === "poster" || s === "ended" ? 0 : beatRef.current);
+  }, []);
+  const pause = useCallback(() => {
+    stopAll();
+    setStatus("paused");
+  }, [stopAll]);
+  const seek = useCallback((i: number) => {
+    setStatus("playing");
+    runRef.current(Math.max(0, i));
+  }, []);
+
+  // Muting, or picking another voice, restarts the current line in the new mode.
+  useEffect(() => {
+    if (statusRef.current === "playing") runRef.current(beatRef.current);
+  }, [opts.muted, opts.voice]);
+
+  // Stop when the page is hidden, and always on unmount (another persona, another tab).
+  useEffect(() => {
+    const onHide = () => {
+      if (document.hidden && statusRef.current === "playing") pause();
+    };
+    document.addEventListener("visibilitychange", onHide);
+    return () => {
+      document.removeEventListener("visibilitychange", onHide);
+      stopAll();
+    };
+  }, [pause, stopAll]);
+
+  return { status, beat, speaking, progress, durations, play, pause, seek };
+}

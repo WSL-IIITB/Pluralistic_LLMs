@@ -368,5 +368,36 @@
       "^\\s*(we found no evidence|the research found no evidence|there is no evidence)",
       "no evidence that [^.]{0,60}(is|was) (a |the )?dominant"
     ]
+  },
+  {
+    "id": "prescriptive-raichur",
+    "category": "prescriptive",
+    "question": "What are the top three changes the NITI model suggests for Raichur, and what do sources say about them?",
+    "include": [
+      "(librar)",
+      "(classroom)",
+      "\\[S\\d+\\]",
+      "(correlation|not proof|not a proven|model ranks|the model)"
+    ],
+    "exclude": [
+      "(will|would) (reduce|lower|cut) dropout by"
+    ]
+  },
+  {
+    "id": "prescriptive-factor-explain",
+    "category": "prescriptive",
+    "question": "What does the 'classrooms in good condition' factor measure, and why could it matter for school dropout?",
+    "include": [
+      "(repair)",
+      "(leak|unsafe|roof|monsoon|confidence)"
+    ]
+  },
+  {
+    "id": "prescriptive-toilets-first",
+    "category": "prescriptive",
+    "question": "Why does the NITI workbook rank functional toilets as the top change for almost every district?",
+    "include": [
+      "(100|already|near|saturat|cap)"
+    ]
   }
 ]

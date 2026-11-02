@@ -338,5 +338,127 @@
     ],
     "gaps": "Local surveys or reports on sanitation and English-medium schools in Raichur are lacking, so conclusions rely on general research findings.",
     "notes": []
+  },
+  "prescriptiveEvidence": {
+    "researchedOn": "2026-11-03",
+    "ranking": "feasible",
+    "changes": [
+      {
+        "factor": "% Schools with Library",
+        "summary": "At the Askihal school near Raichur city an activist demanded a laboratory and library alongside new classrooms (2026). A regional report cites missing libraries in many Kalyana Karnataka government schools.",
+        "findings": [
+          {
+            "claim": "An activist at the Askihal government school near Raichur city demanded that a laboratory and library also be established there, alongside temporary classrooms.",
+            "quote": "A laboratory and library should also be established at the school",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              1
+            ]
+          },
+          {
+            "claim": "Across Kalyana Karnataka, many government schools are reported to have poor infrastructure, including a lack of libraries, classrooms, toilets and drinking water; a region-wide statement.",
+            "quote": "Apart from the shortage of teachers, many govt schools also have poor infrastructure, including inadequate drinking water, toilet facilities, electricity, lack of classrooms, libraries, playgrounds and compound walls.",
+            "scope": "state",
+            "stance": "gap",
+            "sources": [
+              2
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Classrooms in Good Condition",
+        "summary": "Askihal government school in Raichur has held primary classes outdoors for about 18 months after unsafe rooms were demolished; reconstruction awaits KKRDB funds. A regional claim cites 18,022 classrooms needing repair.",
+        "findings": [
+          {
+            "claim": "The Askihal government higher primary school in Raichur has lacked enough classrooms since old structures were removed on safety grounds, with primary classes often held outdoors.",
+            "quote": "The Government Higher Primary School in Askihal village has been without enough classrooms since the old structures were removed on safety grounds about one-and-a-half years ago.",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              1
+            ]
+          },
+          {
+            "claim": "ANI reports an acute classroom shortage at the government high and primary school in Askihal, Raichur district, forcing mainly primary students to study outdoors.",
+            "quote": "An acute classroom shortage at the Government High School and Primary School in Askihal village, Raichur district, has forced students to study outdoors, with mainly the primary section facing the brunt of the crisis.",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              3
+            ]
+          },
+          {
+            "claim": "ANI copy carried by NewKerala reports an acute classroom shortage at the government high and primary school in Askihal, Raichur district, forcing mainly primary students to study outdoors.",
+            "quote": "An acute classroom shortage at the Government High School and Primary School in Askihal village, Raichur district, has forced students to study outdoors, with mainly the primary section facing the brunt of the crisis.",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              4
+            ]
+          },
+          {
+            "claim": "Opposition leader R Ashoka, citing a Kannada media report, claimed 18,022 classrooms in Kalyana Karnataka need repair, 8,006 of them declared dilapidated; a regional, partisan claim.",
+            "quote": "",
+            "scope": "state",
+            "stance": "gap",
+            "sources": [
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% of female teachers",
+        "summary": "",
+        "findings": []
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "url": "https://www.hindustantimes.com/india-news/kids-waiting-for-safer-classrooms-forced-outdoors-in-raichur-101789156039573.html",
+        "title": "190 Raichur students forced outdoors, await safer classrooms month after demolition",
+        "outlet": "Hindustan Times",
+        "date": "2026-09-12",
+        "type": "news"
+      },
+      {
+        "id": 2,
+        "url": "https://timesofindia.indiatimes.com/city/hubballi/22595-teacher-posts-vacant-in-kalyana-karnataka/articleshow/131118728.cms",
+        "title": "22,595 teacher posts vacant In Kalyana Karnataka",
+        "outlet": "The Times of India",
+        "date": "2026-05-15",
+        "type": "news"
+      },
+      {
+        "id": 3,
+        "url": "https://www.aninews.in/news/national/general-news/we-need-new-classrooms-soon-students-attend-classes-outdoors-in-karnatakas-raichur-amid-classroom-shortage20260919091651/",
+        "title": "\"We need new classrooms soon\": Students attend classes outdoors in Karnataka's Raichur amid classroom shortage",
+        "outlet": "Asian News International",
+        "date": "2026-09-19",
+        "type": "news"
+      },
+      {
+        "id": 4,
+        "url": "https://www.newkerala.com/news/a/we-need-new-classrooms-soon-students-attend-classes-291.htm",
+        "title": "Raichur school students study outdoors as classrooms await rebuild",
+        "outlet": "NewKerala.com (ANI)",
+        "date": "2026-09-19",
+        "type": "news"
+      },
+      {
+        "id": 5,
+        "url": "https://www.deccanchronicle.com/southern-states/karnataka/ashoka-targets-kharge-over-poor-state-of-schools-in-kalyana-karnataka-1967068",
+        "title": "Ashoka Targets Kharge Over Poor State Of Schools In Kalyana Karnataka",
+        "outlet": "Deccan Chronicle",
+        "date": "2026-06-29",
+        "type": "news"
+      }
+    ],
+    "notes": [
+      "% Classrooms in Good Condition | 'Opposition leader R Ashoka, citing a Kannada media': quote removed (not found on the page)"
+    ]
   }
 }

@@ -27,10 +27,18 @@ export {
   type DistrictNitiFactor,
 } from "./districtProfiles";
 export { usePersonaProfile, type PersonaProfile } from "./personaProfiles";
-export { personaCard, type PersonaCard, type PersonaCardTopic } from "./personaCards";
+export {
+  personaCard,
+  type IntroScene,
+  type PersonaCard,
+  type PersonaCardTopic,
+  type PersonaIntro,
+  type PersonaIntroLine,
+} from "./personaCards";
 export * from "./districtResearch";
 export * from "./nitiData";
 export * from "./newsVsData";
+export * from "./nitiPrescriptive";
 export { loadDefaultRun } from "./defaultRun";
 export { CATEGORY_LABEL, CATEGORY_EMOJI } from "./reasonCategories";
 export * from "./aggregate";

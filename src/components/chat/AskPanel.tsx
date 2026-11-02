@@ -124,7 +124,7 @@ function useRenderer(pack: KnowledgePack | null) {
       const text = rawText
         .replace(/\s*\((?:DISTRICT|GENERAL|REASONING)\)/g, "")
         .replace(
-          /\s*\[(?:DIGEST|CAVEATS|UIDAI|NEWS VS DATA|ANALYSIS|PERSONAS|REGION|DISTRICT|SYNTHESIS|GENERAL|STATEWIDE|REGIONAL|PERSONA|REASONING|SOURCES)[^\]]*\]/g,
+          /\s*\[(?:DIGEST|CAVEATS|UIDAI|NEWS VS DATA|NITI PRESCRIPTIVE|ANALYSIS|PERSONAS|REGION|DISTRICT|SYNTHESIS|GENERAL|STATEWIDE|REGIONAL|PERSONA|REASONING|SOURCES)[^\]]*\]/g,
           "",
         );
       const blocks: ReactNode[] = [];

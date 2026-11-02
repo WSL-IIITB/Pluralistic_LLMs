@@ -60,7 +60,26 @@ These rules always apply when you answer.
 5. UIDAI/NITI FACTORS. Two official files name a "dominant factor" per district. The state-level method gives the same factor (household sanitation) to every district and differs only in the value; the district-level method picks a factor per district. What the numeric "value" measures is UNVERIFIED: do not interpret values, compare them across districts, or blend the two methods. A dominant factor is a statistical flag, not a proven cause. When asked why a factor is dominant or how it relates to dropout, explain the possible links: the (REASONING) pathways in the UIDAI section, the district's "how it could work" line, and the district's documented reasons where they connect. The evidence-check results are there too, for when the user asks for proof.
 6. SSLC. A pass rate is not a dropout rate. The 2025 and 2026 pass rates in the sources conflict and use different bases; never present them as a trend.
 7. PERSONAS AND SYNTHESES. The 12 personas are composites built from public data. Persona replies and "consolidated answers" are model-written, not evidence.
-8. Do not give policy advice or opinions beyond what the research states."""
+8. Do not give policy advice or opinions beyond what the research states.
+9. NITI PRESCRIPTIVE MODEL. A second NITI analysis (UDISE 2023-24 and NFHS-5) fits one straight line per factor across Karnataka's districts and ranks each district's "top three changes": the factors whose 10% improvement the lines link most to lower dropout. It is a correlation, not proof that changing a factor would lower dropout. The dashboard shows the "feasible" ranking (percentages capped at 100%) first; NITI's own published ranking is dominated by factors already near 100% (toilets, libraries). Unlike the dominant-factor files in rule 5, these factor values ARE plain indicator values (for example 86% of classrooms in good condition) and may be quoted. The dropout rates in that file come from the NITI workbook, a different source from the casefile rate: never mix them."""
+
+
+def artefact_lines(pres: dict, info: dict) -> list[str]:
+    """Why NITI's published ranking puts near-saturated factors (toilets, libraries) first: computed from the data."""
+    out = []
+    areas = [a for d in pres["districts"].values() for a in d["areas"]]
+    for name in ("% Schools with Functional Total Toilets", "% Schools with Library"):
+        f = info[name]
+        first = sum(1 for a in areas if a["topNiti"][:1] == [name])
+        top3 = sum(1 for a in areas if name in a["topNiti"])
+        past = sum(1 for a in areas for x in a["factors"] if x["name"] == name and x["pastLimit"])
+        out.append(
+            f"WHY {f['short'].upper()} RANKS HIGH IN NITI'S PUBLISHED RANKING (a method artefact): Karnataka's rows already have {f['karnataka']['min']}-{f['karnataka']['max']}% "
+            f"(median {f['karnataka']['median']}%). The published formula improves a factor by 10% of its own value, which pushes the value past 100% in {past} of "
+            f"{len(areas)} rows; with the fitted line's slope of {f['slope']:.2f}, predicted dropout then falls far, often below zero, so the effect hits the 100 cap. "
+            f"That is why it is #1 in {first} and in the top three in {top3} of {len(areas)} rows of NITI's published ranking although almost nothing is left to improve. "
+            "Capping the value at 100% (the feasible ranking) removes the artefact.")
+    return out
 
 
 # How each Karnataka factor could be linked to dropout. General reasoning about what the indicator measures
@@ -107,6 +126,7 @@ def input_files() -> list[str]:
             os.path.join(DATA, "districts.json"),
             os.path.join(DATA, "default-run.json"),
             os.path.join(DATA, "news-vs-data.json"),
+            os.path.join(DATA, "niti-prescriptive.json"),
             os.path.join(ROOT, "backend", "app", "data", "karnataka_regions.json"),
             *glob.glob(os.path.join(ROOT, "src", "lib", "worldview", "personaCards", "*.json")),
             os.path.abspath(__file__),
@@ -169,6 +189,19 @@ def build() -> dict:
                 sources.append({"id": gid, "title": s["title"][:150], "outlet": s["outlet"], "date": s["date"], "type": s["type"], "url": s["url"]})
             why_to_global[did][s["id"]] = gid_by_url[s["url"]]
 
+    pre_to_global: dict[str, dict[int, str]] = {}
+    for did in sorted(research):
+        pre_to_global[did] = {}
+        for s in (research[did].get("prescriptiveEvidence") or {}).get("sources", []):
+            if s["url"] not in gid_by_url:
+                gid = f"S{len(sources) + 1}"
+                gid_by_url[s["url"]] = gid
+                sources.append({"id": gid, "title": s["title"][:150], "outlet": s["outlet"], "date": s["date"], "type": s["type"], "url": s["url"]})
+            pre_to_global[did][s["id"]] = gid_by_url[s["url"]]
+    pres = read(os.path.join(DATA, "niti-prescriptive.json"))
+    pres_info = {f["name"]: f for f in pres["factors"]}
+    nvd_districts = read(os.path.join(DATA, "news-vs-data.json"))["districts"]
+
     def cites(did: str, ids: list[int]) -> str:
         return "".join(f"[{local_to_global[did][i]}]" for i in ids if i in local_to_global[did])
 
@@ -218,6 +251,9 @@ def build() -> dict:
     districts: dict[str, str] = {}
     for did, d in sorted(research.items()):
         L = [f"DISTRICT: {d['name']} ({region_short[d['regionId']]} region) | coverage: {d['coverage']} | casefile dropout rate: {rate_text(did)}"]
+        if d["coverage"] == "thin":
+            L.append(f"COVERAGE NOTE: the evidence on why students leave school in {d['name']} is THIN. Start any answer about dropout reasons here by saying so. "
+                     "(The verified sources on the NITI model's top changes further down describe school conditions, not reasons students gave for leaving.)")
         L.append(f"Headline (DISTRICT): {d['headline']}")
         L.append(f"Summary (DISTRICT): {d['summary']}")
         L.append("Reasons students leave, strongest evidence first:")
@@ -253,6 +289,25 @@ def build() -> dict:
                 if proofs("general"):
                     parts.append(f"General research from elsewhere, not local evidence (GENERAL): {proofs('general')}")
                 L.append(" ".join(parts))
+        for a in pres["districts"].get(did, {}).get("areas", []):
+            rates = ", ".join(x for x in [
+                f"2023-24 {a['dropout2023_24']:.1f}%" if a.get("dropout2023_24") is not None else "",
+                f"2024-25 file {a['dropout2024_25']:.1f}%" if a.get("dropout2024_25") is not None else ""] if x)
+            byname = {f["name"]: f for f in a["factors"]}
+            top = "; ".join(f"{i}. {pres_info[n]['short']} ({byname[n]['value']:.1f}{'' if n == 'Teachers per 100 students' else '%'}, rank {byname[n]['rank']} of 35)"
+                            for i, n in enumerate(a["topFeasible"], 1))
+            weak = ", ".join(f"{pres_info[f['name']]['short']} (rank {f['rank']})" for f in sorted(a["factors"], key=lambda f: -f["rank"])[:3])
+            L.append(f"NITI prescriptive model, {a['area']} (correlation across districts, not proof of cause; NITI workbook dropout rate {rates}, a different source from the casefile rate): "
+                     f"top three changes (feasible ranking) {top}. NITI's own published ranking: {', '.join(pres_info[n]['short'] for n in a['topNiti'])}. Where it ranks lowest in Karnataka: {weak}.")
+        pre = research[did].get("prescriptiveEvidence") or {}
+        if pre.get("changes"):
+            L.append("Verified web sources on those top changes (each page re-opened and checked):")
+            for c in pre["changes"]:
+                cl = " ".join(f"{k['claim']} ({'statewide' if k['scope'] == 'state' else k['stance']}) " + "".join(
+                    f"[{pre_to_global[did][i]}]" for i in k["sources"] if i in pre_to_global[did]) for k in c["findings"])
+                L.append(f"- {pres_info[c['factor']]['short']}: {cl or 'no verified source about the district in this pass.'}".rstrip())
+        for c in nvd_districts.get(did, {}).get("topChanges", []):
+            L.append(f"- Reconciliation: {c['line']}")
         if d["headlines"]:
             L.append("Recent coverage:")
             for h in d["headlines"][:3]:
@@ -343,6 +398,22 @@ def build() -> dict:
                  f"data {dfac} | touching: {touch} | why: {', '.join(d['found']['district']['why']) or 'not researched'}")
     news_vs_data = "\n".join(N)
 
+    # ---- NITI prescriptive model (public/data/niti-prescriptive.json) ---------------------------
+    nvs = read(os.path.join(DATA, "news-vs-data.json"))["statewide"].get("prescriptive", {})
+    R = ["NITI PRESCRIPTIVE MODEL (the NITI team's district model; " + pres["source"]["dataset"] + ")",
+         f"Model: {pres['method']['model']} Top changes: {pres['method']['sensitivity']} {pres['method']['contribution']}",
+         f"Two rankings, never blended. Feasible (shown first): {pres['method']['feasible']} NITI as published: {pres['method']['niti']}",
+         pres["method"]["step"], pres["method"]["caveat"],
+         "How often each factor is among a row's top three (of " + str(pres["source"]["karnatakaRows"]) + " Karnataka rows). Feasible: " +
+         "; ".join(f"{pres_info[n]['short']} {k}" for n, k in list(pres["statewide"]["topFeasible"].items())[:8]) +
+         ". NITI as published: " + "; ".join(f"{pres_info[n]['short']} {k}" for n, k in list(pres["statewide"]["topNiti"].items())[:5]) + ".",
+         *([f"Model vs sources vs news (statewide): {nvs['text']}"] if nvs else []),
+         *artefact_lines(pres, pres_info),
+         "The 18 factors: what each measures, and how it could be linked to dropout (REASONING: general reasoning, not a finding):"]
+    for f in pres["factors"]:
+        R.append(f"- {f['short']} [{f['bucket']}; {f['better']} is linked to lower dropout; Karnataka median {f['karnataka']['median']}]: {f['measures']} (REASONING) {f['why']} What a change looks like: {f['change']}")
+    prescriptive = "\n".join(R)
+
     # ---- analysis (story vs official + persona similarity, from the saved run) -------------------
     A = [f"ANALYSIS FROM A SAVED MODEL RUN (everything here is SYNTHESIS, model-written, not sourced evidence). Question asked: \"{run['query']}\" ({run.get('mode', '?')} mode)."]
     if sv.get("karnataka-statewide"):
@@ -412,17 +483,18 @@ def build() -> dict:
         "districts": districts,
         "uidai": uidai,
         "newsVsData": news_vs_data,
+        "prescriptive": prescriptive,
         "analysis": analysis,
         "personas": personas,
     }
-    sections = [CAVEATS, digest, uidai, news_vs_data, analysis, personas, *region_sections.values(), *districts.values()]
+    sections = [CAVEATS, digest, uidai, news_vs_data, prescriptive, analysis, personas, *region_sections.values(), *districts.values()]
     known = {s["id"] for s in sources}
     dangling = sorted({m for t in sections for m in re.findall(r"\[(S\d+)\]", t)} - known)
     if dangling:
         raise SystemExit(f"knowledge pack references unknown source ids: {dangling}")
     pack["tokenEstimate"] = {
         "alwaysSent": toks(CAVEATS) + toks(digest),
-        "uidai": toks(uidai), "newsVsData": toks(news_vs_data), "analysis": toks(analysis), "personas": toks(personas),
+        "uidai": toks(uidai), "newsVsData": toks(news_vs_data), "prescriptive": toks(prescriptive), "analysis": toks(analysis), "personas": toks(personas),
         "regionMax": max(toks(t) for t in region_sections.values()),
         "districtMax": max(toks(t) for t in districts.values()),
         "wholePack": sum(toks(t) for t in sections),
@@ -452,7 +524,7 @@ def main() -> int:
     t = pack["tokenEstimate"]
     print(f"wrote {os.path.relpath(OUT, ROOT)} ({os.path.getsize(OUT) // 1024} KB, hash {pack['sourceHash']})")
     print(f"  always sent (caveats+digest): ~{t['alwaysSent']} tokens | biggest district ~{t['districtMax']} | biggest region ~{t['regionMax']}")
-    print(f"  uidai ~{t['uidai']} | news vs data ~{t['newsVsData']} | analysis ~{t['analysis']} | personas ~{t['personas']} | whole pack ~{t['wholePack']} (Gemma window: 32,768)")
+    print(f"  uidai ~{t['uidai']} | news vs data ~{t['newsVsData']} | prescriptive ~{t['prescriptive']} | analysis ~{t['analysis']} | personas ~{t['personas']} | whole pack ~{t['wholePack']} (Gemma window: 32,768)")
     print(f"  {pack['stats']['districts']} districts, {pack['stats']['sources']} global sources")
     return 0
 

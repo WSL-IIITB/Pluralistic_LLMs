@@ -209,6 +209,103 @@
       ],
       "sanitation": "If the family's camp or village home lacks a proper toilet, his daughter's attendance would suffer first.",
       "district": "The factor flags the share of English-medium schools in Belagavi. The card shows cane migration, his son's farm-work future, missing camp schools and debt as the pressures, not language."
+    },
+    "dataLens": {
+      "area": "Belagavi Chikkodi",
+      "changes": [
+        {
+          "factor": "% Classrooms in Good Condition",
+          "effect": "When his children are in school between cane seasons, repaired classrooms would keep their lessons running; broken rooms make catching up after migration harder."
+        },
+        {
+          "factor": "% Schools with Furniture available for students",
+          "effect": "Desks and benches matter for children who return mid-year from the cane fields; a school without them feels less worth coming back to."
+        },
+        {
+          "factor": "% Women with 10+ Years Schooling",
+          "effect": "Where more mothers have ten years of schooling, children tend to stay in school longer; that could help his daughter stay on despite the pull of cane work."
+        }
+      ],
+      "lag": {
+        "factor": "% of female teachers",
+        "effect": "Chikkodi has one of the lowest shares of women teachers in Karnataka; for his daughter, fewer women teachers can make high school feel less safe."
+      }
+    },
+    "intro": {
+      "backdrop": "fields",
+      "lines": [
+        {
+          "scene": "hello",
+          "text": "Hello. I'm 41, a landless cane cutter from Chikkodi taluk in Belagavi."
+        },
+        {
+          "scene": "household",
+          "text": "I live with my wife, our son and daughter, and my elderly parents.",
+          "show": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "scene": "day",
+          "text": "Every October I take an advance from the mukadam and go to the sugar factories with my wife.",
+          "show": [
+            0
+          ]
+        },
+        {
+          "scene": "day",
+          "text": "We cut cane before sunrise to beat the heat, and live in a tarpaulin shelter near the field.",
+          "show": [
+            1,
+            3
+          ]
+        },
+        {
+          "scene": "world",
+          "text": "The cutting season keeps us away for about six months, from October to April.",
+          "topic": "daily_life_and_work"
+        },
+        {
+          "scene": "school",
+          "text": "Six months away takes parents, and sometimes older children, from home across two school terms.",
+          "show": [
+            0
+          ]
+        },
+        {
+          "scene": "school",
+          "text": "I fear my son, old enough to be a second hand on the koyta, will leave before Class 10.",
+          "say": "I fear my son, old enough to be a second hand on the koyta, will leave before class ten.",
+          "show": [
+            1
+          ]
+        },
+        {
+          "scene": "district",
+          "text": "For Chikkodi, the NITI model ranks three changes highest: classrooms in good repair, desks and benches, and more women finishing school.",
+          "show": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "scene": "worries",
+          "text": "What keeps me up at night: debt to the mukadam, injuries in cutting season, and my children leaving school.",
+          "show": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "scene": "outro",
+          "text": "That's my story. I'm a composite persona, built from public data. Explore my full card below."
+        }
+      ]
     }
   },
   "female": {
@@ -421,6 +518,105 @@
       ],
       "sanitation": "If her tanda household lacks a proper toilet, her teenage daughter, already relied on for cooking and care, would be the first to miss school.",
       "district": "The factor flags the share of English-medium schools in Vijayapura. The card shows distance, care work, fluoride-linked illness and early marriage as the pressures, not language."
+    },
+    "dataLens": {
+      "area": "Vijayapura",
+      "changes": [
+        {
+          "factor": "% Schools with Functional Total Toilets",
+          "effect": "Vijayapura's schools are close to full toilet coverage but among the lowest in the state; a working girls' toilet matters for her teenage daughter."
+        },
+        {
+          "factor": "% Classrooms in Good Condition",
+          "effect": "Repaired classrooms would make the long trip to school more worth it for her children, when distance is already a reason to stay home."
+        },
+        {
+          "factor": "% Schools with Playground",
+          "effect": "A playground and sport give her younger son a reason to keep coming to school while care work and distance pull the other way."
+        }
+      ],
+      "lag": {
+        "factor": "% of female teachers",
+        "effect": "Vijayapura has one of the lowest shares of women teachers in Karnataka; with the pressure of early marriage, her daughter may have few women to turn to at school."
+      }
+    },
+    "intro": {
+      "backdrop": "dry-plains",
+      "lines": [
+        {
+          "scene": "hello",
+          "text": "Hello. I'm 33, a Lambani field labourer in Indi taluk, Vijayapura."
+        },
+        {
+          "scene": "household",
+          "text": "My husband is often away in Goa or Pune. I live with our teenage daughter, our younger son, and his parents.",
+          "show": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "scene": "day",
+          "text": "Before dawn I fetch water and cook, then walk or cycle to whichever grape or pomegranate field is hiring.",
+          "show": [
+            0,
+            1
+          ]
+        },
+        {
+          "scene": "day",
+          "text": "Cooking, water and the children fall almost entirely on me.",
+          "show": [
+            3
+          ]
+        },
+        {
+          "scene": "world",
+          "text": "In Vijayapura, female literacy was 56.7%, against 77.2% for men, in the 2011 Census.",
+          "say": "In Vijayapura, female literacy was fifty-six point seven percent, against seventy-seven point two for men, in the twenty eleven census.",
+          "topic": "education_and_schooling"
+        },
+        {
+          "scene": "school",
+          "text": "Only primary schools are nearby; Class 9 means a daily trip to a town high school.",
+          "say": "Only primary schools are nearby; class nine means a daily trip to a town high school.",
+          "show": [
+            0
+          ]
+        },
+        {
+          "scene": "school",
+          "text": "My daughter is relied on for cooking and sibling care, and early marriage is a real risk at her age.",
+          "show": [
+            1,
+            3
+          ]
+        },
+        {
+          "scene": "district",
+          "text": "For Vijayapura, the NITI model ranks three changes highest: working toilets in every school, classrooms in good repair, and playgrounds.",
+          "show": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "scene": "worries",
+          "text": "What keeps me up at night: safe drinking water, my daughter dropping out, and early marriage.",
+          "show": [
+            0,
+            2,
+            3
+          ]
+        },
+        {
+          "scene": "outro",
+          "text": "That's my story. I'm a composite persona, built from public data. Explore my full card below."
+        }
+      ]
     }
   }
 }

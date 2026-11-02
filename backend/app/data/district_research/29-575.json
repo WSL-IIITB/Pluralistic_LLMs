@@ -223,5 +223,67 @@
       "state/% Population Living in Households with I: proof dropped (no openable source): 'Health-related absenteeism is generally known to contribute '",
       "district/% Schools with instruction medium 1 (Eng: proof dropped (no openable source): 'Language barriers can cause dropouts in under-resourced cont'"
     ]
+  },
+  "prescriptiveEvidence": {
+    "researchedOn": "2026-11-03",
+    "ranking": "feasible",
+    "changes": [
+      {
+        "factor": "% of female teachers",
+        "summary": "",
+        "findings": []
+      },
+      {
+        "factor": "% Teachers Trained in ICT/Computers",
+        "summary": "A December 2025 workshop trained about 650 government school teachers from Mangaluru and other Dakshina Kannada taluks in AI tools, organised with DIET Mangaluru. No district-wide ICT-training figures were found.",
+        "findings": [
+          {
+            "claim": "A five-day workshop on AI tools drew around 650 school teachers from Mangaluru, Puttur, Bantwal and other taluks, organised with DIET Mangaluru.",
+            "quote": "Around 650 school teachers from Mangaluru, Puttur, Bantwal, Beltangady, Moodbidri, and Sullia are participating in the workshop.",
+            "scope": "district",
+            "stance": "progress",
+            "sources": [
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Women with 10+ Years Schooling",
+        "summary": "Officials link rising Muslim girls' dropout after Class 10 and PUC to the 2022 hijab controversy and scarce nearby girls-only options; new girls-only colleges are planned around Ullal. No district schooling statistics found.",
+        "findings": [
+          {
+            "claim": "Officials say dropout among Muslim girls after Class 10 and PUC rose after the 2022 hijab controversy, prompting new girls-only colleges in the Ullal area.",
+            "quote": "",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              2
+            ]
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "url": "https://daijiworld.com/news/newsDisplay?newsID=1300414",
+        "title": "SJEC hosts five-day workshop on",
+        "outlet": "Daijiworld",
+        "date": "2025-12-10",
+        "type": "news"
+      },
+      {
+        "id": 2,
+        "url": "https://newskarnataka.com/mangaluru/girls-only-colleges-gain-momentum-in-mangaluru-amid-rising-community-demand/23072025/",
+        "title": "Girls-Only Colleges Gain Momentum in Mangaluru Amid Rising Community Demand",
+        "outlet": "News Karnataka",
+        "date": "2025-07-23",
+        "type": "news"
+      }
+    ],
+    "notes": [
+      "% Women with 10+ Years Schooling | 'Officials say dropout among Muslim girls after Cla': quote removed (not found on the page)"
+    ]
   }
 }

@@ -389,5 +389,153 @@
     ],
     "gaps": "Unable to find any local evidence on sanitation or English-medium schooling affecting dropouts in Koppal; analysis depends on general studies.",
     "notes": []
+  },
+  "prescriptiveEvidence": {
+    "researchedOn": "2026-11-03",
+    "ranking": "feasible",
+    "changes": [
+      {
+        "factor": "% Schools with Functional Total Toilets",
+        "summary": "In early 2025 an inspection found no doors on toilets and bathrooms at the Kasturba Gandhi Balika Vidyalaya hostel in Betageri, Koppal taluk; the head teacher faced suspension. Covered by two outlets.",
+        "findings": [
+          {
+            "claim": "An inspection found the girls' residential school (Kasturba Gandhi Balika Vidyalaya) at Betageri, Koppal had toilets and bathrooms without doors; the head teacher faced suspension.",
+            "quote": "A girls-only residential school in Koppal district in North Karnataka doesn't have doors for its toilets and bathrooms",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              1
+            ]
+          },
+          {
+            "claim": "News Karnataka reports a government-run residential school for girls in Koppal under scrutiny over basic sanitation, with 120 students in Classes 6 to 8 and broken sanitation facilities.",
+            "quote": "Koppal: A government-run residential school for girls in North Karnataka has come under scrutiny for failing to provide basic sanitation facilities.",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              2
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Schools with Library",
+        "summary": "Kalike (Tata Trusts) found most schools in Koppal and Yadgir lacked library rooms and books and now supports 300+ school libraries; a Kushtagi headmaster built a school library with public support (2026).",
+        "findings": [
+          {
+            "claim": "A headmaster at a government higher primary school in Madnal, Kushtagi taluk, Koppal set up a school library with public support and started a home-library drive reaching around 100 houses.",
+            "quote": "Sharanappa Tumarikoppa, headmaster of the govt higher primary school in Madnal village, set up a special library in the school with public support",
+            "scope": "district",
+            "stance": "progress",
+            "sources": [
+              3
+            ]
+          },
+          {
+            "claim": "Kalike found most schools in Koppal and Yadgir lacked library rooms, suitable books or library periods; its programme now covers 300+ school libraries, over 200 of them in Koppal.",
+            "quote": "We have been involved in strengthening school libraries because we found that most schools lacked dedicated library rooms, age-appropriate books or regular library periods",
+            "scope": "district",
+            "stance": "progress",
+            "sources": [
+              4
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Classrooms in Good Condition",
+        "summary": "Villagers in Vanageri (Kushtagi taluk) built three classrooms themselves when pupils sat in corridors (2025). A 2017 report found a Koppal school building ready to crumble. A regional claim cites 18,022 classrooms needing repair.",
+        "findings": [
+          {
+            "claim": "In 2017 the roof of a passage collapsed at the Government Central Model Higher Primary School in Koppal, and its 50-year-old building was described as ready to crumble.",
+            "quote": "The Government Central Model Higher Primary School building in Koppal, about 400km from Bengaluru, is ready to crumble anytime.",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              6
+            ]
+          },
+          {
+            "claim": "Villagers of Vanageri in Kushtagi taluk, Koppal built three additional classrooms for a government higher primary school after children had to sit in corridors due to lack of space.",
+            "quote": "Confronted with the reality that their children had to sit in corridors for lessons due to a lack of classroom space, the community took proactive steps.",
+            "scope": "district",
+            "stance": "progress",
+            "sources": [
+              5
+            ]
+          },
+          {
+            "claim": "Opposition leader R Ashoka, citing a Kannada media report, claimed 18,022 classrooms in Kalyana Karnataka need repair, 8,006 of them declared dilapidated; a regional, partisan claim.",
+            "quote": "",
+            "scope": "state",
+            "stance": "gap",
+            "sources": [
+              7
+            ]
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "url": "https://timesofindia.indiatimes.com/city/hubballi/toilets-bathrooms-in-this-karnataka-girls-hostel-have-no-doors/articleshow/117934733.cms",
+        "title": "Karnataka Hostel Bathroom Door: Toilets, bathrooms in this Karnataka girls' hostel have no doors | Hubballi News",
+        "outlet": "The Times of India",
+        "date": "2025-02-05",
+        "type": "news"
+      },
+      {
+        "id": 2,
+        "url": "https://newskarnataka.com/koppala/koppal-girls-hostel-lacks-toilet-doors-head-teacher-faces-suspension/05022025/",
+        "title": "Koppal girls' hostel lacks toilet doors; head teacher faces suspension",
+        "outlet": "News Karnataka",
+        "date": "2025-02-05",
+        "type": "news"
+      },
+      {
+        "id": 3,
+        "url": "https://timesofindia.indiatimes.com/city/hubballi/koppal-rural-school-hm-launches-childs-home-library-drive-to-cut-screen-time/articleshow/129578892.cms",
+        "title": "Koppal rural school HM launches ‘child’s home library’ drive to cut screen time | Hubballi News - The Times of India",
+        "outlet": "The Times of India",
+        "date": "2026-03-14",
+        "type": "news"
+      },
+      {
+        "id": 4,
+        "url": "https://horizons.tatatrusts.org/2025/august/tata-trusts-horizons-seeding-reading.html",
+        "title": "Seeding the reading",
+        "outlet": "Tata Trusts Horizons",
+        "date": "2025-08-01",
+        "type": "ngo"
+      },
+      {
+        "id": 5,
+        "url": "https://timesofindia.indiatimes.com/city/hubballi/temple-donations-help-villagers-build-three-classrooms/articleshow/118187359.cms",
+        "title": "Temple donations help villagers build three classrooms | Hubballi News - The Times of India",
+        "outlet": "The Times of India",
+        "date": "2025-02-12",
+        "type": "news"
+      },
+      {
+        "id": 6,
+        "url": "https://timesofindia.indiatimes.com/city/hubballi/roof-of-50-year-old-govt-school-building-in-koppal-collapses-students-unhurt/articleshow/57202032.cms",
+        "title": "Koppal: Roof of 50-year-old govt school building in Koppal collapses, students unhurt | Hubballi News",
+        "outlet": "The Times of India",
+        "date": "2017-02-17",
+        "type": "news"
+      },
+      {
+        "id": 7,
+        "url": "https://www.deccanchronicle.com/southern-states/karnataka/ashoka-targets-kharge-over-poor-state-of-schools-in-kalyana-karnataka-1967068",
+        "title": "Ashoka Targets Kharge Over Poor State Of Schools In Kalyana Karnataka",
+        "outlet": "Deccan Chronicle",
+        "date": "2026-06-29",
+        "type": "news"
+      }
+    ],
+    "notes": [
+      "% Classrooms in Good Condition | 'Opposition leader R Ashoka, citing a Kannada media': quote removed (not found on the page)"
+    ]
   }
 }

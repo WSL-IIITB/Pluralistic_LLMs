@@ -1,0 +1,281 @@
+{
+  "region": "bayaluseeme",
+  "researchedOn": "2026-11-03",
+  "districts": [
+    {
+      "districtId": "29-582",
+      "name": "Chikkaballapur",
+      "changes": [
+        {
+          "factor": "% Classrooms in Good Condition",
+          "summary": "An NGO project page for a government high school in Chintamani reports only some rooms in poor condition and a rebuilt block opened in 2025. No news report on district classroom repair was reachable.",
+          "findings": [
+            {
+              "claim": "A government high school in Chintamani, Chikkaballapura district, had 15 rooms in two buildings with some in poor condition; a new building was inaugurated in 2025.",
+              "quote": "The school has 15 rooms in 2 buildings, few rooms are not in good condition.",
+              "url": "https://osaat.org/?p=20444",
+              "title": "New Government High School, Chintamani, Karnataka",
+              "outlet": "OSAAT (One School At A Time)",
+              "date": "",
+              "scope": "district",
+              "stance": "gap"
+            }
+          ]
+        },
+        {
+          "factor": "% Population Living in Households with Improved Sanitation",
+          "summary": "No district-specific source found.",
+          "findings": []
+        },
+        {
+          "factor": "% Women with 10+ Years Schooling",
+          "summary": "Only indirect, aggregator-level figures were found: a youth-data profile shows 34.1% of girls aged 15 to 21 out of education, and 2011 Census figures show female literacy well below male literacy.",
+          "findings": [
+            {
+              "claim": "A district youth-opportunity profile says 34.1% of girls aged 15 to 21 in Chikballapur are out of education, close to the typical district (source and year not stated).",
+              "quote": "In Chikballapur, 34.1% of girls aged 15 to 21 are out of education, close to the typical district.",
+              "url": "https://youthpower.in/institution/karnataka/chikballapur/kgbv",
+              "title": "KGBV (Kasturba Gandhi Balika Vidyalaya) in Chikballapur, Karnataka | YouthPOWER",
+              "outlet": "YouthPOWER",
+              "date": "",
+              "scope": "district",
+              "stance": "context"
+            },
+            {
+              "claim": "Census-based figures cited for Chikballapur district put female literacy at 61.55%, compared with 77.75% for males.",
+              "quote": "the literacy rate in the district is 69.76% including 77.75% are males and 61.55% are females.",
+              "url": "https://www.indiastatdistrictdemographics.com/karnataka/chikballapur-district",
+              "title": "District Level Information of Chikballapur (Karnataka)",
+              "outlet": "IndiaStat",
+              "date": "",
+              "scope": "district",
+              "stance": "context"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "districtId": "29-581",
+      "name": "Kolar",
+      "changes": [
+        {
+          "factor": "% Classrooms in Good Condition",
+          "summary": "A 2023 news report and two NGO project pages show Kolar government schools with few usable rooms: roof flaking at Gandhinagar, holes in walls at Malur, and poor rooms at Kamasamudram, where new classrooms are being built.",
+          "findings": [
+            {
+              "claim": "At a government model higher primary school in Gandhinagar, Kolar, only 3 of 11 rooms were usable, with repairs reportedly overdue for nearly seven years.",
+              "quote": "There are 11 rooms of which only 3 can be occupied.",
+              "url": "https://educationworld.in/karnataka-fearing-for-students-lives-parent-seeks-repair-of-government-school-building/",
+              "title": "Karnataka: Fearing for students' lives, parent seeks repair of government school building",
+              "outlet": "EducationWorld",
+              "date": "2023-03-09",
+              "scope": "district",
+              "stance": "gap"
+            },
+            {
+              "claim": "A girls' school in Malur town, Kolar district, had only one good room among more than 8 before an NGO-built block was completed in 2020.",
+              "quote": "The school had multiple buildings with more than 8 rooms, but only one room was is in good condition.",
+              "url": "https://osaat.org/?p=17698",
+              "title": "Government Model Higher Primary Girls School, Malur, Karnataka",
+              "outlet": "OSAAT (One School At A Time)",
+              "date": "",
+              "scope": "district",
+              "stance": "gap"
+            },
+            {
+              "claim": "A government school in Kamasamudram, Bangarapet taluk, has 14 rooms, most in poor condition; an NGO began building 8 classrooms in 2025.",
+              "quote": "The school has 14 rooms in multiple buildings, most of the rooms are in poor condition.",
+              "url": "https://osaat.org/kamasamudram-karnataka/",
+              "title": "Government Model Higher Primary School, Kamasamudram, Karnataka",
+              "outlet": "OSAAT (One School At A Time)",
+              "date": "",
+              "scope": "district",
+              "stance": "gap"
+            }
+          ]
+        },
+        {
+          "factor": "% of female teachers",
+          "summary": "No district-specific source found.",
+          "findings": []
+        },
+        {
+          "factor": "% Population Living in Households with Improved Sanitation",
+          "summary": "A 2017 report says Kolar zilla panchayat was the first to reach its 100% toilet target, building 74,854 toilets in a year. No recent usage or coverage data was reachable.",
+          "findings": [
+            {
+              "claim": "Kolar was reported in 2017 as the first zilla panchayat to hit its full toilet-construction target, with 74,854 toilets built that financial year.",
+              "quote": "Kolar district is the first zilla panchayat administration to achieve its 100 percent target",
+              "url": "https://smartcity.eletsonline.com/karnatakas-kolar-district-is-first-to-achieve-100-odf-target/",
+              "title": "Karnataka's Kolar district is first to achieve 100% ODF target",
+              "outlet": "Elets SmartCity",
+              "date": "2017-10-07",
+              "scope": "district",
+              "stance": "progress"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "districtId": "29-571",
+      "name": "Tumakuru",
+      "changes": [
+        {
+          "factor": "% Women with 10+ Years Schooling",
+          "summary": "Only an aggregator profile was found: it reports 24.3% of girls aged 15 to 21 in Tumakuru out of education, better than the typical district. No news or government source on women's schooling there was reachable.",
+          "findings": [
+            {
+              "claim": "A district youth-opportunity profile says 24.3% of girls aged 15 to 21 in Tumakuru are out of education, better than the typical district (source and year not stated).",
+              "quote": "In Tumakuru, 24.3% of girls aged 15 to 21 are out of education, better than the typical district.",
+              "url": "https://youthpower.in/institution/karnataka/tumakuru/kgbv",
+              "title": "KGBV (Kasturba Gandhi Balika Vidyalaya) in Tumakuru, Karnataka | YouthPOWER",
+              "outlet": "YouthPOWER",
+              "date": "",
+              "scope": "district",
+              "stance": "context"
+            }
+          ]
+        },
+        {
+          "factor": "% Classrooms in Good Condition",
+          "summary": "NGO project pages for schools in Gubbi and Sira taluks of Tumakuru district describe many classrooms in poor condition, with new classrooms built in 2024 and 2026. No Madhugiri-specific page was found.",
+          "findings": [
+            {
+              "claim": "A school at Chandrashekharapura, Gubbi taluk, Tumakuru district, had 8 of its 15 classrooms in poor condition before new facilities opened in 2024.",
+              "quote": "The school has 15 classrooms in 6 buildings(4 RCC, 1 tiled,1 asbestos), 8 classrooms are in poor condition.",
+              "url": "https://osaat.org/?p=19939",
+              "title": "Karnataka Public School (Primary Section), Chandrashekharapura, Karnataka",
+              "outlet": "OSAAT (One School At A Time)",
+              "date": "",
+              "scope": "district",
+              "stance": "gap"
+            },
+            {
+              "claim": "A government high school at Bukkapatna, Sira taluk, Tumakuru district, had only 7 of 12 rooms in good condition before a new building was inaugurated in January 2026.",
+              "quote": "total 12 rooms, out of which only 7 rooms were in good condition",
+              "url": "https://osaat.org/?p=21577",
+              "title": "Government High School, Bukkapatna, Karnataka",
+              "outlet": "OSAAT (One School At A Time)",
+              "date": "",
+              "scope": "district",
+              "stance": "gap"
+            }
+          ]
+        },
+        {
+          "factor": "% Schools with Furniture available for students",
+          "summary": "A 2026 report says Dharmasthala's rural development project gave 1,731 desk-bench sets to 212 Tumakuru government schools, and a 2023 NGO post covers a bench donation in Madhugiri. Both indicate gaps being filled.",
+          "findings": [
+            {
+              "claim": "Dharmasthala's rural development project reportedly gave 1,731 pairs of desks and benches free to 212 schools in Tumakuru district (report in Kannada, February 2026).",
+              "quote": "ತುಮಕೂರು ಜಿಲ್ಲೆಯ 212 ಶಾಲೆಗಳಿಗೆ 1731ಜೊತೆ ಡೆಸ್ಕ್‌ ಮತ್ತು ಬೆಂಚುಗಳನ್ನು ಉಚಿತವಾಗಿ ನೀಡಲಾಗಿದೆ",
+              "url": "https://eesanje.com/fresh-updates/dharmasthala-distribution-free-benches-schools/",
+              "title": "ಧರ್ಮಸ್ಥಳದಿಂದ 212 ಸರ್ಕಾರಿ ಶಾಲೆಗೆ ಉಚಿತ 1731 ಜೊತೆ ಡೆಸ್ಕ್‌-ಬೆಂಚು ವಿತರಣೆ",
+              "outlet": "Eesanje",
+              "date": "2026-02-14",
+              "scope": "district",
+              "stance": "progress"
+            },
+            {
+              "claim": "An NGO donated new benches and desks to the government higher primary school in Kodagadala, Madhugiri, Tumkur, in July 2023.",
+              "quote": "With a generous donation of brand new benches and desks, Uthishta is empowering education",
+              "url": "https://uthishta.org/node/209",
+              "title": "Donation of brand new benches and desks",
+              "outlet": "Uthishta",
+              "date": "2023-07-29",
+              "scope": "district",
+              "stance": "progress"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "districtId": "29-567",
+      "name": "Davanagere",
+      "changes": [
+        {
+          "factor": "% Classrooms in Good Condition",
+          "summary": "A 2018 news report from Harappanahalli and an NGO page for a Honnali school show Davanagere schools short of usable classrooms; the Honnali school got a new building in 2022. No recent district-wide report was reachable.",
+          "findings": [
+            {
+              "claim": "At Chigateri in Harappanahalli, Davanagere district, 57 Class 4 pupils studied under a tree for lack of a classroom (report from 2018).",
+              "quote": "The 57 students of Class 4 of the government higher primary school in Chigateri study under a tree",
+              "url": "https://www.thenewsminute.com/article/only-3-rooms-govt-school-ktaka-so-these-kids-have-study-under-tree-85056",
+              "title": "Only 3 rooms in this govt school in K'taka, so these kids have to study under a tree",
+              "outlet": "The News Minute",
+              "date": "2018-07-19",
+              "scope": "district",
+              "stance": "gap"
+            },
+            {
+              "claim": "A government school at Arabagatte, Honnali taluk, Davanagere district, had 2 of its 8 rooms in poor condition; a new building was inaugurated in 2022.",
+              "quote": "The school has 8 rooms out of which 2 rooms are in poor condition.",
+              "url": "https://osaat.org/?p=16902",
+              "title": "Government Higher Primary School, Arabagatte, Karnataka",
+              "outlet": "OSAAT (One School At A Time)",
+              "date": "",
+              "scope": "district",
+              "stance": "gap"
+            }
+          ]
+        },
+        {
+          "factor": "% Schools with Playground",
+          "summary": "No district-specific source found.",
+          "findings": []
+        },
+        {
+          "factor": "% Population Living in Households with Improved Sanitation",
+          "summary": "No district-specific source found.",
+          "findings": []
+        }
+      ]
+    },
+    {
+      "districtId": "29-566",
+      "name": "Chitradurga",
+      "changes": [
+        {
+          "factor": "% Schools with Furniture available for students",
+          "summary": "No district-specific source found.",
+          "findings": []
+        },
+        {
+          "factor": "% Classrooms in Good Condition",
+          "summary": "An NGO page for a Challakere taluk school reports only one good classroom out of its buildings before a new block was inaugurated in November 2021. No news report on district-wide classroom condition was reachable.",
+          "findings": [
+            {
+              "claim": "A school at N-Devarahalli, Challakere taluk, Chitradurga district, had only one good classroom before new buildings were inaugurated in November 2021.",
+              "quote": "At the moment, the school has only one good classroom",
+              "url": "https://osaat.org/?p=17789",
+              "title": "Government Higher Primary School, N-Devarahalli, Karnataka",
+              "outlet": "OSAAT (One School At A Time)",
+              "date": "",
+              "scope": "district",
+              "stance": "gap"
+            }
+          ]
+        },
+        {
+          "factor": "% Women with 10+ Years Schooling",
+          "summary": "Only an aggregator profile was found: 34.7% of girls aged 15 to 21 in Chitradurga are out of education, close to the typical district. No news or government source was reachable.",
+          "findings": [
+            {
+              "claim": "A district youth-opportunity profile says 34.7% of girls aged 15 to 21 in Chitradurga are out of education, close to the typical district (source and year not stated).",
+              "quote": "In Chitradurga, 34.7% of girls aged 15 to 21 are out of education, close to the typical district.",
+              "url": "https://youthpower.in/institution/karnataka/chitradurga/kgbv",
+              "title": "KGBV (Kasturba Gandhi Balika Vidyalaya) in Chitradurga, Karnataka | YouthPOWER",
+              "outlet": "YouthPOWER",
+              "date": "",
+              "scope": "district",
+              "stance": "context"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

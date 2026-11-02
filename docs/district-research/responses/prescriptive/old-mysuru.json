@@ -1,0 +1,110 @@
+{"region": "old-mysuru", "researchedOn": "2026-11-03", "districts": [
+  {"districtId": "29-572", "name": "Bengaluru Urban", "changes": [
+    {"factor": "% Teachers Trained in ICT/Computers",
+     "summary": "No Bengaluru-specific source on teacher ICT training found; only a statewide 2024 programme training 1,000 government teachers with an AI assistant, which covers all educational districts.",
+     "findings": [
+       {"claim": "Karnataka's school education department began training 1,000 teachers from 750 schools with an AI digital assistant built with Microsoft Research; the first phase spans all educational districts.", "quote": "In the first phase, a total of 1,000 teachers from 750 schools in all educational districts will be trained through AI-based digital assistants.", "url": "https://www.deccanherald.com/india/karnataka/ai-to-train-govt-school-teachers-to-improve-learning-outcomes-3239352", "title": "AI to train govt school teachers to improve learning outcomes", "outlet": "Deccan Herald", "date": "2024-10-19", "scope": "state", "stance": "progress"}
+     ]},
+    {"factor": "% of female teachers",
+     "summary": "No Bengaluru-specific source found. A statewide report notes women teachers dominate only primary classes while men dominate upper primary and secondary teaching.",
+     "findings": [
+       {"claim": "A statewide UDISE+ based report says women teachers dominate only the primary level, while male teachers still dominate upper primary and secondary teaching in Karnataka.", "quote": "The female dominance, however, is only in primary school (1-5 class) level, while the male teachers continue to dominate the upper (6-8 class) and secondary (8-12 class) school teaching.", "url": "https://www.deccanherald.com/state/top-karnataka-stories/female-teachers-outnumber-male-teachers-in-school-education-report-1005321.html", "title": "Female teachers outnumber male teachers in school education: Report", "outlet": "Deccan Herald", "date": "2021-07-05", "scope": "state", "stance": "context"}
+     ]},
+    {"factor": "% Schools with Computer/ICT Labs",
+     "summary": "Bengaluru Smart City Limited's Smart Schools project had set up a small number of ICT labs and smart classrooms in BBMP schools by late 2021, with a plan to extend smart classrooms to every BBMP school.",
+     "findings": [
+       {"claim": "Bengaluru Smart City Limited has set up seven ICT labs and 60 smart classrooms across BBMP wards, and BBMP plans to make classrooms in every BBMP school smart.", "quote": "So far, BenSCL has set up seven Information and Communication Technology (ICT) labs and 60 smart classrooms in various BBMP wards.", "url": "https://www.deccanherald.com/india/karnataka/bengaluru/smart-and-steady-how-bbmp-schools-are-challenging-stereotypes-1062351.html", "title": "Smart and steady: How BBMP schools are challenging stereotypes", "outlet": "Deccan Herald", "date": "2021-12-19", "scope": "district", "stance": "progress"}
+     ]}
+  ]},
+  {"districtId": "29-583", "name": "Bengaluru Rural", "changes": [
+    {"factor": "% Classrooms in Good Condition",
+     "summary": "Two NGO project pages describe government schools in Hoskote and Doddaballapura taluks where most rooms are in poor condition; the NGO has built or proposed new classrooms.",
+     "findings": [
+       {"claim": "A government school in Nandagudi, Hoskote taluk, has 22 rooms but only 6 are in good condition; two buildings holding 8 and 6 classrooms are in poor shape.", "quote": "The school has total 22 rooms out of which only 6 rooms are in good condition. Two buildings that have 8 and 6 classrooms, are in poor condition.", "url": "https://osaat.org/?p=18431", "title": "Nandagudi Karnataka - OSAAT", "outlet": "OSAAT", "date": "2022-04-13", "scope": "district", "stance": "gap"},
+       {"claim": "A Doddaballapura taluk school had 17 rooms in several buildings, nearly all in poor condition, and needed 11 classrooms; the NGO later built 4 classrooms.", "quote": "School had 17 rooms in multiple buildings, except for 2 rooms all other rooms were not in great condition.", "url": "https://osaat.org/doddabelavangala-karnataka/", "title": "Doddabelavangala Karnataka - OSAAT", "outlet": "OSAAT", "date": "2025-01-15", "scope": "district", "stance": "gap"}
+     ]},
+    {"factor": "% of female teachers",
+     "summary": "No Bengaluru Rural-specific source found. A statewide report notes women teachers dominate only primary classes while men dominate upper primary and secondary teaching.",
+     "findings": [
+       {"claim": "A statewide UDISE+ based report says women teachers dominate only the primary level, while male teachers still dominate upper primary and secondary teaching in Karnataka.", "quote": "The female dominance, however, is only in primary school (1-5 class) level, while the male teachers continue to dominate the upper (6-8 class) and secondary (8-12 class) school teaching.", "url": "https://www.deccanherald.com/state/top-karnataka-stories/female-teachers-outnumber-male-teachers-in-school-education-report-1005321.html", "title": "Female teachers outnumber male teachers in school education: Report", "outlet": "Deccan Herald", "date": "2021-07-05", "scope": "state", "stance": "context"}
+     ]},
+    {"factor": "% Women with 10+ Years Schooling",
+     "summary": "No district-specific source found.",
+     "findings": []}
+  ]},
+  {"districtId": "29-584", "name": "Ramanagara", "changes": [
+    {"factor": "% Classrooms in Good Condition",
+     "summary": "A Magadi taluk school has most rooms dilapidated, and an Urdu primary school in Ramanagara city had to move out of a dilapidated building; new classrooms are planned or proposed.",
+     "findings": [
+       {"claim": "A government school in Gudemaranahalli, Magadi taluk, has 14 rooms, but only 6 are in good condition and 8 are dilapidated; 2 of the good ones are too small.", "quote": "Only 6 rooms are in good condition, out of which 2 rooms are very small and can't be used as classrooms; 8 rooms are in dilapidated condition", "url": "https://osaat.org/?p=18451", "title": "Gudemaranahalli Karnataka - OSAAT", "outlet": "OSAAT", "date": "2022-04-13", "scope": "district", "stance": "gap"},
+       {"claim": "In Ramanagara city, an Urdu primary school's classes ran in an open shed because its building was dilapidated; the old building was demolished and a three-classroom building is planned.", "quote": "The old dilapidated building has already been demolished, and plans for a new building with three classrooms, a kitchen, and toilets have been included in this year’s action plan by the department.", "url": "https://newskarnataka.com/karnataka/bengaluru/school-shifted-from-shed-to-room-due-to-building-condition/20062024/", "title": "School shifted from shed to room due to building condition", "outlet": "News Karnataka", "date": "2024-06-20", "scope": "district", "stance": "gap"}
+     ]},
+    {"factor": "% Schools with Furniture available for students",
+     "summary": "One NGO project page for a Magadi taluk school shows benches and desks being proposed along with new classrooms; no news source on furniture shortage found for Ramanagara.",
+     "findings": [
+       {"claim": "For the Gudemaranahalli school in Magadi taluk, the NGO proposes to build 4 classrooms and also supply benches and desks for all 4.", "quote": "OSAAT proposes to construct 4 classrooms. OSAAT also proposes to provide benches and desks in all 4 classrooms.", "url": "https://osaat.org/?p=18451", "title": "Gudemaranahalli Karnataka - OSAAT", "outlet": "OSAAT", "date": "2022-04-13", "scope": "district", "stance": "context"}
+     ]},
+    {"factor": "% Population Living in Households with Improved Sanitation",
+     "summary": "No Ramanagara-specific source found; a statewide NFHS-5 explainer gives Karnataka's improved sanitation coverage and says access is much better closer to Bengaluru.",
+     "findings": [
+       {"claim": "NFHS-5 puts improved sanitation access at 84.4% of Karnataka's urban and 68.5% of rural population; the article says the situation is much better closer to Bengaluru and the coast.", "quote": "At state level, Karnataka records 84.4% of the Urban population and 68.5% of the rural population as having access to improved sanitation facilities.", "url": "https://opencity.in/what-the-nfhs-5-data-tells-about-karnataka/", "title": "What the NFHS-5 data tells about Karnataka", "outlet": "OpenCity", "date": "2022-12-27", "scope": "state", "stance": "context"}
+     ]}
+  ]},
+  {"districtId": "29-573", "name": "Mandya", "changes": [
+    {"factor": "% Classrooms in Good Condition",
+     "summary": "Two Deccan Herald reports on Mandya city government schools describe cracked walls, leaking roofs and most classrooms unused; both are from 2020-21.",
+     "findings": [
+       {"claim": "At a Mandya city municipal school with 10 classrooms, classes run in just one room because walls are cracked and roof tiles have come away.", "quote": "Though there are 10 classrooms in the school, classes are conducted in just one room. The walls of the classrooms have cracked, posing threat to the students and the teachers.", "url": "https://www.deccanherald.com/india/karnataka/mandya-school-where-cm-yediyurappa-studied-cries-for-makeover-868798.html", "title": "Mandya school where CM Yediyurappa studied cries for makeover", "outlet": "Deccan Herald", "date": "2020-08-02", "scope": "district", "stance": "gap"},
+       {"claim": "At Mandya city's Extended Middle School only three of 17 classrooms are in use and they leak in rain; enrolment has fallen from over 400 to 30.", "quote": "Only three classrooms, out of 17 are being used. Even that leaks during rains.", "url": "https://www.deccanherald.com/india/karnataka/govt-school-where-infosys-narayana-murthy-studied-cries-for-attention-944086.html", "title": "Govt school where Infosys Narayana Murthy studied cries for attention", "outlet": "Deccan Herald", "date": "2021-01-27", "scope": "district", "stance": "gap"}
+     ]},
+    {"factor": "% Schools with Functional Total Toilets",
+     "summary": "An older Mandya report called school toilets the one satisfactory part of the district's sanitation drive; a 2023 statewide review gives Karnataka-wide functioning-toilet shares for government schools.",
+     "findings": [
+       {"claim": "An older report on Mandya district's sanitation drive said government schools and colleges had toilets, the one satisfactory aspect of an otherwise unsatisfactory programme.", "quote": "However, the government schools and colleges of the district are equipped with toilets, which is the only satisfactory aspect of this programme.", "url": "https://www.deccanherald.com/india/karnataka/mandya-half-population-uses-fields-2530228", "title": "Mandya: Half the population uses fields for toilets", "outlet": "Deccan Herald", "date": "2010-11-19", "scope": "district", "stance": "context"},
+       {"claim": "UDISE+ 2021-22 shows 97 per cent of Karnataka's government schools have functioning girls' toilets and 93 per cent have boys' toilets.", "quote": "According to the Unified District Information System for Education Plus (UDISE+) 2021-22, a government of India-sponsored survey, 97 per cent of government schools have functioning toilets for girls and 93 per cent of schools have boys’ toilets.", "url": "https://www.deccanherald.com/india/karnataka/a-reality-check-of-karnataka-govt-schools-1230277.html", "title": "A reality check of Karnataka govt schools", "outlet": "Deccan Herald", "date": "2023-06-22", "scope": "state", "stance": "context"}
+     ]},
+    {"factor": "% Population Living in Households with Improved Sanitation",
+     "summary": "Older Deccan Herald reports (2010, 2015) show Mandya's village toilet drive lagging, then a minister projecting open-defecation-free status; a 2022 explainer gives statewide NFHS-5 coverage.",
+     "findings": [
+       {"claim": "An older report found the sanitation programme across Mandya's 1369 villages far from satisfactory, with few BPL families using the Rs 3000 toilet subsidy.", "quote": "There are 1369 villages in 232 Gram Panchayats of the district, but success of sanitation improvement programme far from satisfactory.", "url": "https://www.deccanherald.com/india/karnataka/mandya-half-population-uses-fields-2530228", "title": "Mandya: Half the population uses fields for toilets", "outlet": "Deccan Herald", "date": "2010-11-19", "scope": "district", "stance": "gap"},
+       {"claim": "The rural development minister projected Mandya would be the first open-defecation-free district if another 50,000 toilets were built before December.", "quote": "If the construction of another 50,000 toilets are completed before December, Mandya will be the first district to eradicate open defecation, he said.", "url": "https://www.deccanherald.com/india/karnataka/mandya-open-defecation-free-december-2145313", "title": "Mandya to be open defecation-free by December: Patil", "outlet": "Deccan Herald", "date": "2015-08-19", "scope": "district", "stance": "progress"},
+       {"claim": "NFHS-5 puts improved sanitation access at 84.4% of Karnataka's urban and 68.5% of rural population, with the situation better closer to Bengaluru and the coast.", "quote": "At state level, Karnataka records 84.4% of the Urban population and 68.5% of the rural population as having access to improved sanitation facilities.", "url": "https://opencity.in/what-the-nfhs-5-data-tells-about-karnataka/", "title": "What the NFHS-5 data tells about Karnataka", "outlet": "OpenCity", "date": "2022-12-27", "scope": "state", "stance": "context"}
+     ]}
+  ]},
+  {"districtId": "29-577", "name": "Mysuru", "changes": [
+    {"factor": "% Classrooms in Good Condition",
+     "summary": "A June 2026 survey found 406 dilapidated classrooms in Mysuru district, worst in T. Narasipura, Hunsur and Periyapatna; Rs 5.8 crore is sanctioned. NGO and community repairs are also reported.",
+     "findings": [
+       {"claim": "A school education department survey found 406 dilapidated classrooms in 168 government schools in Mysuru district; Rs 5.8 crore is sanctioned but civil works had not started.", "quote": "A survey conducted by the Department of School Education and Literacy has identified 406 classrooms across 168 government schools in Mysuru district as being in a dilapidated condition, raising concerns about student safety as the monsoon season intensifies.", "url": "https://newskarnataka.com/mysuru/406-classrooms-in-mysuru-govt-schools-found-in-dilapidated-condition/12062026/", "title": "406 classrooms in Mysuru govt schools found in dilapidated condition", "outlet": "News Karnataka", "date": "2026-06-12", "scope": "district", "stance": "gap"},
+       {"claim": "A government school in Cholenahalli, Hunsur taluk, was in ruins, with leaking roofs in 3 of its 4 classrooms; the NGO built 4 new classrooms and 2 toilet blocks.", "quote": "The school building was completely ruined. Out of 4 classrooms, 3 had leaky roof, ready to collapse any day.", "url": "https://osaat.org/?p=17472", "title": "Cholenahalli Karnataka - OSAAT", "outlet": "OSAAT", "date": "2022-01-26", "scope": "district", "stance": "gap"},
+       {"claim": "Residents of Tilaknagar in Mysuru pooled donations to renovate a 120-year-old government school whose students had been shifted out after wall cracks, without waiting for government grants.", "quote": "Finally, the generous residents joined hands together and formed ‘Tilaknagar Hitarakshana Samithi’ and collected donations from like-minded people for the renovation of the School and also celebrate its Centenary fete, 20 years late in 2026.", "url": "https://starofmysore.com/120-year-old-tilaknagar-govt-school-gets-new-lease-of-life/", "title": "120-year-old Tilaknagar Govt. School gets new lease of life", "outlet": "Star of Mysore", "date": "2026-05-15", "scope": "district", "stance": "progress"}
+     ]},
+    {"factor": "% of female teachers",
+     "summary": "No Mysuru figures on women teachers found. Mysuru's government women's teacher-training institute faced closure over low admissions; a statewide report says women dominate only primary teaching.",
+     "findings": [
+       {"claim": "Mysuru's government teacher-training institute for women, which serves mostly rural students, faced closure over low admissions; staff campaigned to save it.", "quote": "It is said to be the only government teacher training institute for women, with English as medium of instruction. Students here are mostly from a rural background.", "url": "https://www.deccanherald.com/india/karnataka/mysurus-iconic-women-teachers-institute-faces-closure-1186158.html", "title": "Mysuru's iconic women teachers' institute faces closure", "outlet": "Deccan Herald", "date": "2023-01-30", "scope": "district", "stance": "context"},
+       {"claim": "A statewide UDISE+ based report says women teachers dominate only the primary level, while male teachers still dominate upper primary and secondary teaching in Karnataka.", "quote": "The female dominance, however, is only in primary school (1-5 class) level, while the male teachers continue to dominate the upper (6-8 class) and secondary (8-12 class) school teaching.", "url": "https://www.deccanherald.com/state/top-karnataka-stories/female-teachers-outnumber-male-teachers-in-school-education-report-1005321.html", "title": "Female teachers outnumber male teachers in school education: Report", "outlet": "Deccan Herald", "date": "2021-07-05", "scope": "state", "stance": "context"}
+     ]},
+    {"factor": "% Teachers Trained in ICT/Computers",
+     "summary": "No district-wide source on teacher ICT training found; one Mysuru government school teacher built a robotics, drone and AI lab, and a statewide 2024 programme trains 1,000 teachers with an AI assistant.",
+     "findings": [
+       {"claim": "A teacher at a government school in Hinkal, Mysuru, set up a lab where children work with robotics, drones and AI, and won a national teachers award.", "quote": "Madhusudan set up the C-Lounge in 2023 to give students a hands-on learning space beyond textbooks. The facility allows children to experiment with robotics, drones, and AI while working on real-world projects like grey water purification systems.", "url": "https://www.deccanherald.com/india/karnataka/mysuru/national-teachers-awards-drones-robots-and-ai-earn-mysuru-teacher-who-built-tech-lounge-in-govt-school-3714492", "title": "Mysuru Teacher Wins National Award for Building AI, Robotics & Drone Lab in Govt School", "outlet": "Deccan Herald", "date": "2025-09-05", "scope": "district", "stance": "context"},
+       {"claim": "Karnataka's school education department began training 1,000 teachers from 750 schools with an AI digital assistant built with Microsoft Research; the first phase spans all educational districts.", "quote": "In the first phase, a total of 1,000 teachers from 750 schools in all educational districts will be trained through AI-based digital assistants.", "url": "https://www.deccanherald.com/india/karnataka/ai-to-train-govt-school-teachers-to-improve-learning-outcomes-3239352", "title": "AI to train govt school teachers to improve learning outcomes", "outlet": "Deccan Herald", "date": "2024-10-19", "scope": "state", "stance": "progress"}
+     ]}
+  ]},
+  {"districtId": "29-578", "name": "Chamarajanagara", "changes": [
+    {"factor": "% Classrooms in Good Condition",
+     "summary": "No district-specific source found.",
+     "findings": []},
+    {"factor": "% Schools with Furniture available for students",
+     "summary": "No district-specific report of a furniture gap found; University of Mysore adopted schools in Chamarajanagar district in 2021 and pledged wooden furniture, toilets and drinking water.",
+     "findings": [
+       {"claim": "The University of Mysore adopted government schools in Chamarajanagar district, including Kunagalli and Komaranapura, and promised basic facilities such as wooden furniture, toilets and drinking water.", "quote": "We will provide basic facilities to all the adopted schools such as wooden furniture, toilets and drinking water soon", "url": "https://starofmysore.com/after-adopting-10-govt-schools-uom-adopts-six-villages/", "title": "After adopting 10 Govt. Schools, UoM adopts six villages", "outlet": "Star of Mysore", "date": "2021-01-04", "scope": "district", "stance": "context"}
+     ]},
+    {"factor": "% Schools with All-Weather Roads",
+     "summary": "A 2020 Star of Mysore report describes a forest-fringe village in Hanur taluk whose only link road is unpaved, so high-school children walk through the forest to school.",
+     "findings": [
+       {"claim": "Pachchedoddi village in Hanur taluk, over 15 km from the town, has only an unasphalted link road, and children walk through forest to reach high school.", "quote": "Pachchedoddi village is over 15 kilometres from Hanur town in Chamarajanagar and the only link road to this village is not asphalted.", "url": "https://starofmysore.com/special-bus-to-ferry-children-through-forest/", "title": "Special bus to ferry children through forest", "outlet": "Star of Mysore", "date": "2020-02-11", "scope": "district", "stance": "gap"}
+     ]}
+  ]}
+]}

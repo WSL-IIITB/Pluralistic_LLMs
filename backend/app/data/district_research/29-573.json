@@ -344,5 +344,72 @@
       "district/% Schools with instruction medium 1 (Eng: quote removed (not found on the page)",
       "district/% Schools with instruction medium 1 (Eng: quote removed (not found on the page)"
     ]
+  },
+  "prescriptiveEvidence": {
+    "researchedOn": "2026-11-03",
+    "ranking": "feasible",
+    "changes": [
+      {
+        "factor": "% Classrooms in Good Condition",
+        "summary": "",
+        "findings": []
+      },
+      {
+        "factor": "% Schools with Functional Total Toilets",
+        "summary": "An older Mandya report called school toilets the one satisfactory part of the district's sanitation drive; a 2023 statewide review gives Karnataka-wide functioning-toilet shares for government schools.",
+        "findings": [
+          {
+            "claim": "An older report on Mandya district's sanitation drive said government schools and colleges had toilets, the one satisfactory aspect of an otherwise unsatisfactory programme.",
+            "quote": "",
+            "scope": "district",
+            "stance": "context",
+            "sources": [
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Population Living in Households with Improved Sanitation",
+        "summary": "Older Deccan Herald reports (2010, 2015) show Mandya's village toilet drive lagging, then a minister projecting open-defecation-free status; a 2022 explainer gives statewide NFHS-5 coverage.",
+        "findings": [
+          {
+            "claim": "NFHS-5 puts improved sanitation access at 84.4% of Karnataka's urban and 68.5% of rural population, with the situation better closer to Bengaluru and the coast.",
+            "quote": "At state level, Karnataka records 84.4% of the Urban population and 68.5% of the rural population as having access to improved sanitation facilities.",
+            "scope": "state",
+            "stance": "context",
+            "sources": [
+              2
+            ]
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "url": "https://www.deccanherald.com/india/karnataka/mandya-half-population-uses-fields-2530228",
+        "title": "Mandya: Half the population uses fields for toilets",
+        "outlet": "Deccan Herald",
+        "date": "2010-11-19",
+        "type": "news"
+      },
+      {
+        "id": 2,
+        "url": "https://opencity.in/what-the-nfhs-5-data-tells-about-karnataka/",
+        "title": "What the NFHS-5 data tells about Karnataka - OpenCity",
+        "outlet": "OpenCity",
+        "date": "2022-12-27",
+        "type": "news"
+      }
+    ],
+    "notes": [
+      "% Classrooms in Good Condition | 'At a Mandya city municipal school with 10 classroo': dropped, number(s) 10 not on the page",
+      "% Classrooms in Good Condition | \"At Mandya city's Extended Middle School only three\": dropped, number(s) 17, 30, 400 not on the page",
+      "% Schools with Functional Total To | \"An older report on Mandya district's sanitation dr\": quote removed (not found on the page)",
+      "% Schools with Functional Total To | \"UDISE+ 2021-22 shows 97 per cent of Karnataka's go\": dropped, number(s) 2021, 93, 97 not on the page",
+      "% Population Living in Households  | 'An older report found the sanitation programme acr': dropped, number(s) 1369, 3000 not on the page",
+      "% Population Living in Households  | 'The rural development minister projected Mandya wo': dropped, number(s) 50000 not on the page"
+    ]
   }
 }

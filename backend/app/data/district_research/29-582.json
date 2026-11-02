@@ -292,5 +292,82 @@
       "district/% Schools with instruction medium 1 (Eng: quote removed (not found on the page)",
       "district/% Schools with instruction medium 1 (Eng: quote removed (not found on the page)"
     ]
+  },
+  "prescriptiveEvidence": {
+    "researchedOn": "2026-11-03",
+    "ranking": "feasible",
+    "changes": [
+      {
+        "factor": "% Classrooms in Good Condition",
+        "summary": "An NGO project page for a government high school in Chintamani reports only some rooms in poor condition and a rebuilt block opened in 2025. No news report on district classroom repair was reachable.",
+        "findings": [
+          {
+            "claim": "A government high school in Chintamani, Chikkaballapura district, had 15 rooms in two buildings with some in poor condition; a new building was inaugurated in 2025.",
+            "quote": "The school has 15 rooms in 2 buildings, few rooms are not in good condition.",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Population Living in Households with Improved Sanitation",
+        "summary": "",
+        "findings": []
+      },
+      {
+        "factor": "% Women with 10+ Years Schooling",
+        "summary": "Only indirect, aggregator-level figures were found: a youth-data profile shows 34.1% of girls aged 15 to 21 out of education, and 2011 Census figures show female literacy well below male literacy.",
+        "findings": [
+          {
+            "claim": "A district youth-opportunity profile says 34.1% of girls aged 15 to 21 in Chikballapur are out of education, close to the typical district (source and year not stated).",
+            "quote": "In Chikballapur, 34.1% of girls aged 15 to 21 are out of education, close to the typical district.",
+            "scope": "district",
+            "stance": "context",
+            "sources": [
+              2
+            ]
+          },
+          {
+            "claim": "Census-based figures cited for Chikballapur district put female literacy at 61.55%, compared with 77.75% for males.",
+            "quote": "the literacy rate in the district is 69.76% including 77.75% are males and 61.55% are females.",
+            "scope": "district",
+            "stance": "context",
+            "sources": [
+              3
+            ]
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "url": "https://osaat.org/?p=20444",
+        "title": "Chintamani, Karnataka School Project | OSAAT",
+        "outlet": "OSAAT (One School At A Time)",
+        "date": "2023-10-13",
+        "type": "ngo"
+      },
+      {
+        "id": 2,
+        "url": "https://youthpower.in/institution/karnataka/chikballapur/kgbv",
+        "title": "KGBV (Kasturba Gandhi Balika Vidyalaya) in Chikballapur, Karnataka | YouthPOWER",
+        "outlet": "YouthPOWER",
+        "date": "",
+        "type": "news"
+      },
+      {
+        "id": 3,
+        "url": "https://www.indiastatdistrictdemographics.com/karnataka/chikballapur-district",
+        "title": "Chikkaballapura District Level Demographics Statistical Information",
+        "outlet": "IndiaStat",
+        "date": "",
+        "type": "news"
+      }
+    ],
+    "notes": []
   }
 }

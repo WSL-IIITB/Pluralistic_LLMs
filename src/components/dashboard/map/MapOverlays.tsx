@@ -26,6 +26,7 @@ import {
   type FactorWhyEntry,
 } from "@/lib/worldview";
 import { DistrictNewsVsData } from "@/components/niti/NewsVsData";
+import { DistrictPrescriptiveProfile } from "@/components/niti/Prescriptive";
 
 import { CHECK_STYLE as VERDICT_STYLE, EVIDENCE_STYLE, WHY_STYLE } from "./factorWhyStyle";
 import { useDistrictGeo } from "./useDistrictGeo";
@@ -602,12 +603,18 @@ function DistrictBody({
         ))}
       </div>
       {tab === "numbers" ? (
-        <DistrictNumbers
-          districtId={districtId}
-          profile={profile}
-          name={name}
-          allRates={allRates}
-        />
+        <div className="space-y-6">
+          <DistrictNumbers
+            districtId={districtId}
+            profile={profile}
+            name={name}
+            allRates={allRates}
+          />
+          <section className="border-t border-panel-border pt-4">
+            <p className="label-micro mb-2.5">District profile · NITI prescriptive model</p>
+            <DistrictPrescriptiveProfile districtId={districtId} />
+          </section>
+        </div>
       ) : tab === "compare" ? (
         <DistrictNewsVsData districtId={districtId} name={name} />
       ) : (

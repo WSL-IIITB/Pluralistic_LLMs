@@ -10,14 +10,17 @@ import { ChevronDown } from "lucide-react";
 import { useEffect, useState } from "react";
 
 import { WHY_STYLE } from "@/components/dashboard/map/factorWhyStyle";
+import { PersonaIntro } from "@/components/persona/PersonaIntro";
 import { useTheme } from "@/lib/theme";
 import {
+  formatFactorValue,
   KARNATAKA_REGIONS,
   personaCard,
   rgbaCss,
   useDistrictProfiles,
   useDistrictResearch,
   useExplorerStore,
+  useNitiPrescriptive,
   usePersonaProfile,
   useWorldviewStore,
   type PersonaCard,
@@ -462,6 +465,116 @@ function DominantFactors({ card, regionId }: { card: PersonaCard; regionId: stri
   );
 }
 
+/** The persona's district through the NITI prescriptive model: its top three changes and where it lags, each with
+ * how it would reach this household. Numbers come live from niti-prescriptive.json; the sentences are the card's. */
+function DistrictInNumbers({
+  card,
+  regionId,
+  color,
+}: {
+  card: PersonaCard;
+  regionId: string;
+  color: RGBAColor;
+}) {
+  const data = useNitiPrescriptive();
+  const focusDistrict = useExplorerStore((s) => s.focusDistrict);
+  const ink = useInk(color);
+  const lens = card.dataLens;
+  const did = card.factorEffects?.districtId;
+  if (!lens || !did) return null;
+  if (!data)
+    return (
+      <p className="text-[12px] text-muted-foreground">
+        {data === undefined
+          ? "Loading the district's numbers…"
+          : "The NITI file could not be loaded."}
+      </p>
+    );
+  const district = data.districts[did];
+  const area = district?.areas.find((a) => a.area === lens.area);
+  if (!district || !area) return null;
+  const info = Object.fromEntries(data.factors.map((f) => [f.name, f]));
+  const row = (name: string) => area.factors.find((f) => f.name === name);
+  const label = area.area === district.areas[0]?.area ? district.name : area.area;
+  const lag = row(lens.lag.factor);
+
+  return (
+    <div className="space-y-2.5">
+      <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+        <p className="text-[12.5px] font-semibold text-foreground">{label}</p>
+        {area.dropout2023_24 != null && (
+          <p className="text-[11.5px] text-muted-foreground">
+            secondary dropout 2023-24{" "}
+            <span className="font-semibold tabular-nums" style={{ color: ink }}>
+              {area.dropout2023_24.toFixed(1)}%
+            </span>
+            {area.dropout2024_25 != null && <> · 2024-25 file {area.dropout2024_25.toFixed(1)}%</>}
+          </p>
+        )}
+      </div>
+      <p className="text-[11px] text-muted-foreground">
+        The three changes the NITI model ranks highest for this district, and what each would mean
+        for this household:
+      </p>
+      <div className="grid gap-2 @xl:grid-cols-3">
+        {lens.changes.map((c, i) => {
+          const f = row(c.factor);
+          return (
+            <div
+              key={c.factor}
+              className="rounded-xl border border-panel-border bg-secondary/30 p-3"
+            >
+              <p className="text-[10px] font-medium tracking-wide text-muted-foreground uppercase">
+                Change {i + 1}
+              </p>
+              <p className="mt-0.5 text-[12.5px] font-semibold text-foreground">
+                {info[c.factor]?.short ?? c.factor}
+              </p>
+              {f && (
+                <p className="text-[11px] text-muted-foreground tabular-nums">
+                  {formatFactorValue(c.factor, f.value)} · rank {f.rank} of 35
+                </p>
+              )}
+              <p
+                className="mt-2 border-l-2 pl-2.5 text-[11.5px] leading-snug text-foreground/90"
+                style={{ borderColor: rgbaCss(color, 0.75) }}
+              >
+                {c.effect}
+              </p>
+            </div>
+          );
+        })}
+      </div>
+      {lag && (
+        <div className="rounded-xl border border-dashed border-panel-border px-3 py-2.5">
+          <p className="text-[11.5px] text-foreground/90">
+            <span className="font-semibold">Where the district lags most: </span>
+            {info[lens.lag.factor]?.short ?? lens.lag.factor}{" "}
+            <span className="text-muted-foreground tabular-nums">
+              ({formatFactorValue(lens.lag.factor, lag.value)}, rank {lag.rank} of 35)
+            </span>
+          </p>
+          <p className="mt-1 text-[11.5px] leading-snug text-muted-foreground">{lens.lag.effect}</p>
+        </div>
+      )}
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <p className="max-w-[560px] text-[10.5px] leading-snug text-muted-foreground">
+          Numbers from the NITI team&apos;s prescriptive model (UDISE 2023-24, NFHS-5). The
+          sentences interpret this persona&apos;s card in the light of those numbers; they are not
+          data.
+        </p>
+        <button
+          type="button"
+          onClick={() => focusDistrict(did, regionId, "numbers")}
+          className="rounded-full border border-panel-border px-3 py-1.5 text-[11px] font-medium text-foreground transition-colors hover:bg-secondary"
+        >
+          Full district profile on the map
+        </button>
+      </div>
+    </div>
+  );
+}
+
 function SchoolPressures({ card, color }: { card: PersonaCard; color: RGBAColor }) {
   return (
     <div className="grid gap-2 @xl:grid-cols-2">
@@ -557,12 +670,28 @@ function PersonaView({ regionId, personaId }: { regionId: string; personaId: str
       key={`${regionId}-${personaId}`}
       className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-300"
     >
-      <Hero
-        card={card}
-        color={region.color}
-        regionName={region.shortName}
-        genderLabel={genderLabel}
-      />
+      {card.intro ? (
+        <PersonaIntro
+          key={`intro-${regionId}-${personaId}`}
+          card={card}
+          personaId={personaId}
+          color={region.color}
+          regionName={region.shortName}
+          districtId={card.factorEffects?.districtId}
+          onExplore={() =>
+            document
+              .getElementById(`persona-card-${regionId}-${personaId}`)
+              ?.scrollIntoView({ behavior: "smooth", block: "start" })
+          }
+        />
+      ) : (
+        <Hero
+          card={card}
+          color={region.color}
+          regionName={region.shortName}
+          genderLabel={genderLabel}
+        />
+      )}
 
       {profile?.definition && (
         <div>
@@ -586,6 +715,7 @@ function PersonaView({ regionId, personaId }: { regionId: string; personaId: str
         </div>
       )}
 
+      <div id={`persona-card-${regionId}-${personaId}`} className="scroll-mt-4" />
       <Section title="Household">
         <Household card={card} color={region.color} />
       </Section>
@@ -606,6 +736,11 @@ function PersonaView({ regionId, personaId }: { regionId: string; personaId: str
       <Section title="What pulls kids out of school here">
         <SchoolPressures card={card} color={region.color} />
       </Section>
+      {card.dataLens && (
+        <Section title="Their district in numbers">
+          <DistrictInNumbers card={card} regionId={regionId} color={region.color} />
+        </Section>
+      )}
       {card.factorEffects && (
         <Section title="How the dominant factors reach them">
           <DominantFactors card={card} regionId={regionId} />

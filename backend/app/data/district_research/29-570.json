@@ -282,5 +282,57 @@
       "district/% Schools with instruction medium 1 (Eng: proof dropped (no openable source): 'Medium of instruction (English) is reported by teachers as a'",
       "district/% Schools with instruction medium 1 (Eng: 'partly' -> 'no-evidence' (no verified proof survived)"
     ]
+  },
+  "prescriptiveEvidence": {
+    "researchedOn": "2026-11-03",
+    "ranking": "feasible",
+    "changes": [
+      {
+        "factor": "% Classrooms in Good Condition",
+        "summary": "A 2023 report shows eight Chikkamagaluru schools were selected for PM SHRI model-school upgrades, which can include classrooms. No district reporting on classroom condition was found.",
+        "findings": [
+          {
+            "claim": "Eight schools each in Chikkamagaluru, Shivamogga, Dakshina Kannada and Mysuru were selected for PM SHRI upgrades; selected schools can get new classrooms, laboratories and library.",
+            "quote": "Eight schools each from DK, Shivamogga, Chikkamagaluru and Mysuru districts are selected for the project.",
+            "scope": "district",
+            "stance": "context",
+            "sources": [
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Population Living in Households with Improved Sanitation",
+        "summary": "",
+        "findings": []
+      },
+      {
+        "factor": "% Schools with Playground",
+        "summary": "A 2023 report lists a playground among facilities the eight selected Chikkamagaluru schools can get under PM SHRI. No district reporting on playground gaps was found.",
+        "findings": [
+          {
+            "claim": "The same report on PM SHRI, which selected eight Chikkamagaluru schools, says chosen schools can get a library, laboratory, classrooms, washrooms, teaching staff and a playground.",
+            "quote": "The selected schools will have the opportunity to get a well-equipped library, laboratory, classrooms, washrooms, teaching staff, playground etc",
+            "scope": "district",
+            "stance": "context",
+            "sources": [
+              1
+            ]
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "url": "https://www.daijiworld.com/news/newsDisplay?newsID=1088575",
+        "title": "12 govt schools in DK, Udupi to be promoted under PM SHRI project",
+        "outlet": "Daijiworld",
+        "date": "2023-06-10",
+        "type": "news"
+      }
+    ],
+    "notes": []
   }
 }

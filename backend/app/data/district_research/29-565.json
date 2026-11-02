@@ -333,5 +333,136 @@
     ],
     "gaps": "Local information on sanitation facilities and medium of instruction in Ballari and Vijayanagara taluk was unavailable, so we rely on general findings.",
     "notes": []
+  },
+  "prescriptiveEvidence": {
+    "researchedOn": "2026-11-03",
+    "ranking": "feasible",
+    "changes": [
+      {
+        "factor": "% Schools with Functional Total Toilets",
+        "summary": "Villagers at Kolur, Ballari district protested for toilets and drinking water at their government school (2025); officials promised toilet repairs within 15 days. A 2026 complaint flags unhygienic washrooms at a Hosapete school.",
+        "findings": [
+          {
+            "claim": "Villagers in Kolur, Ballari district demanded a permanent building, toilets and clean water for the government higher primary school; officials promised to repair existing toilets within 15 days.",
+            "quote": "The protesters submitted a memorandum urging the authorities to construct a permanent school building on the available government land and provide essential facilities such as toilets and clean drinking water.",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              1
+            ]
+          },
+          {
+            "claim": "A complaint on the Namma Shaale platform flags unhygienic washrooms at GMHPS Mariyammana Halli in Hosapete needing cleaning, repairs and running water.",
+            "quote": "At GMHPS Mariyammana Halli in Hosapete, Ballari, a complaint highlights unhygienic washrooms that require cleaning, repairs, running water and regular maintenance.",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              2
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Schools with Library",
+        "summary": "No district-specific source found for Ballari or Vijayanagara; only a region-wide report mentioning missing libraries in many Kalyana Karnataka government schools.",
+        "findings": [
+          {
+            "claim": "Across Kalyana Karnataka, many government schools are reported to have poor infrastructure, including a lack of libraries, classrooms, toilets and drinking water; a region-wide statement.",
+            "quote": "Apart from the shortage of teachers, many govt schools also have poor infrastructure, including inadequate drinking water, toilet facilities, electricity, lack of classrooms, libraries, playgrounds and compound walls.",
+            "scope": "state",
+            "stance": "gap",
+            "sources": [
+              3
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Classrooms in Good Condition",
+        "summary": "Ballari district reports show a crumbling school at Yattinabudihal with classes held outdoors (2025) and a roof collapse at Sirawar school with 9 of 19 rooms old. A regional claim cites 18,022 classrooms needing repair.",
+        "findings": [
+          {
+            "claim": "At Yattinabudihal government school in Ballari district a crumbling wall left classes being held in the open; parents say more than 80 students crowd one usable classroom.",
+            "quote": "The crumbling wall of Yattinabudihal Government School in Ballari district has resulted in classes being held out in the open.",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              4
+            ]
+          },
+          {
+            "claim": "A roof layer fell in a deteriorated room at the Sirawar government higher primary school in Ballari taluk, seriously injuring a student; 9 of its 19 rooms are old.",
+            "quote": "The school has 19 rooms, of which 9 are old, and a student sustained a serious head injury when the layer of the roof of a deteriorated room fell.",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              5
+            ]
+          },
+          {
+            "claim": "Opposition leader R Ashoka, citing a Kannada media report, claimed 18,022 classrooms in Kalyana Karnataka need repair, 8,006 of them declared dilapidated; a regional, partisan claim.",
+            "quote": "",
+            "scope": "state",
+            "stance": "gap",
+            "sources": [
+              6
+            ]
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "url": "https://www.thehindu.com/news/national/karnataka/protest-against-lack-of-infrastructure-at-govt-school-in-ballari-district/article69800766.ece",
+        "title": "Protest against lack of infrastructure at govt. school in Ballari district",
+        "outlet": "The Hindu",
+        "date": "2025-07-11",
+        "type": "news"
+      },
+      {
+        "id": 2,
+        "url": "https://bangaloremirror.indiatimes.com/bangalore/others/citizen-platform-flags-urgent-issues-in-karnatakas-government-schools/articleshow/133658381.cms",
+        "title": "Namma Shaale: Transforming Karnataka",
+        "outlet": "Bangalore Mirror",
+        "date": "2026-09-01",
+        "type": "news"
+      },
+      {
+        "id": 3,
+        "url": "https://timesofindia.indiatimes.com/city/hubballi/22595-teacher-posts-vacant-in-kalyana-karnataka/articleshow/131118728.cms",
+        "title": "22,595 teacher posts vacant In Kalyana Karnataka",
+        "outlet": "The Times of India",
+        "date": "2026-05-15",
+        "type": "news"
+      },
+      {
+        "id": 4,
+        "url": "https://www.newindianexpress.com/states/karnataka/2025/Sep/18/creaky-building-forces-classes-on-to-open-ground-in-ballari",
+        "title": "Creaky building forces classes on to open ground in Ballari",
+        "outlet": "The New Indian Express",
+        "date": "2025-09-18",
+        "type": "news"
+      },
+      {
+        "id": 5,
+        "url": "https://timesofindia.indiatimes.com/city/hubballi/child-rights-panel-registers-suo-motu-case-on-school-roof-collapse/articleshow/121959060.cms",
+        "title": "Child rights panel registers suo motu case on school roof collapse | Hubballi News",
+        "outlet": "The Times of India",
+        "date": "2025-06-20",
+        "type": "news"
+      },
+      {
+        "id": 6,
+        "url": "https://www.deccanchronicle.com/southern-states/karnataka/ashoka-targets-kharge-over-poor-state-of-schools-in-kalyana-karnataka-1967068",
+        "title": "Ashoka Targets Kharge Over Poor State Of Schools In Kalyana Karnataka",
+        "outlet": "Deccan Chronicle",
+        "date": "2026-06-29",
+        "type": "news"
+      }
+    ],
+    "notes": [
+      "% Classrooms in Good Condition | 'Opposition leader R Ashoka, citing a Kannada media': quote removed (not found on the page)"
+    ]
   }
 }

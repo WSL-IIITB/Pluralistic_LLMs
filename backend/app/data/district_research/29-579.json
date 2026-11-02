@@ -384,5 +384,136 @@
     ],
     "gaps": "Searched local news and official reports for links between sanitation or English-medium schooling and dropouts in Kalaburagi but found nothing specific.",
     "notes": []
+  },
+  "prescriptiveEvidence": {
+    "researchedOn": "2026-11-03",
+    "ranking": "feasible",
+    "changes": [
+      {
+        "factor": "% Schools with Library",
+        "summary": "A student at Rajapur government high school says there is no separate library room. A 2021 mobile library bus carrying over 4,000 books reached remote villages. No recent school library survey found.",
+        "findings": [
+          {
+            "claim": "A student at Government High School, Rajapur, Kalaburagi told a child-rights panel member that the school has no proper toilet and no separate room for a library.",
+            "quote": "There is no proper toilet. Nor is there a separate room for library.",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              1
+            ]
+          },
+          {
+            "claim": "A mobile library bus carrying over 4,000 books was launched by NEKRTC with the Zilla Panchayat and education department to bring reading to children in remote Kalaburagi villages.",
+            "quote": "",
+            "scope": "district",
+            "stance": "context",
+            "sources": [
+              2
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Classrooms in Good Condition",
+        "summary": "Reports describe a cracked, leaking school roof in Gulab Wadi and a classroom roof collapse injuring three students in Sedam taluk; a regional claim cites 18,022 Kalyana Karnataka classrooms needing repair.",
+        "findings": [
+          {
+            "claim": "Activists say a government lower primary school in Gulab Wadi, Kalaburagi has a cracked roof that leaks in the monsoon, disrupting classes and endangering students.",
+            "quote": "The roof of the building is cracked and leaks during the monsoon, disrupting classes and posing a threat to student safety.",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              3
+            ]
+          },
+          {
+            "claim": "Three students were hurt, one seriously, when roof soil fell inside a classroom of a government higher primary school at Malkapally, Sedam taluk, Kalaburagi district.",
+            "quote": "Three students of Government Higher Primary school sustained injuries, one seriously when the soil of the roof of the class room in which they were studying fell on them at Malkapally village of Sedam taluk on Friday.",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              4
+            ]
+          },
+          {
+            "claim": "After ceiling plaster fell on students at a government girls' PU college in Kalaburagi, activists urged urgent safety inspections of government school and college buildings across the district.",
+            "quote": "The incident has sparked outrage among education activists and local residents, who have urged authorities to conduct urgent safety inspections of government school and college buildings across the district to prevent similar incidents in the future.",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              5
+            ]
+          },
+          {
+            "claim": "Opposition leader R Ashoka, citing a Kannada media report, claimed 18,022 classrooms in Kalyana Karnataka need repair, 8,006 of them declared dilapidated; a regional, partisan claim.",
+            "quote": "",
+            "scope": "state",
+            "stance": "gap",
+            "sources": [
+              6
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Schools with CCE Implemented",
+        "summary": "",
+        "findings": []
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "url": "https://www.thehindu.com/news/national/karnataka/students-in-kalaburagi-district-demand-classrooms-toilets-and-bus-services/article68886566.ece",
+        "title": "Students in Kalaburagi district demand classrooms, toilets and bus services",
+        "outlet": "The Hindu",
+        "date": "2024-11-20",
+        "type": "news"
+      },
+      {
+        "id": 2,
+        "url": "https://www.hindustantimes.com/education/news/mobile-library-rolled-out-for-children-in-kalaburagi-s-remote-areas-in-karnataka-101614416347267.html",
+        "title": "Mobile library rolled out for children in Kalaburagi's remote areas in Karnataka",
+        "outlet": "Hindustan Times",
+        "date": "2021-02-27",
+        "type": "news"
+      },
+      {
+        "id": 3,
+        "url": "https://www.thehindu.com/news/national/karnataka/parents-activists-demand-urgent-repairs-to-government-school-in-kalaburagi/article69602923.ece",
+        "title": "Parents, activists demand urgent repairs to government school in Kalaburagi",
+        "outlet": "The Hindu",
+        "date": "2025-05-22",
+        "type": "news"
+      },
+      {
+        "id": 4,
+        "url": "https://www.newindianexpress.com/states/karnataka/2025/Aug/23/classroom-wall-collapses-three-students-sustain-injuries-in-kalaburagi",
+        "title": "Classroom wall collapses; three students sustain injuries in Kalaburagi",
+        "outlet": "The New Indian Express",
+        "date": "2025-08-23",
+        "type": "news"
+      },
+      {
+        "id": 5,
+        "url": "https://www.siasat.com/ceiling-plaster-collapses-on-students-in-kalaburagi-college-3487892/",
+        "title": "Ceiling plaster collapses on students in Kalaburagi college",
+        "outlet": "Siasat Daily",
+        "date": "2026-06-12",
+        "type": "news"
+      },
+      {
+        "id": 6,
+        "url": "https://www.deccanchronicle.com/southern-states/karnataka/ashoka-targets-kharge-over-poor-state-of-schools-in-kalyana-karnataka-1967068",
+        "title": "Ashoka Targets Kharge Over Poor State Of Schools In Kalyana Karnataka",
+        "outlet": "Deccan Chronicle",
+        "date": "2026-06-29",
+        "type": "news"
+      }
+    ],
+    "notes": [
+      "% Schools with Library | 'A mobile library bus carrying over 4,000 books was': quote removed (not found on the page)",
+      "% Classrooms in Good Condition | 'Opposition leader R Ashoka, citing a Kannada media': quote removed (not found on the page)"
+    ]
   }
 }

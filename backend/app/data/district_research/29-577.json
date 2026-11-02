@@ -370,5 +370,139 @@
     "sources": [],
     "gaps": "No local evidence was found linking sanitation or school water supply to dropouts in Mysuru.",
     "notes": []
+  },
+  "prescriptiveEvidence": {
+    "researchedOn": "2026-11-03",
+    "ranking": "feasible",
+    "changes": [
+      {
+        "factor": "% Classrooms in Good Condition",
+        "summary": "A June 2026 survey found 406 dilapidated classrooms in Mysuru district, worst in T. Narasipura, Hunsur and Periyapatna; Rs 5.8 crore is sanctioned. NGO and community repairs are also reported.",
+        "findings": [
+          {
+            "claim": "A school education department survey found 406 dilapidated classrooms in 168 government schools in Mysuru district; Rs 5.8 crore is sanctioned but civil works had not started.",
+            "quote": "A survey conducted by the Department of School Education and Literacy has identified 406 classrooms across 168 government schools in Mysuru district as being in a dilapidated condition, raising concerns about student safety as the monsoon season intensifies.",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              1
+            ]
+          },
+          {
+            "claim": "A government school in Cholenahalli, Hunsur taluk, was in ruins, with leaking roofs in 3 of its 4 classrooms; the NGO built 4 new classrooms and 2 toilet blocks.",
+            "quote": "The school building was completely ruined. Out of 4 classrooms, 3 had leaky roof, ready to collapse any day.",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              2
+            ]
+          },
+          {
+            "claim": "Residents of Tilaknagar in Mysuru pooled donations to renovate a 120-year-old government school whose students had been shifted out after wall cracks, without waiting for government grants.",
+            "quote": "Finally, the generous residents joined hands together and formed ‘Tilaknagar Hitarakshana Samithi’ and collected donations from like-minded people for the renovation of the School and also celebrate its Centenary fete, 20 years late in 2026.",
+            "scope": "district",
+            "stance": "progress",
+            "sources": [
+              3
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% of female teachers",
+        "summary": "No Mysuru figures on women teachers found. Mysuru's government women's teacher-training institute faced closure over low admissions; a statewide report says women dominate only primary teaching.",
+        "findings": [
+          {
+            "claim": "Mysuru's government teacher-training institute for women, which serves mostly rural students, faced closure over low admissions; staff campaigned to save it.",
+            "quote": "",
+            "scope": "district",
+            "stance": "context",
+            "sources": [
+              4
+            ]
+          },
+          {
+            "claim": "A statewide UDISE+ based report says women teachers dominate only the primary level, while male teachers still dominate upper primary and secondary teaching in Karnataka.",
+            "quote": "",
+            "scope": "state",
+            "stance": "context",
+            "sources": [
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Teachers Trained in ICT/Computers",
+        "summary": "No district-wide source on teacher ICT training found; one Mysuru government school teacher built a robotics, drone and AI lab, and a statewide 2024 programme trains 1,000 teachers with an AI assistant.",
+        "findings": [
+          {
+            "claim": "A teacher at a government school in Hinkal, Mysuru, set up a lab where children work with robotics, drones and AI, and won a national teachers award.",
+            "quote": "",
+            "scope": "district",
+            "stance": "context",
+            "sources": [
+              6
+            ]
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "url": "https://newskarnataka.com/mysuru/406-classrooms-in-mysuru-govt-schools-found-in-dilapidated-condition/12062026/",
+        "title": "406 classrooms in Mysuru govt schools found in dilapidated condition",
+        "outlet": "News Karnataka",
+        "date": "2026-06-12",
+        "type": "news"
+      },
+      {
+        "id": 2,
+        "url": "https://osaat.org/?p=17472",
+        "title": "Cholenahalli Karnataka - OSAAT",
+        "outlet": "OSAAT",
+        "date": "2022-01-26",
+        "type": "ngo"
+      },
+      {
+        "id": 3,
+        "url": "https://starofmysore.com/120-year-old-tilaknagar-govt-school-gets-new-lease-of-life/",
+        "title": "120-year-old Tilaknagar Govt. School gets new lease of life - Star of Mysore",
+        "outlet": "Star of Mysore",
+        "date": "2026-05-15",
+        "type": "news"
+      },
+      {
+        "id": 4,
+        "url": "https://www.deccanherald.com/india/karnataka/mysurus-iconic-women-teachers-institute-faces-closure-1186158.html",
+        "title": "Mysuru's iconic women teachers' institute faces closure",
+        "outlet": "Deccan Herald",
+        "date": "2023-01-30",
+        "type": "news"
+      },
+      {
+        "id": 5,
+        "url": "https://www.deccanherald.com/state/top-karnataka-stories/female-teachers-outnumber-male-teachers-in-school-education-report-1005321.html",
+        "title": "Female teachers outnumber male teachers in school education: Report",
+        "outlet": "Deccan Herald",
+        "date": "2021-07-05",
+        "type": "news"
+      },
+      {
+        "id": 6,
+        "url": "https://www.deccanherald.com/india/karnataka/mysuru/national-teachers-awards-drones-robots-and-ai-earn-mysuru-teacher-who-built-tech-lounge-in-govt-school-3714492",
+        "title": "National Teachers Awards: Drones, robots and AI earn Mysuru teacher who built tech lounge in govt school",
+        "outlet": "Deccan Herald",
+        "date": "2025-09-05",
+        "type": "news"
+      }
+    ],
+    "notes": [
+      "% of female teachers | \"Mysuru's government teacher-training institute for\": quote removed (not found on the page)",
+      "% of female teachers | 'A statewide UDISE+ based report says women teacher': quote removed (not found on the page)",
+      "% Teachers Trained in ICT/Computer | 'A teacher at a government school in Hinkal, Mysuru': quote removed (not found on the page)",
+      "% Teachers Trained in ICT/Computer | \"Karnataka's school education department began trai\": dropped, number(s) 1000, 750 not on the page"
+    ]
   }
 }

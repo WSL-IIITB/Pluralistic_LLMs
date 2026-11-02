@@ -1,0 +1,261 @@
+{
+ "region": "kalyana-karnataka",
+ "researchedOn": "2026-11-03",
+ "districts": [
+  {
+   "districtId": "29-579",
+   "name": "Kalaburagi",
+   "changes": [
+    {
+     "factor": "% Schools with Library",
+     "summary": "No district-specific source found that could be opened for verification.",
+     "findings": []
+    },
+    {
+     "factor": "% Classrooms in Good Condition",
+     "summary": "A June 2026 ceiling collapse at a Kalaburagi government girls' PU college prompted calls for safety checks of school and college buildings district-wide; a regional claim cites 18,022 Kalyana Karnataka classrooms needing repair.",
+     "findings": [
+      {
+       "claim": "After ceiling plaster fell on students at a government girls' PU college in Kalaburagi, activists urged urgent safety inspections of government school and college buildings across the district.",
+       "quote": "The incident has sparked outrage among education activists and local residents, who have urged authorities to conduct urgent safety inspections of government school and college buildings across the district to prevent similar incidents in the future.",
+       "url": "https://www.siasat.com/ceiling-plaster-collapses-on-students-in-kalaburagi-college-3487892/",
+       "title": "Ceiling plaster collapses on students in Kalaburagi college",
+       "outlet": "Siasat Daily",
+       "date": "2026-06-12",
+       "scope": "district",
+       "stance": "gap"
+      },
+      {
+       "claim": "Opposition leader R Ashoka, citing a Kannada media report, claimed 18,022 classrooms in Kalyana Karnataka need repair, 8,006 of them declared dilapidated; a regional, partisan claim.",
+       "quote": "Referring to a media report in Kannada, Ashoka claimed that 18,022 classrooms in Kalyana Karnataka were in need of repairs, of which 8,006 had been declared completely dilapidated and unfit for use by the Education Department.",
+       "url": "https://www.deccanchronicle.com/southern-states/karnataka/ashoka-targets-kharge-over-poor-state-of-schools-in-kalyana-karnataka-1967068",
+       "title": "Ashoka Targets Kharge Over Poor State Of Schools In Kalyana Karnataka",
+       "outlet": "Deccan Chronicle",
+       "date": "2026-06-29",
+       "scope": "state",
+       "stance": "gap"
+      }
+     ]
+    },
+    {
+     "factor": "% Schools with CCE Implemented",
+     "summary": "No district-specific source found.",
+     "findings": []
+    }
+   ]
+  },
+  {
+   "districtId": "29-558",
+   "name": "Bidar",
+   "changes": [
+    {
+     "factor": "% Schools with Functional Total Toilets",
+     "summary": "No district-specific source found that could be opened for verification.",
+     "findings": []
+    },
+    {
+     "factor": "% Classrooms in Good Condition",
+     "summary": "No district-specific source could be opened for verification; a regional claim cites 18,022 Kalyana Karnataka classrooms needing repair, 8,006 of them declared dilapidated.",
+     "findings": [
+      {
+       "claim": "Opposition leader R Ashoka, citing a Kannada media report, claimed 18,022 classrooms in Kalyana Karnataka need repair, 8,006 of them declared dilapidated; a regional, partisan claim.",
+       "quote": "Referring to a media report in Kannada, Ashoka claimed that 18,022 classrooms in Kalyana Karnataka were in need of repairs, of which 8,006 had been declared completely dilapidated and unfit for use by the Education Department.",
+       "url": "https://www.deccanchronicle.com/southern-states/karnataka/ashoka-targets-kharge-over-poor-state-of-schools-in-kalyana-karnataka-1967068",
+       "title": "Ashoka Targets Kharge Over Poor State Of Schools In Kalyana Karnataka",
+       "outlet": "Deccan Chronicle",
+       "date": "2026-06-29",
+       "scope": "state",
+       "stance": "gap"
+      }
+     ]
+    },
+    {
+     "factor": "% Schools with Library",
+     "summary": "No district-specific source found that could be opened for verification.",
+     "findings": []
+    }
+   ]
+  },
+  {
+   "districtId": "29-580",
+   "name": "Yadgir",
+   "changes": [
+    {
+     "factor": "% Schools with Functional Total Toilets",
+     "summary": "Activists list lack of facilities, including toilets and water, among reasons for the poor exam results of Kalaburagi and Yadgir. No Yadgir-specific toilet survey was found.",
+     "findings": [
+      {
+       "claim": "Activists cite a lack of facilities, including toilets and water, among the reasons for the poor exam performance of Kalaburagi and Yadgir districts.",
+       "quote": "lack of facilities, including toilets and water, along with modern problems like smartphone and social media addiction, as reasons behind the poor performance of Kalaburgi and Yadgir",
+       "url": "https://thesouthfirst.com/news/failing-the-future-what-is-holding-back-school-education-in-kalaburgi-and-yadgir-districts-of-karnataka/",
+       "title": "Failing the future: What is holding back school education in Kalaburgi and Yadgir districts of Karnataka?",
+       "outlet": "The South First",
+       "date": "2025-05-10",
+       "scope": "district",
+       "stance": "gap"
+      }
+     ]
+    },
+    {
+     "factor": "% Classrooms in Good Condition",
+     "summary": "On reopening day in 2025, students at a Dariyapur government school in Shahapur taluk waded through ankle-deep water to reach classrooms; a regional claim cites 18,022 Kalyana Karnataka classrooms needing repair.",
+     "findings": [
+      {
+       "claim": "On reopening day, students of a government school in Dariyapur village, Shahapur taluk, Yadgir had to wade through ankle-deep water to reach their classrooms.",
+       "quote": "To reach their classrooms, students had to trudge through ankle-deep water, sparking concern among parents and community members.",
+       "url": "https://newskarnataka.com/karnataka/yadgiri/students-greeted-by-flooded-classrooms-on-reopening-day-in-yadgir/30052025/",
+       "title": "Students Greeted by Flooded Classrooms on Reopening Day in Yadgir",
+       "outlet": "News Karnataka",
+       "date": "2025-05-30",
+       "scope": "district",
+       "stance": "gap"
+      },
+      {
+       "claim": "Opposition leader R Ashoka, citing a Kannada media report, claimed 18,022 classrooms in Kalyana Karnataka need repair, 8,006 of them declared dilapidated; a regional, partisan claim.",
+       "quote": "Referring to a media report in Kannada, Ashoka claimed that 18,022 classrooms in Kalyana Karnataka were in need of repairs, of which 8,006 had been declared completely dilapidated and unfit for use by the Education Department.",
+       "url": "https://www.deccanchronicle.com/southern-states/karnataka/ashoka-targets-kharge-over-poor-state-of-schools-in-kalyana-karnataka-1967068",
+       "title": "Ashoka Targets Kharge Over Poor State Of Schools In Kalyana Karnataka",
+       "outlet": "Deccan Chronicle",
+       "date": "2026-06-29",
+       "scope": "state",
+       "stance": "gap"
+      }
+     ]
+    },
+    {
+     "factor": "% Schools with CCE Implemented",
+     "summary": "No district-specific source found.",
+     "findings": []
+    }
+   ]
+  },
+  {
+   "districtId": "29-559",
+   "name": "Raichur",
+   "changes": [
+    {
+     "factor": "% Schools with Library",
+     "summary": "No district-specific source found that could be opened for verification.",
+     "findings": []
+    },
+    {
+     "factor": "% Classrooms in Good Condition",
+     "summary": "A government school in Askihal village, Raichur district, held classes outdoors in 2026 because of an acute classroom shortage; a regional claim cites 18,022 Kalyana Karnataka classrooms needing repair.",
+     "findings": [
+      {
+       "claim": "ANI copy carried by NewKerala reports an acute classroom shortage at the government high and primary school in Askihal, Raichur district, forcing mainly primary students to study outdoors.",
+       "quote": "An acute classroom shortage at the Government High School and Primary School in Askihal village, Raichur district, has forced students to study outdoors, with mainly the primary section facing the brunt of the crisis.",
+       "url": "https://www.newkerala.com/news/a/we-need-new-classrooms-soon-students-attend-classes-291.htm",
+       "title": "Raichur school students study outdoors as classrooms await rebuild",
+       "outlet": "NewKerala.com (ANI)",
+       "date": "2026-09-19",
+       "scope": "district",
+       "stance": "gap"
+      },
+      {
+       "claim": "Opposition leader R Ashoka, citing a Kannada media report, claimed 18,022 classrooms in Kalyana Karnataka need repair, 8,006 of them declared dilapidated; a regional, partisan claim.",
+       "quote": "Referring to a media report in Kannada, Ashoka claimed that 18,022 classrooms in Kalyana Karnataka were in need of repairs, of which 8,006 had been declared completely dilapidated and unfit for use by the Education Department.",
+       "url": "https://www.deccanchronicle.com/southern-states/karnataka/ashoka-targets-kharge-over-poor-state-of-schools-in-kalyana-karnataka-1967068",
+       "title": "Ashoka Targets Kharge Over Poor State Of Schools In Kalyana Karnataka",
+       "outlet": "Deccan Chronicle",
+       "date": "2026-06-29",
+       "scope": "state",
+       "stance": "gap"
+      }
+     ]
+    },
+    {
+     "factor": "% of female teachers",
+     "summary": "No district-specific source found.",
+     "findings": []
+    }
+   ]
+  },
+  {
+   "districtId": "29-560",
+   "name": "Koppal",
+   "changes": [
+    {
+     "factor": "% Schools with Functional Total Toilets",
+     "summary": "In early 2025 an inspection found toilets and bathrooms without doors at the girls' residential school (Kasturba Gandhi Balika Vidyalaya, Betageri) in Koppal district; the head teacher faced suspension.",
+     "findings": [
+      {
+       "claim": "News Karnataka reports a government-run residential school for girls in Koppal under scrutiny over basic sanitation, with 120 students in Classes 6 to 8 and broken sanitation facilities.",
+       "quote": "Koppal: A government-run residential school for girls in North Karnataka has come under scrutiny for failing to provide basic sanitation facilities.",
+       "url": "https://newskarnataka.com/koppala/koppal-girls-hostel-lacks-toilet-doors-head-teacher-faces-suspension/05022025/",
+       "title": "Koppal girls' hostel lacks toilet doors; head teacher faces suspension",
+       "outlet": "News Karnataka",
+       "date": "2025-02-05",
+       "scope": "district",
+       "stance": "gap"
+      }
+     ]
+    },
+    {
+     "factor": "% Schools with Library",
+     "summary": "Tata Trusts' Kalike programme found most schools in Koppal and Yadgir lacked library rooms and books, and now supports 300+ school libraries, over 200 of them in Koppal.",
+     "findings": [
+      {
+       "claim": "Kalike found most schools in Koppal and Yadgir lacked library rooms, suitable books or library periods; its programme now covers 300+ school libraries, over 200 of them in Koppal.",
+       "quote": "We have been involved in strengthening school libraries because we found that most schools lacked dedicated library rooms, age-appropriate books or regular library periods",
+       "url": "https://horizons.tatatrusts.org/2025/august/tata-trusts-horizons-seeding-reading.html",
+       "title": "Seeding the reading",
+       "outlet": "Tata Trusts Horizons",
+       "date": "",
+       "scope": "district",
+       "stance": "progress"
+      }
+     ]
+    },
+    {
+     "factor": "% Classrooms in Good Condition",
+     "summary": "No district-specific source could be opened for verification; a regional claim cites 18,022 Kalyana Karnataka classrooms needing repair, 8,006 of them declared dilapidated.",
+     "findings": [
+      {
+       "claim": "Opposition leader R Ashoka, citing a Kannada media report, claimed 18,022 classrooms in Kalyana Karnataka need repair, 8,006 of them declared dilapidated; a regional, partisan claim.",
+       "quote": "Referring to a media report in Kannada, Ashoka claimed that 18,022 classrooms in Kalyana Karnataka were in need of repairs, of which 8,006 had been declared completely dilapidated and unfit for use by the Education Department.",
+       "url": "https://www.deccanchronicle.com/southern-states/karnataka/ashoka-targets-kharge-over-poor-state-of-schools-in-kalyana-karnataka-1967068",
+       "title": "Ashoka Targets Kharge Over Poor State Of Schools In Kalyana Karnataka",
+       "outlet": "Deccan Chronicle",
+       "date": "2026-06-29",
+       "scope": "state",
+       "stance": "gap"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "districtId": "29-565",
+   "name": "Ballari (incl. Vijayanagara)",
+   "changes": [
+    {
+     "factor": "% Schools with Functional Total Toilets",
+     "summary": "No district-specific source found that could be opened for verification.",
+     "findings": []
+    },
+    {
+     "factor": "% Schools with Library",
+     "summary": "No district-specific source found that could be opened for verification.",
+     "findings": []
+    },
+    {
+     "factor": "% Classrooms in Good Condition",
+     "summary": "No district-specific source could be opened for verification; a regional claim cites 18,022 Kalyana Karnataka classrooms needing repair, 8,006 of them declared dilapidated.",
+     "findings": [
+      {
+       "claim": "Opposition leader R Ashoka, citing a Kannada media report, claimed 18,022 classrooms in Kalyana Karnataka need repair, 8,006 of them declared dilapidated; a regional, partisan claim.",
+       "quote": "Referring to a media report in Kannada, Ashoka claimed that 18,022 classrooms in Kalyana Karnataka were in need of repairs, of which 8,006 had been declared completely dilapidated and unfit for use by the Education Department.",
+       "url": "https://www.deccanchronicle.com/southern-states/karnataka/ashoka-targets-kharge-over-poor-state-of-schools-in-kalyana-karnataka-1967068",
+       "title": "Ashoka Targets Kharge Over Poor State Of Schools In Kalyana Karnataka",
+       "outlet": "Deccan Chronicle",
+       "date": "2026-06-29",
+       "scope": "state",
+       "stance": "gap"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

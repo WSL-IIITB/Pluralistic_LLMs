@@ -255,5 +255,179 @@
     ],
     "gaps": "No local studies or data linking sanitation or English-medium education to dropouts were found in Haveri; relied on broader research for context.",
     "notes": []
+  },
+  "prescriptiveEvidence": {
+    "researchedOn": "2026-11-03",
+    "ranking": "feasible",
+    "changes": [
+      {
+        "factor": "% Classrooms in Good Condition",
+        "summary": "Haveri had 541 school buildings damaged by 2024 rain, and NGO pages from Savanur and Hanagal taluks describe classrooms in poor condition, with half or fewer in good shape before new rooms were built.",
+        "findings": [
+          {
+            "claim": "The 2024 monsoon damaged 541 government school buildings in Haveri district, one of the three worst-hit districts in Karnataka.",
+            "quote": "",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              1
+            ]
+          },
+          {
+            "claim": "At Ichangi in Savanur taluk, Haveri district, all 8 classrooms of an old tiled building were in poor condition and marked for demolition; an NGO built 4 classrooms in 2023.",
+            "quote": "A old Mangalore tiled building (with cement layer put on top of the tiles) at the school has 8 classrooms, all in poor condition and marked for demolition.",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              2
+            ]
+          },
+          {
+            "claim": "A government school at Heruru in Hanagal taluk, Haveri district, had only 7 of 14 classrooms in good condition; an NGO handed over 4 new classrooms in 2024.",
+            "quote": "The school has 14 classrooms of which only 7 are in good condition.",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              3
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Schools with Functional Total Toilets",
+        "summary": "A district profile reports 96.4% of Haveri schools have a functional girls' toilet, while NGO pages from Hanagal taluk describe very poor toilets that were replaced by new blocks.",
+        "findings": [
+          {
+            "claim": "At Kopparasikoppa in Hanagal taluk, Haveri district, toilets were in poor condition; an NGO built a toilet block for boys and girls, opened in 2025.",
+            "quote": "The school had 11 rooms in 3 buildings, one Mangalore tiled building with 6 rooms was in very poor condition. Toilets were also in poor condition.",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              5
+            ]
+          },
+          {
+            "claim": "A Hanagal taluk school at Bai-Aregoppa had very poor toilets; an NGO project including a toilet block for boys and girls was completed in 2021.",
+            "quote": "The school required 8 classrooms and an office room. The toilets were also in very poor condition.",
+            "scope": "district",
+            "stance": "progress",
+            "sources": [
+              6
+            ]
+          },
+          {
+            "claim": "Haveri has 96.4% of schools with a functional girls' toilet, slightly above the India figure of 95.3%.",
+            "quote": "96.4% of schools have a functional girls' toilet.",
+            "scope": "district",
+            "stance": "context",
+            "sources": [
+              4
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Schools with Furniture available for students",
+        "summary": "NGO project pages in Haveri district show benches and desks being supplied with new classrooms at Kakol, Heruru and Kudupali; no news report on furniture gaps found.",
+        "findings": [
+          {
+            "claim": "At Kakol in Ranebennur taluk, Haveri district, an NGO built 4 classrooms and supplied benches and desks, completed in 2026.",
+            "quote": "OSAAT constructed 4 classrooms. We also provided benches and desks for these classrooms.",
+            "scope": "district",
+            "stance": "progress",
+            "sources": [
+              7
+            ]
+          },
+          {
+            "claim": "At Heruru in Hanagal taluk, the NGO plan for the school included benches and desks in all 4 new classrooms, handed over in 2024.",
+            "quote": "OSAAT proposes to construct 4 classrooms and a toilet block. OSAAT also proposes to provide benches and desks in all 4 classrooms.",
+            "scope": "district",
+            "stance": "progress",
+            "sources": [
+              3
+            ]
+          },
+          {
+            "claim": "At Kudupali in Rattihalli taluk, Haveri district, only 4+4 of 8+7 rooms were in good condition; an NGO planned benches and desks in 4 new classrooms.",
+            "quote": "OSAAT also proposes to provide benches & desks in all 4 classrooms",
+            "scope": "district",
+            "stance": "progress",
+            "sources": [
+              8
+            ]
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "url": "https://newskarnataka.com/bengaluru/bengaluru-schools-struggle-with-monsoon-damage-4000-buildings-affected/31082024/",
+        "title": "Bengaluru Schools Struggle with Monsoon Damage: 4,000 Buildings Affected",
+        "outlet": "News Karnataka",
+        "date": "2024-08-31",
+        "type": "news"
+      },
+      {
+        "id": 2,
+        "url": "https://osaat.org/?p=17286",
+        "title": "Ichangi Karnataka - OSAAT",
+        "outlet": "One School At A Time (OSAAT)",
+        "date": "2022-01-25",
+        "type": "ngo"
+      },
+      {
+        "id": 3,
+        "url": "https://osaat.org/heruru-karnataka/",
+        "title": "Heruru Karnataka - OSAAT",
+        "outlet": "One School At A Time (OSAAT)",
+        "date": "2023-04-11",
+        "type": "ngo"
+      },
+      {
+        "id": 4,
+        "url": "https://youthpower.in/institution/karnataka/haveri/kgbv",
+        "title": "KGBV (Kasturba Gandhi Balika Vidyalaya) in Haveri, Karnataka | YouthPOWER",
+        "outlet": "YouthPOWER",
+        "date": "",
+        "type": "news"
+      },
+      {
+        "id": 5,
+        "url": "https://osaat.org/?p=20428",
+        "title": "Kopparasikoppa Karnataka - OSAAT",
+        "outlet": "One School At A Time (OSAAT)",
+        "date": "2023-10-12",
+        "type": "ngo"
+      },
+      {
+        "id": 6,
+        "url": "https://osaat.org/bai-aregoppa-karnataka/",
+        "title": "Bai-Aregoppa Karnataka - OSAAT",
+        "outlet": "One School At A Time (OSAAT)",
+        "date": "2022-01-26",
+        "type": "ngo"
+      },
+      {
+        "id": 7,
+        "url": "https://osaat.org/?p=20477",
+        "title": "Kakol, Karnataka School Project | OSAAT",
+        "outlet": "One School At A Time (OSAAT)",
+        "date": "2023-10-13",
+        "type": "ngo"
+      },
+      {
+        "id": 8,
+        "url": "https://osaat.org/?p=17299",
+        "title": "Kudupali Karnataka - OSAAT",
+        "outlet": "One School At A Time (OSAAT)",
+        "date": "2022-01-25",
+        "type": "ngo"
+      }
+    ],
+    "notes": [
+      "% Classrooms in Good Condition | 'The 2024 monsoon damaged 541 government school bui': quote removed (not found on the page)"
+    ]
   }
 }

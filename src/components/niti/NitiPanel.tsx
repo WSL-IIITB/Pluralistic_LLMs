@@ -25,6 +25,7 @@ import {
 import { useChatStore } from "@/lib/worldview/chatStore";
 
 import { NewsVsDataSummary } from "./NewsVsData";
+import { PrescriptiveSummary } from "./Prescriptive";
 
 type Method = "state" | "district";
 
@@ -456,6 +457,13 @@ export function NitiPanel() {
               hint="The news research and these workbooks name different “main” factors. What each says, what our checks found, and why they differ."
             >
               <NewsVsDataSummary />
+            </Section>
+
+            <Section
+              title="NITI prescriptive model: top changes per district"
+              hint="The NITI team's district model: 18 school and household factors, and the changes it links most to lower dropout."
+            >
+              <PrescriptiveSummary />
             </Section>
 
             <Section title="How to read this data">

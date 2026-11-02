@@ -323,5 +323,74 @@
     ],
     "gaps": "We found no local studies or news on these factors and dropouts. District records do not discuss sanitation or medium of instruction as causes of dropout.",
     "notes": []
+  },
+  "prescriptiveEvidence": {
+    "researchedOn": "2026-11-03",
+    "ranking": "feasible",
+    "changes": [
+      {
+        "factor": "% Schools with Functional Total Toilets",
+        "summary": "One NGO page: a Muddebihal taluk school in Vijayapura district had toilets in poor condition and got a new boys' and girls' toilet block in 2023. No news report found.",
+        "findings": [
+          {
+            "claim": "A government school in Muddebihal taluk, Vijayapura district, had toilets in poor condition; an NGO built a toilet block for boys and girls, inaugurated in 2023.",
+            "quote": "Another building with 4 small rooms is in poor condition. Toilets are also in poor condition.",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Classrooms in Good Condition",
+        "summary": "Two NGO project pages: a Muddebihal taluk school had a second building with 4 small rooms in poor condition, and a Basavana Bagewadi taluk school had a roof patched with plastic sheets (2012).",
+        "findings": [
+          {
+            "claim": "A Muddebihal taluk school in Vijayapura district has 4 good classrooms but a second building with 4 small rooms in poor condition; an NGO added 4 classrooms in 2023.",
+            "quote": "The school has one building with 4 classrooms which are in good condition. Another building with 4 small rooms is in poor condition.",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              1
+            ]
+          },
+          {
+            "claim": "A school at Muttagi, Basavana Bagewadi taluk, Vijayapura district, had a roof patched with plastic sheets; Rotary and a local NGO funded repairs, completed in 2012.",
+            "quote": "The school was in dire need of a new building, the roof had been patched with plastic sheets to cover huge, gaping holes, rendering the structure unable to withstand the rainy season.",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              2
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Schools with Playground",
+        "summary": "",
+        "findings": []
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "url": "https://osaat.org/?p=17144",
+        "title": "Kodaganura Karnataka - OSAAT",
+        "outlet": "One School At A Time (OSAAT)",
+        "date": "2022-01-25",
+        "type": "ngo"
+      },
+      {
+        "id": 2,
+        "url": "https://osaat.org/muttagi-karnataka/",
+        "title": "Muttagi Karnataka - OSAAT",
+        "outlet": "One School At A Time (OSAAT)",
+        "date": "2022-01-26",
+        "type": "ngo"
+      }
+    ],
+    "notes": []
   }
 }

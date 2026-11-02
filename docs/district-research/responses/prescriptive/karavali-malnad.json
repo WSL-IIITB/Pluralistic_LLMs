@@ -1,0 +1,293 @@
+{
+ "region": "karavali+malnad",
+ "researchedOn": "2026-11-03",
+ "districts": [
+  {
+   "districtId": "29-575",
+   "name": "Dakshina Kannada",
+   "changes": [
+    {
+     "factor": "% of female teachers",
+     "summary": "No district-specific source found.",
+     "findings": []
+    },
+    {
+     "factor": "% Teachers Trained in ICT/Computers",
+     "summary": "A December 2025 workshop trained about 650 government school teachers from Mangaluru and other Dakshina Kannada taluks in AI tools, organised with DIET Mangaluru. No district-wide ICT-training figures were found.",
+     "findings": [
+      {
+       "claim": "A five-day workshop on AI tools drew around 650 school teachers from Mangaluru, Puttur, Bantwal and other taluks, organised with DIET Mangaluru.",
+       "quote": "Around 650 school teachers from Mangaluru, Puttur, Bantwal, Beltangady, Moodbidri, and Sullia are participating in the workshop.",
+       "url": "https://daijiworld.com/news/newsDisplay?newsID=1300414",
+       "title": "SJEC hosts five-day workshop on 'AI for Teachers' for govt school headmasters",
+       "outlet": "Daijiworld",
+       "date": "2025-12-10",
+       "scope": "district",
+       "stance": "progress"
+      }
+     ]
+    },
+    {
+     "factor": "% Women with 10+ Years Schooling",
+     "summary": "Officials link rising Muslim girls' dropout after Class 10 and PUC to the 2022 hijab controversy and scarce nearby girls-only options; new girls-only colleges are planned around Ullal. No district schooling statistics found.",
+     "findings": [
+      {
+       "claim": "Officials say dropout among Muslim girls after Class 10 and PUC rose after the 2022 hijab controversy, prompting new girls-only colleges in the Ullal area.",
+       "quote": "Officials cite the 2022 hijab controversy as a key turning point, leading to increased dropout rates among Muslim girls after Class 10 and PUC, particularly when nearby girls-only options are lacking.",
+       "url": "https://newskarnataka.com/mangaluru/girls-only-colleges-gain-momentum-in-mangaluru-amid-rising-community-demand/23072025/",
+       "title": "Girls-Only Colleges Gain Momentum in Mangaluru Amid Rising Community Demand",
+       "outlet": "News Karnataka",
+       "date": "2025-07-23",
+       "scope": "district",
+       "stance": "gap"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "districtId": "29-569",
+   "name": "Udupi",
+   "changes": [
+    {
+     "factor": "% Schools with Functional Protected Well",
+     "summary": "Reports from 2019 and 2023 show Udupi schools hit by summer water shortages, relying on campus wells that can dry up and on irregular municipal supply. No data on protected-well coverage was found.",
+     "findings": [
+      {
+       "claim": "A headmistress of an Udupi school said the well it relied on has dried up in summer, leaving it dependent on municipal water supplied twice a week.",
+       "quote": "We used to rely on a local well but it has dried up because of summer.",
+       "url": "https://www.thenewsminute.com/article/hit-severe-water-scarcity-udupi-schools-seek-time-reopening-177857",
+       "title": "Hit by severe water scarcity, Udupi schools seek time for reopening",
+       "outlet": "The News Minute",
+       "date": "2023-05-30",
+       "scope": "district",
+       "stance": "gap"
+      },
+      {
+       "claim": "Volakadu Government High School in Udupi said it was managing basic sanitation with water from campus wells during the May 2019 water crisis.",
+       "quote": "The school has been managing basic sanitation as the students are provided with water from the wells in the campus.",
+       "url": "https://www.thenewsminute.com/amp/story/karnataka/water-scarcity-forces-schools-coastal-karnataka-postpone-reopening-102768",
+       "title": "Water scarcity forces schools in coastal Karnataka to postpone reopening",
+       "outlet": "The News Minute",
+       "date": "2019-05-31",
+       "scope": "district",
+       "stance": "context"
+      }
+     ]
+    },
+    {
+     "factor": "% of female teachers",
+     "summary": "No district-specific source found.",
+     "findings": []
+    },
+    {
+     "factor": "% Teachers Trained in ICT/Computers",
+     "summary": "One July 2025 workshop in Udupi on digital literacy drew over 70 schoolteachers; the article does not say whether they teach in government schools. No government ICT-training coverage was found.",
+     "findings": [
+      {
+       "claim": "A digital-literacy and skill-development workshop in Udupi drew over 70 schoolteachers from across the district; the article does not say if they teach in government schools.",
+       "quote": "brought together over 70 schoolteachers from across the district to address the growing importance of integrating skill development and digital literacy into the school curriculum",
+       "url": "https://www.mangalorean.com/udupi-teachers-urged-to-prioritize-skill-development-in-students-for-modern-age/",
+       "title": "Udupi: Teachers Urged to Prioritize Skill Development in Students for Modern Age",
+       "outlet": "Mangalorean.com",
+       "date": "2025-07-30",
+       "scope": "district",
+       "stance": "progress"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "districtId": "29-563",
+   "name": "Uttara Kannada",
+   "changes": [
+    {
+     "factor": "% of female teachers",
+     "summary": "No district-specific source found.",
+     "findings": []
+    },
+    {
+     "factor": "% Classrooms in Good Condition",
+     "summary": "A June 2024 Udayavani report says a Kumta school building stayed unrepaired through official negligence, with students taught in a health-centre room. Little other district coverage was found.",
+     "findings": [
+      {
+       "claim": "Udayavani reports that official negligence left a school building in Kumta unrepaired, with students being taught in a room of an Ayushman Arogya Mandir health centre.",
+       "quote": "Kumta ಅಧಿಕಾರಿಗಳ ನಿರ್ಲಕ್ಷ್ಯ: ದುರಸ್ತಿಯಾಗದ ಶಾಲಾ ಕಟ್ಟಡ ಆಯುಷ್ಮಾನ್‌ ಆರೋಗ್ಯ ಮಂದಿರದ ಕೊಠಡಿಯಲ್ಲಿ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಪಾಠ",
+       "url": "https://udayavani.com/district-news/uttara-kannada-news/negligence-of-kumta-authorities-school-building-not-in-repair",
+       "title": "Kumta ಅಧಿಕಾರಿಗಳ ನಿರ್ಲಕ್ಷ್ಯ: ದುರಸ್ತಿಯಾಗದ ಶಾಲಾ ಕಟ್ಟಡ",
+       "outlet": "Udayavani",
+       "date": "2024-06-08",
+       "scope": "district",
+       "stance": "gap"
+      }
+     ]
+    },
+    {
+     "factor": "% Schools with Functional Protected Well",
+     "summary": "No district-specific source found.",
+     "findings": []
+    }
+   ]
+  },
+  {
+   "districtId": "29-568",
+   "name": "Shivamogga",
+   "changes": [
+    {
+     "factor": "% Classrooms in Good Condition",
+     "summary": "Udayavani reports cracked, collapse-prone government school buildings in Thirthahalli taluk (2025 and 2026), pointing to repair needs. Eight Shivamogga schools were also picked for PM SHRI upgrades that can include classrooms (2023).",
+     "findings": [
+      {
+       "claim": "Udayavani reports a 70-year-old government school building in Thirthahalli taluk with cracked walls, falling brick dust and fears of collapse.",
+       "quote": "ಸರ್ಕಾರಿ ಶಾಲೆ ಕಟ್ಟಡದಲ್ಲಿ ಬಿರುಕು; 70 ವರ್ಷ ಇತಿಹಾಸವಿದ್ದ ಶಾಲೆಗೆ ಕುಸಿತವಾಗುವ ಭೀತಿ",
+       "url": "https://udayavani.com/district-news/shimoga-news/crack-in-government-school-building-70-year-old-school-fears-collapse",
+       "title": "ಸರ್ಕಾರಿ ಶಾಲೆ ಕಟ್ಟಡದಲ್ಲಿ ಬಿರುಕು; 70 ವರ್ಷ ಇತಿಹಾಸವಿದ್ದ ಶಾಲೆಗೆ ಕುಸಿತವಾಗುವ ಭೀತಿ",
+       "outlet": "Udayavani",
+       "date": "2025-06-28",
+       "scope": "district",
+       "stance": "gap"
+      },
+      {
+       "claim": "Udayavani reports the Temmemane government school in the Thirthahalli area is at risk of collapse, raising safety questions for its 30 students.",
+       "quote": "ಕುಸಿಯುವ ಭೀತಿಯಲ್ಲಿ ತೆಮ್ಮೆಮನೆ ಸರ್ಕಾರಿ ಶಾಲೆ: 30 ವಿದ್ಯಾರ್ಥಿಗಳ ಸುರಕ್ಷತೆ ಪ್ರಶ್ನಾರ್ಹ!",
+       "url": "https://udayavani.com/shimoga-news/Temmemane-Government-School-on-the-Verge-of-Collapse-505606",
+       "title": "ಕುಸಿಯುವ ಭೀತಿಯಲ್ಲಿ ತೆಮ್ಮೆಮನೆ ಸರ್ಕಾರಿ ಶಾಲೆ: 30 ವಿದ್ಯಾರ್ಥಿಗಳ ಸುರಕ್ಷತೆ ಪ್ರಶ್ನಾರ್ಹ!",
+       "outlet": "Udayavani",
+       "date": "2026-08-03",
+       "scope": "district",
+       "stance": "gap"
+      },
+      {
+       "claim": "Eight schools each in Shivamogga, Chikkamagaluru, Dakshina Kannada and Mysuru were selected for PM SHRI model-school upgrades, which can bring classrooms, laboratories, washrooms and a playground.",
+       "quote": "Eight schools each from DK, Shivamogga, Chikkamagaluru and Mysuru districts are selected for the project.",
+       "url": "https://www.daijiworld.com/news/newsDisplay?newsID=1088575",
+       "title": "12 govt schools in DK, Udupi to be promoted under PM SHRI project",
+       "outlet": "Daijiworld",
+       "date": "2023-06-10",
+       "scope": "district",
+       "stance": "context"
+      }
+     ]
+    },
+    {
+     "factor": "% Schools with All-Weather Roads",
+     "summary": "No district-specific source found.",
+     "findings": []
+    },
+    {
+     "factor": "% Population Living in Households with Improved Sanitation",
+     "summary": "No district-specific source found.",
+     "findings": []
+    }
+   ]
+  },
+  {
+   "districtId": "29-570",
+   "name": "Chikkamagaluru",
+   "changes": [
+    {
+     "factor": "% Classrooms in Good Condition",
+     "summary": "A 2023 report shows eight Chikkamagaluru schools were selected for PM SHRI model-school upgrades, which can include classrooms. No district reporting on classroom condition was found.",
+     "findings": [
+      {
+       "claim": "Eight schools each in Chikkamagaluru, Shivamogga, Dakshina Kannada and Mysuru were selected for PM SHRI upgrades; selected schools can get new classrooms, laboratories and library.",
+       "quote": "Eight schools each from DK, Shivamogga, Chikkamagaluru and Mysuru districts are selected for the project.",
+       "url": "https://www.daijiworld.com/news/newsDisplay?newsID=1088575",
+       "title": "12 govt schools in DK, Udupi to be promoted under PM SHRI project",
+       "outlet": "Daijiworld",
+       "date": "2023-06-10",
+       "scope": "district",
+       "stance": "context"
+      }
+     ]
+    },
+    {
+     "factor": "% Population Living in Households with Improved Sanitation",
+     "summary": "No district-specific source found.",
+     "findings": []
+    },
+    {
+     "factor": "% Schools with Playground",
+     "summary": "A 2023 report lists a playground among facilities the eight selected Chikkamagaluru schools can get under PM SHRI. No district reporting on playground gaps was found.",
+     "findings": [
+      {
+       "claim": "The same report on PM SHRI, which selected eight Chikkamagaluru schools, says chosen schools can get a library, laboratory, classrooms, washrooms, teaching staff and a playground.",
+       "quote": "The selected schools will have the opportunity to get a well-equipped library, laboratory, classrooms, washrooms, teaching staff, playground etc",
+       "url": "https://www.daijiworld.com/news/newsDisplay?newsID=1088575",
+       "title": "12 govt schools in DK, Udupi to be promoted under PM SHRI project",
+       "outlet": "Daijiworld",
+       "date": "2023-06-10",
+       "scope": "district",
+       "stance": "context"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "districtId": "29-576",
+   "name": "Kodagu",
+   "changes": [
+    {
+     "factor": "% of female teachers",
+     "summary": "No district-specific source found.",
+     "findings": []
+    },
+    {
+     "factor": "% Classrooms in Good Condition",
+     "summary": "NGO OSAAT documents a Virajpet-taluk school with a 95-year-old tiled building and 8 classrooms in poor condition; it built 4 new classrooms by 2022. No recent district-wide data was found.",
+     "findings": [
+      {
+       "claim": "OSAAT describes a Mayamudi school in Virajpet taluk with a 95-year-old tiled building and 8 classrooms in poor condition; it built 4 new classrooms, completed in 2022.",
+       "quote": "The school has a 95 year old Mangalore tiled building with 8 classrooms in poor condition.",
+       "url": "https://osaat.org/mayamudi-karnataka/",
+       "title": "Mayamudi Karnataka - OSAAT",
+       "outlet": "OSAAT",
+       "date": "2022-01-24",
+       "scope": "district",
+       "stance": "gap"
+      }
+     ]
+    },
+    {
+     "factor": "% Women with 10+ Years Schooling",
+     "summary": "No district-specific source found.",
+     "findings": []
+    }
+   ]
+  },
+  {
+   "districtId": "29-574",
+   "name": "Hassan",
+   "changes": [
+    {
+     "factor": "% Population Living in Households with Improved Sanitation",
+     "summary": "No district-specific source found.",
+     "findings": []
+    },
+    {
+     "factor": "% Classrooms in Good Condition",
+     "summary": "A September 2026 Deccan Chronicle report says a social-welfare residential school at Shantigrama in Hassan taluk ran in a shed, with a permanent building expected in about 6 months. No education-department classroom coverage was found.",
+     "findings": [
+      {
+       "claim": "A social-welfare residential school at Shantigrama in Hassan taluk was run in a shed; a new building there is being readied, expected to open in about 6 months.",
+       "quote": "A new building is getting ready at Shantigrama which is expected to be inaugurated in about 6-months.",
+       "url": "https://www.deccanchronicle.com/southern-states/karnataka/karnataka-residential-school-shifted-against-wishes-of-studentsparents-temporarily-in-hassan-1985335",
+       "title": "Karnataka: Residential School Shifted Against Wishes Of Students/Parents Temporarily In Hassan",
+       "outlet": "Deccan Chronicle",
+       "date": "2026-09-06",
+       "scope": "district",
+       "stance": "progress"
+      }
+     ]
+    },
+    {
+     "factor": "% Women with 10+ Years Schooling",
+     "summary": "No district-specific source found.",
+     "findings": []
+    }
+   ]
+  }
+ ]
+}

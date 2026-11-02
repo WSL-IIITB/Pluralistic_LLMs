@@ -66,6 +66,35 @@ export interface NewsVsDataStatewide {
   };
   differ: { title: string; text: string }[];
   connect: { text: string; untested: string };
+  /** The NITI prescriptive model's top three changes vs the verified web sources vs the news research. */
+  prescriptive: {
+    changes: number;
+    verdicts: Partial<Record<ChangeVerdict, number>>;
+    byFactor: { short: string; districts: number; withSources: number; agree: number }[];
+    findings: number;
+    districtFindings: number;
+    text: string;
+  };
+}
+
+/** agree = model, web sources and news research all point at it; web-only = sources describe it, the news research
+ * doesn't link it to dropout; news-only = only the news research names it; untested = nothing verified yet. */
+export type ChangeVerdict = "agree" | "web-only" | "news-only" | "untested";
+
+export interface TopChange {
+  rank: number;
+  factor: string;
+  short: string;
+  area: string;
+  value: number | null;
+  karnatakaRank: number | null;
+  contribution: number | null;
+  findings: number;
+  districtFindings: number;
+  stances: Partial<Record<"gap" | "progress" | "context", number>>;
+  newsReasons: string[];
+  verdict: ChangeVerdict;
+  line: string;
 }
 
 export interface NewsVsDataDistrict {
@@ -91,6 +120,7 @@ export interface NewsVsDataDistrict {
   >;
   touching: { family: string; factor: string; detail: string; evidence: string }[];
   differ: string[];
+  topChanges: TopChange[];
 }
 
 export interface NewsVsData {

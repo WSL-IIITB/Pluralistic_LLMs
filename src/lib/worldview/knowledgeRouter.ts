@@ -39,6 +39,9 @@ const NEWS = /\b(news|media|articles?|stories|story|headlines?|reports?|reported
 const DATA =
   /\b(data|uidai|niti|dominant|statistics?|statistical|official|english[- ]medium|medium of instruction)\b/;
 const RECONCILE = /\b(reconcil\w*|differ\w*|mismatch\w*|contradict\w*|versus|vs)\b/;
+// The NITI prescriptive model: its method, the 18 factors, "top changes", what could be improved.
+const PRESCRIPTIVE =
+  /\b(prescripti\w*|top (three|3 )?changes?|toilets?|changes? (to make|needed)|niti model|sensitivity|contribution|feasible|improv\w*|interventions?|18 factors|factors? (mean|explained)|classrooms?|librar(y|ies)|furniture|female teachers?|women teachers?|playgrounds?|computer labs?|smart class\w*|boundary walls?|sdmc|cce|continuous evaluation|teachers? per|ict)\b/;
 const ANALYSIS =
   /\b(persona|personas|generic answer|similarity|divergen\w*|story mode|consolidated|region[- ]first|composite)\b/;
 const PERSONAS = /\b(persona|personas|composite|puttaswamy|manjula|character|characters)\b/;
@@ -145,6 +148,8 @@ export function routeContext(
     if (t) optional.push({ name: `REGION ${id}`, text: t });
   }
   if (UIDAI.test(lower)) optional.push({ name: "UIDAI", text: pack.uidai });
+  if (pack.prescriptive && PRESCRIPTIVE.test(lower))
+    optional.push({ name: "NITI PRESCRIPTIVE", text: pack.prescriptive });
   if (ANALYSIS.test(lower)) optional.push({ name: "ANALYSIS", text: pack.analysis });
   if (PERSONAS.test(lower)) optional.push({ name: "PERSONAS", text: pack.personas });
 

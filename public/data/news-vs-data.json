@@ -271,6 +271,98 @@
   "connect": {
    "text": "Both can be true. The share of English-medium schools may track access to private and urban schooling and household means, which are the same conditions under which the news reports children working instead of studying. General research from elsewhere, found during our checks, also links a change in the medium of instruction, or lessons in an unfamiliar language, to students dropping out (2 page-verified claims, none about a Karnataka district).",
    "untested": "We have not tested this. Our files hold neither each district's actual share of English-medium schools nor a district-level measure of child labour. Testing it would need both, analysed together against dropout."
+  },
+  "prescriptive": {
+   "changes": 90,
+   "verdicts": {
+    "web-only": 52,
+    "untested": 33,
+    "news-only": 2,
+    "agree": 3
+   },
+   "byFactor": [
+    {
+     "short": "Classrooms in good condition",
+     "districts": 27,
+     "withSources": 25,
+     "agree": 2
+    },
+    {
+     "short": "Female teachers",
+     "districts": 10,
+     "withSources": 1,
+     "agree": 0
+    },
+    {
+     "short": "Student furniture",
+     "districts": 8,
+     "withSources": 6,
+     "agree": 0
+    },
+    {
+     "short": "Functional toilets",
+     "districts": 8,
+     "withSources": 7,
+     "agree": 1
+    },
+    {
+     "short": "Women with 10+ years of schooling",
+     "districts": 8,
+     "withSources": 5,
+     "agree": 0
+    },
+    {
+     "short": "Household sanitation",
+     "districts": 8,
+     "withSources": 1,
+     "agree": 0
+    },
+    {
+     "short": "School library",
+     "districts": 5,
+     "withSources": 4,
+     "agree": 0
+    },
+    {
+     "short": "Teachers trained in ICT",
+     "districts": 4,
+     "withSources": 3,
+     "agree": 0
+    },
+    {
+     "short": "Playground",
+     "districts": 4,
+     "withSources": 1,
+     "agree": 0
+    },
+    {
+     "short": "Continuous evaluation (CCE)",
+     "districts": 3,
+     "withSources": 0,
+     "agree": 0
+    },
+    {
+     "short": "All-weather road access",
+     "districts": 2,
+     "withSources": 1,
+     "agree": 0
+    },
+    {
+     "short": "Protected well",
+     "districts": 2,
+     "withSources": 1,
+     "agree": 0
+    },
+    {
+     "short": "Computer / ICT labs",
+     "districts": 1,
+     "withSources": 0,
+     "agree": 0
+    }
+   ],
+   "findings": 107,
+   "districtFindings": 92,
+   "text": "The NITI model's top three changes give 90 district-change pairs. Web sources about the district itself were verified for 55 of them. For 3, the model, the web sources and the earlier news research all point the same way; for 52, web sources describe the condition but the news research never links it to dropout; 2 are named only in the news research; and 33 have no verified district source yet. The model points at school conditions; the news research mostly documented household pressures (poverty, work, marriage, migration), so the two rarely name the same thing. The model's most frequent pick, classrooms in good condition (27 districts), has verified district sources in 25 of them."
   }
  },
  "districts": {
@@ -350,6 +442,58 @@
     "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
     "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Bagalkote in particular.",
     "News coverage of Bagalkote is thin, so the news picture itself rests on few stories."
+   ],
+   "topChanges": [
+    {
+     "rank": 1,
+     "factor": "% Classrooms in Good Condition",
+     "short": "Classrooms in good condition",
+     "area": "Bagalkot",
+     "value": 85.97,
+     "karnatakaRank": 16,
+     "contribution": 14.8,
+     "findings": 3,
+     "districtFindings": 3,
+     "stances": {
+      "gap": 1,
+      "progress": 2
+     },
+     "newsReasons": [],
+     "verdict": "web-only",
+     "line": "Classrooms in good condition (model's #1): 3 verified sources about Bagalkote discuss it (1 showing the gap, 2 reporting progress); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+    },
+    {
+     "rank": 2,
+     "factor": "% Schools with Furniture available for students",
+     "short": "Student furniture",
+     "area": "Bagalkot",
+     "value": 83.35,
+     "karnatakaRank": 26,
+     "contribution": 10.7,
+     "findings": 1,
+     "districtFindings": 1,
+     "stances": {
+      "gap": 1
+     },
+     "newsReasons": [],
+     "verdict": "web-only",
+     "line": "Student furniture (model's #2): 1 verified source about Bagalkote discusses it (1 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+    },
+    {
+     "rank": 3,
+     "factor": "% Schools with Functional Total Toilets",
+     "short": "Functional toilets",
+     "area": "Bagalkot",
+     "value": 99.66,
+     "karnatakaRank": 25,
+     "contribution": 9.9,
+     "findings": 0,
+     "districtFindings": 0,
+     "stances": {},
+     "newsReasons": [],
+     "verdict": "untested",
+     "line": "Functional toilets (model's #3): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+    }
    ]
   },
   "29-565": {
@@ -439,6 +583,57 @@
     "None of the 5 reasons the news gives for Ballari (incl. Vijayanagara) mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
     "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
     "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Ballari (incl. Vijayanagara) in particular."
+   ],
+   "topChanges": [
+    {
+     "rank": 1,
+     "factor": "% Schools with Functional Total Toilets",
+     "short": "Functional toilets",
+     "area": "Ballari",
+     "value": 98.73,
+     "karnatakaRank": 34,
+     "contribution": 19.2,
+     "findings": 2,
+     "districtFindings": 2,
+     "stances": {
+      "gap": 2
+     },
+     "newsReasons": [],
+     "verdict": "web-only",
+     "line": "Functional toilets (model's #1): 2 verified sources about Ballari (incl. Vijayanagara) discuss it (2 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+    },
+    {
+     "rank": 2,
+     "factor": "% Schools with Library",
+     "short": "School library",
+     "area": "Vijayanagara",
+     "value": 94.82,
+     "karnatakaRank": 30,
+     "contribution": 11.9,
+     "findings": 1,
+     "districtFindings": 0,
+     "stances": {},
+     "newsReasons": [],
+     "verdict": "untested",
+     "line": "School library (model's #2): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+    },
+    {
+     "rank": 3,
+     "factor": "% Classrooms in Good Condition",
+     "short": "Classrooms in good condition",
+     "area": "Vijayanagara",
+     "value": 83.16,
+     "karnatakaRank": 25,
+     "contribution": 11.3,
+     "findings": 3,
+     "districtFindings": 2,
+     "stances": {
+      "gap": 2
+     },
+     "newsReasons": [],
+     "verdict": "web-only",
+     "line": "Classrooms in good condition (model's #3): 2 verified sources about Ballari (incl. Vijayanagara) discuss it (2 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+    }
    ]
   },
   "29-555": {
@@ -537,6 +732,60 @@
     "One news reason does touch the language a school teaches in: \"Language gap for migrant children\" (thin evidence). So here the news and the data do meet, on one point.",
     "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
     "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Belagavi in particular."
+   ],
+   "topChanges": [
+    {
+     "rank": 1,
+     "factor": "% Classrooms in Good Condition",
+     "short": "Classrooms in good condition",
+     "area": "Belagavi",
+     "value": 85.06,
+     "karnatakaRank": 20,
+     "contribution": 18.6,
+     "findings": 3,
+     "districtFindings": 3,
+     "stances": {
+      "gap": 3
+     },
+     "newsReasons": [],
+     "verdict": "web-only",
+     "line": "Classrooms in good condition (model's #1): 3 verified sources about Belagavi discuss it (3 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+    },
+    {
+     "rank": 2,
+     "factor": "% Schools with Furniture available for students",
+     "short": "Student furniture",
+     "area": "Belagavi",
+     "value": 83.52,
+     "karnatakaRank": 25,
+     "contribution": 14.0,
+     "findings": 1,
+     "districtFindings": 1,
+     "stances": {
+      "gap": 1
+     },
+     "newsReasons": [],
+     "verdict": "web-only",
+     "line": "Student furniture (model's #2): 1 verified source about Belagavi discusses it (1 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+    },
+    {
+     "rank": 3,
+     "factor": "% Women with 10+ Years Schooling",
+     "short": "Women with 10+ years of schooling",
+     "area": "Belagavi",
+     "value": 47.8,
+     "karnatakaRank": 22,
+     "contribution": 11.0,
+     "findings": 2,
+     "districtFindings": 2,
+     "stances": {
+      "gap": 1,
+      "context": 1
+     },
+     "newsReasons": [],
+     "verdict": "web-only",
+     "line": "Women with 10+ years of schooling (model's #3): 2 verified sources about Belagavi discuss it (1 background, 1 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+    }
    ]
   },
   "29-583": {
@@ -622,6 +871,55 @@
     "When we asked deep research why this factor would be dominant here, the result was: partly: only research from elsewhere backs the mechanism (0 verified proof items about Bengaluru Rural, 2 from elsewhere).",
     "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Bengaluru Rural in particular.",
     "News coverage of Bengaluru Rural is thin, so the news picture itself rests on few stories."
+   ],
+   "topChanges": [
+    {
+     "rank": 1,
+     "factor": "% Classrooms in Good Condition",
+     "short": "Classrooms in good condition",
+     "area": "Bengaluru Rural",
+     "value": 92.35,
+     "karnatakaRank": 3,
+     "contribution": 13.6,
+     "findings": 2,
+     "districtFindings": 2,
+     "stances": {
+      "gap": 2
+     },
+     "newsReasons": [],
+     "verdict": "web-only",
+     "line": "Classrooms in good condition (model's #1): 2 verified sources about Bengaluru Rural discuss it (2 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+    },
+    {
+     "rank": 2,
+     "factor": "% of female teachers",
+     "short": "Female teachers",
+     "area": "Bengaluru Rural",
+     "value": 67.2,
+     "karnatakaRank": 7,
+     "contribution": 11.9,
+     "findings": 1,
+     "districtFindings": 0,
+     "stances": {},
+     "newsReasons": [],
+     "verdict": "untested",
+     "line": "Female teachers (model's #2): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+    },
+    {
+     "rank": 3,
+     "factor": "% Women with 10+ Years Schooling",
+     "short": "Women with 10+ years of schooling",
+     "area": "Bengaluru Rural",
+     "value": 56.3,
+     "karnatakaRank": 6,
+     "contribution": 11.2,
+     "findings": 0,
+     "districtFindings": 0,
+     "stances": {},
+     "newsReasons": [],
+     "verdict": "untested",
+     "line": "Women with 10+ years of schooling (model's #3): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+    }
    ]
   },
   "29-572": {
@@ -720,6 +1018,53 @@
     "None of the 7 reasons the news gives for Bengaluru Urban mentions drinking water at school. The sources are silent on it, which is not the same as contradicting the data.",
     "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
     "This factor is named for only 3 of 35 Karnataka district-level rows; the rest get English-medium schools."
+   ],
+   "topChanges": [
+    {
+     "rank": 1,
+     "factor": "% Teachers Trained in ICT/Computers",
+     "short": "Teachers trained in ICT",
+     "area": "Bengaluru U South",
+     "value": 73.6,
+     "karnatakaRank": 1,
+     "contribution": 20.9,
+     "findings": 0,
+     "districtFindings": 0,
+     "stances": {},
+     "newsReasons": [],
+     "verdict": "untested",
+     "line": "Teachers trained in ICT (model's #1): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+    },
+    {
+     "rank": 2,
+     "factor": "% of female teachers",
+     "short": "Female teachers",
+     "area": "Bengaluru U South",
+     "value": 85.53,
+     "karnatakaRank": 1,
+     "contribution": 17.2,
+     "findings": 1,
+     "districtFindings": 0,
+     "stances": {},
+     "newsReasons": [],
+     "verdict": "untested",
+     "line": "Female teachers (model's #2): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+    },
+    {
+     "rank": 3,
+     "factor": "% Schools with Computer/ICT Labs",
+     "short": "Computer / ICT labs",
+     "area": "Bengaluru U North",
+     "value": 65.26,
+     "karnatakaRank": 1,
+     "contribution": 14.0,
+     "findings": 0,
+     "districtFindings": 0,
+     "stances": {},
+     "newsReasons": [],
+     "verdict": "untested",
+     "line": "Computer / ICT labs (model's #3): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+    }
    ]
   },
   "29-558": {
@@ -797,6 +1142,61 @@
     "None of the 6 reasons the news gives for Bidar mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
     "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
     "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Bidar in particular."
+   ],
+   "topChanges": [
+    {
+     "rank": 1,
+     "factor": "% Schools with Functional Total Toilets",
+     "short": "Functional toilets",
+     "area": "Bidar",
+     "value": 98.46,
+     "karnatakaRank": 35,
+     "contribution": 19.8,
+     "findings": 2,
+     "districtFindings": 2,
+     "stances": {
+      "gap": 1,
+      "progress": 1
+     },
+     "newsReasons": [],
+     "verdict": "web-only",
+     "line": "Functional toilets (model's #1): 2 verified sources about Bidar discuss it (1 showing the gap, 1 reporting progress); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+    },
+    {
+     "rank": 2,
+     "factor": "% Classrooms in Good Condition",
+     "short": "Classrooms in good condition",
+     "area": "Bidar",
+     "value": 89.13,
+     "karnatakaRank": 4,
+     "contribution": 11.8,
+     "findings": 3,
+     "districtFindings": 2,
+     "stances": {
+      "gap": 1,
+      "context": 1
+     },
+     "newsReasons": [],
+     "verdict": "web-only",
+     "line": "Classrooms in good condition (model's #2): 2 verified sources about Bidar discuss it (1 background, 1 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+    },
+    {
+     "rank": 3,
+     "factor": "% Schools with Library",
+     "short": "School library",
+     "area": "Bidar",
+     "value": 84.65,
+     "karnatakaRank": 34,
+     "contribution": 10.9,
+     "findings": 2,
+     "districtFindings": 1,
+     "stances": {
+      "progress": 1
+     },
+     "newsReasons": [],
+     "verdict": "web-only",
+     "line": "School library (model's #3): 1 verified source about Bidar discusses it (1 reporting progress); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+    }
    ]
   },
   "29-578": {
@@ -874,6 +1274,57 @@
     "None of the 7 reasons the news gives for Chamarajanagara mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
     "When we asked deep research why this factor would be dominant here, the result was: partly: only research from elsewhere backs the mechanism (0 verified proof items about Chamarajanagara, 2 from elsewhere).",
     "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Chamarajanagara in particular."
+   ],
+   "topChanges": [
+    {
+     "rank": 1,
+     "factor": "% Classrooms in Good Condition",
+     "short": "Classrooms in good condition",
+     "area": "Chamarajanagara",
+     "value": 76.87,
+     "karnatakaRank": 34,
+     "contribution": 11.0,
+     "findings": 0,
+     "districtFindings": 0,
+     "stances": {},
+     "newsReasons": [],
+     "verdict": "untested",
+     "line": "Classrooms in good condition (model's #1): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+    },
+    {
+     "rank": 2,
+     "factor": "% Schools with Furniture available for students",
+     "short": "Student furniture",
+     "area": "Chamarajanagara",
+     "value": 94.78,
+     "karnatakaRank": 12,
+     "contribution": 9.3,
+     "findings": 1,
+     "districtFindings": 1,
+     "stances": {
+      "context": 1
+     },
+     "newsReasons": [],
+     "verdict": "web-only",
+     "line": "Student furniture (model's #2): 1 verified source about Chamarajanagara discusses it (1 background); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+    },
+    {
+     "rank": 3,
+     "factor": "% Schools with All-Weather Roads",
+     "short": "All-weather road access",
+     "area": "Chamarajanagara",
+     "value": 95.04,
+     "karnatakaRank": 27,
+     "contribution": 8.7,
+     "findings": 1,
+     "districtFindings": 1,
+     "stances": {
+      "gap": 1
+     },
+     "newsReasons": [],
+     "verdict": "web-only",
+     "line": "All-weather road access (model's #3): 1 verified source about Chamarajanagara discusses it (1 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+    }
    ]
   },
   "29-582": {
@@ -952,6 +1403,57 @@
     "When we asked deep research why this factor would be dominant here, the result was: partly: only research from elsewhere backs the mechanism (0 verified proof items about Chikkaballapur, 2 from elsewhere).",
     "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Chikkaballapur in particular.",
     "News coverage of Chikkaballapur is thin, so the news picture itself rests on few stories."
+   ],
+   "topChanges": [
+    {
+     "rank": 1,
+     "factor": "% Classrooms in Good Condition",
+     "short": "Classrooms in good condition",
+     "area": "Chikkaballapura",
+     "value": 83.01,
+     "karnatakaRank": 26,
+     "contribution": 15.7,
+     "findings": 1,
+     "districtFindings": 1,
+     "stances": {
+      "gap": 1
+     },
+     "newsReasons": [],
+     "verdict": "web-only",
+     "line": "Classrooms in good condition (model's #1): 1 verified source about Chikkaballapur discusses it (1 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+    },
+    {
+     "rank": 2,
+     "factor": "% Population Living in Households with Improved Sanitation",
+     "short": "Household sanitation",
+     "area": "Chikkaballapura",
+     "value": 84.9,
+     "karnatakaRank": 16,
+     "contribution": 12.8,
+     "findings": 0,
+     "districtFindings": 0,
+     "stances": {},
+     "newsReasons": [],
+     "verdict": "untested",
+     "line": "Household sanitation (model's #2): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+    },
+    {
+     "rank": 3,
+     "factor": "% Women with 10+ Years Schooling",
+     "short": "Women with 10+ years of schooling",
+     "area": "Chikkaballapura",
+     "value": 48.0,
+     "karnatakaRank": 21,
+     "contribution": 10.1,
+     "findings": 2,
+     "districtFindings": 2,
+     "stances": {
+      "context": 2
+     },
+     "newsReasons": [],
+     "verdict": "web-only",
+     "line": "Women with 10+ years of schooling (model's #3): 2 verified sources about Chikkaballapur discuss it (2 background); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+    }
    ]
   },
   "29-570": {
@@ -1029,6 +1531,57 @@
     "None of the 7 reasons the news gives for Chikkamagaluru mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
     "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
     "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Chikkamagaluru in particular."
+   ],
+   "topChanges": [
+    {
+     "rank": 1,
+     "factor": "% Classrooms in Good Condition",
+     "short": "Classrooms in good condition",
+     "area": "Chikkamangaluru",
+     "value": 82.71,
+     "karnatakaRank": 27,
+     "contribution": 15.7,
+     "findings": 1,
+     "districtFindings": 1,
+     "stances": {
+      "context": 1
+     },
+     "newsReasons": [],
+     "verdict": "web-only",
+     "line": "Classrooms in good condition (model's #1): 1 verified source about Chikkamagaluru discusses it (1 background); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+    },
+    {
+     "rank": 2,
+     "factor": "% Population Living in Households with Improved Sanitation",
+     "short": "Household sanitation",
+     "area": "Chikkamangaluru",
+     "value": 92.3,
+     "karnatakaRank": 4,
+     "contribution": 14.0,
+     "findings": 0,
+     "districtFindings": 0,
+     "stances": {},
+     "newsReasons": [],
+     "verdict": "untested",
+     "line": "Household sanitation (model's #2): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+    },
+    {
+     "rank": 3,
+     "factor": "% Schools with Playground",
+     "short": "Playground",
+     "area": "Chikkamangaluru",
+     "value": 82.29,
+     "karnatakaRank": 11,
+     "contribution": 12.5,
+     "findings": 1,
+     "districtFindings": 1,
+     "stances": {
+      "context": 1
+     },
+     "newsReasons": [],
+     "verdict": "web-only",
+     "line": "Playground (model's #3): 1 verified source about Chikkamagaluru discusses it (1 background); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+    }
    ]
   },
   "29-566": {
@@ -1106,6 +1659,57 @@
     "None of the 7 reasons the news gives for Chitradurga mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
     "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
     "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Chitradurga in particular."
+   ],
+   "topChanges": [
+    {
+     "rank": 1,
+     "factor": "% Schools with Furniture available for students",
+     "short": "Student furniture",
+     "area": "Chitradurga",
+     "value": 91.64,
+     "karnatakaRank": 15,
+     "contribution": 15.2,
+     "findings": 0,
+     "districtFindings": 0,
+     "stances": {},
+     "newsReasons": [],
+     "verdict": "untested",
+     "line": "Student furniture (model's #1): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+    },
+    {
+     "rank": 2,
+     "factor": "% Classrooms in Good Condition",
+     "short": "Classrooms in good condition",
+     "area": "Chitradurga",
+     "value": 79.7,
+     "karnatakaRank": 31,
+     "contribution": 13.5,
+     "findings": 1,
+     "districtFindings": 1,
+     "stances": {
+      "gap": 1
+     },
+     "newsReasons": [],
+     "verdict": "web-only",
+     "line": "Classrooms in good condition (model's #2): 1 verified source about Chitradurga discusses it (1 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+    },
+    {
+     "rank": 3,
+     "factor": "% Women with 10+ Years Schooling",
+     "short": "Women with 10+ years of schooling",
+     "area": "Chitradurga",
+     "value": 48.3,
+     "karnatakaRank": 19,
+     "contribution": 10.0,
+     "findings": 1,
+     "districtFindings": 1,
+     "stances": {
+      "context": 1
+     },
+     "newsReasons": [],
+     "verdict": "web-only",
+     "line": "Women with 10+ years of schooling (model's #3): 1 verified source about Chitradurga discusses it (1 background); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+    }
    ]
   },
   "29-575": {
@@ -1177,6 +1781,57 @@
     "None of the 3 reasons the news gives for Dakshina Kannada mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
     "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
     "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Dakshina Kannada in particular."
+   ],
+   "topChanges": [
+    {
+     "rank": 1,
+     "factor": "% of female teachers",
+     "short": "Female teachers",
+     "area": "Dakshina Kannada",
+     "value": 80.57,
+     "karnatakaRank": 3,
+     "contribution": 22.2,
+     "findings": 0,
+     "districtFindings": 0,
+     "stances": {},
+     "newsReasons": [],
+     "verdict": "untested",
+     "line": "Female teachers (model's #1): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+    },
+    {
+     "rank": 2,
+     "factor": "% Teachers Trained in ICT/Computers",
+     "short": "Teachers trained in ICT",
+     "area": "Dakshina Kannada",
+     "value": 62.87,
+     "karnatakaRank": 3,
+     "contribution": 16.0,
+     "findings": 1,
+     "districtFindings": 1,
+     "stances": {
+      "progress": 1
+     },
+     "newsReasons": [],
+     "verdict": "web-only",
+     "line": "Teachers trained in ICT (model's #2): 1 verified source about Dakshina Kannada discusses it (1 reporting progress); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+    },
+    {
+     "rank": 3,
+     "factor": "% Women with 10+ Years Schooling",
+     "short": "Women with 10+ years of schooling",
+     "area": "Dakshina Kannada",
+     "value": 62.8,
+     "karnatakaRank": 3,
+     "contribution": 13.8,
+     "findings": 1,
+     "districtFindings": 1,
+     "stances": {
+      "gap": 1
+     },
+     "newsReasons": [],
+     "verdict": "web-only",
+     "line": "Women with 10+ years of schooling (model's #3): 1 verified source about Dakshina Kannada discusses it (1 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+    }
    ]
   },
   "29-567": {
@@ -1255,6 +1910,55 @@
     "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
     "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Davanagere in particular.",
     "News coverage of Davanagere is thin, so the news picture itself rests on few stories."
+   ],
+   "topChanges": [
+    {
+     "rank": 1,
+     "factor": "% Classrooms in Good Condition",
+     "short": "Classrooms in good condition",
+     "area": "Davanagere",
+     "value": 87.41,
+     "karnatakaRank": 9,
+     "contribution": 17.4,
+     "findings": 2,
+     "districtFindings": 2,
+     "stances": {
+      "gap": 2
+     },
+     "newsReasons": [],
+     "verdict": "web-only",
+     "line": "Classrooms in good condition (model's #1): 2 verified sources about Davanagere discuss it (2 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+    },
+    {
+     "rank": 2,
+     "factor": "% Schools with Playground",
+     "short": "Playground",
+     "area": "Davanagere",
+     "value": 84.69,
+     "karnatakaRank": 8,
+     "contribution": 12.4,
+     "findings": 0,
+     "districtFindings": 0,
+     "stances": {},
+     "newsReasons": [],
+     "verdict": "untested",
+     "line": "Playground (model's #2): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+    },
+    {
+     "rank": 3,
+     "factor": "% Population Living in Households with Improved Sanitation",
+     "short": "Household sanitation",
+     "area": "Davanagere",
+     "value": 83.3,
+     "karnatakaRank": 17,
+     "contribution": 11.4,
+     "findings": 0,
+     "districtFindings": 0,
+     "stances": {},
+     "newsReasons": [],
+     "verdict": "untested",
+     "line": "Household sanitation (model's #3): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+    }
    ]
   },
   "29-562": {
@@ -1332,6 +2036,58 @@
     "None of the 8 reasons the news gives for Dharwad mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
     "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
     "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Dharwad in particular."
+   ],
+   "topChanges": [
+    {
+     "rank": 1,
+     "factor": "% Classrooms in Good Condition",
+     "short": "Classrooms in good condition",
+     "area": "Dharwad",
+     "value": 88.22,
+     "karnatakaRank": 7,
+     "contribution": 11.2,
+     "findings": 2,
+     "districtFindings": 2,
+     "stances": {
+      "gap": 1,
+      "context": 1
+     },
+     "newsReasons": [],
+     "verdict": "web-only",
+     "line": "Classrooms in good condition (model's #1): 2 verified sources about Dharwad discuss it (1 background, 1 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+    },
+    {
+     "rank": 2,
+     "factor": "% Schools with CCE Implemented",
+     "short": "Continuous evaluation (CCE)",
+     "area": "Dharwad",
+     "value": 90.37,
+     "karnatakaRank": 31,
+     "contribution": 9.7,
+     "findings": 0,
+     "districtFindings": 0,
+     "stances": {},
+     "newsReasons": [
+      "Never enrolled or not readmitted"
+     ],
+     "verdict": "news-only",
+     "line": "Continuous evaluation (CCE) (model's #2): no verified source about the district was found in this pass; the news research names \"Never enrolled or not readmitted\". So the news research mentions it, but no district source was verified in this pass."
+    },
+    {
+     "rank": 3,
+     "factor": "% of female teachers",
+     "short": "Female teachers",
+     "area": "Dharwad",
+     "value": 66.9,
+     "karnatakaRank": 8,
+     "contribution": 9.6,
+     "findings": 0,
+     "districtFindings": 0,
+     "stances": {},
+     "newsReasons": [],
+     "verdict": "untested",
+     "line": "Female teachers (model's #3): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+    }
    ]
   },
   "29-561": {
@@ -1409,6 +2165,55 @@
     "None of the 6 reasons the news gives for Gadag mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
     "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
     "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Gadag in particular."
+   ],
+   "topChanges": [
+    {
+     "rank": 1,
+     "factor": "% Classrooms in Good Condition",
+     "short": "Classrooms in good condition",
+     "area": "Gadag",
+     "value": 87.62,
+     "karnatakaRank": 8,
+     "contribution": 16.8,
+     "findings": 1,
+     "districtFindings": 1,
+     "stances": {
+      "gap": 1
+     },
+     "newsReasons": [],
+     "verdict": "web-only",
+     "line": "Classrooms in good condition (model's #1): 1 verified source about Gadag discusses it (1 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+    },
+    {
+     "rank": 2,
+     "factor": "% Schools with Furniture available for students",
+     "short": "Student furniture",
+     "area": "Gadag",
+     "value": 88.1,
+     "karnatakaRank": 19,
+     "contribution": 13.4,
+     "findings": 0,
+     "districtFindings": 0,
+     "stances": {},
+     "newsReasons": [],
+     "verdict": "untested",
+     "line": "Student furniture (model's #2): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+    },
+    {
+     "rank": 3,
+     "factor": "% Schools with Playground",
+     "short": "Playground",
+     "area": "Gadag",
+     "value": 83.28,
+     "karnatakaRank": 10,
+     "contribution": 11.3,
+     "findings": 0,
+     "districtFindings": 0,
+     "stances": {},
+     "newsReasons": [],
+     "verdict": "untested",
+     "line": "Playground (model's #3): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+    }
    ]
   },
   "29-574": {
@@ -1487,6 +2292,55 @@
     "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
     "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Hassan in particular.",
     "News coverage of Hassan is thin, so the news picture itself rests on few stories."
+   ],
+   "topChanges": [
+    {
+     "rank": 1,
+     "factor": "% Population Living in Households with Improved Sanitation",
+     "short": "Household sanitation",
+     "area": "Hassan",
+     "value": 87.9,
+     "karnatakaRank": 11,
+     "contribution": 14.7,
+     "findings": 0,
+     "districtFindings": 0,
+     "stances": {},
+     "newsReasons": [],
+     "verdict": "untested",
+     "line": "Household sanitation (model's #1): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+    },
+    {
+     "rank": 2,
+     "factor": "% Classrooms in Good Condition",
+     "short": "Classrooms in good condition",
+     "area": "Hassan",
+     "value": 78.0,
+     "karnatakaRank": 33,
+     "contribution": 13.6,
+     "findings": 1,
+     "districtFindings": 1,
+     "stances": {
+      "progress": 1
+     },
+     "newsReasons": [],
+     "verdict": "web-only",
+     "line": "Classrooms in good condition (model's #2): 1 verified source about Hassan discusses it (1 reporting progress); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+    },
+    {
+     "rank": 3,
+     "factor": "% Women with 10+ Years Schooling",
+     "short": "Women with 10+ years of schooling",
+     "area": "Hassan",
+     "value": 51.3,
+     "karnatakaRank": 12,
+     "contribution": 12.5,
+     "findings": 0,
+     "districtFindings": 0,
+     "stances": {},
+     "newsReasons": [],
+     "verdict": "untested",
+     "line": "Women with 10+ years of schooling (model's #3): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+    }
    ]
   },
   "29-564": {
@@ -1564,6 +2418,61 @@
     "None of the 6 reasons the news gives for Haveri mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
     "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
     "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Haveri in particular."
+   ],
+   "topChanges": [
+    {
+     "rank": 1,
+     "factor": "% Classrooms in Good Condition",
+     "short": "Classrooms in good condition",
+     "area": "Haveri",
+     "value": 83.82,
+     "karnatakaRank": 24,
+     "contribution": 13.6,
+     "findings": 3,
+     "districtFindings": 3,
+     "stances": {
+      "gap": 3
+     },
+     "newsReasons": [],
+     "verdict": "web-only",
+     "line": "Classrooms in good condition (model's #1): 3 verified sources about Haveri discuss it (3 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+    },
+    {
+     "rank": 2,
+     "factor": "% Schools with Functional Total Toilets",
+     "short": "Functional toilets",
+     "area": "Haveri",
+     "value": 99.6,
+     "karnatakaRank": 27,
+     "contribution": 11.4,
+     "findings": 3,
+     "districtFindings": 3,
+     "stances": {
+      "gap": 1,
+      "progress": 1,
+      "context": 1
+     },
+     "newsReasons": [],
+     "verdict": "web-only",
+     "line": "Functional toilets (model's #2): 3 verified sources about Haveri discuss it (1 background, 1 showing the gap, 1 reporting progress); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+    },
+    {
+     "rank": 3,
+     "factor": "% Schools with Furniture available for students",
+     "short": "Student furniture",
+     "area": "Haveri",
+     "value": 79.25,
+     "karnatakaRank": 29,
+     "contribution": 9.4,
+     "findings": 3,
+     "districtFindings": 3,
+     "stances": {
+      "progress": 3
+     },
+     "newsReasons": [],
+     "verdict": "web-only",
+     "line": "Student furniture (model's #3): 3 verified sources about Haveri discuss it (3 reporting progress); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+    }
    ]
   },
   "29-579": {
@@ -1648,6 +2557,58 @@
     "None of the 8 reasons the news gives for Kalaburagi mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
     "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
     "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Kalaburagi in particular."
+   ],
+   "topChanges": [
+    {
+     "rank": 1,
+     "factor": "% Schools with Library",
+     "short": "School library",
+     "area": "Kalburgi",
+     "value": 93.87,
+     "karnatakaRank": 31,
+     "contribution": 13.5,
+     "findings": 2,
+     "districtFindings": 2,
+     "stances": {
+      "gap": 1,
+      "context": 1
+     },
+     "newsReasons": [],
+     "verdict": "web-only",
+     "line": "School library (model's #1): 2 verified sources about Kalaburagi discuss it (1 background, 1 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+    },
+    {
+     "rank": 2,
+     "factor": "% Classrooms in Good Condition",
+     "short": "Classrooms in good condition",
+     "area": "Kalburgi",
+     "value": 85.97,
+     "karnatakaRank": 17,
+     "contribution": 12.7,
+     "findings": 4,
+     "districtFindings": 3,
+     "stances": {
+      "gap": 3
+     },
+     "newsReasons": [],
+     "verdict": "web-only",
+     "line": "Classrooms in good condition (model's #2): 3 verified sources about Kalaburagi discuss it (3 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+    },
+    {
+     "rank": 3,
+     "factor": "% Schools with CCE Implemented",
+     "short": "Continuous evaluation (CCE)",
+     "area": "Kalburgi",
+     "value": 86.12,
+     "karnatakaRank": 35,
+     "contribution": 10.4,
+     "findings": 0,
+     "districtFindings": 0,
+     "stances": {},
+     "newsReasons": [],
+     "verdict": "untested",
+     "line": "Continuous evaluation (CCE) (model's #3): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+    }
    ]
   },
   "29-576": {
@@ -1725,6 +2686,55 @@
     "None of the 5 reasons the news gives for Kodagu mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
     "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
     "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Kodagu in particular."
+   ],
+   "topChanges": [
+    {
+     "rank": 1,
+     "factor": "% of female teachers",
+     "short": "Female teachers",
+     "area": "Kodagu",
+     "value": 78.03,
+     "karnatakaRank": 4,
+     "contribution": 22.2,
+     "findings": 0,
+     "districtFindings": 0,
+     "stances": {},
+     "newsReasons": [],
+     "verdict": "untested",
+     "line": "Female teachers (model's #1): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+    },
+    {
+     "rank": 2,
+     "factor": "% Classrooms in Good Condition",
+     "short": "Classrooms in good condition",
+     "area": "Kodagu",
+     "value": 87.15,
+     "karnatakaRank": 14,
+     "contribution": 13.1,
+     "findings": 1,
+     "districtFindings": 1,
+     "stances": {
+      "gap": 1
+     },
+     "newsReasons": [],
+     "verdict": "web-only",
+     "line": "Classrooms in good condition (model's #2): 1 verified source about Kodagu discusses it (1 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+    },
+    {
+     "rank": 3,
+     "factor": "% Women with 10+ Years Schooling",
+     "short": "Women with 10+ years of schooling",
+     "area": "Kodagu",
+     "value": 58.9,
+     "karnatakaRank": 4,
+     "contribution": 12.9,
+     "findings": 0,
+     "districtFindings": 0,
+     "stances": {},
+     "newsReasons": [],
+     "verdict": "untested",
+     "line": "Women with 10+ years of schooling (model's #3): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+    }
    ]
   },
   "29-581": {
@@ -1803,6 +2813,57 @@
     "When we asked deep research why this factor would be dominant here, the result was: partly: only research from elsewhere backs the mechanism (0 verified proof items about Kolar, 2 from elsewhere).",
     "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Kolar in particular.",
     "News coverage of Kolar is thin, so the news picture itself rests on few stories."
+   ],
+   "topChanges": [
+    {
+     "rank": 1,
+     "factor": "% Classrooms in Good Condition",
+     "short": "Classrooms in good condition",
+     "area": "Kolar",
+     "value": 85.44,
+     "karnatakaRank": 19,
+     "contribution": 15.0,
+     "findings": 3,
+     "districtFindings": 3,
+     "stances": {
+      "gap": 3
+     },
+     "newsReasons": [],
+     "verdict": "web-only",
+     "line": "Classrooms in good condition (model's #1): 3 verified sources about Kolar discuss it (3 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+    },
+    {
+     "rank": 2,
+     "factor": "% of female teachers",
+     "short": "Female teachers",
+     "area": "Kolar",
+     "value": 64.75,
+     "karnatakaRank": 10,
+     "contribution": 13.0,
+     "findings": 0,
+     "districtFindings": 0,
+     "stances": {},
+     "newsReasons": [],
+     "verdict": "untested",
+     "line": "Female teachers (model's #2): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+    },
+    {
+     "rank": 3,
+     "factor": "% Population Living in Households with Improved Sanitation",
+     "short": "Household sanitation",
+     "area": "Kolar",
+     "value": 89.2,
+     "karnatakaRank": 9,
+     "contribution": 12.9,
+     "findings": 1,
+     "districtFindings": 1,
+     "stances": {
+      "progress": 1
+     },
+     "newsReasons": [],
+     "verdict": "web-only",
+     "line": "Household sanitation (model's #3): 1 verified source about Kolar discusses it (1 reporting progress); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+    }
    ]
   },
   "29-560": {
@@ -1880,6 +2941,60 @@
     "None of the 8 reasons the news gives for Koppal mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
     "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
     "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Koppal in particular."
+   ],
+   "topChanges": [
+    {
+     "rank": 1,
+     "factor": "% Schools with Functional Total Toilets",
+     "short": "Functional toilets",
+     "area": "Koppal",
+     "value": 98.91,
+     "karnatakaRank": 33,
+     "contribution": 18.4,
+     "findings": 2,
+     "districtFindings": 2,
+     "stances": {
+      "gap": 2
+     },
+     "newsReasons": [],
+     "verdict": "web-only",
+     "line": "Functional toilets (model's #1): 2 verified sources about Koppal discuss it (2 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+    },
+    {
+     "rank": 2,
+     "factor": "% Schools with Library",
+     "short": "School library",
+     "area": "Koppal",
+     "value": 93.82,
+     "karnatakaRank": 32,
+     "contribution": 12.5,
+     "findings": 2,
+     "districtFindings": 2,
+     "stances": {
+      "progress": 2
+     },
+     "newsReasons": [],
+     "verdict": "web-only",
+     "line": "School library (model's #2): 2 verified sources about Koppal discuss it (2 reporting progress); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+    },
+    {
+     "rank": 3,
+     "factor": "% Classrooms in Good Condition",
+     "short": "Classrooms in good condition",
+     "area": "Koppal",
+     "value": 84.23,
+     "karnatakaRank": 23,
+     "contribution": 10.9,
+     "findings": 3,
+     "districtFindings": 2,
+     "stances": {
+      "gap": 1,
+      "progress": 1
+     },
+     "newsReasons": [],
+     "verdict": "web-only",
+     "line": "Classrooms in good condition (model's #3): 2 verified sources about Koppal discuss it (1 showing the gap, 1 reporting progress); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+    }
    ]
   },
   "29-573": {
@@ -1957,6 +3072,55 @@
     "None of the 6 reasons the news gives for Mandya mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
     "When we asked deep research why this factor would be dominant here, the result was: partly: only research from elsewhere backs the mechanism (0 verified proof items about Mandya, 2 from elsewhere).",
     "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Mandya in particular."
+   ],
+   "topChanges": [
+    {
+     "rank": 1,
+     "factor": "% Classrooms in Good Condition",
+     "short": "Classrooms in good condition",
+     "area": "Mandya",
+     "value": 80.83,
+     "karnatakaRank": 30,
+     "contribution": 11.7,
+     "findings": 0,
+     "districtFindings": 0,
+     "stances": {},
+     "newsReasons": [],
+     "verdict": "untested",
+     "line": "Classrooms in good condition (model's #1): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+    },
+    {
+     "rank": 2,
+     "factor": "% Schools with Functional Total Toilets",
+     "short": "Functional toilets",
+     "area": "Mandya",
+     "value": 99.57,
+     "karnatakaRank": 28,
+     "contribution": 11.6,
+     "findings": 1,
+     "districtFindings": 1,
+     "stances": {
+      "context": 1
+     },
+     "newsReasons": [],
+     "verdict": "web-only",
+     "line": "Functional toilets (model's #2): 1 verified source about Mandya discusses it (1 background); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+    },
+    {
+     "rank": 3,
+     "factor": "% Population Living in Households with Improved Sanitation",
+     "short": "Household sanitation",
+     "area": "Mandya",
+     "value": 86.7,
+     "karnatakaRank": 12,
+     "contribution": 11.1,
+     "findings": 1,
+     "districtFindings": 0,
+     "stances": {},
+     "newsReasons": [],
+     "verdict": "untested",
+     "line": "Household sanitation (model's #3): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+    }
    ]
   },
   "29-577": {
@@ -2034,6 +3198,60 @@
     "None of the 8 reasons the news gives for Mysuru mentions drinking water at school. The sources are silent on it, which is not the same as contradicting the data.",
     "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
     "This factor is named for only 3 of 35 Karnataka district-level rows; the rest get English-medium schools."
+   ],
+   "topChanges": [
+    {
+     "rank": 1,
+     "factor": "% Classrooms in Good Condition",
+     "short": "Classrooms in good condition",
+     "area": "Mysuru",
+     "value": 85.68,
+     "karnatakaRank": 18,
+     "contribution": 14.5,
+     "findings": 3,
+     "districtFindings": 3,
+     "stances": {
+      "gap": 2,
+      "progress": 1
+     },
+     "newsReasons": [],
+     "verdict": "web-only",
+     "line": "Classrooms in good condition (model's #1): 3 verified sources about Mysuru discuss it (2 showing the gap, 1 reporting progress); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+    },
+    {
+     "rank": 2,
+     "factor": "% of female teachers",
+     "short": "Female teachers",
+     "area": "Mysuru",
+     "value": 65.69,
+     "karnatakaRank": 9,
+     "contribution": 13.0,
+     "findings": 2,
+     "districtFindings": 1,
+     "stances": {
+      "context": 1
+     },
+     "newsReasons": [],
+     "verdict": "web-only",
+     "line": "Female teachers (model's #2): 1 verified source about Mysuru discusses it (1 background); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+    },
+    {
+     "rank": 3,
+     "factor": "% Teachers Trained in ICT/Computers",
+     "short": "Teachers trained in ICT",
+     "area": "Mysuru",
+     "value": 52.33,
+     "karnatakaRank": 7,
+     "contribution": 11.5,
+     "findings": 1,
+     "districtFindings": 1,
+     "stances": {
+      "context": 1
+     },
+     "newsReasons": [],
+     "verdict": "web-only",
+     "line": "Teachers trained in ICT (model's #3): 1 verified source about Mysuru discusses it (1 background); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+    }
    ]
   },
   "29-559": {
@@ -2111,6 +3329,57 @@
     "None of the 7 reasons the news gives for Raichur mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
     "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
     "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Raichur in particular."
+   ],
+   "topChanges": [
+    {
+     "rank": 1,
+     "factor": "% Schools with Library",
+     "short": "School library",
+     "area": "Raichur",
+     "value": 92.85,
+     "karnatakaRank": 33,
+     "contribution": 19.3,
+     "findings": 2,
+     "districtFindings": 1,
+     "stances": {
+      "gap": 1
+     },
+     "newsReasons": [],
+     "verdict": "web-only",
+     "line": "School library (model's #1): 1 verified source about Raichur discusses it (1 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+    },
+    {
+     "rank": 2,
+     "factor": "% Classrooms in Good Condition",
+     "short": "Classrooms in good condition",
+     "area": "Raichur",
+     "value": 87.31,
+     "karnatakaRank": 11,
+     "contribution": 17.1,
+     "findings": 4,
+     "districtFindings": 3,
+     "stances": {
+      "gap": 3
+     },
+     "newsReasons": [],
+     "verdict": "web-only",
+     "line": "Classrooms in good condition (model's #2): 3 verified sources about Raichur discuss it (3 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+    },
+    {
+     "rank": 3,
+     "factor": "% of female teachers",
+     "short": "Female teachers",
+     "area": "Raichur",
+     "value": 52.4,
+     "karnatakaRank": 25,
+     "contribution": 7.9,
+     "findings": 0,
+     "districtFindings": 0,
+     "stances": {},
+     "newsReasons": [],
+     "verdict": "untested",
+     "line": "Female teachers (model's #3): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+    }
    ]
   },
   "29-584": {
@@ -2188,6 +3457,57 @@
     "None of the 6 reasons the news gives for Ramanagara mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
     "When we asked deep research why this factor would be dominant here, the result was: partly: only research from elsewhere backs the mechanism (0 verified proof items about Ramanagara, 2 from elsewhere).",
     "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Ramanagara in particular."
+   ],
+   "topChanges": [
+    {
+     "rank": 1,
+     "factor": "% Classrooms in Good Condition",
+     "short": "Classrooms in good condition",
+     "area": "Ramanagara",
+     "value": 84.45,
+     "karnatakaRank": 22,
+     "contribution": 14.9,
+     "findings": 2,
+     "districtFindings": 2,
+     "stances": {
+      "gap": 2
+     },
+     "newsReasons": [],
+     "verdict": "web-only",
+     "line": "Classrooms in good condition (model's #1): 2 verified sources about Ramanagara discuss it (2 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+    },
+    {
+     "rank": 2,
+     "factor": "% Schools with Furniture available for students",
+     "short": "Student furniture",
+     "area": "Ramanagara",
+     "value": 88.96,
+     "karnatakaRank": 17,
+     "contribution": 13.9,
+     "findings": 1,
+     "districtFindings": 1,
+     "stances": {
+      "context": 1
+     },
+     "newsReasons": [],
+     "verdict": "web-only",
+     "line": "Student furniture (model's #2): 1 verified source about Ramanagara discusses it (1 background); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+    },
+    {
+     "rank": 3,
+     "factor": "% Population Living in Households with Improved Sanitation",
+     "short": "Household sanitation",
+     "area": "Ramanagara",
+     "value": 89.6,
+     "karnatakaRank": 7,
+     "contribution": 13.5,
+     "findings": 1,
+     "districtFindings": 0,
+     "stances": {},
+     "newsReasons": [],
+     "verdict": "untested",
+     "line": "Household sanitation (model's #3): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+    }
    ]
   },
   "29-568": {
@@ -2272,6 +3592,57 @@
     "None of the 7 reasons the news gives for Shivamogga mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
     "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
     "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Shivamogga in particular."
+   ],
+   "topChanges": [
+    {
+     "rank": 1,
+     "factor": "% Classrooms in Good Condition",
+     "short": "Classrooms in good condition",
+     "area": "Shivamogga",
+     "value": 87.26,
+     "karnatakaRank": 13,
+     "contribution": 15.2,
+     "findings": 1,
+     "districtFindings": 1,
+     "stances": {
+      "context": 1
+     },
+     "newsReasons": [],
+     "verdict": "web-only",
+     "line": "Classrooms in good condition (model's #1): 1 verified source about Shivamogga discusses it (1 background); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+    },
+    {
+     "rank": 2,
+     "factor": "% Schools with All-Weather Roads",
+     "short": "All-weather road access",
+     "area": "Shivamogga",
+     "value": 92.49,
+     "karnatakaRank": 29,
+     "contribution": 11.5,
+     "findings": 0,
+     "districtFindings": 0,
+     "stances": {},
+     "newsReasons": [],
+     "verdict": "untested",
+     "line": "All-weather road access (model's #2): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+    },
+    {
+     "rank": 3,
+     "factor": "% Population Living in Households with Improved Sanitation",
+     "short": "Household sanitation",
+     "area": "Shivamogga",
+     "value": 85.4,
+     "karnatakaRank": 15,
+     "contribution": 10.7,
+     "findings": 0,
+     "districtFindings": 0,
+     "stances": {},
+     "newsReasons": [
+      "Tribal-area school without teachers or toilets"
+     ],
+     "verdict": "news-only",
+     "line": "Household sanitation (model's #3): no verified source about the district was found in this pass; the news research names \"Tribal-area school without teachers or toilets\". So the news research mentions it, but no district source was verified in this pass."
+    }
    ]
   },
   "29-571": {
@@ -2370,6 +3741,61 @@
     "None of the 7 reasons the news gives for Tumakuru mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
     "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
     "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Tumakuru in particular."
+   ],
+   "topChanges": [
+    {
+     "rank": 1,
+     "factor": "% Women with 10+ Years Schooling",
+     "short": "Women with 10+ years of schooling",
+     "area": "Tumakuru",
+     "value": 58.9,
+     "karnatakaRank": 4,
+     "contribution": 15.4,
+     "findings": 1,
+     "districtFindings": 1,
+     "stances": {
+      "context": 1
+     },
+     "newsReasons": [],
+     "verdict": "web-only",
+     "line": "Women with 10+ years of schooling (model's #1): 1 verified source about Tumakuru discusses it (1 background); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+    },
+    {
+     "rank": 2,
+     "factor": "% Classrooms in Good Condition",
+     "short": "Classrooms in good condition",
+     "area": "Tumakuru Madhugiri",
+     "value": 79.36,
+     "karnatakaRank": 32,
+     "contribution": 15.2,
+     "findings": 2,
+     "districtFindings": 2,
+     "stances": {
+      "gap": 2
+     },
+     "newsReasons": [
+      "Border-school teacher and toilet gaps"
+     ],
+     "verdict": "agree",
+     "line": "Classrooms in good condition (model's #2): 2 verified sources about Tumakuru discuss it (2 showing the gap); the news research names \"Border-school teacher and toilet gaps\". So the model, the web sources and the news research point the same way."
+    },
+    {
+     "rank": 3,
+     "factor": "% Schools with Furniture available for students",
+     "short": "Student furniture",
+     "area": "Tumakuru Madhugiri",
+     "value": 80.41,
+     "karnatakaRank": 28,
+     "contribution": 12.9,
+     "findings": 2,
+     "districtFindings": 2,
+     "stances": {
+      "progress": 2
+     },
+     "newsReasons": [],
+     "verdict": "web-only",
+     "line": "Student furniture (model's #3): 2 verified sources about Tumakuru discuss it (2 reporting progress); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+    }
    ]
   },
   "29-569": {
@@ -2447,6 +3873,58 @@
     "None of the 6 reasons the news gives for Udupi mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
     "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
     "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Udupi in particular."
+   ],
+   "topChanges": [
+    {
+     "rank": 1,
+     "factor": "% Schools with Functional Protected Well",
+     "short": "Protected well",
+     "area": "Udupi",
+     "value": 79.75,
+     "karnatakaRank": 1,
+     "contribution": 18.7,
+     "findings": 2,
+     "districtFindings": 2,
+     "stances": {
+      "gap": 1,
+      "context": 1
+     },
+     "newsReasons": [],
+     "verdict": "web-only",
+     "line": "Protected well (model's #1): 2 verified sources about Udupi discuss it (1 background, 1 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+    },
+    {
+     "rank": 2,
+     "factor": "% of female teachers",
+     "short": "Female teachers",
+     "area": "Udupi",
+     "value": 73.45,
+     "karnatakaRank": 5,
+     "contribution": 15.0,
+     "findings": 0,
+     "districtFindings": 0,
+     "stances": {},
+     "newsReasons": [],
+     "verdict": "untested",
+     "line": "Female teachers (model's #2): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+    },
+    {
+     "rank": 3,
+     "factor": "% Teachers Trained in ICT/Computers",
+     "short": "Teachers trained in ICT",
+     "area": "Udupi",
+     "value": 60.19,
+     "karnatakaRank": 4,
+     "contribution": 14.3,
+     "findings": 1,
+     "districtFindings": 1,
+     "stances": {
+      "progress": 1
+     },
+     "newsReasons": [],
+     "verdict": "web-only",
+     "line": "Teachers trained in ICT (model's #3): 1 verified source about Udupi discusses it (1 reporting progress); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+    }
    ]
   },
   "29-563": {
@@ -2546,6 +4024,55 @@
     "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
     "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Uttara Kannada in particular.",
     "News coverage of Uttara Kannada is thin, so the news picture itself rests on few stories."
+   ],
+   "topChanges": [
+    {
+     "rank": 1,
+     "factor": "% of female teachers",
+     "short": "Female teachers",
+     "area": "Uttara Kannada",
+     "value": 68.13,
+     "karnatakaRank": 6,
+     "contribution": 14.5,
+     "findings": 0,
+     "districtFindings": 0,
+     "stances": {},
+     "newsReasons": [],
+     "verdict": "untested",
+     "line": "Female teachers (model's #1): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+    },
+    {
+     "rank": 2,
+     "factor": "% Classrooms in Good Condition",
+     "short": "Classrooms in good condition",
+     "area": "Uttara Kannada",
+     "value": 82.58,
+     "karnatakaRank": 28,
+     "contribution": 12.7,
+     "findings": 1,
+     "districtFindings": 1,
+     "stances": {
+      "gap": 1
+     },
+     "newsReasons": [],
+     "verdict": "web-only",
+     "line": "Classrooms in good condition (model's #2): 1 verified source about Uttara Kannada discusses it (1 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+    },
+    {
+     "rank": 3,
+     "factor": "% Schools with Functional Protected Well",
+     "short": "Protected well",
+     "area": "Uttara Kannada",
+     "value": 67.72,
+     "karnatakaRank": 2,
+     "contribution": 12.6,
+     "findings": 0,
+     "districtFindings": 0,
+     "stances": {},
+     "newsReasons": [],
+     "verdict": "untested",
+     "line": "Protected well (model's #3): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+    }
    ]
   },
   "29-557": {
@@ -2623,6 +4150,59 @@
     "None of the 8 reasons the news gives for Vijayapura mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
     "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
     "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Vijayapura in particular."
+   ],
+   "topChanges": [
+    {
+     "rank": 1,
+     "factor": "% Schools with Functional Total Toilets",
+     "short": "Functional toilets",
+     "area": "Vijayapura",
+     "value": 99.04,
+     "karnatakaRank": 32,
+     "contribution": 19.3,
+     "findings": 1,
+     "districtFindings": 1,
+     "stances": {
+      "gap": 1
+     },
+     "newsReasons": [],
+     "verdict": "web-only",
+     "line": "Functional toilets (model's #1): 1 verified source about Vijayapura discusses it (1 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+    },
+    {
+     "rank": 2,
+     "factor": "% Classrooms in Good Condition",
+     "short": "Classrooms in good condition",
+     "area": "Vijayapura",
+     "value": 89.1,
+     "karnatakaRank": 5,
+     "contribution": 15.1,
+     "findings": 2,
+     "districtFindings": 2,
+     "stances": {
+      "gap": 2
+     },
+     "newsReasons": [
+      "Low perceived value of schooling"
+     ],
+     "verdict": "agree",
+     "line": "Classrooms in good condition (model's #2): 2 verified sources about Vijayapura discuss it (2 showing the gap); the news research names \"Low perceived value of schooling\". So the model, the web sources and the news research point the same way."
+    },
+    {
+     "rank": 3,
+     "factor": "% Schools with Playground",
+     "short": "Playground",
+     "area": "Vijayapura",
+     "value": 85.21,
+     "karnatakaRank": 7,
+     "contribution": 10.2,
+     "findings": 0,
+     "districtFindings": 0,
+     "stances": {},
+     "newsReasons": [],
+     "verdict": "untested",
+     "line": "Playground (model's #3): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+    }
    ]
   },
   "29-580": {
@@ -2700,6 +4280,59 @@
     "None of the 8 reasons the news gives for Yadgir mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
     "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
     "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Yadgir in particular."
+   ],
+   "topChanges": [
+    {
+     "rank": 1,
+     "factor": "% Schools with Functional Total Toilets",
+     "short": "Functional toilets",
+     "area": "Yadagiri",
+     "value": 99.13,
+     "karnatakaRank": 30,
+     "contribution": 17.3,
+     "findings": 3,
+     "districtFindings": 2,
+     "stances": {
+      "gap": 2
+     },
+     "newsReasons": [
+      "Child marriage, girls' safety"
+     ],
+     "verdict": "agree",
+     "line": "Functional toilets (model's #1): 2 verified sources about Yadgir discuss it (2 showing the gap); the news research names \"Child marriage, girls' safety\". So the model, the web sources and the news research point the same way."
+    },
+    {
+     "rank": 2,
+     "factor": "% Classrooms in Good Condition",
+     "short": "Classrooms in good condition",
+     "area": "Yadagiri",
+     "value": 84.73,
+     "karnatakaRank": 21,
+     "contribution": 12.1,
+     "findings": 2,
+     "districtFindings": 1,
+     "stances": {
+      "gap": 1
+     },
+     "newsReasons": [],
+     "verdict": "web-only",
+     "line": "Classrooms in good condition (model's #2): 1 verified source about Yadgir discusses it (1 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+    },
+    {
+     "rank": 3,
+     "factor": "% Schools with CCE Implemented",
+     "short": "Continuous evaluation (CCE)",
+     "area": "Yadagiri",
+     "value": 88.96,
+     "karnatakaRank": 33,
+     "contribution": 11.5,
+     "findings": 0,
+     "districtFindings": 0,
+     "stances": {},
+     "newsReasons": [],
+     "verdict": "untested",
+     "line": "Continuous evaluation (CCE) (model's #3): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+    }
    ]
   }
  }

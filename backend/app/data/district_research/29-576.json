@@ -291,5 +291,47 @@
     ],
     "gaps": "No district-specific evidence was found linking sanitation or medium of instruction to dropouts. Local reports on these factors are absent.",
     "notes": []
+  },
+  "prescriptiveEvidence": {
+    "researchedOn": "2026-11-03",
+    "ranking": "feasible",
+    "changes": [
+      {
+        "factor": "% of female teachers",
+        "summary": "",
+        "findings": []
+      },
+      {
+        "factor": "% Classrooms in Good Condition",
+        "summary": "NGO OSAAT documents a Virajpet-taluk school with a 95-year-old tiled building and 8 classrooms in poor condition; it built 4 new classrooms by 2022. No recent district-wide data was found.",
+        "findings": [
+          {
+            "claim": "OSAAT describes a Mayamudi school in Virajpet taluk with a 95-year-old tiled building and 8 classrooms in poor condition; it built 4 new classrooms, completed in 2022.",
+            "quote": "The school has a 95 year old Mangalore tiled building with 8 classrooms in poor condition.",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Women with 10+ Years Schooling",
+        "summary": "",
+        "findings": []
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "url": "https://osaat.org/mayamudi-karnataka/",
+        "title": "Mayamudi Karnataka - OSAAT",
+        "outlet": "OSAAT",
+        "date": "2022-01-25",
+        "type": "ngo"
+      }
+    ],
+    "notes": []
   }
 }

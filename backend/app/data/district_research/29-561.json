@@ -257,5 +257,47 @@
     ],
     "gaps": "We found no information on how these factors relate to dropouts in Gadag. District education reports and news are silent on sanitation and language issues.",
     "notes": []
+  },
+  "prescriptiveEvidence": {
+    "researchedOn": "2026-11-03",
+    "ranking": "feasible",
+    "changes": [
+      {
+        "factor": "% Classrooms in Good Condition",
+        "summary": "In June 2025 a classroom ceiling collapsed at a Gadag government school, injuring two students and a teacher; residents demanded renovation of dilapidated school buildings.",
+        "findings": [
+          {
+            "claim": "After a classroom ceiling collapsed at a Gadag government school in June 2025, injuring two students and a teacher, residents demanded renovation of dilapidated school buildings.",
+            "quote": "However, angry residents accused the authorities of negligence and demanded immediate renovation of dilapidated government school buildings to ensure student safety.",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Schools with Furniture available for students",
+        "summary": "",
+        "findings": []
+      },
+      {
+        "factor": "% Schools with Playground",
+        "summary": "",
+        "findings": []
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "url": "https://newskarnataka.com/gadag/ceiling-collapse-in-gadag-school-injures-teacher-and-students/27062025/",
+        "title": "Ceiling collapse in Gadag school injures teacher and students",
+        "outlet": "News Karnataka",
+        "date": "2025-06-27",
+        "type": "news"
+      }
+    ],
+    "notes": []
   }
 }

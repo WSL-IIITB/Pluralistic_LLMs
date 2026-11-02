@@ -288,5 +288,50 @@
       "district/% Schools with instruction medium 1 (Eng: proof dropped (no openable source): 'Educators report medium of instruction as a factor in studen'",
       "district/% Schools with instruction medium 1 (Eng: 'partly' -> 'no-evidence' (no verified proof survived)"
     ]
+  },
+  "prescriptiveEvidence": {
+    "researchedOn": "2026-11-03",
+    "ranking": "feasible",
+    "changes": [
+      {
+        "factor": "% Classrooms in Good Condition",
+        "summary": "Udayavani reports cracked, collapse-prone government school buildings in Thirthahalli taluk (2025 and 2026), pointing to repair needs. Eight Shivamogga schools were also picked for PM SHRI upgrades that can include classrooms (2023).",
+        "findings": [
+          {
+            "claim": "Eight schools each in Shivamogga, Chikkamagaluru, Dakshina Kannada and Mysuru were selected for PM SHRI model-school upgrades, which can bring classrooms, laboratories, washrooms and a playground.",
+            "quote": "Eight schools each from DK, Shivamogga, Chikkamagaluru and Mysuru districts are selected for the project.",
+            "scope": "district",
+            "stance": "context",
+            "sources": [
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Schools with All-Weather Roads",
+        "summary": "",
+        "findings": []
+      },
+      {
+        "factor": "% Population Living in Households with Improved Sanitation",
+        "summary": "",
+        "findings": []
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "url": "https://www.daijiworld.com/news/newsDisplay?newsID=1088575",
+        "title": "12 govt schools in DK, Udupi to be promoted under PM SHRI project",
+        "outlet": "Daijiworld",
+        "date": "2023-06-10",
+        "type": "news"
+      }
+    ],
+    "notes": [
+      "% Classrooms in Good Condition | 'Udayavani reports a 70-year-old government school ': dropped, page does not name the district",
+      "% Classrooms in Good Condition | 'Udayavani reports the Temmemane government school ': dropped, page does not name the district"
+    ]
   }
 }

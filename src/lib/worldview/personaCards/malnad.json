@@ -205,6 +205,109 @@
       ],
       "sanitation": "If his estate home lacked a proper toilet, his 14-year-old daughter's attendance would suffer first; the card gives no sign this is his family's problem.",
       "district": "The factor flags the share of English-medium schools in Chikkamagaluru. The card shows harvest labour, monsoon roads, girls' mobility and bandhs as the pressures, not language."
+    },
+    "dataLens": {
+      "area": "Chikkamangaluru",
+      "changes": [
+        {
+          "factor": "% Classrooms in Good Condition",
+          "effect": "Many of Chikkamagaluru's classrooms need repair; in the heavy monsoon a leaking room can stop lessons for his daughter, 14, in Class 9."
+        },
+        {
+          "factor": "% Population Living in Households with Improved Sanitation",
+          "effect": "Most homes in the district have a toilet; if any did not, it is daughters like his who would face the safety and privacy worries first."
+        },
+        {
+          "factor": "% Schools with Playground",
+          "effect": "Sport and a playground give adolescents a reason to stay on; for his daughter, school has to outweigh the pull of harvest labour."
+        }
+      ],
+      "lag": {
+        "factor": "% Schools with Functional Protected Well",
+        "effect": "Few schools here have a protected well; where a school has no other safe source, drinking water is not assured through the monsoon and the dry months."
+      }
+    },
+    "intro": {
+      "backdrop": "hills-forest",
+      "lines": [
+        {
+          "scene": "hello",
+          "text": "Hello. I grow coffee, areca and pepper on about five acres in Mudigere taluk, Chikkamagaluru. I'm 46."
+        },
+        {
+          "scene": "household",
+          "text": "My wife shares the estate work, and my parents live next door.",
+          "show": [
+            0,
+            3
+          ]
+        },
+        {
+          "scene": "household",
+          "text": "Our son, 17, boards in town for PUC coaching; our daughter, 14, is in Class 9.",
+          "say": "Our son, seventeen, boards in town for P U C coaching; our daughter, fourteen, is in class nine.",
+          "show": [
+            1,
+            2
+          ]
+        },
+        {
+          "scene": "day",
+          "text": "Before sunrise I walk the estate, checking coffee and areca for pests and yellowing.",
+          "show": [
+            0
+          ]
+        },
+        {
+          "scene": "day",
+          "text": "From November to February, hired pickers and I strip ripe cherries by hand.",
+          "show": [
+            3
+          ]
+        },
+        {
+          "scene": "world",
+          "text": "Yellow leaf disease incidence is 80 to 100 percent in taluks like Sringeri and Koppa.",
+          "topic": "daily_life_and_work"
+        },
+        {
+          "scene": "school",
+          "text": "My daughter's bus becomes unreliable when hill roads wash out in the monsoon.",
+          "show": [
+            1
+          ]
+        },
+        {
+          "scene": "school",
+          "text": "At coffee harvest every pair of hands matters, and girls can be pulled into estate work.",
+          "show": [
+            0
+          ]
+        },
+        {
+          "scene": "district",
+          "text": "For Chikkamagaluru, the NITI model ranks three changes highest: classrooms in good repair, toilets at home, and school playgrounds.",
+          "show": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "scene": "worries",
+          "text": "What keeps me up at night: yellow leaf disease, the ESA maps, and who will run this estate after me.",
+          "say": "What keeps me up at night: yellow leaf disease, the E S A maps, and who will run this estate after me.",
+          "show": [
+            0,
+            1,
+            3
+          ]
+        },
+        {
+          "scene": "outro",
+          "text": "That's my story. I'm a composite persona, built from public data. Explore my full card below."
+        }
+      ]
     }
   },
   "female": {
@@ -408,6 +511,104 @@
       ],
       "sanitation": "If her estate home lacked a proper toilet, her children's attendance would be affected; the card gives no sign this is her family's problem.",
       "district": "The factor flags the share of English-medium schools in Kodagu. The card shows limited village schooling, landslide roads, hostel costs and floods as the pressures, not language."
+    },
+    "dataLens": {
+      "area": "Kodagu",
+      "changes": [
+        {
+          "factor": "% of female teachers",
+          "effect": "Kodagu already has many women teachers; for her daughter, 15, boarding in Madikeri, that can make secondary school feel safer."
+        },
+        {
+          "factor": "% Classrooms in Good Condition",
+          "effect": "Safe classrooms matter in a district where landslides and floods have disrupted schooling; repaired rooms keep lessons going after a bad monsoon."
+        },
+        {
+          "factor": "% Women with 10+ Years Schooling",
+          "effect": "Women in Kodagu are among the most schooled in Karnataka; like her, mothers who studied longer tend to keep their children in school."
+        }
+      ],
+      "lag": {
+        "factor": "% Schools with Functional Total Toilets",
+        "effect": "Toilet coverage in Kodagu's schools is high but not complete; for her daughter, boarding in Madikeri, a working toilet at school matters every day."
+      }
+    },
+    "intro": {
+      "backdrop": "hills-forest",
+      "lines": [
+        {
+          "scene": "hello",
+          "text": "Hello. I'm 39, a Kodava woman running a coffee estate and a family homestay in Madikeri taluk, Kodagu."
+        },
+        {
+          "scene": "household",
+          "text": "I live with my husband and his parents. Our daughter, 15, boards in Madikeri; our son, 10, goes to the village school.",
+          "show": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "scene": "day",
+          "text": "Mornings I oversee breakfast and check-out for guests, and through the day I run the bookings myself.",
+          "show": [
+            0,
+            2
+          ]
+        },
+        {
+          "scene": "day",
+          "text": "From November to March, in picking season, I help house the migrant worker families.",
+          "show": [
+            3
+          ]
+        },
+        {
+          "scene": "world",
+          "text": "After the August 2018 landslides, at least four schools stayed closed for over a year.",
+          "say": "After the August twenty eighteen landslides, at least four schools stayed closed for over a year.",
+          "topic": "education_and_schooling"
+        },
+        {
+          "scene": "school",
+          "text": "Village schools beyond middle school were too limited, and the landslide-prone commute too unreliable, so my daughter boards.",
+          "show": [
+            0,
+            1
+          ]
+        },
+        {
+          "scene": "school",
+          "text": "A single monsoon can knock a rural child's schooling off track for a year or more.",
+          "show": [
+            3
+          ]
+        },
+        {
+          "scene": "district",
+          "text": "For Kodagu, the NITI model ranks three changes highest: more women teachers, classrooms in good repair, and more women finishing school.",
+          "show": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "scene": "worries",
+          "text": "What keeps me up at night: no railway line, slow flood rehabilitation, and young people leaving.",
+          "show": [
+            0,
+            2,
+            4
+          ]
+        },
+        {
+          "scene": "outro",
+          "text": "That's my story. I'm a composite persona, built from public data. Explore my full card below."
+        }
+      ]
     }
   }
 }

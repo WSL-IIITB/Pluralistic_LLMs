@@ -1,0 +1,394 @@
+{
+ "region": "kitturu-karnataka",
+ "researchedOn": "2026-11-03",
+ "districts": [
+  {
+   "districtId": "29-555",
+   "name": "Belagavi",
+   "changes": [
+    {
+     "factor": "% Classrooms in Good Condition",
+     "summary": "Rain damaged 1,901 government school buildings in Belagavi district in 2024, the most in Karnataka; the report calls them unsafe for students though not dilapidated. Older flood-hit and mixed-condition schools also show gaps.",
+     "findings": [
+      {
+       "claim": "Rain damaged 1,901 government school buildings in Belagavi district in 2024, the most in Karnataka; the report says they are unsafe for students though not dilapidated.",
+       "quote": "Belagavi district has reported damage to 1,901 school buildings, followed by Hassan with 591 and Haveri with 541.",
+       "url": "https://newskarnataka.com/bengaluru/bengaluru-schools-struggle-with-monsoon-damage-4000-buildings-affected/31082024/",
+       "title": "Bengaluru Schools Struggle with Monsoon Damage: 4,000 Buildings Affected",
+       "outlet": "News Karnataka",
+       "date": "2024-08-31",
+       "scope": "district",
+       "stance": "gap"
+      },
+      {
+       "claim": "A Savadatti taluk government school in Belagavi district has only 10 of 22 rooms in good condition; an NGO began building 4 classrooms there in 2026.",
+       "quote": "The school has 4 buildings with 22 rooms out of which only 10 rooms are in good condition.",
+       "url": "https://osaat.org/chachadi-karnataka",
+       "title": "Government Model Higher Primary School, Chachadi, Karnataka",
+       "outlet": "One School At A Time (OSAAT)",
+       "date": "",
+       "scope": "district",
+       "stance": "gap"
+      },
+      {
+       "claim": "After the August 2019 floods a Kagawad taluk school in Belagavi district was left with only 3 usable classrooms; government and an NGO then built new ones.",
+       "quote": "All classrooms in the school have gone bad after the floods. 3 classrooms are in a usable condition.",
+       "url": "https://osaat.org/?p=16893",
+       "title": "Government Kannada Higher Primary School, Katrala, Karnataka",
+       "outlet": "One School At A Time (OSAAT)",
+       "date": "",
+       "scope": "district",
+       "stance": "gap"
+      }
+     ]
+    },
+    {
+     "factor": "% Schools with Furniture available for students",
+     "summary": "Only one older NGO project page found: a Belagavi district school in Athani taluk needed benches and desks along with new classrooms (completed 2016).",
+     "findings": [
+      {
+       "claim": "A Belagavi district school in Athani taluk needed new classrooms plus benches and desks for students; an NGO co-funded 7 new classrooms, completed in 2016.",
+       "quote": "The school needed new school structure complete with new classrooms and benches and desks for students.",
+       "url": "https://osaat.org/kottalagi-karnataka/",
+       "title": "Sri Basavaarudha Primary & Secondary School, Kottalagi, Karnataka",
+       "outlet": "One School At A Time (OSAAT)",
+       "date": "",
+       "scope": "district",
+       "stance": "gap"
+      }
+     ]
+    },
+    {
+     "factor": "% Women with 10+ Years Schooling",
+     "summary": "Sources are indirect: a district youth-opportunity profile shows 35.6% of young women aged 15 to 21 out of education, and a 2017 study found gender disparities in Belagavi narrowing only slowly.",
+     "findings": [
+      {
+       "claim": "In Belagavi, 35.6% of young women aged 15 to 21 are out of education, about the same as the typical district.",
+       "quote": "35.6% of young women aged 15 to 21 are out of education, close to the typical district.",
+       "url": "https://youthpower.in/institution/karnataka/belagavi/jss",
+       "title": "JSS (Jan Shikshan Sansthan) in Belagavi, Karnataka",
+       "outlet": "YouthPOWER",
+       "date": "",
+       "scope": "district",
+       "stance": "gap"
+      },
+      {
+       "claim": "A 2017 study of Belagavi district reported that gender disparities narrowed between 2001 and 2011, but only very slowly.",
+       "quote": "there is reduction in gender disparities from 2001 to 2011 but the reduction rate is very slow",
+       "url": "https://zenodo.org/records/3577403",
+       "title": "A Discourse on Gender Disparity: A Study on Taluks of Belagavi District",
+       "outlet": "Zenodo (research paper)",
+       "date": "2017-08-09",
+       "scope": "district",
+       "stance": "context"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "districtId": "29-557",
+   "name": "Vijayapura",
+   "changes": [
+    {
+     "factor": "% Schools with Functional Total Toilets",
+     "summary": "One NGO page: a Muddebihal taluk school in Vijayapura district had toilets in poor condition and got a new boys' and girls' toilet block in 2023. No news report found.",
+     "findings": [
+      {
+       "claim": "A government school in Muddebihal taluk, Vijayapura district, had toilets in poor condition; an NGO built a toilet block for boys and girls, inaugurated in 2023.",
+       "quote": "Another building with 4 small rooms is in poor condition. Toilets are also in poor condition.",
+       "url": "https://osaat.org/?p=17144",
+       "title": "Government Higher Primary School, Kodaganura, Karnataka",
+       "outlet": "One School At A Time (OSAAT)",
+       "date": "",
+       "scope": "district",
+       "stance": "gap"
+      }
+     ]
+    },
+    {
+     "factor": "% Classrooms in Good Condition",
+     "summary": "Two NGO project pages: a Muddebihal taluk school had a second building with 4 small rooms in poor condition, and a Basavana Bagewadi taluk school had a roof patched with plastic sheets (2012).",
+     "findings": [
+      {
+       "claim": "A Muddebihal taluk school in Vijayapura district has 4 good classrooms but a second building with 4 small rooms in poor condition; an NGO added 4 classrooms in 2023.",
+       "quote": "The school has one building with 4 classrooms which are in good condition. Another building with 4 small rooms is in poor condition.",
+       "url": "https://osaat.org/?p=17144",
+       "title": "Government Higher Primary School, Kodaganura, Karnataka",
+       "outlet": "One School At A Time (OSAAT)",
+       "date": "",
+       "scope": "district",
+       "stance": "gap"
+      },
+      {
+       "claim": "A school at Muttagi, Basavana Bagewadi taluk, Vijayapura district, had a roof patched with plastic sheets; Rotary and a local NGO funded repairs, completed in 2012.",
+       "quote": "The school was in dire need of a new building, the roof had been patched with plastic sheets to cover huge, gaping holes, rendering the structure unable to withstand the rainy season.",
+       "url": "https://osaat.org/muttagi-karnataka/",
+       "title": "Jai Gurudev School, Muttagi, Karnataka",
+       "outlet": "One School At A Time (OSAAT)",
+       "date": "",
+       "scope": "district",
+       "stance": "gap"
+      }
+     ]
+    },
+    {
+     "factor": "% Schools with Playground",
+     "summary": "No district-specific source found.",
+     "findings": []
+    }
+   ]
+  },
+  {
+   "districtId": "29-556",
+   "name": "Bagalkote",
+   "changes": [
+    {
+     "factor": "% Classrooms in Good Condition",
+     "summary": "A September 2026 roof collapse at a Bagalkot taluk government school injured students; parents flagged its dilapidated state, and the district ordered a reassessment of all 9,449 classrooms and a Lokayukta-directed safety audit.",
+     "findings": [
+      {
+       "claim": "After a roof collapse injured six students at a Bagalkote government school in September 2026, parents who had flagged its dilapidated state demanded permanent repairs.",
+       "quote": "Parents, who had raised concerns over the dilapidated condition of the school, have demanded permanent repairs and adequate safety measures.",
+       "url": "https://www.etvbharat.com/en/state/school-roof-collapses-in-ktakas-bagalkot-six-students-injured-enn26090300134",
+       "title": "School Roof Collapses In Karnataka's Bagalkot, Six Students Injured",
+       "outlet": "ETV Bharat",
+       "date": "2026-09-03",
+       "scope": "district",
+       "stance": "gap"
+      },
+      {
+       "claim": "Following the roof collapse, Bagalkot district administration ordered a structural reassessment of all 9,449 classrooms, with four new classrooms planned at the affected school.",
+       "quote": "The administration has further ordered a comprehensive structural reassessment of all 9,449 classrooms in Bagalkot district.",
+       "url": "https://organiser.org/2026/09/04/378786/bharat/karnataka-lokayukta-registers-suo-motu-case-over-bagalkot-school-roof-collapse-3-suspended-8-students-injured/",
+       "title": "Karnataka Lokayukta registers suo motu case over Bagalkot school roof collapse",
+       "outlet": "Organiser",
+       "date": "2026-09-04",
+       "scope": "district",
+       "stance": "progress"
+      },
+      {
+       "claim": "Under the post-collapse safety audit in Bagalkote district, officials must report on schools classed as dilapidated or hazardous, and on repairs and reconstruction.",
+       "quote": "They must also provide details of schools already classified as dilapidated or hazardous, along with information about repairs and reconstruction.",
+       "url": "https://validcollege.com/news/education/karnataka-school-roof-collapse-injures-students-government-schools-ordered-to-undergo-safety-audit-s0k0",
+       "title": "Karnataka School Roof Collapse Injures Students: Government Schools Ordered to Undergo Safety Audit",
+       "outlet": "Valid College",
+       "date": "2026-09-04",
+       "scope": "district",
+       "stance": "progress"
+      }
+     ]
+    },
+    {
+     "factor": "% Schools with Furniture available for students",
+     "summary": "After the 2026 ceiling collapse at a Bagalkot school, parents said the school's furniture was old and damaged and needed replacing.",
+     "findings": [
+      {
+       "claim": "Parents of children at the Bagalkot school hit by a ceiling collapse said its furniture and building were old and damaged and needed replacing.",
+       "quote": "They complained that the school's furniture and building were old and damaged, and needed to be replaced.",
+       "url": "https://www.newsgram.com/karnataka/2026/09/03/karnataka-school-ceiling-collapse",
+       "title": "Netizens Raise Concerns Over Karnataka School Ceiling Collapse, Flags Old and Broken Infrastructure",
+       "outlet": "NewsGram",
+       "date": "2026-09-03",
+       "scope": "district",
+       "stance": "gap"
+      }
+     ]
+    },
+    {
+     "factor": "% Schools with Functional Total Toilets",
+     "summary": "No district-specific source found.",
+     "findings": []
+    }
+   ]
+  },
+  {
+   "districtId": "29-562",
+   "name": "Dharwad",
+   "changes": [
+    {
+     "factor": "% Classrooms in Good Condition",
+     "summary": "In May 2025 officials counted 376 Dharwad district government schools in disrepair, 84 urgent, and 325 dilapidated classrooms; 494 classrooms were being repaired, up from 286 the year before.",
+     "findings": [
+      {
+       "claim": "In May 2025, 376 Dharwad district government schools were in disrepair, 84 urgently; officials found 325 dilapidated classrooms in 132 schools, and 494 classrooms were being repaired.",
+       "quote": "District education officials have identified 325 dilapidated classrooms in 132 schools",
+       "url": "https://newskarnataka.com/education/dharwads-84-schools-in-urgent-need-of-repair-ahead-of-reopening/27052025/",
+       "title": "Dharwad's 84 Schools in Urgent Need of Repair Ahead of Reopening",
+       "outlet": "News Karnataka",
+       "date": "2025-05-27",
+       "scope": "district",
+       "stance": "gap"
+      },
+      {
+       "claim": "Ahead of the 2025 reopening, Hubballi-Dharwad education officials directed that children not be seated in unsafe rooms and that repairs use available funds.",
+       "quote": "The education department has strictly directed that children should not be seated in any unsafe rooms and that repairs should be carried out using available funds.",
+       "url": "https://newskarnataka.com/education/hubballi-govt-schools-gear-up-for-joyful-reopening-amid-monsoon-prep/30052025/",
+       "title": "Hubballi Govt Schools Gear Up for Joyful Reopening Amid Monsoon Prep",
+       "outlet": "News Karnataka",
+       "date": "2025-05-30",
+       "scope": "district",
+       "stance": "context"
+      }
+     ]
+    },
+    {
+     "factor": "% Schools with CCE Implemented",
+     "summary": "No district-specific source found.",
+     "findings": []
+    },
+    {
+     "factor": "% of female teachers",
+     "summary": "No district-specific source found.",
+     "findings": []
+    }
+   ]
+  },
+  {
+   "districtId": "29-561",
+   "name": "Gadag",
+   "changes": [
+    {
+     "factor": "% Classrooms in Good Condition",
+     "summary": "In June 2025 a classroom ceiling collapsed at a Gadag government school, injuring two students and a teacher; residents demanded renovation of dilapidated school buildings.",
+     "findings": [
+      {
+       "claim": "After a classroom ceiling collapsed at a Gadag government school in June 2025, injuring two students and a teacher, residents demanded renovation of dilapidated school buildings.",
+       "quote": "However, angry residents accused the authorities of negligence and demanded immediate renovation of dilapidated government school buildings to ensure student safety.",
+       "url": "https://newskarnataka.com/gadag/ceiling-collapse-in-gadag-school-injures-teacher-and-students/27062025/",
+       "title": "Ceiling collapse in Gadag school injures teacher and students",
+       "outlet": "News Karnataka",
+       "date": "2025-06-27",
+       "scope": "district",
+       "stance": "gap"
+      }
+     ]
+    },
+    {
+     "factor": "% Schools with Furniture available for students",
+     "summary": "No district-specific source found.",
+     "findings": []
+    },
+    {
+     "factor": "% Schools with Playground",
+     "summary": "No district-specific source found.",
+     "findings": []
+    }
+   ]
+  },
+  {
+   "districtId": "29-564",
+   "name": "Haveri",
+   "changes": [
+    {
+     "factor": "% Classrooms in Good Condition",
+     "summary": "Haveri had 541 school buildings damaged by 2024 rain, and NGO pages from Savanur and Hanagal taluks describe classrooms in poor condition, with half or fewer in good shape before new rooms were built.",
+     "findings": [
+      {
+       "claim": "The 2024 monsoon damaged 541 government school buildings in Haveri district, one of the three worst-hit districts in Karnataka.",
+       "quote": "Belagavi district has reported damage to 1,901 school buildings, followed by Hassan with 591 and Haveri with 541.",
+       "url": "https://newskarnataka.com/bengaluru/bengaluru-schools-struggle-with-monsoon-damage-4000-buildings-affected/31082024/",
+       "title": "Bengaluru Schools Struggle with Monsoon Damage: 4,000 Buildings Affected",
+       "outlet": "News Karnataka",
+       "date": "2024-08-31",
+       "scope": "district",
+       "stance": "gap"
+      },
+      {
+       "claim": "At Ichangi in Savanur taluk, Haveri district, all 8 classrooms of an old tiled building were in poor condition and marked for demolition; an NGO built 4 classrooms in 2023.",
+       "quote": "A old Mangalore tiled building (with cement layer put on top of the tiles) at the school has 8 classrooms, all in poor condition and marked for demolition.",
+       "url": "https://osaat.org/?p=17286",
+       "title": "Government Higher Primary School, Ichangi, Karnataka",
+       "outlet": "One School At A Time (OSAAT)",
+       "date": "",
+       "scope": "district",
+       "stance": "gap"
+      },
+      {
+       "claim": "A government school at Heruru in Hanagal taluk, Haveri district, had only 7 of 14 classrooms in good condition; an NGO handed over 4 new classrooms in 2024.",
+       "quote": "The school has 14 classrooms of which only 7 are in good condition.",
+       "url": "https://osaat.org/heruru-karnataka/",
+       "title": "Government Higher Primary School, Heruru, Karnataka",
+       "outlet": "One School At A Time (OSAAT)",
+       "date": "",
+       "scope": "district",
+       "stance": "gap"
+      }
+     ]
+    },
+    {
+     "factor": "% Schools with Functional Total Toilets",
+     "summary": "A district profile reports 96.4% of Haveri schools have a functional girls' toilet, while NGO pages from Hanagal taluk describe very poor toilets that were replaced by new blocks.",
+     "findings": [
+      {
+       "claim": "Haveri has 96.4% of schools with a functional girls' toilet, slightly above the India figure of 95.3%.",
+       "quote": "96.4% of schools have a functional girls' toilet.",
+       "url": "https://youthpower.in/institution/karnataka/haveri/kgbv",
+       "title": "KGBV (Kasturba Gandhi Balika Vidyalaya) in Haveri, Karnataka",
+       "outlet": "YouthPOWER",
+       "date": "",
+       "scope": "district",
+       "stance": "context"
+      },
+      {
+       "claim": "At Kopparasikoppa in Hanagal taluk, Haveri district, toilets were in poor condition; an NGO built a toilet block for boys and girls, opened in 2025.",
+       "quote": "The school had 11 rooms in 3 buildings, one Mangalore tiled building with 6 rooms was in very poor condition. Toilets were also in poor condition.",
+       "url": "https://osaat.org/?p=20428",
+       "title": "Government Higher Primary School, Kopparasikoppa, Karnataka",
+       "outlet": "One School At A Time (OSAAT)",
+       "date": "",
+       "scope": "district",
+       "stance": "gap"
+      },
+      {
+       "claim": "A Hanagal taluk school at Bai-Aregoppa had very poor toilets; an NGO project including a toilet block for boys and girls was completed in 2021.",
+       "quote": "The school required 8 classrooms and an office room. The toilets were also in very poor condition.",
+       "url": "https://osaat.org/bai-aregoppa-karnataka/",
+       "title": "Government Higher Primary School, Bai-Aregoppa, Karnataka",
+       "outlet": "One School At A Time (OSAAT)",
+       "date": "",
+       "scope": "district",
+       "stance": "progress"
+      }
+     ]
+    },
+    {
+     "factor": "% Schools with Furniture available for students",
+     "summary": "NGO project pages in Haveri district show benches and desks being supplied with new classrooms at Kakol, Heruru and Kudupali; no news report on furniture gaps found.",
+     "findings": [
+      {
+       "claim": "At Kakol in Ranebennur taluk, Haveri district, an NGO built 4 classrooms and supplied benches and desks, completed in 2026.",
+       "quote": "OSAAT constructed 4 classrooms. We also provided benches and desks for these classrooms.",
+       "url": "https://osaat.org/?p=20477",
+       "title": "Karnataka Public School (Primary Section), Kakol, Karnataka",
+       "outlet": "One School At A Time (OSAAT)",
+       "date": "",
+       "scope": "district",
+       "stance": "progress"
+      },
+      {
+       "claim": "At Heruru in Hanagal taluk, the NGO plan for the school included benches and desks in all 4 new classrooms, handed over in 2024.",
+       "quote": "OSAAT proposes to construct 4 classrooms and a toilet block. OSAAT also proposes to provide benches and desks in all 4 classrooms.",
+       "url": "https://osaat.org/heruru-karnataka/",
+       "title": "Government Higher Primary School, Heruru, Karnataka",
+       "outlet": "One School At A Time (OSAAT)",
+       "date": "",
+       "scope": "district",
+       "stance": "progress"
+      },
+      {
+       "claim": "At Kudupali in Rattihalli taluk, Haveri district, only 4+4 of 8+7 rooms were in good condition; an NGO planned benches and desks in 4 new classrooms.",
+       "quote": "OSAAT also proposes to provide benches & desks in all 4 classrooms",
+       "url": "https://osaat.org/?p=17299",
+       "title": "Government Model Higher Primary Kannada Boys & Girls School, Kudupali, Karnataka",
+       "outlet": "One School At A Time (OSAAT)",
+       "date": "",
+       "scope": "district",
+       "stance": "progress"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

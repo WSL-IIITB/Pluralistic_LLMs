@@ -381,5 +381,118 @@
     ],
     "gaps": "No local evidence found linking sanitation infrastructure or English-medium schooling to dropout rates in Yadgir; context derived from broader studies.",
     "notes": []
+  },
+  "prescriptiveEvidence": {
+    "researchedOn": "2026-11-03",
+    "ranking": "feasible",
+    "changes": [
+      {
+        "factor": "% Schools with Functional Total Toilets",
+        "summary": "Parents at a Parasapur school (Shahapur taluk) say it lacks clean water and toilets, and activists link missing toilets and water to poor results in Yadgir. A regional report also flags toilet gaps.",
+        "findings": [
+          {
+            "claim": "Parents and villagers say the Government Kannada Lower Primary School in Parasapur, Yadgir district lacks basic amenities including clean drinking water and toilets.",
+            "quote": "According to the parents and community members, the school lacks basic amenities, including clean drinking water and toilets.",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              1
+            ]
+          },
+          {
+            "claim": "Activists cite a lack of facilities, including toilets and water, among the reasons for the poor exam performance of Kalaburagi and Yadgir districts.",
+            "quote": "lack of facilities, including toilets and water, along with modern problems like smartphone and social media addiction, as reasons behind the poor performance of Kalaburgi and Yadgir",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              3
+            ]
+          },
+          {
+            "claim": "Across Kalyana Karnataka, many government schools are reported to have poor infrastructure, including a lack of libraries, classrooms, toilets and drinking water; a region-wide statement.",
+            "quote": "Apart from the shortage of teachers, many govt schools also have poor infrastructure, including inadequate drinking water, toilet facilities, electricity, lack of classrooms, libraries, playgrounds and compound walls.",
+            "scope": "state",
+            "stance": "gap",
+            "sources": [
+              2
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Classrooms in Good Condition",
+        "summary": "On reopening day in 2025, students at a Dariyapur school in Shahapur taluk waded through ankle-deep water to reach classrooms. A regional claim cites 18,022 Kalyana Karnataka classrooms needing repair.",
+        "findings": [
+          {
+            "claim": "On reopening day, students of a government school in Dariyapur village, Shahapur taluk, Yadgir had to wade through ankle-deep water to reach their classrooms.",
+            "quote": "To reach their classrooms, students had to trudge through ankle-deep water, sparking concern among parents and community members.",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              4
+            ]
+          },
+          {
+            "claim": "Opposition leader R Ashoka, citing a Kannada media report, claimed 18,022 classrooms in Kalyana Karnataka need repair, 8,006 of them declared dilapidated; a regional, partisan claim.",
+            "quote": "",
+            "scope": "state",
+            "stance": "gap",
+            "sources": [
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Schools with CCE Implemented",
+        "summary": "",
+        "findings": []
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "url": "https://www.hindustantimes.com/india-news/premises-of-government-school-in-yadgir-become-cattle-shelter-101750616875595.html",
+        "title": "Premises of government school in Yadgir become cattle shelter",
+        "outlet": "Hindustan Times",
+        "date": "2025-06-23",
+        "type": "news"
+      },
+      {
+        "id": 2,
+        "url": "https://timesofindia.indiatimes.com/city/hubballi/22595-teacher-posts-vacant-in-kalyana-karnataka/articleshow/131118728.cms",
+        "title": "22,595 teacher posts vacant In Kalyana Karnataka",
+        "outlet": "The Times of India",
+        "date": "2026-05-15",
+        "type": "news"
+      },
+      {
+        "id": 3,
+        "url": "https://thesouthfirst.com/news/failing-the-future-what-is-holding-back-school-education-in-kalaburgi-and-yadgir-districts-of-karnataka/",
+        "title": "Failing the future: What is holding back school education in Kalaburgi and Yadgir districts of Karnataka?",
+        "outlet": "The South First",
+        "date": "2025-05-10",
+        "type": "news"
+      },
+      {
+        "id": 4,
+        "url": "https://newskarnataka.com/karnataka/yadgiri/students-greeted-by-flooded-classrooms-on-reopening-day-in-yadgir/30052025/",
+        "title": "Students Greeted by Flooded Classrooms on Reopening Day in Yadgir",
+        "outlet": "News Karnataka",
+        "date": "2025-05-30",
+        "type": "news"
+      },
+      {
+        "id": 5,
+        "url": "https://www.deccanchronicle.com/southern-states/karnataka/ashoka-targets-kharge-over-poor-state-of-schools-in-kalyana-karnataka-1967068",
+        "title": "Ashoka Targets Kharge Over Poor State Of Schools In Kalyana Karnataka",
+        "outlet": "Deccan Chronicle",
+        "date": "2026-06-29",
+        "type": "news"
+      }
+    ],
+    "notes": [
+      "% Classrooms in Good Condition | 'Opposition leader R Ashoka, citing a Kannada media': quote removed (not found on the page)"
+    ]
   }
 }

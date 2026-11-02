@@ -76,3 +76,24 @@ Rules enforced at ingest: "supported" needs at least one surviving `scope: "dist
 "partly" or "no-evidence"); "partly" needs any surviving proof; `scope: "district"` proof must cite a page that names the
 district; every number in a claim must appear on a cited page. Verification shows a fact is real, not that the factor
 causes dropout.
+
+## `prescriptiveEvidence` (optional; web sources for the NITI model's top three changes)
+
+```
+"prescriptiveEvidence": {
+  "researchedOn": "2026-11-03",
+  "ranking": "feasible",                 // which NITI ranking chose the three changes (public/data/niti-prescriptive.json)
+  "changes": [                           // exactly the district's top three changes, in the model's order
+    { "factor": "% Classrooms in Good Condition",
+      "summary": "<= 40 words, model-written summary of what the sources say ('' when nothing survived verification)",
+      "findings": [ { "claim": "...", "quote": "verbatim from the page, or ''", "scope": "district" | "state",
+                      "stance": "gap" | "progress" | "context", "sources": [1] } ] }
+  ],
+  "sources": [ { "id": 1, "url": "...", "title": "...", "outlet": "...", "date": "...", "type": "news|government|ngo|research" } ],
+  "notes": [ "what was dropped or corrected during verification" ]
+}
+```
+Written only by docs/district-research/ingest_prescriptive.py, which re-opens every page: the page must open, "district"
+findings must name the district, every number in a claim must be on the page, and a quote not found on the page is removed.
+Source ids are local to this block. "gap" = the page shows the problem exists there; "progress" = it reports the gap being
+fixed; "context" = background (plans, schemes, statewide figures).

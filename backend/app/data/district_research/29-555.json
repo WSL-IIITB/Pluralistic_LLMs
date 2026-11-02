@@ -399,5 +399,136 @@
     ],
     "gaps": "No Belagavi-specific data was found linking sanitation or medium of instruction to dropouts. District reports and news on dropout factors are lacking.",
     "notes": []
+  },
+  "prescriptiveEvidence": {
+    "researchedOn": "2026-11-03",
+    "ranking": "feasible",
+    "changes": [
+      {
+        "factor": "% Classrooms in Good Condition",
+        "summary": "Rain damaged 1,901 government school buildings in Belagavi district in 2024, the most in Karnataka; the report calls them unsafe for students though not dilapidated. Older flood-hit and mixed-condition schools also show gaps.",
+        "findings": [
+          {
+            "claim": "Rain damaged 1,901 government school buildings in Belagavi district in 2024, the most in Karnataka; the report says they are unsafe for students though not dilapidated.",
+            "quote": "",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              1
+            ]
+          },
+          {
+            "claim": "A Savadatti taluk government school in Belagavi district has only 10 of 22 rooms in good condition; an NGO began building 4 classrooms there in 2026.",
+            "quote": "The school has 4 buildings with 22 rooms out of which only 10 rooms are in good condition.",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              2
+            ]
+          },
+          {
+            "claim": "After the August 2019 floods a Kagawad taluk school in Belagavi district was left with only 3 usable classrooms; government and an NGO then built new ones.",
+            "quote": "All classrooms in the school have gone bad after the floods. 3 classrooms are in a usable condition.",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              3
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Schools with Furniture available for students",
+        "summary": "Only one older NGO project page found: a Belagavi district school in Athani taluk needed benches and desks along with new classrooms (completed 2016).",
+        "findings": [
+          {
+            "claim": "A Belagavi district school in Athani taluk needed new classrooms plus benches and desks for students; an NGO co-funded 7 new classrooms, completed in 2016.",
+            "quote": "The school needed new school structure complete with new classrooms and benches and desks for students.",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              4
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Women with 10+ Years Schooling",
+        "summary": "Sources are indirect: a district youth-opportunity profile shows 35.6% of young women aged 15 to 21 out of education, and a 2017 study found gender disparities in Belagavi narrowing only slowly.",
+        "findings": [
+          {
+            "claim": "In Belagavi, 35.6% of young women aged 15 to 21 are out of education, about the same as the typical district.",
+            "quote": "35.6% of young women aged 15 to 21 are out of education, close to the typical district.",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              5
+            ]
+          },
+          {
+            "claim": "A 2017 study of Belagavi district reported that gender disparities narrowed between 2001 and 2011, but only very slowly.",
+            "quote": "there is reduction in gender disparities from 2001 to 2011 but the reduction rate is very slow",
+            "scope": "district",
+            "stance": "context",
+            "sources": [
+              6
+            ]
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "url": "https://newskarnataka.com/bengaluru/bengaluru-schools-struggle-with-monsoon-damage-4000-buildings-affected/31082024/",
+        "title": "Bengaluru Schools Struggle with Monsoon Damage: 4,000 Buildings Affected",
+        "outlet": "News Karnataka",
+        "date": "2024-08-31",
+        "type": "news"
+      },
+      {
+        "id": 2,
+        "url": "https://osaat.org/chachadi-karnataka",
+        "title": "Chachadi, Karnataka School Project | OSAAT",
+        "outlet": "One School At A Time (OSAAT)",
+        "date": "2024-11-09",
+        "type": "ngo"
+      },
+      {
+        "id": 3,
+        "url": "https://osaat.org/?p=16893",
+        "title": "Katrala Karnataka - OSAAT",
+        "outlet": "One School At A Time (OSAAT)",
+        "date": "2022-01-25",
+        "type": "ngo"
+      },
+      {
+        "id": 4,
+        "url": "https://osaat.org/kottalagi-karnataka/",
+        "title": "Kottalagi Karnataka - OSAAT",
+        "outlet": "One School At A Time (OSAAT)",
+        "date": "2022-01-26",
+        "type": "ngo"
+      },
+      {
+        "id": 5,
+        "url": "https://youthpower.in/institution/karnataka/belagavi/jss",
+        "title": "JSS (Jan Shikshan Sansthan) in Belagavi, Karnataka | YouthPOWER",
+        "outlet": "YouthPOWER",
+        "date": "",
+        "type": "news"
+      },
+      {
+        "id": 6,
+        "url": "https://zenodo.org/records/3577403",
+        "title": "A Discourse on Gender Disparity A Study on Taluks of Belagavi District",
+        "outlet": "Zenodo (research paper)",
+        "date": "2017-08-09",
+        "type": "ngo"
+      }
+    ],
+    "notes": [
+      "% Classrooms in Good Condition | 'Rain damaged 1,901 government school buildings in ': quote removed (not found on the page)"
+    ]
   }
 }

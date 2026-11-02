@@ -209,6 +209,105 @@
       ],
       "sanitation": "If Puttaswamy's home lacked a proper toilet, his 16-year-old daughter Chaitra would feel it first; the card gives no sign this is his family's problem.",
       "district": "The factor flags the share of English-medium schools in Mandya. The card shows cane harvest, highway transport safety, mill payments and marriage enquiries as the pressures, not language."
+    },
+    "dataLens": {
+      "area": "Mandya",
+      "changes": [
+        {
+          "factor": "% Classrooms in Good Condition",
+          "effect": "Mandya ranks among the lowest in Karnataka for classrooms in good condition; repairing them would keep lessons running for his daughter Chaitra, 16."
+        },
+        {
+          "factor": "% Schools with Functional Total Toilets",
+          "effect": "Nearly every school here has toilets, but not all; for Chaitra, a working girls' toilet is part of what makes staying in school possible."
+        },
+        {
+          "factor": "% Population Living in Households with Improved Sanitation",
+          "effect": "If his home lacked a toilet, Chaitra would face the safety and privacy worries that, with marriage enquiries, can end a girl's schooling."
+        }
+      ],
+      "lag": {
+        "factor": "% Schools with Smart Classrooms",
+        "effect": "Few of Mandya's schools have smart classrooms, so Chaitra gets little of the more engaging, digital teaching they offer."
+      }
+    },
+    "intro": {
+      "backdrop": "fields",
+      "lines": [
+        {
+          "scene": "hello",
+          "text": "Hello, I'm Puttaswamy. I'm 44, and I farm sugarcane and paddy on two and a half acres in Malavalli taluk, Mandya."
+        },
+        {
+          "scene": "household",
+          "text": "I live with my wife Rathnamma, my elderly parents, our daughter Chaitra, 16, and our son Kiran, 13.",
+          "show": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "scene": "day",
+          "text": "Before 5 am I walk my two cows to graze and check the channel watering the paddy nursery.",
+          "say": "Before five in the morning I walk my two cows to graze and check the channel watering the paddy nursery.",
+          "show": [
+            0
+          ]
+        },
+        {
+          "scene": "day",
+          "text": "In the lean months, the dairy cooperative's milk cheque is our only predictable income.",
+          "show": [
+            3
+          ]
+        },
+        {
+          "scene": "world",
+          "text": "My 2.5 acres are half of what my father once farmed.",
+          "say": "My two and a half acres are half of what my father once farmed.",
+          "topic": "family_and_household"
+        },
+        {
+          "scene": "school",
+          "text": "We won't send Chaitra to PU college by shared auto or cycle along the highway.",
+          "say": "We won't send Chaitra to P U college by shared auto or cycle along the highway.",
+          "show": [
+            1
+          ]
+        },
+        {
+          "scene": "school",
+          "text": "And relatives have already begun asking about her marriage.",
+          "show": [
+            3
+          ]
+        },
+        {
+          "scene": "district",
+          "text": "For Mandya, the NITI model ranks three changes highest: classrooms in good repair, working school toilets, and toilets at home.",
+          "show": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "scene": "worries",
+          "text": "What keeps me up at night: delayed cane payments, children leaving school, and farm debt.",
+          "show": [
+            0,
+            4,
+            5
+          ]
+        },
+        {
+          "scene": "outro",
+          "text": "That's my story. I'm a composite persona, built from public data. Explore my full card below."
+        }
+      ]
     }
   },
   "female": {
@@ -417,6 +516,104 @@
       ],
       "sanitation": "If her one-room rented home shares or lacks a proper toilet, her 15-year-old daughter Keerthana would feel it first.",
       "district": "In Bengaluru Urban the district-level factor is the share of schools with a functional protected well, a school water-supply issue. The card shows chores, commute safety, wages and paperwork as the pressures, not water."
+    },
+    "dataLens": {
+      "area": "Bengaluru U North",
+      "changes": [
+        {
+          "factor": "% Teachers Trained in ICT/Computers",
+          "effect": "Bengaluru North's teachers are among the best trained in computers in Karnataka; for her daughter Keerthana, 15, that can make lessons clearer."
+        },
+        {
+          "factor": "% of female teachers",
+          "effect": "Most teachers here are women; for Keerthana, women teachers can make school feel safer when the commute already worries the family."
+        },
+        {
+          "factor": "% Schools with Computer/ICT Labs",
+          "effect": "Bengaluru North leads Karnataka on computer labs; a working lab gives Keerthana digital skills that feel useful for a job, a reason to stay."
+        }
+      ],
+      "lag": {
+        "factor": "% Schools with CCE Implemented",
+        "effect": "Continuous evaluation is weaker here than in most districts, so if chores and sibling care make Keerthana fall behind, it may be noticed late."
+      }
+    },
+    "intro": {
+      "backdrop": "city",
+      "lines": [
+        {
+          "scene": "hello",
+          "text": "Hello, I'm Manjula. I'm 33, a sewing operator in a garment factory near Peenya, in Bengaluru."
+        },
+        {
+          "scene": "household",
+          "text": "My husband does daily-wage construction and drives an auto. Our daughter Keerthana is 15, and our son is 9.",
+          "show": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "scene": "day",
+          "text": "Before 5 am I cook the family's meals, then take a short bus ride, free under Shakti, to the factory.",
+          "say": "Before five in the morning I cook the family's meals, then take a short bus ride, free under Shakti, to the factory.",
+          "show": [
+            0,
+            1
+          ]
+        },
+        {
+          "scene": "day",
+          "text": "I sew through a nine-to-ten-hour shift, then start a second, unpaid one at home.",
+          "show": [
+            2,
+            4
+          ]
+        },
+        {
+          "scene": "world",
+          "text": "The statutory minimum wage in Karnataka's garment sector is about Rs 10,330 a month.",
+          "say": "The statutory minimum wage in Karnataka's garment sector is about ten thousand three hundred and thirty rupees a month.",
+          "topic": "daily_life_and_work"
+        },
+        {
+          "scene": "school",
+          "text": "When my shift runs long, Keerthana minds her brother, cooks and does chores instead of homework.",
+          "show": [
+            0
+          ]
+        },
+        {
+          "scene": "school",
+          "text": "Garment work is an immediate income, and Keerthana joining me is openly discussed.",
+          "show": [
+            2
+          ]
+        },
+        {
+          "scene": "district",
+          "text": "For Bengaluru North, the NITI model ranks three changes highest: teachers trained in computers, women teachers, and computer labs.",
+          "show": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "scene": "worries",
+          "text": "What keeps me up at night: low wages, the cost of living, and my daughter leaving school.",
+          "show": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "scene": "outro",
+          "text": "That's my story. I'm a composite persona, built from public data. Explore my full card below."
+        }
+      ]
     }
   }
 }

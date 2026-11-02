@@ -82,6 +82,22 @@ def check_file(path: str) -> list[str]:
                         problems.append(f"dominantFactorWhy: proof source {sid} out of range")
             if e.get("verdict") == "supported" and not has_local:
                 problems.append("dominantFactorWhy: 'supported' without district-specific proof")
+    pre = d.get("prescriptiveEvidence")
+    if pre is not None:
+        pn = len(pre.get("sources", []))
+        if [x.get("id") for x in pre.get("sources", [])] != list(range(1, pn + 1)):
+            problems.append("prescriptiveEvidence: source ids are not 1..n")
+        if len(pre.get("changes", [])) != 3:
+            problems.append("prescriptiveEvidence: expected the 3 top changes")
+        for c in pre.get("changes", []):
+            for k in c.get("findings", []):
+                if k.get("scope") not in {"district", "state"}:
+                    problems.append(f"prescriptiveEvidence: bad scope {k.get('scope')!r}")
+                if k.get("stance") not in {"gap", "progress", "context"}:
+                    problems.append(f"prescriptiveEvidence: bad stance {k.get('stance')!r}")
+                for sid in k.get("sources", []):
+                    if not isinstance(sid, int) or not 1 <= sid <= pn:
+                        problems.append(f"prescriptiveEvidence: source {sid} out of range")
     if d["coverage"] not in {"rich", "moderate", "thin"}:
         problems.append(f"bad coverage {d['coverage']!r}")
     return problems

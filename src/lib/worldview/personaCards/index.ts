@@ -20,6 +20,38 @@ export interface PersonaFactorEffects {
   district: string;
 }
 
+/** How the persona's district's NITI prescriptive profile reaches this household (see SCHEMA.md). */
+export interface PersonaDataLens {
+  /** The NITI workbook row (area) the persona lives in, e.g. "Belagavi Chikkodi". */
+  area: string;
+  /** One line per top-3 change for that area, in the model's order (feasible ranking). */
+  changes: { factor: string; effect: string }[];
+  /** The factor where the area ranks lowest in Karnataka (not already in the top 3). */
+  lag: { factor: string; effect: string };
+}
+
+export type IntroScene =
+  "hello" | "household" | "day" | "world" | "school" | "district" | "worries" | "outro";
+
+/** One narrated line of the persona's intro "video" (see SCHEMA.md and scripts/check_persona_intros.py). */
+export interface PersonaIntroLine {
+  scene: IntroScene;
+  /** Caption shown on screen. */
+  text: string;
+  /** What the voice says, when it differs from the caption (numbers, acronyms). */
+  say?: string;
+  /** Indices of the card items this line brings on screen (household / dayInLife / schoolPressures / worries;
+   * for "district", the dataLens changes, 3 = the lag factor). */
+  show?: number[];
+  /** Topic whose headline and stat the "world" scene shows. */
+  topic?: string;
+}
+
+export interface PersonaIntro {
+  backdrop: "fields" | "city" | "dry-plains" | "coast" | "hills-forest";
+  lines: PersonaIntroLine[];
+}
+
 export interface PersonaCard {
   name: string;
   ageLabel: string;
@@ -36,6 +68,10 @@ export interface PersonaCard {
   worries: string[];
   /** How each listed pressure and the region's dominant factors would reach this persona (see SCHEMA.md). */
   factorEffects?: PersonaFactorEffects;
+  /** The persona's district through the NITI prescriptive model (see SCHEMA.md). */
+  dataLens?: PersonaDataLens;
+  /** First-person script for the animated self-introduction (see SCHEMA.md). */
+  intro?: PersonaIntro;
 }
 
 type RegionCards = Record<string, PersonaCard>;

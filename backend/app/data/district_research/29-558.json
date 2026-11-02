@@ -264,5 +264,153 @@
     ],
     "gaps": "Found no district-specific information tying sanitation or English-medium instruction to dropout rates in Bidar; relied on general reports.",
     "notes": []
+  },
+  "prescriptiveEvidence": {
+    "researchedOn": "2026-11-03",
+    "ranking": "feasible",
+    "changes": [
+      {
+        "factor": "% Schools with Functional Total Toilets",
+        "summary": "A CSR-built toilet block with water facilities opened at a girls' school in Rajeshwar, Basavakalyan taluk (2025). An older 2017 report described a Bidar school with neglected toilets and girls forced to go outdoors.",
+        "findings": [
+          {
+            "claim": "A 2017 Bangalore Mirror report on a Bidar government high school said its old toilets were overgrown with weeds and full of waste, and girls were scared to use them.",
+            "quote": "The existing toilets which include urinals are in such a bad state that weeds have grown around and it is filled with waste including plastic bottles.",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              2
+            ]
+          },
+          {
+            "claim": "A CSR-funded toilet block with water facilities and ventilation was inaugurated at the Government Girls School in Rajeshwar village, Basavakalyan taluk, which had only minimal sanitary facilities before.",
+            "quote": "The school, which had been functioning with minimal sanitary facilities, will now benefit from a modern toilet complex equipped with water facilities and proper ventilation.",
+            "scope": "district",
+            "stance": "progress",
+            "sources": [
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Classrooms in Good Condition",
+        "summary": "In 2025 Bidar's in-charge minister sought a report on dilapidated school buildings and ordered immediate repair or reconstruction of unsafe ones; a regional claim cites 18,022 Kalyana Karnataka classrooms needing repair.",
+        "findings": [
+          {
+            "claim": "After complaints about school infrastructure in Bidar, the district in-charge minister sought a detailed report from the Education Department on all dilapidated school and college buildings.",
+            "quote": "Responding to complaints about the condition of school infrastructure, Mr. Khandre sought a detailed report from the Education Department on all dilapidated school and college buildings.",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              3
+            ]
+          },
+          {
+            "claim": "During a monsoon review in Bidar district, the minister ordered immediate repair, or demolition and reconstruction, of unsafe school structures and said funds would not be a constraint.",
+            "quote": "Immediate repairs, or demolition and reconstruction of unsafe structures, must be undertaken, he said, stressing that funds would not be a constraint.",
+            "scope": "district",
+            "stance": "context",
+            "sources": [
+              4
+            ]
+          },
+          {
+            "claim": "Opposition leader R Ashoka, citing a Kannada media report, claimed 18,022 classrooms in Kalyana Karnataka need repair, 8,006 of them declared dilapidated; a regional, partisan claim.",
+            "quote": "",
+            "scope": "state",
+            "stance": "gap",
+            "sources": [
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Schools with Library",
+        "summary": "A digital library with 4,600 books under the Oduva Belaku scheme is housed in a government primary school at Aliyabad (2023). A regional report cites missing libraries in many Kalyana Karnataka government schools.",
+        "findings": [
+          {
+            "claim": "A digital library with 4,600 books, set up under the Oduva Belaku scheme, is housed in a government primary school at Aliyabad in Bidar district.",
+            "quote": "The library is housed in a government primary school at Aliyabad. It has become a beacon of hope for many, especially those who are seriously preparing for competitive examination.",
+            "scope": "district",
+            "stance": "progress",
+            "sources": [
+              6
+            ]
+          },
+          {
+            "claim": "Across Kalyana Karnataka, many government schools are reported to have poor infrastructure, including a lack of libraries, classrooms, toilets and drinking water; a region-wide statement.",
+            "quote": "Apart from the shortage of teachers, many govt schools also have poor infrastructure, including inadequate drinking water, toilet facilities, electricity, lack of classrooms, libraries, playgrounds and compound walls.",
+            "scope": "state",
+            "stance": "gap",
+            "sources": [
+              7
+            ]
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "url": "https://www.thehindu.com/news/national/karnataka/deccan-tollways-builds-toilet-block-at-government-girls-school-in-bidar/article69869868.ece",
+        "title": "Deccan Tollways builds toilet block at Government Girls School in Bidar",
+        "outlet": "The Hindu",
+        "date": "2025-07-30",
+        "type": "news"
+      },
+      {
+        "id": 2,
+        "url": "https://bangaloremirror.indiatimes.com/news/state/no-proper-toilets-for-girls-in-bidar-school/articleshow/57068192.cms",
+        "title": "No proper toilets for girls in Bidar school",
+        "outlet": "Bangalore Mirror",
+        "date": "2017-02-10",
+        "type": "news"
+      },
+      {
+        "id": 3,
+        "url": "https://www.thehindu.com/news/national/karnataka/minister-vows-serious-action-on-fertilizer-shortage-dilapidated-school-buildings-and-poor-quality-of-food-in-bidar/article69883767.ece",
+        "title": "Minister vows serious action on fertilizer shortage, dilapidated school buildings, and poor quality of food in Bidar",
+        "outlet": "The Hindu",
+        "date": "2025-08-01",
+        "type": "news"
+      },
+      {
+        "id": 4,
+        "url": "https://www.thehindu.com/news/national/karnataka/minister-eshwar-khandre-orders-immediate-crop-insurance-relief-school-repairs-flood-measures-in-bidar-district-of-karnataka/article69989151.ece",
+        "title": "Karnataka rain: Minister orders immediate crop insurance relief, school repairs in Bidar",
+        "outlet": "The Hindu",
+        "date": "2025-08-30",
+        "type": "news"
+      },
+      {
+        "id": 5,
+        "url": "https://www.deccanchronicle.com/southern-states/karnataka/ashoka-targets-kharge-over-poor-state-of-schools-in-kalyana-karnataka-1967068",
+        "title": "Ashoka Targets Kharge Over Poor State Of Schools In Kalyana Karnataka",
+        "outlet": "Deccan Chronicle",
+        "date": "2026-06-29",
+        "type": "news"
+      },
+      {
+        "id": 6,
+        "url": "https://www.thehindu.com/news/national/karnataka/digital-library-that-is-all-set-to-transform-the-lives-of-rural-students-including-visually-impaired-in-bidar/article66536877.ece",
+        "title": "Digital library that is all set to transform the lives of rural students, including visually impaired, in Bidar",
+        "outlet": "The Hindu",
+        "date": "2023-02-21",
+        "type": "news"
+      },
+      {
+        "id": 7,
+        "url": "https://timesofindia.indiatimes.com/city/hubballi/22595-teacher-posts-vacant-in-kalyana-karnataka/articleshow/131118728.cms",
+        "title": "22,595 teacher posts vacant In Kalyana Karnataka",
+        "outlet": "The Times of India",
+        "date": "2026-05-15",
+        "type": "news"
+      }
+    ],
+    "notes": [
+      "% Classrooms in Good Condition | 'Opposition leader R Ashoka, citing a Kannada media': quote removed (not found on the page)"
+    ]
   }
 }

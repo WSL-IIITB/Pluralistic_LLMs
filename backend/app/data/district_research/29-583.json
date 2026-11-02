@@ -285,5 +285,84 @@
       "district/% Schools with instruction medium 1 (Eng: quote removed (not found on the page)",
       "district/% Schools with instruction medium 1 (Eng: quote removed (not found on the page)"
     ]
+  },
+  "prescriptiveEvidence": {
+    "researchedOn": "2026-11-03",
+    "ranking": "feasible",
+    "changes": [
+      {
+        "factor": "% Classrooms in Good Condition",
+        "summary": "Two NGO project pages describe government schools in Hoskote and Doddaballapura taluks where most rooms are in poor condition; the NGO has built or proposed new classrooms.",
+        "findings": [
+          {
+            "claim": "A government school in Nandagudi, Hoskote taluk, has 22 rooms but only 6 are in good condition; two buildings holding 8 and 6 classrooms are in poor shape.",
+            "quote": "The school has total 22 rooms out of which only 6 rooms are in good condition. Two buildings that have 8 and 6 classrooms, are in poor condition.",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              1
+            ]
+          },
+          {
+            "claim": "A Doddaballapura taluk school had 17 rooms in several buildings, nearly all in poor condition, and needed 11 classrooms; the NGO later built 4 classrooms.",
+            "quote": "School had 17 rooms in multiple buildings, except for 2 rooms all other rooms were not in great condition.",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              2
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% of female teachers",
+        "summary": "No Bengaluru Rural-specific source found. A statewide report notes women teachers dominate only primary classes while men dominate upper primary and secondary teaching.",
+        "findings": [
+          {
+            "claim": "A statewide UDISE+ based report says women teachers dominate only the primary level, while male teachers still dominate upper primary and secondary teaching in Karnataka.",
+            "quote": "",
+            "scope": "state",
+            "stance": "context",
+            "sources": [
+              3
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Women with 10+ Years Schooling",
+        "summary": "",
+        "findings": []
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "url": "https://osaat.org/?p=18431",
+        "title": "Nandagudi Karnataka - OSAAT",
+        "outlet": "OSAAT",
+        "date": "2022-04-13",
+        "type": "ngo"
+      },
+      {
+        "id": 2,
+        "url": "https://osaat.org/doddabelavangala-karnataka/",
+        "title": "Doddabelavangala Karnataka - OSAAT",
+        "outlet": "OSAAT",
+        "date": "2025-01-15",
+        "type": "ngo"
+      },
+      {
+        "id": 3,
+        "url": "https://www.deccanherald.com/state/top-karnataka-stories/female-teachers-outnumber-male-teachers-in-school-education-report-1005321.html",
+        "title": "Female teachers outnumber male teachers in school education: Report",
+        "outlet": "Deccan Herald",
+        "date": "2021-07-05",
+        "type": "news"
+      }
+    ],
+    "notes": [
+      "% of female teachers | 'A statewide UDISE+ based report says women teacher': quote removed (not found on the page)"
+    ]
   }
 }

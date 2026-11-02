@@ -273,5 +273,47 @@
       "district/% Schools with instruction medium 1 (Eng: proof dropped (no openable source): 'Language barriers in schooling are cited as dropout causes'",
       "district/% Schools with instruction medium 1 (Eng: 'partly' -> 'no-evidence' (no verified proof survived)"
     ]
+  },
+  "prescriptiveEvidence": {
+    "researchedOn": "2026-11-03",
+    "ranking": "feasible",
+    "changes": [
+      {
+        "factor": "% of female teachers",
+        "summary": "",
+        "findings": []
+      },
+      {
+        "factor": "% Classrooms in Good Condition",
+        "summary": "A June 2024 Udayavani report says a Kumta school building stayed unrepaired through official negligence, with students taught in a health-centre room. Little other district coverage was found.",
+        "findings": [
+          {
+            "claim": "Udayavani reports that official negligence left a school building in Kumta unrepaired, with students being taught in a room of an Ayushman Arogya Mandir health centre.",
+            "quote": "Kumta ಅಧಿಕಾರಿಗಳ ನಿರ್ಲಕ್ಷ್ಯ: ದುರಸ್ತಿಯಾಗದ ಶಾಲಾ ಕಟ್ಟಡ ಆಯುಷ್ಮಾನ್‌ ಆರೋಗ್ಯ ಮಂದಿರದ ಕೊಠಡಿಯಲ್ಲಿ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಪಾಠ",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Schools with Functional Protected Well",
+        "summary": "",
+        "findings": []
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "url": "https://udayavani.com/district-news/uttara-kannada-news/negligence-of-kumta-authorities-school-building-not-in-repair",
+        "title": "Kumta ಅಧಿಕಾರಿಗಳ ನಿರ್ಲಕ್ಷ್ಯ: ದುರಸ್ತಿಯಾಗದ ಶಾಲಾ ಕಟ್ಟಡ |  Udayavani - Latest Kannada News, Udayavani Newspaper",
+        "outlet": "Udayavani",
+        "date": "2024-06-08",
+        "type": "news"
+      }
+    ],
+    "notes": []
   }
 }

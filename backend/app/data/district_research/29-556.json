@@ -282,5 +282,101 @@
     ],
     "gaps": "No local information was found on these factors. District education reports or news did not discuss sanitation or English-medium instruction in relation to dropouts.",
     "notes": []
+  },
+  "prescriptiveEvidence": {
+    "researchedOn": "2026-11-03",
+    "ranking": "feasible",
+    "changes": [
+      {
+        "factor": "% Classrooms in Good Condition",
+        "summary": "A September 2026 roof collapse at a Bagalkot taluk government school injured students; parents flagged its dilapidated state, and the district ordered a reassessment of all 9,449 classrooms and a Lokayukta-directed safety audit.",
+        "findings": [
+          {
+            "claim": "After a roof collapse injured six students at a Bagalkote government school in September 2026, parents who had flagged its dilapidated state demanded permanent repairs.",
+            "quote": "Parents, who had raised concerns over the dilapidated condition of the school, have demanded permanent repairs and adequate safety measures.",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              1
+            ]
+          },
+          {
+            "claim": "Following the roof collapse, Bagalkot district administration ordered a structural reassessment of all 9,449 classrooms, with four new classrooms planned at the affected school.",
+            "quote": "",
+            "scope": "district",
+            "stance": "progress",
+            "sources": [
+              2
+            ]
+          },
+          {
+            "claim": "Under the post-collapse safety audit in Bagalkote district, officials must report on schools classed as dilapidated or hazardous, and on repairs and reconstruction.",
+            "quote": "They must also provide details of schools already classified as dilapidated or hazardous, along with information about repairs and reconstruction.",
+            "scope": "district",
+            "stance": "progress",
+            "sources": [
+              3
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Schools with Furniture available for students",
+        "summary": "After the 2026 ceiling collapse at a Bagalkot school, parents said the school's furniture was old and damaged and needed replacing.",
+        "findings": [
+          {
+            "claim": "Parents of children at the Bagalkot school hit by a ceiling collapse said its furniture and building were old and damaged and needed replacing.",
+            "quote": "They complained that the school's furniture and building were old and damaged, and needed to be replaced.",
+            "scope": "district",
+            "stance": "gap",
+            "sources": [
+              4
+            ]
+          }
+        ]
+      },
+      {
+        "factor": "% Schools with Functional Total Toilets",
+        "summary": "",
+        "findings": []
+      }
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "url": "https://www.etvbharat.com/en/state/school-roof-collapses-in-ktakas-bagalkot-six-students-injured-enn26090300134",
+        "title": "School Roof Collapses In Karnataka's Bagalkot, Six Students Injured",
+        "outlet": "ETV Bharat",
+        "date": "2026-09-03",
+        "type": "news"
+      },
+      {
+        "id": 2,
+        "url": "https://organiser.org/2026/09/04/378786/bharat/karnataka-lokayukta-registers-suo-motu-case-over-bagalkot-school-roof-collapse-3-suspended-8-students-injured/",
+        "title": "Karnataka Lokayukta probes Bagalkot school roof sollapse",
+        "outlet": "Organiser",
+        "date": "2026-09-04",
+        "type": "ngo"
+      },
+      {
+        "id": 3,
+        "url": "https://validcollege.com/news/education/karnataka-school-roof-collapse-injures-students-government-schools-ordered-to-undergo-safety-audit-s0k0",
+        "title": "Karnataka School Roof Collapse: Safety Audit Ordered",
+        "outlet": "Valid College",
+        "date": "2026-09-04",
+        "type": "news"
+      },
+      {
+        "id": 4,
+        "url": "https://www.newsgram.com/karnataka/2026/09/03/karnataka-school-ceiling-collapse",
+        "title": "“It’s the Government’s Responsibility”: Netizens Raise Concerns Over Karnataka School Ceiling Collapse, Flags Old and Broken Infrastructure",
+        "outlet": "NewsGram",
+        "date": "2026-09-03",
+        "type": "news"
+      }
+    ],
+    "notes": [
+      "% Classrooms in Good Condition | 'Following the roof collapse, Bagalkot district adm': quote removed (not found on the page)"
+    ]
   }
 }

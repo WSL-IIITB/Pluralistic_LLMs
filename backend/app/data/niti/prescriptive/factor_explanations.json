@@ -1,0 +1,129 @@
+{
+  "_note": "One entry per factor in the NITI prescriptive model (keyed by the workbook's 'Field Name'). 'short' is the display label; 'measures' says what the indicator counts; 'why' is GENERAL REASONING about how it could be linked to secondary dropout (not a finding, no statistics); 'change' is what improving it would look like on the ground. 'better' is the direction that the model links to lower dropout.",
+  "% Schools with Computer/ICT Labs": {
+    "short": "Computer / ICT labs",
+    "better": "higher",
+    "measures": "Share of schools with a computer or ICT lab.",
+    "why": "A working lab gives students digital skills that feel useful for jobs, and makes lessons more engaging. Schools without one are often the less-resourced schools in a district, so the indicator can also stand in for overall school investment.",
+    "change": "Equip and maintain computer labs, and timetable their use for secondary classes."
+  },
+  "% Schools with Smart Classrooms": {
+    "short": "Smart classrooms",
+    "better": "higher",
+    "measures": "Share of schools with at least one smart classroom (projector or digital board).",
+    "why": "Visual, interactive teaching can hold the attention of students who are falling behind. Like ICT labs, it also marks schools that receive more investment.",
+    "change": "Install smart classrooms where there are none and train teachers to use them."
+  },
+  "% Schools with All-Weather Roads": {
+    "short": "All-weather road access",
+    "better": "higher",
+    "measures": "Share of schools reachable by a road usable in all seasons.",
+    "why": "When roads wash out in the monsoon, buses stop and the walk gets long and unsafe, especially for girls, so attendance breaks and students fall behind. It also marks how remote a school is.",
+    "change": "Build or repair all-weather approach roads and keep monsoon bus routes running."
+  },
+  "% Schools with Library": {
+    "short": "School library",
+    "better": "higher",
+    "measures": "Share of schools with a library.",
+    "why": "A library supports reading and self-study, which helps weaker students keep up. Its absence often goes with other gaps in a school's resources.",
+    "change": "Set up and stock libraries, with a regular library period."
+  },
+  "% Schools with Functional Total Toilets": {
+    "short": "Functional toilets",
+    "better": "higher",
+    "measures": "Share of schools whose toilets are functional.",
+    "why": "Without working toilets, adolescent girls lose privacy and cannot manage menstruation at school, so they miss days or stop coming. Broken toilets also tell parents the school is neglected.",
+    "change": "Repair toilets, keep water and cleaning running, and provide separate girls' toilets."
+  },
+  "% Schools with Furniture available for students": {
+    "short": "Student furniture",
+    "better": "higher",
+    "measures": "Share of schools with desks or benches for students.",
+    "why": "Sitting on the floor through long secondary-school days is uncomfortable and makes writing hard, and it signals a neglected school. Both can wear down a student's will to stay.",
+    "change": "Provide desks and benches for every secondary classroom."
+  },
+  "% Classrooms in Good Condition": {
+    "short": "Classrooms in good condition",
+    "better": "higher",
+    "measures": "Share of classrooms that do not need major or minor repair.",
+    "why": "Leaking roofs, cracked walls and unsafe rooms disrupt teaching, especially in the monsoon, and can close rooms altogether. Parents lose confidence in a school that looks unsafe.",
+    "change": "Repair dilapidated classrooms and fund regular maintenance."
+  },
+  "% Schools with Playground": {
+    "short": "Playground",
+    "better": "higher",
+    "measures": "Share of schools with a playground.",
+    "why": "Sport and play give adolescents a reason to come to school and a sense of belonging, which matters for students who struggle academically.",
+    "change": "Secure playground space or shared grounds and run regular sports."
+  },
+  "% Schools with Boundary Wall (No boundary walls)": {
+    "short": "Schools without a boundary wall",
+    "better": "lower",
+    "measures": "Share of schools with NO boundary wall (higher is worse).",
+    "why": "Without a wall, outsiders and animals can enter freely, which raises safety worries for parents of adolescent girls and makes the school harder to keep in good condition.",
+    "change": "Build boundary walls around schools that have none."
+  },
+  "% Schools with Functional Protected Well": {
+    "short": "Protected well",
+    "better": "higher",
+    "measures": "Share of schools with a functional protected well as a water source.",
+    "why": "It indicates whether a school has a safe water source. Without safe water children may fall ill or leave school grounds to drink, girls lack water for toilets and menstrual hygiene, and an open well is a safety hazard. Relying on wells can also mark under-served schools without piped supply.",
+    "change": "Secure a safe drinking-water source for every school, protected wells or piped supply."
+  },
+  "% Schools with CCE Implemented": {
+    "short": "Continuous evaluation (CCE)",
+    "better": "higher",
+    "measures": "Share of schools that implement Continuous and Comprehensive Evaluation.",
+    "why": "Regular, low-stakes assessment shows early which students are falling behind, so they can be helped before the SSLC exam, where failure often ends schooling.",
+    "change": "Run CCE properly and use its results for remedial teaching."
+  },
+  "% Schools with SDMC as per Samagra Shiksha (No)": {
+    "short": "Schools without a proper SDMC",
+    "better": "lower",
+    "measures": "Share of schools WITHOUT a School Development and Monitoring Committee formed as Samagra Shiksha requires (higher is worse).",
+    "why": "A working SDMC brings parents and the community into the school; they notice absent children, follow up with families and push for repairs. Without one, a child drifting away may go unnoticed.",
+    "change": "Form SDMCs as required and give them a role in tracking absent students."
+  },
+  "% Schools with instruction medium 1 (English)": {
+    "short": "English-medium schools",
+    "better": "higher",
+    "measures": "Share of schools whose first medium of instruction is English.",
+    "why": "A child who studied in Kannada or another home language can struggle when lessons and exams lean on English. Where English-medium private schools are common, government schools can empty out and close. The share also tracks how urban and well-off an area is, so it may stand in for household means and access to schooling.",
+    "change": "Offer bilingual support and bridge classes, and keep good government schools within reach."
+  },
+  "% Population Living in Households with Improved Sanitation": {
+    "short": "Household sanitation",
+    "better": "higher",
+    "measures": "Share of people living in households with an improved toilet (NFHS-5).",
+    "why": "Without a toilet at home, girls face safety risks and illness spreads, so children miss school. It also marks poorer, more remote households, where pressures such as work, early marriage and distance are stronger.",
+    "change": "Expand household toilets and keep them usable, alongside support for the poorest households."
+  },
+  "% Women with 10+ Years Schooling": {
+    "short": "Women with 10+ years of schooling",
+    "better": "higher",
+    "measures": "Share of women who completed at least 10 years of schooling (NFHS-5).",
+    "why": "Mothers who studied longer tend to keep their children, and especially daughters, in school, and can help with schoolwork. The indicator also reflects local norms about girls' education and household means.",
+    "change": "Support adult and continuing education for women and involve mothers in school life."
+  },
+  "% of female teachers": {
+    "short": "Female teachers",
+    "better": "higher",
+    "measures": "Share of teachers who are women.",
+    "why": "Women teachers can make adolescent girls feel safer and heard, act as role models, and reassure parents who hesitate to send daughters to secondary school.",
+    "change": "Recruit and post more women teachers in secondary schools."
+  },
+  "Teachers per 100 students": {
+    "short": "Teachers per 100 students",
+    "better": "higher",
+    "measures": "Number of teachers for every 100 students.",
+    "why": "Too few teachers means large classes, untaught subjects and little attention for students who fall behind, who then fail and leave.",
+    "change": "Fill teacher vacancies, especially subject teachers for secondary classes."
+  },
+  "% Teachers Trained in ICT/Computers": {
+    "short": "Teachers trained in ICT",
+    "better": "higher",
+    "measures": "Share of teachers trained to use computers and ICT in teaching.",
+    "why": "Trained teachers can use digital tools to make lessons clearer and reach weaker students. The share also reflects how much a district invests in teacher training.",
+    "change": "Train teachers in ICT and support them to use it in class."
+  }
+}
