@@ -6,11 +6,53 @@
  * the browser has no voice, each line is timed from its length instead, so captions alone still play through.
  * Pausing cancels the speech and resuming replays the current line: speechSynthesis.pause() is unreliable across
  * browsers. A run token makes callbacks from a cancelled utterance ignore themselves.
+ *
+ * When a persona has recorded clips (public/audio/personas/manifest.json, made with ElevenLabs by
+ * scripts/split_persona_audio.py), those play instead, one clip per line through a single reused audio element; the
+ * browser voice stays as the fallback if a clip cannot play. Recorded clips pause and resume mid-line.
  */
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
+import { assetUrl } from "./api";
 import type { PersonaIntroLine } from "./personaCards";
+
+/** Recorded clips for one persona: one per script line, in order. */
+export interface PersonaAudio {
+  voiceName: string;
+  clips: { url: string; ms: number }[];
+}
+
+interface AudioManifest {
+  model: string;
+  voices: Record<string, { voice: string; name: string }>;
+  clips: Record<string, { file: string; ms: number; chars: number }[]>;
+}
+
+let manifestLoad: Promise<AudioManifest | null> | null = null;
+
+/** The recorded clips for "region/persona", or null when there are none (the browser voice is used instead). */
+export function usePersonaAudio(key: string, lineCount: number): PersonaAudio | null {
+  const [manifest, setManifest] = useState<AudioManifest | null>(null);
+  useEffect(() => {
+    let alive = true;
+    manifestLoad ??= fetch(assetUrl("audio/personas/manifest.json"))
+      .then((r) => (r.ok ? (r.json() as Promise<AudioManifest>) : null))
+      .catch(() => null);
+    void manifestLoad.then((m) => alive && setManifest(m));
+    return () => {
+      alive = false;
+    };
+  }, []);
+  return useMemo(() => {
+    const clips = manifest?.clips[key];
+    if (!clips || clips.length !== lineCount) return null; // stale recordings never play against a changed script
+    return {
+      voiceName: manifest!.voices[key]?.name ?? "",
+      clips: clips.map((c) => ({ url: assetUrl(`audio/personas/${c.file}`), ms: c.ms })),
+    };
+  }, [manifest, key, lineCount]);
+}
 
 export type IntroStatus = "poster" | "playing" | "paused" | "ended";
 
@@ -111,13 +153,24 @@ export interface IntroPlayer {
 
 export function useIntroPlayer(
   lines: PersonaIntroLine[],
-  opts: { voice: SpeechSynthesisVoice | null; pitch: number; muted: boolean },
+  opts: {
+    voice: SpeechSynthesisVoice | null;
+    pitch: number;
+    muted: boolean;
+    audio?: PersonaAudio | null;
+  },
 ): IntroPlayer {
   const [status, setStatus] = useState<IntroStatus>("poster");
   const [beat, setBeat] = useState(0);
   const [speaking, setSpeaking] = useState(false);
   const [progress, setProgress] = useState(0);
-  const durations = useMemo(() => lines.map((l) => estimateMs(l.say ?? l.text)), [lines]);
+  const clips = opts.audio?.clips ?? null;
+  const durations = useMemo(
+    () => (clips ? clips.map((c) => c.ms) : lines.map((l) => estimateMs(l.say ?? l.text))),
+    [lines, clips],
+  );
+  const audioEl = useRef<HTMLAudioElement | null>(null);
+  const audioMode = useRef(false);
 
   const token = useRef(0);
   const timers = useRef<number[]>([]);
@@ -135,7 +188,43 @@ export function useIntroPlayer(
     for (const t of timers.current) window.clearTimeout(t);
     timers.current = [];
     if (speechSupported()) window.speechSynthesis.cancel();
+    const a = audioEl.current;
+    if (a) {
+      a.onended = null;
+      a.onerror = null;
+      a.pause();
+    }
     setSpeaking(false);
+  }, []);
+
+  /** Play clip i from where the audio element is (0 for a fresh line); returns false if it cannot play. */
+  const playClip = useCallback((i: number, my: number, advance: () => void, fresh: boolean) => {
+    const clip = optsRef.current.audio?.clips[i];
+    if (!clip) return false;
+    audioEl.current ??= new Audio();
+    const a = audioEl.current;
+    if (fresh || !a.src.endsWith(clip.url)) {
+      a.src = clip.url;
+      a.currentTime = 0;
+    }
+    a.onended = advance;
+    a.onerror = advance;
+    audioMode.current = true;
+    setSpeaking(true);
+    void a.play().catch(() => {
+      // autoplay refused or the file failed: fall back to timing the caption
+      if (token.current === my)
+        timers.current.push(
+          window.setTimeout(advance, Math.max(0, clip.ms - a.currentTime * 1000)),
+        );
+    });
+    const next = optsRef.current.audio?.clips[i + 1];
+    if (next) {
+      const warm = new Audio();
+      warm.preload = "auto";
+      warm.src = next.url;
+    }
+    return true;
   }, []);
 
   const runRef = useRef<(i: number) => void>(() => {});
@@ -162,7 +251,10 @@ export function useIntroPlayer(
       );
     };
     const { voice, pitch, muted } = optsRef.current;
-    if (!muted && speechSupported() && voice) {
+    audioMode.current = false;
+    if (!muted && optsRef.current.audio && playClip(i, my, advance, true)) {
+      // recorded clip: `ended` advances, the progress clock reads the audio position
+    } else if (!muted && speechSupported() && voice) {
       const u = new SpeechSynthesisUtterance(spoken);
       u.voice = voice;
       u.lang = voice.lang;
@@ -189,6 +281,11 @@ export function useIntroPlayer(
   useEffect(() => {
     if (status !== "playing") return;
     const id = window.setInterval(() => {
+      const a = audioEl.current;
+      if (audioMode.current && a && a.duration > 0) {
+        setProgress(Math.min(1, a.currentTime / a.duration));
+        return;
+      }
       const t = (performance.now() - startedAt.current) / (durations[beatRef.current] ?? 1);
       setProgress(Math.min(1, Math.max(boundary.current ?? 0, t)));
     }, 100);
@@ -196,10 +293,28 @@ export function useIntroPlayer(
   }, [status, durations]);
 
   const play = useCallback(() => {
-    setStatus("playing");
     const s = statusRef.current;
+    setStatus("playing");
+    // a paused recorded clip carries on from where it stopped
+    if (s === "paused" && audioMode.current && audioEl.current?.ended) {
+      runRef.current(beatRef.current + 1); // paused just as the clip finished: go on to the next line
+      return;
+    }
+    if (s === "paused" && audioMode.current && !optsRef.current.muted) {
+      token.current += 1;
+      const my = token.current;
+      const i = beatRef.current;
+      const advance = () => {
+        if (token.current !== my) return;
+        setSpeaking(false);
+        timers.current.push(
+          window.setTimeout(() => token.current === my && runRef.current(i + 1), GAP_MS),
+        );
+      };
+      if (playClip(i, my, advance, false)) return;
+    }
     runRef.current(s === "poster" || s === "ended" ? 0 : beatRef.current);
-  }, []);
+  }, [playClip]);
   const pause = useCallback(() => {
     stopAll();
     setStatus("paused");
@@ -212,7 +327,7 @@ export function useIntroPlayer(
   // Muting, or picking another voice, restarts the current line in the new mode.
   useEffect(() => {
     if (statusRef.current === "playing") runRef.current(beatRef.current);
-  }, [opts.muted, opts.voice]);
+  }, [opts.muted, opts.voice, opts.audio]);
 
   // Stop when the page is hidden, and always on unmount (another persona, another tab).
   useEffect(() => {

@@ -1,0 +1,20 @@
+{
+  "_note": "ElevenLabs voice for each persona's intro (scripts/generate_persona_audio.py). All are Voice Library voices verified for Indian-accented English (en-IN) on eleven_turbo_v2_5, chosen to match each persona's gender, age and setting.",
+  "model": "eleven_turbo_v2_5",
+  "output_format": "mp3_44100_96",
+  "voice_settings": { "stability": 0.5, "similarity_boost": 0.75, "style": 0, "use_speaker_boost": true, "speed": 0.95 },
+  "voices": {
+    "old-mysuru/male": { "voice_id": "zrXpgZCPDu2t9STPqxVL", "name": "Bala - Soft and Conversational", "why": "warm, natural South Indian tone" },
+    "bayaluseeme/male": { "voice_id": "cn9tQG5lDYsfG70MdIj0", "name": "Karthik - The south Indian voice", "why": "middle-aged South Indian narrator" },
+    "karavali/male": { "voice_id": "ATYMJR0SnaN1mSrsnZEi", "name": "Harish - Professional, Indian, neutral", "why": "plain, neutral narration" },
+    "malnad/male": { "voice_id": "Nl7pP9F3YZREQoKMhedW", "name": "Manish Gadia - Confident tone", "why": "an Indian man in his 40s, a little more polished" },
+    "kitturu-karnataka/male": { "voice_id": "ZmeWjOc9G7GA2H2hVQnI", "name": "Ranbir M - Natural Expressive Agent", "why": "keeps natural pauses and hesitations" },
+    "kalyana-karnataka/male": { "voice_id": "8oCRqOcDUgRwXV5F71Ea", "name": "Ravi - Warm, Clear & Natural", "why": "warm, clear, natural" },
+    "old-mysuru/female": { "voice_id": "caMurMrvWp0v3NFJALhl", "name": "Roopa - Natural & Unpolished", "why": "deliberately unpolished, Tier-2/3 feel" },
+    "bayaluseeme/female": { "voice_id": "4Mhjd1Q9JRWcKfDQvn26", "name": "Gaia - Customer Service Agent", "why": "calm, warm, unhurried" },
+    "karavali/female": { "voice_id": "ch9J8IB6HKlEHQaWQFdk", "name": "Surabhi - Warm Indian Female", "why": "warm, friendly, middle-aged" },
+    "malnad/female": { "voice_id": "4uN5YeBITFJsw8t45RIV", "name": "Navya Kannan - Conversational", "why": "warm South Indian voice, professional and authentic" },
+    "kitturu-karnataka/female": { "voice_id": "BpHR2xqius01V38lkvV9", "name": "Ritika - Calm Online Tutor", "why": "calm, unhurried" },
+    "kalyana-karnataka/female": { "voice_id": "AENoBp8y6Xe7vGqG1oj4", "name": "Tripti - Kids Moral & Folk Tale Voice", "why": "warm, mother-like storyteller" }
+  }
+}

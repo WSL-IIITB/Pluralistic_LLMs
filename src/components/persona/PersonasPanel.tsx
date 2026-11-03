@@ -674,6 +674,7 @@ function PersonaView({ regionId, personaId }: { regionId: string; personaId: str
         <PersonaIntro
           key={`intro-${regionId}-${personaId}`}
           card={card}
+          regionId={regionId}
           personaId={personaId}
           color={region.color}
           regionName={region.shortName}
