@@ -1,0 +1,120 @@
+{
+ "model": "eleven_turbo_v2_5",
+ "format": "mp3_44100_96",
+ "voices": {
+  "old-mysuru/male": {
+   "voice": "zrXpgZCPDu2t9STPqxVL",
+   "name": "Bala - Soft and Conversational"
+  },
+  "old-mysuru/female": {
+   "voice": "caMurMrvWp0v3NFJALhl",
+   "name": "Roopa - Natural & Unpolished"
+  }
+ },
+ "clips": {
+  "old-mysuru/male": [
+   {
+    "file": "old-mysuru-male-01.mp3",
+    "ms": 7330,
+    "chars": 113
+   },
+   {
+    "file": "old-mysuru-male-02.mp3",
+    "ms": 8420,
+    "chars": 99
+   },
+   {
+    "file": "old-mysuru-male-03.mp3",
+    "ms": 5170,
+    "chars": 104
+   },
+   {
+    "file": "old-mysuru-male-04.mp3",
+    "ms": 4390,
+    "chars": 87
+   },
+   {
+    "file": "old-mysuru-male-05.mp3",
+    "ms": 3450,
+    "chars": 63
+   },
+   {
+    "file": "old-mysuru-male-06.mp3",
+    "ms": 4360,
+    "chars": 79
+   },
+   {
+    "file": "old-mysuru-male-07.mp3",
+    "ms": 3290,
+    "chars": 59
+   },
+   {
+    "file": "old-mysuru-male-08.mp3",
+    "ms": 8340,
+    "chars": 127
+   },
+   {
+    "file": "old-mysuru-male-09.mp3",
+    "ms": 5430,
+    "chars": 89
+   },
+   {
+    "file": "old-mysuru-male-10.mp3",
+    "ms": 6770,
+    "chars": 93
+   }
+  ],
+  "old-mysuru/female": [
+   {
+    "file": "old-mysuru-female-01.mp3",
+    "ms": 8380,
+    "chars": 93
+   },
+   {
+    "file": "old-mysuru-female-02.mp3",
+    "ms": 8790,
+    "chars": 107
+   },
+   {
+    "file": "old-mysuru-female-03.mp3",
+    "ms": 7210,
+    "chars": 116
+   },
+   {
+    "file": "old-mysuru-female-04.mp3",
+    "ms": 4970,
+    "chars": 80
+   },
+   {
+    "file": "old-mysuru-female-05.mp3",
+    "ms": 7770,
+    "chars": 119
+   },
+   {
+    "file": "old-mysuru-female-06.mp3",
+    "ms": 7100,
+    "chars": 96
+   },
+   {
+    "file": "old-mysuru-female-07.mp3",
+    "ms": 6360,
+    "chars": 82
+   },
+   {
+    "file": "old-mysuru-female-08.mp3",
+    "ms": 9290,
+    "chars": 130
+   },
+   {
+    "file": "old-mysuru-female-09.mp3",
+    "ms": 5880,
+    "chars": 89
+   },
+   {
+    "file": "old-mysuru-female-10.mp3",
+    "ms": 8630,
+    "chars": 93
+   }
+  ]
+ }
+}
