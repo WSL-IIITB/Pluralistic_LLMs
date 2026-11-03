@@ -56,13 +56,6 @@ function Stat({ value, label }: { value: string | number; label: string }) {
   );
 }
 
-const WHY_SHORT: Record<string, string> = {
-  supported: "supported",
-  partly: "partly",
-  "not-supported": "not supported",
-  "no-evidence": "no evidence",
-};
-
 function valuesFor(
   p: DistrictProfile,
   method: Method,
@@ -212,43 +205,6 @@ function KarnatakaTable({
           );
         })}
       </div>
-    </div>
-  );
-}
-
-function VerdictTally({ research }: { research: Record<string, DistrictResearch> }) {
-  const tally = (method: Method) => {
-    const why: Record<string, number> = {};
-    for (const r of Object.values(research)) {
-      for (const e of r.dominantFactorWhy?.entries ?? [])
-        if (e.method === method) why[e.verdict] = (why[e.verdict] ?? 0) + 1;
-    }
-    return { why };
-  };
-  const line = (counts: Record<string, number>, short: Record<string, string>) =>
-    Object.entries(counts)
-      .sort((a, b) => b[1] - a[1])
-      .map(([k, n]) => `${short[k] ?? k} ${n}`)
-      .join(" · ") || "none";
-  return (
-    <div className="grid gap-2 @lg:grid-cols-2">
-      {(["state", "district"] as const).map((m) => {
-        const t = tally(m);
-        return (
-          <div
-            key={m}
-            className="rounded-xl border border-panel-border bg-secondary/30 px-3 py-2.5 text-[11.5px]"
-          >
-            <p className="font-medium text-foreground">
-              {m === "state" ? "State-level factor rows" : "District-level factor rows"}
-            </p>
-            <p className="mt-1 text-muted-foreground">
-              <span className="text-foreground/80">“Why dominant” research:</span>{" "}
-              {line(t.why, WHY_SHORT)}
-            </p>
-          </div>
-        );
-      })}
     </div>
   );
 }
@@ -477,15 +433,14 @@ export function NitiPanel() {
                   {data.methods.district}
                 </li>
                 <li>
-                  The value column has no label in the workbooks, and what it measures could not be
-                  verified. Values are shown as published; they are not percentages to compare
-                  across districts, and the two methods are never blended.
+                  The value column has no label in the workbooks, so what it measures is not stated.
+                  Values are shown as published; they are not percentages to compare across
+                  districts, and the two methods are never blended.
                 </li>
                 <li>
-                  A dominant factor is a statistical flag, not a proven cause. Our research checked
-                  each Karnataka flag against local evidence: none was supported by
-                  district-specific proof (see the summary below, and each district's sheet on the
-                  map).
+                  A dominant factor is a statistical flag: a condition that tracks dropout across
+                  districts, not a proven cause. How each flag could connect to what the news
+                  reports is above, and in each district&apos;s sheet on the map.
                 </li>
                 <li>
                   * The dropout rate comes from a different source, the LKI-SSM casefile, and is
@@ -504,15 +459,6 @@ export function NitiPanel() {
                 <p className="text-[12px] text-muted-foreground">Loading district data…</p>
               )}
             </Section>
-
-            {research && (
-              <Section
-                title="What our research found about these flags (Karnataka)"
-                hint="Two checks per factor row: an earlier check against local evidence, and the later “why is this factor dominant here?” deep research, page-verified."
-              >
-                <VerdictTally research={research} />
-              </Section>
-            )}
 
             <Section
               title="All of India: state-level factor by state"

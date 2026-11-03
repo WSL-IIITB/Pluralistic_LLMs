@@ -145,6 +145,11 @@ def source_hash() -> str:
 SSLC_NOTE = " (NOTE: SSLC pass rate/rank, not a dropout rate; never compare across years)"
 
 
+# Reasoning lines (possible links) mention the SSLC exam and Karnataka ranks without being pass-rate figures; this
+# prefix keeps sslc() from tagging them and is stripped before the line is stored.
+NO_SSLC_TAG = "\x00"
+
+
 def sslc(line: str) -> str:
     """Tag lines about SSLC pass rates/ranks so the model cannot read them as dropout or as a trend."""
     return line + SSLC_NOTE if re.search(r"SSLC", line) and re.search(r"pass|rank|result|topper", line, re.I) else line
@@ -267,28 +272,33 @@ def build() -> dict:
             L.append("What is being done locally:")
             for r in d["responses"]:
                 L.append(f"- {r['text']} {cites(did, r['sources'])}".rstrip())
-        checks = d.get("officialFactorCheck") or []
-        if checks:
-            L.append("Evidence check on the UIDAI/NITI factors (for questions about evidence or proof; when asked WHY a factor is dominant, give the possible reasons instead):")
-            for c in checks:
+        # Only what local sources showed goes in; a check that found nothing adds no line (the chat explains possible
+        # links instead of reporting what the research did not find).
+        shown = [c for c in d.get("officialFactorCheck") or [] if c["verdict"] != "no-evidence"]
+        if shown:
+            L.append("What local sources say about the UIDAI/NITI factors:")
+            for c in shown:
                 L.append(f"- {c['method']}-method factor \"{c['factor']}\": {c['verdict']}. {c['note']} {cites(did, c['sources'])}".rstrip())
         why = d.get("dominantFactorWhy") or {}
         if why.get("entries"):
-            L.append("Deep-research answers on why each dominant factor may matter here (the verdict is the evidence check: report it only when asked for evidence or proof; each proof item was checked against its page):")
+            L.append("How each UIDAI/NITI dominant factor could matter here:")
             for e in why["entries"]:
                 def proofs(scope: str) -> str:
                     return " ".join(
                         f"{p['claim']} " + "".join(f"[{why_to_global[did][i]}]" for i in p["sources"] if i in why_to_global[did])
                         for p in e["proof"] if p["scope"] == scope
                     )
-                parts = [f"- {e['method']}-method factor \"{e['factor']}\": {e['verdict']}. Model-written reasoning, not verified (SYNTHESIS): {e['why']}"]
+                parts = [f"- {e['method']}-method factor \"{e['factor']}\":"]
                 if e.get("mechanism"):
-                    parts.append(f"How it could work (REASONING): {e['mechanism']}")
+                    parts.append(f"how it could work (REASONING): {e['mechanism']}.")
+                if e["verdict"] in ("supported", "partly") and e.get("why"):
+                    parts.append(f"Model-written reasoning (SYNTHESIS): {e['why']}")
                 if proofs("district"):
                     parts.append(f"Proof about this district (DISTRICT): {proofs('district')}")
                 if proofs("general"):
                     parts.append(f"General research from elsewhere, not local evidence (GENERAL): {proofs('general')}")
-                L.append(" ".join(parts))
+                if len(parts) > 1:
+                    L.append(NO_SSLC_TAG + " ".join(parts))
         for a in pres["districts"].get(did, {}).get("areas", []):
             rates = ", ".join(x for x in [
                 f"2023-24 {a['dropout2023_24']:.1f}%" if a.get("dropout2023_24") is not None else "",
@@ -300,21 +310,27 @@ def build() -> dict:
             L.append(f"NITI prescriptive model, {a['area']} (correlation across districts, not proof of cause; NITI workbook dropout rate {rates}, a different source from the casefile rate): "
                      f"top three changes (feasible ranking) {top}. NITI's own published ranking: {', '.join(pres_info[n]['short'] for n in a['topNiti'])}. Where it ranks lowest in Karnataka: {weak}.")
         pre = research[did].get("prescriptiveEvidence") or {}
-        if pre.get("changes"):
-            L.append("Verified web sources on those top changes (each page re-opened and checked):")
-            for c in pre["changes"]:
+        with_reports = [c for c in pre.get("changes", []) if c["findings"]]
+        if with_reports:
+            L.append("Local reports on those top changes (each page checked):")
+            for c in with_reports:
                 cl = " ".join(f"{k['claim']} ({'statewide' if k['scope'] == 'state' else k['stance']}) " + "".join(
                     f"[{pre_to_global[did][i]}]" for i in k["sources"] if i in pre_to_global[did]) for k in c["findings"])
-                L.append(f"- {pres_info[c['factor']]['short']}: {cl or 'no verified source about the district in this pass.'}".rstrip())
+                L.append(f"- {pres_info[c['factor']]['short']}: {cl}".rstrip())
         for c in nvd_districts.get(did, {}).get("topChanges", []):
-            L.append(f"- Reconciliation: {c['line']}")
+            L.append(f"{NO_SSLC_TAG}- {c['short']} (model's #{c['rank']}), how it could connect to the news here (REASONING): {c['line']}")
+        nd = nvd_districts.get(did)
+        if nd and nd.get("connections"):
+            L.append("How the news and the UIDAI/NITI data may connect here (REASONING: possible links, not findings):")
+            for c in nd["connections"]:
+                L.append(f"{NO_SSLC_TAG}- {c['title']}: {c['text']} {cites(did, c.get('reasonSources', []))}".rstrip())
         if d["headlines"]:
             L.append("Recent coverage:")
             for h in d["headlines"][:3]:
                 L.append(f"- {h['outlet']}{(' ' + h['date']) if h['date'] else ''}: {h['title']} - {h['takeaway']}")
         if d["gaps"]:
             L.append(f"Gaps (what we could not find): {d['gaps']}")
-        districts[did] = "\n".join(sslc(l) for l in L)
+        districts[did] = "\n".join(l[len(NO_SSLC_TAG):] if l.startswith(NO_SSLC_TAG) else sslc(l) for l in L)
 
     # ---- region sections -----------------------------------------------------------------------
     sv = run.get("storyVsOfficial", {})
@@ -367,35 +383,31 @@ def build() -> dict:
     cl = s["news"]["childLabour"]
     hl = s["news"]["headlines"]
     nat = s["data"]["national"]
-    N = ["NEWS VS DATA: why the news research and the UIDAI/NITI data name different main factors. Built from counts over the "
-         "verified research files and the two workbooks (no model-written text), except where marked NOT TESTED.",
+    N = ["NEWS VS DATA: how the news research and the UIDAI/NITI data, which name different main factors, may connect. Counts come "
+         "from the research files and the two workbooks; the links are general reasoning (REASONING), shown as possible links.",
          f"Overview: {s['lead']}",
-         "What the news says (districts where the research found each reason, of " + str(s["districts"]) + "): " +
-         "; ".join(f"{c['label']} {c['districts']} ({c['strong']} strong, {c['moderate']} moderate, {c['thin']} thin reasons)" for c in s["news"]["categories"]) + ".",
-         f"Child labour is named outright in {len(cl['districts'])} districts ({', '.join(cl['districts'])}): {cl['reasons']} reasons, "
-         f"{cl['strong']} strong, {cl['moderate']} moderate, {cl['thin']} thin evidence. Of {hl['total']} headlines, {hl['childMarriage']} are about child marriage, "
-         f"{hl['childLabour']} about child labour and {hl['language']} about the language of instruction.",
+         "What the news says (districts whose news reports each reason, of " + str(s["districts"]) + "): " +
+         "; ".join(f"{c['label']} {c['districts']}" for c in s["news"]["categories"]) + ".",
+         f"Child labour is named outright in {len(cl['districts'])} districts ({', '.join(cl['districts'])}). Of {hl['total']} headlines, "
+         f"{hl['childMarriage']} are about child marriage, {hl['childLabour']} about child labour and {hl['language']} about the language of instruction.",
          "What the data says: state-level factor " + "; ".join(f"{f['factor']} on {f['rows']} Karnataka rows" for f in s["data"]["stateFactors"]) +
          ". District-level factor " + "; ".join(f"{f['factor']} on {f['rows']} rows" for f in s["data"]["districtFactors"]) +
-         f". Across India the district-level factor '{nat['topDistrictFactor']}' is named for {nat['topDistrictFactorRows']} of {nat['rows']} districts "
-         f"(rank {nat['topDistrictFactorRank']} of {len(nat['districtFactorNames'])} factors). Factors in the workbooks that measure child labour, marriage, migration or income: "
-         f"{', '.join(nat['socialFactors']) or 'none'}.",
-         "What our checks found: 'why is this factor dominant?' deep research, district-level rows: " +
-         ", ".join(f"{v} {k}" for k, v in sorted(s["found"]["why"]["district"].items())) + "; state-level rows: " +
-         ", ".join(f"{v} {k}" for k, v in sorted(s["found"]["why"]["state"].items())) +
-         f". Verified proof for the district-level factor: about a Karnataka district itself {s['found']['districtLevelProof']['district']}; general proof from elsewhere "
-         f"{s['found']['districtLevelProof']['general']} items ({'; '.join(s['found']['generalClaims'])}). News reasons that touch the language of instruction: " +
-         ("; ".join(f"{x['name']} \"{x['factor']}\" ({x['evidence']})" for x in s["news"]["touchingLanguage"]) or "none") + ".",
-         "Why they differ:"]
-    for i, d in enumerate(s["differ"], 1):
+         f". Across India the district-level factor '{nat['topDistrictFactor']}' is named for {nat['topDistrictFactorRows']} of {nat['rows']} districts. "
+         "The workbooks' factors are all school, teacher, inspection, household-amenity or women's-schooling indicators; "
+         f"factors that measure child labour, marriage, migration or income: {', '.join(nat['socialFactors']) or 'none'}.",
+         "Where they already meet: news reasons about the language of instruction: " +
+         ("; ".join(f"{x['name']} \"{x['factor']}\"" for x in s["meet"]["touchingLanguage"]) or "none") +
+         (f". Research from elsewhere: {'; '.join(s['meet']['generalClaims'])}." if s["meet"]["generalClaims"] else "."),
+         "How they connect (REASONING):"]
+    for i, d in enumerate(s["connections"], 1):
         N.append(f"{i}. {d['title']}: {d['text']}")
-    N.append(f"How both could be true (NOT TESTED, a hypothesis): {s['connect']['text']} {s['connect']['untested']}")
-    N.append("Per district (news: most-documented reason groups | data: district-level factor | news reasons touching that factor | 'why dominant' verdict):")
+    N.append("Per district (news: main reason groups | data: district-level factor with its share and rank among Karnataka's 35 rows | first possible link):")
     for did, d in sorted(nvd["districts"].items(), key=lambda kv: kv[1]["name"]):
-        dfac = next((f["short"] for f in d["data"] if f["method"] == "district"), "none")
-        touch = "; ".join(f"\"{x['factor']}\" ({x['evidence']})" for x in d["touching"]) or "none"
-        N.append(f"- {d['name']}: news {', '.join(d['news']['topCategories'][:3])}{' (child labour named)' if d['news']['childLabour'] else ''} | "
-                 f"data {dfac} | touching: {touch} | why: {', '.join(d['found']['district']['why']) or 'not researched'}")
+        drow = next((f for f in d["data"] if f["method"] == "district"), None)
+        dfac = (f"{drow['short']} {drow['share']:.1f}% (rank {drow['shareRank']})" if drow and drow.get("share") is not None
+                else (drow["short"] if drow else "none"))
+        first = next((c for c in d["connections"] if c["title"] != "Where they already meet"), None)
+        N.append(f"- {d['name']}: news {', '.join(d['news']['topCategories'][:3])} | data {dfac} | {first['title']}: {first['text'] if first else ''}")
     news_vs_data = "\n".join(N)
 
     # ---- NITI prescriptive model (public/data/niti-prescriptive.json) ---------------------------

@@ -174,7 +174,7 @@
     "question": "Why is household sanitation the dominant factor in Mandya, and what proof is there?",
     "include": [
       "(toilet|menstrua|illness|infection|diarrhoea|privacy|safety)",
-      "(partly|general|elsewhere|no local|not local|no evidence|not found|not proven|possible)"
+      "(partly|general|elsewhere|no local|not local|no evidence|not found|not proven|possible|does not prove|not proven|no specific local evidence|does not provide)"
     ],
     "exclude": [
       "(proves?|proved|clearly shows) that (sanitation|the factor)",
@@ -232,7 +232,7 @@
     "category": "uidai",
     "question": "Is English-medium schooling a main driver of dropout in Mandya?",
     "include": [
-      "(no evidence|not found|did not find|only general|research from elsewhere|statistical|cannot|not a cause|not established|not show)"
+      "(no evidence|not found|did not find|only general|research from elsewhere|statistical|cannot|not a cause|not established|not show|does not prove|not proven|no specific local evidence|does not provide|does not document|not documented)"
     ],
     "exclude": [
       "(?:^|[.!?]\\s+)(yes\\b|english[- ]medium (schooling )?(is|are) (a |the )?(main|dominant|primary|key) (driver|cause|reason))"
@@ -321,9 +321,9 @@
     "category": "news vs data",
     "question": "why does child labour seem the most dominant factor according to news articles but in the data the medium of instruction is showing up as the dominant factor",
     "include": [
-      "(different question|answer(s)? (to )?different|not the same question)",
+      "(different question|two views|same problem|connect\\w*|link\\w*|marker)",
       "(cannot|can't|could never|does not|doesn't|not)[^.]{0,80}(measure|include|capture|see|indicator|factor)[^.]{0,60}(child labour|labour)|(child labour|labour)[^.]{0,80}(not|never)[^.]{0,40}(indicator|factor|measured|in the data|among)",
-      "(32 of 35|263)"
+      "(32 of 35|263|English-medium)"
     ],
     "exclude": [
       "english[- ]medium[^.]{0,40}(is|are) (a |the )?(main|dominant|primary|key) (driver|cause|reason)",
@@ -337,7 +337,7 @@
     "include": [
       "\\[S\\d+\\]",
       "(cotton|child labour)",
-      "(statistical|flag|not a (proven )?cause|does not (prove|mean)|different question|cannot|can't)"
+      "(statistical|flag|not a (proven )?cause|does not (prove|mean)|different question|cannot|can't|\\bmay\\b|\\bcould\\b|might|possible)"
     ]
   },
   {

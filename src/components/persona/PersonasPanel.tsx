@@ -9,7 +9,6 @@
 import { ChevronDown } from "lucide-react";
 import { useEffect, useState } from "react";
 
-import { WHY_STYLE } from "@/components/dashboard/map/factorWhyStyle";
 import { PersonaIntro } from "@/components/persona/PersonaIntro";
 import { useTheme } from "@/lib/theme";
 import {
@@ -396,53 +395,16 @@ function DominantFactors({ card, regionId }: { card: PersonaCard; regionId: stri
                 </p>
               )}
               <p className="mt-2 text-[12px] leading-snug text-foreground/90">{b.line}</p>
-              <div className="mt-2.5 border-t border-panel-border pt-2">
-                <p className="text-[10px] font-medium tracking-wide text-muted-foreground uppercase">
-                  What the research found in {districtName}
-                </p>
-                {research.status === "loading" ? (
-                  <p className="mt-1 text-[11px] text-muted-foreground">Loading…</p>
-                ) : entries.length > 0 ? (
-                  <div className="mt-1.5 space-y-1.5">
-                    {entries.slice(0, 2).map((e, i) => (
-                      <div key={i}>
-                        <span
-                          className={
-                            "rounded-full px-2 py-0.5 text-[10px] font-medium " +
-                            WHY_STYLE[e.verdict].className
-                          }
-                        >
-                          {WHY_STYLE[e.verdict].label}
-                        </span>
-                        {entries.length > 1 && e.area && (
-                          <span className="ml-1.5 text-[10.5px] text-muted-foreground">
-                            {e.area}
-                          </span>
-                        )}
-                        {i === 0 && (
-                          <p className="mt-1 text-[11px] leading-snug text-muted-foreground">
-                            Verified proof:{" "}
-                            {
-                              entries.flatMap((x) => x.proof).filter((x) => x.scope === "district")
-                                .length
-                            }{" "}
-                            about this district,{" "}
-                            {
-                              entries.flatMap((x) => x.proof).filter((x) => x.scope === "general")
-                                .length
-                            }{" "}
-                            from elsewhere.
-                          </p>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                ) : (
-                  <p className="mt-1 text-[11px] leading-snug text-muted-foreground">
-                    Not yet researched for this district.
+              {entries.find((x) => x.mechanism) && (
+                <div className="mt-2.5 border-t border-panel-border pt-2">
+                  <p className="text-[10px] font-medium tracking-wide text-muted-foreground uppercase">
+                    How it could work in {districtName}
                   </p>
-                )}
-              </div>
+                  <p className="mt-1 text-[11px] leading-snug text-muted-foreground">
+                    {entries.find((x) => x.mechanism)!.mechanism}
+                  </p>
+                </div>
+              )}
             </div>
           );
         })}
@@ -450,8 +412,7 @@ function DominantFactors({ card, regionId }: { card: PersonaCard; regionId: stri
       <div className="flex flex-wrap items-center justify-between gap-2">
         <p className="max-w-[560px] text-[10.5px] leading-snug text-muted-foreground">
           The sentences above are an interpretation of this persona&apos;s profile, written
-          conditionally: the persona data does not measure these factors. The research verdicts are
-          real, checked against cited pages.
+          conditionally: the persona data does not measure these factors.
         </p>
         <button
           type="button"

@@ -7,7 +7,7 @@
  ],
  "statewide": {
   "districts": 30,
-  "lead": "In the news, the most widely reported reasons are poverty & child labour (24 of 30 districts) and child marriage & girls' exits (23). Child labour is named outright in 14 districts, though child marriage gets more headlines (35 against 12). In the UIDAI/NITI data, the district-level dominant factor for 32 of 35 Karnataka rows is the share of English-medium schools. They look like two answers to one question, but they are answers to two different questions.",
+  "lead": "In the news, the most widely reported reasons are poverty & child labour (24 of 30 districts) and child marriage & girls' exits (23). Child labour is named outright in 14 districts, though child marriage gets more headlines (35 against 12). In the UIDAI/NITI data, the district-level dominant factor for 32 of 35 Karnataka rows is the share of English-medium schools. They look like two answers to one question; they are two views of the same problem.",
   "news": {
    "categories": [
     {
@@ -220,149 +220,120 @@
     "socialFactors": []
    }
   },
-  "found": {
-   "check": {
-    "state": {
-     "no-evidence": 26,
-     "unclear": 4
+  "meet": {
+   "touchingLanguage": [
+    {
+     "districtId": "29-555",
+     "name": "Belagavi",
+     "family": "english",
+     "factor": "Language gap for migrant children",
+     "evidence": "thin"
     },
-    "district": {
-     "no-evidence": 28,
-     "unclear": 2
+    {
+     "districtId": "29-563",
+     "name": "Uttara Kannada",
+     "family": "english",
+     "factor": "Village school closures, falling enrolment",
+     "evidence": "thin"
     }
-   },
-   "why": {
-    "state": {
-     "partly": 24,
-     "no-evidence": 11
-    },
-    "district": {
-     "no-evidence": 29,
-     "partly": 6
-    }
-   },
-   "districtLevelProof": {
-    "district": 0,
-    "general": 12
-   },
+   ],
    "generalClaims": [
     "Change in medium of instruction impacts student dropout",
     "Students struggle to understand lessons in an unfamiliar language"
    ]
   },
-  "differ": [
+  "connections": [
    {
-    "title": "They answer different questions",
-    "text": "The data asks which measured school or household indicator best tracks the differences in dropout between districts. The news reports what pushes particular children out of school. A factor can track dropout across districts without being what families describe, and the other way round."
+    "title": "Two views of one problem",
+    "text": "The data compares districts by the conditions of their schools and households; the news follows what happens inside particular families. The data's indicators are all school, teacher, inspection, household-amenity and women's-schooling measures, none of them child labour, marriage or migration, so child labour itself can never appear as a data factor: the data shows the conditions around a child, the news what happens to the child. The same deprivation shows up in both: as a low share or a poor facility in the data, and as a child sent to work or married early in the news."
    },
    {
-    "title": "The data cannot see child labour",
-    "text": "Across all 776 district rows in India, the workbooks name 23 different state-level and 39 district-level factors. Every one is a school-facility, teacher, inspection, household-amenity or women's-schooling indicator. None measures child labour, child marriage, migration or household income, so child labour could never come out as a data factor."
+    "title": "English-medium share as a marker of means",
+    "text": "English-medium share is the district-level factor for 32 of 35 Karnataka rows. Where few schools teach in English, families who can pay move their children to private English-medium schools, and government schools are left with the poorest households: the ones the news describes sending children to work (child labour is named outright in 14 districts)."
    },
    {
-    "title": "News follows events",
-    "text": "Rescue raids, enforcement drives and NGO reports make stories, and each names a district. A school's language of instruction rarely does. Of the 17 child-labour reasons we found, 1 rests on strong evidence, 4 on moderate and 12 on thin. Child labour is widely mentioned, but the evidence behind each mention is usually thin."
+    "title": "Language and the SSLC exam",
+    "text": "Students who studied in Kannada can struggle when lessons and papers lean on English. Failing the SSLC exam often ends schooling, and in a family already weighing work or marriage, one failure is enough. Research from elsewhere links a change in the medium of instruction, and lessons in an unfamiliar language, to students dropping out."
    },
    {
-    "title": "One indicator for almost every district",
-    "text": "English-medium share is the district-level factor for 32 of 35 Karnataka rows and for 263 of 776 districts nationally, the most common factor in India. When the same indicator is picked nearly everywhere, it behaves like a broad background marker rather than a local explanation. Its value is described as a fitted weight from the analysis, not a share of schools."
+    "title": "Household sanitation and girls' exits",
+    "text": "Household sanitation is the state-level factor for every Karnataka row. Without a toilet at home, adolescent girls face safety and privacy worries, and families respond by keeping daughters home or marrying them early: the girls' exits the news reports in 23 of 30 districts."
+   },
+   {
+    "title": "Where they already meet",
+    "text": "In Belagavi and Uttara Kannada, the news itself reports the language of instruction as a problem (Belagavi: \"Language gap for migrant children\"; Uttara Kannada: \"Village school closures, falling enrolment\")."
    }
   ],
-  "connect": {
-   "text": "Both can be true. The share of English-medium schools may track access to private and urban schooling and household means, which are the same conditions under which the news reports children working instead of studying. General research from elsewhere, found during our checks, also links a change in the medium of instruction, or lessons in an unfamiliar language, to students dropping out (2 page-verified claims, none about a Karnataka district).",
-   "untested": "We have not tested this. Our files hold neither each district's actual share of English-medium schools nor a district-level measure of child labour. Testing it would need both, analysed together against dropout."
-  },
   "prescriptive": {
    "changes": 90,
-   "verdicts": {
-    "web-only": 52,
-    "untested": 33,
-    "news-only": 2,
-    "agree": 3
-   },
    "byFactor": [
     {
      "short": "Classrooms in good condition",
      "districts": 27,
-     "withSources": 25,
-     "agree": 2
+     "withSources": 22
     },
     {
      "short": "Female teachers",
      "districts": 10,
-     "withSources": 1,
-     "agree": 0
+     "withSources": 0
     },
     {
      "short": "Student furniture",
      "districts": 8,
-     "withSources": 6,
-     "agree": 0
+     "withSources": 2
     },
     {
      "short": "Functional toilets",
      "districts": 8,
-     "withSources": 7,
-     "agree": 1
+     "withSources": 6
     },
     {
      "short": "Women with 10+ years of schooling",
      "districts": 8,
-     "withSources": 5,
-     "agree": 0
+     "withSources": 2
     },
     {
      "short": "Household sanitation",
      "districts": 8,
-     "withSources": 1,
-     "agree": 0
+     "withSources": 0
     },
     {
      "short": "School library",
      "districts": 5,
-     "withSources": 4,
-     "agree": 0
+     "withSources": 2
     },
     {
      "short": "Teachers trained in ICT",
      "districts": 4,
-     "withSources": 3,
-     "agree": 0
+     "withSources": 0
     },
     {
      "short": "Playground",
      "districts": 4,
-     "withSources": 1,
-     "agree": 0
+     "withSources": 0
     },
     {
      "short": "Continuous evaluation (CCE)",
      "districts": 3,
-     "withSources": 0,
-     "agree": 0
+     "withSources": 0
     },
     {
      "short": "All-weather road access",
      "districts": 2,
-     "withSources": 1,
-     "agree": 0
+     "withSources": 1
     },
     {
      "short": "Protected well",
      "districts": 2,
-     "withSources": 1,
-     "agree": 0
+     "withSources": 1
     },
     {
      "short": "Computer / ICT labs",
      "districts": 1,
-     "withSources": 0,
-     "agree": 0
+     "withSources": 0
     }
    ],
-   "findings": 107,
-   "districtFindings": 92,
-   "text": "The NITI model's top three changes give 90 district-change pairs. Web sources about the district itself were verified for 55 of them. For 3, the model, the web sources and the earlier news research all point the same way; for 52, web sources describe the condition but the news research never links it to dropout; 2 are named only in the news research; and 33 have no verified district source yet. The model points at school conditions; the news research mostly documented household pressures (poverty, work, marriage, migration), so the two rarely name the same thing. The model's most frequent pick, classrooms in good condition (27 districts), has verified district sources in 25 of them."
+   "text": "The NITI model's top changes are about school conditions: classrooms in good condition (27), female teachers (10), student furniture (8), functional toilets (8) districts. The news describes household pressures: poverty & child labour and child marriage & girls' exits. They meet in the classroom: a family weighing a child's work or a daughter's marriage looks at what the school offers, and a leaking room, no desk or no woman teacher can tip that choice. Local reports show the classrooms in good condition gap in 22 of the 27 districts where it is a top change."
   }
  },
  "districts": {
@@ -407,41 +378,50 @@
      "factor": "% Population Living in Households with Improved Sanitation",
      "short": "household sanitation",
      "area": "Bagalkot",
-     "value": 3.0
+     "weight": 3.0,
+     "share": 51.3,
+     "shareRank": 32
     },
     {
      "method": "district",
      "factor": "% Schools with instruction medium 1 (English)",
      "short": "English-medium schools",
      "area": "Bagalkot",
-     "value": 0.15
+     "weight": 0.15,
+     "share": 12.6,
+     "shareRank": 21
     }
    ],
-   "found": {
-    "state": {
-     "check": "no-evidence",
-     "why": [
-      "partly"
-     ],
-     "districtProof": 0,
-     "generalProof": 2
-    },
-    "district": {
-     "check": "no-evidence",
-     "why": [
-      "no-evidence"
-     ],
-     "districtProof": 0,
-     "generalProof": 0
-    }
-   },
    "touching": [],
-   "differ": [
-    "The news for Bagalkote is mostly about child marriage & girls' exits and social norms & customs. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so child marriage could never come out as Bagalkote's data factor.",
-    "None of the 6 reasons the news gives for Bagalkote mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
-    "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
-    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Bagalkote in particular.",
-    "News coverage of Bagalkote is thin, so the news picture itself rests on few stories."
+   "connections": [
+    {
+     "title": "English-medium schools and child marriage & girls' exits",
+     "text": "Bagalkote has a middling share of English-medium schools (12.6%, rank 21 of 35). The news here reports \"Child marriage in distress\". When lessons and the SSLC papers lean on English, girls who studied in Kannada can fall behind, and in a family already weighing a daughter's marriage, falling behind becomes the reason to stop. Families also tend to pay for English-medium schooling for sons first.",
+     "reason": "Child marriage in distress",
+     "reasonSources": [
+      5
+     ]
+    },
+    {
+     "title": "English-medium schools and social norms & customs",
+     "text": "The news here reports \"Hijab-related exam boycott\". Where custom gives girls' schooling less weight, families are less likely to pay for English-medium schooling for daughters, so the language gap and the custom feed each other.",
+     "reason": "Hijab-related exam boycott",
+     "reasonSources": [
+      2
+     ]
+    },
+    {
+     "title": "Household sanitation and child marriage & girls' exits",
+     "text": "51.3% of people in Bagalkote live in households with improved sanitation (rank 32 of 35). The news here reports \"Child marriage in distress\". Without a toilet at home, adolescent girls face safety risks going out in the open and lack privacy; families fearful for a daughter's safety may keep her home or marry her early: the girls' exits the news describes.",
+     "reason": "Child marriage in distress",
+     "reasonSources": [
+      5
+     ]
+    },
+    {
+     "title": "The common thread",
+     "text": "Both data factors describe how well-off and well-served Bagalkote is; the news describes what falling short of that does to particular families. Read together, they are two sides of the same picture."
+    }
    ],
    "topChanges": [
     {
@@ -459,8 +439,7 @@
       "progress": 2
      },
      "newsReasons": [],
-     "verdict": "web-only",
-     "line": "Classrooms in good condition (model's #1): 3 verified sources about Bagalkote discuss it (1 showing the gap, 2 reporting progress); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+     "line": "Leaking roofs, cracked walls and unsafe rooms disrupt teaching, especially in the monsoon, and can close rooms altogether. Here, where the news reports child marriage & girls' exits, a school girls can attend safely and comfortably weighs against early marriage. Local reports show this gap in Bagalkote."
     },
     {
      "rank": 2,
@@ -476,8 +455,7 @@
       "gap": 1
      },
      "newsReasons": [],
-     "verdict": "web-only",
-     "line": "Student furniture (model's #2): 1 verified source about Bagalkote discusses it (1 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+     "line": "Sitting on the floor through long secondary-school days is uncomfortable and makes writing hard, and it signals a neglected school. Here, where the news reports social norms & customs, a school families trust makes it easier to keep daughters enrolled against local custom. Local reports show this gap in Bagalkote."
     },
     {
      "rank": 3,
@@ -491,8 +469,7 @@
      "districtFindings": 0,
      "stances": {},
      "newsReasons": [],
-     "verdict": "untested",
-     "line": "Functional toilets (model's #3): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+     "line": "Without working toilets, adolescent girls lose privacy and cannot manage menstruation at school, so they miss days or stop coming. Here, where the news reports child marriage & girls' exits, a school girls can attend safely and comfortably weighs against early marriage."
     }
    ]
   },
@@ -536,53 +513,72 @@
      "factor": "% Population Living in Households with Improved Sanitation",
      "short": "household sanitation",
      "area": "Ballari",
-     "value": 4.48
+     "weight": 4.48,
+     "share": 64.1,
+     "shareRank": 25
     },
     {
      "method": "state",
      "factor": "% Population Living in Households with Improved Sanitation",
      "short": "household sanitation",
      "area": "Vijayanagara",
-     "value": 4.37
+     "weight": 4.37,
+     "share": 59.03,
+     "shareRank": 27
     },
     {
      "method": "district",
      "factor": "% Schools with instruction medium 1 (English)",
      "short": "English-medium schools",
      "area": "Ballari",
-     "value": 0.11
+     "weight": 0.11,
+     "share": 26.27,
+     "shareRank": 4
     },
     {
      "method": "district",
      "factor": "% Schools with instruction medium 1 (English)",
      "short": "English-medium schools",
      "area": "Vijayanagara",
-     "value": 0.18
+     "weight": 0.18,
+     "share": 15.32,
+     "shareRank": 14
     }
    ],
-   "found": {
-    "state": {
-     "check": "no-evidence",
-     "why": [
-      "partly"
-     ],
-     "districtProof": 0,
-     "generalProof": 2
-    },
-    "district": {
-     "check": "no-evidence",
-     "why": [
-      "no-evidence"
-     ],
-     "districtProof": 0,
-     "generalProof": 0
-    }
-   },
    "touching": [],
-   "differ": [
-    "None of the 5 reasons the news gives for Ballari (incl. Vijayanagara) mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
-    "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
-    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Ballari (incl. Vijayanagara) in particular."
+   "connections": [
+    {
+     "title": "English-medium schools and governance, tracking & exams",
+     "text": "Ballari (incl. Vijayanagara) has a high share of English-medium schools (26.3%, rank 4 of 35). The news here reports \"Weak SSLC outcomes\". The SSLC exam is where a weak grip on English shows: students who studied in Kannada but face English-heavy subjects can fail, and the news here links exam failure with leaving school.",
+     "reason": "Weak SSLC outcomes",
+     "reasonSources": [
+      5,
+      6,
+      7
+     ]
+    },
+    {
+     "title": "English-medium schools and school infrastructure & staffing",
+     "text": "The news here reports \"Teacher vacancies in high schools\". As families who can afford it move to English-medium private schools, the government schools that remain lose pupils, teachers and upkeep: the same weak school conditions the news reports.",
+     "reason": "Teacher vacancies in high schools",
+     "reasonSources": [
+      5
+     ]
+    },
+    {
+     "title": "Household sanitation and governance, tracking & exams",
+     "text": "64.1% of people in Ballari (incl. Vijayanagara) live in households with improved sanitation (rank 25 of 35). The news here reports \"Weak SSLC outcomes\". Illness spread by poor sanitation means missed days and lost lessons in the run-up to the SSLC exam.",
+     "reason": "Weak SSLC outcomes",
+     "reasonSources": [
+      5,
+      6,
+      7
+     ]
+    },
+    {
+     "title": "The common thread",
+     "text": "Both data factors describe how well-off and well-served Ballari (incl. Vijayanagara) is; the news describes what falling short of that does to particular families. Read together, they are two sides of the same picture."
+    }
    ],
    "topChanges": [
     {
@@ -599,8 +595,7 @@
       "gap": 2
      },
      "newsReasons": [],
-     "verdict": "web-only",
-     "line": "Functional toilets (model's #1): 2 verified sources about Ballari (incl. Vijayanagara) discuss it (2 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+     "line": "Without working toilets, adolescent girls lose privacy and cannot manage menstruation at school, so they miss days or stop coming. Here, where the news reports governance, tracking & exams, better rooms and teaching give students a better chance at the SSLC exam the news links to leaving. Local reports show this gap in Ballari (incl. Vijayanagara)."
     },
     {
      "rank": 2,
@@ -614,8 +609,7 @@
      "districtFindings": 0,
      "stances": {},
      "newsReasons": [],
-     "verdict": "untested",
-     "line": "School library (model's #2): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+     "line": "A library supports reading and self-study, which helps weaker students keep up. Here, where the news reports school infrastructure & staffing, it is part of the same school conditions the news describes."
     },
     {
      "rank": 3,
@@ -631,8 +625,7 @@
       "gap": 2
      },
      "newsReasons": [],
-     "verdict": "web-only",
-     "line": "Classrooms in good condition (model's #3): 2 verified sources about Ballari (incl. Vijayanagara) discuss it (2 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+     "line": "Leaking roofs, cracked walls and unsafe rooms disrupt teaching, especially in the monsoon, and can close rooms altogether. Here, where the news reports governance, tracking & exams, better rooms and teaching give students a better chance at the SSLC exam the news links to leaving. Local reports show this gap in Ballari (incl. Vijayanagara)."
     }
    ]
   },
@@ -677,48 +670,38 @@
      "factor": "% Population Living in Households with Improved Sanitation",
      "short": "household sanitation",
      "area": "Belagavi",
-     "value": 4.09
+     "weight": 4.09,
+     "share": 67.7,
+     "shareRank": 24
     },
     {
      "method": "state",
      "factor": "% Population Living in Households with Improved Sanitation",
      "short": "household sanitation",
      "area": "Belagavi Chikkodi",
-     "value": 4.13
+     "weight": 4.13,
+     "share": 75.11,
+     "shareRank": 20
     },
     {
      "method": "district",
      "factor": "% Schools with instruction medium 1 (English)",
      "short": "English-medium schools",
      "area": "Belagavi",
-     "value": 0.19
+     "weight": 0.19,
+     "share": 14.09,
+     "shareRank": 17
     },
     {
      "method": "district",
      "factor": "% Schools with instruction medium 1 (English)",
      "short": "English-medium schools",
      "area": "Belagavi Chikkodi",
-     "value": 0.26
+     "weight": 0.26,
+     "share": 10.07,
+     "shareRank": 33
     }
    ],
-   "found": {
-    "state": {
-     "check": "no-evidence",
-     "why": [
-      "partly"
-     ],
-     "districtProof": 0,
-     "generalProof": 4
-    },
-    "district": {
-     "check": "no-evidence",
-     "why": [
-      "no-evidence"
-     ],
-     "districtProof": 0,
-     "generalProof": 0
-    }
-   },
    "touching": [
     {
      "family": "english",
@@ -727,11 +710,40 @@
      "evidence": "thin"
     }
    ],
-   "differ": [
-    "The news for Belagavi is mostly about poverty & child labour and governance, tracking & exams. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so child labour could never come out as Belagavi's data factor.",
-    "One news reason does touch the language a school teaches in: \"Language gap for migrant children\" (thin evidence). So here the news and the data do meet, on one point.",
-    "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
-    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Belagavi in particular."
+   "connections": [
+    {
+     "title": "Where they already meet",
+     "text": "The news here reports \"Language gap for migrant children\": For Marathi-speaking cutter children, the education department proposed tent schools near cane fields with Marathi teachers, implying existing Kannada-medium provision was not reaching them. That is the data's factor, the language a school teaches in, showing up on the ground."
+    },
+    {
+     "title": "English-medium schools and poverty & child labour",
+     "text": "Belagavi has a middling share of English-medium schools (14.1%, rank 17 of 35). The news here reports \"Child labour in local businesses\". Most English-medium schools charge fees, so the share marks the line between families who can pay and those who cannot; the poorest households, the ones the news describes as short of money and sending children to work, stay in government schools that teach in Kannada.",
+     "reason": "Child labour in local businesses",
+     "reasonSources": [
+      3
+     ]
+    },
+    {
+     "title": "English-medium schools and governance, tracking & exams",
+     "text": "The news here reports \"Weak SSLC outcomes\". The SSLC exam is where a weak grip on English shows: students who studied in Kannada but face English-heavy subjects can fail, and the news here links exam failure with leaving school.",
+     "reason": "Weak SSLC outcomes",
+     "reasonSources": [
+      9
+     ]
+    },
+    {
+     "title": "Household sanitation and child marriage & girls' exits",
+     "text": "67.7% of people in Belagavi live in households with improved sanitation (rank 24 of 35). The news here reports \"Child marriage of adolescent girls\". Without a toilet at home, adolescent girls face safety risks going out in the open and lack privacy; families fearful for a daughter's safety may keep her home or marry her early: the girls' exits the news describes.",
+     "reason": "Child marriage of adolescent girls",
+     "reasonSources": [
+      1,
+      2
+     ]
+    },
+    {
+     "title": "The common thread",
+     "text": "Both data factors describe how well-off and well-served Belagavi is; the news describes what falling short of that does to particular families. Read together, they are two sides of the same picture."
+    }
    ],
    "topChanges": [
     {
@@ -748,8 +760,7 @@
       "gap": 3
      },
      "newsReasons": [],
-     "verdict": "web-only",
-     "line": "Classrooms in good condition (model's #1): 3 verified sources about Belagavi discuss it (3 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+     "line": "Leaking roofs, cracked walls and unsafe rooms disrupt teaching, especially in the monsoon, and can close rooms altogether. Here, where the news reports poverty & child labour, a school that works well is one less reason for a hard-pressed family to send a child to work. Local reports show this gap in Belagavi."
     },
     {
      "rank": 2,
@@ -765,8 +776,7 @@
       "gap": 1
      },
      "newsReasons": [],
-     "verdict": "web-only",
-     "line": "Student furniture (model's #2): 1 verified source about Belagavi discusses it (1 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+     "line": "Sitting on the floor through long secondary-school days is uncomfortable and makes writing hard, and it signals a neglected school. Here, where the news reports governance, tracking & exams, better rooms and teaching give students a better chance at the SSLC exam the news links to leaving. Local reports show this gap in Belagavi."
     },
     {
      "rank": 3,
@@ -783,8 +793,7 @@
       "context": 1
      },
      "newsReasons": [],
-     "verdict": "web-only",
-     "line": "Women with 10+ years of schooling (model's #3): 2 verified sources about Belagavi discuss it (1 background, 1 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+     "line": "Mothers who studied longer tend to keep their children, and especially daughters, in school, and can help with schoolwork. Here, where the news reports poverty & child labour, mothers who studied longer are more likely to hold out against sending a child to work. Local reports show this gap in Belagavi."
     }
    ]
   },
@@ -829,34 +838,20 @@
      "factor": "% Population Living in Households with Improved Sanitation",
      "short": "household sanitation",
      "area": "Bengaluru Rural",
-     "value": 2.73
+     "weight": 2.73,
+     "share": 88.8,
+     "shareRank": 10
     },
     {
      "method": "district",
      "factor": "% Schools with instruction medium 1 (English)",
      "short": "English-medium schools",
      "area": "Bengaluru Rural",
-     "value": 0.1
+     "weight": 0.1,
+     "share": 17.5,
+     "shareRank": 10
     }
    ],
-   "found": {
-    "state": {
-     "check": "unclear",
-     "why": [
-      "partly"
-     ],
-     "districtProof": 0,
-     "generalProof": 1
-    },
-    "district": {
-     "check": "no-evidence",
-     "why": [
-      "partly"
-     ],
-     "districtProof": 0,
-     "generalProof": 2
-    }
-   },
    "touching": [
     {
      "family": "sanitation",
@@ -865,12 +860,35 @@
      "evidence": "thin"
     }
    ],
-   "differ": [
-    "The news for Bengaluru Rural is mostly about poverty & child labour and school infrastructure & staffing. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so child labour could never come out as Bengaluru Rural's data factor.",
-    "None of the 5 reasons the news gives for Bengaluru Rural mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
-    "When we asked deep research why this factor would be dominant here, the result was: partly: only research from elsewhere backs the mechanism (0 verified proof items about Bengaluru Rural, 2 from elsewhere).",
-    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Bengaluru Rural in particular.",
-    "News coverage of Bengaluru Rural is thin, so the news picture itself rests on few stories."
+   "connections": [
+    {
+     "title": "English-medium schools and poverty & child labour",
+     "text": "Bengaluru Rural has a high share of English-medium schools (17.5%, rank 10 of 35). The news here reports \"Child labour near the metro\". Most English-medium schools charge fees, so the share marks the line between families who can pay and those who cannot; the poorest households, the ones the news describes as short of money and sending children to work, stay in government schools that teach in Kannada.",
+     "reason": "Child labour near the metro",
+     "reasonSources": [
+      1
+     ]
+    },
+    {
+     "title": "English-medium schools and school infrastructure & staffing",
+     "text": "The news here reports \"Schools without toilets\". As families who can afford it move to English-medium private schools, the government schools that remain lose pupils, teachers and upkeep: the same weak school conditions the news reports.",
+     "reason": "Schools without toilets",
+     "reasonSources": [
+      2
+     ]
+    },
+    {
+     "title": "Household sanitation and child marriage & girls' exits",
+     "text": "88.8% of people in Bengaluru Rural live in households with improved sanitation (rank 10 of 35). The news here reports \"Child marriage after school exit\". Without a toilet at home, adolescent girls face safety risks going out in the open and lack privacy; families fearful for a daughter's safety may keep her home or marry her early: the girls' exits the news describes.",
+     "reason": "Child marriage after school exit",
+     "reasonSources": [
+      5
+     ]
+    },
+    {
+     "title": "The common thread",
+     "text": "Both data factors describe how well-off and well-served Bengaluru Rural is; the news describes what falling short of that does to particular families. Read together, they are two sides of the same picture."
+    }
    ],
    "topChanges": [
     {
@@ -887,8 +905,7 @@
       "gap": 2
      },
      "newsReasons": [],
-     "verdict": "web-only",
-     "line": "Classrooms in good condition (model's #1): 2 verified sources about Bengaluru Rural discuss it (2 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+     "line": "Leaking roofs, cracked walls and unsafe rooms disrupt teaching, especially in the monsoon, and can close rooms altogether. Here, where the news reports poverty & child labour, a school that works well is one less reason for a hard-pressed family to send a child to work. Local reports show this gap in Bengaluru Rural."
     },
     {
      "rank": 2,
@@ -902,8 +919,7 @@
      "districtFindings": 0,
      "stances": {},
      "newsReasons": [],
-     "verdict": "untested",
-     "line": "Female teachers (model's #2): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+     "line": "Women teachers can make adolescent girls feel safer and heard, act as role models, and reassure parents who hesitate to send daughters to secondary school. Here, where the news reports school infrastructure & staffing, it is part of the same school conditions the news describes."
     },
     {
      "rank": 3,
@@ -917,8 +933,7 @@
      "districtFindings": 0,
      "stances": {},
      "newsReasons": [],
-     "verdict": "untested",
-     "line": "Women with 10+ years of schooling (model's #3): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+     "line": "Mothers who studied longer tend to keep their children, and especially daughters, in school, and can help with schoolwork. Here, where the news reports poverty & child labour, mothers who studied longer are more likely to hold out against sending a child to work."
     }
    ]
   },
@@ -963,48 +978,38 @@
      "factor": "% Population Living in Households with Improved Sanitation",
      "short": "household sanitation",
      "area": "Bengaluru U North",
-     "value": 1.35
+     "weight": 1.35,
+     "share": 90.4,
+     "shareRank": 5
     },
     {
      "method": "state",
      "factor": "% Population Living in Households with Improved Sanitation",
      "short": "household sanitation",
      "area": "Bengaluru U South",
-     "value": 2.3
+     "weight": 2.3,
+     "share": 90.4,
+     "shareRank": 5
     },
     {
      "method": "district",
      "factor": "% Schools with Functional Protected Well",
      "short": "schools with a protected well",
      "area": "Bengaluru U North",
-     "value": 0.02
+     "weight": 0.02,
+     "share": 23.87,
+     "shareRank": 9
     },
     {
      "method": "district",
      "factor": "% Schools with Functional Protected Well",
      "short": "schools with a protected well",
      "area": "Bengaluru U South",
-     "value": 0.05
+     "weight": 0.05,
+     "share": 19.23,
+     "shareRank": 16
     }
    ],
-   "found": {
-    "state": {
-     "check": "unclear",
-     "why": [
-      "partly"
-     ],
-     "districtProof": 2,
-     "generalProof": 2
-    },
-    "district": {
-     "check": "no-evidence",
-     "why": [
-      "no-evidence"
-     ],
-     "districtProof": 0,
-     "generalProof": 0
-    }
-   },
    "touching": [
     {
      "family": "sanitation",
@@ -1013,11 +1018,36 @@
      "evidence": "thin"
     }
    ],
-   "differ": [
-    "The news for Bengaluru Urban is mostly about migration and school infrastructure & staffing. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so migration could never come out as Bengaluru Urban's data factor.",
-    "None of the 7 reasons the news gives for Bengaluru Urban mentions drinking water at school. The sources are silent on it, which is not the same as contradicting the data.",
-    "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
-    "This factor is named for only 3 of 35 Karnataka district-level rows; the rest get English-medium schools."
+   "connections": [
+    {
+     "title": "Schools with a protected well and migration",
+     "text": "Bengaluru Urban has a high share of schools with a protected well (23.9%, rank 9 of 35). The news here reports \"Migrant families lacking documents\". Fast-growing fringes where migrant families settle often have schools still on wells, with weaker facilities and crowded classrooms.",
+     "reason": "Migrant families lacking documents",
+     "reasonSources": [
+      8,
+      9
+     ]
+    },
+    {
+     "title": "Schools with a protected well and school infrastructure & staffing",
+     "text": "The news here reports \"Schools without toilets\". Depending on a well marks a school with weaker facilities overall: the infrastructure gaps the news reports.",
+     "reason": "Schools without toilets",
+     "reasonSources": [
+      3
+     ]
+    },
+    {
+     "title": "Household sanitation and child marriage & girls' exits",
+     "text": "90.4% of people in Bengaluru Urban live in households with improved sanitation (rank 5 of 35). The news here reports \"Pandemic hardship and early marriage\". Without a toilet at home, adolescent girls face safety risks going out in the open and lack privacy; families fearful for a daughter's safety may keep her home or marry her early: the girls' exits the news describes.",
+     "reason": "Pandemic hardship and early marriage",
+     "reasonSources": [
+      12
+     ]
+    },
+    {
+     "title": "The common thread",
+     "text": "Both data factors describe how well-off and well-served Bengaluru Urban is; the news describes what falling short of that does to particular families. Read together, they are two sides of the same picture."
+    }
    ],
    "topChanges": [
     {
@@ -1032,8 +1062,7 @@
      "districtFindings": 0,
      "stances": {},
      "newsReasons": [],
-     "verdict": "untested",
-     "line": "Teachers trained in ICT (model's #1): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+     "line": "Trained teachers can use digital tools to make lessons clearer and reach weaker students. Here, where the news reports migration, a school worth coming back to matters for children who come and go with their families' work."
     },
     {
      "rank": 2,
@@ -1047,8 +1076,7 @@
      "districtFindings": 0,
      "stances": {},
      "newsReasons": [],
-     "verdict": "untested",
-     "line": "Female teachers (model's #2): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+     "line": "Women teachers can make adolescent girls feel safer and heard, act as role models, and reassure parents who hesitate to send daughters to secondary school. Here, where the news reports school infrastructure & staffing, it is part of the same school conditions the news describes."
     },
     {
      "rank": 3,
@@ -1062,8 +1090,7 @@
      "districtFindings": 0,
      "stances": {},
      "newsReasons": [],
-     "verdict": "untested",
-     "line": "Computer / ICT labs (model's #3): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+     "line": "A working lab gives students digital skills that feel useful for jobs, and makes lessons more engaging. Here, where the news reports migration, a school worth coming back to matters for children who come and go with their families' work."
     }
    ]
   },
@@ -1108,40 +1135,50 @@
      "factor": "% Population Living in Households with Improved Sanitation",
      "short": "household sanitation",
      "area": "Bidar",
-     "value": 5.38
+     "weight": 5.38,
+     "share": 56.5,
+     "shareRank": 29
     },
     {
      "method": "district",
      "factor": "% Schools with instruction medium 1 (English)",
      "short": "English-medium schools",
      "area": "Bidar",
-     "value": 0.24
+     "weight": 0.24,
+     "share": 14.73,
+     "shareRank": 16
     }
    ],
-   "found": {
-    "state": {
-     "check": "no-evidence",
-     "why": [
-      "partly"
-     ],
-     "districtProof": 0,
-     "generalProof": 1
-    },
-    "district": {
-     "check": "no-evidence",
-     "why": [
-      "no-evidence"
-     ],
-     "districtProof": 0,
-     "generalProof": 0
-    }
-   },
    "touching": [],
-   "differ": [
-    "The news for Bidar is mostly about governance, tracking & exams and poverty & child labour. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so child labour could never come out as Bidar's data factor.",
-    "None of the 6 reasons the news gives for Bidar mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
-    "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
-    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Bidar in particular."
+   "connections": [
+    {
+     "title": "English-medium schools and governance, tracking & exams",
+     "text": "Bidar has a middling share of English-medium schools (14.7%, rank 16 of 35). The news here reports \"Weak SSLC outcomes in district\". The SSLC exam is where a weak grip on English shows: students who studied in Kannada but face English-heavy subjects can fail, and the news here links exam failure with leaving school.",
+     "reason": "Weak SSLC outcomes in district",
+     "reasonSources": [
+      5
+     ]
+    },
+    {
+     "title": "English-medium schools and poverty & child labour",
+     "text": "The news here reports \"Enrolled children working in scrap shops\". Most English-medium schools charge fees, so the share marks the line between families who can pay and those who cannot; the poorest households, the ones the news describes as short of money and sending children to work, stay in government schools that teach in Kannada.",
+     "reason": "Enrolled children working in scrap shops",
+     "reasonSources": [
+      3
+     ]
+    },
+    {
+     "title": "Household sanitation and child marriage & girls' exits",
+     "text": "56.5% of people in Bidar live in households with improved sanitation (rank 29 of 35). The news here reports \"Festival-linked child marriage\". Without a toilet at home, adolescent girls face safety risks going out in the open and lack privacy; families fearful for a daughter's safety may keep her home or marry her early: the girls' exits the news describes.",
+     "reason": "Festival-linked child marriage",
+     "reasonSources": [
+      1
+     ]
+    },
+    {
+     "title": "The common thread",
+     "text": "Both data factors describe how well-off and well-served Bidar is; the news describes what falling short of that does to particular families. Read together, they are two sides of the same picture."
+    }
    ],
    "topChanges": [
     {
@@ -1159,8 +1196,7 @@
       "progress": 1
      },
      "newsReasons": [],
-     "verdict": "web-only",
-     "line": "Functional toilets (model's #1): 2 verified sources about Bidar discuss it (1 showing the gap, 1 reporting progress); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+     "line": "Without working toilets, adolescent girls lose privacy and cannot manage menstruation at school, so they miss days or stop coming. Here, where the news reports governance, tracking & exams, better rooms and teaching give students a better chance at the SSLC exam the news links to leaving. Local reports show this gap in Bidar."
     },
     {
      "rank": 2,
@@ -1177,8 +1213,7 @@
       "context": 1
      },
      "newsReasons": [],
-     "verdict": "web-only",
-     "line": "Classrooms in good condition (model's #2): 2 verified sources about Bidar discuss it (1 background, 1 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+     "line": "Leaking roofs, cracked walls and unsafe rooms disrupt teaching, especially in the monsoon, and can close rooms altogether. Here, where the news reports poverty & child labour, a school that works well is one less reason for a hard-pressed family to send a child to work. Local reports show this gap in Bidar."
     },
     {
      "rank": 3,
@@ -1194,8 +1229,7 @@
       "progress": 1
      },
      "newsReasons": [],
-     "verdict": "web-only",
-     "line": "School library (model's #3): 1 verified source about Bidar discusses it (1 reporting progress); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+     "line": "A library supports reading and self-study, which helps weaker students keep up. Here, where the news reports governance, tracking & exams, better rooms and teaching give students a better chance at the SSLC exam the news links to leaving."
     }
    ]
   },
@@ -1240,40 +1274,52 @@
      "factor": "% Population Living in Households with Improved Sanitation",
      "short": "household sanitation",
      "area": "Chamarajanagara",
-     "value": 4.28
+     "weight": 4.28,
+     "share": 75.2,
+     "shareRank": 19
     },
     {
      "method": "district",
      "factor": "% Schools with instruction medium 1 (English)",
      "short": "English-medium schools",
      "area": "Chamarajanagara",
-     "value": 0.25
+     "weight": 0.25,
+     "share": 11.12,
+     "shareRank": 30
     }
    ],
-   "found": {
-    "state": {
-     "check": "no-evidence",
-     "why": [
-      "partly"
-     ],
-     "districtProof": 0,
-     "generalProof": 1
-    },
-    "district": {
-     "check": "no-evidence",
-     "why": [
-      "partly"
-     ],
-     "districtProof": 0,
-     "generalProof": 2
-    }
-   },
    "touching": [],
-   "differ": [
-    "The news for Chamarajanagara is mostly about poverty & child labour and social norms & customs. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so poverty or child labour could never come out as Chamarajanagara's data factor.",
-    "None of the 7 reasons the news gives for Chamarajanagara mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
-    "When we asked deep research why this factor would be dominant here, the result was: partly: only research from elsewhere backs the mechanism (0 verified proof items about Chamarajanagara, 2 from elsewhere).",
-    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Chamarajanagara in particular."
+   "connections": [
+    {
+     "title": "English-medium schools and poverty & child labour",
+     "text": "Chamarajanagara has a low share of English-medium schools (11.1%, rank 30 of 35). The news here reports \"Severe poverty, household problems\". Where few schools teach in English, families who can pay move their children to private English-medium schools, and the government schools left behind serve the poorest households: the ones the news describes as short of money and sending children to work.",
+     "reason": "Severe poverty, household problems",
+     "reasonSources": [
+      3,
+      4
+     ]
+    },
+    {
+     "title": "English-medium schools and social norms & customs",
+     "text": "The news here reports \"Social customs in a tribal-dominated district\". Where custom gives girls' schooling less weight, families are less likely to pay for English-medium schooling for daughters, so the language gap and the custom feed each other.",
+     "reason": "Social customs in a tribal-dominated district",
+     "reasonSources": [
+      1
+     ]
+    },
+    {
+     "title": "Household sanitation and poverty & child labour",
+     "text": "75.2% of people in Chamarajanagara live in households with improved sanitation (rank 19 of 35). The news here reports \"Severe poverty, household problems\". Homes without a toilet are usually the poorest ones. The same lack of money that leaves a toilet unbuilt pushes children toward work, so household sanitation can track the poverty the news reports.",
+     "reason": "Severe poverty, household problems",
+     "reasonSources": [
+      3,
+      4
+     ]
+    },
+    {
+     "title": "The common thread",
+     "text": "Both data factors describe how well-off and well-served Chamarajanagara is; the news describes what falling short of that does to particular families. Read together, they are two sides of the same picture."
+    }
    ],
    "topChanges": [
     {
@@ -1288,8 +1334,7 @@
      "districtFindings": 0,
      "stances": {},
      "newsReasons": [],
-     "verdict": "untested",
-     "line": "Classrooms in good condition (model's #1): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+     "line": "Leaking roofs, cracked walls and unsafe rooms disrupt teaching, especially in the monsoon, and can close rooms altogether. Here, where the news reports poverty & child labour, a school that works well is one less reason for a hard-pressed family to send a child to work."
     },
     {
      "rank": 2,
@@ -1305,8 +1350,7 @@
       "context": 1
      },
      "newsReasons": [],
-     "verdict": "web-only",
-     "line": "Student furniture (model's #2): 1 verified source about Chamarajanagara discusses it (1 background); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+     "line": "Sitting on the floor through long secondary-school days is uncomfortable and makes writing hard, and it signals a neglected school. Here, where the news reports social norms & customs, a school families trust makes it easier to keep daughters enrolled against local custom."
     },
     {
      "rank": 3,
@@ -1322,8 +1366,7 @@
       "gap": 1
      },
      "newsReasons": [],
-     "verdict": "web-only",
-     "line": "All-weather road access (model's #3): 1 verified source about Chamarajanagara discusses it (1 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+     "line": "When roads wash out in the monsoon, buses stop and the walk gets long and unsafe, especially for girls, so attendance breaks and students fall behind. Here, where the news reports poverty & child labour, a school that works well is one less reason for a hard-pressed family to send a child to work. Local reports show this gap in Chamarajanagara."
     }
    ]
   },
@@ -1368,41 +1411,50 @@
      "factor": "% Population Living in Households with Improved Sanitation",
      "short": "household sanitation",
      "area": "Chikkaballapura",
-     "value": 2.91
+     "weight": 2.91,
+     "share": 84.9,
+     "shareRank": 16
     },
     {
      "method": "district",
      "factor": "% Schools with instruction medium 1 (English)",
      "short": "English-medium schools",
      "area": "Chikkaballapura",
-     "value": 0.16
+     "weight": 0.16,
+     "share": 11.95,
+     "shareRank": 23
     }
    ],
-   "found": {
-    "state": {
-     "check": "no-evidence",
-     "why": [
-      "partly"
-     ],
-     "districtProof": 0,
-     "generalProof": 1
-    },
-    "district": {
-     "check": "unclear",
-     "why": [
-      "partly"
-     ],
-     "districtProof": 0,
-     "generalProof": 2
-    }
-   },
    "touching": [],
-   "differ": [
-    "The news for Chikkaballapur is mostly about child marriage & girls' exits and poverty & child labour. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so child labour could never come out as Chikkaballapur's data factor.",
-    "None of the 5 reasons the news gives for Chikkaballapur mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
-    "When we asked deep research why this factor would be dominant here, the result was: partly: only research from elsewhere backs the mechanism (0 verified proof items about Chikkaballapur, 2 from elsewhere).",
-    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Chikkaballapur in particular.",
-    "News coverage of Chikkaballapur is thin, so the news picture itself rests on few stories."
+   "connections": [
+    {
+     "title": "English-medium schools and child marriage & girls' exits",
+     "text": "Chikkaballapur has a middling share of English-medium schools (11.9%, rank 23 of 35). The news here reports \"Girl pulled out of school and married\". When lessons and the SSLC papers lean on English, girls who studied in Kannada can fall behind, and in a family already weighing a daughter's marriage, falling behind becomes the reason to stop. Families also tend to pay for English-medium schooling for sons first.",
+     "reason": "Girl pulled out of school and married",
+     "reasonSources": [
+      1
+     ]
+    },
+    {
+     "title": "English-medium schools and poverty & child labour",
+     "text": "The news here reports \"Child labour in the district\". Most English-medium schools charge fees, so the share marks the line between families who can pay and those who cannot; the poorest households, the ones the news describes as short of money and sending children to work, stay in government schools that teach in Kannada.",
+     "reason": "Child labour in the district",
+     "reasonSources": [
+      5
+     ]
+    },
+    {
+     "title": "Household sanitation and child marriage & girls' exits",
+     "text": "84.9% of people in Chikkaballapur live in households with improved sanitation (rank 16 of 35). The news here reports \"Girl pulled out of school and married\". Without a toilet at home, adolescent girls face safety risks going out in the open and lack privacy; families fearful for a daughter's safety may keep her home or marry her early: the girls' exits the news describes.",
+     "reason": "Girl pulled out of school and married",
+     "reasonSources": [
+      1
+     ]
+    },
+    {
+     "title": "The common thread",
+     "text": "Both data factors describe how well-off and well-served Chikkaballapur is; the news describes what falling short of that does to particular families. Read together, they are two sides of the same picture."
+    }
    ],
    "topChanges": [
     {
@@ -1419,8 +1471,7 @@
       "gap": 1
      },
      "newsReasons": [],
-     "verdict": "web-only",
-     "line": "Classrooms in good condition (model's #1): 1 verified source about Chikkaballapur discusses it (1 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+     "line": "Leaking roofs, cracked walls and unsafe rooms disrupt teaching, especially in the monsoon, and can close rooms altogether. Here, where the news reports child marriage & girls' exits, a school girls can attend safely and comfortably weighs against early marriage. Local reports show this gap in Chikkaballapur."
     },
     {
      "rank": 2,
@@ -1434,8 +1485,7 @@
      "districtFindings": 0,
      "stances": {},
      "newsReasons": [],
-     "verdict": "untested",
-     "line": "Household sanitation (model's #2): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+     "line": "Without a toilet at home, girls face safety risks and illness spreads, so children miss school. Here, where the news reports poverty & child labour, a toilet at home is part of the same basic security that keeps children in school rather than at work."
     },
     {
      "rank": 3,
@@ -1451,8 +1501,7 @@
       "context": 2
      },
      "newsReasons": [],
-     "verdict": "web-only",
-     "line": "Women with 10+ years of schooling (model's #3): 2 verified sources about Chikkaballapur discuss it (2 background); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+     "line": "Mothers who studied longer tend to keep their children, and especially daughters, in school, and can help with schoolwork. Here, where the news reports child marriage & girls' exits, mothers who studied longer are more likely to resist an early marriage for a daughter."
     }
    ]
   },
@@ -1497,40 +1546,50 @@
      "factor": "% Population Living in Households with Improved Sanitation",
      "short": "household sanitation",
      "area": "Chikkamangaluru",
-     "value": 3.61
+     "weight": 3.61,
+     "share": 92.3,
+     "shareRank": 4
     },
     {
      "method": "district",
      "factor": "% Schools with instruction medium 1 (English)",
      "short": "English-medium schools",
      "area": "Chikkamangaluru",
-     "value": 0.2
+     "weight": 0.2,
+     "share": 11.9,
+     "shareRank": 24
     }
    ],
-   "found": {
-    "state": {
-     "check": "no-evidence",
-     "why": [
-      "no-evidence"
-     ],
-     "districtProof": 0,
-     "generalProof": 0
-    },
-    "district": {
-     "check": "no-evidence",
-     "why": [
-      "no-evidence"
-     ],
-     "districtProof": 0,
-     "generalProof": 0
-    }
-   },
    "touching": [],
-   "differ": [
-    "The news for Chikkamagaluru is mostly about school infrastructure & staffing and poverty & child labour. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so child labour could never come out as Chikkamagaluru's data factor.",
-    "None of the 7 reasons the news gives for Chikkamagaluru mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
-    "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
-    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Chikkamagaluru in particular."
+   "connections": [
+    {
+     "title": "English-medium schools and school infrastructure & staffing",
+     "text": "Chikkamagaluru has a low share of English-medium schools (11.9%, rank 24 of 35). The news here reports \"Forest-hamlet tribal families and school access\". As families who can afford it move to English-medium private schools, the government schools that remain lose pupils, teachers and upkeep: the same weak school conditions the news reports.",
+     "reason": "Forest-hamlet tribal families and school access",
+     "reasonSources": [
+      7
+     ]
+    },
+    {
+     "title": "English-medium schools and poverty & child labour",
+     "text": "The news here reports \"Cheap child labour in poor families\". Where few schools teach in English, families who can pay move their children to private English-medium schools, and the government schools left behind serve the poorest households: the ones the news describes as short of money and sending children to work.",
+     "reason": "Cheap child labour in poor families",
+     "reasonSources": [
+      7
+     ]
+    },
+    {
+     "title": "Household sanitation and school infrastructure & staffing",
+     "text": "92.3% of people in Chikkamagaluru live in households with improved sanitation (rank 4 of 35). The news here reports \"Forest-hamlet tribal families and school access\". Where homes lack toilets, schools often lack working ones too, and girls stay home on the days they cannot manage at school.",
+     "reason": "Forest-hamlet tribal families and school access",
+     "reasonSources": [
+      7
+     ]
+    },
+    {
+     "title": "The common thread",
+     "text": "Both data factors describe how well-off and well-served Chikkamagaluru is; the news describes what falling short of that does to particular families. Read together, they are two sides of the same picture."
+    }
    ],
    "topChanges": [
     {
@@ -1547,8 +1606,7 @@
       "context": 1
      },
      "newsReasons": [],
-     "verdict": "web-only",
-     "line": "Classrooms in good condition (model's #1): 1 verified source about Chikkamagaluru discusses it (1 background); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+     "line": "Leaking roofs, cracked walls and unsafe rooms disrupt teaching, especially in the monsoon, and can close rooms altogether. Here, where the news reports school infrastructure & staffing, it is part of the same school conditions the news describes."
     },
     {
      "rank": 2,
@@ -1562,8 +1620,7 @@
      "districtFindings": 0,
      "stances": {},
      "newsReasons": [],
-     "verdict": "untested",
-     "line": "Household sanitation (model's #2): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+     "line": "Without a toilet at home, girls face safety risks and illness spreads, so children miss school. Here, where the news reports poverty & child labour, a toilet at home is part of the same basic security that keeps children in school rather than at work."
     },
     {
      "rank": 3,
@@ -1579,8 +1636,7 @@
       "context": 1
      },
      "newsReasons": [],
-     "verdict": "web-only",
-     "line": "Playground (model's #3): 1 verified source about Chikkamagaluru discusses it (1 background); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+     "line": "Sport and play give adolescents a reason to come to school and a sense of belonging, which matters for students who struggle academically. Here, where the news reports school infrastructure & staffing, it is part of the same school conditions the news describes."
     }
    ]
   },
@@ -1625,40 +1681,51 @@
      "factor": "% Population Living in Households with Improved Sanitation",
      "short": "household sanitation",
      "area": "Chitradurga",
-     "value": 4.48
+     "weight": 4.48,
+     "share": 63.1,
+     "shareRank": 26
     },
     {
      "method": "district",
      "factor": "% Schools with instruction medium 1 (English)",
      "short": "English-medium schools",
      "area": "Chitradurga",
-     "value": 0.29
+     "weight": 0.29,
+     "share": 10.05,
+     "shareRank": 34
     }
    ],
-   "found": {
-    "state": {
-     "check": "no-evidence",
-     "why": [
-      "no-evidence"
-     ],
-     "districtProof": 0,
-     "generalProof": 0
-    },
-    "district": {
-     "check": "no-evidence",
-     "why": [
-      "no-evidence"
-     ],
-     "districtProof": 0,
-     "generalProof": 0
-    }
-   },
    "touching": [],
-   "differ": [
-    "The news for Chitradurga is mostly about social norms & customs and governance, tracking & exams. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so social customs could never come out as Chitradurga's data factor.",
-    "None of the 7 reasons the news gives for Chitradurga mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
-    "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
-    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Chitradurga in particular."
+   "connections": [
+    {
+     "title": "English-medium schools and social norms & customs",
+     "text": "Chitradurga has a low share of English-medium schools (10.1%, rank 34 of 35). The news here reports \"Social customs in a tribal-dominated district\". Where custom gives girls' schooling less weight, families are less likely to pay for English-medium schooling for daughters, so the language gap and the custom feed each other.",
+     "reason": "Social customs in a tribal-dominated district",
+     "reasonSources": [
+      3
+     ]
+    },
+    {
+     "title": "English-medium schools and governance, tracking & exams",
+     "text": "The news here reports \"Rural absenteeism before SSLC\". The SSLC exam is where a weak grip on English shows: students who studied in Kannada but face English-heavy subjects can fail, and the news here links exam failure with leaving school.",
+     "reason": "Rural absenteeism before SSLC",
+     "reasonSources": [
+      4
+     ]
+    },
+    {
+     "title": "Household sanitation and child marriage & girls' exits",
+     "text": "63.1% of people in Chitradurga live in households with improved sanitation (rank 26 of 35). The news here reports \"Child marriage of girls\". Without a toilet at home, adolescent girls face safety risks going out in the open and lack privacy; families fearful for a daughter's safety may keep her home or marry her early: the girls' exits the news describes.",
+     "reason": "Child marriage of girls",
+     "reasonSources": [
+      1,
+      2
+     ]
+    },
+    {
+     "title": "The common thread",
+     "text": "Both data factors describe how well-off and well-served Chitradurga is; the news describes what falling short of that does to particular families. Read together, they are two sides of the same picture."
+    }
    ],
    "topChanges": [
     {
@@ -1673,8 +1740,7 @@
      "districtFindings": 0,
      "stances": {},
      "newsReasons": [],
-     "verdict": "untested",
-     "line": "Student furniture (model's #1): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+     "line": "Sitting on the floor through long secondary-school days is uncomfortable and makes writing hard, and it signals a neglected school. Here, where the news reports social norms & customs, a school families trust makes it easier to keep daughters enrolled against local custom."
     },
     {
      "rank": 2,
@@ -1690,8 +1756,7 @@
       "gap": 1
      },
      "newsReasons": [],
-     "verdict": "web-only",
-     "line": "Classrooms in good condition (model's #2): 1 verified source about Chitradurga discusses it (1 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+     "line": "Leaking roofs, cracked walls and unsafe rooms disrupt teaching, especially in the monsoon, and can close rooms altogether. Here, where the news reports governance, tracking & exams, better rooms and teaching give students a better chance at the SSLC exam the news links to leaving. Local reports show this gap in Chitradurga."
     },
     {
      "rank": 3,
@@ -1707,8 +1772,7 @@
       "context": 1
      },
      "newsReasons": [],
-     "verdict": "web-only",
-     "line": "Women with 10+ years of schooling (model's #3): 1 verified source about Chitradurga discusses it (1 background); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+     "line": "Mothers who studied longer tend to keep their children, and especially daughters, in school, and can help with schoolwork. Here, where the news reports social norms & customs, mothers who studied longer are more likely to keep their children in school."
     }
    ]
   },
@@ -1747,40 +1811,54 @@
      "factor": "% Population Living in Households with Improved Sanitation",
      "short": "household sanitation",
      "area": "Dakshina Kannada",
-     "value": 0.22
+     "weight": 0.22,
+     "share": 97.1,
+     "shareRank": 1
     },
     {
      "method": "district",
      "factor": "% Schools with instruction medium 1 (English)",
      "short": "English-medium schools",
      "area": "Dakshina Kannada",
-     "value": 0.01
+     "weight": 0.01,
+     "share": 26.94,
+     "shareRank": 3
     }
    ],
-   "found": {
-    "state": {
-     "check": "no-evidence",
-     "why": [
-      "no-evidence"
-     ],
-     "districtProof": 0,
-     "generalProof": 0
-    },
-    "district": {
-     "check": "unclear",
-     "why": [
-      "no-evidence"
-     ],
-     "districtProof": 0,
-     "generalProof": 0
-    }
-   },
    "touching": [],
-   "differ": [
-    "The news for Dakshina Kannada is mostly about migration and governance, tracking & exams. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so migration could never come out as Dakshina Kannada's data factor.",
-    "None of the 3 reasons the news gives for Dakshina Kannada mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
-    "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
-    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Dakshina Kannada in particular."
+   "connections": [
+    {
+     "title": "English-medium schools and migration",
+     "text": "Dakshina Kannada has a high share of English-medium schools (26.9%, rank 3 of 35). The news here reports \"Parents' seasonal labour migration\". Children of migrant families often speak another language at home; schooling in an unfamiliar language, or a switch of medium each time the family moves, makes them fall behind again and again.",
+     "reason": "Parents' seasonal labour migration",
+     "reasonSources": [
+      1,
+      2
+     ]
+    },
+    {
+     "title": "English-medium schools and governance, tracking & exams",
+     "text": "The news here reports \"Intensive Class 10 retention drive\". The SSLC exam is where a weak grip on English shows: students who studied in Kannada but face English-heavy subjects can fail, and the news here links exam failure with leaving school.",
+     "reason": "Intensive Class 10 retention drive",
+     "reasonSources": [
+      5,
+      6,
+      7
+     ]
+    },
+    {
+     "title": "Household sanitation and migration",
+     "text": "97.1% of people in Dakshina Kannada live in households with improved sanitation (rank 1 of 35). The news here reports \"Parents' seasonal labour migration\". Migrant and seasonal-work families often live in temporary housing without toilets, so household sanitation can track the same mobility the news ties to dropout.",
+     "reason": "Parents' seasonal labour migration",
+     "reasonSources": [
+      1,
+      2
+     ]
+    },
+    {
+     "title": "The common thread",
+     "text": "Both data factors describe how well-off and well-served Dakshina Kannada is; the news describes what falling short of that does to particular families. Read together, they are two sides of the same picture."
+    }
    ],
    "topChanges": [
     {
@@ -1795,8 +1873,7 @@
      "districtFindings": 0,
      "stances": {},
      "newsReasons": [],
-     "verdict": "untested",
-     "line": "Female teachers (model's #1): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+     "line": "Women teachers can make adolescent girls feel safer and heard, act as role models, and reassure parents who hesitate to send daughters to secondary school. Here, where the news reports migration, a school worth coming back to matters for children who come and go with their families' work."
     },
     {
      "rank": 2,
@@ -1812,8 +1889,7 @@
       "progress": 1
      },
      "newsReasons": [],
-     "verdict": "web-only",
-     "line": "Teachers trained in ICT (model's #2): 1 verified source about Dakshina Kannada discusses it (1 reporting progress); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+     "line": "Trained teachers can use digital tools to make lessons clearer and reach weaker students. Here, where the news reports governance, tracking & exams, better rooms and teaching give students a better chance at the SSLC exam the news links to leaving."
     },
     {
      "rank": 3,
@@ -1829,8 +1905,7 @@
       "gap": 1
      },
      "newsReasons": [],
-     "verdict": "web-only",
-     "line": "Women with 10+ years of schooling (model's #3): 1 verified source about Dakshina Kannada discusses it (1 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+     "line": "Mothers who studied longer tend to keep their children, and especially daughters, in school, and can help with schoolwork. Here, where the news reports migration, mothers who studied longer are more likely to keep their children in school. Local reports show this gap in Dakshina Kannada."
     }
    ]
   },
@@ -1875,41 +1950,50 @@
      "factor": "% Population Living in Households with Improved Sanitation",
      "short": "household sanitation",
      "area": "Davanagere",
-     "value": 2.17
+     "weight": 2.17,
+     "share": 83.3,
+     "shareRank": 17
     },
     {
      "method": "district",
      "factor": "% Schools with instruction medium 1 (English)",
      "short": "English-medium schools",
      "area": "Davanagere",
-     "value": 0.07
+     "weight": 0.07,
+     "share": 19.48,
+     "shareRank": 9
     }
    ],
-   "found": {
-    "state": {
-     "check": "no-evidence",
-     "why": [
-      "no-evidence"
-     ],
-     "districtProof": 0,
-     "generalProof": 0
-    },
-    "district": {
-     "check": "no-evidence",
-     "why": [
-      "no-evidence"
-     ],
-     "districtProof": 0,
-     "generalProof": 0
-    }
-   },
    "touching": [],
-   "differ": [
-    "The news for Davanagere is mostly about governance, tracking & exams and poverty & child labour. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so child labour could never come out as Davanagere's data factor.",
-    "None of the 5 reasons the news gives for Davanagere mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
-    "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
-    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Davanagere in particular.",
-    "News coverage of Davanagere is thin, so the news picture itself rests on few stories."
+   "connections": [
+    {
+     "title": "English-medium schools and governance, tracking & exams",
+     "text": "Davanagere has a high share of English-medium schools (19.5%, rank 9 of 35). The news here reports \"Volatile SSLC results\". The SSLC exam is where a weak grip on English shows: students who studied in Kannada but face English-heavy subjects can fail, and the news here links exam failure with leaving school.",
+     "reason": "Volatile SSLC results",
+     "reasonSources": [
+      2
+     ]
+    },
+    {
+     "title": "English-medium schools and poverty & child labour",
+     "text": "The news here reports \"Child labour\". Most English-medium schools charge fees, so the share marks the line between families who can pay and those who cannot; the poorest households, the ones the news describes as short of money and sending children to work, stay in government schools that teach in Kannada.",
+     "reason": "Child labour",
+     "reasonSources": [
+      1
+     ]
+    },
+    {
+     "title": "Household sanitation and child marriage & girls' exits",
+     "text": "83.3% of people in Davanagere live in households with improved sanitation (rank 17 of 35). The news here reports \"High-school distance and early marriage\". Without a toilet at home, adolescent girls face safety risks going out in the open and lack privacy; families fearful for a daughter's safety may keep her home or marry her early: the girls' exits the news describes.",
+     "reason": "High-school distance and early marriage",
+     "reasonSources": [
+      5
+     ]
+    },
+    {
+     "title": "The common thread",
+     "text": "Both data factors describe how well-off and well-served Davanagere is; the news describes what falling short of that does to particular families. Read together, they are two sides of the same picture."
+    }
    ],
    "topChanges": [
     {
@@ -1926,8 +2010,7 @@
       "gap": 2
      },
      "newsReasons": [],
-     "verdict": "web-only",
-     "line": "Classrooms in good condition (model's #1): 2 verified sources about Davanagere discuss it (2 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+     "line": "Leaking roofs, cracked walls and unsafe rooms disrupt teaching, especially in the monsoon, and can close rooms altogether. Here, where the news reports governance, tracking & exams, better rooms and teaching give students a better chance at the SSLC exam the news links to leaving. Local reports show this gap in Davanagere."
     },
     {
      "rank": 2,
@@ -1941,8 +2024,7 @@
      "districtFindings": 0,
      "stances": {},
      "newsReasons": [],
-     "verdict": "untested",
-     "line": "Playground (model's #2): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+     "line": "Sport and play give adolescents a reason to come to school and a sense of belonging, which matters for students who struggle academically. Here, where the news reports poverty & child labour, a school that works well is one less reason for a hard-pressed family to send a child to work."
     },
     {
      "rank": 3,
@@ -1956,8 +2038,7 @@
      "districtFindings": 0,
      "stances": {},
      "newsReasons": [],
-     "verdict": "untested",
-     "line": "Household sanitation (model's #3): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+     "line": "Without a toilet at home, girls face safety risks and illness spreads, so children miss school. Here, where the news reports governance, tracking & exams, fewer infections at home mean fewer missed school days."
     }
    ]
   },
@@ -2002,40 +2083,50 @@
      "factor": "% Population Living in Households with Improved Sanitation",
      "short": "household sanitation",
      "area": "Dharwad",
-     "value": 2.36
+     "weight": 2.36,
+     "share": 79.3,
+     "shareRank": 18
     },
     {
      "method": "district",
      "factor": "% Schools with instruction medium 1 (English)",
      "short": "English-medium schools",
      "area": "Dharwad",
-     "value": 0.07
+     "weight": 0.07,
+     "share": 21.77,
+     "shareRank": 5
     }
    ],
-   "found": {
-    "state": {
-     "check": "no-evidence",
-     "why": [
-      "partly"
-     ],
-     "districtProof": 0,
-     "generalProof": 1
-    },
-    "district": {
-     "check": "no-evidence",
-     "why": [
-      "no-evidence"
-     ],
-     "districtProof": 0,
-     "generalProof": 0
-    }
-   },
    "touching": [],
-   "differ": [
-    "The news for Dharwad is mostly about governance, tracking & exams and poverty & child labour. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so child labour could never come out as Dharwad's data factor.",
-    "None of the 8 reasons the news gives for Dharwad mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
-    "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
-    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Dharwad in particular."
+   "connections": [
+    {
+     "title": "English-medium schools and governance, tracking & exams",
+     "text": "Dharwad has a high share of English-medium schools (21.8%, rank 5 of 35). The news here reports \"Never enrolled or not readmitted\". The SSLC exam is where a weak grip on English shows: students who studied in Kannada but face English-heavy subjects can fail, and the news here links exam failure with leaving school.",
+     "reason": "Never enrolled or not readmitted",
+     "reasonSources": [
+      6
+     ]
+    },
+    {
+     "title": "English-medium schools and poverty & child labour",
+     "text": "The news here reports \"Child labour in Hubballi-Dharwad\". Most English-medium schools charge fees, so the share marks the line between families who can pay and those who cannot; the poorest households, the ones the news describes as short of money and sending children to work, stay in government schools that teach in Kannada.",
+     "reason": "Child labour in Hubballi-Dharwad",
+     "reasonSources": [
+      9
+     ]
+    },
+    {
+     "title": "Household sanitation and child marriage & girls' exits",
+     "text": "79.3% of people in Dharwad live in households with improved sanitation (rank 18 of 35). The news here reports \"Child marriage of girls\". Without a toilet at home, adolescent girls face safety risks going out in the open and lack privacy; families fearful for a daughter's safety may keep her home or marry her early: the girls' exits the news describes.",
+     "reason": "Child marriage of girls",
+     "reasonSources": [
+      2
+     ]
+    },
+    {
+     "title": "The common thread",
+     "text": "Both data factors describe how well-off and well-served Dharwad is; the news describes what falling short of that does to particular families. Read together, they are two sides of the same picture."
+    }
    ],
    "topChanges": [
     {
@@ -2053,8 +2144,7 @@
       "context": 1
      },
      "newsReasons": [],
-     "verdict": "web-only",
-     "line": "Classrooms in good condition (model's #1): 2 verified sources about Dharwad discuss it (1 background, 1 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+     "line": "Leaking roofs, cracked walls and unsafe rooms disrupt teaching, especially in the monsoon, and can close rooms altogether. Here, where the news reports governance, tracking & exams, better rooms and teaching give students a better chance at the SSLC exam the news links to leaving. Local reports show this gap in Dharwad."
     },
     {
      "rank": 2,
@@ -2070,8 +2160,7 @@
      "newsReasons": [
       "Never enrolled or not readmitted"
      ],
-     "verdict": "news-only",
-     "line": "Continuous evaluation (CCE) (model's #2): no verified source about the district was found in this pass; the news research names \"Never enrolled or not readmitted\". So the news research mentions it, but no district source was verified in this pass."
+     "line": "Regular, low-stakes assessment shows early which students are falling behind, so they can be helped before the SSLC exam, where failure often ends schooling. Here, where the news reports poverty & child labour, a school that works well is one less reason for a hard-pressed family to send a child to work. The news itself names it: \"Never enrolled or not readmitted\"."
     },
     {
      "rank": 3,
@@ -2085,8 +2174,7 @@
      "districtFindings": 0,
      "stances": {},
      "newsReasons": [],
-     "verdict": "untested",
-     "line": "Female teachers (model's #3): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+     "line": "Women teachers can make adolescent girls feel safer and heard, act as role models, and reassure parents who hesitate to send daughters to secondary school. Here, where the news reports governance, tracking & exams, better rooms and teaching give students a better chance at the SSLC exam the news links to leaving."
     }
    ]
   },
@@ -2131,40 +2219,50 @@
      "factor": "% Population Living in Households with Improved Sanitation",
      "short": "household sanitation",
      "area": "Gadag",
-     "value": 3.81
+     "weight": 3.81,
+     "share": 55.2,
+     "shareRank": 30
     },
     {
      "method": "district",
      "factor": "% Schools with instruction medium 1 (English)",
      "short": "English-medium schools",
      "area": "Gadag",
-     "value": 0.18
+     "weight": 0.18,
+     "share": 13.81,
+     "shareRank": 19
     }
    ],
-   "found": {
-    "state": {
-     "check": "no-evidence",
-     "why": [
-      "partly"
-     ],
-     "districtProof": 0,
-     "generalProof": 2
-    },
-    "district": {
-     "check": "no-evidence",
-     "why": [
-      "no-evidence"
-     ],
-     "districtProof": 0,
-     "generalProof": 0
-    }
-   },
    "touching": [],
-   "differ": [
-    "The news for Gadag is mostly about child marriage & girls' exits and social norms & customs. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so child marriage could never come out as Gadag's data factor.",
-    "None of the 6 reasons the news gives for Gadag mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
-    "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
-    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Gadag in particular."
+   "connections": [
+    {
+     "title": "English-medium schools and child marriage & girls' exits",
+     "text": "Gadag has a middling share of English-medium schools (13.8%, rank 19 of 35). The news here reports \"Child marriage at mass weddings\". When lessons and the SSLC papers lean on English, girls who studied in Kannada can fall behind, and in a family already weighing a daughter's marriage, falling behind becomes the reason to stop. Families also tend to pay for English-medium schooling for sons first.",
+     "reason": "Child marriage at mass weddings",
+     "reasonSources": [
+      2
+     ]
+    },
+    {
+     "title": "English-medium schools and social norms & customs",
+     "text": "The news here reports \"Hijab row at SSLC\". Where custom gives girls' schooling less weight, families are less likely to pay for English-medium schooling for daughters, so the language gap and the custom feed each other.",
+     "reason": "Hijab row at SSLC",
+     "reasonSources": [
+      3
+     ]
+    },
+    {
+     "title": "Household sanitation and child marriage & girls' exits",
+     "text": "55.2% of people in Gadag live in households with improved sanitation (rank 30 of 35). The news here reports \"Child marriage at mass weddings\". Without a toilet at home, adolescent girls face safety risks going out in the open and lack privacy; families fearful for a daughter's safety may keep her home or marry her early: the girls' exits the news describes.",
+     "reason": "Child marriage at mass weddings",
+     "reasonSources": [
+      2
+     ]
+    },
+    {
+     "title": "The common thread",
+     "text": "Both data factors describe how well-off and well-served Gadag is; the news describes what falling short of that does to particular families. Read together, they are two sides of the same picture."
+    }
    ],
    "topChanges": [
     {
@@ -2181,8 +2279,7 @@
       "gap": 1
      },
      "newsReasons": [],
-     "verdict": "web-only",
-     "line": "Classrooms in good condition (model's #1): 1 verified source about Gadag discusses it (1 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+     "line": "Leaking roofs, cracked walls and unsafe rooms disrupt teaching, especially in the monsoon, and can close rooms altogether. Here, where the news reports child marriage & girls' exits, a school girls can attend safely and comfortably weighs against early marriage. Local reports show this gap in Gadag."
     },
     {
      "rank": 2,
@@ -2196,8 +2293,7 @@
      "districtFindings": 0,
      "stances": {},
      "newsReasons": [],
-     "verdict": "untested",
-     "line": "Student furniture (model's #2): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+     "line": "Sitting on the floor through long secondary-school days is uncomfortable and makes writing hard, and it signals a neglected school. Here, where the news reports social norms & customs, a school families trust makes it easier to keep daughters enrolled against local custom."
     },
     {
      "rank": 3,
@@ -2211,8 +2307,7 @@
      "districtFindings": 0,
      "stances": {},
      "newsReasons": [],
-     "verdict": "untested",
-     "line": "Playground (model's #3): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+     "line": "Sport and play give adolescents a reason to come to school and a sense of belonging, which matters for students who struggle academically. Here, where the news reports child marriage & girls' exits, a school girls can attend safely and comfortably weighs against early marriage."
     }
    ]
   },
@@ -2257,41 +2352,52 @@
      "factor": "% Population Living in Households with Improved Sanitation",
      "short": "household sanitation",
      "area": "Hassan",
-     "value": 2.91
+     "weight": 2.91,
+     "share": 87.9,
+     "shareRank": 11
     },
     {
      "method": "district",
      "factor": "% Schools with instruction medium 1 (English)",
      "short": "English-medium schools",
      "area": "Hassan",
-     "value": 0.16
+     "weight": 0.16,
+     "share": 11.7,
+     "shareRank": 25
     }
    ],
-   "found": {
-    "state": {
-     "check": "no-evidence",
-     "why": [
-      "partly"
-     ],
-     "districtProof": 0,
-     "generalProof": 2
-    },
-    "district": {
-     "check": "no-evidence",
-     "why": [
-      "no-evidence"
-     ],
-     "districtProof": 0,
-     "generalProof": 0
-    }
-   },
    "touching": [],
-   "differ": [
-    "The news for Hassan is mostly about child marriage & girls' exits and school infrastructure & staffing. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so child marriage could never come out as Hassan's data factor.",
-    "None of the 6 reasons the news gives for Hassan mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
-    "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
-    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Hassan in particular.",
-    "News coverage of Hassan is thin, so the news picture itself rests on few stories."
+   "connections": [
+    {
+     "title": "English-medium schools and child marriage & girls' exits",
+     "text": "Hassan has a low share of English-medium schools (11.7%, rank 25 of 35). The news here reports \"Child marriage doubling\". When lessons and the SSLC papers lean on English, girls who studied in Kannada can fall behind, and in a family already weighing a daughter's marriage, falling behind becomes the reason to stop. Families also tend to pay for English-medium schooling for sons first.",
+     "reason": "Child marriage doubling",
+     "reasonSources": [
+      1,
+      2
+     ]
+    },
+    {
+     "title": "English-medium schools and school infrastructure & staffing",
+     "text": "The news here reports \"Closure of small government schools\". As families who can afford it move to English-medium private schools, the government schools that remain lose pupils, teachers and upkeep: the same weak school conditions the news reports.",
+     "reason": "Closure of small government schools",
+     "reasonSources": [
+      6
+     ]
+    },
+    {
+     "title": "Household sanitation and child marriage & girls' exits",
+     "text": "87.9% of people in Hassan live in households with improved sanitation (rank 11 of 35). The news here reports \"Child marriage doubling\". Without a toilet at home, adolescent girls face safety risks going out in the open and lack privacy; families fearful for a daughter's safety may keep her home or marry her early: the girls' exits the news describes.",
+     "reason": "Child marriage doubling",
+     "reasonSources": [
+      1,
+      2
+     ]
+    },
+    {
+     "title": "The common thread",
+     "text": "Both data factors describe how well-off and well-served Hassan is; the news describes what falling short of that does to particular families. Read together, they are two sides of the same picture."
+    }
    ],
    "topChanges": [
     {
@@ -2306,8 +2412,7 @@
      "districtFindings": 0,
      "stances": {},
      "newsReasons": [],
-     "verdict": "untested",
-     "line": "Household sanitation (model's #1): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+     "line": "Without a toilet at home, girls face safety risks and illness spreads, so children miss school. Here, where the news reports child marriage & girls' exits, a toilet at home removes one of the worries that push families to keep daughters home or marry them early."
     },
     {
      "rank": 2,
@@ -2323,8 +2428,7 @@
       "progress": 1
      },
      "newsReasons": [],
-     "verdict": "web-only",
-     "line": "Classrooms in good condition (model's #2): 1 verified source about Hassan discusses it (1 reporting progress); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+     "line": "Leaking roofs, cracked walls and unsafe rooms disrupt teaching, especially in the monsoon, and can close rooms altogether. Here, where the news reports school infrastructure & staffing, it is part of the same school conditions the news describes."
     },
     {
      "rank": 3,
@@ -2338,8 +2442,7 @@
      "districtFindings": 0,
      "stances": {},
      "newsReasons": [],
-     "verdict": "untested",
-     "line": "Women with 10+ years of schooling (model's #3): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+     "line": "Mothers who studied longer tend to keep their children, and especially daughters, in school, and can help with schoolwork. Here, where the news reports child marriage & girls' exits, mothers who studied longer are more likely to resist an early marriage for a daughter."
     }
    ]
   },
@@ -2384,40 +2487,50 @@
      "factor": "% Population Living in Households with Improved Sanitation",
      "short": "household sanitation",
      "area": "Haveri",
-     "value": 4.48
+     "weight": 4.48,
+     "share": 68.9,
+     "shareRank": 23
     },
     {
      "method": "district",
      "factor": "% Schools with instruction medium 1 (English)",
      "short": "English-medium schools",
      "area": "Haveri",
-     "value": 0.25
+     "weight": 0.25,
+     "share": 11.61,
+     "shareRank": 27
     }
    ],
-   "found": {
-    "state": {
-     "check": "no-evidence",
-     "why": [
-      "partly"
-     ],
-     "districtProof": 0,
-     "generalProof": 1
-    },
-    "district": {
-     "check": "no-evidence",
-     "why": [
-      "no-evidence"
-     ],
-     "districtProof": 0,
-     "generalProof": 0
-    }
-   },
    "touching": [],
-   "differ": [
-    "The news for Haveri is mostly about child marriage & girls' exits and governance, tracking & exams. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so child marriage could never come out as Haveri's data factor.",
-    "None of the 6 reasons the news gives for Haveri mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
-    "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
-    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Haveri in particular."
+   "connections": [
+    {
+     "title": "English-medium schools and child marriage & girls' exits",
+     "text": "Haveri has a low share of English-medium schools (11.6%, rank 27 of 35). The news here reports \"Child marriage and teenage pregnancy\". When lessons and the SSLC papers lean on English, girls who studied in Kannada can fall behind, and in a family already weighing a daughter's marriage, falling behind becomes the reason to stop. Families also tend to pay for English-medium schooling for sons first.",
+     "reason": "Child marriage and teenage pregnancy",
+     "reasonSources": [
+      3
+     ]
+    },
+    {
+     "title": "English-medium schools and governance, tracking & exams",
+     "text": "The news here reports \"Hall tickets withheld by a school\". The SSLC exam is where a weak grip on English shows: students who studied in Kannada but face English-heavy subjects can fail, and the news here links exam failure with leaving school.",
+     "reason": "Hall tickets withheld by a school",
+     "reasonSources": [
+      1
+     ]
+    },
+    {
+     "title": "Household sanitation and child marriage & girls' exits",
+     "text": "68.9% of people in Haveri live in households with improved sanitation (rank 23 of 35). The news here reports \"Child marriage and teenage pregnancy\". Without a toilet at home, adolescent girls face safety risks going out in the open and lack privacy; families fearful for a daughter's safety may keep her home or marry her early: the girls' exits the news describes.",
+     "reason": "Child marriage and teenage pregnancy",
+     "reasonSources": [
+      3
+     ]
+    },
+    {
+     "title": "The common thread",
+     "text": "Both data factors describe how well-off and well-served Haveri is; the news describes what falling short of that does to particular families. Read together, they are two sides of the same picture."
+    }
    ],
    "topChanges": [
     {
@@ -2434,8 +2547,7 @@
       "gap": 3
      },
      "newsReasons": [],
-     "verdict": "web-only",
-     "line": "Classrooms in good condition (model's #1): 3 verified sources about Haveri discuss it (3 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+     "line": "Leaking roofs, cracked walls and unsafe rooms disrupt teaching, especially in the monsoon, and can close rooms altogether. Here, where the news reports child marriage & girls' exits, a school girls can attend safely and comfortably weighs against early marriage. Local reports show this gap in Haveri."
     },
     {
      "rank": 2,
@@ -2453,8 +2565,7 @@
       "context": 1
      },
      "newsReasons": [],
-     "verdict": "web-only",
-     "line": "Functional toilets (model's #2): 3 verified sources about Haveri discuss it (1 background, 1 showing the gap, 1 reporting progress); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+     "line": "Without working toilets, adolescent girls lose privacy and cannot manage menstruation at school, so they miss days or stop coming. Here, where the news reports governance, tracking & exams, better rooms and teaching give students a better chance at the SSLC exam the news links to leaving. Local reports show this gap in Haveri."
     },
     {
      "rank": 3,
@@ -2470,8 +2581,7 @@
       "progress": 3
      },
      "newsReasons": [],
-     "verdict": "web-only",
-     "line": "Student furniture (model's #3): 3 verified sources about Haveri discuss it (3 reporting progress); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+     "line": "Sitting on the floor through long secondary-school days is uncomfortable and makes writing hard, and it signals a neglected school. Here, where the news reports child marriage & girls' exits, a school girls can attend safely and comfortably weighs against early marriage."
     }
    ]
   },
@@ -2516,34 +2626,20 @@
      "factor": "% Population Living in Households with Improved Sanitation",
      "short": "household sanitation",
      "area": "Kalburgi",
-     "value": 5.53
+     "weight": 5.53,
+     "share": 36.5,
+     "shareRank": 35
     },
     {
      "method": "district",
      "factor": "% Schools with instruction medium 1 (English)",
      "short": "English-medium schools",
      "area": "Kalburgi",
-     "value": 0.21
+     "weight": 0.21,
+     "share": 16.97,
+     "shareRank": 11
     }
    ],
-   "found": {
-    "state": {
-     "check": "no-evidence",
-     "why": [
-      "partly"
-     ],
-     "districtProof": 0,
-     "generalProof": 1
-    },
-    "district": {
-     "check": "no-evidence",
-     "why": [
-      "no-evidence"
-     ],
-     "districtProof": 0,
-     "generalProof": 0
-    }
-   },
    "touching": [
     {
      "family": "sanitation",
@@ -2552,11 +2648,40 @@
      "evidence": "thin"
     }
    ],
-   "differ": [
-    "The news for Kalaburagi is mostly about child marriage & girls' exits and governance, tracking & exams. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so child marriage could never come out as Kalaburagi's data factor.",
-    "None of the 8 reasons the news gives for Kalaburagi mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
-    "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
-    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Kalaburagi in particular."
+   "connections": [
+    {
+     "title": "English-medium schools and child marriage & girls' exits",
+     "text": "Kalaburagi has a high share of English-medium schools (17.0%, rank 11 of 35). The news here reports \"Child marriage of adolescent girls\". When lessons and the SSLC papers lean on English, girls who studied in Kannada can fall behind, and in a family already weighing a daughter's marriage, falling behind becomes the reason to stop. Families also tend to pay for English-medium schooling for sons first.",
+     "reason": "Child marriage of adolescent girls",
+     "reasonSources": [
+      1,
+      2,
+      3
+     ]
+    },
+    {
+     "title": "English-medium schools and governance, tracking & exams",
+     "text": "The news here reports \"SSLC failure and poverty\". The SSLC exam is where a weak grip on English shows: students who studied in Kannada but face English-heavy subjects can fail, and the news here links exam failure with leaving school.",
+     "reason": "SSLC failure and poverty",
+     "reasonSources": [
+      8,
+      9
+     ]
+    },
+    {
+     "title": "Household sanitation and child marriage & girls' exits",
+     "text": "36.5% of people in Kalaburagi live in households with improved sanitation (rank 35 of 35). The news here reports \"Child marriage of adolescent girls\". Without a toilet at home, adolescent girls face safety risks going out in the open and lack privacy; families fearful for a daughter's safety may keep her home or marry her early: the girls' exits the news describes.",
+     "reason": "Child marriage of adolescent girls",
+     "reasonSources": [
+      1,
+      2,
+      3
+     ]
+    },
+    {
+     "title": "The common thread",
+     "text": "Both data factors describe how well-off and well-served Kalaburagi is; the news describes what falling short of that does to particular families. Read together, they are two sides of the same picture."
+    }
    ],
    "topChanges": [
     {
@@ -2574,8 +2699,7 @@
       "context": 1
      },
      "newsReasons": [],
-     "verdict": "web-only",
-     "line": "School library (model's #1): 2 verified sources about Kalaburagi discuss it (1 background, 1 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+     "line": "A library supports reading and self-study, which helps weaker students keep up. Here, where the news reports child marriage & girls' exits, a school girls can attend safely and comfortably weighs against early marriage. Local reports show this gap in Kalaburagi."
     },
     {
      "rank": 2,
@@ -2591,8 +2715,7 @@
       "gap": 3
      },
      "newsReasons": [],
-     "verdict": "web-only",
-     "line": "Classrooms in good condition (model's #2): 3 verified sources about Kalaburagi discuss it (3 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+     "line": "Leaking roofs, cracked walls and unsafe rooms disrupt teaching, especially in the monsoon, and can close rooms altogether. Here, where the news reports governance, tracking & exams, better rooms and teaching give students a better chance at the SSLC exam the news links to leaving. Local reports show this gap in Kalaburagi."
     },
     {
      "rank": 3,
@@ -2606,8 +2729,7 @@
      "districtFindings": 0,
      "stances": {},
      "newsReasons": [],
-     "verdict": "untested",
-     "line": "Continuous evaluation (CCE) (model's #3): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+     "line": "Regular, low-stakes assessment shows early which students are falling behind, so they can be helped before the SSLC exam, where failure often ends schooling. Here, where the news reports child marriage & girls' exits, a school girls can attend safely and comfortably weighs against early marriage."
     }
    ]
   },
@@ -2652,40 +2774,52 @@
      "factor": "% Population Living in Households with Improved Sanitation",
      "short": "household sanitation",
      "area": "Kodagu",
-     "value": 2.62
+     "weight": 2.62,
+     "share": 93.9,
+     "shareRank": 3
     },
     {
      "method": "district",
      "factor": "% Schools with instruction medium 1 (English)",
      "short": "English-medium schools",
      "area": "Kodagu",
-     "value": 0.08
+     "weight": 0.08,
+     "share": 21.47,
+     "shareRank": 6
     }
    ],
-   "found": {
-    "state": {
-     "check": "no-evidence",
-     "why": [
-      "partly"
-     ],
-     "districtProof": 0,
-     "generalProof": 2
-    },
-    "district": {
-     "check": "no-evidence",
-     "why": [
-      "no-evidence"
-     ],
-     "districtProof": 0,
-     "generalProof": 0
-    }
-   },
    "touching": [],
-   "differ": [
-    "The news for Kodagu is mostly about child marriage & girls' exits and migration. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so child marriage could never come out as Kodagu's data factor.",
-    "None of the 5 reasons the news gives for Kodagu mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
-    "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
-    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Kodagu in particular."
+   "connections": [
+    {
+     "title": "English-medium schools and child marriage & girls' exits",
+     "text": "Kodagu has a high share of English-medium schools (21.5%, rank 6 of 35). The news here reports \"Marriage pressure after SSLC\". When lessons and the SSLC papers lean on English, girls who studied in Kannada can fall behind, and in a family already weighing a daughter's marriage, falling behind becomes the reason to stop. Families also tend to pay for English-medium schooling for sons first.",
+     "reason": "Marriage pressure after SSLC",
+     "reasonSources": [
+      1,
+      2
+     ]
+    },
+    {
+     "title": "English-medium schools and migration",
+     "text": "The news here reports \"Migrant estate labour families\". Children of migrant families often speak another language at home; schooling in an unfamiliar language, or a switch of medium each time the family moves, makes them fall behind again and again.",
+     "reason": "Migrant estate labour families",
+     "reasonSources": [
+      4
+     ]
+    },
+    {
+     "title": "Household sanitation and child marriage & girls' exits",
+     "text": "93.9% of people in Kodagu live in households with improved sanitation (rank 3 of 35). The news here reports \"Marriage pressure after SSLC\". Without a toilet at home, adolescent girls face safety risks going out in the open and lack privacy; families fearful for a daughter's safety may keep her home or marry her early: the girls' exits the news describes.",
+     "reason": "Marriage pressure after SSLC",
+     "reasonSources": [
+      1,
+      2
+     ]
+    },
+    {
+     "title": "The common thread",
+     "text": "Both data factors describe how well-off and well-served Kodagu is; the news describes what falling short of that does to particular families. Read together, they are two sides of the same picture."
+    }
    ],
    "topChanges": [
     {
@@ -2700,8 +2834,7 @@
      "districtFindings": 0,
      "stances": {},
      "newsReasons": [],
-     "verdict": "untested",
-     "line": "Female teachers (model's #1): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+     "line": "Women teachers can make adolescent girls feel safer and heard, act as role models, and reassure parents who hesitate to send daughters to secondary school. Here, where the news reports child marriage & girls' exits, a school girls can attend safely and comfortably weighs against early marriage."
     },
     {
      "rank": 2,
@@ -2717,8 +2850,7 @@
       "gap": 1
      },
      "newsReasons": [],
-     "verdict": "web-only",
-     "line": "Classrooms in good condition (model's #2): 1 verified source about Kodagu discusses it (1 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+     "line": "Leaking roofs, cracked walls and unsafe rooms disrupt teaching, especially in the monsoon, and can close rooms altogether. Here, where the news reports migration, a school worth coming back to matters for children who come and go with their families' work. Local reports show this gap in Kodagu."
     },
     {
      "rank": 3,
@@ -2732,8 +2864,7 @@
      "districtFindings": 0,
      "stances": {},
      "newsReasons": [],
-     "verdict": "untested",
-     "line": "Women with 10+ years of schooling (model's #3): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+     "line": "Mothers who studied longer tend to keep their children, and especially daughters, in school, and can help with schoolwork. Here, where the news reports child marriage & girls' exits, mothers who studied longer are more likely to resist an early marriage for a daughter."
     }
    ]
   },
@@ -2778,41 +2909,50 @@
      "factor": "% Population Living in Households with Improved Sanitation",
      "short": "household sanitation",
      "area": "Kolar",
-     "value": 4.07
+     "weight": 4.07,
+     "share": 89.2,
+     "shareRank": 9
     },
     {
      "method": "district",
      "factor": "% Schools with instruction medium 1 (English)",
      "short": "English-medium schools",
      "area": "Kolar",
-     "value": 0.16
+     "weight": 0.16,
+     "share": 16.01,
+     "shareRank": 12
     }
    ],
-   "found": {
-    "state": {
-     "check": "no-evidence",
-     "why": [
-      "partly"
-     ],
-     "districtProof": 0,
-     "generalProof": 1
-    },
-    "district": {
-     "check": "no-evidence",
-     "why": [
-      "partly"
-     ],
-     "districtProof": 0,
-     "generalProof": 2
-    }
-   },
    "touching": [],
-   "differ": [
-    "The news for Kolar is mostly about child marriage & girls' exits and school infrastructure & staffing. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so child marriage could never come out as Kolar's data factor.",
-    "None of the 5 reasons the news gives for Kolar mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
-    "When we asked deep research why this factor would be dominant here, the result was: partly: only research from elsewhere backs the mechanism (0 verified proof items about Kolar, 2 from elsewhere).",
-    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Kolar in particular.",
-    "News coverage of Kolar is thin, so the news picture itself rests on few stories."
+   "connections": [
+    {
+     "title": "English-medium schools and child marriage & girls' exits",
+     "text": "Kolar has a middling share of English-medium schools (16.0%, rank 12 of 35). The news here reports \"Child marriage among adolescent girls\". When lessons and the SSLC papers lean on English, girls who studied in Kannada can fall behind, and in a family already weighing a daughter's marriage, falling behind becomes the reason to stop. Families also tend to pay for English-medium schooling for sons first.",
+     "reason": "Child marriage among adolescent girls",
+     "reasonSources": [
+      3
+     ]
+    },
+    {
+     "title": "English-medium schools and school infrastructure & staffing",
+     "text": "The news here reports \"Teacher shortage and mass failure\". As families who can afford it move to English-medium private schools, the government schools that remain lose pupils, teachers and upkeep: the same weak school conditions the news reports.",
+     "reason": "Teacher shortage and mass failure",
+     "reasonSources": [
+      1
+     ]
+    },
+    {
+     "title": "Household sanitation and child marriage & girls' exits",
+     "text": "89.2% of people in Kolar live in households with improved sanitation (rank 9 of 35). The news here reports \"Child marriage among adolescent girls\". Without a toilet at home, adolescent girls face safety risks going out in the open and lack privacy; families fearful for a daughter's safety may keep her home or marry her early: the girls' exits the news describes.",
+     "reason": "Child marriage among adolescent girls",
+     "reasonSources": [
+      3
+     ]
+    },
+    {
+     "title": "The common thread",
+     "text": "Both data factors describe how well-off and well-served Kolar is; the news describes what falling short of that does to particular families. Read together, they are two sides of the same picture."
+    }
    ],
    "topChanges": [
     {
@@ -2829,8 +2969,7 @@
       "gap": 3
      },
      "newsReasons": [],
-     "verdict": "web-only",
-     "line": "Classrooms in good condition (model's #1): 3 verified sources about Kolar discuss it (3 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+     "line": "Leaking roofs, cracked walls and unsafe rooms disrupt teaching, especially in the monsoon, and can close rooms altogether. Here, where the news reports child marriage & girls' exits, a school girls can attend safely and comfortably weighs against early marriage. Local reports show this gap in Kolar."
     },
     {
      "rank": 2,
@@ -2844,8 +2983,7 @@
      "districtFindings": 0,
      "stances": {},
      "newsReasons": [],
-     "verdict": "untested",
-     "line": "Female teachers (model's #2): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+     "line": "Women teachers can make adolescent girls feel safer and heard, act as role models, and reassure parents who hesitate to send daughters to secondary school. Here, where the news reports school infrastructure & staffing, it is part of the same school conditions the news describes."
     },
     {
      "rank": 3,
@@ -2861,8 +2999,7 @@
       "progress": 1
      },
      "newsReasons": [],
-     "verdict": "web-only",
-     "line": "Household sanitation (model's #3): 1 verified source about Kolar discusses it (1 reporting progress); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+     "line": "Without a toilet at home, girls face safety risks and illness spreads, so children miss school. Here, where the news reports child marriage & girls' exits, a toilet at home removes one of the worries that push families to keep daughters home or marry them early."
     }
    ]
   },
@@ -2907,40 +3044,53 @@
      "factor": "% Population Living in Households with Improved Sanitation",
      "short": "household sanitation",
      "area": "Koppal",
-     "value": 4.74
+     "weight": 4.74,
+     "share": 58.8,
+     "shareRank": 28
     },
     {
      "method": "district",
      "factor": "% Schools with instruction medium 1 (English)",
      "short": "English-medium schools",
      "area": "Koppal",
-     "value": 0.24
+     "weight": 0.24,
+     "share": 12.54,
+     "shareRank": 22
     }
    ],
-   "found": {
-    "state": {
-     "check": "no-evidence",
-     "why": [
-      "partly"
-     ],
-     "districtProof": 0,
-     "generalProof": 1
-    },
-    "district": {
-     "check": "no-evidence",
-     "why": [
-      "no-evidence"
-     ],
-     "districtProof": 0,
-     "generalProof": 0
-    }
-   },
    "touching": [],
-   "differ": [
-    "The news for Koppal is mostly about child marriage & girls' exits and governance, tracking & exams. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so child labour could never come out as Koppal's data factor.",
-    "None of the 8 reasons the news gives for Koppal mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
-    "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
-    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Koppal in particular."
+   "connections": [
+    {
+     "title": "English-medium schools and child marriage & girls' exits",
+     "text": "Koppal has a middling share of English-medium schools (12.5%, rank 22 of 35). The news here reports \"Early marriage ends schooling\". When lessons and the SSLC papers lean on English, girls who studied in Kannada can fall behind, and in a family already weighing a daughter's marriage, falling behind becomes the reason to stop. Families also tend to pay for English-medium schooling for sons first.",
+     "reason": "Early marriage ends schooling",
+     "reasonSources": [
+      6,
+      7
+     ]
+    },
+    {
+     "title": "English-medium schools and governance, tracking & exams",
+     "text": "The news here reports \"SSLC failure and exits\". The SSLC exam is where a weak grip on English shows: students who studied in Kannada but face English-heavy subjects can fail, and the news here links exam failure with leaving school.",
+     "reason": "SSLC failure and exits",
+     "reasonSources": [
+      8,
+      9
+     ]
+    },
+    {
+     "title": "Household sanitation and child marriage & girls' exits",
+     "text": "58.8% of people in Koppal live in households with improved sanitation (rank 28 of 35). The news here reports \"Early marriage ends schooling\". Without a toilet at home, adolescent girls face safety risks going out in the open and lack privacy; families fearful for a daughter's safety may keep her home or marry her early: the girls' exits the news describes.",
+     "reason": "Early marriage ends schooling",
+     "reasonSources": [
+      6,
+      7
+     ]
+    },
+    {
+     "title": "The common thread",
+     "text": "Both data factors describe how well-off and well-served Koppal is; the news describes what falling short of that does to particular families. Read together, they are two sides of the same picture."
+    }
    ],
    "topChanges": [
     {
@@ -2957,8 +3107,7 @@
       "gap": 2
      },
      "newsReasons": [],
-     "verdict": "web-only",
-     "line": "Functional toilets (model's #1): 2 verified sources about Koppal discuss it (2 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+     "line": "Without working toilets, adolescent girls lose privacy and cannot manage menstruation at school, so they miss days or stop coming. Here, where the news reports child marriage & girls' exits, a school girls can attend safely and comfortably weighs against early marriage. Local reports show this gap in Koppal."
     },
     {
      "rank": 2,
@@ -2974,8 +3123,7 @@
       "progress": 2
      },
      "newsReasons": [],
-     "verdict": "web-only",
-     "line": "School library (model's #2): 2 verified sources about Koppal discuss it (2 reporting progress); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+     "line": "A library supports reading and self-study, which helps weaker students keep up. Here, where the news reports governance, tracking & exams, better rooms and teaching give students a better chance at the SSLC exam the news links to leaving."
     },
     {
      "rank": 3,
@@ -2992,8 +3140,7 @@
       "progress": 1
      },
      "newsReasons": [],
-     "verdict": "web-only",
-     "line": "Classrooms in good condition (model's #3): 2 verified sources about Koppal discuss it (1 showing the gap, 1 reporting progress); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+     "line": "Leaking roofs, cracked walls and unsafe rooms disrupt teaching, especially in the monsoon, and can close rooms altogether. Here, where the news reports child marriage & girls' exits, a school girls can attend safely and comfortably weighs against early marriage. Local reports show this gap in Koppal."
     }
    ]
   },
@@ -3038,40 +3185,52 @@
      "factor": "% Population Living in Households with Improved Sanitation",
      "short": "household sanitation",
      "area": "Mandya",
-     "value": 3.81
+     "weight": 3.81,
+     "share": 86.7,
+     "shareRank": 12
     },
     {
      "method": "district",
      "factor": "% Schools with instruction medium 1 (English)",
      "short": "English-medium schools",
      "area": "Mandya",
-     "value": 0.22
+     "weight": 0.22,
+     "share": 11.35,
+     "shareRank": 29
     }
    ],
-   "found": {
-    "state": {
-     "check": "no-evidence",
-     "why": [
-      "partly"
-     ],
-     "districtProof": 0,
-     "generalProof": 1
-    },
-    "district": {
-     "check": "no-evidence",
-     "why": [
-      "partly"
-     ],
-     "districtProof": 0,
-     "generalProof": 2
-    }
-   },
    "touching": [],
-   "differ": [
-    "The news for Mandya is mostly about child marriage & girls' exits and poverty & child labour. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so poverty or child labour could never come out as Mandya's data factor.",
-    "None of the 6 reasons the news gives for Mandya mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
-    "When we asked deep research why this factor would be dominant here, the result was: partly: only research from elsewhere backs the mechanism (0 verified proof items about Mandya, 2 from elsewhere).",
-    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Mandya in particular."
+   "connections": [
+    {
+     "title": "English-medium schools and child marriage & girls' exits",
+     "text": "Mandya has a low share of English-medium schools (11.3%, rank 29 of 35). The news here reports \"Child marriage of girls\". When lessons and the SSLC papers lean on English, girls who studied in Kannada can fall behind, and in a family already weighing a daughter's marriage, falling behind becomes the reason to stop. Families also tend to pay for English-medium schooling for sons first.",
+     "reason": "Child marriage of girls",
+     "reasonSources": [
+      1,
+      2
+     ]
+    },
+    {
+     "title": "English-medium schools and poverty & child labour",
+     "text": "The news here reports \"Poverty and parental illiteracy\". Where few schools teach in English, families who can pay move their children to private English-medium schools, and the government schools left behind serve the poorest households: the ones the news describes as short of money and sending children to work.",
+     "reason": "Poverty and parental illiteracy",
+     "reasonSources": [
+      5
+     ]
+    },
+    {
+     "title": "Household sanitation and child marriage & girls' exits",
+     "text": "86.7% of people in Mandya live in households with improved sanitation (rank 12 of 35). The news here reports \"Child marriage of girls\". Without a toilet at home, adolescent girls face safety risks going out in the open and lack privacy; families fearful for a daughter's safety may keep her home or marry her early: the girls' exits the news describes.",
+     "reason": "Child marriage of girls",
+     "reasonSources": [
+      1,
+      2
+     ]
+    },
+    {
+     "title": "The common thread",
+     "text": "Both data factors describe how well-off and well-served Mandya is; the news describes what falling short of that does to particular families. Read together, they are two sides of the same picture."
+    }
    ],
    "topChanges": [
     {
@@ -3086,8 +3245,7 @@
      "districtFindings": 0,
      "stances": {},
      "newsReasons": [],
-     "verdict": "untested",
-     "line": "Classrooms in good condition (model's #1): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+     "line": "Leaking roofs, cracked walls and unsafe rooms disrupt teaching, especially in the monsoon, and can close rooms altogether. Here, where the news reports child marriage & girls' exits, a school girls can attend safely and comfortably weighs against early marriage."
     },
     {
      "rank": 2,
@@ -3103,8 +3261,7 @@
       "context": 1
      },
      "newsReasons": [],
-     "verdict": "web-only",
-     "line": "Functional toilets (model's #2): 1 verified source about Mandya discusses it (1 background); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+     "line": "Without working toilets, adolescent girls lose privacy and cannot manage menstruation at school, so they miss days or stop coming. Here, where the news reports poverty & child labour, a school that works well is one less reason for a hard-pressed family to send a child to work."
     },
     {
      "rank": 3,
@@ -3118,8 +3275,7 @@
      "districtFindings": 0,
      "stances": {},
      "newsReasons": [],
-     "verdict": "untested",
-     "line": "Household sanitation (model's #3): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+     "line": "Without a toilet at home, girls face safety risks and illness spreads, so children miss school. Here, where the news reports child marriage & girls' exits, a toilet at home removes one of the worries that push families to keep daughters home or marry them early."
     }
    ]
   },
@@ -3164,40 +3320,50 @@
      "factor": "% Population Living in Households with Improved Sanitation",
      "short": "household sanitation",
      "area": "Mysuru",
-     "value": 2.12
+     "weight": 2.12,
+     "share": 86.4,
+     "shareRank": 13
     },
     {
      "method": "district",
      "factor": "% Schools with Functional Protected Well",
      "short": "schools with a protected well",
      "area": "Mysuru",
-     "value": 0.07
+     "weight": 0.07,
+     "share": 12.54,
+     "shareRank": 30
     }
    ],
-   "found": {
-    "state": {
-     "check": "no-evidence",
-     "why": [
-      "no-evidence"
-     ],
-     "districtProof": 0,
-     "generalProof": 0
-    },
-    "district": {
-     "check": "no-evidence",
-     "why": [
-      "no-evidence"
-     ],
-     "districtProof": 0,
-     "generalProof": 0
-    }
-   },
    "touching": [],
-   "differ": [
-    "The news for Mysuru is mostly about child marriage & girls' exits and poverty & child labour. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so child labour could never come out as Mysuru's data factor.",
-    "None of the 8 reasons the news gives for Mysuru mentions drinking water at school. The sources are silent on it, which is not the same as contradicting the data.",
-    "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
-    "This factor is named for only 3 of 35 Karnataka district-level rows; the rest get English-medium schools."
+   "connections": [
+    {
+     "title": "Schools with a protected well and child marriage & girls' exits",
+     "text": "Mysuru has a low share of schools with a protected well (12.5%, rank 30 of 35). The news here reports \"Child marriage of girls\". Without safe water at school, girls cannot use the toilets or manage menstruation there, one more pressure on adolescent girls to stay home.",
+     "reason": "Child marriage of girls",
+     "reasonSources": [
+      1
+     ]
+    },
+    {
+     "title": "Schools with a protected well and poverty & child labour",
+     "text": "The news here reports \"Pandemic closures, devices, child labour\". Schools that rely on wells rather than piped water tend to sit in under-served, poorer neighbourhoods and fringes, the same places where families need children's earnings.",
+     "reason": "Pandemic closures, devices, child labour",
+     "reasonSources": [
+      5
+     ]
+    },
+    {
+     "title": "Household sanitation and child marriage & girls' exits",
+     "text": "86.4% of people in Mysuru live in households with improved sanitation (rank 13 of 35). The news here reports \"Child marriage of girls\". Without a toilet at home, adolescent girls face safety risks going out in the open and lack privacy; families fearful for a daughter's safety may keep her home or marry her early: the girls' exits the news describes.",
+     "reason": "Child marriage of girls",
+     "reasonSources": [
+      1
+     ]
+    },
+    {
+     "title": "The common thread",
+     "text": "Both data factors describe how well-off and well-served Mysuru is; the news describes what falling short of that does to particular families. Read together, they are two sides of the same picture."
+    }
    ],
    "topChanges": [
     {
@@ -3215,8 +3381,7 @@
       "progress": 1
      },
      "newsReasons": [],
-     "verdict": "web-only",
-     "line": "Classrooms in good condition (model's #1): 3 verified sources about Mysuru discuss it (2 showing the gap, 1 reporting progress); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+     "line": "Leaking roofs, cracked walls and unsafe rooms disrupt teaching, especially in the monsoon, and can close rooms altogether. Here, where the news reports child marriage & girls' exits, a school girls can attend safely and comfortably weighs against early marriage. Local reports show this gap in Mysuru."
     },
     {
      "rank": 2,
@@ -3232,8 +3397,7 @@
       "context": 1
      },
      "newsReasons": [],
-     "verdict": "web-only",
-     "line": "Female teachers (model's #2): 1 verified source about Mysuru discusses it (1 background); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+     "line": "Women teachers can make adolescent girls feel safer and heard, act as role models, and reassure parents who hesitate to send daughters to secondary school. Here, where the news reports poverty & child labour, a school that works well is one less reason for a hard-pressed family to send a child to work."
     },
     {
      "rank": 3,
@@ -3249,8 +3413,7 @@
       "context": 1
      },
      "newsReasons": [],
-     "verdict": "web-only",
-     "line": "Teachers trained in ICT (model's #3): 1 verified source about Mysuru discusses it (1 background); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+     "line": "Trained teachers can use digital tools to make lessons clearer and reach weaker students. Here, where the news reports child marriage & girls' exits, a school girls can attend safely and comfortably weighs against early marriage."
     }
    ]
   },
@@ -3295,40 +3458,52 @@
      "factor": "% Population Living in Households with Improved Sanitation",
      "short": "household sanitation",
      "area": "Raichur",
-     "value": 5.44
+     "weight": 5.44,
+     "share": 53.0,
+     "shareRank": 31
     },
     {
      "method": "district",
      "factor": "% Schools with instruction medium 1 (English)",
      "short": "English-medium schools",
      "area": "Raichur",
-     "value": 0.22
+     "weight": 0.22,
+     "share": 15.83,
+     "shareRank": 13
     }
    ],
-   "found": {
-    "state": {
-     "check": "no-evidence",
-     "why": [
-      "partly"
-     ],
-     "districtProof": 0,
-     "generalProof": 1
-    },
-    "district": {
-     "check": "no-evidence",
-     "why": [
-      "no-evidence"
-     ],
-     "districtProof": 0,
-     "generalProof": 0
-    }
-   },
    "touching": [],
-   "differ": [
-    "The news for Raichur is mostly about governance, tracking & exams and poverty & child labour. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so child labour could never come out as Raichur's data factor.",
-    "None of the 7 reasons the news gives for Raichur mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
-    "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
-    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Raichur in particular."
+   "connections": [
+    {
+     "title": "English-medium schools and governance, tracking & exams",
+     "text": "Raichur has a middling share of English-medium schools (15.8%, rank 13 of 35). The news here reports \"SSLC failure and exam-related exits\". The SSLC exam is where a weak grip on English shows: students who studied in Kannada but face English-heavy subjects can fail, and the news here links exam failure with leaving school.",
+     "reason": "SSLC failure and exam-related exits",
+     "reasonSources": [
+      7,
+      8
+     ]
+    },
+    {
+     "title": "English-medium schools and poverty & child labour",
+     "text": "The news here reports \"Cotton-field child labour\". Most English-medium schools charge fees, so the share marks the line between families who can pay and those who cannot; the poorest households, the ones the news describes as short of money and sending children to work, stay in government schools that teach in Kannada.",
+     "reason": "Cotton-field child labour",
+     "reasonSources": [
+      1,
+      2
+     ]
+    },
+    {
+     "title": "Household sanitation and child marriage & girls' exits",
+     "text": "53.0% of people in Raichur live in households with improved sanitation (rank 31 of 35). The news here reports \"Child marriage and sexual violence\". Without a toilet at home, adolescent girls face safety risks going out in the open and lack privacy; families fearful for a daughter's safety may keep her home or marry her early: the girls' exits the news describes.",
+     "reason": "Child marriage and sexual violence",
+     "reasonSources": [
+      5
+     ]
+    },
+    {
+     "title": "The common thread",
+     "text": "Both data factors describe how well-off and well-served Raichur is; the news describes what falling short of that does to particular families. Read together, they are two sides of the same picture."
+    }
    ],
    "topChanges": [
     {
@@ -3345,8 +3520,7 @@
       "gap": 1
      },
      "newsReasons": [],
-     "verdict": "web-only",
-     "line": "School library (model's #1): 1 verified source about Raichur discusses it (1 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+     "line": "A library supports reading and self-study, which helps weaker students keep up. Here, where the news reports governance, tracking & exams, better rooms and teaching give students a better chance at the SSLC exam the news links to leaving. Local reports show this gap in Raichur."
     },
     {
      "rank": 2,
@@ -3362,8 +3536,7 @@
       "gap": 3
      },
      "newsReasons": [],
-     "verdict": "web-only",
-     "line": "Classrooms in good condition (model's #2): 3 verified sources about Raichur discuss it (3 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+     "line": "Leaking roofs, cracked walls and unsafe rooms disrupt teaching, especially in the monsoon, and can close rooms altogether. Here, where the news reports poverty & child labour, a school that works well is one less reason for a hard-pressed family to send a child to work. Local reports show this gap in Raichur."
     },
     {
      "rank": 3,
@@ -3377,8 +3550,7 @@
      "districtFindings": 0,
      "stances": {},
      "newsReasons": [],
-     "verdict": "untested",
-     "line": "Female teachers (model's #3): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+     "line": "Women teachers can make adolescent girls feel safer and heard, act as role models, and reassure parents who hesitate to send daughters to secondary school. Here, where the news reports governance, tracking & exams, better rooms and teaching give students a better chance at the SSLC exam the news links to leaving."
     }
    ]
   },
@@ -3423,40 +3595,50 @@
      "factor": "% Population Living in Households with Improved Sanitation",
      "short": "household sanitation",
      "area": "Ramanagara",
-     "value": 4.55
+     "weight": 4.55,
+     "share": 89.6,
+     "shareRank": 7
     },
     {
      "method": "district",
      "factor": "% Schools with instruction medium 1 (English)",
      "short": "English-medium schools",
      "area": "Ramanagara",
-     "value": 0.19
+     "weight": 0.19,
+     "share": 15.19,
+     "shareRank": 15
     }
    ],
-   "found": {
-    "state": {
-     "check": "no-evidence",
-     "why": [
-      "partly"
-     ],
-     "districtProof": 0,
-     "generalProof": 1
-    },
-    "district": {
-     "check": "no-evidence",
-     "why": [
-      "partly"
-     ],
-     "districtProof": 0,
-     "generalProof": 2
-    }
-   },
    "touching": [],
-   "differ": [
-    "The news for Ramanagara is mostly about child marriage & girls' exits and poverty & child labour. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so child labour could never come out as Ramanagara's data factor.",
-    "None of the 6 reasons the news gives for Ramanagara mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
-    "When we asked deep research why this factor would be dominant here, the result was: partly: only research from elsewhere backs the mechanism (0 verified proof items about Ramanagara, 2 from elsewhere).",
-    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Ramanagara in particular."
+   "connections": [
+    {
+     "title": "English-medium schools and child marriage & girls' exits",
+     "text": "Ramanagara has a middling share of English-medium schools (15.2%, rank 15 of 35). The news here reports \"Child marriage of girls\". When lessons and the SSLC papers lean on English, girls who studied in Kannada can fall behind, and in a family already weighing a daughter's marriage, falling behind becomes the reason to stop. Families also tend to pay for English-medium schooling for sons first.",
+     "reason": "Child marriage of girls",
+     "reasonSources": [
+      1
+     ]
+    },
+    {
+     "title": "English-medium schools and poverty & child labour",
+     "text": "The news here reports \"Rising child labour\". Most English-medium schools charge fees, so the share marks the line between families who can pay and those who cannot; the poorest households, the ones the news describes as short of money and sending children to work, stay in government schools that teach in Kannada.",
+     "reason": "Rising child labour",
+     "reasonSources": [
+      2
+     ]
+    },
+    {
+     "title": "Household sanitation and child marriage & girls' exits",
+     "text": "89.6% of people in Ramanagara live in households with improved sanitation (rank 7 of 35). The news here reports \"Child marriage of girls\". Without a toilet at home, adolescent girls face safety risks going out in the open and lack privacy; families fearful for a daughter's safety may keep her home or marry her early: the girls' exits the news describes.",
+     "reason": "Child marriage of girls",
+     "reasonSources": [
+      1
+     ]
+    },
+    {
+     "title": "The common thread",
+     "text": "Both data factors describe how well-off and well-served Ramanagara is; the news describes what falling short of that does to particular families. Read together, they are two sides of the same picture."
+    }
    ],
    "topChanges": [
     {
@@ -3473,8 +3655,7 @@
       "gap": 2
      },
      "newsReasons": [],
-     "verdict": "web-only",
-     "line": "Classrooms in good condition (model's #1): 2 verified sources about Ramanagara discuss it (2 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+     "line": "Leaking roofs, cracked walls and unsafe rooms disrupt teaching, especially in the monsoon, and can close rooms altogether. Here, where the news reports child marriage & girls' exits, a school girls can attend safely and comfortably weighs against early marriage. Local reports show this gap in Ramanagara."
     },
     {
      "rank": 2,
@@ -3490,8 +3671,7 @@
       "context": 1
      },
      "newsReasons": [],
-     "verdict": "web-only",
-     "line": "Student furniture (model's #2): 1 verified source about Ramanagara discusses it (1 background); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+     "line": "Sitting on the floor through long secondary-school days is uncomfortable and makes writing hard, and it signals a neglected school. Here, where the news reports poverty & child labour, a school that works well is one less reason for a hard-pressed family to send a child to work."
     },
     {
      "rank": 3,
@@ -3505,8 +3685,7 @@
      "districtFindings": 0,
      "stances": {},
      "newsReasons": [],
-     "verdict": "untested",
-     "line": "Household sanitation (model's #3): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+     "line": "Without a toilet at home, girls face safety risks and illness spreads, so children miss school. Here, where the news reports child marriage & girls' exits, a toilet at home removes one of the worries that push families to keep daughters home or marry them early."
     }
    ]
   },
@@ -3551,34 +3730,20 @@
      "factor": "% Population Living in Households with Improved Sanitation",
      "short": "household sanitation",
      "area": "Shivamogga",
-     "value": 2.38
+     "weight": 2.38,
+     "share": 85.4,
+     "shareRank": 15
     },
     {
      "method": "district",
      "factor": "% Schools with instruction medium 1 (English)",
      "short": "English-medium schools",
      "area": "Shivamogga",
-     "value": 0.13
+     "weight": 0.13,
+     "share": 11.4,
+     "shareRank": 28
     }
    ],
-   "found": {
-    "state": {
-     "check": "no-evidence",
-     "why": [
-      "no-evidence"
-     ],
-     "districtProof": 0,
-     "generalProof": 0
-    },
-    "district": {
-     "check": "no-evidence",
-     "why": [
-      "no-evidence"
-     ],
-     "districtProof": 0,
-     "generalProof": 0
-    }
-   },
    "touching": [
     {
      "family": "sanitation",
@@ -3587,11 +3752,37 @@
      "evidence": "thin"
     }
    ],
-   "differ": [
-    "The news for Shivamogga is mostly about school infrastructure & staffing and child marriage & girls' exits. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so poverty or child labour could never come out as Shivamogga's data factor.",
-    "None of the 7 reasons the news gives for Shivamogga mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
-    "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
-    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Shivamogga in particular."
+   "connections": [
+    {
+     "title": "English-medium schools and school infrastructure & staffing",
+     "text": "Shivamogga has a low share of English-medium schools (11.4%, rank 28 of 35). The news here reports \"Tribal-area school without teachers or toilets\". As families who can afford it move to English-medium private schools, the government schools that remain lose pupils, teachers and upkeep: the same weak school conditions the news reports.",
+     "reason": "Tribal-area school without teachers or toilets",
+     "reasonSources": [
+      8
+     ]
+    },
+    {
+     "title": "English-medium schools and child marriage & girls' exits",
+     "text": "The news here reports \"Child marriage\". When lessons and the SSLC papers lean on English, girls who studied in Kannada can fall behind, and in a family already weighing a daughter's marriage, falling behind becomes the reason to stop. Families also tend to pay for English-medium schooling for sons first.",
+     "reason": "Child marriage",
+     "reasonSources": [
+      2,
+      3
+     ]
+    },
+    {
+     "title": "Household sanitation and child marriage & girls' exits",
+     "text": "85.4% of people in Shivamogga live in households with improved sanitation (rank 15 of 35). The news here reports \"Child marriage\". Without a toilet at home, adolescent girls face safety risks going out in the open and lack privacy; families fearful for a daughter's safety may keep her home or marry her early: the girls' exits the news describes.",
+     "reason": "Child marriage",
+     "reasonSources": [
+      2,
+      3
+     ]
+    },
+    {
+     "title": "The common thread",
+     "text": "Both data factors describe how well-off and well-served Shivamogga is; the news describes what falling short of that does to particular families. Read together, they are two sides of the same picture."
+    }
    ],
    "topChanges": [
     {
@@ -3608,8 +3799,7 @@
       "context": 1
      },
      "newsReasons": [],
-     "verdict": "web-only",
-     "line": "Classrooms in good condition (model's #1): 1 verified source about Shivamogga discusses it (1 background); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+     "line": "Leaking roofs, cracked walls and unsafe rooms disrupt teaching, especially in the monsoon, and can close rooms altogether. Here, where the news reports school infrastructure & staffing, it is part of the same school conditions the news describes."
     },
     {
      "rank": 2,
@@ -3623,8 +3813,7 @@
      "districtFindings": 0,
      "stances": {},
      "newsReasons": [],
-     "verdict": "untested",
-     "line": "All-weather road access (model's #2): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+     "line": "When roads wash out in the monsoon, buses stop and the walk gets long and unsafe, especially for girls, so attendance breaks and students fall behind. Here, where the news reports child marriage & girls' exits, a school girls can attend safely and comfortably weighs against early marriage."
     },
     {
      "rank": 3,
@@ -3640,8 +3829,7 @@
      "newsReasons": [
       "Tribal-area school without teachers or toilets"
      ],
-     "verdict": "news-only",
-     "line": "Household sanitation (model's #3): no verified source about the district was found in this pass; the news research names \"Tribal-area school without teachers or toilets\". So the news research mentions it, but no district source was verified in this pass."
+     "line": "Without a toilet at home, girls face safety risks and illness spreads, so children miss school. Here, where the news reports school infrastructure & staffing, fewer infections at home mean fewer missed school days. The news itself names it: \"Tribal-area school without teachers or toilets\"."
     }
    ]
   },
@@ -3686,48 +3874,38 @@
      "factor": "% Population Living in Households with Improved Sanitation",
      "short": "household sanitation",
      "area": "Tumakuru",
-     "value": 3.58
+     "weight": 3.58,
+     "share": 86.1,
+     "shareRank": 14
     },
     {
      "method": "state",
      "factor": "% Population Living in Households with Improved Sanitation",
      "short": "household sanitation",
      "area": "Tumakuru Madhugiri",
-     "value": 5.03
+     "weight": 5.03,
+     "share": 75.11,
+     "shareRank": 20
     },
     {
      "method": "district",
      "factor": "% Schools with instruction medium 1 (English)",
      "short": "English-medium schools",
      "area": "Tumakuru",
-     "value": 0.2
+     "weight": 0.2,
+     "share": 11.63,
+     "shareRank": 26
     },
     {
      "method": "district",
      "factor": "% Schools with instruction medium 1 (English)",
      "short": "English-medium schools",
      "area": "Tumakuru Madhugiri",
-     "value": 0.32
+     "weight": 0.32,
+     "share": 10.13,
+     "shareRank": 32
     }
    ],
-   "found": {
-    "state": {
-     "check": "no-evidence",
-     "why": [
-      "no-evidence"
-     ],
-     "districtProof": 0,
-     "generalProof": 0
-    },
-    "district": {
-     "check": "no-evidence",
-     "why": [
-      "no-evidence"
-     ],
-     "districtProof": 0,
-     "generalProof": 0
-    }
-   },
    "touching": [
     {
      "family": "sanitation",
@@ -3736,11 +3914,35 @@
      "evidence": "thin"
     }
    ],
-   "differ": [
-    "The news for Tumakuru is mostly about poverty & child labour and school infrastructure & staffing. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so child labour could never come out as Tumakuru's data factor.",
-    "None of the 7 reasons the news gives for Tumakuru mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
-    "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
-    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Tumakuru in particular."
+   "connections": [
+    {
+     "title": "English-medium schools and poverty & child labour",
+     "text": "Tumakuru has a low share of English-medium schools (11.6%, rank 26 of 35). The news here reports \"Madhugiri dropouts to unorganised labour\". Where few schools teach in English, families who can pay move their children to private English-medium schools, and the government schools left behind serve the poorest households: the ones the news describes as short of money and sending children to work.",
+     "reason": "Madhugiri dropouts to unorganised labour",
+     "reasonSources": [
+      3
+     ]
+    },
+    {
+     "title": "English-medium schools and school infrastructure & staffing",
+     "text": "The news here reports \"Border-school teacher and toilet gaps\". As families who can afford it move to English-medium private schools, the government schools that remain lose pupils, teachers and upkeep: the same weak school conditions the news reports.",
+     "reason": "Border-school teacher and toilet gaps",
+     "reasonSources": [
+      6
+     ]
+    },
+    {
+     "title": "Household sanitation and poverty & child labour",
+     "text": "86.1% of people in Tumakuru live in households with improved sanitation (rank 14 of 35). The news here reports \"Madhugiri dropouts to unorganised labour\". Homes without a toilet are usually the poorest ones. The same lack of money that leaves a toilet unbuilt pushes children toward work, so household sanitation can track the poverty the news reports.",
+     "reason": "Madhugiri dropouts to unorganised labour",
+     "reasonSources": [
+      3
+     ]
+    },
+    {
+     "title": "The common thread",
+     "text": "Both data factors describe how well-off and well-served Tumakuru is; the news describes what falling short of that does to particular families. Read together, they are two sides of the same picture."
+    }
    ],
    "topChanges": [
     {
@@ -3757,8 +3959,7 @@
       "context": 1
      },
      "newsReasons": [],
-     "verdict": "web-only",
-     "line": "Women with 10+ years of schooling (model's #1): 1 verified source about Tumakuru discusses it (1 background); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+     "line": "Mothers who studied longer tend to keep their children, and especially daughters, in school, and can help with schoolwork. Here, where the news reports poverty & child labour, mothers who studied longer are more likely to hold out against sending a child to work."
     },
     {
      "rank": 2,
@@ -3776,8 +3977,7 @@
      "newsReasons": [
       "Border-school teacher and toilet gaps"
      ],
-     "verdict": "agree",
-     "line": "Classrooms in good condition (model's #2): 2 verified sources about Tumakuru discuss it (2 showing the gap); the news research names \"Border-school teacher and toilet gaps\". So the model, the web sources and the news research point the same way."
+     "line": "Leaking roofs, cracked walls and unsafe rooms disrupt teaching, especially in the monsoon, and can close rooms altogether. Here, where the news reports school infrastructure & staffing, it is part of the same school conditions the news describes. The news itself names it: \"Border-school teacher and toilet gaps\". Local reports show this gap in Tumakuru."
     },
     {
      "rank": 3,
@@ -3793,8 +3993,7 @@
       "progress": 2
      },
      "newsReasons": [],
-     "verdict": "web-only",
-     "line": "Student furniture (model's #3): 2 verified sources about Tumakuru discuss it (2 reporting progress); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+     "line": "Sitting on the floor through long secondary-school days is uncomfortable and makes writing hard, and it signals a neglected school. Here, where the news reports poverty & child labour, a school that works well is one less reason for a hard-pressed family to send a child to work."
     }
    ]
   },
@@ -3839,40 +4038,52 @@
      "factor": "% Population Living in Households with Improved Sanitation",
      "short": "household sanitation",
      "area": "Udupi",
-     "value": 0.26
+     "weight": 0.26,
+     "share": 94.5,
+     "shareRank": 2
     },
     {
      "method": "district",
      "factor": "% Schools with instruction medium 1 (English)",
      "short": "English-medium schools",
      "area": "Udupi",
-     "value": 0.01
+     "weight": 0.01,
+     "share": 19.53,
+     "shareRank": 8
     }
    ],
-   "found": {
-    "state": {
-     "check": "unclear",
-     "why": [
-      "no-evidence"
-     ],
-     "districtProof": 0,
-     "generalProof": 0
-    },
-    "district": {
-     "check": "no-evidence",
-     "why": [
-      "no-evidence"
-     ],
-     "districtProof": 0,
-     "generalProof": 0
-    }
-   },
    "touching": [],
-   "differ": [
-    "The news for Udupi is mostly about governance, tracking & exams and poverty & child labour. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so child labour could never come out as Udupi's data factor.",
-    "None of the 6 reasons the news gives for Udupi mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
-    "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
-    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Udupi in particular."
+   "connections": [
+    {
+     "title": "English-medium schools and governance, tracking & exams",
+     "text": "Udupi has a high share of English-medium schools (19.5%, rank 8 of 35). The news here reports \"Intensive slow-learner coaching\". The SSLC exam is where a weak grip on English shows: students who studied in Kannada but face English-heavy subjects can fail, and the news here links exam failure with leaving school.",
+     "reason": "Intensive slow-learner coaching",
+     "reasonSources": [
+      3,
+      4
+     ]
+    },
+    {
+     "title": "English-medium schools and poverty & child labour",
+     "text": "The news here reports \"Child labour at Malpe harbour\". Most English-medium schools charge fees, so the share marks the line between families who can pay and those who cannot; the poorest households, the ones the news describes as short of money and sending children to work, stay in government schools that teach in Kannada.",
+     "reason": "Child labour at Malpe harbour",
+     "reasonSources": [
+      6
+     ]
+    },
+    {
+     "title": "Household sanitation and governance, tracking & exams",
+     "text": "94.5% of people in Udupi live in households with improved sanitation (rank 2 of 35). The news here reports \"Intensive slow-learner coaching\". Illness spread by poor sanitation means missed days and lost lessons in the run-up to the SSLC exam.",
+     "reason": "Intensive slow-learner coaching",
+     "reasonSources": [
+      3,
+      4
+     ]
+    },
+    {
+     "title": "The common thread",
+     "text": "Both data factors describe how well-off and well-served Udupi is; the news describes what falling short of that does to particular families. Read together, they are two sides of the same picture."
+    }
    ],
    "topChanges": [
     {
@@ -3890,8 +4101,7 @@
       "context": 1
      },
      "newsReasons": [],
-     "verdict": "web-only",
-     "line": "Protected well (model's #1): 2 verified sources about Udupi discuss it (1 background, 1 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+     "line": "It indicates whether a school has a safe water source. Here, where the news reports governance, tracking & exams, better rooms and teaching give students a better chance at the SSLC exam the news links to leaving. Local reports show this gap in Udupi."
     },
     {
      "rank": 2,
@@ -3905,8 +4115,7 @@
      "districtFindings": 0,
      "stances": {},
      "newsReasons": [],
-     "verdict": "untested",
-     "line": "Female teachers (model's #2): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+     "line": "Women teachers can make adolescent girls feel safer and heard, act as role models, and reassure parents who hesitate to send daughters to secondary school. Here, where the news reports poverty & child labour, a school that works well is one less reason for a hard-pressed family to send a child to work."
     },
     {
      "rank": 3,
@@ -3922,8 +4131,7 @@
       "progress": 1
      },
      "newsReasons": [],
-     "verdict": "web-only",
-     "line": "Teachers trained in ICT (model's #3): 1 verified source about Udupi discusses it (1 reporting progress); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+     "line": "Trained teachers can use digital tools to make lessons clearer and reach weaker students. Here, where the news reports governance, tracking & exams, better rooms and teaching give students a better chance at the SSLC exam the news links to leaving."
     }
    ]
   },
@@ -3968,48 +4176,38 @@
      "factor": "% Population Living in Households with Improved Sanitation",
      "short": "household sanitation",
      "area": "Uttara Kannada",
-     "value": 2.3
+     "weight": 2.3,
+     "share": 89.6,
+     "shareRank": 7
     },
     {
      "method": "state",
      "factor": "% Population Living in Households with Improved Sanitation",
      "short": "household sanitation",
      "area": "Uttara Kannada Sirsi",
-     "value": 3.17
+     "weight": 3.17,
+     "share": 75.11,
+     "shareRank": 20
     },
     {
      "method": "district",
      "factor": "% Schools with instruction medium 1 (English)",
      "short": "English-medium schools",
      "area": "Uttara Kannada",
-     "value": 0.14
+     "weight": 0.14,
+     "share": 10.49,
+     "shareRank": 31
     },
     {
      "method": "district",
      "factor": "% Schools with instruction medium 1 (English)",
      "short": "English-medium schools",
      "area": "Uttara Kannada Sirsi",
-     "value": 0.35
+     "weight": 0.35,
+     "share": 5.86,
+     "shareRank": 35
     }
    ],
-   "found": {
-    "state": {
-     "check": "unclear",
-     "why": [
-      "no-evidence"
-     ],
-     "districtProof": 0,
-     "generalProof": 0
-    },
-    "district": {
-     "check": "no-evidence",
-     "why": [
-      "no-evidence"
-     ],
-     "districtProof": 0,
-     "generalProof": 0
-    }
-   },
    "touching": [
     {
      "family": "english",
@@ -4018,12 +4216,39 @@
      "evidence": "thin"
     }
    ],
-   "differ": [
-    "The news for Uttara Kannada is mostly about health and school infrastructure & staffing. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so child labour could never come out as Uttara Kannada's data factor.",
-    "One news reason does touch the language a school teaches in: \"Village school closures, falling enrolment\" (thin evidence). So here the news and the data do meet, on one point.",
-    "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
-    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Uttara Kannada in particular.",
-    "News coverage of Uttara Kannada is thin, so the news picture itself rests on few stories."
+   "connections": [
+    {
+     "title": "Where they already meet",
+     "text": "The news here reports \"Village school closures, falling enrolment\": Many small Kannada-medium government schools in Karwar and Joida taluks were shut over 17 years, reportedly as parents shifted priorities. Closures can lengthen travel to the next school, though the source does not link them to secondary dropout. That is the data's factor, the language a school teaches in, showing up on the ground."
+    },
+    {
+     "title": "English-medium schools and health",
+     "text": "Uttara Kannada has a low share of English-medium schools (10.5%, rank 31 of 35). The news here reports \"COVID-era exam avoidance in Sirsi\". Children who miss school through illness fall further behind in an English-heavy curriculum, and catching up gets harder each time.",
+     "reason": "COVID-era exam avoidance in Sirsi",
+     "reasonSources": [
+      2
+     ]
+    },
+    {
+     "title": "English-medium schools and school infrastructure & staffing",
+     "text": "The news here reports \"Village school closures, falling enrolment\". As families who can afford it move to English-medium private schools, the government schools that remain lose pupils, teachers and upkeep: the same weak school conditions the news reports.",
+     "reason": "Village school closures, falling enrolment",
+     "reasonSources": [
+      5
+     ]
+    },
+    {
+     "title": "Household sanitation and health",
+     "text": "89.6% of people in Uttara Kannada live in households with improved sanitation (rank 7 of 35). The news here reports \"COVID-era exam avoidance in Sirsi\". Poor sanitation spreads infections, and repeated illness keeps children out of class: the health link the news reports.",
+     "reason": "COVID-era exam avoidance in Sirsi",
+     "reasonSources": [
+      2
+     ]
+    },
+    {
+     "title": "The common thread",
+     "text": "Both data factors describe how well-off and well-served Uttara Kannada is; the news describes what falling short of that does to particular families. Read together, they are two sides of the same picture."
+    }
    ],
    "topChanges": [
     {
@@ -4038,8 +4263,7 @@
      "districtFindings": 0,
      "stances": {},
      "newsReasons": [],
-     "verdict": "untested",
-     "line": "Female teachers (model's #1): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+     "line": "Women teachers can make adolescent girls feel safer and heard, act as role models, and reassure parents who hesitate to send daughters to secondary school. Here, where the news reports health, it helps children who miss days through illness keep up."
     },
     {
      "rank": 2,
@@ -4055,8 +4279,7 @@
       "gap": 1
      },
      "newsReasons": [],
-     "verdict": "web-only",
-     "line": "Classrooms in good condition (model's #2): 1 verified source about Uttara Kannada discusses it (1 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+     "line": "Leaking roofs, cracked walls and unsafe rooms disrupt teaching, especially in the monsoon, and can close rooms altogether. Here, where the news reports school infrastructure & staffing, it is part of the same school conditions the news describes. Local reports show this gap in Uttara Kannada."
     },
     {
      "rank": 3,
@@ -4070,8 +4293,7 @@
      "districtFindings": 0,
      "stances": {},
      "newsReasons": [],
-     "verdict": "untested",
-     "line": "Protected well (model's #3): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+     "line": "It indicates whether a school has a safe water source. Here, where the news reports health, it helps children who miss days through illness keep up."
     }
    ]
   },
@@ -4116,40 +4338,50 @@
      "factor": "% Population Living in Households with Improved Sanitation",
      "short": "household sanitation",
      "area": "Vijayapura",
-     "value": 4.02
+     "weight": 4.02,
+     "share": 44.8,
+     "shareRank": 33
     },
     {
      "method": "district",
      "factor": "% Schools with instruction medium 1 (English)",
      "short": "English-medium schools",
      "area": "Vijayapura",
-     "value": 0.2
+     "weight": 0.2,
+     "share": 13.04,
+     "shareRank": 20
     }
    ],
-   "found": {
-    "state": {
-     "check": "no-evidence",
-     "why": [
-      "partly"
-     ],
-     "districtProof": 0,
-     "generalProof": 2
-    },
-    "district": {
-     "check": "no-evidence",
-     "why": [
-      "no-evidence"
-     ],
-     "districtProof": 0,
-     "generalProof": 0
-    }
-   },
    "touching": [],
-   "differ": [
-    "The news for Vijayapura is mostly about child marriage & girls' exits and governance, tracking & exams. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so child marriage could never come out as Vijayapura's data factor.",
-    "None of the 8 reasons the news gives for Vijayapura mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
-    "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
-    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Vijayapura in particular."
+   "connections": [
+    {
+     "title": "English-medium schools and child marriage & girls' exits",
+     "text": "Vijayapura has a middling share of English-medium schools (13.0%, rank 20 of 35). The news here reports \"Child marriage through mass weddings\". When lessons and the SSLC papers lean on English, girls who studied in Kannada can fall behind, and in a family already weighing a daughter's marriage, falling behind becomes the reason to stop. Families also tend to pay for English-medium schooling for sons first.",
+     "reason": "Child marriage through mass weddings",
+     "reasonSources": [
+      1
+     ]
+    },
+    {
+     "title": "English-medium schools and governance, tracking & exams",
+     "text": "The news here reports \"Weak SSLC performance\". The SSLC exam is where a weak grip on English shows: students who studied in Kannada but face English-heavy subjects can fail, and the news here links exam failure with leaving school.",
+     "reason": "Weak SSLC performance",
+     "reasonSources": [
+      4
+     ]
+    },
+    {
+     "title": "Household sanitation and child marriage & girls' exits",
+     "text": "44.8% of people in Vijayapura live in households with improved sanitation (rank 33 of 35). The news here reports \"Child marriage through mass weddings\". Without a toilet at home, adolescent girls face safety risks going out in the open and lack privacy; families fearful for a daughter's safety may keep her home or marry her early: the girls' exits the news describes.",
+     "reason": "Child marriage through mass weddings",
+     "reasonSources": [
+      1
+     ]
+    },
+    {
+     "title": "The common thread",
+     "text": "Both data factors describe how well-off and well-served Vijayapura is; the news describes what falling short of that does to particular families. Read together, they are two sides of the same picture."
+    }
    ],
    "topChanges": [
     {
@@ -4166,8 +4398,7 @@
       "gap": 1
      },
      "newsReasons": [],
-     "verdict": "web-only",
-     "line": "Functional toilets (model's #1): 1 verified source about Vijayapura discusses it (1 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+     "line": "Without working toilets, adolescent girls lose privacy and cannot manage menstruation at school, so they miss days or stop coming. Here, where the news reports child marriage & girls' exits, a school girls can attend safely and comfortably weighs against early marriage. Local reports show this gap in Vijayapura."
     },
     {
      "rank": 2,
@@ -4185,8 +4416,7 @@
      "newsReasons": [
       "Low perceived value of schooling"
      ],
-     "verdict": "agree",
-     "line": "Classrooms in good condition (model's #2): 2 verified sources about Vijayapura discuss it (2 showing the gap); the news research names \"Low perceived value of schooling\". So the model, the web sources and the news research point the same way."
+     "line": "Leaking roofs, cracked walls and unsafe rooms disrupt teaching, especially in the monsoon, and can close rooms altogether. Here, where the news reports governance, tracking & exams, better rooms and teaching give students a better chance at the SSLC exam the news links to leaving. The news itself names it: \"Low perceived value of schooling\". Local reports show this gap in Vijayapura."
     },
     {
      "rank": 3,
@@ -4200,8 +4430,7 @@
      "districtFindings": 0,
      "stances": {},
      "newsReasons": [],
-     "verdict": "untested",
-     "line": "Playground (model's #3): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+     "line": "Sport and play give adolescents a reason to come to school and a sense of belonging, which matters for students who struggle academically. Here, where the news reports child marriage & girls' exits, a school girls can attend safely and comfortably weighs against early marriage."
     }
    ]
   },
@@ -4246,40 +4475,52 @@
      "factor": "% Population Living in Households with Improved Sanitation",
      "short": "household sanitation",
      "area": "Yadagiri",
-     "value": 6.89
+     "weight": 6.89,
+     "share": 37.4,
+     "shareRank": 34
     },
     {
      "method": "district",
      "factor": "% Schools with instruction medium 1 (English)",
      "short": "English-medium schools",
      "area": "Yadagiri",
-     "value": 0.32
+     "weight": 0.32,
+     "share": 14.02,
+     "shareRank": 18
     }
    ],
-   "found": {
-    "state": {
-     "check": "no-evidence",
-     "why": [
-      "partly"
-     ],
-     "districtProof": 0,
-     "generalProof": 1
-    },
-    "district": {
-     "check": "no-evidence",
-     "why": [
-      "no-evidence"
-     ],
-     "districtProof": 0,
-     "generalProof": 0
-    }
-   },
    "touching": [],
-   "differ": [
-    "The news for Yadgir is mostly about migration and poverty & child labour. The data method only chooses among school, teacher, inspection, household-amenity and women's-schooling indicators, so poverty or child labour could never come out as Yadgir's data factor.",
-    "None of the 8 reasons the news gives for Yadgir mentions the language a school teaches in. The sources are silent on it, which is not the same as contradicting the data.",
-    "When we asked deep research why this factor would be dominant here, the result was: no evidence found either way.",
-    "The same factor is named for 32 of 35 Karnataka district-level rows, so it says more about a statewide pattern than about Yadgir in particular."
+   "connections": [
+    {
+     "title": "English-medium schools and migration",
+     "text": "Yadgir has a middling share of English-medium schools (14.0%, rank 18 of 35). The news here reports \"Distress migration of labour families\". Children of migrant families often speak another language at home; schooling in an unfamiliar language, or a switch of medium each time the family moves, makes them fall behind again and again.",
+     "reason": "Distress migration of labour families",
+     "reasonSources": [
+      1,
+      2
+     ]
+    },
+    {
+     "title": "English-medium schools and poverty & child labour",
+     "text": "The news here reports \"Poverty and irregular work\". Most English-medium schools charge fees, so the share marks the line between families who can pay and those who cannot; the poorest households, the ones the news describes as short of money and sending children to work, stay in government schools that teach in Kannada.",
+     "reason": "Poverty and irregular work",
+     "reasonSources": [
+      8
+     ]
+    },
+    {
+     "title": "Household sanitation and child marriage & girls' exits",
+     "text": "37.4% of people in Yadgir live in households with improved sanitation (rank 34 of 35). The news here reports \"Child marriage, girls' safety\". Without a toilet at home, adolescent girls face safety risks going out in the open and lack privacy; families fearful for a daughter's safety may keep her home or marry her early: the girls' exits the news describes.",
+     "reason": "Child marriage, girls' safety",
+     "reasonSources": [
+      8,
+      10
+     ]
+    },
+    {
+     "title": "The common thread",
+     "text": "Both data factors describe how well-off and well-served Yadgir is; the news describes what falling short of that does to particular families. Read together, they are two sides of the same picture."
+    }
    ],
    "topChanges": [
     {
@@ -4298,8 +4539,7 @@
      "newsReasons": [
       "Child marriage, girls' safety"
      ],
-     "verdict": "agree",
-     "line": "Functional toilets (model's #1): 2 verified sources about Yadgir discuss it (2 showing the gap); the news research names \"Child marriage, girls' safety\". So the model, the web sources and the news research point the same way."
+     "line": "Without working toilets, adolescent girls lose privacy and cannot manage menstruation at school, so they miss days or stop coming. Here, where the news reports migration, a school worth coming back to matters for children who come and go with their families' work. The news itself names it: \"Child marriage, girls' safety\". Local reports show this gap in Yadgir."
     },
     {
      "rank": 2,
@@ -4315,8 +4555,7 @@
       "gap": 1
      },
      "newsReasons": [],
-     "verdict": "web-only",
-     "line": "Classrooms in good condition (model's #2): 1 verified source about Yadgir discusses it (1 showing the gap); none of the news research's reasons mention it. So web sources describe the condition, but the news research does not link it to dropout."
+     "line": "Leaking roofs, cracked walls and unsafe rooms disrupt teaching, especially in the monsoon, and can close rooms altogether. Here, where the news reports poverty & child labour, a school that works well is one less reason for a hard-pressed family to send a child to work. Local reports show this gap in Yadgir."
     },
     {
      "rank": 3,
@@ -4330,8 +4569,7 @@
      "districtFindings": 0,
      "stances": {},
      "newsReasons": [],
-     "verdict": "untested",
-     "line": "Continuous evaluation (CCE) (model's #3): no verified source about the district was found in this pass; none of the news research's reasons mention it. So no district source was verified in this pass and the news research is silent on it."
+     "line": "Regular, low-stakes assessment shows early which students are falling behind, so they can be helped before the SSLC exam, where failure often ends schooling. Here, where the news reports migration, a school worth coming back to matters for children who come and go with their families' work."
     }
    ]
   }

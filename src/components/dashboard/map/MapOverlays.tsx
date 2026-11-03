@@ -28,7 +28,7 @@ import {
 import { DistrictNewsVsData } from "@/components/niti/NewsVsData";
 import { DistrictPrescriptiveProfile } from "@/components/niti/Prescriptive";
 
-import { CHECK_STYLE as VERDICT_STYLE, EVIDENCE_STYLE, WHY_STYLE } from "./factorWhyStyle";
+import { CHECK_STYLE as VERDICT_STYLE, EVIDENCE_STYLE } from "./factorWhyStyle";
 import { useDistrictGeo } from "./useDistrictGeo";
 
 // ── Top: region pills ───────────────────────────────────────────────────────
@@ -353,44 +353,32 @@ function ResearchState({
   );
 }
 
-/** "Why is this factor dominant here?" — verdict, reasoning and verified proof for each factor row of one method. */
+/** "How could this factor be linked to dropout here?" -- how it could work, and any proof the research found. */
 function FactorWhy({ entries, why }: { entries: FactorWhyEntry[]; why: DominantFactorWhy }) {
-  if (!entries.length) return null;
+  const shown = entries.filter((e) => e.mechanism || e.proof.length > 0);
+  if (!shown.length) return null;
   return (
     <details className="group mt-2 rounded-lg border border-panel-border">
       <summary className="flex cursor-pointer list-none items-center justify-between gap-2 px-2.5 py-2 text-[11.5px] font-medium text-foreground/90 marker:hidden [&::-webkit-details-marker]:hidden">
-        Why is this factor dominant here?
+        How could this factor be linked to dropout here?
         <ChevronDown className="size-3.5 text-muted-foreground transition-transform group-open:rotate-180" />
       </summary>
       <div className="space-y-3 border-t border-panel-border px-2.5 py-2.5">
-        {entries.map((e, i) => (
+        {shown.map((e, i) => (
           <div key={i}>
-            <div className="flex flex-wrap items-center gap-2">
-              <span
-                className={
-                  "rounded-full px-2 py-0.5 text-[10px] font-medium " +
-                  WHY_STYLE[e.verdict].className
-                }
-              >
-                {WHY_STYLE[e.verdict].label}
-              </span>
-              {entries.length > 1 && e.area && (
-                <span className="text-[10.5px] text-muted-foreground">{e.area}</span>
-              )}
-            </div>
-            <p className="mt-1.5 text-[11.5px] leading-snug text-foreground/90">
-              <span className="font-medium">Reasoning (model-written, not verified): </span>
-              {e.why}
-            </p>
+            {shown.length > 1 && e.area && (
+              <p className="text-[10.5px] font-medium text-muted-foreground">{e.area}</p>
+            )}
             {e.mechanism && (
-              <p className="mt-1.5 text-[11px] leading-snug text-muted-foreground">
-                <span className="font-medium text-foreground/80">
-                  How it could work (general):{" "}
-                </span>
+              <p className="text-[11.5px] leading-snug text-foreground/90">
+                <span className="font-medium">How it could work: </span>
                 {e.mechanism}
               </p>
             )}
-            {e.proof.length > 0 ? (
+            {e.verdict !== "no-evidence" && e.why && (
+              <p className="mt-1.5 text-[11px] leading-snug text-muted-foreground">{e.why}</p>
+            )}
+            {e.proof.length > 0 && (
               <ul className="mt-2 space-y-1.5">
                 {e.proof.map((p, j) => (
                   <li key={j} className="text-[11px] leading-snug text-muted-foreground">
@@ -410,20 +398,12 @@ function FactorWhy({ entries, why }: { entries: FactorWhyEntry[]; why: DominantF
                   </li>
                 ))}
               </ul>
-            ) : (
-              <p className="mt-2 text-[11px] leading-snug text-muted-foreground">
-                No verified proof — the sources found did not link this factor to dropout here.
-              </p>
             )}
           </div>
         ))}
         <p className="text-[10px] leading-snug text-muted-foreground">
-          The reasoning above is the researcher's own words. Each proof item below it was checked
-          against the page it cites (the page opens, the numbers appear on it, and district proof
-          names the district). That shows the fact is real — not that the factor causes dropout.
-          “Elsewhere” items are research from other places, not local evidence.
-          {why.notes.length > 0 &&
-            ` ${why.notes.length} item(s) failed the check and were removed.`}
+          “How it could work” is reasoning about the indicator. Each proof item links to its page;
+          “Elsewhere” items are research from other places.
         </p>
       </div>
     </details>
@@ -527,7 +507,7 @@ function DistrictNumbers({
                   </li>
                 ))}
               </ul>
-              {check && (
+              {check && check.verdict !== "no-evidence" && (
                 <div className="mt-2 rounded-lg border border-panel-border bg-secondary/30 px-2.5 py-2">
                   <span
                     className={

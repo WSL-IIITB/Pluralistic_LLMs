@@ -8,8 +8,6 @@ import { useEffect, useState } from "react";
 
 import { assetUrl } from "./api";
 
-type Verdicts = Record<string, number>;
-
 export interface NewsCategoryCount {
   category: string;
   label: string;
@@ -58,28 +56,26 @@ export interface NewsVsDataStatewide {
       socialFactors: string[];
     };
   };
-  found: {
-    check: Record<"state" | "district", Verdicts>;
-    why: Record<"state" | "district", Verdicts>;
-    districtLevelProof: { district: number; general: number };
+  /** Where the news and the data already touch: news reasons about the language of instruction, research from elsewhere. */
+  meet: {
+    touchingLanguage: {
+      districtId: string;
+      name: string;
+      family: string;
+      factor: string;
+      evidence: string;
+    }[];
     generalClaims: string[];
   };
-  differ: { title: string; text: string }[];
-  connect: { text: string; untested: string };
-  /** The NITI prescriptive model's top three changes vs the verified web sources vs the news research. */
+  /** How the two may connect: reasoning, shown as possible links. */
+  connections: { title: string; text: string }[];
+  /** The NITI prescriptive model's top changes and the household pressures in the news. */
   prescriptive: {
     changes: number;
-    verdicts: Partial<Record<ChangeVerdict, number>>;
-    byFactor: { short: string; districts: number; withSources: number; agree: number }[];
-    findings: number;
-    districtFindings: number;
+    byFactor: { short: string; districts: number; withSources: number }[];
     text: string;
   };
 }
-
-/** agree = model, web sources and news research all point at it; web-only = sources describe it, the news research
- * doesn't link it to dropout; news-only = only the news research names it; untested = nothing verified yet. */
-export type ChangeVerdict = "agree" | "web-only" | "news-only" | "untested";
 
 export interface TopChange {
   rank: number;
@@ -93,7 +89,7 @@ export interface TopChange {
   districtFindings: number;
   stances: Partial<Record<"gap" | "progress" | "context", number>>;
   newsReasons: string[];
-  verdict: ChangeVerdict;
+  /** Why the change could matter here, tied to the district's news. */
   line: string;
 }
 
@@ -112,14 +108,14 @@ export interface NewsVsDataDistrict {
     factor: string;
     short: string;
     area: string;
-    value: number;
+    /** The dominant-factor workbook's own value (a fitted weight). */
+    weight: number;
+    /** The factor's actual share in the area, and its rank among Karnataka's 35 rows (NITI prescriptive data). */
+    share: number | null;
+    shareRank: number | null;
   }[];
-  found: Record<
-    "state" | "district",
-    { check: string | null; why: string[]; districtProof: number; generalProof: number }
-  >;
   touching: { family: string; factor: string; detail: string; evidence: string }[];
-  differ: string[];
+  connections: { title: string; text: string }[];
   topChanges: TopChange[];
 }
 

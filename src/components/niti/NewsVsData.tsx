@@ -1,11 +1,12 @@
 /**
- * News vs data: why the news research and the UIDAI/NITI data point to different "main" factors.
+ * News vs data: how the news research and the UIDAI/NITI data, which name different "main" factors, may connect.
  *
  * The news mostly reports poverty, child labour and child marriage; the data's district-level factor for almost
- * every Karnataka district is the share of English-medium schools. `NewsVsDataSummary` explains the gap for the
- * whole state (UIDAI / NITI tab); `DistrictNewsVsData` does it for one district (the map's district sheet).
- * Everything shown comes from public/data/news-vs-data.json: counts and templated sentences over our verified
- * research files and the two workbooks, no model-written text.
+ * every Karnataka district is the share of English-medium schools, and household sanitation is the state-level one.
+ * `NewsVsDataSummary` explains the links for the whole state (UIDAI / NITI tab); `DistrictNewsVsData` does it for one
+ * district (the map's district sheet), with the NITI model's top three changes and the local reports on them.
+ * Everything comes from public/data/news-vs-data.json: counts over the research files and the workbooks, and
+ * general reasoning on how a data factor could be tied to a kind of news reason (shown as possible links).
  */
 
 import { MessageCircleQuestion } from "lucide-react";
@@ -18,43 +19,16 @@ import {
   useDistrictResearch,
   useExplorerStore,
   useNewsVsData,
-  type ChangeVerdict,
   type NewsVsDataDistrict,
   type NewsVsDataStatewide,
   type TopChange,
 } from "@/lib/worldview";
 import { useChatStore } from "@/lib/worldview/chatStore";
 
-const WHY_TEXT: Record<string, string> = {
-  supported: "supported by proof about this district",
-  partly: "partly: only research from elsewhere backs it",
-  "not-supported": "not supported",
-  "no-evidence": "no evidence found",
-};
-const CHECK_TEXT: Record<string, string> = {
-  supports: "local evidence supports it",
-  contradicts: "local evidence contradicts it",
-  unclear: "local evidence is unclear",
-  "no-evidence": "sources silent",
-};
-const WHY_SHORT: [string, string][] = [
-  ["supported", "supported"],
-  ["partly", "partly"],
-  ["not-supported", "not supported"],
-  ["no-evidence", "no evidence"],
-];
-
 /** A short factor label for use mid-sentence: lower-case first letter, except "English". */
 function inline(factor: string): string {
   const s = shortFactor(factor);
   return s.startsWith("English") ? s : s.charAt(0).toLowerCase() + s.slice(1);
-}
-
-/** "supported 0 · partly 6 · no evidence 29" -- "supported" is always shown, even at 0. */
-function verdictLine(counts: Record<string, number>): string {
-  return WHY_SHORT.filter(([k]) => k === "supported" || counts[k])
-    .map(([k, label]) => `${label} ${counts[k] ?? 0}`)
-    .join(" · ");
 }
 
 function Block({
@@ -97,21 +71,27 @@ function AskButton({ question, label }: { question: string; label: string }) {
   );
 }
 
-const CHANGE_STYLE: Record<ChangeVerdict, { label: string; className: string }> = {
-  agree: {
-    label: "Model, sources and news agree",
-    className: "bg-emerald-500/15 text-emerald-700 dark:text-emerald-300",
-  },
-  "web-only": {
-    label: "Sources describe it, news silent",
-    className: "bg-amber-500/15 text-amber-800 dark:text-amber-300",
-  },
-  "news-only": {
-    label: "Only the news names it",
-    className: "bg-sky-500/15 text-sky-800 dark:text-sky-300",
-  },
-  untested: { label: "Nothing verified yet", className: "bg-secondary text-muted-foreground" },
-};
+/** Numbered "how they connect" points: a title and the reasoning behind the link. */
+function Connections({ items, note }: { items: { title: string; text: string }[]; note: string }) {
+  return (
+    <div>
+      <ol className="space-y-2.5">
+        {items.map((d, i) => (
+          <li key={d.title} className="flex gap-2.5">
+            <span className="flex size-5 shrink-0 items-center justify-center rounded-full bg-primary/15 text-[10.5px] font-semibold text-primary tabular-nums">
+              {i + 1}
+            </span>
+            <p className="text-[11.5px] leading-snug text-muted-foreground">
+              <span className="font-medium text-foreground/90">{d.title}. </span>
+              {d.text}
+            </p>
+          </li>
+        ))}
+      </ol>
+      <p className="mt-2 text-[10px] leading-snug text-muted-foreground">{note}</p>
+    </div>
+  );
+}
 
 const STANCE_LABEL: Record<string, string> = {
   gap: "shows the gap",
@@ -119,48 +99,35 @@ const STANCE_LABEL: Record<string, string> = {
   context: "background",
 };
 
-/** The model's top changes vs the verified web sources vs the news research, for the whole state. */
-function PrescriptiveReconcile({ s }: { s: NewsVsDataStatewide }) {
+/** The NITI model's top changes and the household pressures in the news: where they meet, for the whole state. */
+function PrescriptiveConnect({ s }: { s: NewsVsDataStatewide }) {
   const p = s.prescriptive;
   if (!p) return null;
   return (
     <div className="rounded-xl border border-panel-border bg-secondary/30 p-3.5">
       <p className="text-[12px] font-semibold text-foreground">
-        The NITI model&apos;s top three changes vs what the sources say
+        The NITI model&apos;s top changes and the news
       </p>
       <p className="mt-1.5 text-[11.5px] leading-snug text-muted-foreground">{p.text}</p>
-      <div className="mt-2.5 flex flex-wrap gap-1.5">
-        {(Object.keys(CHANGE_STYLE) as ChangeVerdict[]).map((v) => (
-          <span
-            key={v}
-            className={
-              "rounded-full px-2 py-0.5 text-[10.5px] font-medium " + CHANGE_STYLE[v].className
-            }
-          >
-            {CHANGE_STYLE[v].label} · {p.verdicts[v] ?? 0}
-          </span>
-        ))}
-      </div>
       <ul className="mt-3 space-y-1 text-[11.5px]">
         {p.byFactor.slice(0, 8).map((f) => (
           <li key={f.short} className="flex items-baseline justify-between gap-2">
             <span className="text-foreground/90">{f.short}</span>
             <span className="shrink-0 text-[11px] text-muted-foreground tabular-nums">
-              top 3 in {f.districts} · sources in {f.withSources} · agree in {f.agree}
+              top change in {f.districts} · local reports of the gap in {f.withSources}
             </span>
           </li>
         ))}
       </ul>
       <p className="mt-2 text-[10.5px] leading-snug text-muted-foreground">
-        {p.districtFindings} of {p.findings} verified web findings are about the district itself;
-        each was re-opened and checked (the page names the district, its numbers and quote appear on
-        it). Each district&apos;s changes, with the sources, are in its sheet under “News vs data”.
+        Each district&apos;s three changes, with links to the local reports, are in its sheet under
+        “News vs data”.
       </p>
     </div>
   );
 }
 
-/** One district's top three changes: what the model says, the verified web sources, and the news research. */
+/** One district's top three changes: why each could matter there, and the local reports on it. */
 function DistrictTopChanges({
   districtId,
   name,
@@ -175,7 +142,7 @@ function DistrictTopChanges({
   if (!changes.length) return null;
   return (
     <div>
-      <p className="label-micro mb-2">Top three changes · NITI model vs sources</p>
+      <p className="label-micro mb-2">Top three changes · NITI model</p>
       <div className="space-y-2.5">
         {changes.map((c) => {
           const ev = pre?.changes.find((x) => x.factor === c.factor);
@@ -194,14 +161,6 @@ function DistrictTopChanges({
                     {formatFactorValue(c.factor, c.value)} · rank {c.karnatakaRank} of 35
                   </span>
                 )}
-                <span
-                  className={
-                    "ml-auto rounded-full px-2 py-0.5 text-[10px] font-medium " +
-                    CHANGE_STYLE[c.verdict].className
-                  }
-                >
-                  {CHANGE_STYLE[c.verdict].label}
-                </span>
               </div>
               <p className="mt-1.5 text-[11.5px] leading-snug text-muted-foreground">{c.line}</p>
               {ev && ev.findings.length > 0 && (
@@ -244,9 +203,7 @@ function DistrictTopChanges({
         })}
       </div>
       <p className="mt-2 text-[10px] leading-snug text-muted-foreground">
-        Changes from the NITI prescriptive model (feasible ranking). Sources were found by web
-        search and re-checked against each page; the claim lines are summaries of those pages. “News
-        silent” means the earlier news research did not list it as a reason students leave.
+        Changes from the NITI prescriptive model (feasible ranking). Each report links to its page.
       </p>
     </div>
   );
@@ -280,13 +237,10 @@ function NewsBlock({ s }: { s: NewsVsDataStatewide }) {
           </li>
         ))}
       </ul>
-      <p className="text-[10.5px]">
-        Districts where the research found the reason (of {s.districts}).
-      </p>
+      <p className="text-[10.5px]">Districts whose news reports the reason (of {s.districts}).</p>
       <p>
         <span className="font-medium text-foreground/90">Child labour</span> is named outright in{" "}
-        {cl.districts.length} districts ({cl.reasons} reasons: {cl.strong} strong, {cl.moderate}{" "}
-        moderate, {cl.thin} thin evidence).
+        {cl.districts.length} districts.
       </p>
       <p>
         Of {s.news.headlines.total} headlines: child marriage {s.news.headlines.childMarriage},
@@ -327,39 +281,41 @@ function DataBlock({ s }: { s: NewsVsDataStatewide }) {
         district-level factor ({nat.topDistrictFactorRows} of {nat.rows} districts).
       </p>
       <p>
-        {nat.socialFactors.length === 0
-          ? `None of the ${new Set([...nat.stateFactorNames, ...nat.districtFactorNames]).size} different factors in the workbooks measures child labour, child marriage, migration or income.`
-          : `Factors touching social conditions: ${nat.socialFactors.join(", ")}.`}
+        The workbooks&apos; factors are school, teacher, inspection, household-amenity and
+        women&apos;s-schooling indicators: the conditions around a child, where the news describes
+        what happens to the child.
       </p>
     </Block>
   );
 }
 
-function FoundBlock({ s }: { s: NewsVsDataStatewide }) {
-  const f = s.found;
+function MeetBlock({ s }: { s: NewsVsDataStatewide }) {
+  const m = s.meet;
   return (
-    <Block title="What we found" emoji="🔎">
+    <Block title="Where they meet" emoji="🤝">
+      {m.touchingLanguage.length > 0 && (
+        <div>
+          <p className="font-medium text-foreground/90">
+            In the news, the language of instruction:
+          </p>
+          <ul className="mt-1 space-y-1">
+            {m.touchingLanguage.map((t) => (
+              <li key={`${t.name}-${t.factor}`}>
+                <span className="text-foreground/90">{t.name}:</span> “{t.factor}”
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+      {m.generalClaims.length > 0 && (
+        <p>
+          <span className="font-medium text-foreground/90">Research from elsewhere: </span>“
+          {m.generalClaims.join("”; “")}”.
+        </p>
+      )}
       <p>
-        <span className="font-medium text-foreground/90">District-level rows</span>, checked with
-        deep research and page-verified proof: {verdictLine(f.why.district)}.
-      </p>
-      <p>
-        <span className="font-medium text-foreground/90">State-level rows</span>:{" "}
-        {verdictLine(f.why.state)}.
-      </p>
-      <p>
-        For the district-level factor, verified proof about a Karnataka district itself:{" "}
-        {f.districtLevelProof.district}. From elsewhere: {f.districtLevelProof.general} item(s)
-        {f.generalClaims.length > 0 && <>, saying “{f.generalClaims.join("” and “")}”</>}.
-      </p>
-      <p>
-        News reasons that touch the language of instruction:{" "}
-        {s.news.touchingLanguage.length
-          ? s.news.touchingLanguage
-              .map((t) => `${t.name} (“${t.factor}”, ${t.evidence})`)
-              .join("; ")
-          : "none"}
-        .
+        Household sanitation and the girls&apos; exits the news reports both turn on adolescent
+        girls&apos; safety and privacy.
       </p>
     </Block>
   );
@@ -383,46 +339,27 @@ export function NewsVsDataSummary() {
       <div className="grid gap-2.5 @2xl:grid-cols-3">
         <NewsBlock s={s} />
         <DataBlock s={s} />
-        <FoundBlock s={s} />
+        <MeetBlock s={s} />
       </div>
 
       <div>
-        <p className="text-[12px] font-semibold text-foreground">Why they differ</p>
-        <ol className="mt-2 space-y-2.5">
-          {s.differ.map((d, i) => (
-            <li key={d.title} className="flex gap-2.5">
-              <span className="flex size-5 shrink-0 items-center justify-center rounded-full bg-primary/15 text-[10.5px] font-semibold text-primary tabular-nums">
-                {i + 1}
-              </span>
-              <p className="text-[11.5px] leading-snug text-muted-foreground">
-                <span className="font-medium text-foreground/90">{d.title}. </span>
-                {d.text}
-              </p>
-            </li>
-          ))}
-        </ol>
+        <p className="mb-2 text-[12px] font-semibold text-foreground">How they connect</p>
+        <Connections
+          items={s.connections}
+          note="Possible links: reasoning on how each data factor could be tied to the reasons the news reports."
+        />
       </div>
 
-      <PrescriptiveReconcile s={s} />
-
-      <div className="rounded-xl border border-dashed border-panel-border px-3.5 py-3">
-        <p className="text-[12px] font-semibold text-foreground">How both could be true</p>
-        <p className="mt-1.5 text-[11.5px] leading-snug text-muted-foreground">{s.connect.text}</p>
-        <p className="mt-1.5 text-[11px] leading-snug text-amber-800 dark:text-amber-300">
-          <span className="font-medium">Not tested. </span>
-          {s.connect.untested}
-        </p>
-      </div>
+      <PrescriptiveConnect s={s} />
 
       <div className="flex flex-wrap items-center justify-between gap-2">
         <p className="max-w-[520px] text-[10.5px] leading-snug text-muted-foreground">
-          Counts come from our verified research files and the two workbooks; no model-written text
-          here. For one district&apos;s own comparison, use its “News vs data” button below: it
-          opens the district&apos;s sheet on the map.
+          For one district&apos;s own picture, use its “News vs data” button below: it opens the
+          district&apos;s sheet on the map.
         </p>
         <AskButton
           label="Ask about this"
-          question="Why does child labour show up most in the news about secondary school dropout in Karnataka, while the UIDAI/NITI data shows the medium of instruction (English-medium schools) as the dominant factor? Explain what the news says, what the data says, what the research found, and why they differ."
+          question="Why does child labour show up most in the news about secondary school dropout in Karnataka, while the UIDAI/NITI data shows the medium of instruction (English-medium schools) as the dominant factor? Explain what the news says, what the data says, and how the two could be connected."
         />
       </div>
     </div>
@@ -437,7 +374,7 @@ function districtQuestion(name: string, d: NewsVsDataDistrict): string {
   const news = d.news.topCategories.slice(0, 2).join(" and ") || "several reasons";
   return (
     `In ${name}, the news on secondary school dropout mostly reports ${news}, but the UIDAI/NITI data flags ` +
-    `${factor} as the dominant factor. Why might the data flag ${factor} here, why do the news and the data differ, and what does each suggest could help?`
+    `${factor} as the dominant factor. How could ${factor} be connected to what the news reports here, and what could help?`
   );
 }
 
@@ -452,11 +389,10 @@ export function DistrictNewsVsData({ districtId, name }: { districtId: string; n
         No news-vs-data comparison for {name}: it needs both research and factor rows.
       </p>
     );
-  const found = d.found.district;
 
   return (
     <div className="space-y-4">
-      <div className="grid gap-2.5 @lg:grid-cols-3">
+      <div className="grid gap-2.5 @lg:grid-cols-2">
         <Block title="The news says" emoji="📰">
           <p>
             {d.news.reasons} reasons, mostly{" "}
@@ -482,72 +418,40 @@ export function DistrictNewsVsData({ districtId, name }: { districtId: string; n
           </ul>
         </Block>
         <Block title="The data says" emoji="📊">
-          {(["state", "district"] as const).map((m) => {
+          {(["district", "state"] as const).map((m) => {
             const rows = d.data.filter((f) => f.method === m);
             if (!rows.length) return null;
             return (
               <div key={m}>
-                <p className="text-[10px] font-medium tracking-wide uppercase">{m}-level factor</p>
-                <p className="mt-0.5 text-foreground/90">{shortFactor(rows[0]!.factor)}</p>
-                <p className="tabular-nums">
-                  {rows
-                    .map(
-                      (f) =>
-                        `${f.area.toLowerCase() === name.toLowerCase() ? "" : `${f.area} `}${f.value}`,
-                    )
-                    .join(" · ")}
+                <p className="text-[10px] font-medium tracking-wide uppercase">
+                  {m === "district" ? "District-level factor" : "State-level factor"}
                 </p>
+                <p className="mt-0.5 text-foreground/90">{shortFactor(rows[0]!.factor)}</p>
+                {rows.map((f) => (
+                  <p key={f.area} className="tabular-nums">
+                    {f.area.toLowerCase() === name.toLowerCase() ? "" : `${f.area}: `}
+                    {f.share != null
+                      ? `${f.share.toFixed(1)}% · rank ${f.shareRank} of 35`
+                      : f.weight}
+                  </p>
+                ))}
               </div>
             );
           })}
         </Block>
-        <Block title="What we found" emoji="🔎">
-          <p>
-            District-level factor, checked against sources:{" "}
-            <span className="text-foreground/90">
-              {found.check ? CHECK_TEXT[found.check] : "not checked"}
-            </span>
-            .
-          </p>
-          <p>
-            “Why is it dominant?” research:{" "}
-            <span className="text-foreground/90">
-              {found.why.length ? found.why.map((v) => WHY_TEXT[v] ?? v).join(", ") : "none"}
-            </span>
-            {(found.districtProof > 0 || found.generalProof > 0) &&
-              ` (${found.districtProof} proof about ${name}, ${found.generalProof} from elsewhere)`}
-            .
-          </p>
-          <p>
-            News reasons that touch this factor:{" "}
-            {d.touching.length
-              ? d.touching.map((t) => `“${t.factor}” (${t.evidence})`).join("; ")
-              : "none"}
-            .
-          </p>
-        </Block>
+      </div>
+
+      <div>
+        <p className="label-micro mb-2">How they may connect here</p>
+        <Connections
+          items={d.connections}
+          note="Possible links: reasoning on how the data's factors could be tied to the reasons the news reports here. Shares and ranks are from the NITI data (35 Karnataka rows)."
+        />
       </div>
 
       <DistrictTopChanges districtId={districtId} name={name} changes={d.topChanges ?? []} />
 
-      <div>
-        <p className="label-micro mb-2">Why they may differ here</p>
-        <ul className="space-y-1.5">
-          {d.differ.map((line, i) => (
-            <li key={i} className="flex gap-2 text-[11.5px] leading-snug text-muted-foreground">
-              <span className="mt-[6px] size-1.5 shrink-0 rounded-full bg-primary/70" aria-hidden />
-              {line}
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <div className="flex flex-wrap items-center justify-between gap-2">
-        <p className="max-w-[440px] text-[10px] leading-snug text-muted-foreground">
-          Built from this district&apos;s verified research, its UIDAI/NITI rows and the NITI model.
-          The source claims are short summaries of the cited pages; the Ask button gets a
-          model-written answer from the same research.
-        </p>
+      <div className="flex flex-wrap items-center justify-end gap-2">
         <AskButton label={`Ask about ${name}`} question={districtQuestion(name, d)} />
       </div>
     </div>
