@@ -1,0 +1,22 @@
+{
+  "_comment": "Standard linguistic family classification and script grouping for the 22 scheduled languages. Script groups follow the 'script' field in config/languages.json. Sindhi is listed under Perso-Arabic per config, but some answers are in Devanagari (both are official scripts for Sindhi in India).",
+  "families": {
+    "Indo-Aryan": ["as-IN","bn-IN","doi-IN","gu-IN","hi-IN","kok-IN","ks-IN","mai-IN","mr-IN","ne-IN","od-IN","pa-IN","sa-IN","sd-IN","ur-IN"],
+    "Dravidian": ["kn-IN","ml-IN","ta-IN","te-IN"],
+    "Tibeto-Burman": ["brx-IN","mni-IN"],
+    "Austroasiatic": ["sat-IN"]
+  },
+  "scripts": {
+    "Devanagari": ["brx-IN","doi-IN","hi-IN","kok-IN","mai-IN","mr-IN","ne-IN","sa-IN"],
+    "Bengali-Assamese": ["as-IN","bn-IN","mni-IN"],
+    "Perso-Arabic": ["ks-IN","sd-IN","ur-IN"],
+    "Gujarati": ["gu-IN"],
+    "Kannada": ["kn-IN"],
+    "Malayalam": ["ml-IN"],
+    "Odia": ["od-IN"],
+    "Gurmukhi": ["pa-IN"],
+    "Ol Chiki": ["sat-IN"],
+    "Tamil": ["ta-IN"],
+    "Telugu": ["te-IN"]
+  }
+}

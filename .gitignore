@@ -3,6 +3,8 @@ config/secrets.json
 
 # Local architecture notes
 ARCHITECTURE.md
+cross_lingual_similarity_roadmap.md
+full-session.json
 
 # Large / generated artifacts
 *.pdf
@@ -19,6 +21,7 @@ docs/
 # Virtual environments
 .venv/
 .venv-it2/
+.venv-sim/
 
 # Python
 __pycache__/
