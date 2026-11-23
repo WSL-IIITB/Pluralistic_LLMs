@@ -38,18 +38,20 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 class TestThemeCore(unittest.TestCase):
 
     def test_codebook_loading_and_validation(self):
-        # 1. Shipped codebooks load successfully and have status DRAFT
+        # 1. Shipped codebooks load successfully
         cb1_path = PROJECT_ROOT / "config" / "codebooks" / "self_image_life_goal.json"
         cb2_path = PROJECT_ROOT / "config" / "codebooks" / "self_dev_tips.json"
 
         cb1 = load_codebook(cb1_path)
         cb2 = load_codebook(cb2_path)
 
-        self.assertEqual(cb1["status"], "DRAFT")
+        # cb1 has been reviewed and APPROVED; cb2 remains DRAFT
+        self.assertEqual(cb1["status"], "APPROVED")
+        self.assertTrue(codebook_is_approved(cb1))
+        self.assertEqual(len(cb1["themes"]), 6)
+
         self.assertEqual(cb2["status"], "DRAFT")
-        self.assertFalse(codebook_is_approved(cb1))
         self.assertFalse(codebook_is_approved(cb2))
-        self.assertEqual(len(cb1["themes"]), 8)
         self.assertEqual(len(cb2["themes"]), 8)
 
         # 2. Validation edge cases with temporary files
