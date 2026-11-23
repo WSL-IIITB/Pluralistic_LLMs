@@ -1,0 +1,15 @@
+{
+  "query_id": "self_dev_tips",
+  "version": 1,
+  "status": "DRAFT",
+  "themes": [
+    {"id": "learning_skills", "label": "Learning and skills", "definition": "Learning new things, reading, courses, building knowledge or skills."},
+    {"id": "time_discipline", "label": "Time and discipline", "definition": "Time management, routines, habits, discipline, consistency, planning the day."},
+    {"id": "goal_setting", "label": "Goal setting", "definition": "Setting goals or priorities, tracking progress, planning outcomes."},
+    {"id": "physical_wellbeing", "label": "Physical wellbeing", "definition": "Exercise, diet, sleep, physical health."},
+    {"id": "mental_wellbeing", "label": "Mental wellbeing", "definition": "Mindfulness, meditation, stress management, emotional balance, rest."},
+    {"id": "self_reflection", "label": "Self-reflection", "definition": "Self-awareness, reflection, journaling, understanding one's strengths and weaknesses."},
+    {"id": "positive_mindset", "label": "Positive mindset", "definition": "Positivity, gratitude, confidence, resilience, motivation."},
+    {"id": "social_connection", "label": "Social connection", "definition": "Relationships, networking, mentors, community, helping others."}
+  ]
+}

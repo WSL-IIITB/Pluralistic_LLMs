@@ -1,0 +1,15 @@
+{
+  "query_id": "self_image_life_goal",
+  "version": 1,
+  "status": "DRAFT",
+  "themes": [
+    {"id": "physical_health", "label": "Physical health", "definition": "Goals about the body's health or fitness: exercise, yoga, diet or nutrition, sleep, physical care."},
+    {"id": "mental_health", "label": "Mental health", "definition": "Goals about emotional or psychological wellbeing: stress, meditation, mindfulness, peace of mind, therapy."},
+    {"id": "self_acceptance", "label": "Self-acceptance", "definition": "Accepting or loving oneself as one is, including flaws; self-compassion; self-love."},
+    {"id": "confidence_self_esteem", "label": "Confidence and self-esteem", "definition": "Building confidence, self-esteem or a sense of self-worth."},
+    {"id": "appearance", "label": "Appearance", "definition": "Concern with looks, beauty, body shape, weight, clothing, or how one appears to others."},
+    {"id": "family_social_expectations", "label": "Family or social expectations", "definition": "Goals tied to family, community, marriage, relationships, or the opinions and expectations of other people."},
+    {"id": "spiritual_framing", "label": "Spiritual framing", "definition": "Religious, spiritual or moral-philosophical framing: God, soul, prayer, karma, the inner self, spiritual growth."},
+    {"id": "achievement", "label": "Achievement", "definition": "Goals about accomplishments, career or study success, skills, or personal growth and development."}
+  ]
+}

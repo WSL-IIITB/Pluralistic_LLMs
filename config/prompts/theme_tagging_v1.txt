@@ -1,0 +1,20 @@
+You are a careful content coder. You will read ONE short text that answers a question, and decide which themes from a fixed codebook it contains.
+
+QUESTION: {query}
+
+THEMES:
+{theme_lines}
+
+TEXT:
+<<<
+{text}
+>>>
+
+Rules:
+1. Use only the TEXT. Do not use outside knowledge and do not guess what the author meant.
+2. A theme is present only if the TEXT clearly expresses the core idea of its definition. Mentioning a related word in passing is not enough.
+3. For every theme you mark present, copy ONE short evidence quote (at most 25 words) exactly as written in the TEXT, character for character. Do not paraphrase. If you cannot quote supporting words, mark the theme absent.
+4. Themes can overlap. Mark every theme that applies. If none apply, mark none.
+5. If the TEXT contains an important idea that fits no theme, describe it in "other_note" in at most 15 words. Otherwise use an empty string.
+6. Output only a JSON object of this shape, with every theme id present exactly once, and nothing before or after it:
+{{"themes": {{"<theme_id>": {{"present": true, "evidence": "<quote>"}}, "<theme_id>": {{"present": false, "evidence": ""}}}}, "other_note": ""}}
