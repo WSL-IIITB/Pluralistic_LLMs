@@ -12,9 +12,10 @@ import gc
 import json
 import os
 import resource
+import shutil
 import sys
 from pathlib import Path
-from typing import List, Optional, Tuple
+from typing import Any, Dict, List, Optional, Sequence, Tuple
 
 import numpy as np
 
@@ -41,6 +42,33 @@ EXPECTED_DIMS = {
     "labse": 768,
     "minilm": 384,
 }
+
+
+def plan_download(
+    file_sizes: Sequence[Optional[int]], free_bytes: int
+) -> Tuple[bool, int, str]:
+    """
+    Plan a download given a list of file sizes and available free disk bytes.
+    Rules:
+      - If any size is None: ok=False, message="size unknown"
+      - If total_bytes > free_bytes / 2: ok=False, message="insufficient free disk space"
+      - Otherwise: ok=True, message="ok"
+    """
+    total_bytes = 0
+    for sz in file_sizes:
+        if sz is None:
+            return False, total_bytes, "size unknown"
+        total_bytes += sz
+
+    allowed_limit = free_bytes / 2.0
+    if total_bytes > allowed_limit:
+        msg = (
+            f"insufficient free disk space: planned {total_bytes} bytes exceeds "
+            f"half of free space ({free_bytes // 2} bytes)"
+        )
+        return False, total_bytes, msg
+
+    return True, total_bytes, "ok"
 
 
 def get_peak_memory_mb() -> float:
@@ -136,15 +164,15 @@ def encode_texts(
     return embeddings, truncated_flags
 
 
-def download_models(models_dir: Optional[Path] = None) -> None:
+def download_models(
+    models_dir: Optional[Path] = None, dry_run: bool = False
+) -> None:
     """Download only the required files for CPU inference using huggingface_hub."""
-    from huggingface_hub import hf_hub_download
+    from huggingface_hub import HfApi, hf_hub_download
 
-    base_dir = models_dir or (PROJECT_ROOT / "models")
-    base_dir.mkdir(parents=True, exist_ok=True)
+    target_dir = models_dir or (PROJECT_ROOT / "models")
 
     # 1. all-MiniLM-L6-v2 files
-    minilm_dir = base_dir / "all-MiniLM-L6-v2"
     minilm_files = [
         "config.json",
         "config_sentence_transformers.json",
@@ -159,7 +187,6 @@ def download_models(models_dir: Optional[Path] = None) -> None:
     ]
 
     # 2. LaBSE files
-    labse_dir = base_dir / "labse"
     labse_files = [
         "config.json",
         "config_sentence_transformers.json",
@@ -175,7 +202,81 @@ def download_models(models_dir: Optional[Path] = None) -> None:
         "model.safetensors",
     ]
 
-    print(f"Downloading sentence-transformers/all-MiniLM-L6-v2 to {minilm_dir}...")
+    # Pre-download check: query HF Hub metadata for all files in both repos
+    api = HfApi()
+    print("Fetching repository metadata from Hugging Face Hub...")
+    try:
+        minilm_info = api.model_info(repo_id=MINILM_HUB_ID, files_metadata=True)
+        labse_info = api.model_info(repo_id=LABSE_HUB_ID, files_metadata=True)
+    except Exception as e:
+        sys.exit(f"Error: Failed to fetch model metadata from Hugging Face Hub: {e}")
+
+    minilm_meta_sizes = {s.rfilename: s.size for s in minilm_info.siblings}
+    labse_meta_sizes = {s.rfilename: s.size for s in labse_info.siblings}
+
+    # Collect sizes
+    planned_items = []  # tuples of (repo, filename, size)
+    all_sizes: List[Optional[int]] = []
+
+    for f in minilm_files:
+        sz = minilm_meta_sizes.get(f)
+        planned_items.append((MINILM_HUB_ID, f, sz))
+        all_sizes.append(sz)
+
+    for f in labse_files:
+        sz = labse_meta_sizes.get(f)
+        planned_items.append((LABSE_HUB_ID, f, sz))
+        all_sizes.append(sz)
+
+    # Print table
+    print("\n" + "=" * 70)
+    print(f"{'Repository':<38} | {'Filename':<20} | {'Size (bytes)':<10}")
+    print("-" * 70)
+    total_minilm = 0
+    total_labse = 0
+    for repo, fname, sz in planned_items:
+        sz_str = str(sz) if sz is not None else "UNKNOWN"
+        print(f"{repo:<38} | {fname:<20} | {sz_str:<10}")
+        if repo == MINILM_HUB_ID and sz is not None:
+            total_minilm += sz
+        elif repo == LABSE_HUB_ID and sz is not None:
+            total_labse += sz
+
+    print("-" * 70)
+    print(f"Total {MINILM_HUB_ID}: {total_minilm:,} bytes ({total_minilm / (1024*1024):.2f} MB)")
+    print(f"Total {LABSE_HUB_ID}: {total_labse:,} bytes ({total_labse / (1024*1024):.2f} MB)")
+    overall_total = sum(s for s in all_sizes if s is not None)
+    print(f"Overall Total Planned: {overall_total:,} bytes ({overall_total / (1024*1024):.2f} MB)")
+    print("=" * 70 + "\n")
+
+    # Get free disk space on nearest existing parent folder of target_dir
+    check_dir = target_dir
+    while not check_dir.exists():
+        check_dir = check_dir.parent
+
+    usage = shutil.disk_usage(check_dir)
+    free_bytes = usage.free
+    print(f"Nearest existing directory for disk check: {check_dir}")
+    print(f"Available free disk space: {free_bytes:,} bytes ({free_bytes / (1024*1024*1024):.2f} GiB)")
+    print(f"Allowed download limit (half): {free_bytes // 2:,} bytes ({(free_bytes // 2) / (1024*1024*1024):.2f} GiB)")
+
+    ok, total_bytes, msg = plan_download(all_sizes, free_bytes)
+    if not ok:
+        print(f"\nDownload guard FAILED: {msg}")
+        sys.exit(1)
+
+    print(f"Download guard PASSED ({msg}).")
+
+    if dry_run:
+        print("\n[Dry Run] --dry-run enabled. No files will be downloaded and no folders created.")
+        sys.exit(0)
+
+    # Proceed with real download
+    target_dir.mkdir(parents=True, exist_ok=True)
+    minilm_dir = target_dir / "all-MiniLM-L6-v2"
+    labse_dir = target_dir / "labse"
+
+    print(f"\nDownloading {MINILM_HUB_ID} to {minilm_dir}...")
     for f in minilm_files:
         print(f"  Fetching {f}...")
         hf_hub_download(
@@ -185,7 +286,7 @@ def download_models(models_dir: Optional[Path] = None) -> None:
             local_dir_use_symlinks=False,
         )
 
-    print(f"\nDownloading sentence-transformers/LaBSE to {labse_dir}...")
+    print(f"\nDownloading {LABSE_HUB_ID} to {labse_dir}...")
     for f in labse_files:
         print(f"  Fetching {f}...")
         hf_hub_download(
@@ -320,14 +421,18 @@ def run_selftest(models_dir: Optional[Path] = None) -> bool:
 def main():
     parser = argparse.ArgumentParser(description="Similarity embedding layer CLI")
     parser.add_argument("--download", action="store_true", help="Download model weights")
+    parser.add_argument("--dry-run", action="store_true", help="Dry run for download guard (requires --download)")
     parser.add_argument("--selftest", action="store_true", help="Run self-test suite")
     parser.add_argument("--models-dir", type=str, default=None, help="Directory for models")
     args = parser.parse_args()
 
+    if args.dry_run and not args.download:
+        parser.error("--dry-run requires --download")
+
     models_dir = Path(args.models_dir) if args.models_dir else None
 
     if args.download:
-        download_models(models_dir)
+        download_models(models_dir=models_dir, dry_run=args.dry_run)
 
     if args.selftest:
         ok = run_selftest(models_dir)

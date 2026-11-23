@@ -11,12 +11,13 @@ Usage:
 
 import argparse
 import csv
+import importlib.metadata
 import json
 import os
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Sequence
 
 import numpy as np
 
@@ -63,6 +64,26 @@ CAVEATS_TEXT = """## Limitations & Caveats
 6. Sindhi may be answered in Devanagari while its config script is Perso-Arabic; its script-group placement follows the config.
 7. A single query's result says nothing general about the model.
 """
+
+
+def collect_library_versions(
+    names: Sequence[str] = (
+        "numpy",
+        "torch",
+        "transformers",
+        "sentence-transformers",
+        "huggingface-hub",
+    )
+) -> Dict[str, str]:
+    """Return a mapping of package names to version strings or 'not installed'."""
+    versions: Dict[str, str] = {}
+    for pkg in names:
+        try:
+            ver = importlib.metadata.version(pkg)
+            versions[pkg] = str(ver)
+        except Exception:
+            versions[pkg] = "not installed"
+    return versions
 
 
 def write_csv(path: Path, header: List[str], rows: List[List[Any]]) -> None:
@@ -411,6 +432,20 @@ def analyze_query(
         sys.exit(f"FATAL: Dataset {dataset_path} was modified during execution!")
 
     # e. summary.json
+    dim_native = int(emb_native.shape[1])
+    dim_english = int(emb_english.shape[1])
+    if dim_native != 768:
+        raise ValueError(f"Measured native embedding dimension {dim_native} is not 768")
+    if dim_english != 384:
+        raise ValueError(f"Measured english embedding dimension {dim_english} is not 384")
+
+    # Resolve parameter paths
+    resolved_models_dir = str((models_dir or (PROJECT_ROOT / "models")).resolve())
+    resolved_out_dir = str((out_dir_base or (PROJECT_ROOT / "data" / "analysis")).resolve())
+
+    lib_vers = {"python": sys.version}
+    lib_vers.update(collect_library_versions())
+
     summary_data = {
         "query_id": query_id,
         "dataset_path": str(dataset_path),
@@ -418,8 +453,8 @@ def analyze_query(
         "dataset_sha256_after": sha_end,
         "timestamp_utc": datetime.now(timezone.utc).isoformat(),
         "encoders": {
-            "native": {"hub_id": "sentence-transformers/LaBSE", "dim": 768},
-            "english": {"hub_id": "sentence-transformers/all-MiniLM-L6-v2", "dim": 384},
+            "native": {"hub_id": "sentence-transformers/LaBSE", "dim": dim_native},
+            "english": {"hub_id": "sentence-transformers/all-MiniLM-L6-v2", "dim": dim_english},
         },
         "counts": {
             "total_records": len(order),
@@ -437,6 +472,13 @@ def analyze_query(
         "spearman_agreement": {
             "all_view": spearman_all,
             "reliable_view": spearman_rel,
+        },
+        "library_versions": lib_vers,
+        "parameters": {
+            "batch_size": batch_size,
+            "models_dir": resolved_models_dir,
+            "out_dir": resolved_out_dir,
+            "no_plots": no_plots,
         },
     }
     with open(out_dir / "summary.json", "w", encoding="utf-8") as f:

@@ -8,6 +8,7 @@ full-session.json
 
 # Large / generated artifacts
 *.pdf
+*.zip
 *.ftz
 *.gguf
 *.safetensors
@@ -16,6 +17,8 @@ models/
 data/
 logs/
 docs/
+*.ipynb
+*.md
 *.ipynb_checkpoints/
 
 # Virtual environments
