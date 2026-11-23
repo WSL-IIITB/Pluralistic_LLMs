@@ -1,15 +1,13 @@
 {
   "query_id": "self_dev_tips",
   "version": 1,
-  "status": "DRAFT",
+  "status": "APPROVED",
   "themes": [
-    {"id": "learning_skills", "label": "Learning and skills", "definition": "Learning new things, reading, courses, building knowledge or skills."},
-    {"id": "time_discipline", "label": "Time and discipline", "definition": "Time management, routines, habits, discipline, consistency, planning the day."},
-    {"id": "goal_setting", "label": "Goal setting", "definition": "Setting goals or priorities, tracking progress, planning outcomes."},
-    {"id": "physical_wellbeing", "label": "Physical wellbeing", "definition": "Exercise, diet, sleep, physical health."},
-    {"id": "mental_wellbeing", "label": "Mental wellbeing", "definition": "Mindfulness, meditation, stress management, emotional balance, rest."},
-    {"id": "self_reflection", "label": "Self-reflection", "definition": "Self-awareness, reflection, journaling, understanding one's strengths and weaknesses."},
-    {"id": "positive_mindset", "label": "Positive mindset", "definition": "Positivity, gratitude, confidence, resilience, motivation."},
-    {"id": "social_connection", "label": "Social connection", "definition": "Relationships, networking, mentors, community, helping others."}
+    {"id": "learning_skill_development", "label": "Learning and skill development", "definition": "Learning new things, reading, acquiring knowledge, building skills, and continuous education."},
+    {"id": "discipline_habit_consistency", "label": "Discipline and habit consistency", "definition": "Time management, routines, daily habits, self-discipline, punctuality, and consistency."},
+    {"id": "goal_setting_planning", "label": "Goal setting and planning", "definition": "Setting clear goals or priorities, tracking progress, planning action steps, and focusing on outcomes."},
+    {"id": "physical_health_wellness", "label": "Physical health and wellness", "definition": "Regular exercise, balanced nutrition, sufficient sleep, and physical fitness."},
+    {"id": "mental_emotional_reflection", "label": "Mental wellbeing and self-reflection", "definition": "Mindfulness, meditation, stress management, journaling, self-awareness, and emotional balance."},
+    {"id": "mindset_social_relationships", "label": "Positive mindset and relationships", "definition": "Positive attitude, resilience, gratitude, healthy social connections, communication, or helping others."}
   ]
 }

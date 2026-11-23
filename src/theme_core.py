@@ -168,34 +168,37 @@ def apply_verification(
 
 def parse_tag_response(
     raw: str, codebook: Dict[str, Any]
-) -> Tuple[Optional[Dict[str, Dict[str, Any]]], str, Optional[str]]:
+) -> Tuple[Optional[Dict[str, Dict[str, Any]]], str, Optional[str], List[str]]:
     """
-    Parse model response JSON into (themes_dict, other_note, error_message).
+    Parse model response JSON into (themes_dict, other_note, error_message, keywords_list).
     Rules:
       - Must be strict JSON (no extra text before/after)
       - Must contain 'themes' dict
       - Must contain every codebook theme id exactly once
       - Each theme value must have 'present' (bool) and 'evidence' (str)
       - Must contain 'other_note' (str)
-    Returns (None, "", error_msg) on failure.
+      - Optionally contains 'keywords' (list of str)
+    Returns (None, "", error_msg, []) on failure.
     """
     if not raw or not isinstance(raw, str):
-        return None, "", "Raw response is empty or not string"
+        return None, "", "Raw response is empty or not string", []
 
     s = raw.strip()
     try:
         data = json.loads(s)
     except Exception as e:
-        return None, "", f"JSON decode error: {e}"
+        return None, "", f"JSON decode error: {e}", []
 
     if not isinstance(data, dict):
-        return None, "", f"Root JSON must be object, got {type(data).__name__}"
+        return None, "", f"Root JSON must be object, got {type(data).__name__}", []
 
     themes_obj = data.get("themes")
     if not isinstance(themes_obj, dict):
-        return None, "", "Missing or invalid 'themes' object"
+        return None, "", "Missing or invalid 'themes' object", []
 
     other_note = str(data.get("other_note", "") or "")
+    raw_kw = data.get("keywords", [])
+    keywords_list = [str(k).strip() for k in raw_kw if isinstance(k, (str, int, float)) and str(k).strip()]
 
     expected_ids = {t["id"] for t in codebook.get("themes", [])}
     actual_ids = set(themes_obj.keys())
@@ -208,26 +211,26 @@ def parse_tag_response(
             errs.append(f"missing themes: {sorted(missing)}")
         if extra:
             errs.append(f"extra themes: {sorted(extra)}")
-        return None, "", "; ".join(errs)
+        return None, "", "; ".join(errs), []
 
     validated_themes: Dict[str, Dict[str, Any]] = {}
     for tid in expected_ids:
         tval = themes_obj[tid]
         if not isinstance(tval, dict):
-            return None, "", f"Theme '{tid}' value must be an object"
+            return None, "", f"Theme '{tid}' value must be an object", []
 
         if "present" not in tval or not isinstance(tval["present"], bool):
-            return None, "", f"Theme '{tid}' must have boolean 'present'"
+            return None, "", f"Theme '{tid}' must have boolean 'present'", []
 
         if "evidence" not in tval or not isinstance(tval["evidence"], str):
-            return None, "", f"Theme '{tid}' must have string 'evidence'"
+            return None, "", f"Theme '{tid}' must have string 'evidence'", []
 
         validated_themes[tid] = {
             "present": tval["present"],
             "evidence": tval["evidence"],
         }
 
-    return validated_themes, other_note, None
+    return validated_themes, other_note, None, keywords_list
 
 
 def tokenize_segments(text: str) -> List[List[str]]:

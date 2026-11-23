@@ -16,5 +16,6 @@ Rules:
 3. For every theme you mark present, copy ONE short evidence quote (at most 25 words) exactly as written in the TEXT, character for character. Do not paraphrase. If you cannot quote supporting words, mark the theme absent.
 4. Themes can overlap. Mark every theme that applies. If none apply, mark none.
 5. If the TEXT contains an important idea that fits no theme, describe it in "other_note" in at most 15 words. Otherwise use an empty string.
-6. Output only a JSON object of this shape, with every theme id present exactly once, and nothing before or after it:
-{{"themes": {{"<theme_id>": {{"present": true, "evidence": "<quote>"}}, "<theme_id>": {{"present": false, "evidence": ""}}}}, "other_note": ""}}
+6. Extract 3 to 10 prominent keywords or key phrases that appear directly in the TEXT as a list of strings in "keywords".
+7. Output only a JSON object of this shape, with every theme id present exactly once, and nothing before or after it:
+{{"themes": {{"<theme_id>": {{"present": true, "evidence": "<quote>"}}, "<theme_id>": {{"present": false, "evidence": ""}}}}, "other_note": "", "keywords": ["<keyword1>", "<keyword2>"]}}

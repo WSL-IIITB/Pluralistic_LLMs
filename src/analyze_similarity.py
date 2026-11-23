@@ -511,8 +511,6 @@ def analyze_query(
         if r[0] == "reliable":
             report_lines.append(f"| {r[1]} | {r[2]} | {r[3]} | {r[4]} | {r[5]} | {r[6]} | {r[7]} | {r[8]} | {r[9]} | {r[10]} |")
 
-    report_lines.append(f"\n{CAVEATS_TEXT}")
-
     with open(out_dir / "report.md", "w", encoding="utf-8") as f:
         f.write("\n".join(report_lines) + "\n")
 

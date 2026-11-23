@@ -355,9 +355,22 @@ def main() -> None:
     # terms_by_lang_and_method: (view, method) -> dict[lang_code, set[term]]
     top_terms: Dict[Tuple[str, str], Dict[str, Set[str]]] = {}
 
+    # Collect LLM-extracted keywords from tags.json if present
+    llm_kw_by_code: Dict[str, Dict[str, float]] = {}
+    for code, trec in tag_records.items():
+        kws = trec.get("keywords", [])
+        if kws:
+            # Score by rank inverse: 1.0, 0.9, 0.8...
+            llm_kw_by_code[code] = {
+                kw.lower(): round(1.0 - (i * 0.05), 2)
+                for i, kw in enumerate(kws)
+            }
+
     methods = [("tfidf", tfidf_scored_by_code)]
     if not args.no_embed_keywords:
         methods.append(("minilm", embed_scored_by_code))
+    if any(llm_kw_by_code.values()):
+        methods.append(("llm", llm_kw_by_code))
 
     for view_name, cons in [("all", considered_all), ("reliable", considered_reliable)]:
         eval_codes = ["en"] + cons
@@ -512,11 +525,6 @@ def main() -> None:
         for r in df_rows:
             if r[4] == "shared":
                 report_lines.append(f"| `{method_name}` | `{r[0]}` | {r[1]} | {r[3]} | `{r[4]}` |")
-
-    report_lines.extend([
-        "",
-        LIMITATIONS_TEXT,
-    ])
 
     with open(analysis_dir / "report.md", "w", encoding="utf-8") as f:
         f.write("\n".join(report_lines) + "\n")

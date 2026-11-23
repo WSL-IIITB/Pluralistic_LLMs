@@ -26,6 +26,7 @@ DEFAULT_QUERY_TEXT = "Can you give an example of a life goal related to self-ima
 
 VENV_IT2 = PROJECT_ROOT / ".venv-it2" / "bin" / "python"
 VENV_LID = PROJECT_ROOT / ".venv" / "bin" / "python"
+VENV_SIM = PROJECT_ROOT / ".venv-sim" / "bin" / "python"
 
 
 def _run(venv_python, module: str, extra_args: list[str]) -> None:
@@ -118,6 +119,26 @@ def main() -> None:
         help="retries for a blank/failed native answer per language "
              "(default: 2 -> 3 total attempts)",
     )
+    parser.add_argument(
+        "--skip-muril",
+        action="store_true",
+        help="skip MuRIL masked-LM fluency check in validate_syntax",
+    )
+    parser.add_argument(
+        "--tagger-model",
+        default="llama3.1:8b",
+        help="tagger model tag for theme tagging (default: llama3.1:8b)",
+    )
+    parser.add_argument(
+        "--skip-similarity",
+        action="store_true",
+        help="skip cross-lingual similarity analysis",
+    )
+    parser.add_argument(
+        "--skip-themes",
+        action="store_true",
+        help="skip theme tagging and keyword analysis",
+    )
     args = parser.parse_args()
 
     url = args.url or os.environ.get("OLLAMA_BASE_URL") or OLLAMA_BASE_URL
@@ -149,7 +170,10 @@ def main() -> None:
     _run(VENV_LID, "validate_language_id", query_args)
     _run(VENV_IT2, "validate_back_translation", query_args)
     _run(VENV_IT2, "validate_query_roundtrip", query_args)
-    _run(VENV_IT2, "validate_syntax", query_args)
+    syntax_args = list(query_args)
+    if args.skip_muril:
+        syntax_args.append("--skip-muril")
+    _run(VENV_IT2, "validate_syntax", syntax_args)
 
     # 4. Auto-documentation — makes the dataset self-documenting without hand
     #    editing: structural flags are explained automatically and genuine
@@ -159,6 +183,40 @@ def main() -> None:
 
     # 5. Final summary.
     summarize(args.query_id)
+
+    # 6. Cross-lingual similarity analysis (Phase 0–5 pipeline).
+    if not args.skip_similarity:
+        print(f"\n====================================================================================================")
+        print(f"STAGE 2A: CROSS-LINGUAL SIMILARITY ANALYSIS — {args.query_id}")
+        print(f"====================================================================================================")
+        _run(VENV_SIM, "analyze_similarity", ["--query-id", args.query_id])
+
+    # 7. Theme coding & keyword extraction (if codebook exists and is APPROVED).
+    if not args.skip_themes:
+        codebook_path = PROJECT_ROOT / "config" / "codebooks" / f"{args.query_id}.json"
+        if not codebook_path.exists():
+            print(f"\n[theme_pipeline] Skipping theme coding: {codebook_path} does not exist.")
+        else:
+            try:
+                cb_data = json.loads(codebook_path.read_text(encoding="utf-8"))
+                if cb_data.get("status") != "APPROVED":
+                    print(f"\n[theme_pipeline] Skipping theme coding: codebook status is {cb_data.get('status')!r} (must be 'APPROVED').")
+                else:
+                    print(f"\n====================================================================================================")
+                    print(f"STAGE 2B: THEME CODING & KEYWORD EXTRACTION — {args.query_id}")
+                    print(f"====================================================================================================")
+                    # Run tagging via .venv-it2
+                    tag_args = [
+                        "--query-id", args.query_id,
+                        "--url", url,
+                        "--model", args.tagger_model,
+                    ]
+                    _run(VENV_IT2, "theme_tag", tag_args)
+
+                    # Run theme analysis via .venv-sim
+                    _run(VENV_SIM, "theme_analyze", ["--query-id", args.query_id])
+            except Exception as e:
+                print(f"\n[theme_pipeline] Error running theme analysis: {e}")
 
 
 if __name__ == "__main__":

@@ -45,14 +45,14 @@ class TestThemeCore(unittest.TestCase):
         cb1 = load_codebook(cb1_path)
         cb2 = load_codebook(cb2_path)
 
-        # cb1 has been reviewed and APPROVED; cb2 remains DRAFT
+        # Both codebooks have now been reviewed and APPROVED by user
         self.assertEqual(cb1["status"], "APPROVED")
         self.assertTrue(codebook_is_approved(cb1))
         self.assertEqual(len(cb1["themes"]), 6)
 
-        self.assertEqual(cb2["status"], "DRAFT")
-        self.assertFalse(codebook_is_approved(cb2))
-        self.assertEqual(len(cb2["themes"]), 8)
+        self.assertEqual(cb2["status"], "APPROVED")
+        self.assertTrue(codebook_is_approved(cb2))
+        self.assertEqual(len(cb2["themes"]), 6)
 
         # 2. Validation edge cases with temporary files
         def make_cb(themes_list, status="DRAFT"):
@@ -153,7 +153,7 @@ class TestThemeCore(unittest.TestCase):
         )
 
         # Rendered prompt must have single braces in the JSON format rule (no triple {{{ or quadrupled {{{{)
-        self.assertIn('{"themes": {"<theme_id>": {"present": true, "evidence": "<quote>"}, "<theme_id>": {"present": false, "evidence": ""}}, "other_note": ""}', rendered)
+        self.assertIn('"themes": {"<theme_id>": {"present": true, "evidence": "<quote>"}, "<theme_id>": {"present": false, "evidence": ""}}, "other_note": "", "keywords": ["<keyword1>", "<keyword2>"]}', rendered)
         self.assertNotIn("{{{", rendered)
         self.assertNotIn("}}}", rendered)
         self.assertNotIn("{theme_lines}", rendered)
@@ -181,19 +181,21 @@ class TestThemeCore(unittest.TestCase):
             '    "mind": {"present": false, "evidence": ""},\n'
             '    "skills": {"present": false, "evidence": ""}\n'
             '  },\n'
-            '  "other_note": ""\n'
+            '  "other_note": "",\n'
+            '  "keywords": ["yoga", "practice"]\n'
             '}'
         )
-        parsed, note, err = parse_tag_response(valid_raw, cb)
+        parsed, note, err, kws = parse_tag_response(valid_raw, cb)
         self.assertIsNone(err)
         self.assertIsNotNone(parsed)
         self.assertEqual(note, "")
+        self.assertEqual(kws, ["yoga", "practice"])
         self.assertTrue(parsed["health"]["present"])
         self.assertEqual(parsed["health"]["evidence"], "I practice yoga")
 
         # Missing theme id
         missing_raw = '{"themes": {"health": {"present": true, "evidence": "e"}}, "other_note": ""}'
-        parsed, _, err = parse_tag_response(missing_raw, cb)
+        parsed, _, err, _ = parse_tag_response(missing_raw, cb)
         self.assertIsNone(parsed)
         self.assertIn("missing themes", err)
 
@@ -202,24 +204,24 @@ class TestThemeCore(unittest.TestCase):
             '{"themes": {"health": {"present": true, "evidence": "e"}, "mind": {"present": false, "evidence": ""}, '
             '"skills": {"present": false, "evidence": ""}, "extra_t": {"present": false, "evidence": ""}}, "other_note": ""}'
         )
-        parsed, _, err = parse_tag_response(extra_raw, cb)
+        parsed, _, err, _ = parse_tag_response(extra_raw, cb)
         self.assertIsNone(parsed)
         self.assertIn("extra themes", err)
 
         # Non-boolean present
         bad_bool = '{"themes": {"health": {"present": "yes", "evidence": "e"}, "mind": {"present": false, "evidence": ""}, "skills": {"present": false, "evidence": ""}}, "other_note": ""}'
-        parsed, _, err = parse_tag_response(bad_bool, cb)
+        parsed, _, err, _ = parse_tag_response(bad_bool, cb)
         self.assertIsNone(parsed)
         self.assertIn("boolean 'present'", err)
 
         # Non-string evidence
         bad_ev = '{"themes": {"health": {"present": true, "evidence": 123}, "mind": {"present": false, "evidence": ""}, "skills": {"present": false, "evidence": ""}}, "other_note": ""}'
-        parsed, _, err = parse_tag_response(bad_ev, cb)
+        parsed, _, err, _ = parse_tag_response(bad_ev, cb)
         self.assertIsNone(parsed)
         self.assertIn("string 'evidence'", err)
 
         # Invalid JSON
-        parsed, _, err = parse_tag_response("not a json string", cb)
+        parsed, _, err, _ = parse_tag_response("not a json string", cb)
         self.assertIsNone(parsed)
         self.assertIn("JSON decode error", err)
 

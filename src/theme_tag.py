@@ -74,6 +74,10 @@ def build_json_schema(codebook: Dict[str, Any]) -> Dict[str, Any]:
                 "required": theme_ids,
             },
             "other_note": {"type": "string"},
+            "keywords": {
+                "type": "array",
+                "items": {"type": "string"},
+            },
         },
         "required": ["themes", "other_note"],
     }
@@ -299,6 +303,7 @@ def tag_dataset(
         final_status = "ok"
         final_themes = None
         final_note = ""
+        final_kws = []
         final_raw = ""
         total_latency = 0.0
 
@@ -320,11 +325,12 @@ def tag_dataset(
                 break
 
             final_raw = raw_resp
-            parsed, note, err = parse_tag_response(raw_resp, codebook)
+            parsed, note, err, kws = parse_tag_response(raw_resp, codebook)
             if parsed is not None:
                 # Apply evidence verification
                 final_themes = apply_verification(parsed, norm_text)
                 final_note = note
+                final_kws = kws
                 final_status = "ok"
                 break
             else:
@@ -343,6 +349,7 @@ def tag_dataset(
             "raw_response": final_raw,
             "themes": final_themes,
             "other_note": final_note,
+            "keywords": final_kws if final_status == "ok" else [],
             "latency_s": round(total_latency, 3),
         }
 

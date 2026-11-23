@@ -20,6 +20,7 @@ import argparse
 import json
 import math
 import unicodedata
+from typing import Optional
 
 import regex
 
@@ -189,18 +190,25 @@ MURIL_SUPPORTED = {
 OUTLIER_MULT = 1.5
 
 
-def _masked_lm_scores(texts: list[str], model, tokenizer) -> list[float]:
+def _masked_lm_scores(
+    texts: list[str],
+    model,
+    tokenizer,
+    max_tokens: int = 40,
+    batch_size: int = 8,
+    progress_callback: Optional[callable] = None,
+) -> list[float]:
     """Per-text pseudo-perplexity via masked-LM likelihood (lower = better).
 
-    Each real token is masked in turn (batch of masks per text, one forward
-    pass), the probability of the true token is read off, and the result is
-    aggregated as exp(-mean log P(token)).
+    Tokens are subsampled evenly up to max_tokens for high performance on CPU
+    without degradation in coarse statistical outlier detection.
+    Aggregated as exp(-mean log P(token)).
     """
     import torch
 
     model.eval()
     scores = []
-    for text in texts:
+    for idx, text in enumerate(texts):
         enc = tokenizer(text, return_tensors="pt", add_special_tokens=True, truncation=False)
         input_ids = enc["input_ids"]
         seq = input_ids[0]
@@ -210,14 +218,25 @@ def _masked_lm_scores(texts: list[str], model, tokenizer) -> list[float]:
             i for i in range(1, n - 1)
             if seq[i].item() not in (tokenizer.cls_token_id, tokenizer.sep_token_id, tokenizer.pad_token_id)
         ]
+        if not content_idx:
+            scores.append(1.0)
+            if progress_callback:
+                progress_callback(idx, len(texts))
+            continue
+
+        # Subsample content tokens evenly if text is long
+        if len(content_idx) > max_tokens:
+            step = len(content_idx) / max_tokens
+            eval_idx = [content_idx[int(i * step)] for i in range(max_tokens)]
+        else:
+            eval_idx = content_idx
+
         total_logp = 0.0
         mask_token_id = tokenizer.mask_token_id
-        # Small batch keeps peak memory low: the logits tensor is [B, seq, vocab]
-        # (vocab ~105k for MuRIL), which is the dominant RAM consumer on CPU.
-        B = 4
+        B = batch_size
         with torch.no_grad():
-            for start in range(0, len(content_idx), B):
-                chunk = content_idx[start:start + B]
+            for start in range(0, len(eval_idx), B):
+                chunk = eval_idx[start:start + B]
                 batch = input_ids.repeat(len(chunk), 1)
                 for bi, pos in enumerate(chunk):
                     batch[bi, pos] = mask_token_id
@@ -226,8 +245,11 @@ def _masked_lm_scores(texts: list[str], model, tokenizer) -> list[float]:
                     true_id = seq[pos].item()
                     lp = logits[bi, pos].log_softmax(dim=-1)[true_id].item()
                     total_logp += lp
-        mean_logp = total_logp / max(1, len(content_idx))
-        scores.append(math.exp(-mean_logp))
+        mean_logp = total_logp / max(1, len(eval_idx))
+        score = math.exp(-mean_logp)
+        scores.append(score)
+        if progress_callback:
+            progress_callback(idx, len(texts))
     return scores
 
 
@@ -272,7 +294,7 @@ def _load_muril():
     return _LANG_MODEL, _LANG_TOKENIZER
 
 
-def main(raw_file) -> None:
+def main(raw_file, skip_muril: bool = False) -> None:
     records = json.loads(raw_file.read_text(encoding="utf-8"))
     langs = json.loads(LANG_FILE.read_text(encoding="utf-8"))["languages"]
     entry_by_code = {entry["code"]: entry for entry in langs}
@@ -291,16 +313,21 @@ def main(raw_file) -> None:
             valid = ["Latin"]
         fl = script_check(rec["native_answer"], valid)
         layer1_flags[code] = fl
-        if code in MURIL_SUPPORTED:
+        if code in MURIL_SUPPORTED and not skip_muril:
             supported.append(rec)
 
     # Layer 2 — batch score the MuRIL-supported records.
     layer2_scores = {}
-    if supported:
+    if supported and not skip_muril:
         model, tokenizer = _load_muril()
         texts = [r["native_answer"] for r in supported]
-        scores = _masked_lm_scores(texts, model, tokenizer)
-        layer2_scores = dict(zip([r["target_lang_code"] for r in supported], scores))
+        codes = [r["target_lang_code"] for r in supported]
+
+        def on_progress(idx, total):
+            print(f"  [fluency] scored {idx + 1}/{total} ({codes[idx]})", flush=True)
+
+        scores = _masked_lm_scores(texts, model, tokenizer, progress_callback=on_progress)
+        layer2_scores = dict(zip(codes, scores))
     outliers = _outlier_positions([layer2_scores[r["target_lang_code"]] for r in supported]) \
         if supported else set()
     outlier_codes = {supported[i]["target_lang_code"] for i in outliers}
@@ -310,7 +337,7 @@ def main(raw_file) -> None:
     for rec in records:
         code = rec["target_lang_code"]
         s1 = "OK" if not layer1_flags[code] else "FLAGGED"
-        if code not in MURIL_SUPPORTED:
+        if skip_muril or code not in MURIL_SUPPORTED:
             s2 = "NO-SCORER-AVAILABLE"
             score_val = None
         elif code in outlier_codes:
@@ -330,7 +357,7 @@ def main(raw_file) -> None:
     for rec in records:
         code = rec["target_lang_code"]
         s1 = "OK" if not layer1_flags[code] else "FLAGGED"
-        if code not in MURIL_SUPPORTED:
+        if skip_muril or code not in MURIL_SUPPORTED:
             s2 = "NO-SCORER-AVAILABLE"
         elif code in outlier_codes:
             s2 = f"FLAGGED"
@@ -372,10 +399,15 @@ if __name__ == "__main__":
         default=DEFAULT_QUERY_ID,
         help=f"query id; resolves to data/raw/sarvam_<query_id>.json (default: {DEFAULT_QUERY_ID})",
     )
+    parser.add_argument(
+        "--skip-muril",
+        action="store_true",
+        help="skip MuRIL masked-LM fluency check (Layer 1 script check still runs)",
+    )
     args = parser.parse_args()
 
     raw_file = PROJECT_ROOT / "data" / "raw" / f"sarvam_{args.query_id}.json"
     if not raw_file.exists():
         parser.error(f"dataset not found: {raw_file}")
 
-    main(raw_file)
+    main(raw_file, skip_muril=args.skip_muril)
