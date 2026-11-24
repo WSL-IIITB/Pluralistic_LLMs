@@ -17,6 +17,7 @@ Requirements:
 import argparse
 import json
 import random
+import re
 import sys
 import time
 from datetime import datetime, timezone

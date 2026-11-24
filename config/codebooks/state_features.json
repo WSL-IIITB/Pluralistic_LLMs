@@ -1,0 +1,37 @@
+{
+  "query_id": "state_features",
+  "version": 1,
+  "status": "APPROVED",
+  "themes": [
+    {
+      "id": "natural_environment",
+      "label": "Natural Environment",
+      "definition": "Features related to the state's geography, climate, and natural resources."
+    },
+    {
+      "id": "cultural_heritage",
+      "label": "Cultural Heritage",
+      "definition": "Features related to the state's traditions, customs, festivals, and art forms."
+    },
+    {
+      "id": "economic_development",
+      "label": "Economic Development",
+      "definition": "Features related to the state's economic growth, industry, and infrastructure."
+    },
+    {
+      "id": "tourism_attractions",
+      "label": "Tourism Attractions",
+      "definition": "Features related to the state's tourist spots, landmarks, and recreational activities."
+    },
+    {
+      "id": "historical_significance",
+      "label": "Historical Significance",
+      "definition": "Features related to the state's historical events, monuments, and cultural legacy."
+    },
+    {
+      "id": "agriculture",
+      "label": "Agriculture",
+      "definition": "Features related to the state's agricultural production, land use, and farming practices."
+    }
+  ]
+}
