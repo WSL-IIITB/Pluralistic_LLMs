@@ -135,6 +135,106 @@ def query_tagger(
     return None, latency, attempts, last_err
 
 
+def auto_generate_codebook_llm(
+    query_id: str,
+    source_query_en: str,
+    records: List[Dict[str, Any]],
+    base_url: str,
+    model: str,
+) -> Path:
+    """Auto-generate a 5 to 6 theme codebook via LLM from English back-translations."""
+    codebook_path = PROJECT_ROOT / "config" / "codebooks" / f"{query_id}.json"
+    codebook_path.parent.mkdir(parents=True, exist_ok=True)
+
+    # Collect sample English answers (up to 8 non-empty samples across diverse languages)
+    sample_texts = []
+    for r in records:
+        bt = r.get("back_translated_answer_en", "").strip()
+        if bt and len(bt) > 20:
+            sample_texts.append(f"Sample answer ({r.get('target_lang_code', '')}):\n{bt[:300]}")
+        if len(sample_texts) >= 8:
+            break
+
+    prompt = (
+        f"You are an expert qualitative research content coder.\n"
+        f"A multilingual language model answered this question in multiple Indian languages:\n"
+        f"QUESTION: \"{source_query_en}\"\n\n"
+        f"Here are several English back-translated sample answers:\n"
+        f"{chr(10).join(sample_texts)}\n\n"
+        f"Analyze these answers and design a comprehensive codebook containing EXACTLY 5 to 6 distinct, balanced thematic categories.\n"
+        f"Rules:\n"
+        f"1. Theme 'id' must be lowercase snake_case (^[a-z][a-z0-9_]*$).\n"
+        f"2. Theme 'label' must be short, plain title.\n"
+        f"3. Theme 'definition' must be a clear 1-2 sentence definition explaining what concepts fit into it.\n"
+        f"4. Themes should cover distinct aspects of the answers with minimal overlap.\n"
+        f"5. Output ONLY a valid JSON object matching this schema:\n"
+        f"{{\n"
+        f'  "query_id": "{query_id}",\n'
+        f'  "version": 1,\n'
+        f'  "status": "APPROVED",\n'
+        f'  "themes": [\n'
+        f'    {{"id": "theme_one", "label": "Label One", "definition": "Definition One."}},\n'
+        f'    ...\n'
+        f"  ]\n"
+        f"}}"
+    )
+
+    schema = {
+        "type": "object",
+        "properties": {
+            "query_id": {"type": "string"},
+            "version": {"type": "integer"},
+            "status": {"type": "string"},
+            "themes": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "id": {"type": "string"},
+                        "label": {"type": "string"},
+                        "definition": {"type": "string"},
+                    },
+                    "required": ["id", "label", "definition"],
+                },
+            },
+        },
+        "required": ["query_id", "version", "status", "themes"],
+    }
+
+    print(f"[theme_pipeline] Auto-generating 5–6 theme codebook for '{query_id}' via {model}...")
+    content, latency, _, err = query_tagger(
+        base_url=base_url,
+        model=model,
+        prompt=prompt,
+        schema=schema,
+        timeout=180,
+    )
+    if not content:
+        raise RuntimeError(f"Failed to auto-generate codebook via LLM: {err}")
+
+    # Validate generated codebook
+    data = json.loads(content)
+    data["query_id"] = query_id
+    data["status"] = "APPROVED"
+
+    # Sanitize theme ids
+    for t in data.get("themes", []):
+        tid = re.sub(r"[^a-z0-9_]", "_", str(t.get("id", "")).lower()).strip("_")
+        if not tid or not tid[0].isalpha():
+            tid = f"theme_{tid}"
+        t["id"] = tid
+
+    # Ensure 5-6 themes
+    if len(data.get("themes", [])) > 6:
+        data["themes"] = data["themes"][:6]
+    elif len(data.get("themes", [])) < 3:
+        raise ValueError(f"LLM generated too few themes: {len(data.get('themes', []))}")
+
+    codebook_path.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
+    print(f"[theme_pipeline] Successfully generated codebook at {codebook_path} ({len(data['themes'])} themes)")
+    return codebook_path
+
+
 def tag_dataset(
     query_id: str,
     base_url: str,
@@ -144,6 +244,7 @@ def tag_dataset(
     self_grading_ok: bool = False,
     max_retries: int = 2,
     out_dir_base: Optional[Path] = None,
+    auto_generate_codebook: bool = True,
 ) -> Path:
     # 1. Model gate: refuse sarvam unless --self-grading-ok
     tagger_is_generator = "sarvam" in model.lower()
@@ -153,10 +254,22 @@ def tag_dataset(
             f"Pass --self-grading-ok to confirm self-grading evaluation."
         )
 
-    # 2. Check codebook
+    # Check dataset early
+    dataset_path = PROJECT_ROOT / "data" / "raw" / f"sarvam_{query_id}.json"
+    if not dataset_path.exists():
+        sys.exit(f"Error: Dataset not found at {dataset_path}")
+
+    dataset_sha_start = sha256_file(dataset_path)
+    records_list = load_records(dataset_path)
+    source_query_en = records_list[0].get("source_query_en", "")
+
+    # 2. Check codebook or auto-generate via LLM
     codebook_path = PROJECT_ROOT / "config" / "codebooks" / f"{query_id}.json"
     if not codebook_path.exists():
-        sys.exit(f"Error: Codebook not found at {codebook_path}")
+        if auto_generate_codebook:
+            auto_generate_codebook_llm(query_id, source_query_en, records_list, base_url, model)
+        else:
+            sys.exit(f"Error: Codebook not found at {codebook_path}")
 
     codebook = load_codebook(codebook_path)
     if not codebook_is_approved(codebook):
@@ -174,13 +287,6 @@ def tag_dataset(
         sys.exit(f"Error: Prompt template not found at {prompt_path}")
     prompt_template = prompt_path.read_text(encoding="utf-8")
     prompt_sha = sha256_file(prompt_path)
-
-    # 4. Check dataset
-    dataset_path = PROJECT_ROOT / "data" / "raw" / f"sarvam_{query_id}.json"
-    if not dataset_path.exists():
-        sys.exit(f"Error: Dataset not found at {dataset_path}")
-
-    dataset_sha_start = sha256_file(dataset_path)
 
     # Output directory
     base_out = out_dir_base or (PROJECT_ROOT / "data" / "analysis")
@@ -386,6 +492,7 @@ def main():
     parser.add_argument("--self-grading-ok", action="store_true", help="Allow tagger to be generator model (sarvam)")
     parser.add_argument("--max-retries", type=int, default=2, help="Max parse/HTTP retries per record")
     parser.add_argument("--out-dir", type=str, default=None, help="Base output directory")
+    parser.add_argument("--no-auto-codebook", action="store_true", help="Do not auto-generate codebook via LLM if missing")
     args = parser.parse_args()
 
     only_langs = [c.strip() for c in args.only.split(",")] if args.only else None
@@ -400,6 +507,7 @@ def main():
         self_grading_ok=args.self_grading_ok,
         max_retries=args.max_retries,
         out_dir_base=out_dir_base,
+        auto_generate_codebook=not args.no_auto_codebook,
     )
 
 

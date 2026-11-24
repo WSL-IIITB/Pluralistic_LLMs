@@ -191,32 +191,21 @@ def main() -> None:
         print(f"====================================================================================================")
         _run(VENV_SIM, "analyze_similarity", ["--query-id", args.query_id])
 
-    # 7. Theme coding & keyword extraction (if codebook exists and is APPROVED).
+    # 7. Theme coding & keyword extraction (auto-generates codebook if needed).
     if not args.skip_themes:
-        codebook_path = PROJECT_ROOT / "config" / "codebooks" / f"{args.query_id}.json"
-        if not codebook_path.exists():
-            print(f"\n[theme_pipeline] Skipping theme coding: {codebook_path} does not exist.")
-        else:
-            try:
-                cb_data = json.loads(codebook_path.read_text(encoding="utf-8"))
-                if cb_data.get("status") != "APPROVED":
-                    print(f"\n[theme_pipeline] Skipping theme coding: codebook status is {cb_data.get('status')!r} (must be 'APPROVED').")
-                else:
-                    print(f"\n====================================================================================================")
-                    print(f"STAGE 2B: THEME CODING & KEYWORD EXTRACTION — {args.query_id}")
-                    print(f"====================================================================================================")
-                    # Run tagging via .venv-it2
-                    tag_args = [
-                        "--query-id", args.query_id,
-                        "--url", url,
-                        "--model", args.tagger_model,
-                    ]
-                    _run(VENV_IT2, "theme_tag", tag_args)
+        print(f"\n====================================================================================================")
+        print(f"STAGE 2B: THEME CODING & KEYWORD EXTRACTION — {args.query_id}")
+        print(f"====================================================================================================")
+        tag_args = [
+            "--query-id", args.query_id,
+            "--url", url,
+            "--model", args.tagger_model,
+        ]
+        # Run tagging (will auto-generate 5-6 themes if codebook doesn't exist)
+        _run(VENV_IT2, "theme_tag", tag_args)
 
-                    # Run theme analysis via .venv-sim
-                    _run(VENV_SIM, "theme_analyze", ["--query-id", args.query_id])
-            except Exception as e:
-                print(f"\n[theme_pipeline] Error running theme analysis: {e}")
+        # Run theme analysis via .venv-sim
+        _run(VENV_SIM, "theme_analyze", ["--query-id", args.query_id])
 
 
 if __name__ == "__main__":
