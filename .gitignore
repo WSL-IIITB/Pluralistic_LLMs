@@ -18,7 +18,6 @@ data/
 logs/
 docs/
 *.ipynb
-*.md
 *.ipynb_checkpoints/
 
 # Virtual environments
