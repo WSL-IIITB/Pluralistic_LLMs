@@ -17,12 +17,12 @@ concurrency:
   group: pages
   cancel-in-progress: true
 
+# Build and deploy are separate jobs (GitHub's own Pages layout): in one job, deploy-pages looked for the
+# uploaded artifact ~2 s after upload, before GitHub had registered it, and failed with "No artifacts named
+# github-pages were found". A second job only starts once the upload is complete and visible.
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -38,5 +38,13 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist/client
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - id: deployment
         uses: actions/deploy-pages@v4
