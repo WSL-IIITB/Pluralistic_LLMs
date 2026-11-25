@@ -1,0 +1,214 @@
+{
+  "districtId": "29-569",
+  "name": "Udupi",
+  "regionId": "karavali",
+  "topic": "stunting",
+  "researchedOn": "2026-11-25",
+  "method": "automated: web search + Claude compile + page verification (scripts/research_stunting_districts.py)",
+  "headline": "Udupi reports 267 malnourished children under six; anaemia affects 50% of pregnant women",
+  "summary": "Udupi district has 267 malnourished children below the age of six. A community-based study found that 50.14% of pregnant women in Udupi were anaemic during 2005-2006, with higher rates among young women, those in low socioeconomic groups, and women with short pregnancy intervals and higher parity. Child marriages persist despite awareness campaigns, with 12 cases reported in Mangaluru and Udupi districts over five years. Local authorities have launched campaigns to eliminate child marriages, emphasizing their negative impact on girls' physical, psychological growth, and education.",
+  "reasons": [
+    {
+      "factor": "Maternal anaemia",
+      "category": "maternal-health",
+      "detail": "50.14% of pregnant women in Udupi were anaemic, with higher prevalence among young women, low socioeconomic status, and those with short pregnancy intervals.",
+      "sources": [
+        4
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Child marriage prevalence",
+      "category": "social-norms",
+      "detail": "12 child marriage cases reported in Mangaluru and Udupi over five years; officials emphasize child marriages deprive girls of education and harm physical-psychological development.",
+      "sources": [
+        2,
+        3,
+        5
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Low socioeconomic status",
+      "category": "economic",
+      "detail": "Anaemia prevalence higher among pregnant women in low socioeconomic groups in Udupi district.",
+      "sources": [
+        4
+      ],
+      "evidence": "moderate"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Malnourished children under 6",
+      "value": "267",
+      "sources": [
+        6
+      ]
+    },
+    {
+      "label": "Child marriages (5 years)",
+      "value": "12 cases",
+      "sources": [
+        5
+      ]
+    },
+    {
+      "label": "Statewide: Severely stunted",
+      "value": "479931 children",
+      "sources": [
+        1
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "12 child marriage cases reported in last 5 years in Mangaluru, Udupi",
+      "outlet": "Daijiworld",
+      "date": "2022-10-12",
+      "url": "https://www.daijiworld.com/news/newsDisplay?newsID=1009075",
+      "takeaway": "12 child marriage cases reported in Mangaluru, Udupi over five years"
+    },
+    {
+      "title": "DC appeals public to make Udupi free of child marriages",
+      "outlet": "Deccan Herald",
+      "date": "2022-03-06",
+      "url": "https://www.deccanherald.com/state/mangaluru/dc-appeals-public-to-make-udupi-free-of-child-marriages-1088631.html",
+      "takeaway": "DC launches 'Video on Wheels' campaign against child marriages in Udupi"
+    },
+    {
+      "title": "Udupi district has 267 malnourished children below the age of six",
+      "outlet": "mangaloretoday.com",
+      "date": "",
+      "url": "https://www.mangaloretoday.com/main/Udupi-district-has-267-malnourished-children-below-the-age-of-six.html",
+      "takeaway": "Udupi district has 267 malnourished children below age six"
+    },
+    {
+      "title": "Prevalence of anaemia among pregnant women: A community",
+      "outlet": "researcher.manipal.edu",
+      "date": "",
+      "url": "https://researcher.manipal.edu/en/publications/prevalence-of-anaemia-among-pregnant-women-a-community-based-stud/",
+      "takeaway": "Half of pregnant women in Udupi were anaemic during 2005-2006 study"
+    }
+  ],
+  "responses": [
+    {
+      "text": "Deputy Commissioner launched 'Video on Wheels' campaign against child marriages, urging all stakeholders to eliminate the social evil.",
+      "sources": [
+        3
+      ]
+    },
+    {
+      "text": "One-day symposium held for judges and child marriage prevention officers on Prevention of Child Marriage Act 2006.",
+      "sources": [
+        2
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://coastaldigest.com/4-8-lakh-young-children-in-karnataka-severely-stunted-despite-nutrition-push/",
+      "title": "4.8 Lakh Young Children in Karnataka Severely Stunted Despite Nutrition Push",
+      "outlet": "coastaldigest.com",
+      "date": "2026-02-15",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://www.daijiworld.com/news/newsDisplay.aspx?newsID=531795",
+      "title": "Udupi: Prevention of",
+      "outlet": "Daijiworld",
+      "date": "2018-10-07",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://www.deccanherald.com/state/mangaluru/dc-appeals-public-to-make-udupi-free-of-child-marriages-1088631.html",
+      "title": "DC appeals public to make Udupi free of child marriages",
+      "outlet": "Deccan Herald",
+      "date": "2022-03-06",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "https://researcher.manipal.edu/en/publications/prevalence-of-anaemia-among-pregnant-women-a-community-based-stud/",
+      "title": "Prevalence of anaemia among pregnant women: A community",
+      "outlet": "researcher.manipal.edu",
+      "date": "",
+      "type": "research"
+    },
+    {
+      "id": 5,
+      "url": "https://www.daijiworld.com/news/newsDisplay?newsID=1009075",
+      "title": "12 child marriage cases reported in last 5 years in Mangaluru, Udupi",
+      "outlet": "Daijiworld",
+      "date": "2022-10-12",
+      "type": "news"
+    },
+    {
+      "id": 6,
+      "url": "https://www.mangaloretoday.com/main/Udupi-district-has-267-malnourished-children-below-the-age-of-six.html",
+      "title": "Udupi district has 267 malnourished children below the age of six",
+      "outlet": "mangaloretoday.com",
+      "date": "",
+      "type": "news"
+    }
+  ],
+  "modelFactorWhy": [
+    {
+      "factor": "Children age 3–6 recorded as school-going",
+      "verdict": "no-evidence",
+      "why": "The pages discuss malnutrition counts and child marriage campaigns in Udupi but provide no data on school enrollment rates for children aged 3-6 in the district.",
+      "mechanism": "Early childhood education exposes children to structured meals, health monitoring, and developmental stimulation that support growth.",
+      "proof": []
+    },
+    {
+      "factor": "Women married before age 18, age 20–24",
+      "verdict": "supported",
+      "why": "Udupi reported 12 child marriage cases over five years. Officials emphasize child marriages deprive girls of education, harm physical and psychological growth, and violate rights including right to life and self-protection.",
+      "mechanism": "Early marriage leads to early pregnancy before physical maturity, limiting maternal education and access to resources critical for child nutrition.",
+      "proof": [
+        {
+          "claim": "12 child marriage cases reported in last 5 years in Mangaluru, Udupi",
+          "sources": [
+            5
+          ]
+        },
+        {
+          "claim": "Child marriages have negative impact on psychological and physical growth; victims deprived of education and many rights.",
+          "sources": [
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "Mothers who took iron-folic acid for 180+ days in pregnancy",
+      "verdict": "partly",
+      "why": "While no data exists on iron-folic acid supplementation duration, 50.14% of pregnant women in Udupi were anaemic, suggesting inadequate iron intake or supplementation during pregnancy.",
+      "mechanism": "Iron-folic acid supplementation during pregnancy prevents maternal anaemia, supporting fetal growth and reducing risk of low birth weight and stunting.",
+      "proof": [
+        {
+          "claim": "Prevalence of anaemia among pregnant women in Udupi was 50.14 per cent during 2005-2006.",
+          "sources": [
+            4
+          ]
+        },
+        {
+          "claim": "Anaemia prevalence higher among young women, low socioeconomic status, short pregnancy intervals and higher parity.",
+          "sources": [
+            4
+          ]
+        }
+      ]
+    }
+  ],
+  "coverage": "thin",
+  "gaps": "No recent data on stunting rates, school enrollment for young children, or IFA supplementation compliance in Udupi.",
+  "verificationNotes": [
+    "dropped fact (number 06 not on cited page): Pregnant women anaemic (2005-06) 50.14 per cent"
+  ],
+  "searched": 98,
+  "candidatePages": 10
+}

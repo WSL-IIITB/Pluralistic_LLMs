@@ -1,0 +1,349 @@
+{
+  "districtId": "29-560",
+  "name": "Koppal",
+  "regionId": "kalyana-karnataka",
+  "topic": "stunting",
+  "researchedOn": "2026-11-25",
+  "method": "automated: web search + Claude compile + page verification (scripts/research_stunting_districts.py)",
+  "headline": "Koppal faces severe malnutrition crisis with 90 of 110 disabled children malnourished, over 70% mothers undernourished",
+  "summary": "Koppal is identified as one of Karnataka's worst malnutrition-hit districts, with alarming intergenerational patterns. 90 out of 110 children enrolled at a local early intervention centre are malnourished, while over 70 of their mothers are themselves undernourished. The district faces a three-fold increase in malnourished children despite nutrition programmes, raising doubts about programme effectiveness. Poverty and maternal anaemia compound the problem, with child marriage rates historically high at 45-68% marrying before age 18, further perpetuating cycles of malnutrition through early pregnancy.",
+  "reasons": [
+    {
+      "factor": "Maternal undernutrition",
+      "category": "maternal-health",
+      "detail": "Over 70 mothers of malnourished children in Koppal are themselves undernourished, leading to premature delivery and low birth weight",
+      "sources": [
+        2,
+        3
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Programme implementation gaps",
+      "category": "governance",
+      "detail": "Three-fold increase in malnourished children despite nutrition programmes, with officials admitting negligence in ICDS implementation",
+      "sources": [
+        7,
+        9
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Child marriage prevalence",
+      "category": "social-norms",
+      "detail": "45-68% marry before age 18 in Koppal, leading to early pregnancy in girls whose bodies cannot withstand motherhood rigours",
+      "sources": [
+        6,
+        12,
+        13
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Poverty and resource scarcity",
+      "category": "economic",
+      "detail": "Koppal flagged as one of ten poverty-challenged districts, identified globally as among worst for child nutrition performance",
+      "sources": [
+        4,
+        11
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Drought and agricultural stress",
+      "category": "economic",
+      "detail": "Koppal described as arid, drought-prone area with harsh summers, affecting food security and agricultural productivity",
+      "sources": [
+        11
+      ],
+      "evidence": "moderate"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Malnourished disabled children",
+      "value": "90 out of 110",
+      "sources": [
+        2,
+        3
+      ]
+    },
+    {
+      "label": "Undernourished mothers",
+      "value": "Over 70",
+      "sources": [
+        2,
+        3
+      ]
+    },
+    {
+      "label": "Child marriage rate",
+      "value": "45 to 68 per cent",
+      "sources": [
+        6
+      ]
+    },
+    {
+      "label": "Malnourished children (2012)",
+      "value": "61000",
+      "sources": [
+        5
+      ]
+    },
+    {
+      "label": "Child marriages (2010-2011)",
+      "value": "900 couples",
+      "sources": [
+        13
+      ]
+    },
+    {
+      "label": "Statewide: Girl child marriages",
+      "value": "44.7 per cent in teens",
+      "sources": [
+        13
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Basaiah Hiremath’s Moringa Farm Battles Malnutrition in Koppal",
+      "outlet": "thebetterindia.com",
+      "date": "2025-07-13",
+      "url": "https://thebetterindia.com/468258/basaiah-hiremath-moringa-koppal-malnutrition/",
+      "takeaway": "Koppal named in global survey as one of poorest-performing districts for child nutrition"
+    },
+    {
+      "title": "Eggs in midday meal a welcome decision",
+      "outlet": "Deccan Herald",
+      "date": "2021-12-08",
+      "url": "https://www.deccanherald.com/opinion/editorial/eggs-in-midday-meal-a-welcome-decision-1058950.html",
+      "takeaway": "Government adds eggs to midday meals in eight districts including Koppal where malnutrition most acute"
+    },
+    {
+      "title": "Malnutrition: When the system fails children",
+      "outlet": "Deccan Herald",
+      "date": "2019-08-29",
+      "url": "https://www.deccanherald.com/india/malnutrition-when-the-system-fails-children-757737.html",
+      "takeaway": "90 of 110 disabled children at Koppal intervention centre malnourished, mothers also undernourished"
+    },
+    {
+      "title": "Koppal among worst malnutrition hit districts",
+      "outlet": "Deccan Herald",
+      "date": "2019-08-28",
+      "url": "https://www.deccanherald.com/amp/story/india%2Fkoppal-among-worst-malnutrition-hit-districts-757508.html",
+      "takeaway": "Koppal among India's worst districts for malnutrition, with administration developing multi-pronged strategy"
+    },
+    {
+      "title": "Koppal has nothing to crow about",
+      "outlet": "Deccan Herald",
+      "date": "2012-02-04",
+      "url": "https://www.deccanherald.com/india/karnataka/koppal-has-nothing-to-crow-about-217461.html",
+      "takeaway": "Three-fold increase in malnourished children despite nutrition programmes raises effectiveness concerns"
+    },
+    {
+      "title": "Three child marriages foiled in NK districts",
+      "outlet": "Deccan Herald",
+      "date": "2011-05-06",
+      "url": "https://www.deccanherald.com/amp/story/india%2Fkarnataka%2Fthree-child-marriages-foiled-nk-2412879",
+      "takeaway": "Police and officials prevent child marriage of 11-year-old girl in Koppal through timely intervention"
+    }
+  ],
+  "responses": [
+    {
+      "text": "District administration launched supplementary dates and sprouts programme in 88 mining-affected anganwadis, now extended to pregnant women",
+      "sources": [
+        9
+      ]
+    },
+    {
+      "text": "Government added boiled eggs three days weekly to midday meals in Koppal and seven other high-malnutrition districts",
+      "sources": [
+        1,
+        8
+      ]
+    },
+    {
+      "text": "Sphoorthi girls' group formed to identify, intervene and prevent child marriages through community vigilance and counselling",
+      "sources": [
+        10
+      ]
+    },
+    {
+      "text": "Teams of police, CDPO, and welfare officials successfully prevented multiple child marriages through counselling interventions",
+      "sources": [
+        12,
+        13
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://www.deccanherald.com/opinion/editorial/eggs-in-midday-meal-a-welcome-decision-1058950.html",
+      "title": "Eggs in midday meal a welcome decision",
+      "outlet": "Deccan Herald",
+      "date": "2021-12-08",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://www.deccanherald.com/india/malnutrition-when-the-system-fails-children-757737.html",
+      "title": "Malnutrition: When the system fails children",
+      "outlet": "Deccan Herald",
+      "date": "2019-08-29",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://deccanherald.com/specials/insight/malnutrition-when-the-system-fails-children-757737.html",
+      "title": "Malnutrition: When the system fails children",
+      "outlet": "Deccan Herald",
+      "date": "2019-08-29",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "https://www.deccanherald.com/opinion/editorial/poverty-malnutrition-karnataka-s-shame-1203841.html",
+      "title": "Poverty, malnutrition Karnataka’s shame",
+      "outlet": "Deccan Herald",
+      "date": "2023-03-26",
+      "type": "news"
+    },
+    {
+      "id": 5,
+      "url": "https://www.deccanherald.com/india/karnataka/minister-agrees-pm-malnutrition-2305888",
+      "title": "Minister agrees with PM on malnutrition",
+      "outlet": "Deccan Herald",
+      "date": "2012-01-13",
+      "type": "news"
+    },
+    {
+      "id": 6,
+      "url": "https://www.deccanherald.com/opinion/editorial/major-problem-2417667",
+      "title": "Major problem",
+      "outlet": "Deccan Herald",
+      "date": "2011-05-27",
+      "type": "news"
+    },
+    {
+      "id": 7,
+      "url": "https://www.deccanherald.com/india/karnataka/koppal-has-nothing-to-crow-about-217461.html",
+      "title": "Koppal has nothing to crow about",
+      "outlet": "Deccan Herald",
+      "date": "2012-02-04",
+      "type": "news"
+    },
+    {
+      "id": 8,
+      "url": "https://countercurrents.org/2021/12/egg-in-mid-day-meals-resistance-is-against-child-rights/",
+      "title": "Egg in mid-day meals- Resistance is against child rights",
+      "outlet": "countercurrents.org",
+      "date": "2021-12-20",
+      "type": "ngo"
+    },
+    {
+      "id": 9,
+      "url": "https://www.deccanherald.com/amp/story/india%2Fkoppal-among-worst-malnutrition-hit-districts-757508.html",
+      "title": "Koppal among worst malnutrition hit districts",
+      "outlet": "Deccan Herald",
+      "date": "2019-08-28",
+      "type": "news"
+    },
+    {
+      "id": 10,
+      "url": "https://thesouthfirst.com/karnataka/girls-leading-girls-sphoorthi-army-fighting-for-a-new-normal-in-koppal-villages/",
+      "title": "Ground report: They watch, they alert, they act — How Sphoorthi army is preventing child marriages",
+      "outlet": "The South First",
+      "date": "2026-03-16",
+      "type": "news"
+    },
+    {
+      "id": 11,
+      "url": "https://thebetterindia.com/468258/basaiah-hiremath-moringa-koppal-malnutrition/",
+      "title": "Basaiah Hiremath’s Moringa Farm Battles Malnutrition in Koppal",
+      "outlet": "thebetterindia.com",
+      "date": "2025-07-13",
+      "type": "news"
+    },
+    {
+      "id": 12,
+      "url": "https://www.deccanherald.com/amp/story/india%2Fkarnataka%2Fthree-child-marriages-foiled-nk-2412879",
+      "title": "Three child marriages foiled in NK districts",
+      "outlet": "Deccan Herald",
+      "date": "2011-05-06",
+      "type": "news"
+    },
+    {
+      "id": 13,
+      "url": "https://www.deccanherald.com/amp/story/india%2Fkarnataka%2Fofficial-nod-legitimises-child-marriages-in-koppal-151703.html",
+      "title": "Official nod legitimises child marriages in Koppal",
+      "outlet": "Deccan Herald",
+      "date": "2011-04-28",
+      "type": "news"
+    }
+  ],
+  "modelFactorWhy": [
+    {
+      "factor": "Children age 3–6 recorded as school-going",
+      "verdict": "partly",
+      "why": "While the district added eggs to midday meals for school children and has anganwadi programmes, there is no direct evidence linking school enrollment rates to stunting outcomes in Koppal. Child marriage data suggests many girls leave education early.",
+      "mechanism": "School attendance facilitates delivery of nutritious meals, growth monitoring, health interventions, and delays early marriage that contributes to intergenerational malnutrition.",
+      "proof": [
+        {
+          "claim": "Eggs added to midday meals for school children in Koppal where malnutrition is most acute",
+          "sources": [
+            1
+          ]
+        },
+        {
+          "claim": "45-68% marry before age 18 in Koppal, interrupting education and causing early pregnancy",
+          "sources": [
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "Mothers who took iron-folic acid for 180+ days in pregnancy",
+      "verdict": "supported",
+      "why": "Strong evidence shows over 70 mothers of malnourished children in Koppal are themselves undernourished, and maternal undernutrition causes premature delivery and low birth weight. This suggests inadequate prenatal nutrition supplementation is a critical local factor.",
+      "mechanism": "Iron-folic acid supplementation during pregnancy prevents maternal anaemia, supports fetal development, reduces low birth weight and prematurity, breaking intergenerational malnutrition cycles.",
+      "proof": [
+        {
+          "claim": "Over 70 mothers of malnourished Koppal children are themselves undernourished",
+          "sources": [
+            2,
+            3
+          ]
+        },
+        {
+          "claim": "Malnutrition in mothers leads to premature delivery and low birth weight",
+          "sources": [
+            2,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "Household members covered by health insurance",
+      "verdict": "no-evidence",
+      "why": "The pages mention cashless hospital networks in Koppal but provide no evidence on health insurance coverage rates or its relationship to child nutrition outcomes in the district. Poverty is documented as severe, suggesting limited coverage.",
+      "mechanism": "Health insurance coverage enables families to access maternal healthcare, child health services, and nutritional interventions without financial barriers, improving preventive and curative care utilization.",
+      "proof": [
+        {
+          "claim": "Koppal flagged as one of ten districts where poverty is a major challenge",
+          "sources": [
+            4
+          ]
+        }
+      ]
+    }
+  ],
+  "coverage": "moderate",
+  "gaps": "No data on health insurance coverage, prenatal iron-folic acid uptake rates, school enrollment statistics, or quantitative stunting prevalence for Koppal district specifically",
+  "verificationNotes": [],
+  "searched": 94,
+  "candidatePages": 20
+}

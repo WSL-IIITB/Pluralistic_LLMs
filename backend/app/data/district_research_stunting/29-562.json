@@ -1,0 +1,254 @@
+{
+  "districtId": "29-562",
+  "name": "Dharwad",
+  "regionId": "kitturu-karnataka",
+  "topic": "stunting",
+  "researchedOn": "2026-11-25",
+  "method": "automated: web search + Claude compile + page verification (scripts/research_stunting_districts.py)",
+  "headline": "Dharwad faces child malnutrition challenge: 20% of children affected, with poverty and food insecurity as key drivers",
+  "summary": "Malnutrition remains a severe challenge in Dharwad district, where 20% of children are malnourished. Contributing factors include poverty, agricultural livelihoods limiting access to nutritious food, and male preference in food distribution within families. 65% of women in the district are themselves malnourished, perpetuating the cycle. Child marriage is also prevalent—Dharwad is among the districts with alarmingly high rates, leading to early pregnancy and increased health risks. Despite health service and sanitation improvements, lack of a holistic approach hampers progress.",
+  "reasons": [
+    {
+      "factor": "Poverty and agriculture-based economy",
+      "category": "economic",
+      "detail": "Majority of families practice agriculture and poverty rules the roost, making provision of nutritional food to children a distant dream",
+      "sources": [
+        1
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Maternal malnutrition",
+      "category": "maternal-health",
+      "detail": "Child malnutrition stems from malnourished women with little or no access to nutritional food; 65% of women in the district are malnourished",
+      "sources": [
+        1
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Male food preference",
+      "category": "social-norms",
+      "detail": "In large families, male members always get preference in all aspects, including good food, disadvantaging women and children",
+      "sources": [
+        1
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Child marriage prevalence",
+      "category": "social-norms",
+      "detail": "Dharwad has alarmingly high rates of child marriage, leading to early pregnancy in girls whose bodies cannot withstand pregnancy rigours",
+      "sources": [
+        2,
+        3
+      ],
+      "evidence": "strong"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Malnourished children (2019)",
+      "value": "20%",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "label": "Malnourished women in district",
+      "value": "65%",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "label": "Child marriages prevented (2024-25)",
+      "value": "28",
+      "sources": [
+        4
+      ]
+    },
+    {
+      "label": "Poorest wealth quintile households",
+      "value": "7.9%",
+      "sources": [
+        6
+      ]
+    },
+    {
+      "label": "Statewide: Child marriages",
+      "value": "45 to 68 per cent marry before age 18",
+      "sources": [
+        3
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "28 Child Marriages Prevented in Dharwad District in 2024-25",
+      "outlet": "hubballitimes.com",
+      "date": "2025-05-23",
+      "url": "https://hubballitimes.com/28-child-marriages-prevented-in-dharwad-district-in-2024-25/",
+      "takeaway": "District administration prevented 28 child marriages and filed 18 FIRs in 2024-25, emphasizing need for education access"
+    },
+    {
+      "title": "20% kids malnourished in Dharwad dist",
+      "outlet": "Deccan Herald",
+      "date": "2019-09-13",
+      "url": "https://www.deccanherald.com/india/karnataka/20-kids-malnourished-in-dharwad-dist-761244.html",
+      "takeaway": "20% of children in Dharwad district are malnourished despite government measures, experts cite poverty and lack of holistic approach"
+    },
+    {
+      "title": "Sloganeering won't stop child marriage",
+      "outlet": "Deccan Herald",
+      "date": "2017-01-26",
+      "url": "https://www.deccanherald.com/opinion/editorial/sloganeering-wont-stop-child-marriage-1987999",
+      "takeaway": "Child marriage prevalent in Dharwad and other northern districts, with serious implications for maternal and child health"
+    },
+    {
+      "title": "Social Welfare Office in Dharwad, Karnataka",
+      "outlet": "youthpower.in",
+      "date": "",
+      "url": "https://youthpower.in/institution/karnataka/dharwad/social-welfare-office",
+      "takeaway": "45.2% of children under five are stunted in Dharwad, significantly worse than the national average of 32.4%"
+    }
+  ],
+  "responses": [
+    {
+      "text": "District prevented 28 child marriages in 2024-25 with 18 FIRs filed; officials provide counseling and support for affected children's education",
+      "sources": [
+        4
+      ]
+    },
+    {
+      "text": "Social Welfare Office administers pensions, aid, and support schemes for the poorest 7.9% of households in the district",
+      "sources": [
+        6
+      ]
+    },
+    {
+      "text": "Initiatives include improved water and sanitation systems, hygienic practices, and strengthening access to health services for malnourished children",
+      "sources": [
+        1
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://www.deccanherald.com/india/karnataka/20-kids-malnourished-in-dharwad-dist-761244.html",
+      "title": "20% kids malnourished in Dharwad dist",
+      "outlet": "Deccan Herald",
+      "date": "2019-09-13",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://www.deccanherald.com/opinion/editorial/sloganeering-wont-stop-child-marriage-1987999",
+      "title": "Sloganeering won't stop child marriage",
+      "outlet": "Deccan Herald",
+      "date": "2017-01-26",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://www.deccanherald.com/opinion/editorial/major-problem-2417667",
+      "title": "Major problem",
+      "outlet": "Deccan Herald",
+      "date": "2011-05-27",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "https://hubballitimes.com/28-child-marriages-prevented-in-dharwad-district-in-2024-25/",
+      "title": "28 Child Marriages Prevented in Dharwad District in 2024-25",
+      "outlet": "hubballitimes.com",
+      "date": "2025-05-23",
+      "type": "news"
+    },
+    {
+      "id": 5,
+      "url": "https://www.ijrcog.org/index.php/ijrcog/article/view/3053",
+      "title": "Study of feto maternal outcome of teenage pregnancy at tertiary care hospital\n\t\t\t\t\t\t\t| International Journal of Reproduction, Contraception, Obstetrics and Gynecology",
+      "outlet": "ijrcog.org",
+      "date": "",
+      "type": "ngo"
+    },
+    {
+      "id": 6,
+      "url": "https://youthpower.in/institution/karnataka/dharwad/social-welfare-office",
+      "title": "Social Welfare Office in Dharwad, Karnataka",
+      "outlet": "youthpower.in",
+      "date": "",
+      "type": "news"
+    }
+  ],
+  "modelFactorWhy": [
+    {
+      "factor": "Children age 3–6 recorded as school-going",
+      "verdict": "no-evidence",
+      "why": "The pages do not provide district-specific data on preschool enrollment or early childhood education participation rates for children aged 3-6 in Dharwad.",
+      "mechanism": "Early schooling supports cognitive development and may improve nutrition access through mid-day meals and health screenings.",
+      "proof": []
+    },
+    {
+      "factor": "Mothers who took iron-folic acid for 180+ days in pregnancy",
+      "verdict": "partly",
+      "why": "While the pages confirm widespread maternal malnutrition (65% of women) and increased risks in teenage pregnancies studied at SDM Medical College including anaemia, there is no specific data on iron-folic acid supplementation compliance in Dharwad.",
+      "mechanism": "Adequate iron-folic acid intake during pregnancy prevents maternal anaemia and supports fetal growth, reducing low birth weight and stunting risk.",
+      "proof": [
+        {
+          "claim": "65% of women in the district are malnourished with little or no access to nutritional food",
+          "sources": [
+            1
+          ]
+        },
+        {
+          "claim": "Young teenage mothers face increased risk of anaemia according to study at SDM Medical College Dharwad",
+          "sources": [
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "Women married before age 18, age 20–24",
+      "verdict": "supported",
+      "why": "Dharwad has alarmingly high child marriage rates, with 28 cases prevented in 2024-25 alone. Early marriage leads to early pregnancy in adolescent bodies not ready for childbirth, causing health complications that affect maternal and child nutrition.",
+      "mechanism": "Child marriage leads to early pregnancy before physical maturity, increasing risks of poor maternal nutrition, pregnancy complications, and delivering underweight babies prone to stunting.",
+      "proof": [
+        {
+          "claim": "Child marriage is alarmingly high in Dharwad district according to state committee",
+          "sources": [
+            3
+          ]
+        },
+        {
+          "claim": "28 child marriages prevented in Dharwad district in 2024-25 with 18 FIRs filed",
+          "sources": [
+            4
+          ]
+        },
+        {
+          "claim": "Early marriage often means early pregnancy; a child's body is not ready for childbirth rigours",
+          "sources": [
+            2
+          ]
+        },
+        {
+          "claim": "Girls under 15 are five times more likely to face health complications from pregnancy",
+          "sources": [
+            3
+          ]
+        }
+      ]
+    }
+  ],
+  "coverage": "moderate",
+  "gaps": "No data on specific health service utilization, antenatal care quality, sanitation coverage, or preschool enrollment rates for the district",
+  "verificationNotes": [
+    "dropped fact (number 5 not on cited page): Children under 5 stunted 45.2%"
+  ],
+  "searched": 97,
+  "candidatePages": 8
+}

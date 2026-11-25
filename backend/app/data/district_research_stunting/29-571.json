@@ -1,0 +1,192 @@
+{
+  "districtId": "29-571",
+  "name": "Tumakuru",
+  "regionId": "bayaluseeme",
+  "topic": "stunting",
+  "researchedOn": "2026-11-25",
+  "method": "automated: web search + Claude compile + page verification (scripts/research_stunting_districts.py)",
+  "headline": "1,579 severely malnourished children identified in Tumakuru over three years, with cases steadily increasing",
+  "summary": "Tumakuru district identified 1,579 severely malnourished children over three years through monthly health check-ups at 4,199 anganwadis. In 2023–24 alone, 899 of 127,660 children screened were found underweight or stunted. Koratagere, Madhugiri, and Pavagada taluks show more cases. A local study found significant undernutrition among children aged 6 months to 6 years in urban Tumkur anganwadis. Maternal anaemia remains a concern, with 50% of women in Pavagada taluk battling anaemia, compounding malnutrition risks for children.",
+  "reasons": [
+    {
+      "factor": "Maternal anaemia prevalence",
+      "category": "maternal-health",
+      "detail": "50% of women in Pavagada taluk have anaemia, with some counts less than half normal levels, increasing malnutrition risk for children",
+      "sources": [
+        3
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Anganwadi monitoring coverage",
+      "category": "health-services",
+      "detail": "4,199 anganwadis conduct monthly health check-ups monitoring height and weight; 127,660 children screened in 2023–24",
+      "sources": [
+        1
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Poverty and healthcare access",
+      "category": "economic",
+      "detail": "Poverty and unaffordable healthcare in Pavagada taluk limit access to health centres, contributing to anaemia and malnutrition",
+      "sources": [
+        3
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Nutrition programme reach",
+      "category": "nutrition-diet",
+      "detail": "Mathrupoorna programme provides free nutritious meals to pregnant women at anganwadis, though not universally available three years ago",
+      "sources": [
+        2
+      ],
+      "evidence": "moderate"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Malnourished children (2023–24)",
+      "value": "899",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "label": "Children screened (2023–24)",
+      "value": "127660",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "label": "Anganwadis in district",
+      "value": "4199",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "label": "Anaemic women in Pavagada",
+      "value": "50%",
+      "sources": [
+        3
+      ]
+    },
+    {
+      "label": "Statewide: MMR rank",
+      "value": "highest maternal mortality ratio in south India",
+      "sources": [
+        2
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "1,579 kids identified as malnourished in Tumakuru in three years",
+      "outlet": "Deccan Herald",
+      "date": "2025-05-26",
+      "url": "https://www.deccanherald.com/india/karnataka/1579-kids-identified-as-malnourished-in-tumakuru-in-three-years-3558132",
+      "takeaway": "Severely malnourished children in Tumakuru steadily increasing, with Koratagere, Madhugiri, Pavagada seeing more cases"
+    },
+    {
+      "title": "How Karnataka Is Improving Children’s Health By Focusing On Mothers",
+      "outlet": "sabrangindia.in",
+      "date": "2019-06-10",
+      "url": "https://sabrangindia.in/how-karnataka-improving-childrens-health-focusing-mothers/",
+      "takeaway": "Mathrupoorna programme now provides pregnant women free nutritious meals at anganwadis in Tumkur"
+    },
+    {
+      "title": "Just 150 km from Bengaluru, 50% of women in this poor Karnataka taluk battle anaemia",
+      "outlet": "thenewsminute.com",
+      "date": "2018-04-08",
+      "url": "https://www.thenewsminute.com/article/just-150-km-bengaluru-50-women-poor-karnataka-taluk-battle-anaemia-79237",
+      "takeaway": "Half of women in Pavagada taluk battle anaemia due to poverty and healthcare access challenges"
+    }
+  ],
+  "responses": [
+    {
+      "text": "Monthly health check-ups at anganwadis identify underweight and stunted children, who receive necessary care to improve health",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "text": "Mathrupoorna programme provides nutritious meals, counselling and health facilities to pregnant and lactating women at anganwadis",
+      "sources": [
+        2
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://www.deccanherald.com/india/karnataka/1579-kids-identified-as-malnourished-in-tumakuru-in-three-years-3558132",
+      "title": "1,579 kids identified as malnourished in Tumakuru in three years",
+      "outlet": "Deccan Herald",
+      "date": "2025-05-26",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://sabrangindia.in/how-karnataka-improving-childrens-health-focusing-mothers/",
+      "title": "How Karnataka Is Improving Children’s Health By Focusing On Mothers",
+      "outlet": "sabrangindia.in",
+      "date": "2019-06-10",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://www.thenewsminute.com/article/just-150-km-bengaluru-50-women-poor-karnataka-taluk-battle-anaemia-79237",
+      "title": "Just 150 km from Bengaluru, 50% of women in this poor Karnataka taluk battle anaemia",
+      "outlet": "thenewsminute.com",
+      "date": "2018-04-08",
+      "type": "news"
+    }
+  ],
+  "modelFactorWhy": [
+    {
+      "factor": "Mothers who took iron-folic acid for 180+ days in pregnancy",
+      "verdict": "partly",
+      "why": "While maternal anaemia is documented as severe in Pavagada taluk (50% prevalence, some with counts less than half normal), the pages do not specifically mention iron-folic acid supplementation compliance or duration in Tumakuru district.",
+      "mechanism": "Iron-folic acid supplementation during pregnancy prevents maternal anaemia, which directly affects fetal growth and birth weight, reducing stunting risk in children.",
+      "proof": [
+        {
+          "claim": "50% of women in Pavagada taluk have anaemia, with poverty and healthcare access limiting treatment",
+          "sources": [
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "Children age 3–6 recorded as school-going",
+      "verdict": "no-evidence",
+      "why": "The pages discuss anganwadi attendance and nutrition programmes for children 6 months to 6 years but do not provide data on school enrollment rates for children aged 3–6 in Tumakuru district.",
+      "mechanism": "School enrollment for young children indicates family stability, resources, and parental education levels, which correlate with better nutrition practices and growth monitoring.",
+      "proof": []
+    },
+    {
+      "factor": "Household members covered by health insurance",
+      "verdict": "partly",
+      "why": "Pavagada taluk shows unaffordable healthcare and difficulty accessing health centres as barriers. However, specific health insurance coverage rates for households are not mentioned in the pages.",
+      "mechanism": "Health insurance coverage enables families to afford preventive care, treatment for childhood illnesses, and maternal health services, all reducing malnutrition risk.",
+      "proof": [
+        {
+          "claim": "Poverty, unaffordable healthcare and difficulty accessing health centres contribute to low haemoglobin in Pavagada taluk",
+          "sources": [
+            3
+          ]
+        }
+      ]
+    }
+  ],
+  "coverage": "moderate",
+  "gaps": "No data on iron-folic acid compliance, school enrollment rates, health insurance coverage, or specific stunting percentages by taluk",
+  "verificationNotes": [
+    "dropped fact (number 3 not on cited page): Malnourished children (3 years) 1579"
+  ],
+  "searched": 100,
+  "candidatePages": 4
+}

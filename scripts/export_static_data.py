@@ -4,6 +4,10 @@ Write the JSON snapshots the GitHub Pages build reads in place of the backend:
     public/data/districts.json            <- GET /api/karnataka/districts
     public/data/personas.json             <- GET /api/personas
     public/data/districts-research.json   <- GET /api/karnataka/districts-research
+    public/data/persona-library.json      <- GET /api/persona-library?full=1 (curated + generated only)
+    public/data/niti-stunting.json        <- GET /api/stunting (the stunting topic's NITI model)
+    public/data/stunting-research.json    <- GET /api/stunting/research (page-verified stunting media research)
+    public/data/default-run-stunting.json <- the newest saved run on a stunting question
     (default-run.json also gets `personaSimilarityMap`, from scripts/build_persona_map.py)
     public/data/niti-factors.json         <- all-India UIDAI/NITI workbooks (scripts/export_niti_data.py)
     public/data/niti-prescriptive.json    <- the NITI team's prescriptive model (scripts/export_niti_prescriptive.py)
@@ -24,6 +28,7 @@ always uses the research file next to it.
 from __future__ import annotations
 
 import json
+import re
 import os
 import subprocess
 import sys
@@ -49,11 +54,44 @@ def write(name: str, data) -> None:
     print(f"  {name}: {os.path.getsize(path) // 1024} KB")
 
 
+def write_persona_library() -> None:
+    """The district persona library, read-only on the static site: researched and generated
+    personas only (personas users made on a local backend stay local)."""
+    lib = get("/api/persona-library?full=1")
+    lib["personas"] = [p for p in lib["personas"] if p["source"] in ("curated", "generated")]
+    write("persona-library.json", lib)
+
+
+STUNTING_QUERY = re.compile(r"stunt|malnutri|malnourish|undernutri|undernourish|child nutrition", re.I)
+
+
+def write_stunting_run() -> None:
+    """The newest saved run on a stunting question -> default-run-stunting.json (what the stunting topic opens on)."""
+    for summary in get("/api/worldview/runs?limit=60"):  # newest first
+        if not STUNTING_QUERY.search(summary.get("query") or ""):
+            continue
+        run = get(f"/api/worldview/runs/{summary['id']}")
+        if run.get("storyVsOfficial"):
+            run.pop("districtResearch", None)
+            write("default-run-stunting.json", run)
+            print(f"  stunting run: {run['id']} ('{run['query']}')")
+            if run.get("personaSimilarity"):
+                backend_python = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "backend", ".venv", "bin", "python")
+                subprocess.run([backend_python, os.path.join(os.path.dirname(os.path.abspath(__file__)), "build_persona_map.py"),
+                                "default-run-stunting.json"], check=True)
+            return
+    print("  ! no saved stunting run yet; default-run-stunting.json not written")
+
+
 def main() -> None:
     print("exporting static data from", BACKEND)
     write("districts.json", get("/api/karnataka/districts"))
     write("personas.json", get("/api/personas"))
     write("districts-research.json", get("/api/karnataka/districts-research"))
+    write_persona_library()
+    write("niti-stunting.json", get("/api/stunting"))
+    write("stunting-research.json", get("/api/stunting/research"))
+    write_stunting_run()
 
     chosen = None
     for summary in get("/api/worldview/runs?limit=60"):  # newest first

@@ -1,0 +1,137 @@
+{
+  "districtId": "29-570",
+  "name": "Chikkamagaluru",
+  "regionId": "malnad",
+  "topic": "stunting",
+  "researchedOn": "2026-11-25",
+  "method": "automated: web search + Claude compile + page verification (scripts/research_stunting_districts.py)",
+  "headline": "Chikkamagaluru shows declining diarrheal trends and emerging nutrition concerns among coffee plantation workers' children",
+  "summary": "Chikkamagaluru is identified as a southern district with declining trends in childhood diarrheal disease burden. However, field observations reveal malnourished, half-naked children of coffee plantation workers in remote villages, raising concerns about nutritional status despite the district's relative progress. The district shows spatial patterns indicating improvement in some health indicators, though evidence on specific stunting rates and interventions remains limited in available sources.",
+  "reasons": [
+    {
+      "factor": "Child malnutrition observed",
+      "category": "nutrition-diet",
+      "detail": "Coffee plantation workers' children in remote Chikkamagaluru villages appear malnourished and poorly clothed, suggesting nutritional vulnerabilities in specific communities.",
+      "sources": [
+        3
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Diarrheal disease trends",
+      "category": "health-services",
+      "detail": "Chikkamagaluru identified among southern districts showing declining trends in diarrheal disease burden, which relates to child health outcomes.",
+      "sources": [
+        2
+      ],
+      "evidence": "moderate"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Diarrheal trends (NFHS)",
+      "value": "declining trends",
+      "sources": [
+        2
+      ]
+    },
+    {
+      "label": "Statewide: Severely stunted (2026)",
+      "value": "479931 children",
+      "sources": [
+        1
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Chikkamagaluru",
+      "outlet": "shreyadadwal.substack.com",
+      "date": "2026-05-28",
+      "url": "https://shreyadadwal.substack.com/p/chikkamagaluru-beyond-its-coffee",
+      "takeaway": "Coffee plantation workers' children in Chikkamagaluru observed malnourished and inadequately clothed in remote villages"
+    },
+    {
+      "title": "Geospatial analysis of diarrheal disease burden and associated health determinants among under-five children in Karnataka using NFHS data",
+      "outlet": "nature.com",
+      "date": "2025-10-27",
+      "url": "https://www.nature.com/articles/s41598-025-19560-z",
+      "takeaway": "Chikkamagaluru among southern Karnataka districts showing declining childhood diarrheal disease trends"
+    }
+  ],
+  "responses": [
+    {
+      "text": "A government school teacher in Chikkamagaluru provides water and fruit breaks at scheduled times for children's nutrition.",
+      "sources": [
+        3
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://coastaldigest.com/4-8-lakh-young-children-in-karnataka-severely-stunted-despite-nutrition-push/",
+      "title": "4.8 Lakh Young Children in Karnataka Severely Stunted Despite Nutrition Push",
+      "outlet": "coastaldigest.com",
+      "date": "2026-02-15",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://www.nature.com/articles/s41598-025-19560-z",
+      "title": "Geospatial analysis of diarrheal disease burden and associated health determinants among under-five children in Karnataka using NFHS data",
+      "outlet": "nature.com",
+      "date": "2025-10-27",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://shreyadadwal.substack.com/p/chikkamagaluru-beyond-its-coffee",
+      "title": "Chikkamagaluru",
+      "outlet": "shreyadadwal.substack.com",
+      "date": "2026-05-28",
+      "type": "news"
+    }
+  ],
+  "modelFactorWhy": [
+    {
+      "factor": "Mothers who took iron-folic acid for 180+ days in pregnancy",
+      "verdict": "no-evidence",
+      "why": "The available pages contain no information about iron-folic acid supplementation practices during pregnancy in Chikkamagaluru district.",
+      "mechanism": "Adequate iron-folic acid intake during pregnancy prevents maternal anemia and supports fetal growth, reducing risk of low birth weight and subsequent stunting.",
+      "proof": []
+    },
+    {
+      "factor": "Children age 3–6 recorded as school-going",
+      "verdict": "partly",
+      "why": "One source documents a functioning government primary school with structured daily activities including nutritional breaks, but raises questions about whether coffee plantation workers' children attend school at all.",
+      "mechanism": "School enrollment facilitates access to nutritional programs, health monitoring, and developmental support that contribute to preventing stunting in early childhood years.",
+      "proof": [
+        {
+          "claim": "Questions arose about whether coffee plantation workers' children go to school or start working with parents",
+          "sources": [
+            3
+          ]
+        },
+        {
+          "claim": "A government school in Chikkamagaluru provides scheduled water and fruit breaks for enrolled children",
+          "sources": [
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "Household members covered by health insurance",
+      "verdict": "no-evidence",
+      "why": "The available pages provide no information about health insurance coverage rates among households in Chikkamagaluru district.",
+      "mechanism": "Health insurance coverage improves access to preventive and curative health services, enabling timely treatment of childhood illnesses and regular growth monitoring.",
+      "proof": []
+    }
+  ],
+  "coverage": "thin",
+  "gaps": "No district-specific data on stunting rates, maternal health practices, health insurance coverage, or Anganwadi service delivery in Chikkamagaluru",
+  "verificationNotes": [],
+  "searched": 96,
+  "candidatePages": 6
+}

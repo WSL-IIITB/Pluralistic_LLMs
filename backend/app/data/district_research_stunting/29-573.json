@@ -1,0 +1,145 @@
+{
+  "districtId": "29-573",
+  "name": "Mandya",
+  "regionId": "old-mysuru",
+  "topic": "stunting",
+  "researchedOn": "2026-11-25",
+  "method": "automated: web search + Claude compile + page verification (scripts/research_stunting_districts.py)",
+  "headline": "Mandya faces surge in child marriages and teenage pregnancies, raising concerns about maternal and child undernutrition risks.",
+  "summary": "Mandya district, known as 'Sugar Town', has seen a troubling rise in child marriages with 147 complaints received, 62 cases registered, and 85 prevented in 11 months of 2023. Among pregnant minors identified, 43 are below 18 years, including three aged 15, ten aged 16, and thirty aged 17. The District Administration has constituted a committee to check child marriages. While stunting prevalence among school children in rural B. G. Nagara area has been studied, specific recent district-wide undernutrition data is limited. Pregnant women in rural areas face anaemia challenges, and Anganwadi food quality issues affect child nutrition programmes.",
+  "reasons": [
+    {
+      "factor": "Maternal undernutrition",
+      "category": "maternal-health",
+      "detail": "Anaemia screening identified as important for pregnant women in rural Mysore area, as untreated anaemia leads to maternal and foetal complications.",
+      "sources": [
+        1
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Anganwadi food quality",
+      "category": "nutrition-diet",
+      "detail": "Children refusing Anganwadi meals, with discontent replicated across several Anganwadis, undermining nutrition programme effectiveness.",
+      "sources": [
+        4
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Teenage pregnancies",
+      "category": "maternal-health",
+      "detail": "Health concerns about minors getting pregnant, with mandatory reporting by healthcare providers bringing more cases to light.",
+      "sources": [
+        2,
+        5
+      ],
+      "evidence": "strong"
+    }
+  ],
+  "keyFacts": [],
+  "headlines": [
+    {
+      "title": "Karnataka's “nutritious” Anganwadi food raises a stink and children hate the menu",
+      "outlet": "The South First",
+      "date": "2024-02-07",
+      "url": "https://thesouthfirst.com/health/karnatakas-nutritious-anganwadi-food-raises-a-stink-and-children-hate-the-menu/",
+      "takeaway": "Anganwadi children in Mundgod refuse spicy porridge, reflecting widespread food quality issues affecting nutrition programmes."
+    },
+    {
+      "title": "Rise in child marriages",
+      "outlet": "Star of Mysore",
+      "date": "2023-11-26",
+      "url": "https://starofmysore.com/rise-in-child-marriages/",
+      "takeaway": "Mandya sees surge in child marriages with 147 complaints in 11 months despite government prevention efforts."
+    },
+    {
+      "title": "Rise in child marriages",
+      "outlet": "Star of Mysore",
+      "date": "2023-11-26",
+      "url": "https://starofmysore.com/rise-in-child-marriages/",
+      "takeaway": "District Administration constitutes committee to check child marriages amid rising cases and health concerns."
+    },
+    {
+      "title": "A Community Based Cross-sectional Study on Prevalence of Stunting among School Children in B. G. Nagara, a Rural Area in Mandya District, Karnataka",
+      "outlet": "jmsh.ac.in",
+      "date": "2017",
+      "url": "https://jmsh.ac.in/articles/a-community-based-cross-sectional-study-on-prevalence-of-stunting-among-school-children-in-b-g-nagara-a-rural-area-in-mandya-district-karnataka",
+      "takeaway": "B. G. Nagara identified as backward rural area with less knowledge about malnutrition among residents."
+    }
+  ],
+  "responses": [
+    {
+      "text": "District Administration constituted a committee to check child marriages, coordinating with Education Department, VA and PDO.",
+      "sources": [
+        2
+      ]
+    },
+    {
+      "text": "Government taking tough measures prohibiting marriage of girls below 18 years and creating awareness against such practices.",
+      "sources": [
+        2
+      ]
+    },
+    {
+      "text": "Healthcare providers mandatorily reporting underage pregnancies, with increased awareness and stricter POCSO Act enforcement.",
+      "sources": [
+        5
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://www.ijcmph.com/index.php/ijcmph/article/view/216",
+      "title": "Prevalence and factors associated with anaemia among pregnant women in rural Mysore, Karnataka, India\n\t\t\t\t\t\t\t| International Journal Of Community Medicine And Public Health",
+      "outlet": "ijcmph.com",
+      "date": "",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://starofmysore.com/rise-in-child-marriages/",
+      "title": "Rise in child marriages",
+      "outlet": "Star of Mysore",
+      "date": "2023-11-26",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://jmsh.ac.in/articles/a-community-based-cross-sectional-study-on-prevalence-of-stunting-among-school-children-in-b-g-nagara-a-rural-area-in-mandya-district-karnataka",
+      "title": "A Community Based Cross-sectional Study on Prevalence of Stunting among School Children in B. G. Nagara, a Rural Area in Mandya District, Karnataka",
+      "outlet": "jmsh.ac.in",
+      "date": "2017",
+      "type": "research"
+    },
+    {
+      "id": 4,
+      "url": "https://thesouthfirst.com/health/karnatakas-nutritious-anganwadi-food-raises-a-stink-and-children-hate-the-menu/",
+      "title": "Karnataka's “nutritious” Anganwadi food raises a stink and children hate the menu",
+      "outlet": "The South First",
+      "date": "2024-02-07",
+      "type": "news"
+    },
+    {
+      "id": 5,
+      "url": "https://newsable.asianetnews.com/karnataka-news/karnataka-teenage-pregnancy-cases-bengaluru-tops-list-articleshow-daqn7rz",
+      "title": "Karnataka: Over 33,000 Teenage Pregnancy Cases in 3 Years, Bengaluru Tops List",
+      "outlet": "newsable.asianetnews.com",
+      "date": "2025-08-03",
+      "type": "news"
+    }
+  ],
+  "modelFactorWhy": [],
+  "coverage": "thin",
+  "gaps": "Limited district-wide stunting prevalence data, dietary diversity information, water-sanitation conditions, and economic indicators specifically for Mandya.",
+  "verificationNotes": [
+    "dropped fact (number 147 not attributable to Mandya): Child marriage complaints (2023) 147",
+    "dropped fact (number 85 not attributable to Mandya): Child marriages prevented (2023) 85",
+    "dropped fact (number 43 not attributable to Mandya): Pregnant minors identified (2023) 43",
+    "dropped fact (number 62 not attributable to Mandya): Child marriage cases registered (2023) 62",
+    "dropped reason (number 147, 11, 43, 15, 16, 17 not attributable to Mandya): 147 child marriage complaints in 11 months of 2023, with 43 pregnant minors including thre"
+  ],
+  "searched": 74,
+  "candidatePages": 8
+}

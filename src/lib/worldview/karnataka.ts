@@ -109,7 +109,10 @@ export function regionShortName(id: RegionId | null | undefined): string {
   return regionMeta(id)?.shortName ?? id ?? "Unknown";
 }
 
-export function personaVariantLabel(regionId: RegionId | null | undefined, personaId: PersonaVariantId | null | undefined): string {
+export function personaVariantLabel(
+  regionId: RegionId | null | undefined,
+  personaId: PersonaVariantId | null | undefined,
+): string {
   if (!personaId) return "";
   return regionMeta(regionId)?.personas.find((p) => p.id === personaId)?.label ?? personaId;
 }

@@ -1,0 +1,184 @@
+{
+  "districtId": "29-567",
+  "name": "Davanagere",
+  "regionId": "bayaluseeme",
+  "topic": "stunting",
+  "researchedOn": "2026-11-25",
+  "method": "automated: web search + Claude compile + page verification (scripts/research_stunting_districts.py)",
+  "headline": "Davanagere recorded 2,422 severely malnourished children under age 5 by December 2011, with malnutrition concentrated in certain taluks.",
+  "summary": "By December 2011, Davanagere district had 2,422 children under 5 suffering from severe malnutrition, with 83 moderately malnourished. Chennagiri taluk had the highest burden (529 cases), followed by Harapanahalli (458) and Harihar (430). The Department of Women and Child Development launched awareness programs, provided nutritious food through anganwadi centers, and conducted health check-ups with treatment at Bapuji Hospital. A pilot study demonstrated that protein-rich Davanagere Mix (groundnuts and Bengal gram flour) effectively treated malnutrition. Child marriage prevention efforts succeeded in stopping 25 of 26 cases in April-May 2024.",
+  "reasons": [
+    {
+      "factor": "Protein-rich supplementary food",
+      "category": "nutrition-diet",
+      "detail": "Davanagere Mix (groundnuts, Bengal gram flour) proved effective in treating malnutrition among preschool children in a pilot study.",
+      "sources": [
+        3
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Anganwadi nutrition delivery",
+      "category": "health-services",
+      "detail": "Department of Women and Child Development provides nutritious food through anganwadi centers for malnourished children.",
+      "sources": [
+        2
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Child marriage prevention",
+      "category": "social-norms",
+      "detail": "Child marriages prevented through ASHA workers, Anganwadi teachers, PDOs working together; 194 cases foiled in 2023.",
+      "sources": [
+        1
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Geographic disparities",
+      "category": "other",
+      "detail": "Severe malnutrition varied significantly: Chennagiri (529), Harapanahalli (458), Harihar (430), Honnali (338), Davangere (335), Jagalur (282).",
+      "sources": [
+        2
+      ],
+      "evidence": "strong"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Child marriages prevented (2023)",
+      "value": "194 cases",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "label": "Child marriages foiled (Apr-May 2024)",
+      "value": "25 of 26 cases",
+      "sources": [
+        1
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Authorities Foil 25 Child Marriages In April",
+      "outlet": "etvbharat.com",
+      "date": "2024-07-08",
+      "url": "https://www.etvbharat.com/en/!state/authorities-foil-25-child-marriages-in-april-may-in-karnataka-davanagere-enn24070806000",
+      "takeaway": "Authorities prevented 25 out of 26 child marriages in Davanagere during April-May 2024."
+    },
+    {
+      "title": "D'gere too joins the club",
+      "outlet": "Deccan Herald",
+      "date": "2012-02-04",
+      "url": "https://www.deccanherald.com/india/karnataka/dgere-too-joins-club-2310409",
+      "takeaway": "140 malnourished children underwent treatment at Bapuji Hospital with reported health improvements."
+    },
+    {
+      "title": "Efficacy of Davanegere Mix on Nutritional Status of Preschool Children with Malnutrition",
+      "outlet": "ijshr.com",
+      "date": "",
+      "url": "https://ijshr.com/IJSHR_Vol.7_Issue.3_July2022/IJSHR-Abstract25.html",
+      "takeaway": "Pilot study shows Davanagere Mix (groundnut, Bengal gram flour) effectively treats childhood malnutrition."
+    }
+  ],
+  "responses": [
+    {
+      "text": "Department launched awareness programs and provided nutritious food through anganwadi centers for malnourished children.",
+      "sources": [
+        2
+      ]
+    },
+    {
+      "text": "District committees with ASHA workers, Anganwadi teachers, PDOs generate awareness and prevent child marriages.",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "text": "Frequent health check-ups conducted with treatment provided at Bapuji Hospital for malnourished children.",
+      "sources": [
+        2
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://www.etvbharat.com/en/!state/authorities-foil-25-child-marriages-in-april-may-in-karnataka-davanagere-enn24070806000",
+      "title": "Authorities Foil 25 Child Marriages In April",
+      "outlet": "etvbharat.com",
+      "date": "2024-07-08",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://www.deccanherald.com/india/karnataka/dgere-too-joins-club-2310409",
+      "title": "D'gere too joins the club",
+      "outlet": "Deccan Herald",
+      "date": "2012-02-04",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://ijshr.com/IJSHR_Vol.7_Issue.3_July2022/IJSHR-Abstract25.html",
+      "title": "Efficacy of Davanegere Mix on Nutritional Status of Preschool Children with Malnutrition",
+      "outlet": "ijshr.com",
+      "date": "",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "https://www.policybazaar.com/health-insurance/davanagere/",
+      "title": "Best Health Insurance Plans in Davanagere Starting at just ₹10/Day*",
+      "outlet": "policybazaar.com",
+      "date": "",
+      "type": "news"
+    }
+  ],
+  "modelFactorWhy": [
+    {
+      "factor": "Mothers who took iron-folic acid for 180+ days in pregnancy",
+      "verdict": "no-evidence",
+      "why": "The available pages contain no information about iron-folic acid supplementation practices among pregnant mothers in Davanagere district.",
+      "mechanism": "Iron-folic acid prevents maternal anemia, ensuring adequate oxygen and nutrient transfer to the fetus, supporting proper fetal growth and preventing low birth weight.",
+      "proof": []
+    },
+    {
+      "factor": "Children age 3–6 recorded as school-going",
+      "verdict": "no-evidence",
+      "why": "The pages do not discuss preschool enrollment or school attendance rates for children aged 3-6 in Davanagere.",
+      "mechanism": "Preschool attendance provides structured nutrition through mid-day meals, developmental stimulation, and early detection of health issues affecting growth.",
+      "proof": []
+    },
+    {
+      "factor": "Household members covered by health insurance",
+      "verdict": "partly",
+      "why": "One page discusses health insurance availability in Davanagere generally but provides no specific data on household coverage rates or its relationship to child nutrition outcomes.",
+      "mechanism": "Health insurance coverage reduces financial barriers to accessing healthcare services, enabling timely treatment of childhood illnesses that contribute to stunting.",
+      "proof": [
+        {
+          "claim": "Health insurance services are available in Davanagere with claims data showing activity, but no coverage statistics provided.",
+          "sources": [
+            4
+          ]
+        }
+      ]
+    }
+  ],
+  "coverage": "thin",
+  "gaps": "No recent stunting data, no information on IFA supplementation, preschool enrollment, or health insurance coverage rates affecting children.",
+  "verificationNotes": [
+    "dropped fact (number 2011 not on cited page): Severe malnutrition (Dec 2011) 2422 children under 5",
+    "dropped fact (number 2011 not on cited page): Moderate malnutrition (Dec 2011) 83 children",
+    "dropped fact (number 2011 not on cited page): Balasanjivini spending (2011) Rs 25 lakh",
+    "dropped response (number 2011 not on cited page): Rs 25 lakh spent under Balasanjivini scheme for malnourished children in 2011.",
+    "dropped headline (number 2011 not on cited page): Davanagere recorded 2,422 severely malnourished children under 5 by December 2011, spread ",
+    "dropped fact (number 140 not attributable to Davanagere): Children treated Bapuji Hospital 140 children",
+    "dropped reason (number 140 not attributable to Davanagere): Frequent health check-ups conducted; 140 malnourished children treated at Bapuji Hospital "
+  ],
+  "searched": 92,
+  "candidatePages": 5
+}

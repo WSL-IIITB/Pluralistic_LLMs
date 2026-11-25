@@ -42,6 +42,9 @@ const RECONCILE = /\b(reconcil\w*|differ\w*|mismatch\w*|contradict\w*|versus|vs)
 // The NITI prescriptive model: its method, the 18 factors, "top changes", what could be improved.
 const PRESCRIPTIVE =
   /\b(prescripti\w*|top (three|3 )?changes?|toilets?|changes? (to make|needed)|niti model|sensitivity|contribution|feasible|improv\w*|interventions?|18 factors|factors? (mean|explained)|classrooms?|librar(y|ies)|furniture|female teachers?|women teachers?|playgrounds?|computer labs?|smart class\w*|boundary walls?|sdmc|cce|continuous evaluation|teachers? per|ict)\b/;
+// The second study: under-5 stunting and child nutrition.
+const STUNTING =
+  /\b(stunt\w*|malnutri\w*|malnourish\w*|undernutri\w*|undernourish\w*|underweight|wasting|wasted|anaemi\w*|anemi\w*|nutrition\w*|anganwadi\w*|poshan|iron[- ]folic|ifa|low bmi|hepatitis|iodi[sz]ed|institutional deliver\w*|nfhs[- ]?6)\b/;
 const ANALYSIS =
   /\b(persona|personas|generic answer|similarity|divergen\w*|story mode|consolidated|region[- ]first|composite)\b/;
 const PERSONAS = /\b(persona|personas|composite|puttaswamy|manjula|character|characters)\b/;
@@ -130,7 +133,16 @@ export function routeContext(
     { name: "DIGEST", text: pack.digest },
   ];
   const optional: { name: string; text: string }[] = [];
-  for (const id of districtIds.slice(0, MAX_DISTRICTS)) {
+  const stunting = STUNTING.test(lower) && !!pack.stunting;
+  if (stunting) {
+    // A stunting question gets the stunting sections, not the dropout district casefiles.
+    for (const id of districtIds.slice(0, MAX_DISTRICTS)) {
+      const t = pack.stuntingDistricts?.[id];
+      if (t) optional.push({ name: `STUNTING DISTRICT ${id}`, text: t });
+    }
+    optional.push({ name: "STUNTING", text: pack.stunting! });
+  }
+  for (const id of stunting ? [] : districtIds.slice(0, MAX_DISTRICTS)) {
     const t = pack.districts[id];
     if (t) optional.push({ name: `DISTRICT ${id}`, text: t });
   }

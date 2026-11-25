@@ -1,0 +1,224 @@
+{
+  "districtId": "29-563",
+  "name": "Uttara Kannada",
+  "regionId": "karavali",
+  "topic": "stunting",
+  "researchedOn": "2026-11-25",
+  "method": "automated: web search + Claude compile + page verification (scripts/research_stunting_districts.py)",
+  "headline": "3,978 children in Uttara Kannada found with stunted growth over four years, maternal anaemia key concern",
+  "summary": "Uttara Kannada district has seen a worrying rise in child malnutrition and stunted growth over the past four years. According to the Department of Women and Child Welfare, 3,978 children suffer from stunted growth and 814 from malnutrition, particularly in hill and rural areas. Authorities identify maternal malnutrition and anaemia as key reasons. 2024 data showed pregnant women registered for antenatal checks had severe anaemia rates 4% higher than the state average. However, one Gowli pastoral community village in Mundgod shows children with heights and weights comparable to India's wealthiest households, linked to traditional diets rich in milk and fermented foods.",
+  "reasons": [
+    {
+      "factor": "Maternal anaemia and malnutrition",
+      "category": "maternal-health",
+      "detail": "Pregnant women in 2024 had severe anaemia rates over 4% higher than state average; authorities cite maternal malnutrition and anaemia as key reasons for child stunting",
+      "sources": [
+        1,
+        6
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Inadequate antenatal care",
+      "category": "health-services",
+      "detail": "Pregnant women, especially in hill and rural areas, lack timely nutritious food and proper medical guidance during pregnancy",
+      "sources": [
+        6
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Traditional diet patterns",
+      "category": "nutrition-diet",
+      "detail": "Gowli community children in Mundgod show better growth due to diets rich in milk, fermented foods, indigenous livestock, and minimally processed ingredients",
+      "sources": [
+        3
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Geographic disparities",
+      "category": "economic",
+      "detail": "Hill and rural area children particularly affected; lack of access to nutritious food and medical services in these regions",
+      "sources": [
+        6
+      ],
+      "evidence": "moderate"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Stunted children, 4 years",
+      "value": "3978 children",
+      "sources": [
+        1,
+        6
+      ]
+    },
+    {
+      "label": "Malnourished children identified",
+      "value": "814 children",
+      "sources": [
+        6
+      ]
+    },
+    {
+      "label": "Severe anaemia gap, 2024",
+      "value": "4% above state average",
+      "sources": [
+        6
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "How one Karnataka village's traditional diet is linked to healthy child growth",
+      "outlet": "thenewsminute.com",
+      "date": "2026-07-28",
+      "url": "https://www.thenewsminute.com/amp/story/karnataka/how-one-karnataka-villages-traditional-diet-is-linked-to-healthy-child-growth",
+      "takeaway": "Gowli community children in Mundgod village show growth comparable to India's wealthiest households"
+    },
+    {
+      "title": "Rising malnutrition, stunted growth among children raise concern",
+      "outlet": "thehansindia.com",
+      "date": "2026-05-21",
+      "url": "https://www.thehansindia.com/karnataka/rising-malnutrition-stunted-growth-among-children-raise-concern-1077817",
+      "takeaway": "Rising malnutrition and stunted growth in Uttara Kannada over four years triggers concern among officials"
+    },
+    {
+      "title": "Karnataka's “nutritious” Anganwadi food raises a stink and children hate the menu",
+      "outlet": "The South First",
+      "date": "2024-02-07",
+      "url": "https://thesouthfirst.com/health/karnatakas-nutritious-anganwadi-food-raises-a-stink-and-children-hate-the-menu/",
+      "takeaway": "Children at Mundgod Anganwadi refusing food, highlighting quality concerns in nutrition programs"
+    },
+    {
+      "title": "ಉತ್ತರ ಕನ್ನಡದಲ್ಲಿ ಹೆಚ್ಚಿದ ಅಪೌಷ್ಟಿಕತೆ ಆತಂಕ: 4 ವರ್ಷಗಳಲ್ಲಿ 3,978ಕ್ಕೂ ಹೆಚ್ಚು ಮಕ್ಕಳಲ್ಲಿ ಕುಂಠಿತ ಬೆಳವಣಿಗೆ ಪತ್ತೆ! | Public TV - Latest Kannada News, Public TV Kannada Live, Public TV News",
+      "outlet": "publictv.in",
+      "date": "",
+      "url": "https://publictv.in/increased-malnutrition-concerns-in-uttara-kannada-more-than-3978-children-found-in-4-years/",
+      "takeaway": "Over 3,978 children found with stunted growth in four years, maternal anaemia identified as major cause"
+    }
+  ],
+  "responses": [
+    {
+      "text": "Department of Women and Child Welfare released data on child malnutrition and stunting to track the problem",
+      "sources": [
+        1,
+        6
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://www.thehansindia.com/karnataka/rising-malnutrition-stunted-growth-among-children-raise-concern-1077817",
+      "title": "Rising malnutrition, stunted growth among children raise concern",
+      "outlet": "thehansindia.com",
+      "date": "2026-05-21",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://thesouthfirst.com/health/karnatakas-nutritious-anganwadi-food-raises-a-stink-and-children-hate-the-menu/",
+      "title": "Karnataka's “nutritious” Anganwadi food raises a stink and children hate the menu",
+      "outlet": "The South First",
+      "date": "2024-02-07",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://www.thenewsminute.com/amp/story/karnataka/how-one-karnataka-villages-traditional-diet-is-linked-to-healthy-child-growth",
+      "title": "How one Karnataka village's traditional diet is linked to healthy child growth",
+      "outlet": "thenewsminute.com",
+      "date": "2026-07-28",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "https://www.daijiworld.com/news/newsDisplay?newsID=998609",
+      "title": "52-year-old man held for marrying minor in Uttara Kannada",
+      "outlet": "Daijiworld",
+      "date": "2022-09-10",
+      "type": "news"
+    },
+    {
+      "id": 5,
+      "url": "https://uttarakannada.nic.in/en/women-and-child-welfare/",
+      "title": "Women and Child Development | Uttara Kannada District, Government of Karnataka",
+      "outlet": "uttarakannada.nic.in",
+      "date": "",
+      "type": "government"
+    },
+    {
+      "id": 6,
+      "url": "https://publictv.in/increased-malnutrition-concerns-in-uttara-kannada-more-than-3978-children-found-in-4-years/",
+      "title": "ಉತ್ತರ ಕನ್ನಡದಲ್ಲಿ ಹೆಚ್ಚಿದ ಅಪೌಷ್ಟಿಕತೆ ಆತಂಕ: 4 ವರ್ಷಗಳಲ್ಲಿ 3,978ಕ್ಕೂ ಹೆಚ್ಚು ಮಕ್ಕಳಲ್ಲಿ ಕುಂಠಿತ ಬೆಳವಣಿಗೆ ಪತ್ತೆ! | Public TV - Latest Kannada News, Public TV Kannada Live, Public TV News",
+      "outlet": "publictv.in",
+      "date": "",
+      "type": "news"
+    }
+  ],
+  "modelFactorWhy": [
+    {
+      "factor": "Children age 3–6 recorded as school-going",
+      "verdict": "no-evidence",
+      "why": "The pages do not provide district-specific evidence about preschool or early childhood education enrollment rates in Uttara Kannada. One preschool listing mentions curriculum and development but gives no enrollment data.",
+      "mechanism": "Early childhood education exposes children to structured learning, social interaction, and often supplementary nutrition through mid-day meals, supporting cognitive and physical development.",
+      "proof": []
+    },
+    {
+      "factor": "Mothers who took iron-folic acid for 180+ days in pregnancy",
+      "verdict": "supported",
+      "why": "Strong district evidence shows maternal anaemia is a critical problem. Pregnant women registered for antenatal checks in 2024 had severe anaemia rates 4% higher than state average. Authorities cite maternal malnutrition and anaemia as key reasons for stunting.",
+      "mechanism": "Iron-folic acid supplementation during pregnancy prevents maternal anaemia, ensuring adequate oxygen and nutrient supply to the fetus, reducing risk of low birth weight and subsequent stunting.",
+      "proof": [
+        {
+          "claim": "2024 data showed pregnant women had severe anaemia 4% above state average",
+          "sources": [
+            6
+          ]
+        },
+        {
+          "claim": "Authorities believe maternal malnutrition and anaemia are among key reasons for stunting",
+          "sources": [
+            1
+          ]
+        },
+        {
+          "claim": "Pregnant women especially in hill areas lack timely nutritious food and proper medical guidance",
+          "sources": [
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "Women married before age 18, age 20–24",
+      "verdict": "partly",
+      "why": "While child marriage is documented as a concern in the district with the Women and Child Welfare Department serving notices to 60 wedding attendees for one case, there is no specific data on prevalence rates among women age 20-24.",
+      "mechanism": "Early marriage often leads to early pregnancy before physical maturity, increasing risks of maternal malnutrition, low birth weight babies, and inadequate childcare knowledge, all contributing to stunting.",
+      "proof": [
+        {
+          "claim": "Women and Child Welfare Department served notice to 60 people attending a child marriage in Uttara Kannada",
+          "sources": [
+            4
+          ]
+        },
+        {
+          "claim": "Department aims to create awareness on consequences of child marriage and prevent it",
+          "sources": [
+            5
+          ]
+        }
+      ]
+    }
+  ],
+  "coverage": "moderate",
+  "gaps": "No data on preschool enrollment, iron-folic acid supplementation rates, specific child marriage prevalence, or water-sanitation conditions. Limited program response details.",
+  "verificationNotes": [
+    "dropped fact (no valid source): Statewide: NFHS-6 stunting 26.2%"
+  ],
+  "searched": 92,
+  "candidatePages": 7
+}

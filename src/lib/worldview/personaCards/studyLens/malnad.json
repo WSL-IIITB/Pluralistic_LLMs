@@ -1,0 +1,114 @@
+{
+  "male": {
+    "schoolPressures": [
+      {
+        "emoji": "🌾",
+        "label": "Harvest labour",
+        "detail": "Economic pressure can pull girls into farm labour during coffee harvest, when every extra pair of hands matters."
+      },
+      {
+        "emoji": "🌧️",
+        "label": "Monsoon roads",
+        "detail": "His daughter's bus becomes unreliable when hill roads wash out in the heavy monsoon months."
+      },
+      {
+        "emoji": "🚸",
+        "label": "Girls' mobility",
+        "detail": "Concern over girls' mobility and perceived sexual purity grows once they reach adolescence."
+      },
+      {
+        "emoji": "🏫",
+        "label": "Protest bandhs",
+        "detail": "Sringeri's ESA bandh shut shops, banks and schools for a day, a land-rights disruption to schooling."
+      }
+    ],
+    "factorEffects": {
+      "districtId": "29-570",
+      "pressures": [
+        "Coffee harvest is when every pair of hands counts, so economic pressure can pull his 14-year-old daughter into estate work during those weeks.",
+        "When hill roads wash out in heavy monsoon months, her bus becomes unreliable, and a few lost weeks make it harder for her to keep up.",
+        "As she reaches adolescence, concern over girls' mobility grows, which can weigh against sending her far for the next stage.",
+        "Sringeri's ESA bandh shut schools for a day, so land-rights disputes in the hills can cost his children school days."
+      ],
+      "sanitation": "If his estate home lacked a proper toilet, his 14-year-old daughter's attendance would suffer first; the card gives no sign this is his family's problem.",
+      "district": "The factor flags the share of English-medium schools in Chikkamagaluru. The card shows harvest labour, monsoon roads, girls' mobility and bandhs as the pressures, not language."
+    },
+    "dataLens": {
+      "area": "Chikkamangaluru",
+      "changes": [
+        {
+          "factor": "% Classrooms in Good Condition",
+          "effect": "Many of Chikkamagaluru's classrooms need repair; in the heavy monsoon a leaking room can stop lessons for his daughter, 14, in Class 9."
+        },
+        {
+          "factor": "% Population Living in Households with Improved Sanitation",
+          "effect": "Most homes in the district have a toilet; if any did not, it is daughters like his who would face the safety and privacy worries first."
+        },
+        {
+          "factor": "% Schools with Playground",
+          "effect": "Sport and a playground give adolescents a reason to stay on; for his daughter, school has to outweigh the pull of harvest labour."
+        }
+      ],
+      "lag": {
+        "factor": "% Schools with Functional Protected Well",
+        "effect": "Few schools here have a protected well; where a school has no other safe source, drinking water is not assured through the monsoon and the dry months."
+      }
+    }
+  },
+  "female": {
+    "schoolPressures": [
+      {
+        "emoji": "🏫",
+        "label": "Limited village school",
+        "detail": "The family judged village school options beyond middle school too limited for the higher secondary years."
+      },
+      {
+        "emoji": "⛰️",
+        "label": "Landslide roads",
+        "detail": "The daily commute on Kodagu's landslide-prone roads was judged too unreliable to sustain."
+      },
+      {
+        "emoji": "💰",
+        "label": "Hostel costs",
+        "detail": "Families in remoter estate hamlets say they cannot always afford to place a child in a hostel."
+      },
+      {
+        "emoji": "🌊",
+        "label": "Flood disruption",
+        "detail": "A single monsoon season can knock a rural Kodagu child's schooling off track for a year or more."
+      }
+    ],
+    "factorEffects": {
+      "districtId": "29-576",
+      "pressures": [
+        "Her village school's options beyond middle school are limited, so keeping her daughter in school means boarding in Madikeri, and that is the pressure.",
+        "Landslide-prone roads made the daily commute unreliable, so boarding or leaving becomes the only choice.",
+        "Remote estate hamlets say hostel costs are not always affordable, so which child gets the seat can become a family decision.",
+        "A single monsoon season can knock her child's schooling off track for a year or more, so one flood can cost a grade."
+      ],
+      "sanitation": "If her estate home lacked a proper toilet, her children's attendance would be affected; the card gives no sign this is her family's problem.",
+      "district": "The factor flags the share of English-medium schools in Kodagu. The card shows limited village schooling, landslide roads, hostel costs and floods as the pressures, not language."
+    },
+    "dataLens": {
+      "area": "Kodagu",
+      "changes": [
+        {
+          "factor": "% of female teachers",
+          "effect": "Kodagu already has many women teachers; for her daughter, 15, boarding in Madikeri, that can make secondary school feel safer."
+        },
+        {
+          "factor": "% Classrooms in Good Condition",
+          "effect": "Safe classrooms matter in a district where landslides and floods have disrupted schooling; repaired rooms keep lessons going after a bad monsoon."
+        },
+        {
+          "factor": "% Women with 10+ Years Schooling",
+          "effect": "Women in Kodagu are among the most schooled in Karnataka; like her, mothers who studied longer tend to keep their children in school."
+        }
+      ],
+      "lag": {
+        "factor": "% Schools with Functional Total Toilets",
+        "effect": "Toilet coverage in Kodagu's schools is high but not complete; for her daughter, boarding in Madikeri, a working toilet at school matters every day."
+      }
+    }
+  }
+}

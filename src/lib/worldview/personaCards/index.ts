@@ -64,14 +64,23 @@ export interface PersonaCard {
   vitals: { label: string; value: string }[];
   dayInLife: { when: string; emoji: string; text: string }[];
   topics: PersonaCardTopic[];
-  schoolPressures: { emoji: string; label: string; detail: string }[];
   worries: string[];
+  /** First-person script for the animated self-introduction (see SCHEMA.md). */
+  intro?: PersonaIntro;
+}
+
+/**
+ * The dropout study's view of a curated persona's household -- kept OUT of the persona card
+ * (studyLens/<region>.json) so the persona stays a person, independent of any study question.
+ * The Personas tab shows it as a separate, labelled "study lens" section.
+ */
+export interface PersonaStudyLens {
+  /** What could pull/push this household's children out of secondary school (an interpretation). */
+  schoolPressures: { emoji: string; label: string; detail: string }[];
   /** How each listed pressure and the region's dominant factors would reach this persona (see SCHEMA.md). */
   factorEffects?: PersonaFactorEffects;
   /** The persona's district through the NITI prescriptive model (see SCHEMA.md). */
   dataLens?: PersonaDataLens;
-  /** First-person script for the animated self-introduction (see SCHEMA.md). */
-  intro?: PersonaIntro;
 }
 
 type RegionCards = Record<string, PersonaCard>;
@@ -86,4 +95,44 @@ for (const [path, cards] of Object.entries(modules)) {
 
 export function personaCard(regionId: string, personaId: string): PersonaCard | null {
   return BY_REGION[regionId]?.[personaId] ?? null;
+}
+
+const lensModules = import.meta.glob<Record<string, PersonaStudyLens>>("./studyLens/*.json", {
+  eager: true,
+  import: "default",
+});
+const LENS_BY_REGION: Record<string, Record<string, PersonaStudyLens>> = {};
+for (const [path, lenses] of Object.entries(lensModules)) {
+  LENS_BY_REGION[path.replace("./studyLens/", "").replace(".json", "")] = lenses;
+}
+
+/** The study's lens on a curated persona (school pressures, factor effects, NITI data lens), or null. */
+export function studyLens(regionId: string, personaId: string): PersonaStudyLens | null {
+  return LENS_BY_REGION[regionId]?.[personaId] ?? null;
+}
+
+/** The stunting study's reading of a curated persona's household (stuntingLens/<region>.json) -- not the persona. */
+export interface PersonaStuntingLens {
+  districtId: string;
+  /** The district has no figures in the stunting workbook. */
+  noData?: boolean;
+  underFive?: string;
+  /** The district's top three prescribed factors (default 20% target), and how each could reach this household. */
+  changes?: { factor: string; effect: string }[];
+}
+
+const stuntingModules = import.meta.glob<Record<string, PersonaStuntingLens>>(
+  "./stuntingLens/*.json",
+  {
+    eager: true,
+    import: "default",
+  },
+);
+const STUNTING_BY_REGION: Record<string, Record<string, PersonaStuntingLens>> = {};
+for (const [path, lenses] of Object.entries(stuntingModules)) {
+  STUNTING_BY_REGION[path.replace("./stuntingLens/", "").replace(".json", "")] = lenses;
+}
+
+export function stuntingLens(regionId: string, personaId: string): PersonaStuntingLens | null {
+  return STUNTING_BY_REGION[regionId]?.[personaId] ?? null;
 }

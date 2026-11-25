@@ -1,0 +1,240 @@
+{
+  "districtId": "29-582",
+  "name": "Chikkaballapur",
+  "regionId": "bayaluseeme",
+  "topic": "stunting",
+  "researchedOn": "2026-11-25",
+  "method": "automated: web search + Claude compile + page verification (scripts/research_stunting_districts.py)",
+  "headline": "Chikkaballapur tackles child malnutrition with SaiSure supplement for SAM and MAM children across all six taluks",
+  "summary": "Chikkaballapur district has 1593 anganwadi kendras, most without their own buildings and some in dilapidated structures or temples. Since 2022, targeted nutritional interventions distribute SaiSure supplement to severely and moderately malnourished (SAM/MAM) children across all six taluks. Around 1175 MAM children in Sidlaghatta and Gudibande taluks received immunity-boosting kits from February to July 2022, with parents reporting significant improvement within three months. A recent October 2025 launch targets SAM and MAM children with four 500g pouches over six months. The district also addressed fluoride-contaminated groundwater through 10 defluoridation plants, reducing medical costs by 100 percent in some villages.",
+  "reasons": [
+    {
+      "factor": "Targeted nutrition programmes",
+      "category": "nutrition-diet",
+      "detail": "SaiSure supplement distributed to 4000 MAM children from June onwards across all six taluks; parents reported children becoming normal within three months",
+      "sources": [
+        1,
+        2,
+        3
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Anganwadi infrastructure gaps",
+      "category": "governance",
+      "detail": "1593 anganwadis exist but most lack own buildings; some operate in temples or dilapidated structures, limiting service delivery",
+      "sources": [
+        6
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Water quality issues",
+      "category": "water-sanitation",
+      "detail": "Drought-prone region with fluoride-contaminated groundwater affecting health; 10 defluoridation plants installed reduced medical costs by 100 percent",
+      "sources": [
+        5
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Child marriage prevalence",
+      "category": "social-norms",
+      "detail": "15-year-old forcibly married to 45-year-old in Goramadugu village despite 1242 villages declared child marriage-free; investigation underway",
+      "sources": [
+        4,
+        7
+      ],
+      "evidence": "moderate"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "MAM children reached (Feb-Jul 2022)",
+      "value": "1175",
+      "sources": [
+        2
+      ]
+    },
+    {
+      "label": "MAM children targeted (Jun 2021)",
+      "value": "4000",
+      "sources": [
+        3
+      ]
+    },
+    {
+      "label": "Medical cost reduction",
+      "value": "100 per-cent",
+      "sources": [
+        5
+      ]
+    },
+    {
+      "label": "Child marriage-free villages (2025)",
+      "value": "1242",
+      "sources": [
+        7
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Launch of SaiSure Nutrition for SAM & MAM Children in Chikkaballapur District in partnership with Persistent Foundation",
+      "outlet": "annapoorna.org.in",
+      "date": "2025-10-18",
+      "url": "https://annapoorna.org.in/2025/10/18/launch-of-saisure-nutrition-for-sam-mam-children-in-chikkaballapur-district-in-partnership-with-persistent-foundation/",
+      "takeaway": "SaiSure nutrition launched for SAM and MAM children across Chikkaballapur district, October 2025"
+    },
+    {
+      "title": "15-Year-Old Forced into Marriage in Karnataka: Investigation Underway",
+      "outlet": "newskarnataka.com",
+      "date": "2025-01-23",
+      "url": "https://newskarnataka.com/karnataka/chikkaballapura/15-year-old-forced-into-marriage-in-karnataka-investigation-underway/23012025",
+      "takeaway": "15-year-old forcibly married to 45-year-old in Goramadugu village; police investigation launched"
+    },
+    {
+      "title": "Feedback on SaiSure Micronutrient Health mix for MAM Children, Chikkaballapur district, Karnataka",
+      "outlet": "annapoorna.org.in",
+      "date": "2021-08-31",
+      "url": "https://annapoorna.org.in/2021/08/31/feedback-saisure-mam-children-chikkaballapur/",
+      "takeaway": "4000 MAM children across all six taluks received SaiSure supplement starting June 2021"
+    },
+    {
+      "title": "Chapter 2: Village Folk Turn on the Tap",
+      "outlet": "swasti.org",
+      "date": "2019-09-10",
+      "url": "https://swasti.org/knowledgebase/blog/chapter-2-village-folk-turn-on-the-tap",
+      "takeaway": "Water defluoridation plants reduced medical costs by 100 percent in Mamidikayalapalli village"
+    },
+    {
+      "title": "Children deprived of facilities in anganawadi",
+      "outlet": "Deccan Herald",
+      "date": "2012-02-03",
+      "url": "https://www.deccanherald.com/amp/story/india%2Fkarnataka%2Fchildren-deprived-facilities-anganawadi-2310796",
+      "takeaway": "Most of 1593 anganwadis lack own buildings, operate in temples or dilapidated structures"
+    },
+    {
+      "title": "Nutritional Intervention in collaboration with Oracle Inc Feb to July 2022 – Beneficiary Testimonials",
+      "outlet": "saisure.org",
+      "date": "",
+      "url": "https://saisure.org/nutritional-intervention-in-collaboration-with-oracle-inc-feb-to-july-2022-beneficiary-testimonials/",
+      "takeaway": "1175 MAM children in Sidlaghatta and Gudibande received immunity kits, showed improvement within three months"
+    }
+  ],
+  "responses": [
+    {
+      "text": "SaiSure supplement distributed to SAM/MAM children via partnership with Persistent Foundation, October 2025 to March 2026",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "text": "10 water defluoridation plants established across two taluks through Swasti and Gram Panchayat collaboration since 2017",
+      "sources": [
+        5
+      ]
+    },
+    {
+      "text": "Police filed case against individuals involved in forced child marriage in Goramadugu village, Shidlaghatta taluk",
+      "sources": [
+        4
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://annapoorna.org.in/2025/10/18/launch-of-saisure-nutrition-for-sam-mam-children-in-chikkaballapur-district-in-partnership-with-persistent-foundation/",
+      "title": "Launch of SaiSure Nutrition for SAM & MAM Children in Chikkaballapur District in partnership with Persistent Foundation",
+      "outlet": "annapoorna.org.in",
+      "date": "2025-10-18",
+      "type": "ngo"
+    },
+    {
+      "id": 2,
+      "url": "https://saisure.org/nutritional-intervention-in-collaboration-with-oracle-inc-feb-to-july-2022-beneficiary-testimonials/",
+      "title": "Nutritional Intervention in collaboration with Oracle Inc Feb to July 2022 – Beneficiary Testimonials",
+      "outlet": "saisure.org",
+      "date": "",
+      "type": "ngo"
+    },
+    {
+      "id": 3,
+      "url": "https://annapoorna.org.in/2021/08/31/feedback-saisure-mam-children-chikkaballapur/",
+      "title": "Feedback on SaiSure Micronutrient Health mix for MAM Children, Chikkaballapur district, Karnataka",
+      "outlet": "annapoorna.org.in",
+      "date": "2021-08-31",
+      "type": "ngo"
+    },
+    {
+      "id": 4,
+      "url": "https://newskarnataka.com/karnataka/chikkaballapura/15-year-old-forced-into-marriage-in-karnataka-investigation-underway/23012025",
+      "title": "15-Year-Old Forced into Marriage in Karnataka: Investigation Underway",
+      "outlet": "newskarnataka.com",
+      "date": "2025-01-23",
+      "type": "news"
+    },
+    {
+      "id": 5,
+      "url": "https://swasti.org/knowledgebase/blog/chapter-2-village-folk-turn-on-the-tap",
+      "title": "Chapter 2: Village Folk Turn on the Tap",
+      "outlet": "swasti.org",
+      "date": "2019-09-10",
+      "type": "ngo"
+    },
+    {
+      "id": 6,
+      "url": "https://www.deccanherald.com/amp/story/india%2Fkarnataka%2Fchildren-deprived-facilities-anganawadi-2310796",
+      "title": "Children deprived of facilities in anganawadi",
+      "outlet": "Deccan Herald",
+      "date": "2012-02-03",
+      "type": "news"
+    },
+    {
+      "id": 7,
+      "url": "https://kannada.asianetnews.com/karnataka-districts/1242-villages-in-chikkaballapur-are-now-free-from-child-marriage-sns/articleshow-otokg24",
+      "title": "Chikkaballapura: ರಾಷ್ಟ್ರಮಟ್ಟದಲ್ಲಿ ಚಿಕ್ಕಬಳ್ಳಾಪುರ ಜಿಲ್ಲೆಯ ಸಾಧನೆ; 1,242 ಹಳ್ಳಿಗಳಲ್ಲಿ ಸದ್ದಿಲ್ಲದೆ ನಡೆಯಿತು ಕ್ರಾಂತಿ!",
+      "outlet": "kannada.asianetnews.com",
+      "date": "2026-10-02",
+      "type": "news"
+    }
+  ],
+  "modelFactorWhy": [
+    {
+      "factor": "Children age 3–6 recorded as school-going",
+      "verdict": "no-evidence",
+      "why": "The pages discuss anganwadi infrastructure problems and nutrition programmes but provide no data on school enrollment rates for 3-6 year-olds in Chikkaballapur district.",
+      "mechanism": "Early childhood education centres like anganwadis support child development, nutrition monitoring, and school readiness, reducing stunting risk.",
+      "proof": []
+    },
+    {
+      "factor": "Mothers who took iron-folic acid for 180+ days in pregnancy",
+      "verdict": "no-evidence",
+      "why": "No pages mention maternal iron-folic acid supplementation during pregnancy or antenatal care practices in Chikkaballapur district.",
+      "mechanism": "Adequate iron-folic acid intake during pregnancy prevents maternal anaemia and supports fetal growth, reducing low birth weight and stunting.",
+      "proof": []
+    },
+    {
+      "factor": "Household members covered by health insurance",
+      "verdict": "partly",
+      "why": "One page notes reduced medical costs by 100 percent after water quality intervention, suggesting healthcare access barriers existed. No direct health insurance coverage data provided.",
+      "mechanism": "Health insurance improves access to preventive and curative services, enabling timely treatment of childhood illnesses that contribute to stunting.",
+      "proof": [
+        {
+          "claim": "Medical costs reduced by 100 per-cent in Mamidikayalapalli after water defluoridation plant installation",
+          "sources": [
+            5
+          ]
+        }
+      ]
+    }
+  ],
+  "coverage": "moderate",
+  "gaps": "No data on school enrollment for 3-6 year-olds, maternal iron-folic acid supplementation, health insurance coverage, or district-specific stunting prevalence rates",
+  "verificationNotes": [
+    "dropped fact (number 2024 not on cited page): Anganwadis (2024) 1593"
+  ],
+  "searched": 97,
+  "candidatePages": 11
+}

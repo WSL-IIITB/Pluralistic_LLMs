@@ -34,6 +34,10 @@ export interface KnowledgePack {
   /** Sent only when a question touches them (see knowledgeRouter.ts). */
   regions: Record<string, string>;
   districts: Record<string, string>;
+  /** The stunting study: model, district ranking, research tallies (empty in packs built before it existed). */
+  stunting?: string;
+  /** One stunting section per district id. */
+  stuntingDistricts?: Record<string, string>;
   uidai: string;
   /** Why the news research and the UIDAI/NITI data name different main factors. */
   newsVsData: string;

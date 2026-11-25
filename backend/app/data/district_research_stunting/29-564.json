@@ -1,0 +1,157 @@
+{
+  "districtId": "29-564",
+  "name": "Haveri",
+  "regionId": "kitturu-karnataka",
+  "topic": "stunting",
+  "researchedOn": "2026-11-25",
+  "method": "automated: web search + Claude compile + page verification (scripts/research_stunting_districts.py)",
+  "headline": "Haveri flags poverty and malnutrition concerns with 29.9% under-five stunting, ranking low on youth opportunity statewide.",
+  "summary": "Haveri is flagged for poverty by the Karnataka Human Development Report 2022, alongside nine other districts. Under-five stunting stands at 29.9%, close to the national average of 32.4%. The district ranks 28 of 31 in Karnataka for youth opportunity with a score of 44.4 out of 100. Women's anaemia is 50.9%, slightly better than the national 57.0%. Acute severe malnutrition is listed among conditions treated at the District Hospital Haveri under the Ayushman Bharat scheme.",
+  "reasons": [
+    {
+      "factor": "Poverty and deprivation",
+      "category": "economic",
+      "detail": "Haveri is flagged for poverty by the Karnataka Human Development Report 2022, ranking among ten districts with high deprivation levels.",
+      "sources": [
+        1
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Maternal anaemia",
+      "category": "maternal-health",
+      "detail": "In Haveri, 50.9% of women are anaemic, against 57.0% nationally, though slightly better than the national figure.",
+      "sources": [
+        2
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Acute severe malnutrition",
+      "category": "nutrition-diet",
+      "detail": "District Hospital Haveri treats acute severe malnutrition under Ayushman Bharat, indicating local burden.",
+      "sources": [
+        3
+      ],
+      "evidence": "moderate"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Stunting under-five (Haveri)",
+      "value": "29.9%",
+      "sources": [
+        2
+      ]
+    },
+    {
+      "label": "Women anaemic (Haveri)",
+      "value": "50.9%",
+      "sources": [
+        2
+      ]
+    },
+    {
+      "label": "Poorest wealth group (Haveri)",
+      "value": "14.4%",
+      "sources": [
+        2
+      ]
+    },
+    {
+      "label": "Youth opportunity score (Haveri)",
+      "value": "44.4 out of 100",
+      "sources": [
+        2
+      ]
+    },
+    {
+      "label": "Statewide: Stunting (India)",
+      "value": "32.4%",
+      "sources": [
+        2
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Poverty, malnutrition Karnataka’s shame",
+      "outlet": "Deccan Herald",
+      "date": "2023-03-26",
+      "url": "https://www.deccanherald.com/opinion/editorial/poverty-malnutrition-karnataka-s-shame-1203841.html",
+      "takeaway": "Haveri flagged for poverty and malnutrition by Karnataka Human Development Report 2022."
+    }
+  ],
+  "responses": [],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://www.deccanherald.com/opinion/editorial/poverty-malnutrition-karnataka-s-shame-1203841.html",
+      "title": "Poverty, malnutrition Karnataka’s shame",
+      "outlet": "Deccan Herald",
+      "date": "2023-03-26",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://youthpower.in/institution/karnataka/haveri/anganwadi",
+      "title": "Anganwadi Centre in Haveri, Karnataka",
+      "outlet": "youthpower.in",
+      "date": "",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://www.drlogy.com/ayushman-bharat/hospitals/karnataka/haveri/district-hospital-haveri-haveri",
+      "title": "District Hospital Haveri in Haveri",
+      "outlet": "drlogy.com",
+      "date": "",
+      "type": "news"
+    }
+  ],
+  "modelFactorWhy": [
+    {
+      "factor": "Mothers who took iron-folic acid for 180+ days in pregnancy",
+      "verdict": "partly",
+      "why": "Women's anaemia in Haveri is documented at 50.9%, slightly better than the national 57.0% but still substantial. No direct evidence on iron-folic acid supplementation compliance is provided.",
+      "mechanism": "Adequate iron-folic acid intake during pregnancy prevents maternal anaemia, which reduces low birth weight and subsequent stunting risk.",
+      "proof": [
+        {
+          "claim": "In Haveri, 50.9% of women are anaemic, against 57.0% nationally.",
+          "sources": [
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "Children age 3–6 recorded as school-going",
+      "verdict": "no-evidence",
+      "why": "While anganwadis provide pre-school services and enrolment in classes 9-12 equals 67% of that age population, no specific data on 3-6 year old school-going rates in Haveri was found.",
+      "mechanism": "Pre-school attendance at anganwadis provides structured nutrition supplementation, growth monitoring, and developmental stimulation, reducing stunting.",
+      "proof": []
+    },
+    {
+      "factor": "Household members covered by health insurance",
+      "verdict": "partly",
+      "why": "District Hospital Haveri is empanelled under Ayushman Bharat PM-JAY, indicating local access to health insurance schemes. No data on coverage rates among households was provided.",
+      "mechanism": "Health insurance coverage increases healthcare utilization for maternal and child health services, improving nutrition and growth outcomes.",
+      "proof": [
+        {
+          "claim": "District Hospital Haveri empanelled under Ayushman Bharat PM-JAY scheme.",
+          "sources": [
+            3
+          ]
+        }
+      ]
+    }
+  ],
+  "coverage": "thin",
+  "gaps": "No local data on iron-folic acid compliance, pre-school enrolment rates, health insurance coverage, or specific nutrition programme outcomes in Haveri.",
+  "verificationNotes": [
+    "dropped fact (number 2024 not on cited page): Youth opportunity rank (2024) 28 of 31 in Karnataka",
+    "dropped response (number 100 not on cited page): District Hospital Haveri empanelled under Ayushman Bharat treats acute severe malnutrition"
+  ],
+  "searched": 94,
+  "candidatePages": 6
+}

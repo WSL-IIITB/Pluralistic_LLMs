@@ -8,6 +8,7 @@ import { PersonasPanel } from "@/components/persona/PersonasPanel";
 import { DataViewPanels } from "@/components/dataview/DataViewPanels";
 import { DivergenceView } from "@/components/divergence/DivergenceView";
 import { NitiPanel } from "@/components/niti/NitiPanel";
+import { RunTopicNote, StuntingPanel } from "@/components/stunting/StuntingViews";
 import { HistoryPanel } from "@/components/dashboard/HistoryPanel";
 import { OverviewPanel } from "@/components/dashboard/OverviewPanel";
 import { QueryBar } from "@/components/dashboard/QueryBar";
@@ -19,6 +20,7 @@ import {
   loadDefaultRun,
   STATIC_DATA,
   STREAM_SOURCE,
+  STUNTING_QUERY,
   useExplorerStore,
   useQueryStream,
   useWorldviewStore,
@@ -49,6 +51,8 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   const activeTab = useExplorerStore((s) => s.tab);
+  const topic = useExplorerStore((s) => s.topic);
+  const stunting = topic === "stunting";
   const setActiveTab = useExplorerStore((s) => s.setTab);
   const [query, setQuery] = useState(FIXED_QUERY);
   const [reasoningMode, setReasoningMode] = useState<ResearchMode>("medium");
@@ -60,10 +64,10 @@ function Index() {
 
   // Auto-play the offline demo (a replayed real run) once on mount — mock source only.
   const startedRef = useRef(false);
-  // Open on a finished analysis (newest saved run with Divergence + persona-similarity results).
+  // Open on a finished analysis for the active topic, and switch analyses when the topic changes.
   useEffect(() => {
-    if (STREAM_SOURCE === "sse" || STATIC_DATA) void loadDefaultRun();
-  }, []);
+    if (STREAM_SOURCE === "sse" || STATIC_DATA) void loadDefaultRun(topic, true);
+  }, [topic]);
 
   useEffect(() => {
     if (startedRef.current) return;
@@ -80,6 +84,9 @@ function Index() {
   const showQuery =
     SHOW_QUERY_CONTROLS &&
     (activeTab === "Map" || activeTab === "Divergence" || activeTab === "Data");
+
+  const runStunting = () =>
+    run(STUNTING_QUERY, { initialMode: "medium", initialProvider: provider });
 
   const handleExplore = (q: string) => {
     setQuery(q);
@@ -133,11 +140,25 @@ function Index() {
           </>
         )}
 
-        {activeTab === "Map" && !SHOW_QUERY_CONTROLS && <OverviewPanel />}
+        {["Divergence", "Data"].includes(activeTab) && (
+          <RunTopicNote tab={activeTab} onRunStunting={runStunting} isStreaming={isStreaming} />
+        )}
+        {activeTab === "Map" &&
+          !SHOW_QUERY_CONTROLS &&
+          (stunting ? (
+            <StuntingPanel onRun={runStunting} isStreaming={isStreaming} />
+          ) : (
+            <OverviewPanel />
+          ))}
         {activeTab === "Ask" && <AskPanel />}
         {activeTab === "Personas" && <PersonasPanel />}
         {activeTab === "Divergence" && <DivergenceView />}
-        {activeTab === "UIDAI / NITI" && <NitiPanel />}
+        {activeTab === "UIDAI / NITI" &&
+          (stunting ? (
+            <StuntingPanel onRun={runStunting} isStreaming={isStreaming} />
+          ) : (
+            <NitiPanel />
+          ))}
         {activeTab === "Data" && <DataViewPanels />}
         {activeTab === "History" && <HistoryPanel onOpenRun={() => setActiveTab("Map")} />}
       </div>

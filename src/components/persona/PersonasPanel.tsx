@@ -1,28 +1,42 @@
 /**
- * The Personas tab: a cast of 12 composite residents (a man and a woman from each
- * of Karnataka's six regions). Pick one and their card comes alive — who they are,
- * who they live with, a day in their life, what shapes each part of their world,
- * what pulls their kids out of school, and (after a run) how they'd answer.
- * The long-form source description stays one click away.
+ * The Personas tab: a man and a woman for every Karnataka district (the persona library).
+ * Pick a region, a district and a person; their card shows who they are -- work, family,
+ * a day in their life, their world -- and nothing about the dropout study. Ask them any
+ * question side by side with a persona-free answer on the same evidence, fine-tune them,
+ * or create a new persona anywhere. For the 12 researched personas the study's own lens on
+ * their household (school pressures, the district's NITI numbers) stays available in a
+ * separate, clearly labelled section.
  */
 
-import { ChevronDown } from "lucide-react";
-import { useEffect, useState } from "react";
+import { ChevronDown, Plus, SlidersHorizontal } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
 
+import { PersonaAsk } from "@/components/persona/PersonaAsk";
+import { PersonaEditor } from "@/components/persona/PersonaEditor";
 import { PersonaIntro } from "@/components/persona/PersonaIntro";
+import { StuntingDistrictView } from "@/components/stunting/StuntingViews";
 import { useTheme } from "@/lib/theme";
 import {
   formatFactorValue,
   KARNATAKA_REGIONS,
+  LIBRARY_LIVE,
   personaCard,
   rgbaCss,
+  studyLens,
+  stuntingLens,
+  useStunting,
   useDistrictProfiles,
   useDistrictResearch,
   useExplorerStore,
   useNitiPrescriptive,
-  usePersonaProfile,
+  usePersonaLibrary,
   useWorldviewStore,
+  type Gender,
+  type LibraryPersona,
+  type LibraryPersonaSummary,
   type PersonaCard,
+  type PersonaStudyLens,
+  type PersonaStuntingLens,
   type RGBAColor,
 } from "@/lib/worldview";
 
@@ -33,64 +47,189 @@ function useInk(color: RGBAColor): string {
   return `rgb(${Math.round(color[0] * k)} ${Math.round(color[1] * k)} ${Math.round(color[2] * k)})`;
 }
 
-// ── Cast picker ─────────────────────────────────────────────────────────────
+const SOURCE_BADGE: Record<string, { label: string; title: string }> = {
+  curated: { label: "Researched", title: "Hand-researched from cited public sources" },
+  generated: {
+    label: "Generated",
+    title: "Written by an LLM from the region's research brief; not source-verified",
+  },
+  custom: { label: "Your persona", title: "Created or fine-tuned in this dashboard" },
+  draft: { label: "Draft", title: "Not saved yet" },
+};
 
-function CastPicker() {
-  const persona = useExplorerStore((s) => s.persona);
-  const select = useExplorerStore((s) => s.selectPersona);
+function personaEmoji(p: LibraryPersonaSummary): string {
+  if (p.emoji) return p.emoji;
+  if (p.curatedRef)
+    return personaCard(p.curatedRef.regionId, p.curatedRef.personaId)?.emoji ?? "👤";
+  return p.gender === "female" ? "👩" : "👨";
+}
+
+function personaLabel(p: LibraryPersonaSummary): string {
+  if (p.curatedRef)
+    return personaCard(p.curatedRef.regionId, p.curatedRef.personaId)?.name ?? p.name;
+  return p.name;
+}
+
+// ── Picker: region -> district -> persona ──────────────────────────────────
+
+function Picker({ onCreate }: { onCreate: (districtId: string, gender: Gender) => void }) {
+  const { districts, personas, status } = usePersonaLibrary();
+  const selectedId = useExplorerStore((s) => s.libraryPersonaId);
+  const select = useExplorerStore((s) => s.selectLibraryPersona);
+  const selected = personas.find((p) => p.id === selectedId);
+  const [regionId, setRegionId] = useState(selected?.regionId ?? KARNATAKA_REGIONS[0]!.id);
+  const [districtId, setDistrictId] = useState<string | null>(selected?.districtId ?? null);
+
+  // Follow selections made elsewhere (the map's "Meet the man/woman" buttons).
+  useEffect(() => {
+    if (selected) {
+      setRegionId(selected.regionId);
+      setDistrictId(selected.districtId);
+    }
+  }, [selected]);
+
+  const region = KARNATAKA_REGIONS.find((r) => r.id === regionId)!;
+  const regionDistricts = districts.filter((d) => d.regionId === regionId);
+  const count = (did: string) => personas.filter((p) => p.districtId === did).length;
+  const here = personas.filter((p) => p.districtId === districtId);
+
+  if (status === "error")
+    return (
+      <p className="text-[12px] text-muted-foreground">The persona library could not be loaded.</p>
+    );
 
   return (
-    <div
-      className="grid grid-cols-3 gap-2 @2xl:grid-cols-6"
-      role="tablist"
-      aria-label="Choose a persona"
-    >
-      {KARNATAKA_REGIONS.map((r) => (
-        <div key={r.id} className="rounded-xl border border-panel-border bg-secondary/30 p-2">
-          <p className="mb-2 flex items-center justify-center gap-1.5 text-center text-[10px] leading-tight font-medium text-muted-foreground">
-            <span
-              className="size-1.5 shrink-0 rounded-full"
-              style={{ backgroundColor: rgbaCss(r.color) }}
-              aria-hidden
-            />
-            <span className="truncate">{r.shortName}</span>
-          </p>
-          <div className="flex justify-center gap-1.5">
-            {r.personas.map((p) => {
-              const card = personaCard(r.id, p.id);
-              const active = persona?.regionId === r.id && persona.personaId === p.id;
-              return (
-                <button
-                  key={p.id}
-                  type="button"
-                  role="tab"
-                  aria-selected={active}
-                  aria-label={`${card?.name ?? p.label} — ${r.shortName}`}
-                  title={`${card?.name ?? p.label} · ${card?.role ?? ""}`}
-                  onClick={() => select(r.id, p.id)}
-                  className={
-                    "flex size-10 items-center justify-center rounded-full text-xl leading-none transition-all duration-200 " +
-                    (active
-                      ? "scale-110 ring-2 ring-offset-2 ring-offset-background"
-                      : "opacity-70 hover:scale-105 hover:opacity-100")
-                  }
-                  style={{
-                    backgroundColor: rgbaCss(r.color, active ? 0.45 : 0.22),
-                    ...(active
-                      ? ({ "--tw-ring-color": rgbaCss(r.color) } as React.CSSProperties)
-                      : {}),
-                  }}
-                >
-                  {card?.emoji ?? "👤"}
-                </button>
-              );
-            })}
-          </div>
-          <p className="mt-1.5 text-center text-[9px] tracking-wide text-muted-foreground/90 uppercase">
-            ♂ · ♀
-          </p>
+    <div className="space-y-3">
+      <div className="flex flex-wrap gap-1.5" role="tablist" aria-label="Region">
+        {KARNATAKA_REGIONS.map((r) => {
+          const on = r.id === regionId;
+          return (
+            <button
+              key={r.id}
+              type="button"
+              role="tab"
+              aria-selected={on}
+              onClick={() => {
+                setRegionId(r.id);
+                setDistrictId(null);
+              }}
+              className={
+                "flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-[11.5px] font-medium transition-all " +
+                (on
+                  ? "text-foreground"
+                  : "border-panel-border text-muted-foreground hover:text-foreground")
+              }
+              style={
+                on
+                  ? { backgroundColor: rgbaCss(r.color, 0.25), borderColor: rgbaCss(r.color, 0.7) }
+                  : undefined
+              }
+            >
+              <span
+                className="size-1.5 rounded-full"
+                style={{ backgroundColor: rgbaCss(r.color) }}
+                aria-hidden
+              />
+              {r.shortName}
+            </button>
+          );
+        })}
+      </div>
+
+      <div className="flex flex-wrap gap-1.5" role="tablist" aria-label="District">
+        {regionDistricts.map((d) => {
+          const on = d.districtId === districtId;
+          const n = count(d.districtId);
+          return (
+            <button
+              key={d.districtId}
+              type="button"
+              role="tab"
+              aria-selected={on}
+              onClick={() => setDistrictId(d.districtId)}
+              className={
+                "rounded-lg border px-2.5 py-1 text-[11.5px] transition-colors " +
+                (on
+                  ? "border-foreground/40 bg-secondary text-foreground"
+                  : "border-panel-border text-muted-foreground hover:text-foreground")
+              }
+            >
+              {d.name}
+              <span className="ml-1.5 text-[10px] tabular-nums opacity-70">{n}</span>
+            </button>
+          );
+        })}
+      </div>
+
+      {districtId ? (
+        <div className="grid gap-2 @xl:grid-cols-2">
+          {(["male", "female"] as const).map((g) => {
+            const people = here.filter((p) => p.gender === g);
+            return (
+              <div key={g} className="rounded-xl border border-panel-border bg-secondary/30 p-2">
+                <p className="mb-1.5 px-1 text-[10px] font-medium tracking-wide text-muted-foreground uppercase">
+                  {g === "female" ? "Women" : "Men"}
+                </p>
+                <div className="space-y-1">
+                  {people.map((p) => {
+                    const active = p.id === selectedId;
+                    return (
+                      <button
+                        key={p.id}
+                        type="button"
+                        onClick={() => select(p.id, p.districtId, p.regionId)}
+                        className={
+                          "flex w-full items-center gap-2.5 rounded-lg px-2 py-1.5 text-left transition-colors " +
+                          (active ? "bg-background/80" : "hover:bg-background/50")
+                        }
+                        style={
+                          active
+                            ? { boxShadow: `inset 0 0 0 1.5px ${rgbaCss(region.color, 0.8)}` }
+                            : undefined
+                        }
+                      >
+                        <span
+                          className="flex size-8 shrink-0 items-center justify-center rounded-full text-lg"
+                          style={{ backgroundColor: rgbaCss(region.color, 0.25) }}
+                        >
+                          {personaEmoji(p)}
+                        </span>
+                        <span className="min-w-0 flex-1">
+                          <span className="block truncate text-[12.5px] font-medium text-foreground">
+                            {personaLabel(p)}
+                          </span>
+                          <span className="block truncate text-[10.5px] text-muted-foreground">
+                            {SOURCE_BADGE[p.source]?.label}
+                            {p.role ? ` · ${p.role}` : ""}
+                          </span>
+                        </span>
+                      </button>
+                    );
+                  })}
+                  {people.length === 0 && (
+                    <p className="px-2 py-1.5 text-[11.5px] text-muted-foreground">
+                      No persona here yet.
+                    </p>
+                  )}
+                  {LIBRARY_LIVE && (
+                    <button
+                      type="button"
+                      onClick={() => onCreate(districtId, g)}
+                      className="flex w-full items-center gap-1.5 rounded-lg px-2 py-1.5 text-[11.5px] text-muted-foreground transition-colors hover:bg-background/50 hover:text-foreground"
+                    >
+                      <Plus className="size-3.5" /> Create a {g === "female" ? "woman" : "man"} here
+                    </button>
+                  )}
+                </div>
+              </div>
+            );
+          })}
         </div>
-      ))}
+      ) : (
+        <p className="text-[11.5px] text-muted-foreground">
+          Choose a district to meet the people who live there.
+        </p>
+      )}
     </div>
   );
 }
@@ -353,8 +492,16 @@ function TopicExplorer({
 }
 
 /** The region's two UIDAI/NITI dominant factors, how each could reach this persona, and what the research says for their district. */
-function DominantFactors({ card, regionId }: { card: PersonaCard; regionId: string }) {
-  const fx = card.factorEffects;
+function DominantFactors({
+  card,
+  lens,
+  regionId,
+}: {
+  card: PersonaCard;
+  lens: PersonaStudyLens;
+  regionId: string;
+}) {
+  const fx = lens.factorEffects;
   const { byId } = useDistrictProfiles();
   const research = useDistrictResearch(fx?.districtId ?? null);
   const focusDistrict = useExplorerStore((s) => s.focusDistrict);
@@ -429,19 +576,19 @@ function DominantFactors({ card, regionId }: { card: PersonaCard; regionId: stri
 /** The persona's district through the NITI prescriptive model: its top three changes and where it lags, each with
  * how it would reach this household. Numbers come live from niti-prescriptive.json; the sentences are the card's. */
 function DistrictInNumbers({
-  card,
+  studyLens: sl,
   regionId,
   color,
 }: {
-  card: PersonaCard;
+  studyLens: PersonaStudyLens;
   regionId: string;
   color: RGBAColor;
 }) {
   const data = useNitiPrescriptive();
   const focusDistrict = useExplorerStore((s) => s.focusDistrict);
   const ink = useInk(color);
-  const lens = card.dataLens;
-  const did = card.factorEffects?.districtId;
+  const lens = sl.dataLens;
+  const did = sl.factorEffects?.districtId;
   if (!lens || !did) return null;
   if (!data)
     return (
@@ -536,10 +683,10 @@ function DistrictInNumbers({
   );
 }
 
-function SchoolPressures({ card, color }: { card: PersonaCard; color: RGBAColor }) {
+function SchoolPressures({ lens, color }: { lens: PersonaStudyLens; color: RGBAColor }) {
   return (
     <div className="grid gap-2 @xl:grid-cols-2">
-      {card.schoolPressures.map((p, i) => (
+      {lens.schoolPressures.map((p, i) => (
         <div
           key={i}
           className="flex gap-3 rounded-xl border border-panel-border bg-secondary/30 p-3 transition-colors hover:bg-secondary/60 animate-in fade-in zoom-in-95 fill-mode-both"
@@ -554,13 +701,13 @@ function SchoolPressures({ card, color }: { card: PersonaCard; color: RGBAColor 
           <div className="min-w-0">
             <p className="text-[12.5px] font-semibold text-foreground">{p.label}</p>
             <p className="mt-0.5 text-[12px] leading-snug text-muted-foreground">{p.detail}</p>
-            {card.factorEffects?.pressures[i] && (
+            {lens.factorEffects?.pressures[i] && (
               <p
                 className="mt-2 border-l-2 pl-2.5 text-[11.5px] leading-snug text-foreground/90"
                 style={{ borderColor: rgbaCss(color, 0.75) }}
               >
                 <span className="font-semibold">What it does: </span>
-                {card.factorEffects.pressures[i]}
+                {lens.factorEffects.pressures[i]}
               </p>
             )}
           </div>
@@ -609,11 +756,150 @@ function TheirAnswer({
 
 // ── Panel ───────────────────────────────────────────────────────────────────
 
-function PersonaView({ regionId, personaId }: { regionId: string; personaId: string }) {
-  const card = personaCard(regionId, personaId);
-  const profile = usePersonaProfile(regionId, personaId);
-  const region = KARNATAKA_REGIONS.find((r) => r.id === regionId);
+/** The dropout study's interpretation of a researched persona's household -- not part of the persona. */
+function StudyLensSection({
+  card,
+  lens,
+  regionId,
+  color,
+}: {
+  card: PersonaCard;
+  lens: PersonaStudyLens;
+  regionId: string;
+  color: RGBAColor;
+}) {
+  const [open, setOpen] = useState(false);
+  return (
+    <section className="rounded-2xl border border-dashed border-panel-border p-4">
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        aria-expanded={open}
+        className="flex w-full items-start gap-2 text-left"
+      >
+        <ChevronDown
+          className={`mt-0.5 size-3.5 shrink-0 transition-transform ${open ? "" : "-rotate-90"}`}
+          aria-hidden
+        />
+        <span>
+          <span className="label-micro block">
+            Study lens · school dropout (separate from the persona)
+          </span>
+          <span className="mt-1 block text-[11.5px] leading-snug text-muted-foreground">
+            How the dropout study reads this household: what could pull their children out of
+            school, and their district&apos;s UIDAI/NITI factors. The persona above knows none of
+            this; it is the data side.
+          </span>
+        </span>
+      </button>
+      {open && (
+        <div className="mt-4 space-y-6">
+          <Section title="What could pull kids out of school here">
+            <SchoolPressures lens={lens} color={color} />
+          </Section>
+          {lens.dataLens && (
+            <Section title="Their district in numbers">
+              <DistrictInNumbers studyLens={lens} regionId={regionId} color={color} />
+            </Section>
+          )}
+          {lens.factorEffects && (
+            <Section title="How the dominant factors could reach them">
+              <DominantFactors card={card} lens={lens} regionId={regionId} />
+            </Section>
+          )}
+        </div>
+      )}
+    </section>
+  );
+}
+
+/** The stunting study's numbers for the persona's district -- data, shown beside the persona, never part of it. */
+function StuntingDataSection({
+  districtId,
+  districtName,
+  lens,
+  color,
+}: {
+  districtId: string;
+  districtName: string;
+  lens: PersonaStuntingLens | null;
+  color: RGBAColor;
+}) {
+  const data = useStunting();
+  const info = Object.fromEntries((data?.factors ?? []).map((f) => [f.name, f]));
+  const [open, setOpen] = useState(false);
+  return (
+    <section className="rounded-2xl border border-dashed border-panel-border p-4">
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        aria-expanded={open}
+        className="flex w-full items-start gap-2 text-left"
+      >
+        <ChevronDown
+          className={`mt-0.5 size-3.5 shrink-0 transition-transform ${open ? "" : "-rotate-90"}`}
+          aria-hidden
+        />
+        <span>
+          <span className="label-micro block">
+            District data · under-5 stunting (separate from the persona)
+          </span>
+          <span className="mt-1 block text-[11.5px] leading-snug text-muted-foreground">
+            {districtName}&apos;s stunting figures and NITI&apos;s provisional model. The persona
+            knows none of this; it is the data side, and the Ask above hands it to both answers as
+            evidence.
+          </span>
+        </span>
+      </button>
+      {open && (
+        <div className="mt-4">
+          {lens?.changes && lens.changes.length > 0 && (
+            <div className="mb-5">
+              <p className="label-micro">
+                How the district&apos;s top factors could reach this household
+              </p>
+              {lens.underFive && (
+                <p className="mt-1 text-[11.5px] text-muted-foreground">{lens.underFive}</p>
+              )}
+              <div className="mt-2 grid gap-2 @xl:grid-cols-3">
+                {lens.changes.map((c) => (
+                  <div
+                    key={c.factor}
+                    className="rounded-xl border border-panel-border bg-secondary/30 p-3"
+                  >
+                    <p className="text-[12px] font-semibold text-foreground">
+                      {info[c.factor]?.short ?? c.factor}
+                    </p>
+                    <p
+                      className="mt-1.5 border-l-2 pl-2.5 text-[11.5px] leading-snug text-foreground/90"
+                      style={{ borderColor: rgbaCss(color, 0.75) }}
+                    >
+                      {c.effect}
+                    </p>
+                  </div>
+                ))}
+              </div>
+              <p className="mt-1.5 text-[10.5px] text-muted-foreground">
+                An interpretation of the persona&apos;s card in the light of the model, written
+                conditionally; not data.
+              </p>
+            </div>
+          )}
+          <StuntingDistrictView districtId={districtId} compact />
+        </div>
+      )}
+    </section>
+  );
+}
+
+function PersonaView({ persona, onFineTune }: { persona: LibraryPersona; onFineTune: () => void }) {
+  const ref = persona.curatedRef ?? null;
+  const card = persona.card ?? (ref ? personaCard(ref.regionId, ref.personaId) : null);
+  const region = KARNATAKA_REGIONS.find((r) => r.id === persona.regionId);
+  const lens = ref ? studyLens(ref.regionId, ref.personaId) : null;
   const [showDescription, setShowDescription] = useState(false);
+  const anchor = `persona-card-${persona.id}`;
+  const topic = useExplorerStore((s) => s.topic);
 
   if (!card || !region) {
     return (
@@ -623,39 +909,61 @@ function PersonaView({ regionId, personaId }: { regionId: string; personaId: str
     );
   }
   const fullText: Record<string, string> = {};
-  for (const t of profile?.topics ?? []) fullText[t.key] = t.profile;
-  const genderLabel = personaId === "female" ? "Woman" : "Man";
+  for (const t of persona.topics) fullText[t.key] = t.profile;
+  const genderLabel = persona.gender === "female" ? "Woman" : "Man";
+  const badge = SOURCE_BADGE[persona.source];
 
   return (
     <div
-      key={`${regionId}-${personaId}`}
+      key={persona.id}
       className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-300"
     >
-      {card.intro ? (
+      {card.intro && ref ? (
         <PersonaIntro
-          key={`intro-${regionId}-${personaId}`}
+          key={`intro-${persona.id}`}
           card={card}
-          regionId={regionId}
-          personaId={personaId}
+          regionId={ref.regionId}
+          personaId={ref.personaId}
           color={region.color}
           regionName={region.shortName}
-          districtId={card.factorEffects?.districtId}
           onExplore={() =>
-            document
-              .getElementById(`persona-card-${regionId}-${personaId}`)
-              ?.scrollIntoView({ behavior: "smooth", block: "start" })
+            document.getElementById(anchor)?.scrollIntoView({ behavior: "smooth", block: "start" })
           }
         />
       ) : (
         <Hero
           card={card}
           color={region.color}
-          regionName={region.shortName}
+          regionName={`${persona.districtName}, ${region.shortName}`}
           genderLabel={genderLabel}
         />
       )}
 
-      {profile?.definition && (
+      <div className="flex flex-wrap items-center gap-2">
+        {badge && (
+          <span
+            title={badge.title}
+            className="rounded-full border border-panel-border px-2.5 py-0.5 text-[10.5px] font-medium text-muted-foreground"
+          >
+            {badge.label}
+          </span>
+        )}
+        <span className="text-[10.5px] text-muted-foreground">
+          {persona.districtName} district · persona {persona.version}
+        </span>
+        {LIBRARY_LIVE && (
+          <button
+            type="button"
+            onClick={onFineTune}
+            className="ml-auto flex items-center gap-1.5 rounded-full border border-panel-border px-3 py-1 text-[11px] font-medium text-foreground transition-colors hover:bg-secondary"
+          >
+            <SlidersHorizontal className="size-3" />
+            {persona.source === "custom" ? "Edit" : "Fine-tune / re-create"}
+          </button>
+        )}
+      </div>
+
+      {persona.definition && (
         <div>
           <button
             type="button"
@@ -671,82 +979,154 @@ function PersonaView({ regionId, personaId }: { regionId: string; personaId: str
           </button>
           {showDescription && (
             <p className="mt-2 text-[12.5px] leading-relaxed text-muted-foreground animate-in fade-in duration-200">
-              {profile.definition}
+              {persona.definition}
             </p>
           )}
         </div>
       )}
 
-      <div id={`persona-card-${regionId}-${personaId}`} className="scroll-mt-4" />
-      <Section title="Household">
-        <Household card={card} color={region.color} />
-      </Section>
-      <Section title="At a glance">
-        <Vitals card={card} color={region.color} />
-      </Section>
-      <Section title="A day in their life">
-        <DayInLife card={card} color={region.color} />
-      </Section>
+      <div id={anchor} className="scroll-mt-4" />
+      {card.household.length > 0 && (
+        <Section title="Household">
+          <Household card={card} color={region.color} />
+        </Section>
+      )}
+      {card.vitals.length > 0 && (
+        <Section title="At a glance">
+          <Vitals card={card} color={region.color} />
+        </Section>
+      )}
+      {card.dayInLife.length > 0 && (
+        <Section title="A day in their life">
+          <DayInLife card={card} color={region.color} />
+        </Section>
+      )}
       <Section title="Explore their world">
-        <TopicExplorer
-          key={`${regionId}-${personaId}`}
-          card={card}
+        <TopicExplorer key={persona.id} card={card} color={region.color} fullText={fullText} />
+      </Section>
+      {card.worries.length > 0 && (
+        <Section title="What keeps them up at night">
+          <div className="flex flex-wrap gap-2">
+            {card.worries.map((w) => (
+              <span
+                key={w}
+                className="rounded-full border border-panel-border bg-secondary/50 px-3 py-1 text-[12px] text-foreground/90"
+              >
+                {w}
+              </span>
+            ))}
+          </div>
+        </Section>
+      )}
+
+      <Section title="Ask a question · without and with this persona">
+        <PersonaAsk persona={persona} color={region.color} />
+      </Section>
+
+      {ref && (
+        <Section title="Their answer to your Map query">
+          <TheirAnswer regionId={ref.regionId} personaId={ref.personaId} name={card.name} />
+        </Section>
+      )}
+
+      {topic === "stunting" ? (
+        <StuntingDataSection
+          districtId={persona.districtId}
+          districtName={persona.districtName}
+          lens={ref ? stuntingLens(ref.regionId, ref.personaId) : null}
           color={region.color}
-          fullText={fullText}
         />
-      </Section>
-      <Section title="What pulls kids out of school here">
-        <SchoolPressures card={card} color={region.color} />
-      </Section>
-      {card.dataLens && (
-        <Section title="Their district in numbers">
-          <DistrictInNumbers card={card} regionId={regionId} color={region.color} />
-        </Section>
+      ) : (
+        lens &&
+        ref && (
+          <StudyLensSection card={card} lens={lens} regionId={ref.regionId} color={region.color} />
+        )
       )}
-      {card.factorEffects && (
-        <Section title="How the dominant factors reach them">
-          <DominantFactors card={card} regionId={regionId} />
-        </Section>
-      )}
-      <Section title="What keeps them up at night">
-        <div className="flex flex-wrap gap-2">
-          {card.worries.map((w) => (
-            <span
-              key={w}
-              className="rounded-full border border-panel-border bg-secondary/50 px-3 py-1 text-[12px] text-foreground/90"
-            >
-              {w}
-            </span>
-          ))}
-        </div>
-      </Section>
-      <Section title="Their answer to your query">
-        <TheirAnswer regionId={regionId} personaId={personaId} name={card.name} />
-      </Section>
     </div>
   );
 }
 
 export function PersonasPanel() {
-  const persona = useExplorerStore((s) => s.persona);
-  const select = useExplorerStore((s) => s.selectPersona);
+  const { status, personas, load, fetchPersona } = usePersonaLibrary();
+  const selectedId = useExplorerStore((s) => s.libraryPersonaId);
+  const select = useExplorerStore((s) => s.selectLibraryPersona);
+  const selectCurated = useExplorerStore((s) => s.selectPersona);
+  const [persona, setPersona] = useState<LibraryPersona | null>(null);
+  const [editor, setEditor] = useState<{
+    districtId: string;
+    gender: Gender;
+    base: LibraryPersona | null;
+  } | null>(null);
+
+  useEffect(() => {
+    void load();
+  }, [load]);
 
   // First visit: open on a persona so the screen is never an empty prompt.
   useEffect(() => {
-    if (!persona) select("old-mysuru", "male");
-  }, [persona, select]);
+    if (!selectedId) selectCurated("old-mysuru", "male");
+  }, [selectedId, selectCurated]);
+
+  useEffect(() => {
+    let alive = true;
+    if (!selectedId || status !== "ready") return;
+    void fetchPersona(selectedId).then((p) => alive && setPersona(p));
+    return () => {
+      alive = false;
+    };
+  }, [selectedId, status, fetchPersona]);
+
+  const total = personas.length;
+  const districtsCovered = useMemo(
+    () => new Set(personas.map((p) => p.districtId)).size,
+    [personas],
+  );
 
   return (
     <div className="panel-surface @container pointer-events-auto flex min-h-0 flex-1 flex-col overflow-hidden rounded-xl">
       <header className="border-b border-panel-border px-5 py-3.5">
         <p className="label-micro">Meet the personas</p>
         <h2 className="mt-1 text-sm font-medium text-foreground">
-          Twelve composite residents, two from each region
+          A man and a woman for every district
+          {status === "ready" && (
+            <span className="ml-2 text-[11px] font-normal text-muted-foreground">
+              {total} personas in {districtsCovered} of 30 districts
+            </span>
+          )}
         </h2>
       </header>
       <div className="min-h-0 flex-1 space-y-6 overflow-y-auto px-5 py-4 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-border">
-        <CastPicker />
-        {persona && <PersonaView regionId={persona.regionId} personaId={persona.personaId} />}
+        <Picker onCreate={(districtId, gender) => setEditor({ districtId, gender, base: null })} />
+        {editor && (
+          <PersonaEditor
+            key={`${editor.base?.id ?? "new"}-${editor.districtId}-${editor.gender}`}
+            districtId={editor.districtId}
+            gender={editor.gender}
+            base={editor.base}
+            onClose={() => setEditor(null)}
+            onDeleted={() => {
+              setEditor(null);
+              setPersona(null);
+              selectCurated("old-mysuru", "male");
+            }}
+            onSaved={(p) => {
+              setEditor(null);
+              setPersona(p);
+              select(p.id, p.districtId, p.regionId);
+            }}
+          />
+        )}
+        {persona && persona.id === selectedId && (
+          <PersonaView
+            persona={persona}
+            onFineTune={() =>
+              setEditor({ districtId: persona.districtId, gender: persona.gender, base: persona })
+            }
+          />
+        )}
+        {status === "loading" && (
+          <p className="text-[12px] text-muted-foreground">Loading personas…</p>
+        )}
       </div>
     </div>
   );

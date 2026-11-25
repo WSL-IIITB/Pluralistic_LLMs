@@ -30,6 +30,8 @@ backend/app/data/research_cache.db
 backend/app/data/chroma_region_kb/
 backend/app/data/region_kb.db
 backend/app/data/run_history.db
+# personas users create or fine-tune on a local backend (the static site ships curated + generated only)
+backend/app/data/persona_library/custom/
 
 # Wrangler / Cloudflare
 .wrangler/
@@ -56,3 +58,4 @@ dist/
 # Generated chat-eval artefacts (rebuild with scripts/chat_eval/build_contexts.mjs + run_eval.py)
 scripts/chat_eval/contexts.json
 scripts/chat_eval/results.json
+docs/stunting-research/.page_cache/

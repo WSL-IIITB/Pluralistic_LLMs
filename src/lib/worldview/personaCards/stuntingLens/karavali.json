@@ -1,0 +1,38 @@
+{
+  "male": {
+    "districtId": "29-563",
+    "underFive": "No child under five in household; daughter is 15.",
+    "changes": [
+      {
+        "factor": "Children age 3–6 recorded as school-going",
+        "effect": "If relatives or neighbours have young children, formal pre-school near Sirsi could build early nutrition awareness and readiness before primary school begins."
+      },
+      {
+        "factor": "Mothers who took iron-folic acid for 180+ days in pregnancy",
+        "effect": "If the daughter eventually becomes pregnant, ensuring 180+ days of iron-folic acid would protect her child from anaemia and low birthweight during gestation."
+      },
+      {
+        "factor": "Women married before age 18, age 20–24",
+        "effect": "With a 15-year-old daughter at home, delaying marriage past 18 would allow her body to mature fully before any pregnancy, reducing stunting risk."
+      }
+    ]
+  },
+  "female": {
+    "districtId": "29-569",
+    "underFive": "No child under five in household; son is 16, daughter is 12.",
+    "changes": [
+      {
+        "factor": "Children age 3–6 recorded as school-going",
+        "effect": "If the household has young relatives or neighbours with toddlers, early learning could build vocabulary and social skills that support better feeding routines and cognitive growth."
+      },
+      {
+        "factor": "Women married before age 18, age 20–24",
+        "effect": "She finished about Class 8, suggesting early school-leaving. If her daughter or nieces delay marriage beyond 18, they gain time to complete education and mature physically before pregnancy."
+      },
+      {
+        "factor": "Mothers who took iron-folic acid for 180+ days in pregnancy",
+        "effect": "If she or relatives become pregnant again, taking iron-folic acid for the full 180 days would prevent anaemia and support the baby's brain development from the start."
+      }
+    ]
+  }
+}

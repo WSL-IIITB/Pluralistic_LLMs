@@ -23,12 +23,21 @@ Card = {
       "points": [ "<= 20 words", "<= 20 words", "<= 20 words" ],       // exactly 3, concrete
       "stat": { "value": "22%", "label": "<= 12 words, what the number is + year/source as stated" } }  // OPTIONAL: omit if no clean number
   ],
-  "schoolPressures": [ { "emoji": "🚜", "label": "<= 3 words", "detail": "<= 20 words" } ],  // 3-4 items: what pulls/pushes THIS household's kids out of secondary school (from the education topic)
   "worries": [ "<= 4 words", ... ]       // 4-6 short chips from the worldview/concerns topic
 }
 Style: plain, warm, concrete. No markdown. No [S1]-style citation markers. Composite persona -- describe in third person, present tense.
 
-## `factorEffects` (added for the "how the factors affect them" section)
+## Study lens: `studyLens/<region_id>.json` (NOT part of the card)
+
+The card describes a person only. The dropout study's reading of a household lives apart from it, in
+`studyLens/<region_id>.json` -> `{ "male": Lens, "female": Lens }`, and the Personas tab shows it as a separate,
+labelled section. Lens = `{ schoolPressures, factorEffects?, dataLens? }`:
+
+```
+"schoolPressures": [ { "emoji": "🚜", "label": "<= 3 words", "detail": "<= 20 words" } ],  // 3-4 items: what could pull/push THIS household's kids out of secondary school
+```
+
+## `factorEffects` (study lens)
 
 ```
 "factorEffects": {
@@ -43,7 +52,7 @@ Rules: no new facts, numbers or places; never claim what research found (the UI 
 `dominantFactorWhy`); write conditionally ("if ...") for the dominant factors, since the persona data does not measure them.
 
 
-## `dataLens` (the persona's district through the NITI prescriptive model)
+## `dataLens` (study lens: the persona's district through the NITI prescriptive model)
 
 ```
 "dataLens": {
@@ -60,6 +69,9 @@ Household facts come only from the card. Write conditionally where the card does
 toilet..."). The UI labels these lines as an interpretation, not data.
 
 ## `intro` (the animated self-introduction)
+
+The dashboard plays only the persona scenes; the recorded `school` and `district` scenes (which index into the
+study lens) are skipped along with their audio clips.
 
 ```
 "intro": {

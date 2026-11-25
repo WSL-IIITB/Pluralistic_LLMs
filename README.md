@@ -52,6 +52,46 @@ divergence view included. For live runs, start the backend (`backend/`, see
   `all-MiniLM-L6-v2` (never a provider API), so the measuring tools never vary with the
   model being measured.
 
+## Second study: under-5 stunting
+
+A **Dropout | Stunting** switch in the top bar changes every data view; the personas are shared.
+
+- **Model** — the NITI team's PROVISIONAL stunting workbook (Tableau Public) is stored in
+  `backend/app/data/niti/stunting/` and extracted with `scripts/extract_stunting_twbx.py` (needs
+  `tableauhyperapi`). `backend/app/stunting.py` reproduces its formulas (`/api/stunting`): NFHS-6
+  stunting per district, 11 factors in 4 buckets, and for a target cut the value each factor would need.
+  The target slider and bucket priority recompute it in the browser (`prescribe()` in
+  `src/lib/worldview/stunting.ts`). Mandya has no figures in the workbook.
+- **Media research** — `scripts/research_stunting_districts.py` (Claude web search -> page fetch ->
+  Claude compile -> verification: every number must be on a cited page) writes
+  `backend/app/data/district_research_stunting/<id>.json` (`/api/stunting/research`), including
+  `modelFactorWhy`: local evidence for each district's top prescribed factors.
+- **Views** — Map / UIDAI-NITI tabs: statewide overview, key findings, target controls; map district sheet:
+  on the ground, news vs data, numbers, media & sources; Personas tab: the district's stunting data and,
+  for the 12 researched personas, a stunting lens (`personaCards/stuntingLens/`, `scripts/build_stunting_lenses.py`);
+  the Ask chat routes stunting questions to the STUNTING sections of the knowledge pack.
+- **Pipeline** — a run on a stunting question ("Run the stunting analysis") compares persona replies with the
+  stunting model instead of the dropout workbooks; each topic opens on its own latest run.
+
+## Persona library (Personas tab)
+
+A man and a woman for every district, kept independent of the dropout study
+(`backend/app/persona_library.py`, `/api/persona-library`):
+
+- **Researched** — the 12 regional personas, each placed in the district its card names. Their text
+  had the dropout framing removed (`scripts/neutralize_personas.py`; removed sentences are listed in
+  `docs/persona-research/neutralized-deletions.md`). The study's reading of their household (school
+  pressures, NITI data lens) lives in `src/lib/worldview/personaCards/studyLens/` and shows as a
+  separate section.
+- **Generated** — LLM-written from the region's research brief for the empty slots
+  (`scripts/generate_district_personas.py --district 29-577` or `--all`). Not source-verified.
+- **Your persona** — created or fine-tuned in the tab (pick region, district, taluk/town and traits,
+  generate, edit, save). Stored in `backend/app/data/persona_library/custom/` (git-ignored).
+
+"Ask a question" answers the same question twice with identical evidence — without a persona and as
+the persona — and shows how far they differ. Generating, saving and asking need the backend; the
+static site shows the library read-only (`public/data/persona-library.json`).
+
 ## Wiring it to real data — the three plug points
 
 Everything runs offline by default. There are exactly three seams to make it live:

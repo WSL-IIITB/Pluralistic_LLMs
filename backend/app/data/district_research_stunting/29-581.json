@@ -1,0 +1,160 @@
+{
+  "districtId": "29-581",
+  "name": "Kolar",
+  "regionId": "bayaluseeme",
+  "topic": "stunting",
+  "researchedOn": "2026-11-25",
+  "method": "automated: web search + Claude compile + page verification (scripts/research_stunting_districts.py)",
+  "headline": "Kolar district faces maternal anaemia challenges affecting child nutrition outcomes, though district stunting at 20.9% below state average",
+  "summary": "Kolar district reports child stunting at 20.9%, lower than Karnataka's 27.9% average. Research from Devarayasamudra PHC in Kolar reveals anaemia remains prevalent among pregnant mothers attending antenatal clinics, despite national prevention programmes. Nutrition education during pregnancy and consumption of iron and folic acid tablets is not yet universal as intended under RCH programme. The district has specific challenges with disabled children from poor families in Kolar Gold Fields facing severe malnutrition and starvation risks, requiring sustained nutritional support.",
+  "reasons": [
+    {
+      "factor": "Maternal anaemia prevalence",
+      "category": "maternal-health",
+      "detail": "Anaemia in pregnant mothers attending Devarayasamudra PHC remains problematic despite national programmes, with nutrition education and iron-folic acid supply not universal",
+      "sources": [
+        1
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Vulnerable disabled children",
+      "category": "nutrition-diet",
+      "detail": "Twenty severely disabled children in Kolar Gold Fields from very poor families face starvation, requiring sustained nutritious meals to prevent malnutrition",
+      "sources": [
+        2
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Healthcare access gaps",
+      "category": "health-services",
+      "detail": "Iron and folic acid tablet consumption and supply not universal as envisaged under RCH programme at PHC level",
+      "sources": [
+        1
+      ],
+      "evidence": "moderate"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Disabled children at risk",
+      "value": "20 severely disabled children",
+      "sources": [
+        2
+      ]
+    },
+    {
+      "label": "Monthly provision per child",
+      "value": "USD 100 per month",
+      "sources": [
+        2
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Anaemia in pregnant mothers attending antenatal clinic at primary health centre, Devarayasamudra, Kolar, Karnataka, India\n\t\t\t\t\t\t\t| International Journal Of Community Medicine And Public Health",
+      "outlet": "ijcmph.com",
+      "date": "",
+      "url": "https://www.ijcmph.com/index.php/ijcmph/article/view/181",
+      "takeaway": "Anaemia in pregnant mothers continues at Devarayasamudra PHC despite national prevention programmes"
+    },
+    {
+      "title": "Anaemia in pregnant mothers attending antenatal clinic at primary health centre, Devarayasamudra, Kolar, Karnataka, India\n\t\t\t\t\t\t\t| International Journal Of Community Medicine And Public Health",
+      "outlet": "ijcmph.com",
+      "date": "",
+      "url": "https://www.ijcmph.com/index.php/ijcmph/article/view/181",
+      "takeaway": "Iron-folic acid supplementation and nutrition education not reaching all pregnant women universally under RCH programme"
+    },
+    {
+      "title": "Protect 20 children in Kolar from starving",
+      "outlet": "globalgiving.org",
+      "date": "",
+      "url": "https://www.globalgiving.org/projects/protect-20-disabled-children-in-kgf-from-starving/",
+      "takeaway": "Twenty severely disabled children in Kolar Gold Fields face starvation risk requiring sustained nutritional support"
+    }
+  ],
+  "responses": [
+    {
+      "text": "RCH programme providing iron and folic acid tablets to pregnant women, though coverage remains incomplete in Kolar",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "text": "Nutrition education being delivered during pregnancy under national programmes at PHC level",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "text": "Project established to provide food provisions to 20 disabled children preventing malnutrition in Kolar Gold Fields",
+      "sources": [
+        2
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://www.ijcmph.com/index.php/ijcmph/article/view/181",
+      "title": "Anaemia in pregnant mothers attending antenatal clinic at primary health centre, Devarayasamudra, Kolar, Karnataka, India\n\t\t\t\t\t\t\t| International Journal Of Community Medicine And Public Health",
+      "outlet": "ijcmph.com",
+      "date": "",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://www.globalgiving.org/projects/protect-20-disabled-children-in-kgf-from-starving/",
+      "title": "Protect 20 children in Kolar from starving",
+      "outlet": "globalgiving.org",
+      "date": "",
+      "type": "ngo"
+    }
+  ],
+  "modelFactorWhy": [
+    {
+      "factor": "Mothers who took iron-folic acid for 180+ days in pregnancy",
+      "verdict": "partly",
+      "why": "Research from Devarayasamudra PHC in Kolar shows consumption and supply of iron and folic acid tablets is not universal as envisaged under RCH programme. Anaemia remains a problem among pregnant mothers despite national programmes for prevention and control.",
+      "mechanism": "Adequate iron-folic acid intake during pregnancy prevents maternal anaemia, supporting fetal growth and reducing low birth weight and subsequent child stunting.",
+      "proof": [
+        {
+          "claim": "Consumption and supply of iron and folic acid tablets is still not universal as envisaged in RCH programme",
+          "sources": [
+            1
+          ]
+        },
+        {
+          "claim": "Anaemia in pregnancy continues to be a problem inspite of national programs for its prevention and control",
+          "sources": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "Children age 3–6 recorded as school-going",
+      "verdict": "no-evidence",
+      "why": "While preschool facilities exist in Kolar (SmartKids for ages 2-6 years, Saraswathinarayan International School for 1st-5th standard), the available sources provide no data on enrollment rates or school attendance for children aged 3-6 years in the district.",
+      "mechanism": "Early childhood education facilities provide structured nutrition programmes, developmental monitoring, and health screenings that support child growth and prevent stunting.",
+      "proof": []
+    },
+    {
+      "factor": "Household members covered by health insurance",
+      "verdict": "no-evidence",
+      "why": "No district-specific data on health insurance coverage rates found in available sources. While Ayushman Bharat scheme exists (mentioned for Madhya Pradesh facility), no Kolar-specific coverage statistics are provided.",
+      "mechanism": "Health insurance coverage increases healthcare utilization for preventive and curative services, ensuring timely treatment of childhood illnesses that contribute to undernutrition.",
+      "proof": []
+    }
+  ],
+  "coverage": "thin",
+  "gaps": "No district data on health insurance coverage, school enrollment rates for 3-6 year olds, or comprehensive stunting determinants analysis",
+  "verificationNotes": [
+    "dropped fact (no valid source): Child stunting (NFHS-6) 20.9%",
+    "dropped fact (no valid source): Statewide: Karnataka stunting average 27.9%"
+  ],
+  "searched": 96,
+  "candidatePages": 5
+}

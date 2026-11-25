@@ -53,7 +53,7 @@ EVIDENCE_WEIGHT = {"strong": 3, "moderate": 2, "thin": 1}
 
 CAVEATS = """\
 These rules always apply when you answer.
-1. SCOPE. This research covers why students leave or stop attending secondary school (Classes 8-10 and the SSLC exam) in Karnataka's 30 districts. It says nothing about other states, other education levels or other topics.
+1. SCOPE. This research covers two studies in Karnataka's 30 districts: why students leave or stop attending secondary school (Classes 8-10 and the SSLC exam), and under-5 child stunting (STUNTING sections). It says nothing about other states or other topics. Never use dropout evidence to answer a stunting question or the reverse.
 2. COVERAGE VARIES. Some districts are rated "thin", and even "moderate" districts often have no district-level dropout, out-of-school or SSLC figures. Many sources are old (2013-2019). Say "we found no evidence", never "it is not a factor".
 3. SCOPE TAGS. A (DISTRICT) fact is about that district. A (REGIONAL) or (STATEWIDE) fact must NEVER be given as a district's own number. (SYNTHESIS) is a model-written summary, not a sourced fact. (PERSONA) is a composite character, not a real person. (REASONING) is general reasoning about how an indicator could be linked to dropout: give it as possible reasons, with no citation.
 4. CASEFILE RATES. Each district has a dropout rate from the LKI-SSM casefile dataset. The very low rates for Udupi and Dakshina Kannada, and the high rate for Uttara Kannada, are not explained by any source we found. Vijayanagara is not covered separately from Ballari; sub-areas (Bengaluru North/South, Chikkodi, Madhugiri, Sirsi) are not separately covered.
@@ -61,7 +61,8 @@ These rules always apply when you answer.
 6. SSLC. A pass rate is not a dropout rate. The 2025 and 2026 pass rates in the sources conflict and use different bases; never present them as a trend.
 7. PERSONAS AND SYNTHESES. The 12 personas are composites built from public data. Persona replies and "consolidated answers" are model-written, not evidence.
 8. Do not give policy advice or opinions beyond what the research states.
-9. NITI PRESCRIPTIVE MODEL. A second NITI analysis (UDISE 2023-24 and NFHS-5) fits one straight line per factor across Karnataka's districts and ranks each district's "top three changes": the factors whose 10% improvement the lines link most to lower dropout. It is a correlation, not proof that changing a factor would lower dropout. The dashboard shows the "feasible" ranking (percentages capped at 100%) first; NITI's own published ranking is dominated by factors already near 100% (toilets, libraries). Unlike the dominant-factor files in rule 5, these factor values ARE plain indicator values (for example 86% of classrooms in good condition) and may be quoted. The dropout rates in that file come from the NITI workbook, a different source from the casefile rate: never mix them."""
+9. NITI PRESCRIPTIVE MODEL. A second NITI analysis (UDISE 2023-24 and NFHS-5) fits one straight line per factor across Karnataka's districts and ranks each district's "top three changes": the factors whose 10% improvement the lines link most to lower dropout. It is a correlation, not proof that changing a factor would lower dropout. The dashboard shows the "feasible" ranking (percentages capped at 100%) first; NITI's own published ranking is dominated by factors already near 100% (toilets, libraries). Unlike the dominant-factor files in rule 5, these factor values ARE plain indicator values (for example 86% of classrooms in good condition) and may be quoted. The dropout rates in that file come from the NITI workbook, a different source from the casefile rate: never mix them.
+10. STUNTING. The stunting study has: NFHS-6 district stunting rates and the NITI team's PROVISIONAL stunting model (one linear model across Karnataka's districts; for a 20% cut it prescribes how far each of 11 factors would have to move), and media research collected by automated web search; every number in a claim was checked to be on its cited page and attributable to the district, but claims without numbers were not checked word by word. Mandya has no stunting figures. "No local evidence" means our search found none, not that the factor does not matter. NFHS-5 and NFHS-6 figures both appear in sources: always name which."""
 
 
 def artefact_lines(pres: dict, info: dict) -> list[str]:
@@ -119,6 +120,14 @@ def toks(text: str) -> int:
     return -(-len(text) // 4)  # conservative: ~4 characters per token
 
 
+def region_short_name(entry: dict | None, st: dict) -> str:
+    """'Raichur 46.3%' for a statewide highest/lowest entry of niti-stunting.json."""
+    if not entry:
+        return "n/a"
+    d = st["districts"].get(entry["districtId"], {})
+    return f"{d.get('area', entry['districtId'])} {entry['value']}%"
+
+
 def input_files() -> list[str]:
     return sorted(
         [
@@ -127,8 +136,11 @@ def input_files() -> list[str]:
             os.path.join(DATA, "default-run.json"),
             os.path.join(DATA, "news-vs-data.json"),
             os.path.join(DATA, "niti-prescriptive.json"),
+            os.path.join(DATA, "niti-stunting.json"),
+            *glob.glob(os.path.join(DATA, "stunting-research.json")),
             os.path.join(ROOT, "backend", "app", "data", "karnataka_regions.json"),
             *glob.glob(os.path.join(ROOT, "src", "lib", "worldview", "personaCards", "*.json")),
+            *glob.glob(os.path.join(ROOT, "src", "lib", "worldview", "personaCards", "studyLens", "*.json")),
             os.path.abspath(__file__),
         ]
     )
@@ -449,13 +461,16 @@ def build() -> dict:
     P = ["PERSONAS: 12 composite characters (a man and a woman per region) built from public data -- (PERSONA), not real people. Facts about them are regional context, not sourced evidence."]
     for path in sorted(glob.glob(os.path.join(ROOT, "src", "lib", "worldview", "personaCards", "*.json"))):
         rid = os.path.basename(path)[:-5]
+        lens_path = os.path.join(os.path.dirname(path), "studyLens", f"{rid}.json")
+        lenses = read(lens_path) if os.path.isfile(lens_path) else {}
         for gender, c in read(path).items():
-            pressures = "; ".join(f"{p['label']}: {p['detail']}" for p in c["schoolPressures"])
+            pressures = "; ".join(f"{p['label']}: {p['detail']}" for p in lenses.get(gender, {}).get("schoolPressures", []))
             P.append(
                 f"- {region_short.get(rid, rid)} / {gender}: {c['name']}, {c['ageLabel']}, {c['role']}, {c['place']}"
-                f"{', ' + c['community'] if c['community'] else ''}. {c['tagline']} What pulls children out of school in this household: {pressures}. "
-                f"Worries: {', '.join(c['worries'])}."
+                f"{', ' + c['community'] if c['community'] else ''}. {c['tagline']} Worries: {', '.join(c['worries'])}."
+                + (f" Study lens (the dropout study's reading of this household, not part of the persona): {pressures}." if pressures else "")
             )
+    P.append("Beyond these 12, the dashboard's persona library holds district-level personas (a man and a woman per district) that users can generate, fine-tune and ask questions; those are not part of this study's findings.")
     personas = "\n".join(P)
 
     # ---- digest (always sent) ------------------------------------------------------------------
@@ -475,6 +490,75 @@ def build() -> dict:
             if r["evidence"] == "strong":
                 D.append(sslc(f"- {d['name']} (DISTRICT): {r['factor']} - {r['detail']} {cites(did, r['sources'])}".rstrip()))
     digest = "\n".join(D)
+
+    # ---- stunting (second study) ---------------------------------------------------------------
+    stunting_text, stunting_districts = "", {}
+    st_path, sr_path = os.path.join(DATA, "niti-stunting.json"), os.path.join(DATA, "stunting-research.json")
+    if os.path.isfile(st_path):
+        st = read(st_path)
+        sr = read(sr_path) if os.path.isfile(sr_path) else {}
+        finfo = {f["name"]: f for f in st["factors"]}
+        st_gid: dict[str, dict[int, str]] = {}
+        for did in sorted(sr):
+            st_gid[did] = {}
+            for src in sr[did]["sources"]:
+                if src["url"] not in gid_by_url:
+                    gid = f"S{len(sources) + 1}"
+                    gid_by_url[src["url"]] = gid
+                    sources.append({"id": gid, "title": src["title"][:150], "outlet": src["outlet"], "date": src["date"], "type": src["type"], "url": src["url"]})
+                st_gid[did][src["id"]] = gid_by_url[src["url"]]
+        cite = lambda did, ids: "".join(f" [{st_gid[did][i]}]" for i in ids if i in st_gid.get(did, {}))  # noqa: E731
+        T = [
+            "STUNTING STUDY: under-5 child stunting in Karnataka (NFHS-6) and the NITI team's PROVISIONAL stunting model.",
+            f"Model: {st['method']['model']} {st['method']['target']} {st['method']['allocation']} {st['method']['prescribed']} {st['method']['caveat']}",
+            f"Statewide (STATEWIDE): district mean {st['statewide']['mean']}%, highest {region_short_name(st['statewide']['highest'], st)} , lowest {region_short_name(st['statewide']['lowest'], st)}. No figures for: {', '.join(st['source']['missing']) or 'none'}.",
+            "Factors (correlation r with stunting across districts; Karnataka range): " + "; ".join(
+                f"{f['short']} [{f['bucket']}] r={f['pearson']:.2f}, {f['karnataka']['min']:.0f}-{f['karnataka']['max']:.0f}%, {f['better']} is better" for f in st["factors"]),
+            "District stunting, highest first: " + ", ".join(
+                f"{d['area']} {d['stunting']}%" for d in sorted((d for d in st["districts"].values() if d["stunting"] is not None), key=lambda d: -d["stunting"])) + ".",
+        ]
+        if sr:
+            cats: dict[str, int] = {}
+            verdicts: dict[str, dict[str, int]] = {}
+            for f in sr.values():
+                for c in {r["category"] for r in f["reasons"]}:
+                    cats[c] = cats.get(c, 0) + 1
+                for w in f["modelFactorWhy"]:
+                    v = verdicts.setdefault(finfo.get(w["factor"], {}).get("short", w["factor"]), {})
+                    v[w["verdict"]] = v.get(w["verdict"], 0) + 1
+            cov: dict[str, int] = {}
+            for f in sr.values():
+                cov[f["coverage"]] = cov.get(f["coverage"], 0) + 1
+            T.append(f"Media research: {len(sr)} districts, coverage " + ", ".join(f"{v} {k}" for k, v in sorted(cov.items())) + ".")
+            T.append("What the news points to, by number of districts: " + "; ".join(f"{k} {v}" for k, v in sorted(cats.items(), key=lambda kv: -kv[1])) + ".")
+            T.append("Local evidence for the model's top prescribed factors (districts): " + "; ".join(
+                f"{k}: " + ", ".join(f"{n} {v}" for v, n in sorted(t.items())) for k, t in verdicts.items()) + ".")
+        stunting_text = "\n".join(T)
+        for did, d in st["districts"].items():
+            L = [f"STUNTING · {d['area']} (DISTRICT)"]
+            if d["stunting"] is None:
+                L.append("No stunting figures in the NITI workbook for this district.")
+            else:
+                L.append(f"Under-5 stunting {d['stunting']}% (NFHS-6), {d.get('rankHighest')} highest of {st['source']['withData']}; model target at a 20% cut {d['target']}%.")
+                L.append("Model's largest prescribed changes: " + "; ".join(
+                    f"{finfo[f['name']]['short']} {f['value']}% -> {f['prescribed']}% (rank {f['rank']} of {st['source']['withData']})" for f in d["factors"][:3]) + ".")
+            r = sr.get(did)
+            if r:
+                L.append(f"Research ({r['coverage']} coverage, automated web search, page-verified): {r['headline']}")
+                if r["summary"]:
+                    L.append(f"(SYNTHESIS) {r['summary']}")
+                for x in r["reasons"]:
+                    L.append(f"- Reason ({x['evidence']}): {x['factor']}: {x['detail']}{cite(did, x['sources'])}")
+                for x in r["keyFacts"]:
+                    L.append(f"- Fact: {x['label']}: {x['value']}{cite(did, x['sources'])}")
+                for x in r["responses"]:
+                    L.append(f"- Local action: {x['text']}{cite(did, x['sources'])}")
+                for w in r["modelFactorWhy"]:
+                    proof = " ".join(f"{p['claim']}{cite(did, p['sources'])}" for p in w["proof"])
+                    L.append(f"- Model factor {finfo.get(w['factor'], {}).get('short', w['factor'])}: {w['verdict']}. {w['why']} {proof}".strip())
+                if r["gaps"]:
+                    L.append(f"Gaps: {r['gaps']}")
+            stunting_districts[did] = "\n".join(L)
 
     # ---- router index --------------------------------------------------------------------------
     index = {
@@ -498,14 +582,18 @@ def build() -> dict:
         "prescriptive": prescriptive,
         "analysis": analysis,
         "personas": personas,
+        "stunting": stunting_text,
+        "stuntingDistricts": stunting_districts,
     }
-    sections = [CAVEATS, digest, uidai, news_vs_data, prescriptive, analysis, personas, *region_sections.values(), *districts.values()]
+    sections = [CAVEATS, digest, uidai, news_vs_data, prescriptive, analysis, personas, *region_sections.values(), *districts.values(),
+                stunting_text, *stunting_districts.values()]
     known = {s["id"] for s in sources}
     dangling = sorted({m for t in sections for m in re.findall(r"\[(S\d+)\]", t)} - known)
     if dangling:
         raise SystemExit(f"knowledge pack references unknown source ids: {dangling}")
     pack["tokenEstimate"] = {
         "alwaysSent": toks(CAVEATS) + toks(digest),
+        "stunting": toks(stunting_text), "stuntingDistrictMax": max((toks(t) for t in stunting_districts.values()), default=0),
         "uidai": toks(uidai), "newsVsData": toks(news_vs_data), "prescriptive": toks(prescriptive), "analysis": toks(analysis), "personas": toks(personas),
         "regionMax": max(toks(t) for t in region_sections.values()),
         "districtMax": max(toks(t) for t in districts.values()),

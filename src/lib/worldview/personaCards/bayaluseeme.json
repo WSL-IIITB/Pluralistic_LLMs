@@ -110,11 +110,7 @@
           "His son commutes several kilometres to a government high school in Challakere town by bicycle or shared transport.",
           "His daughter must move to the same distant high school at Class 9; no girls' secondary school is nearer.",
           "He knows the Kasturba Gandhi Balika Vidyalaya residential scheme and sees it as a fallback."
-        ],
-        "stat": {
-          "value": "22.2%",
-          "label": "Karnataka dropout rate in classes 9-10, UDISE+ 2023-24"
-        }
+        ]
       },
       {
         "key": "health_and_wellbeing",
@@ -177,28 +173,6 @@
         }
       }
     ],
-    "schoolPressures": [
-      {
-        "emoji": "🚌",
-        "label": "Distance",
-        "detail": "No functioning secondary school within walking distance; the daily commute to Challakere town is several kilometres."
-      },
-      {
-        "emoji": "🌾",
-        "label": "Harvest labour",
-        "detail": "Farm and grazing work during the groundnut harvest and lambing season pulls children away."
-      },
-      {
-        "emoji": "🐑",
-        "label": "Lost grazing land",
-        "detail": "Kaval diversion changed herding routines, pulling boys who help move livestock away from regular schooling."
-      },
-      {
-        "emoji": "💸",
-        "label": "Drought wage work",
-        "detail": "In bad years a teenager may do short stretches of daily-wage work while staying on school rolls."
-      }
-    ],
     "worries": [
       "Failing borewells",
       "Volatile crop prices",
@@ -207,38 +181,6 @@
       "Few local jobs",
       "Daughter's schooling"
     ],
-    "factorEffects": {
-      "districtId": "29-566",
-      "pressures": [
-        "His 16-year-old son's daily trip to Challakere town costs hours and fare money. The commute is where his schooling is likeliest to break, and his 13-year-old daughter faces the same road next.",
-        "In groundnut-harvest and lambing weeks his son is needed in the field or with the flock, so attendance drops in just those weeks.",
-        "Herding now means longer walks, so the son who helps move the flock loses school days and the family leans on his labour more.",
-        "In a drought year his teenage son earns daily wages while staying on the rolls: he looks enrolled but is missing class, a hidden dropout risk."
-      ],
-      "sanitation": "If his farm household lacks a proper toilet, his adolescent daughter's attendance would suffer first, making an early exit easier to accept.",
-      "district": "The factor flags the share of English-medium schools in Chitradurga. His own schooling ended at Class 7, and the card shows distance, harvest and herding as what pulls his children out, not language."
-    },
-    "dataLens": {
-      "area": "Chitradurga",
-      "changes": [
-        {
-          "factor": "% Schools with Furniture available for students",
-          "effect": "His son, about 16, spends long days at the government high school; without desks and benches, writing and staying through the day is harder."
-        },
-        {
-          "factor": "% Classrooms in Good Condition",
-          "effect": "If his son's school has rooms that need repair, lessons get crowded or cut short, one more strain while harvest and drought work pull at the household."
-        },
-        {
-          "factor": "% Women with 10+ Years Schooling",
-          "effect": "Where more mothers have ten years of schooling, daughters tend to stay on longer; that could matter for his daughter, about 13, nearing high school."
-        }
-      ],
-      "lag": {
-        "factor": "% Schools with instruction medium 1 (English)",
-        "effect": "Chitradurga has one of the lowest shares of English-medium schools in the state, so his children's schooling stays in Kannada; an English-heavy step later could be hard."
-      }
-    },
     "intro": {
       "backdrop": "dry-plains",
       "lines": [
@@ -427,11 +369,7 @@
           "Her son commutes daily to a government high school in Chintamani town; her daughter finished Class 8.",
           "The nearest school with Classes 9 and 10 is several kilometres away, and parents weigh safety heavily.",
           "A Kasturba Gandhi Balika Vidyalaya hostel seat is one of the few realistic ways her daughter could continue."
-        ],
-        "stat": {
-          "value": "19.6%",
-          "label": "Karnataka girls' dropout rate in 2023-24, falling to 13.9% by 2025-26"
-        }
+        ]
       },
       {
         "key": "health_and_wellbeing",
@@ -486,28 +424,6 @@
         ]
       }
     ],
-    "schoolPressures": [
-      {
-        "emoji": "🚸",
-        "label": "Distance & safety",
-        "detail": "The nearest Class 9-10 school is several kilometres away, and parents weigh the commute and daughters' safety heavily."
-      },
-      {
-        "emoji": "🐛",
-        "label": "Rearing labour",
-        "detail": "Time-bound leaf-feeding and rearing work often falls to daughters, especially when the father is away."
-      },
-      {
-        "emoji": "🧱",
-        "label": "Father's migration",
-        "detail": "Seasonal brick-kiln and construction work leaves no one to share the load and disrupts children's attendance."
-      },
-      {
-        "emoji": "🏫",
-        "label": "Hostel seat uncertainty",
-        "detail": "Continuing depends on whether a KGBV or similar hostel seat becomes available and how cocoon cycles pay."
-      }
-    ],
     "worries": [
       "Cocoon price swings",
       "Uncertain wage days",
@@ -516,38 +432,6 @@
       "Distant high school",
       "Few non-farm jobs"
     ],
-    "factorEffects": {
-      "districtId": "29-582",
-      "pressures": [
-        "Her daughter, just out of Class 8, faces a several-kilometre trip to a Class 9-10 school. With safety weighing heavily, the commute alone can decide whether she continues.",
-        "Leaf-feeding and rearing cannot wait, so the work lands on her 14-year-old daughter, especially when her husband is away. School hours compete directly with the cocoon cycle.",
-        "With her husband away on brick-kiln or construction work, nobody shares the load, so both children's attendance bends around her workload.",
-        "Her daughter's next step hinges on a hostel seat. If none comes, the household has no other route to Class 9."
-      ],
-      "sanitation": "If her rented-patch household lacks a proper toilet, her daughter's attendance would suffer first once she reaches puberty.",
-      "district": "The factor flags the share of English-medium schools in Chikkaballapur. The card shows commute, rearing work, her husband's migration and hostel seats as the pressures, not language."
-    },
-    "dataLens": {
-      "area": "Chikkaballapura",
-      "changes": [
-        {
-          "factor": "% Classrooms in Good Condition",
-          "effect": "Her son, 15, studies in a government high school; repaired classrooms would keep his lessons running while rearing work pulls at the household."
-        },
-        {
-          "factor": "% Population Living in Households with Improved Sanitation",
-          "effect": "If her home lacked a toilet, her daughter, 14, would face the safety and privacy worries that can keep older girls at home."
-        },
-        {
-          "factor": "% Women with 10+ Years Schooling",
-          "effect": "Where more mothers finished ten years of school, families tend to keep daughters in school longer; her daughter's next step, a hostel seat or a long commute, is still open."
-        }
-      ],
-      "lag": {
-        "factor": "% Schools with Furniture available for students",
-        "effect": "Chikkaballapur ranks near the bottom of Karnataka for desks and benches, so her children could be sitting on the floor through long secondary-school days."
-      }
-    },
     "intro": {
       "backdrop": "fields",
       "lines": [

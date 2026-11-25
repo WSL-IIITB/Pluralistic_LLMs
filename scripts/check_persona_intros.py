@@ -96,8 +96,12 @@ def main() -> int:
     failed = 0
     for path in sorted(glob.glob(os.path.join(CARDS, "*.json"))):
         rid = os.path.basename(path)[:-5]
+        # The study fields (schoolPressures, dataLens, ...) live in studyLens/<region>.json, apart from
+        # the persona; the recorded script still has school/district scenes, so check against both.
+        lens_path = os.path.join(CARDS, "studyLens", f"{rid}.json")
+        lenses = json.load(open(lens_path, encoding="utf-8")) if os.path.isfile(lens_path) else {}
         for pid, card in json.load(open(path, encoding="utf-8")).items():
-            errs, warns = check(rid, pid, card)
+            errs, warns = check(rid, pid, {**card, **lenses.get(pid, {})})
             total = sum(words(ln.get("text", "")) for ln in card.get("intro", {}).get("lines", []))
             print(f"{'FAIL' if errs else 'ok  '}  {rid}/{pid}: {len(card.get('intro', {}).get('lines', []))} lines, {total} words")
             for e in errs:

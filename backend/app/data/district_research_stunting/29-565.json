@@ -1,0 +1,298 @@
+{
+  "districtId": "29-565",
+  "name": "Ballari (incl. Vijayanagara)",
+  "regionId": "kalyana-karnataka",
+  "topic": "stunting",
+  "researchedOn": "2026-11-25",
+  "method": "automated: web search + Claude compile + page verification (scripts/research_stunting_districts.py)",
+  "headline": "Ballari district, part of Hyderabad-Karnataka region, experiences high maternal anaemia rates. Women describe infant deaths using the word 'khaali,' reflecting malnutrition's impac",
+  "summary": "Ballari faces severe child undernutrition, with a 2018 study finding 40.6% of 1-5 year children undernourished in urban areas, including 18.6% severely affected. By 2021, the district identified 827 severely and 45,774 moderately malnourished children. Stunting prevalence reached 43.2% and wasting 23.9%. The government responded with nutrition intervention programmes for children with Severe Acute Malnutrition, including residential treatment at nutrition rehabilitation centers. District authorities added boiled eggs to midday meals in Ballari as part of an eight-district initiative to address acute malnutrition, though programme implementation faced challenges including anganwadi closures during Covid-19.",
+  "reasons": [
+    {
+      "factor": "Maternal anaemia and malnutrition",
+      "category": "maternal-health",
+      "detail": "Ballari district, part of Hyderabad-Karnataka region, experiences high maternal anaemia rates. Women describe infant deaths using the word 'khaali,' reflecting malnutrition's impact on pregnancy outcomes.",
+      "sources": [
+        5
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Economic poverty",
+      "category": "economic",
+      "detail": "Ballari flagged as one of 10 districts with major poverty challenges. The Karnataka Human Development Report 2022 recommends agricultural interventions to increase farm productivity and lift populations from poverty.",
+      "sources": [
+        6
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Disrupted nutrition programmes",
+      "category": "health-services",
+      "detail": "Midday meals stopped after lockdown, with ration kits inadequately distributed. Data shows 9,544 malnourished children between April-October 2020. Pregnant woman in Hampasagara struggled to get rations under Chief Minister's scheme.",
+      "sources": [
+        7
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Anganwadi service gaps",
+      "category": "health-services",
+      "detail": "One pregnant woman lacked nutritious meal provision during first pregnancy three years prior, highlighting service inconsistency in reaching all beneficiaries.",
+      "sources": [
+        9
+      ],
+      "evidence": "thin"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Undernutrition prevalence 2018",
+      "value": "40.6%",
+      "sources": [
+        4,
+        10,
+        11
+      ]
+    },
+    {
+      "label": "Stunting prevalence 2018",
+      "value": "43.2%",
+      "sources": [
+        4,
+        10,
+        11
+      ]
+    },
+    {
+      "label": "Wasting prevalence 2018",
+      "value": "23.9%",
+      "sources": [
+        4,
+        10,
+        11
+      ]
+    },
+    {
+      "label": "Severely malnourished children 2021",
+      "value": "827",
+      "sources": [
+        12
+      ]
+    },
+    {
+      "label": "Moderately malnourished children 2021",
+      "value": "45,774",
+      "sources": [
+        12
+      ]
+    },
+    {
+      "label": "Severe undernutrition 2018",
+      "value": "18.6%",
+      "sources": [
+        4,
+        10,
+        11
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Eggs in midday meal a welcome decision",
+      "outlet": "Deccan Herald",
+      "date": "2021-12-08",
+      "url": "https://www.deccanherald.com/opinion/editorial/eggs-in-midday-meal-a-welcome-decision-1058950.html",
+      "takeaway": "Government added boiled eggs to midday meal in Ballari among eight districts where malnutrition is most acute"
+    },
+    {
+      "title": "Malnutrition remains a worry as Karnataka govt schemes miss target",
+      "outlet": "Deccan Herald",
+      "date": "2021-08-21",
+      "url": "https://www.deccanherald.com/india/karnataka/malnutrition-remains-a-worry-as-karnataka-govt-schemes-miss-target-1022168.html",
+      "takeaway": "State government held nutrition intervention programme for children with Severe Acute Malnutrition in Ballari"
+    },
+    {
+      "title": "Every Taluk in the District to receive a child care centre",
+      "outlet": "hospet.online",
+      "date": "2021-06-12",
+      "url": "https://hospet.online/every-taluk-in-the-district-to-receive-a-child-care-centre/",
+      "takeaway": "District identified 827 severely and 45,774 moderately malnourished children under Bala Chaitanya Yojana health project"
+    },
+    {
+      "title": "Mid-day meals stopped after lockdown in Karnataka, child malnutrition sees a spike",
+      "outlet": "thenewsminute.com",
+      "date": "2020-12-21",
+      "url": "https://www.thenewsminute.com/article/mid-day-meals-stopped-after-lockdown-karnataka-child-malnutrition-sees-spike-140043",
+      "takeaway": "Midday meals stopped after lockdown; malnutrition among children aged six and below increased since April 2020"
+    }
+  ],
+  "responses": [
+    {
+      "text": "Children with Severe Acute Malnutrition underwent residential treatment for fortnight at nutritional rehabilitation centre",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "text": "Boiled eggs added to midday meals three days weekly as part of nutrition intervention",
+      "sources": [
+        2,
+        8
+      ]
+    },
+    {
+      "text": "Child care centres planned for every taluk; severely malnourished children to be quarantined with nutritious food and medical help",
+      "sources": [
+        12
+      ]
+    },
+    {
+      "text": "Spirulina dietary supplement programme launched for severely malnourished anganwadi children, two grams daily for 180 days",
+      "sources": [
+        3
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://www.deccanherald.com/india/karnataka/malnutrition-remains-a-worry-as-karnataka-govt-schemes-miss-target-1022168.html",
+      "title": "Malnutrition remains a worry as Karnataka govt schemes miss target",
+      "outlet": "Deccan Herald",
+      "date": "2021-08-21",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://www.deccanherald.com/opinion/editorial/eggs-in-midday-meal-a-welcome-decision-1058950.html",
+      "title": "Eggs in midday meal a welcome decision",
+      "outlet": "Deccan Herald",
+      "date": "2021-12-08",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://arogyarakshana.wordpress.com/2016/07/23/corporates-hovering-like-vultures-around-malnourished-children/",
+      "title": "Corporates hovering like vultures around malnourished children",
+      "outlet": "arogyarakshana.wordpress.com",
+      "date": "2016-07-23",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "https://researchersprofile.com/abstract/3272",
+      "title": "Prevalence of undernutrition among 1-5 year children in urban Ballari- A cross-sectional study",
+      "outlet": "researchersprofile.com",
+      "date": "",
+      "type": "research"
+    },
+    {
+      "id": 5,
+      "url": "https://www.deccanherald.com/amp/story/india%2Fmalnutrition-still-a-malaise-in-karnataka-756782.html",
+      "title": "Malnutrition, still a malaise in Karnataka",
+      "outlet": "Deccan Herald",
+      "date": "2019-08-25",
+      "type": "news"
+    },
+    {
+      "id": 6,
+      "url": "https://www.deccanherald.com/opinion/editorial/poverty-malnutrition-karnataka-s-shame-1203841.html",
+      "title": "Poverty, malnutrition Karnataka’s shame",
+      "outlet": "Deccan Herald",
+      "date": "2023-03-26",
+      "type": "news"
+    },
+    {
+      "id": 7,
+      "url": "https://www.thenewsminute.com/article/mid-day-meals-stopped-after-lockdown-karnataka-child-malnutrition-sees-spike-140043",
+      "title": "Mid-day meals stopped after lockdown in Karnataka, child malnutrition sees a spike",
+      "outlet": "thenewsminute.com",
+      "date": "2020-12-21",
+      "type": "news"
+    },
+    {
+      "id": 8,
+      "url": "https://countercurrents.org/2021/12/egg-in-mid-day-meals-resistance-is-against-child-rights/",
+      "title": "Egg in mid-day meals- Resistance is against child rights",
+      "outlet": "countercurrents.org",
+      "date": "2021-12-20",
+      "type": "ngo"
+    },
+    {
+      "id": 9,
+      "url": "https://sabrangindia.in/how-karnataka-improving-childrens-health-focusing-mothers/",
+      "title": "How Karnataka Is Improving Children’s Health By Focusing On Mothers",
+      "outlet": "sabrangindia.in",
+      "date": "2019-06-10",
+      "type": "news"
+    },
+    {
+      "id": 10,
+      "url": "https://ijfcm.org/archive/volume/8/issue/3/article/14595",
+      "title": "Prevalence of undernutrition among 1-5 year children in urban Ballari- A cross-sectional study",
+      "outlet": "ijfcm.org",
+      "date": "2025-07-23",
+      "type": "ngo"
+    },
+    {
+      "id": 11,
+      "url": "https://ijfcm.org/html-article/14758",
+      "title": "Prevalence of undernutrition among 1-5 year children in urban Ballari- A cross-sectional study",
+      "outlet": "ijfcm.org",
+      "date": "2025-07-23",
+      "type": "ngo"
+    },
+    {
+      "id": 12,
+      "url": "https://hospet.online/every-taluk-in-the-district-to-receive-a-child-care-centre/",
+      "title": "Every Taluk in the District to receive a child care centre",
+      "outlet": "hospet.online",
+      "date": "2021-06-12",
+      "type": "news"
+    }
+  ],
+  "modelFactorWhy": [
+    {
+      "factor": "Children age 3–6 recorded as school-going",
+      "verdict": "no-evidence",
+      "why": "No pages discuss preschool attendance, anganwadi enrollment rates, or the relationship between early childhood education participation and nutritional outcomes in Ballari.",
+      "mechanism": "Early childhood education provides structured nutrition delivery through midday meals and enables regular growth monitoring",
+      "proof": []
+    },
+    {
+      "factor": "Mothers who took iron-folic acid for 180+ days in pregnancy",
+      "verdict": "partly",
+      "why": "Pages note high maternal anaemia in Hyderabad-Karnataka region including Ballari, and reference a Spirulina programme using 180-day duration, but lack specific data on iron-folic acid compliance locally.",
+      "mechanism": "Adequate iron-folic acid intake during pregnancy prevents maternal anaemia and supports fetal development, reducing low birth weight and stunting",
+      "proof": [
+        {
+          "claim": "Ballari in Hyderabad-Karnataka region has high maternal anaemia rates; women describe infant deaths as 'khaali'",
+          "sources": [
+            5
+          ]
+        },
+        {
+          "claim": "Spirulina administered two grams daily for 180 days to severely malnourished children",
+          "sources": [
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "Household members covered by health insurance",
+      "verdict": "no-evidence",
+      "why": "No pages mention health insurance coverage rates, Ayushman Bharat enrollment, or the relationship between insurance and healthcare access for child nutrition in Ballari.",
+      "mechanism": "Health insurance coverage enables families to access preventive and curative healthcare without financial barriers, supporting child nutrition",
+      "proof": []
+    }
+  ],
+  "coverage": "moderate",
+  "gaps": "No local data on iron-folic acid compliance during pregnancy, preschool enrollment rates, health insurance coverage, or specific socioeconomic factors driving malnutrition in Ballari",
+  "verificationNotes": [
+    "headline replaced (unverified number): Ballari's child undernutrition crisis: 40.6% prevalence with over 46,000 moderately malnou"
+  ],
+  "searched": 99,
+  "candidatePages": 18
+}

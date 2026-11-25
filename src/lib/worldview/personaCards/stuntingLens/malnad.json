@@ -1,0 +1,38 @@
+{
+  "male": {
+    "districtId": "29-570",
+    "underFive": "No child under five in household; son is 17, daughter is 14.",
+    "changes": [
+      {
+        "factor": "Mothers who took iron-folic acid for 180+ days in pregnancy",
+        "effect": "If the daughter eventually becomes pregnant, ensuring 180+ days of iron-folic acid would reduce her baby's anaemia and low birth-weight risk, strengthening stunting prevention from conception."
+      },
+      {
+        "factor": "Children age 3–6 recorded as school-going",
+        "effect": "If a future grandchild or neighbour's toddler attends pre-school, early learning and midday meals would support cognitive growth and nutrition during the critical window before primary school begins."
+      },
+      {
+        "factor": "Household members covered by health insurance",
+        "effect": "With health insurance, the family could afford timely antenatal check-ups, delivery care, and postnatal visits for future pregnancies without depleting coffee income, protecting maternal and infant health."
+      }
+    ]
+  },
+  "female": {
+    "districtId": "29-576",
+    "underFive": "No child under five in this household; daughter is 15, son is 10.",
+    "changes": [
+      {
+        "factor": "Children age 3–6 recorded as school-going",
+        "effect": "If relatives or neighbours have toddlers, structured pre-school exposure could support early learning and nutrition monitoring during the critical window before primary school."
+      },
+      {
+        "factor": "Mothers who took iron-folic acid for 180+ days in pregnancy",
+        "effect": "If this household has a future pregnancy or if younger relatives conceive, sustained iron-folic acid intake would protect maternal health and reduce anaemia risk for the newborn."
+      },
+      {
+        "factor": "Household members covered by health insurance",
+        "effect": "With weak tertiary care a stated worry, full insurance coverage could reduce financial barriers if young relatives' children need hospital treatment for severe malnutrition or illness."
+      }
+    ]
+  }
+}

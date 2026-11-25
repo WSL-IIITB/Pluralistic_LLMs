@@ -1,0 +1,134 @@
+{
+  "districtId": "29-584",
+  "name": "Ramanagara",
+  "regionId": "old-mysuru",
+  "topic": "stunting",
+  "researchedOn": "2026-11-25",
+  "method": "automated: web search + Claude compile + page verification (scripts/research_stunting_districts.py)",
+  "headline": "Ramanagara shows strong immunisation and delivery outcomes but lacks district-specific stunting data",
+  "summary": "Ramanagara district achieved 99% institutional delivery coverage, the highest in Karnataka, significantly above the state average of 94%. This suggests strong health service access for maternal care. However, available sources provide no district-specific data on child stunting prevalence or its direct causes in Ramanagara. The district hosts 69 Primary Health Centres with 159 ASHA workers as of 2023, indicating health infrastructure presence. Without local stunting figures or nutritional outcome data, understanding the specific undernutrition landscape in Ramanagara remains limited.",
+  "reasons": [
+    {
+      "factor": "Maternal health services",
+      "category": "maternal-health",
+      "detail": "Ramanagara achieved 99% institutional delivery coverage in NFHS, the highest district rate in Karnataka.",
+      "sources": [
+        2
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Health infrastructure",
+      "category": "health-services",
+      "detail": "Magadi Taluk in Ramanagara has 69 Primary Health Centres and sub-centres with 159 ASHA workers serving.",
+      "sources": [
+        3
+      ],
+      "evidence": "moderate"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Institutional delivery (NFHS)",
+      "value": "99%",
+      "sources": [
+        2
+      ]
+    },
+    {
+      "label": "PHCs/sub-centres (2023)",
+      "value": "69",
+      "sources": [
+        3
+      ]
+    },
+    {
+      "label": "ASHA workers (2023)",
+      "value": "159",
+      "sources": [
+        3
+      ]
+    },
+    {
+      "label": "Statewide: Stunting (NFHS-5)",
+      "value": "35.5%",
+      "sources": [
+        1
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "In Karnataka, Implementation of Health Schemes Doesn’t Match Policy Aspirations",
+      "outlet": "The Wire",
+      "date": "",
+      "url": "https://science.thewire.in/health/in-karnataka-implementation-of-health-schemes-doesnt-match-policy-aspirations/",
+      "takeaway": "Ramanagara leads Karnataka with 99% institutional delivery coverage versus 80% in lowest district"
+    }
+  ],
+  "responses": [
+    {
+      "text": "ASHA workers in Magadi Taluk received training on high-risk pregnancies, with 70.9% completing 5-6 sessions.",
+      "sources": [
+        3
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=1806601&reg=3&lang=2",
+      "title": "“Malnutrition among Children”",
+      "outlet": "PIB",
+      "date": "",
+      "type": "government"
+    },
+    {
+      "id": 2,
+      "url": "https://science.thewire.in/health/in-karnataka-implementation-of-health-schemes-doesnt-match-policy-aspirations/",
+      "title": "In Karnataka, Implementation of Health Schemes Doesn’t Match Policy Aspirations",
+      "outlet": "The Wire",
+      "date": "",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://www.researchsquare.com/article/rs-6940671/v1",
+      "title": "Knowledge Assessment on High-Risk Pregnancies Among ASHA Workers in Magadi Taluk: An Interventional Study",
+      "outlet": "researchsquare.com",
+      "date": "",
+      "type": "research"
+    }
+  ],
+  "modelFactorWhy": [
+    {
+      "factor": "Children age 3–6 recorded as school-going",
+      "verdict": "no-evidence",
+      "why": "No sources discuss preschool enrollment, early childhood education attendance, or anganwadi participation rates specific to Ramanagara district.",
+      "mechanism": "Early education exposes children to supplementary nutrition programmes and developmental monitoring that can prevent growth faltering.",
+      "proof": []
+    },
+    {
+      "factor": "Mothers who took iron-folic acid for 180+ days in pregnancy",
+      "verdict": "no-evidence",
+      "why": "While ASHA training in Ramanagara covered antenatal care and anaemia diagnosis (haemoglobin cut-off knowledge improved from 38.2% to 81.8%), no data confirms actual IFA supplementation compliance among pregnant women in the district.",
+      "mechanism": "Adequate iron-folic acid supplementation during pregnancy prevents maternal anaemia, supporting fetal growth and reducing low birth weight and subsequent stunting.",
+      "proof": []
+    },
+    {
+      "factor": "Household members covered by health insurance",
+      "verdict": "no-evidence",
+      "why": "Sources mention Karnataka's health insurance schemes like Yashaswini and Vajpayee Aarogyasri at the state level but provide no data on coverage rates in Ramanagara district specifically.",
+      "mechanism": "Health insurance coverage reduces financial barriers to accessing healthcare services, enabling timely treatment of childhood illnesses that cause growth faltering.",
+      "proof": []
+    }
+  ],
+  "coverage": "thin",
+  "gaps": "No district-level stunting prevalence, wasting, or underweight data found. No information on anganwadi coverage, supplementary nutrition reach, dietary practices, or water/sanitation indicators specific to Ramanagara.",
+  "verificationNotes": [
+    "dropped proof (number 81.8 not attributable to Ramanagara): ASHA workers' knowledge on haemoglobin cut-off for diagnosing anaemia rose from 38.2% pre-",
+    "Mothers who took iron-folic acid for 180: verdict partly -> no-evidence (no proof survived)"
+  ],
+  "searched": 95,
+  "candidatePages": 8
+}

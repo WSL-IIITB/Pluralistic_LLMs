@@ -1,0 +1,303 @@
+{
+  "districtId": "29-577",
+  "name": "Mysuru",
+  "regionId": "old-mysuru",
+  "topic": "stunting",
+  "researchedOn": "2026-11-25",
+  "method": "automated: web search + Claude compile + page verification (scripts/research_stunting_districts.py)",
+  "headline": "Street children face severe undernutrition; Mysuru reports declining malnutrition through targeted interventions",
+  "summary": "Mysuru district recorded 36.8% stunting among street children and 142 underweight children in 2025-26, down from 692 in 2023-24—a 79% reduction. In 2021, 9,515 children suffered malnutrition, with 135 cases of Severe Acute Malnutrition, and 1,500 malnourished children in H.D. Kote taluk alone. Despite progress, anaemia remains prevalent. CFTRI launched a Nutrition Intervention Programme in 2025 providing scientifically developed food kits to 500 Anganwadi children. District officials in 2021 set a goal to eliminate malnutrition by 2023 through awareness and nutritious food provision.",
+  "reasons": [
+    {
+      "factor": "Street children vulnerability",
+      "category": "social-norms",
+      "detail": "Among street children in Mysuru, 76.5% were underweight and 36.8% stunted, indicating severe chronic undernutrition in this marginalized group.",
+      "sources": [
+        1
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Anaemia prevalence",
+      "category": "nutrition-diet",
+      "detail": "52.5% of street children and high rates among pregnant women indicate widespread iron deficiency affecting child growth outcomes.",
+      "sources": [
+        1,
+        3
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Tribal area concentration",
+      "category": "social-norms",
+      "detail": "H.D. Kote taluk, predominantly tribal with forests and hamlets, had 1,500 of the district's 9,515 malnourished children in 2021.",
+      "sources": [
+        4,
+        7
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Healthcare delivery gaps",
+      "category": "health-services",
+      "detail": "In 2025, despite 91 identified malnourished children, beds at Cheluvamba Hospital's exclusive ward remained empty with insufficient dietary ingredients.",
+      "sources": [
+        11
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Targeted nutrition programmes",
+      "category": "governance",
+      "detail": "CFTRI's 2025 intervention provides energy-protein burfi, spirulina chikki, and supplements to 500 Anganwadi children with micronutrient testing.",
+      "sources": [
+        5,
+        10
+      ],
+      "evidence": "strong"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Stunting (street children)",
+      "value": "36.8%",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "label": "Underweight children 2025-26",
+      "value": "142",
+      "sources": [
+        9
+      ]
+    },
+    {
+      "label": "Underweight children 2023-24",
+      "value": "692",
+      "sources": [
+        9
+      ]
+    },
+    {
+      "label": "Malnourished children 2021",
+      "value": "9,515",
+      "sources": [
+        4,
+        7
+      ]
+    },
+    {
+      "label": "Severe malnutrition cases 2021",
+      "value": "135",
+      "sources": [
+        3,
+        4
+      ]
+    },
+    {
+      "label": "Statewide: Stunting NFHS-5",
+      "value": "35%",
+      "sources": [
+        2
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Mysuru underweight children fall to 142 in 2025",
+      "outlet": "newskarnataka.com",
+      "date": "2026-09-20",
+      "url": "https://newskarnataka.com/mysuru/mysuru-underweight-children-fall-to-142-in-2025-26/20092026/",
+      "takeaway": "Underweight children in Mysuru fell 79% from 692 in 2023-24 to 142 in 2025-26"
+    },
+    {
+      "title": "91 malnourished kids, but empty beds...",
+      "outlet": "Star of Mysore",
+      "date": "2025-11-07",
+      "url": "https://starofmysore.com/91-malnourished-kids-but-empty-beds/",
+      "takeaway": "91 malnourished children identified but hospital ward empty; dietary ingredients lacking in 2025"
+    },
+    {
+      "title": "CFTRI's nutrition initiative helps 500 malnourished Anganwadi kids in Mysore district",
+      "outlet": "Deccan Herald",
+      "date": "2025-06-08",
+      "url": "https://www.deccanherald.com/india/karnataka/cftris-nutrition-intervention-initiative-helps-500-malnourished-anganwadi-kids-in-mysore-3576612",
+      "takeaway": "CFTRI begins six-month nutrition programme for 500 Anganwadi children in 2025"
+    },
+    {
+      "title": "9,515 children in Mysuru suffer from malnourishment",
+      "outlet": "Star of Mysore",
+      "date": "2021-06-25",
+      "url": "https://starofmysore.com/9515-children-in-mysuru-suffer-from-malnourishment/",
+      "takeaway": "9,515 children malnourished in Mysuru in 2021, with 1,500 from tribal H.D. Kote taluk"
+    },
+    {
+      "title": "Mysuru to be malnutrition",
+      "outlet": "Deccan Herald",
+      "date": "2021-03-31",
+      "url": "https://www.deccanherald.com/state/karnataka-districts/mysuru-to-be-malnutrition-free-by-2023-rohini-sindhuri-968791.html",
+      "takeaway": "Deputy Commissioner set 2023 goal to make Mysuru malnutrition-free; anaemia rising in 2021"
+    },
+    {
+      "title": "Prevalence of anaemia and undernutrition among street children in Mysuru, India",
+      "outlet": "sljch.sljol.info",
+      "date": "",
+      "url": "https://sljch.sljol.info/articles/10.4038/sljch.v46i1.8105",
+      "takeaway": "Street children in Mysuru show 76.5% underweight, 36.8% stunting, 52.5% anaemia"
+    }
+  ],
+  "responses": [
+    {
+      "text": "CFTRI provides supplementary food kits with protein burfi, vitamin chikki, and micronutrient testing for 500 children.",
+      "sources": [
+        5,
+        10
+      ]
+    },
+    {
+      "text": "Deputy Commissioner Rohini Sindhuri announced goal to eliminate district malnutrition by 2023 through awareness campaigns.",
+      "sources": [
+        3
+      ]
+    },
+    {
+      "text": "District officials directed close watch on Severe Acute Malnutrition cases and improved nutritious food supply.",
+      "sources": [
+        7
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://sljch.sljol.info/articles/10.4038/sljch.v46i1.8105",
+      "title": "Prevalence of anaemia and undernutrition among street children in Mysuru, India",
+      "outlet": "sljch.sljol.info",
+      "date": "",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://www.deccanherald.com/amp/story/india%2Fkarnataka%2F35-children-under-the-age-of-five-in-karnataka-are-stunted-nfhs-1108552.html",
+      "title": "35% children under the age of five in Karnataka are stunted: NFHS",
+      "outlet": "Deccan Herald",
+      "date": "2022-05-12",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://www.deccanherald.com/state/karnataka-districts/mysuru-to-be-malnutrition-free-by-2023-rohini-sindhuri-968791.html",
+      "title": "Mysuru to be malnutrition",
+      "outlet": "Deccan Herald",
+      "date": "2021-03-31",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "https://starofmysore.com/9515-children-in-mysuru-suffer-from-malnourishment/",
+      "title": "9,515 children in Mysuru suffer from malnourishment",
+      "outlet": "Star of Mysore",
+      "date": "2021-06-25",
+      "type": "news"
+    },
+    {
+      "id": 5,
+      "url": "https://www.deccanherald.com/india/karnataka/cftris-nutrition-intervention-initiative-helps-500-malnourished-anganwadi-kids-in-mysore-3576612",
+      "title": "CFTRI's nutrition initiative helps 500 malnourished Anganwadi kids in Mysore district",
+      "outlet": "Deccan Herald",
+      "date": "2025-06-08",
+      "type": "news"
+    },
+    {
+      "id": 6,
+      "url": "https://www.ijcmph.com/index.php/ijcmph/article/view/216",
+      "title": "Prevalence and factors associated with anaemia among pregnant women in rural Mysore, Karnataka, India\n\t\t\t\t\t\t\t| International Journal Of Community Medicine And Public Health",
+      "outlet": "ijcmph.com",
+      "date": "",
+      "type": "news"
+    },
+    {
+      "id": 7,
+      "url": "https://www.deccanherald.com/amp/story/india%2Fkarnataka%2F132-children-suffer-from-severe-acute-malnutrition-in-mysuru-n-jayaram-1001075.html",
+      "title": "132 children suffer from severe acute malnutrition in Mysuru: N Jayaram",
+      "outlet": "Deccan Herald",
+      "date": "2021-06-24",
+      "type": "news"
+    },
+    {
+      "id": 8,
+      "url": "https://www.ijcmph.com/index.php/ijcmph/article/view/832",
+      "title": "Prevalence and factors influencing anaemia among pregnant women in rural Mysuru, India\n\t\t\t\t\t\t\t| International Journal Of Community Medicine And Public Health",
+      "outlet": "ijcmph.com",
+      "date": "",
+      "type": "news"
+    },
+    {
+      "id": 9,
+      "url": "https://newskarnataka.com/mysuru/mysuru-underweight-children-fall-to-142-in-2025-26/20092026/",
+      "title": "Mysuru underweight children fall to 142 in 2025",
+      "outlet": "newskarnataka.com",
+      "date": "2026-09-20",
+      "type": "news"
+    },
+    {
+      "id": 10,
+      "url": "https://foodmanifest.com/cftri-launches-nutrition-drive-to-fight-child-malnutrition-in-mysuru/",
+      "title": "CFTRI Launches Nutrition Drive to Fight Child Malnutrition in Mysuru",
+      "outlet": "foodmanifest.com",
+      "date": "2025-05-29",
+      "type": "news"
+    },
+    {
+      "id": 11,
+      "url": "https://starofmysore.com/91-malnourished-kids-but-empty-beds/",
+      "title": "91 malnourished kids, but empty beds...",
+      "outlet": "Star of Mysore",
+      "date": "2025-11-07",
+      "type": "news"
+    }
+  ],
+  "modelFactorWhy": [
+    {
+      "factor": "Mothers who took iron-folic acid for 180+ days in pregnancy",
+      "verdict": "partly",
+      "why": "Research confirms anaemia prevalence among pregnant women in rural Mysuru, and 52.5% anaemia among street children indicates maternal iron deficiency impacts. However, no district data quantifies IFA compliance rates locally.",
+      "mechanism": "Maternal iron-folic acid intake reduces anaemia risk in children, lowering stunting by improving fetal development and birth weight.",
+      "proof": [
+        {
+          "claim": "52.5% of street children in Mysuru had anaemia, often linked to maternal nutrition",
+          "sources": [
+            1
+          ]
+        },
+        {
+          "claim": "Anaemia screening studies conducted among pregnant women in rural Mysuru areas",
+          "sources": [
+            6,
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "Children age 3–6 recorded as school-going",
+      "verdict": "no-evidence",
+      "why": "No district-specific data found on preschool enrollment rates or school-going status among 3-6 year olds in Mysuru. The focus is on Anganwadi attendance rather than formal schooling for this age group.",
+      "mechanism": "Preschool attendance enables nutritional supplementation, early health screening, and developmental monitoring that prevent stunting.",
+      "proof": []
+    },
+    {
+      "factor": "Household members covered by health insurance",
+      "verdict": "no-evidence",
+      "why": "No pages discuss health insurance coverage rates in Mysuru households. References to health services focus on government programmes, not insurance penetration or its effect on child nutrition outcomes.",
+      "mechanism": "Health insurance coverage improves healthcare access for maternal and child services, enabling timely treatment of illnesses that contribute to stunting.",
+      "proof": []
+    }
+  ],
+  "coverage": "moderate",
+  "gaps": "No local data on IFA compliance rates, preschool enrollment, health insurance coverage, or specific stunting prevalence beyond street children.",
+  "verificationNotes": [],
+  "searched": 98,
+  "candidatePages": 20
+}

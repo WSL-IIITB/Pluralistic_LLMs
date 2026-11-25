@@ -1,0 +1,223 @@
+{
+  "districtId": "29-572",
+  "name": "Bengaluru Urban",
+  "regionId": "old-mysuru",
+  "topic": "stunting",
+  "researchedOn": "2026-11-25",
+  "method": "automated: web search + Claude compile + page verification (scripts/research_stunting_districts.py)",
+  "headline": "Bengaluru Urban reports 5,828 moderately and 159 severely malnourished children, with over 30% stunting in city slums",
+  "summary": "Bengaluru Urban district faces persistent child undernutrition despite being a tech hub. As of August 2021, 5,828 children were moderately malnourished and 159 severely malnourished. Studies reveal alarming rates: over 52% of slum children are stunted and over 30% underweight. A national survey found nearly 30% of under-5 children in the city were stunted, 26% acutely malnourished, and 28% underweight. Maternal anaemia remains a concern, with 35.6% of women anaemic, contributing to children being born undernourished.",
+  "reasons": [
+    {
+      "factor": "Maternal anaemia",
+      "category": "maternal-health",
+      "detail": "35.6% of women in Bengaluru Urban are anaemic, contributing to undernourished newborns and poor maternal health outcomes.",
+      "sources": [
+        8
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Urban poverty",
+      "category": "economic",
+      "detail": "In Bengaluru slums, over 52% of children under six are stunted and over 30% underweight, with 25% of households in poorest wealth quintile.",
+      "sources": [
+        3,
+        5
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Poor dietary diversity",
+      "category": "nutrition-diet",
+      "detail": "Studies in Austin Town and Anekal Taluk document inadequate dietary intake and suboptimal infant feeding practices among urban children.",
+      "sources": [
+        4,
+        5
+      ],
+      "evidence": "moderate"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Malnourished children (Aug 2021)",
+      "value": "5,828 moderately and 159 severely malnourished",
+      "sources": [
+        2
+      ]
+    },
+    {
+      "label": "Maternal anaemia prevalence",
+      "value": "35.6% of women",
+      "sources": [
+        8
+      ]
+    },
+    {
+      "label": "Stunting rate (slums)",
+      "value": "over 52%",
+      "sources": [
+        3
+      ]
+    },
+    {
+      "label": "Underweight rate (slums)",
+      "value": "over 30%",
+      "sources": [
+        3
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Bengaluru urban district most unsafe in state for kids, says Karnataka child rights index",
+      "outlet": "Deccan Herald",
+      "date": "2025-11-21",
+      "url": "https://www.deccanherald.com/amp/story/india%2Fkarnataka%2Fbengaluru%2Fbengaluru-urban-district-most-unsafe-in-state-for-kids-says-karnataka-child-rights-index-3805141",
+      "takeaway": "Bengaluru Urban district ranks most unsafe in Karnataka for children per 2023 Child Rights Index"
+    },
+    {
+      "title": "Thousands of malnourished kids in Karnataka, data shows",
+      "outlet": "Deccan Herald",
+      "date": "2021-11-05",
+      "url": "https://www.deccanherald.com/amp/story/india%2Fkarnataka%2Fthousands-of-malnourished-kids-in-karnataka-data-shows-1047479.html",
+      "takeaway": "Bengaluru Urban has 5,828 moderately and 159 severely malnourished children as of August 2021"
+    },
+    {
+      "title": "Child marriages up in Karnataka; panel sleeps on the job",
+      "outlet": "Deccan Herald",
+      "date": "2020-03-09",
+      "url": "https://www.deccanherald.com/amp/story/india%2Fkarnataka%2Fbengaluru%2Fchild-marriages-up-in-karnataka-panel-sleeps-on-the-job-811904.html",
+      "takeaway": "Five child marriages reported in Bengaluru Urban district in 2018-19"
+    },
+    {
+      "title": "Malnutrition stalks Bengaluru kids",
+      "outlet": "deccanchronicle.com",
+      "date": "2018-02-11",
+      "url": "https://www.deccanchronicle.com/nation/current-affairs/110218/malnutrition-stalks-bengaluru-kids.html",
+      "takeaway": "National survey found 30% of Bengaluru children stunted, 26% acutely malnourished, 28% underweight"
+    },
+    {
+      "title": "Over 30% of children in Bangalore slums are underweight | Indiablooms",
+      "outlet": "indiablooms.com",
+      "date": "2015-11-04",
+      "url": "https://www.indiablooms.com/news/over-30-of-children-in-bangalore-slums-are-underweight/details",
+      "takeaway": "Over 52% of Bangalore slum children are stunted, over 30% underweight per CRY study"
+    }
+  ],
+  "responses": [
+    {
+      "text": "Anganwadis in Austin Town and Anekal Taluk provide nutrition services and monitor anthropometric measurements during COVID-19 pandemic.",
+      "sources": [
+        4,
+        5
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://www.deccanchronicle.com/nation/current-affairs/110218/malnutrition-stalks-bengaluru-kids.html",
+      "title": "Malnutrition stalks Bengaluru kids",
+      "outlet": "deccanchronicle.com",
+      "date": "2018-02-11",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://www.deccanherald.com/amp/story/india%2Fkarnataka%2Fthousands-of-malnourished-kids-in-karnataka-data-shows-1047479.html",
+      "title": "Thousands of malnourished kids in Karnataka, data shows",
+      "outlet": "Deccan Herald",
+      "date": "2021-11-05",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://www.indiablooms.com/news/over-30-of-children-in-bangalore-slums-are-underweight/details",
+      "title": "Over 30% of children in Bangalore slums are underweight | Indiablooms",
+      "outlet": "indiablooms.com",
+      "date": "2015-11-04",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "https://www.ovid.com/jnls/jfmpc/fulltext/10.4103/jfmpc.jfmpc_497_25~nutritional-status-of-under-5-children-in-bangalore-city",
+      "title": "Nutritional status of under-5 children in... : Journal of Family Medicine and Primary Care",
+      "outlet": "ovid.com",
+      "date": "",
+      "type": "news"
+    },
+    {
+      "id": 5,
+      "url": "https://www.ovid.com/jnls/jfmpc/fulltext/10.4103/jfmpc.jfmpc_1855_25~dietary-diversity-and-nutritional-status-of-children",
+      "title": "Dietary diversity and nutritional status of... : Journal of Family Medicine and Primary Care",
+      "outlet": "ovid.com",
+      "date": "",
+      "type": "news"
+    },
+    {
+      "id": 6,
+      "url": "https://www.deccanherald.com/amp/story/india%2Fkarnataka%2Fbengaluru%2Fchild-marriages-up-in-karnataka-panel-sleeps-on-the-job-811904.html",
+      "title": "Child marriages up in Karnataka; panel sleeps on the job",
+      "outlet": "Deccan Herald",
+      "date": "2020-03-09",
+      "type": "news"
+    },
+    {
+      "id": 7,
+      "url": "https://www.deccanherald.com/amp/story/india%2Fkarnataka%2Fbengaluru%2Fbengaluru-urban-district-most-unsafe-in-state-for-kids-says-karnataka-child-rights-index-3805141",
+      "title": "Bengaluru urban district most unsafe in state for kids, says Karnataka child rights index",
+      "outlet": "Deccan Herald",
+      "date": "2025-11-21",
+      "type": "news"
+    },
+    {
+      "id": 8,
+      "url": "https://youthpower.in/institution/karnataka/bengaluru-urban/phc-chc",
+      "title": "PHC / CHC in Bengaluru Urban, Karnataka",
+      "outlet": "youthpower.in",
+      "date": "",
+      "type": "news"
+    }
+  ],
+  "modelFactorWhy": [
+    {
+      "factor": "Children age 3–6 recorded as school-going",
+      "verdict": "no-evidence",
+      "why": "The pages discuss Anganwadi enrolment and nutrition programmes but do not provide district-specific evidence on preschool attendance rates or their association with stunting outcomes in Bengaluru Urban.",
+      "mechanism": "Early childhood education exposes children to structured feeding programmes, developmental stimulation, and health monitoring that collectively support growth.",
+      "proof": []
+    },
+    {
+      "factor": "Mothers who took iron-folic acid for 180+ days in pregnancy",
+      "verdict": "partly",
+      "why": "While maternal anaemia prevalence of 35.6% is documented for Bengaluru Urban, the pages do not specify iron-folic acid supplementation compliance rates or duration. The connection between maternal anaemia and child undernutrition is implied but not directly evidenced locally.",
+      "mechanism": "Adequate iron-folic acid intake during pregnancy prevents maternal anaemia, ensuring better foetal growth, higher birth weight, and reduced risk of stunting.",
+      "proof": [
+        {
+          "claim": "35.6% of women in Bengaluru Urban are anaemic",
+          "sources": [
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "Household members covered by health insurance",
+      "verdict": "no-evidence",
+      "why": "No pages discuss health insurance coverage rates or their relationship to healthcare access and child nutrition outcomes in Bengaluru Urban district specifically.",
+      "mechanism": "Health insurance improves access to antenatal care, institutional delivery, and child health services, reducing financial barriers to nutrition and medical interventions.",
+      "proof": []
+    }
+  ],
+  "coverage": "moderate",
+  "gaps": "No local data on preschool enrolment rates, IFA supplementation compliance, health insurance coverage, or specific nutrition programme outcomes",
+  "verificationNotes": [
+    "dropped fact (number 5 not on cited page): Child marriages (2018-19) 5 cases",
+    "dropped fact (number 2.51 not attributable to Bengaluru Urban): Mean birth weight (Anekal) 2.51 kg",
+    "dropped reason (number 2.51 not attributable to Bengaluru Urban): Mean birth weight of children in Anekal Taluk was 2.51 kg, indicating widespread low birth",
+    "dropped proof (number 2.51 not attributable to Bengaluru Urban): Mean birth weight in Anekal Taluk was 2.51 kg, indicating widespread low birth weight"
+  ],
+  "searched": 86,
+  "candidatePages": 20
+}

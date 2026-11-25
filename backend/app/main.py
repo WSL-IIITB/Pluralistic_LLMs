@@ -21,6 +21,7 @@ from .config import get_settings
 from .dataview.router import router as dataview_router
 from .graph.build import counts_from_state, run_pipeline
 from .karnataka import persona_payload, persona_regions, persona_variants
+from .persona_library_router import router as persona_library_router
 from .reasoning_modes import parse_mode, parse_provider
 from .run_history import delete_run, get_run, list_runs, save_run
 from .schema import DoneEvent, QueryStartedEvent, StreamErrorEvent, WorldviewEvent, event_to_sse_data
@@ -35,6 +36,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 app.include_router(dataview_router)
+app.include_router(persona_library_router)
 
 
 @app.get("/healthz")
@@ -67,6 +69,32 @@ def karnataka_districts() -> dict:
     from .district_profiles import NITI_METHOD_NOTES, karnataka_district_profiles
 
     return {"districts": karnataka_district_profiles(), "methods": NITI_METHOD_NOTES}
+
+
+@app.get("/api/stunting")
+def stunting() -> dict:
+    """The stunting topic: NITI's PROVISIONAL prescriptive model for under-5 stunting, district by district
+    (see app/stunting.py). Static data, no LLM."""
+    from .stunting import model
+
+    return model()
+
+
+@app.get("/api/stunting/research")
+def stunting_research() -> dict:
+    """Every district's stunting research file (data/district_research_stunting/, written and page-verified by
+    scripts/research_stunting_districts.py), keyed by district id."""
+    import glob
+    import json
+    import os
+
+    from .config import DATA_DIR
+
+    out: dict[str, dict] = {}
+    for path in sorted(glob.glob(os.path.join(DATA_DIR, "district_research_stunting", "29-*.json"))):
+        with open(path, encoding="utf-8") as fh:
+            out[os.path.basename(path)[:-5]] = json.load(fh)
+    return out
 
 
 @app.get("/api/karnataka/districts-research")

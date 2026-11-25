@@ -32,6 +32,9 @@ const STATIC_FILES: Record<string, string> = {
   "/api/karnataka/districts": "data/districts.json",
   "/api/personas": "data/personas.json",
   "/api/karnataka/districts-research": "data/districts-research.json",
+  "/api/persona-library": "data/persona-library.json",
+  "/api/stunting": "data/niti-stunting.json",
+  "/api/stunting/research": "data/stunting-research.json",
 };
 
 /** URL to read an API resource from: the backend, or its snapshot in a static build. */

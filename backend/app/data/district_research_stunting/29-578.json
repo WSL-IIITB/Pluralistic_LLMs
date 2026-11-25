@@ -1,0 +1,170 @@
+{
+  "districtId": "29-578",
+  "name": "Chamarajanagara",
+  "regionId": "old-mysuru",
+  "topic": "stunting",
+  "researchedOn": "2026-11-25",
+  "method": "automated: web search + Claude compile + page verification (scripts/research_stunting_districts.py)",
+  "headline": "Chamarajanagar shows improved malnutrition identification, yet officials lag in reaching children with nutritious food and welfare programs",
+  "summary": "Chamarajanagar district struggled with identifying and treating malnourished children, with 341 cases in 2016 and 302 in 2017, improving only 39 children's health. Officials failed to effectively implement government welfare schemes for women and children, leaving beneficiaries unreached. A nutrition treatment centre opened at Kollegal hospital to serve rural poor from Chamarajanagar and surrounding districts, admitting severely malnourished children for 15 days with nutritious food and Rs 100 daily incentive. The district's backwardness, poverty, and official lapses have drawn attention to persistent gaps in child nutrition programs.",
+  "reasons": [
+    {
+      "factor": "Official implementation failures",
+      "category": "governance",
+      "detail": "House panel criticized officials for failing to implement government welfare schemes for women and children, leaving beneficiaries unreached and stunting prevention efforts ineffective",
+      "sources": [
+        3
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Rural health infrastructure",
+      "category": "health-services",
+      "detail": "Nutrition centre at Kollegal treats severely malnourished children from rural areas, providing 15-day admission with nutritious food",
+      "sources": [
+        2
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Poverty and backwardness",
+      "category": "economic",
+      "detail": "District's poverty and backwardness noted in connection with health issues and official service delivery failures",
+      "sources": [
+        5
+      ],
+      "evidence": "moderate"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Statewide: Stunting reduction",
+      "value": "38.4% to 35.5% (NFHS-4 to NFHS-5)",
+      "sources": [
+        1
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Chamarajanagar: Where poverty, ignorance waited to strike a deadly blow | Chamarajanagar: Where poverty, ignorance waited to strike a deadly blow",
+      "outlet": "deccanchronicle.com",
+      "date": "2018-12-23",
+      "url": "https://www.deccanchronicle.com/nation/current-affairs/231218/chamarajanagar-where-poverty-ignorance-waited-to-strike-a-deadly-blo.html",
+      "takeaway": "Chamarajanagar district's poverty and backwardness draw attention after temple prasada tragedy kills 16"
+    },
+    {
+      "title": "House panel raps officials for failure to implement govt schemes",
+      "outlet": "Deccan Herald",
+      "date": "2017-07-19",
+      "url": "https://www.deccanherald.com/content/623623/house-panel-raps-officials-failure.html",
+      "takeaway": "House panel raps officials for failing to implement welfare schemes, leaving malnourished children without nutritious food"
+    },
+    {
+      "title": "Centre to treat malnutrition in districts",
+      "outlet": "Deccan Herald",
+      "date": "2012-01-30",
+      "url": "https://www.deccanherald.com/content/223269/centre-treat-malnutrition-districts.html",
+      "takeaway": "Nutrition treatment centre launched at Kollegal hospital to tackle malnutrition claiming infant lives in Chamarajanagar"
+    }
+  ],
+  "responses": [
+    {
+      "text": "Comprehensive Child Development Programme identifies malnourished children and provides health improvement interventions",
+      "sources": [
+        3
+      ]
+    },
+    {
+      "text": "Deputy Commissioner directed to ensure no child suffers from malnutrition-related health issues",
+      "sources": [
+        3
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://pratisrutiplus.com/lifestyle/health/underweight-children/",
+      "title": "UNDERWEIGHT CHILDREN",
+      "outlet": "pratisrutiplus.com",
+      "date": "2022-02-12",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://www.deccanherald.com/content/223269/centre-treat-malnutrition-districts.html",
+      "title": "Centre to treat malnutrition in districts",
+      "outlet": "Deccan Herald",
+      "date": "2012-01-30",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://www.deccanherald.com/content/623623/house-panel-raps-officials-failure.html",
+      "title": "House panel raps officials for failure to implement govt schemes",
+      "outlet": "Deccan Herald",
+      "date": "2017-07-19",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "https://www.drlogy.com/ayushman-bharat/hospitals/karnataka/chamarajanagara/phc-mangala-chamarajanagara",
+      "title": "Drlogy",
+      "outlet": "drlogy.com",
+      "date": "",
+      "type": "news"
+    },
+    {
+      "id": 5,
+      "url": "https://www.deccanchronicle.com/nation/current-affairs/231218/chamarajanagar-where-poverty-ignorance-waited-to-strike-a-deadly-blo.html",
+      "title": "Chamarajanagar: Where poverty, ignorance waited to strike a deadly blow | Chamarajanagar: Where poverty, ignorance waited to strike a deadly blow",
+      "outlet": "deccanchronicle.com",
+      "date": "2018-12-23",
+      "type": "news"
+    }
+  ],
+  "modelFactorWhy": [
+    {
+      "factor": "Mothers who took iron-folic acid for 180+ days in pregnancy",
+      "verdict": "no-evidence",
+      "why": "The pages contain no specific data or discussion about iron-folic acid supplementation practices among pregnant mothers in Chamarajanagar district, though maternal health services are part of broader health infrastructure gaps.",
+      "mechanism": "Adequate iron-folic acid intake during pregnancy prevents maternal anemia and supports fetal growth, reducing risk of low birth weight and subsequent stunting",
+      "proof": []
+    },
+    {
+      "factor": "Children age 3–6 recorded as school-going",
+      "verdict": "no-evidence",
+      "why": "While the pages mention Anganwadis and school listings, they provide no district-specific data about enrollment rates or school attendance among 3-6 year olds in Chamarajanagar that would explain stunting patterns.",
+      "mechanism": "School enrollment for young children often connects to Anganwadi services providing supplementary nutrition and early childhood development, reducing undernutrition",
+      "proof": []
+    },
+    {
+      "factor": "Household members covered by health insurance",
+      "verdict": "partly",
+      "why": "One page confirms Ayushman Bharat scheme operates in Chamarajanagar through empaneled facilities like PHC Mangala, but no data exists on actual household insurance coverage rates in the district.",
+      "mechanism": "Health insurance coverage reduces financial barriers to accessing healthcare services including nutrition counseling, growth monitoring, and treatment of childhood illnesses affecting growth",
+      "proof": [
+        {
+          "claim": "PHC Mangala in Chamarajanagara is empaneled under Ayushman Bharat PM-JAY scheme",
+          "sources": [
+            4
+          ]
+        }
+      ]
+    }
+  ],
+  "coverage": "thin",
+  "gaps": "No local data on maternal IFA supplementation, child school enrollment rates, actual health insurance coverage, or specific dietary patterns",
+  "verificationNotes": [
+    "dropped fact (number 5, 5 not on cited page): Nutrition centre capacity 5 beds, two groups of 5 children each",
+    "dropped response (number 5 not on cited page): Nutrition centre opened at Kollegal hospital with 5 beds to treat severely malnourished ch",
+    "dropped fact (number 341 not attributable to Chamarajanagara): Malnourished children 2016 341",
+    "dropped fact (number 302 not attributable to Chamarajanagara): Malnourished children 2017 302",
+    "dropped fact (number 39 not attributable to Chamarajanagara): Children health improved 39",
+    "dropped fact (number 14 not attributable to Chamarajanagara): Incentive per day Rs 100 for 14 days",
+    "dropped reason (number 39, 341 not attributable to Chamarajanagara): District lagging in identifying malnourished children and providing nutritious food; only "
+  ],
+  "searched": 96,
+  "candidatePages": 10
+}

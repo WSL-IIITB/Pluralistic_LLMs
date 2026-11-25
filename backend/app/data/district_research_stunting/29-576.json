@@ -1,0 +1,171 @@
+{
+  "districtId": "29-576",
+  "name": "Kodagu",
+  "regionId": "malnad",
+  "topic": "stunting",
+  "researchedOn": "2026-11-25",
+  "method": "automated: web search + Claude compile + page verification (scripts/research_stunting_districts.py)",
+  "headline": "Kodagu reports lowest teen pregnancies and benefits from malnutrition treatment centre serving multiple districts",
+  "summary": "Kodagu is among the districts reporting the lowest number of teenage pregnancies in Karnataka. A malnutrition treatment centre at Kollegal hospital under the National Rural Health Scheme serves children from Kodagu, Hassan, Mysore and Chamarajanagar districts, admitting severely malnourished children for 15 days of nutritious food and medical care. A research study was conducted on preschool children in two remote villages of Hassan and Kodagu districts to assess under-nutrition and anemia prevalence. The Women and Child Development Department in Kodagu works to protect children affected by malnutrition and provide health services.",
+  "reasons": [
+    {
+      "factor": "Pre-school attendance",
+      "category": "social-norms",
+      "detail": "Research study conducted on preschool children in Hassan and Kodagu villages to assess under-nutrition prevalence, suggesting monitoring of this age group",
+      "sources": [
+        2
+      ],
+      "evidence": "thin"
+    },
+    {
+      "factor": "Maternal health care",
+      "category": "maternal-health",
+      "detail": "Kodagu reports among the lowest teenage pregnancies in Karnataka, which relates to better maternal health outcomes",
+      "sources": [
+        4
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Health service access",
+      "category": "health-services",
+      "detail": "Malnutrition treatment centre at Kollegal serves Kodagu children with 15-day admissions, nutritious food, and pediatrician care under National Rural Health Scheme",
+      "sources": [
+        3
+      ],
+      "evidence": "moderate"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Treatment duration",
+      "value": "15 days",
+      "sources": [
+        3
+      ]
+    },
+    {
+      "label": "Statewide: Stunting NFHS-5",
+      "value": "35.5%",
+      "sources": [
+        1
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Ground report: How teen pregnancies still slip through the cracks in Karnataka",
+      "outlet": "The South First",
+      "date": "2026-04-10",
+      "url": "https://thesouthfirst.com/health/ground-report-how-teen-pregnancies-still-slip-through-the-cracks-in-karnataka/",
+      "takeaway": "Kodagu among districts with lowest teenage pregnancy numbers in Karnataka"
+    },
+    {
+      "title": "Centre to treat malnutrition in districts",
+      "outlet": "Deccan Herald",
+      "date": "2012-01-30",
+      "url": "https://www.deccanherald.com/content/223269/centre-treat-malnutrition-districts.html",
+      "takeaway": "Kollegal malnutrition centre opened to serve children from Kodagu and three neighboring districts"
+    }
+  ],
+  "responses": [
+    {
+      "text": "Centre opened at Kollegal hospital with five beds, nutritious food preparation, and pediatrician care for severely malnourished children",
+      "sources": [
+        3
+      ]
+    },
+    {
+      "text": "Research study conducted in Kodagu villages to assess under-nutrition and anemia prevalence among preschool children",
+      "sources": [
+        2
+      ]
+    },
+    {
+      "text": "Women and Child Development Department provides protection, food, shelter, health services to children affected by malnutrition",
+      "sources": [
+        5
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=1797701&reg=48&lang=2",
+      "title": "UNDERWEIGHT CHILDREN",
+      "outlet": "PIB",
+      "date": "",
+      "type": "government"
+    },
+    {
+      "id": 2,
+      "url": "https://jhas-nu.in/prevalence-of-under-nutrition-and-anemia-among-under-five-rural-children-of-south-karnataka-india/",
+      "title": "PREVALENCE OF UNDER-NUTRITION AND ANEMIA AMONG UNDER FIVE RURAL CHILDREN OF SOUTH KARNATAKA, INDIA",
+      "outlet": "jhas-nu.in",
+      "date": "2014-12-01",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://www.deccanherald.com/content/223269/centre-treat-malnutrition-districts.html",
+      "title": "Centre to treat malnutrition in districts",
+      "outlet": "Deccan Herald",
+      "date": "2012-01-30",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "https://thesouthfirst.com/health/ground-report-how-teen-pregnancies-still-slip-through-the-cracks-in-karnataka/",
+      "title": "Ground report: How teen pregnancies still slip through the cracks in Karnataka",
+      "outlet": "The South First",
+      "date": "2026-04-10",
+      "type": "news"
+    },
+    {
+      "id": 5,
+      "url": "https://kodagu.nic.in/en/women-and-child-development-department/",
+      "title": "WOMEN AND CHILD DEVELOPMENT DEPARTMENT | Kodagu District, Government of Karnataka",
+      "outlet": "kodagu.nic.in",
+      "date": "",
+      "type": "government"
+    }
+  ],
+  "modelFactorWhy": [
+    {
+      "factor": "Children age 3–6 recorded as school-going",
+      "verdict": "partly",
+      "why": "Research was conducted on preschool children in Kodagu villages, indicating attention to this age group, but no direct evidence about school-going status or its relationship to stunting outcomes in the district.",
+      "mechanism": "Early schooling may improve nutrition through meal programmes, developmental monitoring, and health screenings that identify malnourished children",
+      "proof": [
+        {
+          "claim": "Study conducted on preschool children in Hassan and Kodagu districts",
+          "sources": [
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "Mothers who took iron-folic acid for 180+ days in pregnancy",
+      "verdict": "no-evidence",
+      "why": "No district-specific information found about iron-folic acid supplementation during pregnancy or maternal nutritional practices in Kodagu.",
+      "mechanism": "Adequate iron-folic acid intake during pregnancy prevents maternal anemia and supports fetal growth, reducing risk of low birth weight and subsequent stunting",
+      "proof": []
+    },
+    {
+      "factor": "Household members covered by health insurance",
+      "verdict": "no-evidence",
+      "why": "No district-specific data found regarding health insurance coverage among households in Kodagu or its relationship to child nutrition outcomes.",
+      "mechanism": "Health insurance coverage enables families to access healthcare services without financial barriers, facilitating timely treatment of childhood illnesses that contribute to stunting",
+      "proof": []
+    }
+  ],
+  "coverage": "thin",
+  "gaps": "No district-specific stunting rates, iron-folic acid supplementation data, health insurance coverage, school enrollment figures, or detailed nutrition programme outcomes for Kodagu",
+  "verificationNotes": [
+    "dropped fact (number 5 not on cited page): Malnutrition centre beds 5 beds",
+    "dropped fact (number 3 not attributable to Kodagu): Teen pregnancies (3 years) lowest numbers"
+  ],
+  "searched": 98,
+  "candidatePages": 7
+}

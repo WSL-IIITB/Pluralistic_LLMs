@@ -1,0 +1,292 @@
+{
+  "districtId": "29-575",
+  "name": "Dakshina Kannada",
+  "regionId": "karavali",
+  "topic": "stunting",
+  "researchedOn": "2026-11-25",
+  "method": "automated: web search + Claude compile + page verification (scripts/research_stunting_districts.py)",
+  "headline": "Dakshina Kannada struggles with 20 severely malnourished children and over 8,000 anaemic students despite nutrition programmes",
+  "summary": "Despite being considered a progressive district, Dakshina Kannada faces persistent child undernutrition challenges. Officials identified 20 severely malnourished children requiring urgent admission to Nutrition Rehabilitation Centres, with 41 total acute malnutrition cases reported. Over 8,021 children suffer from anaemia, including 268 severe cases, with government school students showing higher rates. The district lags in implementing supplementary nutrition programmes. Child marriage persists despite prevention efforts, with five cases thwarted in 2017. Approximately 149,400 children receive nutritious food through 1,494 anganwadi centres, alongside 13,380 pregnant and 13,793 lactating women.",
+  "reasons": [
+    {
+      "factor": "Acute child malnutrition",
+      "category": "nutrition-diet",
+      "detail": "41 children suffering from acute malnutrition, with 20 severely undernourished requiring immediate NRC admission and enhanced nutritious food delivery",
+      "sources": [
+        5,
+        8,
+        4
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Widespread childhood anaemia",
+      "category": "nutrition-diet",
+      "detail": "8,021 children found anaemic with 268 severe cases; government school students exhibit higher rates than private school counterparts",
+      "sources": [
+        3,
+        7
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Programme implementation gaps",
+      "category": "governance",
+      "detail": "District shows significantly less progress in supplementary nutrition programme compared to other districts, requiring urgent strengthening of service delivery",
+      "sources": [
+        4,
+        8
+      ],
+      "evidence": "strong"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Severe malnutrition cases (2025)",
+      "value": "20 severely malnourished children",
+      "sources": [
+        4,
+        8
+      ]
+    },
+    {
+      "label": "Acute malnutrition (2022)",
+      "value": "41 children",
+      "sources": [
+        5
+      ]
+    },
+    {
+      "label": "Anaemic children (2024)",
+      "value": "8,021 children",
+      "sources": [
+        3,
+        7
+      ]
+    },
+    {
+      "label": "Severe anaemia cases (2024)",
+      "value": "268 cases",
+      "sources": [
+        3,
+        7
+      ]
+    },
+    {
+      "label": "Anganwadi enrollment (2022)",
+      "value": "149,400 kids",
+      "sources": [
+        5,
+        6
+      ]
+    },
+    {
+      "label": "Pregnant women receiving food",
+      "value": "13,380 women",
+      "sources": [
+        5,
+        6
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Poshan Maah programme held at Kolnadu to promote nutrition awareness",
+      "outlet": "newskarnataka.com",
+      "date": "2026-09-10",
+      "url": "https://newskarnataka.com/mangaluru/poshan-maah-programme-held-at-kolnadu-to-promote-nutrition-awareness/10092026/",
+      "takeaway": "Poshan Maah programme promotes balanced nutrition and prevention of nutritional deficiencies"
+    },
+    {
+      "title": "Stronger action against malnutrition, child marriage proposed in Dakshina Kannada",
+      "outlet": "thehansindia.com",
+      "date": "2025-06-27",
+      "url": "https://www.thehansindia.com/karnataka/stronger-action-against-malnutrition-child-marriage-proposed-in-dakshina-kannada-983078",
+      "takeaway": "ZP CEO directs urgent admission of 20 severely malnourished children to rehabilitation centres"
+    },
+    {
+      "title": "Admit 20 severely malnourished kids to NRC: ZP CEO K Anand | The New Indian Express Mangaluru - newspaper",
+      "outlet": "magzter.com",
+      "date": "2025-06-26",
+      "url": "https://www.magzter.com/stories/newspaper/The-New-Indian-Express-Mangaluru/ADMIT-20-SEVERELY-MALNOURISHED-KIDS-TO-NRC-ZP-CEO-K-ANAND",
+      "takeaway": "Dakshina Kannada lags other districts in supplementary nutrition programme implementation"
+    },
+    {
+      "title": "Over 8,000 Children in Dakshina Kannada Found Anaemic, Majority from Govt Schools",
+      "outlet": "newskarnataka.com",
+      "date": "2024-10-27",
+      "url": "https://newskarnataka.com/health-wellness/over-8000-children-in-dakshina-kannada-found-anaemic-majority-from-govt-schools/27102024",
+      "takeaway": "Over 8,000 children in Dakshina Kannada found anaemic, majority from government schools"
+    },
+    {
+      "title": "25 Anganwadi centres in Dakshina Kannada to get Rs 1L each",
+      "outlet": "Deccan Herald",
+      "date": "2022-01-29",
+      "url": "https://www.deccanherald.com/india/karnataka/25-anganwadi-centres-in-dakshina-kannada-to-get-rs-1l-each-1075840.html",
+      "takeaway": "25 anganwadi centres to receive Rs 1 lakh each under Amrith scheme"
+    },
+    {
+      "title": "‘Create awareness on ill",
+      "outlet": "Deccan Herald",
+      "date": "2018-10-04",
+      "url": "https://www.deccanherald.com/amp/story/india%2Fkarnataka%2Fcreate-awareness-ill-effects-696049.html",
+      "takeaway": "Child marriage not wiped out even in progressive Dakshina Kannada district"
+    }
+  ],
+  "responses": [
+    {
+      "text": "Zilla Panchayat CEO ordered urgent strengthening of supplementary nutrition programme delivery to children and pregnant women",
+      "sources": [
+        4,
+        8
+      ]
+    },
+    {
+      "text": "Health screening camp provided iron supplements to anaemic students; teachers trained to recognize severe cases",
+      "sources": [
+        3
+      ]
+    },
+    {
+      "text": "District launched Poshan Maah awareness programme on balanced nutrition and prevention of nutritional deficiencies",
+      "sources": [
+        2
+      ]
+    },
+    {
+      "text": "All-women Akka Pade teams deployed to fight child marriages on pilot basis starting August 2025",
+      "sources": [
+        9
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://www.deccanherald.com/amp/story/india%2Fkarnataka%2Fcreate-awareness-ill-effects-696049.html",
+      "title": "‘Create awareness on ill",
+      "outlet": "Deccan Herald",
+      "date": "2018-10-04",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://newskarnataka.com/mangaluru/poshan-maah-programme-held-at-kolnadu-to-promote-nutrition-awareness/10092026/",
+      "title": "Poshan Maah programme held at Kolnadu to promote nutrition awareness",
+      "outlet": "newskarnataka.com",
+      "date": "2026-09-10",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://newskarnataka.com/health-wellness/over-8000-children-in-dakshina-kannada-found-anaemic-majority-from-govt-schools/27102024",
+      "title": "Over 8,000 Children in Dakshina Kannada Found Anaemic, Majority from Govt Schools",
+      "outlet": "newskarnataka.com",
+      "date": "2024-10-27",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "https://www.thehansindia.com/karnataka/stronger-action-against-malnutrition-child-marriage-proposed-in-dakshina-kannada-983078",
+      "title": "Stronger action against malnutrition, child marriage proposed in Dakshina Kannada",
+      "outlet": "thehansindia.com",
+      "date": "2025-06-27",
+      "type": "news"
+    },
+    {
+      "id": 5,
+      "url": "https://www.deccanherald.com/india/karnataka/25-anganwadi-centres-in-dakshina-kannada-to-get-rs-1l-each-1075840.html",
+      "title": "25 Anganwadi centres in Dakshina Kannada to get Rs 1L each",
+      "outlet": "Deccan Herald",
+      "date": "2022-01-29",
+      "type": "news"
+    },
+    {
+      "id": 6,
+      "url": "https://www.deccanherald.com/amp/story/india%2Fkarnataka%2F25-anganwadi-centres-in-dakshina-kannada-to-get-rs-1l-each-1075840.html",
+      "title": "25 Anganwadi centres in Dakshina Kannada to get Rs 1L each",
+      "outlet": "Deccan Herald",
+      "date": "2022-01-29",
+      "type": "news"
+    },
+    {
+      "id": 7,
+      "url": "https://inshorts.com/en/news/over-8-000-children-in-dakshina-kannada-found-anaemic-1730000007591",
+      "title": "Over 8,000 children in Dakshina Kannada found anaemic",
+      "outlet": "inshorts.com",
+      "date": "2024-10-27",
+      "type": "news"
+    },
+    {
+      "id": 8,
+      "url": "https://www.magzter.com/stories/newspaper/The-New-Indian-Express-Mangaluru/ADMIT-20-SEVERELY-MALNOURISHED-KIDS-TO-NRC-ZP-CEO-K-ANAND",
+      "title": "Admit 20 severely malnourished kids to NRC: ZP CEO K Anand | The New Indian Express Mangaluru - newspaper",
+      "outlet": "magzter.com",
+      "date": "2025-06-26",
+      "type": "news"
+    },
+    {
+      "id": 9,
+      "url": "https://www.deccanherald.com/india/karnataka/akka-pade-in-3-districts-to-fight-child-marriages-3679778",
+      "title": "'Akka Pade' in 3 districts to fight child marriages",
+      "outlet": "Deccan Herald",
+      "date": "2025-08-14",
+      "type": "news"
+    }
+  ],
+  "modelFactorWhy": [
+    {
+      "factor": "Women married before age 18, age 20–24",
+      "verdict": "partly",
+      "why": "Sources confirm child marriage persists in Dakshina Kannada despite it being a progressive district. Officials prevented five cases in 2017, and awareness campaigns have been launched. However, specific data on women aged 20-24 married before 18 is not provided.",
+      "mechanism": "Early marriage compromises maternal health, education, and reproductive maturity, leading to poor pregnancy outcomes and child undernutrition.",
+      "proof": [
+        {
+          "claim": "Akka Pade teams deployed in Dakshina Kannada to fight child marriages starting August 2025",
+          "sources": [
+            9
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "Children age 3–6 recorded as school-going",
+      "verdict": "no-evidence",
+      "why": "No sources provide information about preschool enrollment or children aged 3-6 recorded as school-going in Dakshina Kannada. Data focuses on anganwadi enrollment and older students receiving iron-folic acid supplements.",
+      "mechanism": "Early childhood education attendance correlates with better nutritional monitoring, parental health awareness, and regular access to supplementary nutrition.",
+      "proof": []
+    },
+    {
+      "factor": "Mothers who took iron-folic acid for 180+ days in pregnancy",
+      "verdict": "partly",
+      "why": "Sources show widespread anaemia among children and an iron-folic supplementation programme for students. Pregnant women receive nutritious food through anganwadis, but specific data on 180+ day iron-folic acid adherence during pregnancy is absent.",
+      "mechanism": "Adequate maternal iron-folic acid intake prevents maternal anaemia, supports fetal development, and reduces low birth weight and stunting risk.",
+      "proof": [
+        {
+          "claim": "13,380 pregnant women in district receive nutritious food through supplementary nutrition programme",
+          "sources": [
+            5,
+            6
+          ]
+        },
+        {
+          "claim": "8,021 children suffer from anaemia with 268 severe cases; government school students show higher rates",
+          "sources": [
+            3,
+            7
+          ]
+        }
+      ]
+    }
+  ],
+  "coverage": "moderate",
+  "gaps": "No data on women married before 18, preschool enrollment rates, or maternal iron-folic acid adherence during pregnancy",
+  "verificationNotes": [
+    "dropped reason (number 2017 not on cited page): Child marriage practice: Child marriage persists despite district's progressive reputation",
+    "dropped proof for Women married before age 18, a (number 2017 not on cited page): Child marriage not wiped out in Dakshina Kannada despite progressive status; five cases th",
+    "dropped summary sentence (unverified number): Child marriage persists despite prevention efforts, with five cases thwarted in 2017.",
+    "dropped summary sentence (unverified number): Approximately 149,400 children receive nutritious food through 1,494 anganwadi centres, al"
+  ],
+  "searched": 84,
+  "candidatePages": 20
+}

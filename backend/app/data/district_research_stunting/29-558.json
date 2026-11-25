@@ -1,0 +1,222 @@
+{
+  "districtId": "29-558",
+  "name": "Bidar",
+  "regionId": "kalyana-karnataka",
+  "topic": "stunting",
+  "researchedOn": "2026-11-25",
+  "method": "automated: web search + Claude compile + page verification (scripts/research_stunting_districts.py)",
+  "headline": "Bidar identified among Karnataka districts with acute malnutrition and stunting; government interventions target child health",
+  "summary": "Bidar is identified among nine Karnataka districts with high child stunting levels and among seven districts where nutrition is a major concern. Malnutrition cases were historically high in Bidar, prompting government action including opening 120 anganwadis and adding eggs to midday meals in eight districts including Bidar. A community-led initiative in Aurad taluk launched a campaign in September 2011 through door-to-door surveys in 68 villages, awareness drives, and kitchen gardens to address child malnutrition, with marked improvements in health indicators reported by early 2015.",
+  "reasons": [
+    {
+      "factor": "Maternal and child nutrition",
+      "category": "nutrition-diet",
+      "detail": "Aurad taluk campaign included kitchen gardens, awareness drives, and door-to-door health surveys addressing mothers and children in 68 villages",
+      "sources": [
+        4,
+        5
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Anganwadi services",
+      "category": "health-services",
+      "detail": "Government opened 120 full-fledged anganwadi centres at Rs 12 crore cost where malnutrition cases were high in Bidar",
+      "sources": [
+        3
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Poverty levels",
+      "category": "economic",
+      "detail": "Bidar flagged for poverty by Karnataka Human Development Report 2022; district has worst social and health indicators",
+      "sources": [
+        2,
+        4
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "School meal programmes",
+      "category": "nutrition-diet",
+      "detail": "Government added boiled eggs to midday meals for school children in Bidar where malnutrition problem is most acute",
+      "sources": [
+        1
+      ],
+      "evidence": "strong"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Districts flagged nutrition (2022)",
+      "value": "Kalaburagi, Raichur, Yadgiri, Koppal, Ballari, Bidar and Gadag",
+      "sources": [
+        2
+      ]
+    },
+    {
+      "label": "Anganwadis opened (2012)",
+      "value": "120 full-fledged anganwadi centres at a cost of Rs 12 crore",
+      "sources": [
+        3
+      ]
+    },
+    {
+      "label": "Aurad campaign villages (2011)",
+      "value": "68 villages",
+      "sources": [
+        4,
+        5
+      ]
+    },
+    {
+      "label": "Malnourished children statewide",
+      "value": "nearly 3.5 lakh children",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "label": "Statewide: Stunting prevalence",
+      "value": "17 per cent to 21 per cent",
+      "sources": [
+        1
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Poverty, malnutrition Karnataka’s shame",
+      "outlet": "Deccan Herald",
+      "date": "2023-03-26",
+      "url": "https://www.deccanherald.com/opinion/editorial/poverty-malnutrition-karnataka-s-shame-1203841.html",
+      "takeaway": "Bidar identified among seven Karnataka districts where nutrition is a major concern in 2022 report"
+    },
+    {
+      "title": "Eggs in midday meal a welcome decision",
+      "outlet": "Deccan Herald",
+      "date": "2021-12-08",
+      "url": "https://www.deccanherald.com/opinion/editorial/eggs-in-midday-meal-a-welcome-decision-1058950.html",
+      "takeaway": "Government added boiled eggs to midday meals in eight districts including Bidar to combat malnutrition"
+    },
+    {
+      "title": "Lifting the curse of child malnutrition from Bidar",
+      "outlet": "vikalpsangam.org",
+      "date": "2015-01-24",
+      "url": "https://vikalpsangam.org/article/lifting-the-curse-of-child-malnutrition-from-bidar/",
+      "takeaway": "Community-led initiative in Aurad taluk created roadmap for change through kitchen gardens and awareness drives"
+    },
+    {
+      "title": "120 new anganwadis  to tackle malnutrition",
+      "outlet": "Deccan Herald",
+      "date": "2012-12-13",
+      "url": "https://www.deccanherald.com/content/298418/120-anganwadis-tackle-malnutrition.html",
+      "takeaway": "120 new anganwadis opened in Bidar and three other taluks where malnutrition cases were high"
+    }
+  ],
+  "responses": [
+    {
+      "text": "Opened 120 full-fledged anganwadi centres at Rs 12 crore cost in taluks including Bidar with high malnutrition",
+      "sources": [
+        3
+      ]
+    },
+    {
+      "text": "Added boiled eggs to midday meals for school children in eight districts including Bidar",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "text": "Myrada launched malnutrition campaign in Aurad taluk in September 2011, running until early 2015",
+      "sources": [
+        4,
+        5
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://www.deccanherald.com/opinion/editorial/eggs-in-midday-meal-a-welcome-decision-1058950.html",
+      "title": "Eggs in midday meal a welcome decision",
+      "outlet": "Deccan Herald",
+      "date": "2021-12-08",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://www.deccanherald.com/opinion/editorial/poverty-malnutrition-karnataka-s-shame-1203841.html",
+      "title": "Poverty, malnutrition Karnataka’s shame",
+      "outlet": "Deccan Herald",
+      "date": "2023-03-26",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://www.deccanherald.com/content/298418/120-anganwadis-tackle-malnutrition.html",
+      "title": "120 new anganwadis  to tackle malnutrition",
+      "outlet": "Deccan Herald",
+      "date": "2012-12-13",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "https://vikalpsangam.org/article/lifting-the-curse-of-child-malnutrition-from-bidar/",
+      "title": "Lifting the curse of child malnutrition from Bidar",
+      "outlet": "vikalpsangam.org",
+      "date": "2015-01-24",
+      "type": "ngo"
+    },
+    {
+      "id": 5,
+      "url": "https://www.theweekendleader.com/Causes/1946/fighting-malnutrition.html",
+      "title": "Fight against malnutrition in Bidar sees sprouting of kitchen gardens in homes and schools",
+      "outlet": "theweekendleader.com",
+      "date": "",
+      "type": "news"
+    }
+  ],
+  "modelFactorWhy": [
+    {
+      "factor": "Children age 3–6 recorded as school-going",
+      "verdict": "partly",
+      "why": "Evidence shows government added eggs to midday meals for school children in Bidar to address malnutrition, and community initiatives included kitchen gardens in schools. However, no data on enrollment rates or school attendance specifically.",
+      "mechanism": "School attendance enables access to nutrition programmes like midday meals and health monitoring services",
+      "proof": [
+        {
+          "claim": "Government added boiled eggs to midday meal for school children in eight districts including Bidar",
+          "sources": [
+            1
+          ]
+        },
+        {
+          "claim": "Fight against malnutrition in Bidar sees sprouting of kitchen gardens in homes and schools",
+          "sources": [
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "Mothers who took iron-folic acid for 180+ days in pregnancy",
+      "verdict": "no-evidence",
+      "why": "While sources mention door-to-door surveys gauging health status of mothers and children in 68 villages in Aurad taluk, no specific evidence about iron-folic acid supplementation during pregnancy or its duration is provided.",
+      "mechanism": "Iron-folic acid supplementation prevents maternal anemia and supports fetal development, reducing stunting risk",
+      "proof": []
+    },
+    {
+      "factor": "Household members covered by health insurance",
+      "verdict": "no-evidence",
+      "why": "No information found in sources about health insurance coverage among households in Bidar district. Sources focus on direct service delivery through anganwadis and community programmes rather than insurance mechanisms.",
+      "mechanism": "Health insurance enables access to healthcare services and reduces financial barriers to treatment",
+      "proof": []
+    }
+  ],
+  "coverage": "moderate",
+  "gaps": "No local data on health insurance coverage, iron-folic acid supplementation rates, school enrollment statistics, or quantified stunting rates specific to Bidar",
+  "verificationNotes": [],
+  "searched": 93,
+  "candidatePages": 7
+}

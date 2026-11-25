@@ -1,0 +1,24 @@
+{
+  "male": {
+    "districtId": "29-573",
+    "noData": true
+  },
+  "female": {
+    "districtId": "29-572",
+    "underFive": "No child under five lives here.",
+    "changes": [
+      {
+        "factor": "Children age 3–6 recorded as school-going",
+        "effect": "If Manjula has a future child or when neighbours' toddlers reach three, early schooling can build routines that support regular meals and health checks during critical growth years."
+      },
+      {
+        "factor": "Mothers who took iron-folic acid for 180+ days in pregnancy",
+        "effect": "If Manjula becomes pregnant again, taking iron tablets for six months would protect her health and the baby's birth weight, reducing stunting risk from the start."
+      },
+      {
+        "factor": "Household members covered by health insurance",
+        "effect": "Without insurance, Manjula avoids costly private care even when her son has stomach upsets. Coverage would let her seek timely treatment for childhood illnesses that undermine growth."
+      }
+    ]
+  }
+}

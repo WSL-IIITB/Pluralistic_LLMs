@@ -21,7 +21,9 @@ import sys
 import numpy as np
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-RUN = os.path.join(ROOT, "public", "data", "default-run.json")
+# Which exported run to map: default-run.json (dropout), or another file passed as the first argument
+# (e.g. default-run-stunting.json).
+RUN = os.path.join(ROOT, "public", "data", sys.argv[1] if len(sys.argv) > 1 else "default-run.json")
 MODEL = "all-MiniLM-L6-v2"
 CONDITIONS = (("baseline", "baselineReply"), ("male", "maleReply"), ("female", "femaleReply"))
 
@@ -86,7 +88,7 @@ def main() -> None:
     run["personaSimilarityMap"] = build(sim)
     with open(RUN, "w", encoding="utf-8") as f:
         json.dump(run, f, ensure_ascii=False)
-    print(f"  personaSimilarityMap: {len(run['personaSimilarityMap']['points'])} points written to default-run.json")
+    print(f"  personaSimilarityMap: {len(run['personaSimilarityMap']['points'])} points written to {os.path.basename(RUN)}")
 
 
 if __name__ == "__main__":

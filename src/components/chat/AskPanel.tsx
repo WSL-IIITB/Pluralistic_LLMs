@@ -15,6 +15,13 @@ import { CHAT_URL } from "@/lib/worldview/chat";
 import { useChatStore, type ChatMessage } from "@/lib/worldview/chatStore";
 import { loadKnowledgePack, type KnowledgePack } from "@/lib/worldview/knowledgePack";
 
+const STUNTING_SUGGESTIONS = [
+  "Which districts have the most stunted children, and why?",
+  "What does the research say about child malnutrition in Raichur?",
+  "What does the NITI stunting model prescribe for Yadgir?",
+  "Where is there local evidence for the stunting model's factors?",
+];
+
 const SUGGESTIONS = [
   "What are the main reasons students leave school across Karnataka?",
   "Which region has the highest average dropout rate?",
@@ -124,7 +131,7 @@ function useRenderer(pack: KnowledgePack | null) {
       const text = rawText
         .replace(/\s*\((?:DISTRICT|GENERAL|REASONING)\)/g, "")
         .replace(
-          /\s*\[(?:DIGEST|CAVEATS|UIDAI|NEWS VS DATA|NITI PRESCRIPTIVE|ANALYSIS|PERSONAS|REGION|DISTRICT|SYNTHESIS|GENERAL|STATEWIDE|REGIONAL|PERSONA|REASONING|SOURCES)[^\]]*\]/g,
+          /\s*\[(?:DIGEST|CAVEATS|STUNTING DISTRICT|STUNTING|UIDAI|NEWS VS DATA|NITI PRESCRIPTIVE|ANALYSIS|PERSONAS|REGION|DISTRICT|SYNTHESIS|GENERAL|STATEWIDE|REGIONAL|PERSONA|REASONING|SOURCES)[^\]]*\]/g,
           "",
         );
       const blocks: ReactNode[] = [];
@@ -247,6 +254,7 @@ export function AskPanel() {
   } = useChatStore();
   const districtId = useExplorerStore((s) => s.districtId);
   const regionId = useExplorerStore((s) => s.regionId);
+  const topic = useExplorerStore((s) => s.topic);
   const render = useRenderer(pack);
   const scroller = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -375,7 +383,7 @@ export function AskPanel() {
               the personas. Try one:
             </p>
             <div className="mt-3 flex flex-wrap gap-2">
-              {SUGGESTIONS.map((s) => (
+              {(topic === "stunting" ? STUNTING_SUGGESTIONS : SUGGESTIONS).map((s) => (
                 <button
                   key={s}
                   type="button"

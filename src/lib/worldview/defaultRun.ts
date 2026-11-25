@@ -1,25 +1,42 @@
 /**
- * The dashboard opens on a finished analysis instead of an empty query box: the
- * newest saved run that has both Story-vs-UIDAI/NITI and persona-similarity
- * results is loaded on start-up. Falls back silently to an empty dashboard.
+ * The dashboard opens on a finished analysis instead of an empty query box: the newest saved run for the active
+ * study topic (dropout: Story-vs-UIDAI/NITI and persona-similarity results; stunting: a run on a stunting question)
+ * is loaded on start-up and whenever the topic is switched. Falls back silently.
  */
 
 import { assetUrl, STATIC_DATA } from "./api";
 import { fetchSavedRun, listSavedRuns } from "./runHistory";
 import { useWorldviewStore } from "./store";
+import type { StudyTopic } from "./stunting";
 
 const MAX_RUNS_TO_TRY = 12;
 
-export async function loadDefaultRun(): Promise<boolean> {
+/** Mirrors backend/app/stunting.py is_stunting_query: which study a run's question belongs to. */
+export function runTopic(query: string | null | undefined): StudyTopic {
+  return /stunt|malnutri|malnourish|undernutri|undernourish|child nutrition/i.test(query ?? "")
+    ? "stunting"
+    : "dropout";
+}
+
+export async function loadDefaultRun(
+  topic: StudyTopic = "dropout",
+  force = false,
+): Promise<boolean> {
   const store = useWorldviewStore.getState();
-  if (store.runState !== "idle" || store.queryRunId) return false;
+  if (store.runState === "connecting" || store.runState === "streaming") return false;
+  if (!force && (store.runState !== "idle" || store.queryRunId)) return false;
+  if (force && store.queryRunId && runTopic(store.query) === topic) return false; // already showing this topic
+  const startedOn = store.queryRunId;
+  const stillFree = () => useWorldviewStore.getState().queryRunId === startedOn;
   if (STATIC_DATA) {
-    // Static build: the chosen run was exported to public/data/default-run.json.
+    // Static build: each topic's chosen run was exported to public/data/.
     try {
-      const res = await fetch(assetUrl("data/default-run.json"));
+      const res = await fetch(
+        assetUrl(topic === "stunting" ? "data/default-run-stunting.json" : "data/default-run.json"),
+      );
       if (!res.ok) return false;
       const data = (await res.json()) as Parameters<typeof store.loadSavedRun>[0];
-      if (useWorldviewStore.getState().queryRunId) return false;
+      if (!stillFree()) return false;
       useWorldviewStore.getState().loadSavedRun(data);
       return true;
     } catch {
@@ -27,14 +44,14 @@ export async function loadDefaultRun(): Promise<boolean> {
     }
   }
   const runs = await listSavedRuns(); // newest first
-  for (const summary of runs.slice(0, MAX_RUNS_TO_TRY)) {
+  for (const summary of runs.filter((r) => runTopic(r.query) === topic).slice(0, MAX_RUNS_TO_TRY)) {
     const data = await fetchSavedRun(summary.id);
     if (!data) continue;
     const hasStory = Object.keys(data.storyVsOfficial ?? {}).length > 0;
     const hasSimilarity = Object.keys(data.personaSimilarity ?? {}).length > 0;
-    if (hasStory && hasSimilarity) {
+    if (hasStory && (hasSimilarity || topic === "stunting")) {
       // The user may have opened something else while this was loading.
-      if (useWorldviewStore.getState().queryRunId) return false;
+      if (!stillFree()) return false;
       useWorldviewStore.getState().loadSavedRun(data);
       return true;
     }

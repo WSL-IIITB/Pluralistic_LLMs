@@ -1,0 +1,114 @@
+{
+  "male": {
+    "schoolPressures": [
+      {
+        "emoji": "🌿",
+        "label": "Cotton season",
+        "detail": "His elder son missed what would have been his first PUC year because he was needed for cotton-picking."
+      },
+      {
+        "emoji": "🚌",
+        "label": "Costly commutes",
+        "detail": "The nearest PUC with a science stream needs a daily bus commute the family judged too costly."
+      },
+      {
+        "emoji": "🌧️",
+        "label": "Bad monsoon",
+        "detail": "A poor monsoon can turn into hired labour or short migration for the whole family."
+      },
+      {
+        "emoji": "👧",
+        "label": "Girls' care work",
+        "detail": "His daughter helps with cooking and sibling care after school, which can make girls fall behind."
+      }
+    ],
+    "factorEffects": {
+      "districtId": "29-579",
+      "pressures": [
+        "His elder son missed his first PUC year for cotton-picking. When the crop needs hands, schooling is what gets traded away, and his younger children face the same choice.",
+        "The PUC with a science stream needs a daily bus commute the family judged too costly, so the fee and fare decide the stream, or whether the next child continues.",
+        "A poor monsoon can turn the whole family to hired labour or short migration, taking children out of class for the season.",
+        "Falling behind is what makes leaving feel reasonable later, so his daughter's after-school chores are an early step toward her exit."
+      ],
+      "sanitation": "If his household lacks a proper toilet, his daughter, who already juggles cooking and sibling care, would be the first to miss school.",
+      "district": "The factor flags the share of English-medium schools in Kalaburagi. The card shows cotton season, commute cost and a bad monsoon as what costs his children school, not language."
+    },
+    "dataLens": {
+      "area": "Kalburgi",
+      "changes": [
+        {
+          "factor": "% Schools with Library",
+          "effect": "A stocked school library would give his children a place to study; at home, cotton-season work and care work leave little time for it."
+        },
+        {
+          "factor": "% Classrooms in Good Condition",
+          "effect": "Repaired classrooms would keep lessons running for his sons and daughter, especially in a bad monsoon, one of the pressures on his family."
+        },
+        {
+          "factor": "% Schools with CCE Implemented",
+          "effect": "Kalaburagi ranks last in Karnataka for continuous evaluation, so a child who misses weeks in cotton season may only be found to be behind at the SSLC exam."
+        }
+      ],
+      "lag": {
+        "factor": "% Population Living in Households with Improved Sanitation",
+        "effect": "Kalaburagi also has the lowest household-sanitation share in the state; if his home lacked a toilet, his daughter would face the risks that keep older girls at home."
+      }
+    }
+  },
+  "female": {
+    "schoolPressures": [
+      {
+        "emoji": "💰",
+        "label": "Secondary costs",
+        "detail": "Transport, uniforms and notebooks outweighed her son's potential wage once school was outside the tanda."
+      },
+      {
+        "emoji": "🪙",
+        "label": "Daily wages",
+        "detail": "Even small daily wages can outweigh a classroom seat when the household is short of cash."
+      },
+      {
+        "emoji": "🌧️",
+        "label": "Monsoon roads",
+        "detail": "Poor road connectivity to some tandas makes attendance harder in the monsoon months."
+      },
+      {
+        "emoji": "🗣️",
+        "label": "Language gap",
+        "detail": "Gor Boli at home, Kannada at school; her younger daughter needed an extra year to adjust."
+      }
+    ],
+    "factorEffects": {
+      "districtId": "29-565",
+      "pressures": [
+        "Transport, uniforms and notebooks outweighed her son's potential wage once school was outside the tanda, so the cost of continuing is what decides it for him.",
+        "Her husband is a daily-wage labourer, so any wage a child can earn looks large next to a classroom seat in a lean week.",
+        "Poor roads into some tandas make attendance hardest in monsoon months, so a child can fall behind for weeks at a time.",
+        "At home the family speaks Gor Boli but school is in Kannada. Her younger daughter needed an extra year to adjust, which is a quiet way to fall behind."
+      ],
+      "sanitation": "If her tanda household lacks a proper toilet, her two daughters' attendance would suffer first, adding to cost and distance.",
+      "district": "The factor flags the share of English-medium schools in Ballari. The card's own language gap is Gor Boli at home to Kannada at school, and costs and wages are what she names as pressures."
+    },
+    "dataLens": {
+      "area": "Ballari",
+      "changes": [
+        {
+          "factor": "% Schools with Functional Total Toilets",
+          "effect": "Ballari's schools have nearly full toilet coverage but still rank among the lowest in the state; a working girls' toilet is what lets her two daughters stay through the day."
+        },
+        {
+          "factor": "% Classrooms in Good Condition",
+          "effect": "Safe, repaired classrooms would keep her children's lessons going in the monsoon, when bad roads already make the trip to school hard."
+        },
+        {
+          "factor": "% Schools with CCE Implemented",
+          "effect": "Regular checks would show early if her children are slipping, perhaps because of the language gap they face, before the SSLC exam decides it."
+        }
+      ],
+      "lag": {
+        "factor": "Teachers per 100 students",
+        "effect": "Ballari has among the fewest teachers per student in Karnataka; in large classes, a child who struggles with the school's language gets little help."
+      }
+    }
+  }
+}

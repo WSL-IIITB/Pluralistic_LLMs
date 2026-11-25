@@ -1,0 +1,210 @@
+{
+  "districtId": "29-568",
+  "name": "Shivamogga",
+  "regionId": "malnad",
+  "topic": "stunting",
+  "researchedOn": "2026-11-25",
+  "method": "automated: web search + Claude compile + page verification (scripts/research_stunting_districts.py)",
+  "headline": "Shivamogga reports 29% child stunting, below state average; district pioneers child protection and nutrition programs",
+  "summary": "Shivamogga district shows 29% child stunting among under-five children, performing better than India's 32% rate. The district has 2,460 Anganwadi centers providing supplementary nutrition and pre-school education to children aged 0-6 years. Women's anaemia stands at 41.8%, also below national levels. The district pioneered Mission Suraksha to prevent child marriages, stopping 54 cases since July 2023. Shivamogga operates seven ICDS projects focusing on health, nutrition awareness, and child development through comprehensive departmental infrastructure.",
+  "reasons": [
+    {
+      "factor": "Anaemia in women",
+      "category": "maternal-health",
+      "detail": "41.8% of women in Shivamogga are anaemic, better than India's 57% rate, indicating maternal health conditions impact child nutrition outcomes",
+      "sources": [
+        3
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Pre-school education access",
+      "category": "health-services",
+      "detail": "District operates 2,460 Anganwadi centers providing informal pre-school education and nutrition to children 0-6 years across seven taluks",
+      "sources": [
+        1
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Nutritional awareness programs",
+      "category": "nutrition-diet",
+      "detail": "Department emphasizes training mothers and adolescent girls on supplementary nutritional food and health through Anganwadi system",
+      "sources": [
+        1
+      ],
+      "evidence": "moderate"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Child stunting rate",
+      "value": "29%",
+      "sources": [
+        3
+      ]
+    },
+    {
+      "label": "Women anaemia rate",
+      "value": "41.8%",
+      "sources": [
+        3
+      ]
+    },
+    {
+      "label": "Anganwadi centers operating",
+      "value": "2,460",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "label": "ICDS projects",
+      "value": "7",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "label": "Women low BMI rate",
+      "value": "15%",
+      "sources": [
+        3
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Karnataka State’s first child legal services clinic for POCSO victims at Shivamogga",
+      "outlet": "thehansindia.com",
+      "date": "2026-07-23",
+      "url": "https://www.thehansindia.com/karnataka/karnataka-states-first-child-legal-services-clinic-for-pocso-victims-at-shivamogga-1100627",
+      "takeaway": "Karnataka's first child legal services clinic opens in Shivamogga to protect children from sexual offenses"
+    }
+  ],
+  "responses": [
+    {
+      "text": "District administration implemented Mission Suraksha to prevent child marriages, stopping 54 cases; program expanded to Chikkamagaluru and Kalburgi",
+      "sources": [
+        2
+      ]
+    },
+    {
+      "text": "Opened Karnataka's first child legal services clinic at Government Girls' Children's Home for POCSO victims on July 9",
+      "sources": [
+        4
+      ]
+    },
+    {
+      "text": "Department operates 2,460 Anganwadi centers with 2,038 own buildings, providing nutrition and pre-school education for 0-6 year children",
+      "sources": [
+        1
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://shimoga.nic.in/en/women-and-child-development/",
+      "title": "Women And Child Development | District Shivamogga, Government of Karnataka",
+      "outlet": "shimoga.nic.in",
+      "date": "",
+      "type": "government"
+    },
+    {
+      "id": 2,
+      "url": "https://www.deccanherald.com/india/karnataka/mission-suraksha-a-sureshot-cure-for-child-marriages-in-shivamogga-3865072",
+      "title": "Mission Suraksha, a sureshot cure for child marriages in Shivamogga",
+      "outlet": "Deccan Herald",
+      "date": "2026-01-19",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://youthpower.in/institution/karnataka/shivamogga/phc-chc",
+      "title": "PHC / CHC in Shivamogga, Karnataka",
+      "outlet": "youthpower.in",
+      "date": "",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "https://www.thehansindia.com/karnataka/karnataka-states-first-child-legal-services-clinic-for-pocso-victims-at-shivamogga-1100627",
+      "title": "Karnataka State’s first child legal services clinic for POCSO victims at Shivamogga",
+      "outlet": "thehansindia.com",
+      "date": "2026-07-23",
+      "type": "news"
+    }
+  ],
+  "modelFactorWhy": [
+    {
+      "factor": "Mothers who took iron-folic acid for 180+ days in pregnancy",
+      "verdict": "partly",
+      "why": "Women's anaemia in Shivamogga stands at 41.8%, below India's 57%. While this indicates better maternal health conditions than national average, pages do not provide specific data on iron-folic acid supplementation compliance during pregnancy in the district.",
+      "mechanism": "Adequate iron-folic acid intake during pregnancy prevents maternal anaemia, supporting fetal growth and reducing risk of low birth weight and subsequent stunting",
+      "proof": [
+        {
+          "claim": "41.8% of women in Shivamogga are anaemic, better than India's 57% rate",
+          "sources": [
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "Children age 3–6 recorded as school-going",
+      "verdict": "partly",
+      "why": "District operates 2,460 Anganwadi centers emphasizing informal pre-school education for children 0-6 years, suggesting infrastructure exists for early childhood education. However, pages lack specific enrollment or attendance data for 3-6 year age group in Shivamogga.",
+      "mechanism": "Pre-school attendance provides structured nutrition programs, health monitoring, early learning stimulation, and social development that supports physical growth",
+      "proof": [
+        {
+          "claim": "2,460 Anganwadi centers provide informal pre-school education to children 0-6 years",
+          "sources": [
+            1
+          ]
+        },
+        {
+          "claim": "Department emphasizes training on supplementary nutritional food and informal pre-school education",
+          "sources": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "Women married before age 18, age 20–24",
+      "verdict": "supported",
+      "why": "Shivamogga ranked second in Karnataka for child marriages in 2024, indicating high prevalence. District launched Mission Suraksha specifically targeting child marriage prevention, stopping 54 cases since July 2023, demonstrating this is a recognized local problem affecting young women's health outcomes.",
+      "mechanism": "Early marriage leads to early pregnancy before physical maturity, increasing risk of maternal undernutrition, low birth weight babies, and inadequate child care knowledge",
+      "proof": [
+        {
+          "claim": "Shivamogga ranked second in the state in child marriages in 2024",
+          "sources": [
+            2
+          ]
+        },
+        {
+          "claim": "Mission Suraksha prevented 54 child marriages since inception in July last year",
+          "sources": [
+            2
+          ]
+        },
+        {
+          "claim": "Department implements programs for preventing child marriage and raising awareness of its impact",
+          "sources": [
+            1
+          ]
+        }
+      ]
+    }
+  ],
+  "coverage": "moderate",
+  "gaps": "No district-specific data on dietary diversity, exclusive breastfeeding rates, iron-folic acid compliance, actual school enrollment for 3-6 year children, household sanitation access, or poverty indicators",
+  "verificationNotes": [
+    "dropped reason (number 2023 not on cited page): Child marriage prevention: Shivamogga ranked second in state for child marriages in 2024; ",
+    "dropped fact (number 2023 not on cited page): Child marriages prevented since July 2023 54",
+    "dropped headline (number 2023 not on cited page): Mission Suraksha prevents 54 child marriages in Shivamogga since July 2023, first such pro"
+  ],
+  "searched": 99,
+  "candidatePages": 9
+}

@@ -16,6 +16,7 @@ import { PersonaMap } from "@/components/divergence/PersonaMap";
 
 import {
   KARNATAKA_REGIONS,
+  runTopic,
   regionColor,
   STATEWIDE_REGION_ID,
   useWorldviewStore,
@@ -55,7 +56,7 @@ function AreaSummary({
             : "no persona reply"}
           {" · "}
           {hasOfficial
-            ? `${row.officialFactors.length} UIDAI/NITI row${row.officialFactors.length === 1 ? "" : "s"}`
+            ? `${row.officialFactors.length} official data row${row.officialFactors.length === 1 ? "" : "s"}`
             : "no UIDAI/NITI match"}
         </span>
       </div>
@@ -116,7 +117,7 @@ function AreaSummary({
                   <FactorTable factors={row.officialFactors} />
                 ) : (
                   <p className="mt-1.5 text-[12px] text-muted-foreground/90">
-                    No UIDAI/NITI row matched this area's districts.
+                    No official data row matched this area's districts.
                   </p>
                 )}
               </div>
@@ -161,6 +162,7 @@ export function DivergenceView() {
   const storyVsOfficial = useWorldviewStore((s) => s.storyVsOfficial);
   const runState = useWorldviewStore((s) => s.runState);
   const query = useWorldviewStore((s) => s.query);
+  const stunting = runTopic(query) === "stunting";
   const isStreaming = runState === "streaming" || runState === "connecting";
 
   const stateRow = storyVsOfficial[STATEWIDE_REGION_ID];
@@ -173,13 +175,17 @@ export function DivergenceView() {
     <div className="flex min-h-0 flex-1">
       <section className="panel-surface pointer-events-auto flex w-full flex-col overflow-hidden rounded-xl">
         <header className="border-b border-panel-border px-5 py-3.5">
-          <h2 className="text-sm font-medium text-foreground">Story Mode vs. UIDAI/NITI data</h2>
+          <h2 className="text-sm font-medium text-foreground">
+            Story Mode vs. {stunting ? "the NITI stunting model" : "UIDAI/NITI data"}
+          </h2>
           <p className="mt-1 max-w-[900px] text-[12px] leading-relaxed text-muted-foreground">
             Story Mode's answer for {query ? <>“{query}”</> : "this query"} — regional,
-            persona-driven, grounded in social and web evidence — compared against UIDAI/NITI's
-            official district-level dominant-factor model, which has no region or persona of its
-            own. Each area below gets one consolidated answer drawing on both, plus the comparison
-            and the raw evidence behind it.
+            persona-driven, grounded in social and web evidence — compared against{" "}
+            {stunting
+              ? "the NITI team's provisional stunting model (each district's NFHS-6 stunting rate and the factors it prescribes most change for)"
+              : "UIDAI/NITI's official district-level dominant-factor model"}
+            , which has no region or persona of its own. Each area below gets one consolidated
+            answer drawing on both, plus the comparison and the raw evidence behind it.
           </p>
         </header>
 

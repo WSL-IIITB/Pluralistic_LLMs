@@ -5,6 +5,8 @@
  */
 
 import { ArrowLeft, ChevronDown, ExternalLink, X } from "lucide-react";
+import { StuntingDistrictSheet } from "@/components/stunting/StuntingResearchViews";
+import { StuntingRegionView } from "@/components/stunting/StuntingViews";
 import { useMemo, useState } from "react";
 
 import {
@@ -748,6 +750,7 @@ export function MapDetailSheet() {
   const districtId = useExplorerStore((s) => s.districtId);
   const focusRegion = useExplorerStore((s) => s.focusRegion);
   const resetFocus = useExplorerStore((s) => s.resetFocus);
+  const topic = useExplorerStore((s) => s.topic);
   const { byId, ready } = useDistrictProfiles();
   const { geo } = useDistrictGeo();
 
@@ -793,6 +796,7 @@ export function MapDetailSheet() {
               </button>
             )}
             {!districtId && <span>Persona region</span>}
+            {topic === "stunting" && <span>· under-5 stunting</span>}
           </div>
         </div>
         <button
@@ -805,7 +809,13 @@ export function MapDetailSheet() {
         </button>
       </header>
       <div className="min-h-0 flex-1 overflow-y-auto px-4 py-4 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-border">
-        {districtId ? (
+        {topic === "stunting" ? (
+          districtId ? (
+            <StuntingDistrictSheet key={districtId} districtId={districtId} />
+          ) : (
+            <StuntingRegionView regionId={rid} />
+          )
+        ) : districtId ? (
           <DistrictBody
             key={districtId}
             districtId={districtId}

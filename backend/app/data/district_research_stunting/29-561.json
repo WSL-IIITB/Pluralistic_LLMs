@@ -1,0 +1,107 @@
+{
+  "districtId": "29-561",
+  "name": "Gadag",
+  "regionId": "kitturu-karnataka",
+  "topic": "stunting",
+  "researchedOn": "2026-11-25",
+  "method": "automated: web search + Claude compile + page verification (scripts/research_stunting_districts.py)",
+  "headline": "Gadag flagged among seven Karnataka districts where child nutrition is a major concern",
+  "summary": "Gadag is identified as one of seven districts in Karnataka where nutrition is a significant challenge, according to the Karnataka Human Development Report 2022. The district is also among ten flagged for poverty concerns. While no district-specific stunting figures are provided in the sources, Gadag's inclusion in this group of nutrition-concern districts indicates persistent malnutrition issues requiring focused interventions in housing and agricultural productivity.",
+  "reasons": [
+    {
+      "factor": "Poverty and food insecurity",
+      "category": "economic",
+      "detail": "Gadag flagged for poverty by state report; government advised to focus on agricultural interventions to increase farm productivity",
+      "sources": [
+        2
+      ],
+      "evidence": "moderate"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Districts with nutrition concern (2022)",
+      "value": "Kalaburagi, Raichur, Yadgiri, Koppal, Ballari, Bidar and Gadag",
+      "sources": [
+        2
+      ]
+    },
+    {
+      "label": "Districts flagged for poverty (2022)",
+      "value": "Yadgir, Kalaburgi, Raichur, Koppal, Ballari, Bidar, Gadag, Bagalkot and Vijaypura",
+      "sources": [
+        2
+      ]
+    },
+    {
+      "label": "Statewide: Stunting (NFHS-5 2019-21)",
+      "value": "35.5%",
+      "sources": [
+        1
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Poverty, malnutrition Karnataka’s shame",
+      "outlet": "Deccan Herald",
+      "date": "2023-03-26",
+      "url": "https://www.deccanherald.com/opinion/editorial/poverty-malnutrition-karnataka-s-shame-1203841.html",
+      "takeaway": "Karnataka Human Development Report 2022 flags Gadag among districts where nutrition is a major concern"
+    }
+  ],
+  "responses": [
+    {
+      "text": "Report recommends government focus on housing and agricultural interventions to increase farm productivity",
+      "sources": [
+        2
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=1797701&reg=48&lang=2",
+      "title": "UNDERWEIGHT CHILDREN",
+      "outlet": "PIB",
+      "date": "",
+      "type": "government"
+    },
+    {
+      "id": 2,
+      "url": "https://www.deccanherald.com/opinion/editorial/poverty-malnutrition-karnataka-s-shame-1203841.html",
+      "title": "Poverty, malnutrition Karnataka’s shame",
+      "outlet": "Deccan Herald",
+      "date": "2023-03-26",
+      "type": "news"
+    }
+  ],
+  "modelFactorWhy": [
+    {
+      "factor": "Children age 3–6 recorded as school-going",
+      "verdict": "no-evidence",
+      "why": "The sources provide no evidence about preschool enrollment or anganwadi attendance rates specifically for Gadag district. While one article mentions anganwadis statewide, no district-specific data is given.",
+      "mechanism": "Preschool attendance enables early childhood education programs and regular nutrition supplementation through anganwadi centers",
+      "proof": []
+    },
+    {
+      "factor": "Mothers who took iron-folic acid for 180+ days in pregnancy",
+      "verdict": "no-evidence",
+      "why": "The sources contain no information about iron-folic acid supplementation rates during pregnancy in Gadag. No maternal health indicators are mentioned for this district.",
+      "mechanism": "Adequate iron-folic acid intake during pregnancy prevents maternal anemia and supports fetal growth, reducing low birth weight and stunting risk",
+      "proof": []
+    },
+    {
+      "factor": "Household members covered by health insurance",
+      "verdict": "no-evidence",
+      "why": "No data on health insurance coverage rates is provided for Gadag district in any of the sources. Economic poverty is mentioned but health insurance coverage is not addressed.",
+      "mechanism": "Health insurance coverage improves access to maternal and child health services by reducing financial barriers to care-seeking",
+      "proof": []
+    }
+  ],
+  "coverage": "thin",
+  "gaps": "No district-specific stunting data, health service indicators, maternal health metrics, or program implementation details found for Gadag",
+  "verificationNotes": [],
+  "searched": 95,
+  "candidatePages": 4
+}

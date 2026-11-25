@@ -1,0 +1,262 @@
+{
+  "districtId": "29-555",
+  "name": "Belagavi",
+  "regionId": "kitturu-karnataka",
+  "topic": "stunting",
+  "researchedOn": "2026-11-25",
+  "method": "automated: web search + Claude compile + page verification (scripts/research_stunting_districts.py)",
+  "headline": "Belagavi reports highest severe child stunting in Karnataka with 50,522 affected children at anganwadis",
+  "summary": "Belagavi district recorded the highest number of severely stunted children in Karnataka, with 50,522 cases identified among children registered at anganwadi centres, according to data tabled in the Legislature in February 2026. Despite multiple state nutrition programmes, the district faces persistent malnutrition challenges. Research from urban slums reveals local determinants of undernutrition, while grassroots organizations document awareness gaps and system failures. The district also faces concerning teenage pregnancy rates and child marriage cases that compound maternal-child health vulnerabilities.",
+  "reasons": [
+    {
+      "factor": "Lack of nutrition awareness",
+      "category": "nutrition-diet",
+      "detail": "Volunteers in Khanapur taluk found lack of awareness on nutrition management was key to malnutrition persistence, requiring education on using anganwadi food kits effectively",
+      "sources": [
+        4
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Anganwadi meal disruptions",
+      "category": "nutrition-diet",
+      "detail": "Mid-day meal distribution gaps at anganwadis contributed to increased malnutrition among children aged six and below in Karnataka",
+      "sources": [
+        5
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Teen pregnancy prevalence",
+      "category": "maternal-health",
+      "detail": "Belagavi features among top districts for teenage pregnancies; cases include girls married at age 12 giving birth to severely underweight infants",
+      "sources": [
+        6,
+        7,
+        8
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Maternal anemia burden",
+      "category": "maternal-health",
+      "detail": "Research in Belagavi rural areas documents anemia prevalence among postpartum mothers, indicating broader maternal health challenges affecting child outcomes",
+      "sources": [
+        9
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "System failures",
+      "category": "health-services",
+      "detail": "NGO activists documented failures from Asha workers to health officials in preventing child marriage and monitoring maternal-child health in Belagavi",
+      "sources": [
+        8
+      ],
+      "evidence": "moderate"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Severe stunting cases (2026)",
+      "value": "50,522 children",
+      "sources": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "label": "Statewide: Total severe stunting",
+      "value": "479,931 children",
+      "sources": [
+        1
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "4.8 Lakh Young Children in Karnataka Severely Stunted Despite Nutrition Push",
+      "outlet": "coastaldigest.com",
+      "date": "2026-02-15",
+      "url": "https://coastaldigest.com/4-8-lakh-young-children-in-karnataka-severely-stunted-despite-nutrition-push/",
+      "takeaway": "Belagavi reports highest number of severely stunted children in Karnataka despite nutrition programmes"
+    },
+    {
+      "title": "A Childhood Stolen Twice: Belagavi Minor’s Story Exposes the Brutality of Child Marriage",
+      "outlet": "oneindia.com",
+      "date": "2025-08-19",
+      "url": "https://www.oneindia.com/bengaluru/a-childhood-stolen-twice-belagavi-minor-s-story-exposes-the-brutality-of-child-marriage-7834013.html",
+      "takeaway": "Belagavi minor married twice by age 15, both infants died from low birth weight"
+    },
+    {
+      "title": "Minor Married Twice, Aadhaar Forged",
+      "outlet": "newskarnataka.com",
+      "date": "2025-03-14",
+      "url": "https://newskarnataka.com/karnataka/belagavi/minor-married-twice-aadhaar-forged-shocking-child-marriage-case-in-belagavi/14032025/",
+      "takeaway": "Aadhaar forgery enabled second child marriage in Belagavi; system failures blamed for abuse"
+    },
+    {
+      "title": "In Belagavi, fighting malnourishment with the power of awareness",
+      "outlet": "Deccan Herald",
+      "date": "2022-04-19",
+      "url": "https://www.deccanherald.com/india/karnataka/in-belagavi-fighting-malnourishment-with-the-power-of-awareness-1101918.html",
+      "takeaway": "Khanapur taluk NGO fights malnutrition through awareness education on nutrition management"
+    }
+  ],
+  "responses": [
+    {
+      "text": "Women and Child Welfare Minister Laxmi Hebbalkar assured swift action on child marriage cases",
+      "sources": [
+        8
+      ]
+    },
+    {
+      "text": "Jagruthi volunteers educated mothers in Khanapur on making most of anganwadi food kits",
+      "sources": [
+        4
+      ]
+    },
+    {
+      "text": "Police registered cases under child marriage and POCSO laws against families",
+      "sources": [
+        8
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://coastaldigest.com/4-8-lakh-young-children-in-karnataka-severely-stunted-despite-nutrition-push/",
+      "title": "4.8 Lakh Young Children in Karnataka Severely Stunted Despite Nutrition Push",
+      "outlet": "coastaldigest.com",
+      "date": "2026-02-15",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://www.deccanherald.com/amp/story/india/karnataka/karnataka-reports-48-lakh-severely-stunted-children-despite-nutrition-schemes-3899157",
+      "title": "Karnataka reports 4.8 lakh severely stunted children despite nutrition schemes",
+      "outlet": "Deccan Herald",
+      "date": "2026-02-15",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://www.deccanherald.com/india/karnataka/karnataka-reports-48-lakh-severely-stunted-children-despite-nutrition-schemes-3899157",
+      "title": "Karnataka reports 4.8 lakh severely stunted children despite nutrition schemes",
+      "outlet": "Deccan Herald",
+      "date": "2026-02-15",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "https://www.deccanherald.com/india/karnataka/in-belagavi-fighting-malnourishment-with-the-power-of-awareness-1101918.html",
+      "title": "In Belagavi, fighting malnourishment with the power of awareness",
+      "outlet": "Deccan Herald",
+      "date": "2022-04-19",
+      "type": "news"
+    },
+    {
+      "id": 5,
+      "url": "https://www.thenewsminute.com/article/mid-day-meals-stopped-after-lockdown-karnataka-child-malnutrition-sees-spike-140043",
+      "title": "Mid-day meals stopped after lockdown in Karnataka, child malnutrition sees a spike",
+      "outlet": "thenewsminute.com",
+      "date": "2020-12-21",
+      "type": "news"
+    },
+    {
+      "id": 6,
+      "url": "https://thelogicalindian.com/karnataka-reports-25436-teenage-pregnancies-minister-blames-social-media-child-marriage-cases-as-young-as-9/",
+      "title": "Karnataka Reports 25,436 Teenage Pregnancies; Minister Blames Social Media, Child Marriage, Cases as Young as 9",
+      "outlet": "thelogicalindian.com",
+      "date": "2025-08-14",
+      "type": "news"
+    },
+    {
+      "id": 7,
+      "url": "https://www.oneindia.com/bengaluru/a-childhood-stolen-twice-belagavi-minor-s-story-exposes-the-brutality-of-child-marriage-7834013.html",
+      "title": "A Childhood Stolen Twice: Belagavi Minor’s Story Exposes the Brutality of Child Marriage",
+      "outlet": "oneindia.com",
+      "date": "2025-08-19",
+      "type": "news"
+    },
+    {
+      "id": 8,
+      "url": "https://newskarnataka.com/karnataka/belagavi/minor-married-twice-aadhaar-forged-shocking-child-marriage-case-in-belagavi/14032025/",
+      "title": "Minor Married Twice, Aadhaar Forged",
+      "outlet": "newskarnataka.com",
+      "date": "2025-03-14",
+      "type": "news"
+    },
+    {
+      "id": 9,
+      "url": "https://ijfcm.org/archive/volume/13/issue/3/article/27735",
+      "title": "Prevalence and determinants of anemia among postpartum mothers in rural area of Belagavi: A community-based cross-sectional study",
+      "outlet": "ijfcm.org",
+      "date": "2026-09-19",
+      "type": "ngo"
+    },
+    {
+      "id": 10,
+      "url": "https://www.drlogy.com/ayushman-bharat/hospitals/karnataka/belagavi/community-health-centre-belawadi",
+      "title": "Community Health Centre Belawadi in Belagavi - Drlogy",
+      "outlet": "drlogy.com",
+      "date": "",
+      "type": "news"
+    },
+    {
+      "id": 11,
+      "url": "https://www.drlogy.com/ayushman-bharat/hospitals/karnataka/belagavi/belagavi-institute-of-medical-sciences",
+      "title": "Drlogy",
+      "outlet": "drlogy.com",
+      "date": "",
+      "type": "news"
+    }
+  ],
+  "modelFactorWhy": [
+    {
+      "factor": "Children age 3–6 recorded as school-going",
+      "verdict": "no-evidence",
+      "why": "The pages discuss anganwadi coverage and nutrition programmes for young children but contain no specific data about school enrollment rates for children aged 3-6 in Belagavi district.",
+      "mechanism": "Early childhood education provides structured nutrition support through mid-day meals and enables developmental monitoring that can prevent stunting",
+      "proof": []
+    },
+    {
+      "factor": "Mothers who took iron-folic acid for 180+ days in pregnancy",
+      "verdict": "partly",
+      "why": "While pages document maternal anemia as a concern in rural Belagavi and mention government healthcare programs, they provide no district-specific data on iron-folic acid supplementation compliance rates during pregnancy.",
+      "mechanism": "Adequate iron-folic acid intake during pregnancy prevents maternal anemia and low birth weight, both directly linked to childhood stunting",
+      "proof": [
+        {
+          "claim": "Research in rural Belagavi examined anemia prevalence among postpartum mothers",
+          "sources": [
+            9
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "Household members covered by health insurance",
+      "verdict": "partly",
+      "why": "Pages confirm Belagavi hospitals participate in Ayushman Bharat scheme, indicating health insurance infrastructure exists, but contain no data on actual household coverage rates in the district.",
+      "mechanism": "Health insurance enables access to maternal healthcare services and child treatment, reducing financial barriers to addressing malnutrition and preventing stunting",
+      "proof": [
+        {
+          "claim": "Multiple Belagavi hospitals empanelled under Ayushman Bharat PM-JAY scheme",
+          "sources": [
+            10,
+            11
+          ]
+        }
+      ]
+    }
+  ],
+  "coverage": "moderate",
+  "gaps": "No district-specific data on school enrollment, IFA compliance, insurance coverage, water/sanitation infrastructure, or household economic indicators",
+  "verificationNotes": [
+    "dropped fact (number 25 not attributable to Belagavi): Teenage pregnancies (2024-25) Among top districts"
+  ],
+  "searched": 95,
+  "candidatePages": 13
+}

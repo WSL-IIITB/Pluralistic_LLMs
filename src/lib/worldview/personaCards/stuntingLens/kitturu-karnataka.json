@@ -1,0 +1,38 @@
+{
+  "male": {
+    "districtId": "29-555",
+    "underFive": "No child under five shown; two school-age children present.",
+    "changes": [
+      {
+        "factor": "Children age 3–6 recorded as school-going",
+        "effect": "If the daughter or son were younger, the six-month migration to tarpaulin camps would make pre-school enrolment impossible, leaving them untracked and unstimulated during critical early years."
+      },
+      {
+        "factor": "Mothers who took iron-folic acid for 180+ days in pregnancy",
+        "effect": "If his wife were pregnant, the October-to-April migration and cash-advance debt would make clinic visits irregular, interrupting iron-folic acid supply and risking anaemia that affects infant birthweight."
+      },
+      {
+        "factor": "Household members covered by health insurance",
+        "effect": "Without insurance, a koyta blade injury or his elderly parents' illness would deepen debt to the mukadam, forcing the family to skip health visits and rely on untreated conditions."
+      }
+    ]
+  },
+  "female": {
+    "districtId": "29-557",
+    "underFive": "No child under five is shown; she has teenage and younger school-age children.",
+    "changes": [
+      {
+        "factor": "Children age 3–6 recorded as school-going",
+        "effect": "If she has young nieces or nephews in the tanda, sending them to anganwadi would support early learning while she labours in distant fields all day."
+      },
+      {
+        "factor": "Mothers who took iron-folic acid for 180+ days in pregnancy",
+        "effect": "If she becomes pregnant again or her daughter marries young, taking iron tablets through pregnancy would reduce anaemia risks despite hard fieldwork and poor water access."
+      },
+      {
+        "factor": "Household members covered by health insurance",
+        "effect": "With her Rs 2,000 Gruha Lakshmi and irregular remittances, health insurance would cushion against the unaffordable medical emergency she constantly worries about for her household."
+      }
+    ]
+  }
+}

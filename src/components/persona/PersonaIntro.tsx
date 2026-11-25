@@ -38,6 +38,9 @@ import {
 
 import { IntroBackdrop, type SkyPhase } from "./IntroBackdrop";
 
+/** Scenes of the recorded script that belong to the dropout study, not to the person (skipped). */
+const STUDY_SCENES: ReadonlySet<IntroScene> = new Set<IntroScene>(["school", "district"]);
+
 const SCENE_LABEL: Record<IntroScene, string> = {
   hello: "Hello",
   household: "Family",
@@ -117,7 +120,14 @@ export function PersonaIntro({
   onExplore: () => void;
 }) {
   const intro = card.intro!;
-  const lines = intro.lines;
+  // The persona introduces themself only: the recorded script's study scenes (school pressures and the
+  // district's NITI numbers) are left out, along with their clips, so the persona stays independent of
+  // the dropout study. That material lives in the Personas tab's separate "study lens" section.
+  const keep = useMemo(
+    () => intro.lines.flatMap((l, i) => (STUDY_SCENES.has(l.scene) ? [] : [i])),
+    [intro.lines],
+  );
+  const lines = useMemo(() => keep.map((i) => intro.lines[i]!), [keep, intro.lines]);
   const voices = useVoices();
   const [savedVoice, setSavedVoice] = useState<string | null>(() => readSavedVoice());
   const [muted, setMuted] = useState(false);
@@ -126,7 +136,11 @@ export function PersonaIntro({
   const gender = personaId === "female" ? "female" : "male";
   const { voice, pitch } = pickVoice(voices, gender, savedVoice);
   // Recorded ElevenLabs clips when the persona has them; otherwise the browser's own voice.
-  const recorded = usePersonaAudio(`${regionId}/${personaId}`, lines.length);
+  const fullAudio = usePersonaAudio(`${regionId}/${personaId}`, intro.lines.length);
+  const recorded = useMemo(
+    () => (fullAudio ? { ...fullAudio, clips: keep.map((i) => fullAudio.clips[i]!) } : null),
+    [fullAudio, keep],
+  );
   const canSpeak = !!recorded || (speechSupported() && !!voice);
   const player = useIntroPlayer(lines, {
     voice,
@@ -135,7 +149,6 @@ export function PersonaIntro({
     audio: recorded,
   });
   const voicedBy = recorded ? "voiced with ElevenLabs" : "voiced by your browser";
-  const nitiData = useNitiPrescriptive();
 
   const poster = player.status === "poster";
   const line = lines[player.beat]!;
@@ -175,12 +188,6 @@ export function PersonaIntro({
     return out;
   }, [lines, player.durations]);
 
-  const district = districtId && nitiData ? nitiData.districts[districtId] : undefined;
-  const area = district?.areas.find((a) => a.area === card.dataLens?.area);
-  const factorInfo = useMemo(
-    () => Object.fromEntries((nitiData?.factors ?? []).map((f) => [f.name, f])),
-    [nitiData],
-  );
   const topic = card.topics.find((t) => t.key === line.topic);
 
   const captionCut = Math.round(player.progress * line.text.length);
@@ -270,65 +277,6 @@ export function PersonaIntro({
               <span className="intro-t-xs leading-snug text-slate-700">{topic.stat.label}</span>
             </div>
           )}
-        </div>
-      );
-    if (scene === "school")
-      return (
-        <div className="grid grid-cols-2 gap-[0.6em]">
-          {shown.map((i) => {
-            const p = card.schoolPressures[i]!;
-            return (
-              <div
-                key={i}
-                className={
-                  "rounded-xl border-2 bg-white/90 p-[0.7em] text-slate-900 shadow-sm animate-in fade-in zoom-in-90 duration-500 " +
-                  (fresh.has(i) ? "" : "opacity-75")
-                }
-                style={{ borderColor: fresh.has(i) ? rgbaCss(color) : "transparent" }}
-              >
-                <span className="intro-t-lg leading-none">{p.emoji}</span>
-                <p className="intro-t-sm mt-[0.3em] font-semibold leading-tight">{p.label}</p>
-              </div>
-            );
-          })}
-        </div>
-      );
-    if (scene === "district" && card.dataLens)
-      return (
-        <div className="space-y-[0.6em] animate-in fade-in duration-500">
-          <p className="intro-t-xs font-medium tracking-wide text-white uppercase [text-shadow:0_1px_3px_rgb(0_0_0/0.6)]">
-            My district in numbers · NITI model
-          </p>
-          {area?.dropout2023_24 != null && (
-            <p className="intro-t-sm inline-block rounded-lg bg-white/90 px-[0.7em] py-[0.35em] text-slate-900">
-              Secondary dropout 2023-24{" "}
-              <span className="font-bold tabular-nums">{area.dropout2023_24.toFixed(1)}%</span>
-            </p>
-          )}
-          <div className="grid grid-cols-3 gap-[0.5em]">
-            {card.dataLens.changes.map((c, i) => {
-              const f = area?.factors.find((x) => x.name === c.factor);
-              return (
-                <div
-                  key={c.factor}
-                  className="rounded-xl bg-white/90 p-[0.6em] text-slate-900 shadow-sm animate-in fade-in slide-in-from-bottom-3 fill-mode-both"
-                  style={{ animationDelay: `${i * 250}ms` }}
-                >
-                  <p className="intro-t-xs font-semibold text-slate-600 uppercase">
-                    Change {i + 1}
-                  </p>
-                  <p className="intro-t-sm font-semibold leading-tight">
-                    {factorInfo[c.factor]?.short ?? c.factor}
-                  </p>
-                  {f && (
-                    <p className="intro-t-xs mt-[0.2em] tabular-nums text-slate-700">
-                      {formatFactorValue(c.factor, f.value)} · #{f.rank} of 35
-                    </p>
-                  )}
-                </div>
-              );
-            })}
-          </div>
         </div>
       );
     if (scene === "worries")

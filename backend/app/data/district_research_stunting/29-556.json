@@ -1,0 +1,131 @@
+{
+  "districtId": "29-556",
+  "name": "Bagalkote",
+  "regionId": "kitturu-karnataka",
+  "topic": "stunting",
+  "researchedOn": "2026-11-25",
+  "method": "automated: web search + Claude compile + page verification (scripts/research_stunting_districts.py)",
+  "headline": "Bagalkot flagged among Karnataka's ten high-poverty, nutrition-concern districts affecting child health outcomes",
+  "summary": "Bagalkot is identified among ten Karnataka districts flagged for poverty and nutrition challenges. The 2022 Karnataka Human Development Report lists Bagalkot alongside districts where deprivation and malnutrition pose major challenges. Historical data from 2012 estimated 61,000 malnourished children across Raichur, Koppal, Bijapur, Gulbarga, and Bagalkot districts. A 2018 cross-sectional study examined stunting prevalence and determinants in Bagalkot's rural areas, though specific findings are not detailed in available excerpts. District-level evidence on current stunting rates and specific contributing factors remains limited in these sources.",
+  "reasons": [
+    {
+      "factor": "Poverty and deprivation",
+      "category": "economic",
+      "detail": "Bagalkot listed among ten districts flagged for poverty challenges in Karnataka Human Development Report 2022",
+      "sources": [
+        1
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Nutrition concern",
+      "category": "nutrition-diet",
+      "detail": "District identified where nutrition is a concern, contributing to malnutrition outcomes among children",
+      "sources": [
+        1
+      ],
+      "evidence": "moderate"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Districts flagged for poverty (2022)",
+      "value": "Yadgir, Kalaburgi, Raichur, Koppal, Ballari, Bidar, Gadag, Bagalkot and Vijaypura",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "label": "Malnourished children estimate (2012)",
+      "value": "61000 children suffering from malnutrition especially in the districts of Raichur, Koppal, Bijapur, Gulbarga and Bagalkot",
+      "sources": [
+        2
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Prevalence of stunting and its determinants in under five children in the rural field practice area of S.N. medical college, Bagalkot: A cross-sectional study",
+      "outlet": "ijfcm.org",
+      "date": "2025-07-23",
+      "url": "https://ijfcm.org/archive/volume/5/issue/1/article/14409",
+      "takeaway": "Cross-sectional study examined stunting prevalence and determinants in rural Bagalkot field practice area"
+    },
+    {
+      "title": "Poverty, malnutrition Karnataka’s shame",
+      "outlet": "Deccan Herald",
+      "date": "2023-03-26",
+      "url": "https://www.deccanherald.com/opinion/editorial/poverty-malnutrition-karnataka-s-shame-1203841.html",
+      "takeaway": "Bagalkot among ten Karnataka districts facing major poverty and malnutrition challenges per 2022 state report"
+    },
+    {
+      "title": "Minister agrees with PM on malnutrition",
+      "outlet": "Deccan Herald",
+      "date": "2012-01-13",
+      "url": "https://www.deccanherald.com/india/karnataka/minister-agrees-pm-malnutrition-2305888",
+      "takeaway": "Bagalkot included in districts with estimated 61,000 malnourished children requiring intervention focus in 2012"
+    }
+  ],
+  "responses": [
+    {
+      "text": "Minister sought new schemes and increased supplementary nutrition allocation for ICDS to address malnutrition in affected districts",
+      "sources": [
+        2
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://www.deccanherald.com/opinion/editorial/poverty-malnutrition-karnataka-s-shame-1203841.html",
+      "title": "Poverty, malnutrition Karnataka’s shame",
+      "outlet": "Deccan Herald",
+      "date": "2023-03-26",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://www.deccanherald.com/india/karnataka/minister-agrees-pm-malnutrition-2305888",
+      "title": "Minister agrees with PM on malnutrition",
+      "outlet": "Deccan Herald",
+      "date": "2012-01-13",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://ijfcm.org/archive/volume/5/issue/1/article/14409",
+      "title": "Prevalence of stunting and its determinants in under five children in the rural field practice area of S.N. medical college, Bagalkot: A cross-sectional study",
+      "outlet": "ijfcm.org",
+      "date": "2025-07-23",
+      "type": "ngo"
+    }
+  ],
+  "modelFactorWhy": [
+    {
+      "factor": "Mothers who took iron-folic acid for 180+ days in pregnancy",
+      "verdict": "no-evidence",
+      "why": "The available pages contain no district-specific evidence from Bagalkot regarding iron-folic acid supplementation practices during pregnancy or their relationship to stunting outcomes.",
+      "mechanism": "Adequate iron-folic acid intake during pregnancy prevents maternal anemia and supports fetal growth, reducing low birth weight and subsequent stunting risk.",
+      "proof": []
+    },
+    {
+      "factor": "Children age 3–6 recorded as school-going",
+      "verdict": "no-evidence",
+      "why": "No Bagalkot-specific data appears in the sources regarding preschool enrollment rates, anganwadi attendance patterns, or early childhood education participation among children aged 3-6 years.",
+      "mechanism": "School enrollment for young children often correlates with access to supplementary nutrition programs, health monitoring, and developmental support that protect against stunting.",
+      "proof": []
+    },
+    {
+      "factor": "Household members covered by health insurance",
+      "verdict": "no-evidence",
+      "why": "The supplied sources provide no information about health insurance coverage rates among households in Bagalkot district or how insurance access relates to child nutrition outcomes locally.",
+      "mechanism": "Health insurance coverage reduces financial barriers to healthcare access, enabling timely treatment of childhood illnesses and maternal care that prevent growth faltering.",
+      "proof": []
+    }
+  ],
+  "coverage": "thin",
+  "gaps": "No district-specific data on iron-folic acid supplementation, preschool enrollment, health insurance coverage, sanitation access, or recent stunting prevalence rates",
+  "verificationNotes": [],
+  "searched": 97,
+  "candidatePages": 7
+}

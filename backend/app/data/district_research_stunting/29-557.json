@@ -1,0 +1,227 @@
+{
+  "districtId": "29-557",
+  "name": "Vijayapura",
+  "regionId": "kitturu-karnataka",
+  "topic": "stunting",
+  "researchedOn": "2026-11-25",
+  "method": "automated: web search + Claude compile + page verification (scripts/research_stunting_districts.py)",
+  "headline": "Vijayapura reports 46,434 severely stunted children and 2,004 underage pregnancies, reflecting deep nutritional crisis",
+  "summary": "Vijayapura district faces acute child malnutrition with 46,434 severely stunted children recorded at Anganwadi centres, the second-highest in Karnataka. The district was among eight identified for eggs in midday meals due to severe malnutrition. Additionally, 2,004 underage pregnancy cases were reported in 2023, linked to child marriage and poor maternal health. These figures reflect systemic challenges in nutrition, maternal care, and health access that perpetuate stunting in one of Karnataka's most affected districts.",
+  "reasons": [
+    {
+      "factor": "Maternal health deficits",
+      "category": "maternal-health",
+      "detail": "Vijayapura recorded 2,004 underage pregnancies in 2023, among the highest in Karnataka, indicating poor maternal health outcomes that directly impact child nutrition.",
+      "sources": [
+        5
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Acute malnutrition prevalence",
+      "category": "nutrition-diet",
+      "detail": "The district has 46,434 severely stunted children, prompting government intervention through egg supplementation in midday meals to address acute nutritional deficiency.",
+      "sources": [
+        1,
+        2
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Limited health coverage",
+      "category": "health-services",
+      "detail": "Healthcare access challenges are evidenced by food safety lapses, with eight children falling ill from spoiled eggs at an Anganwadi centre in Basavana Bagewadi taluk.",
+      "sources": [
+        4
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "School nutrition gaps",
+      "category": "nutrition-diet",
+      "detail": "Vijayapura was included in eight districts receiving eggs three days weekly in midday meals specifically to combat malnutrition and stunting among school children.",
+      "sources": [
+        2,
+        3
+      ],
+      "evidence": "strong"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Severely stunted children",
+      "value": "46434",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "label": "Underage pregnancies 2023",
+      "value": "2004",
+      "sources": [
+        5
+      ]
+    },
+    {
+      "label": "Statewide: Severely stunted",
+      "value": "479931 children",
+      "sources": [
+        1
+      ]
+    },
+    {
+      "label": "Statewide: Teenage pregnancies 3 years",
+      "value": "49000 cases",
+      "sources": [
+        5
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Eight children fall ill after consuming eggs at Anganwadi centre in Vijayapura",
+      "outlet": "english.varthabharati.in",
+      "date": "2026-11-06",
+      "url": "https://english.varthabharati.in/karnataka/eight-children-fall-ill-after-consuming-eggs-at-anganwadi-centre-in-vijayapura-2288846",
+      "takeaway": "Eight children hospitalized in Vijayapura after consuming spoiled eggs at Anganwadi centre"
+    },
+    {
+      "title": "4.8 Lakh Young Children in Karnataka Severely Stunted Despite Nutrition Push",
+      "outlet": "coastaldigest.com",
+      "date": "2026-02-15",
+      "url": "https://coastaldigest.com/4-8-lakh-young-children-in-karnataka-severely-stunted-despite-nutrition-push/",
+      "takeaway": "Vijayapura ranks second in Karnataka with 46,434 severely stunted children despite nutrition programmes"
+    },
+    {
+      "title": "Underage Pregnancies: Karnataka Records 49K Cases in 3 Years, Over 28K in 2023 alone !",
+      "outlet": "en.themooknayak.com",
+      "date": "2024-01-18",
+      "url": "https://en.themooknayak.com/health/underage-pregnancies-karnataka-records-49k-cases-in-3-years-over-28k-in-2023-alone",
+      "takeaway": "Vijayapura reported 2,004 underage pregnancy cases in 2023, among highest in Karnataka"
+    },
+    {
+      "title": "Eggs in midday meal a welcome decision",
+      "outlet": "Deccan Herald",
+      "date": "2021-12-08",
+      "url": "https://www.deccanherald.com/opinion/editorial/eggs-in-midday-meal-a-welcome-decision-1058950.html",
+      "takeaway": "Government adds boiled eggs to midday meals in Vijayapura to combat acute malnutrition"
+    }
+  ],
+  "responses": [
+    {
+      "text": "Government provided boiled eggs three days weekly in midday meals across eight districts including Vijayapura to address malnutrition.",
+      "sources": [
+        2,
+        3
+      ]
+    },
+    {
+      "text": "Karnataka State Commission for Protection of Child Rights planned re-survey of underage pregnancies with Anganwadi workers and ASHA activists.",
+      "sources": [
+        5
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://coastaldigest.com/4-8-lakh-young-children-in-karnataka-severely-stunted-despite-nutrition-push/",
+      "title": "4.8 Lakh Young Children in Karnataka Severely Stunted Despite Nutrition Push",
+      "outlet": "coastaldigest.com",
+      "date": "2026-02-15",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://www.deccanherald.com/opinion/editorial/eggs-in-midday-meal-a-welcome-decision-1058950.html",
+      "title": "Eggs in midday meal a welcome decision",
+      "outlet": "Deccan Herald",
+      "date": "2021-12-08",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://countercurrents.org/2021/12/egg-in-mid-day-meals-resistance-is-against-child-rights/",
+      "title": "Egg in mid-day meals- Resistance is against child rights",
+      "outlet": "countercurrents.org",
+      "date": "2021-12-20",
+      "type": "ngo"
+    },
+    {
+      "id": 4,
+      "url": "https://english.varthabharati.in/karnataka/eight-children-fall-ill-after-consuming-eggs-at-anganwadi-centre-in-vijayapura-2288846",
+      "title": "Eight children fall ill after consuming eggs at Anganwadi centre in Vijayapura",
+      "outlet": "english.varthabharati.in",
+      "date": "2026-11-06",
+      "type": "news"
+    },
+    {
+      "id": 5,
+      "url": "https://en.themooknayak.com/health/underage-pregnancies-karnataka-records-49k-cases-in-3-years-over-28k-in-2023-alone",
+      "title": "Underage Pregnancies: Karnataka Records 49K Cases in 3 Years, Over 28K in 2023 alone !",
+      "outlet": "en.themooknayak.com",
+      "date": "2024-01-18",
+      "type": "news"
+    },
+    {
+      "id": 6,
+      "url": "https://www.drlogy.com/ayushman-bharat/hospitals/karnataka/vijayapura/secure-hospital-vijayapura",
+      "title": "Secure Hospital in Vijayapura",
+      "outlet": "drlogy.com",
+      "date": "",
+      "type": "news"
+    }
+  ],
+  "modelFactorWhy": [
+    {
+      "factor": "Children age 3–6 recorded as school-going",
+      "verdict": "partly",
+      "why": "While Vijayapura was included in midday meal egg supplementation targeting school children's nutrition, no data confirms enrollment rates or school attendance for ages 3-6 specifically.",
+      "mechanism": "School enrollment enables access to nutrition programmes like midday meals, improving dietary intake and reducing stunting risk.",
+      "proof": [
+        {
+          "claim": "Vijayapura included in eight districts receiving eggs in midday meal scheme for malnourished children.",
+          "sources": [
+            2,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "Mothers who took iron-folic acid for 180+ days in pregnancy",
+      "verdict": "partly",
+      "why": "High underage pregnancy rates (2,004 cases in 2023) suggest compromised maternal health, though no direct evidence on iron-folic acid supplementation compliance appears in sources.",
+      "mechanism": "Iron-folic acid supplementation during pregnancy prevents maternal anemia and supports fetal growth, reducing stunting risk in offspring.",
+      "proof": [
+        {
+          "claim": "Vijayapura reported 2,004 underage pregnancies in 2023, indicating poor maternal health conditions.",
+          "sources": [
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "Household members covered by health insurance",
+      "verdict": "no-evidence",
+      "why": "One hospital in Vijayapura participates in Ayushman Bharat PM-JAY scheme, but no district-level data on household health insurance coverage rates exists in sources.",
+      "mechanism": "Health insurance coverage improves access to maternal and child healthcare services, enabling timely treatment and preventive care that reduces stunting.",
+      "proof": [
+        {
+          "claim": "Secure Hospital in Vijayapura is empanelled under Ayushman Bharat PM-JAY scheme for citizens.",
+          "sources": [
+            6
+          ]
+        }
+      ]
+    }
+  ],
+  "coverage": "moderate",
+  "gaps": "No data on health insurance coverage rates, iron-folic acid compliance, school enrollment for ages 3-6, or sanitation infrastructure in Vijayapura.",
+  "verificationNotes": [
+    "dropped fact (number 8 not on cited page): Children ill from eggs 2026 8"
+  ],
+  "searched": 96,
+  "candidatePages": 11
+}

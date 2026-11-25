@@ -1,0 +1,47 @@
+{
+  "_note": "Short labels and what each NFHS-6 / Poshan indicator measures, for the stunting prescriptive model. Plain descriptions of the indicator only -- no claim that it causes stunting.",
+  "Births delivered in a health facility": {
+    "short": "Institutional births",
+    "measures": "Share of births in the last five years that took place in a hospital, health centre or other health facility (NFHS-6)."
+  },
+  "Mothers who took iron-folic acid for 180+ days in pregnancy": {
+    "short": "Iron-folic acid 180+ days",
+    "measures": "Share of mothers who took iron-folic acid tablets for at least 180 days during their last pregnancy (NFHS-6)."
+  },
+  "Women with low BMI, below 18.5": {
+    "short": "Women with low BMI",
+    "measures": "Share of women aged 15-49 whose body mass index is below 18.5, i.e. underweight (NFHS-6)."
+  },
+  "Children age 6–23 months receiving an adequate diet": {
+    "short": "Adequate diet, 6-23 months",
+    "measures": "Share of children aged 6-23 months who received a minimum acceptable diet (NFHS-6)."
+  },
+  "Children given the hepatitis B birth-dose vaccine": {
+    "short": "Hepatitis B birth dose",
+    "measures": "Share of children aged 12-23 months who received the hepatitis B vaccine dose given at birth (NFHS-6)."
+  },
+  "Households using iodized salt": {
+    "short": "Iodised salt",
+    "measures": "Share of households using iodised salt (NFHS-6)."
+  },
+  "Women married before age 18, age 20–24": {
+    "short": "Child marriage (women)",
+    "measures": "Share of women aged 20-24 who were married before age 18 (NFHS-6)."
+  },
+  "Women using a mobile phone": {
+    "short": "Women with a mobile phone",
+    "measures": "Share of women aged 15-49 who have a mobile phone they themselves use (NFHS-6)."
+  },
+  "Women using a bank or savings account": {
+    "short": "Women's bank account",
+    "measures": "Share of women aged 15-49 who have a bank or savings account they themselves use (NFHS-6)."
+  },
+  "Household members covered by health insurance": {
+    "short": "Health insurance cover",
+    "measures": "Share of households with any usual member covered under a health insurance or financing scheme (NFHS-6)."
+  },
+  "Children age 3–6 recorded as school-going": {
+    "short": "Pre-school, age 3-6 (Poshan)",
+    "measures": "Share of children aged 3-6 recorded as attending pre-school in Poshan Tracker data, FY 2024-25."
+  }
+}

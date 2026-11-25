@@ -1,0 +1,189 @@
+{
+  "districtId": "29-566",
+  "name": "Chitradurga",
+  "regionId": "bayaluseeme",
+  "topic": "stunting",
+  "researchedOn": "2026-11-25",
+  "method": "automated: web search + Claude compile + page verification (scripts/research_stunting_districts.py)",
+  "headline": "Chitradurga faces child marriage pressure and weak parent-child bonds, risking adolescent health and nutrition outcomes",
+  "summary": "Chitradurga district confronts multiple challenges affecting child nutrition and development. Child marriage remains a persistent threat, with cases involving physical coercion and familial pressure documented as recently as 2025. Local volunteers report a critical breakdown in parent-child communication, leaving young girls emotionally vulnerable, especially as parents leave children alone while working in fields. The district recorded nearly 2000 teen pregnancies over three years ending 2025, reflecting broader risks to maternal and child health. These social pressures, combined with weak family supervision, undermine conditions for healthy child development and nutrition security.",
+  "reasons": [
+    {
+      "factor": "Teen pregnancy burden",
+      "category": "maternal-health",
+      "detail": "Chitradurga recorded nearly 2000 teen pregnancies in three years, reflecting early childbearing risks that compromise maternal nutrition and child health outcomes.",
+      "sources": [
+        4
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Child marriage persistence",
+      "category": "social-norms",
+      "detail": "Child marriages continue despite interventions; a 2025 case involved a 13-year-old Class 8 girl resisting forced marriage through physical struggle.",
+      "sources": [
+        3,
+        5
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Weak parental supervision",
+      "category": "social-norms",
+      "detail": "Parents working in fields leave girls alone at home; volunteers report missing parent-child bonds and lack of open communication, increasing vulnerability.",
+      "sources": [
+        4
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Social media influence",
+      "category": "social-norms",
+      "detail": "Local volunteers identify social media as a risk factor, with girls seeking affection externally when emotional support at home is lacking.",
+      "sources": [
+        4
+      ],
+      "evidence": "moderate"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Child marriage cases stopped (pandemic)",
+      "value": "Over 400",
+      "sources": [
+        3
+      ]
+    },
+    {
+      "label": "Statewide: Severely stunted children",
+      "value": "4.8 lakh",
+      "sources": [
+        1,
+        2
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Ground report: How teen pregnancies still slip through the cracks in Karnataka",
+      "outlet": "The South First",
+      "date": "2026-04-10",
+      "url": "https://thesouthfirst.com/health/ground-report-how-teen-pregnancies-still-slip-through-the-cracks-in-karnataka/",
+      "takeaway": "Nearly 2000 teen pregnancies recorded in Chitradurga over three years, exposing gaps in adolescent protection systems"
+    },
+    {
+      "title": "Gritty 13-yr-old girl fights to evade nuptial knot in Karnataka's Chitradurga",
+      "outlet": "Deccan Herald",
+      "date": "2025-06-07",
+      "url": "https://www.deccanherald.com/india/karnataka/gritty-13-yr-old-girl-fights-to-evade-nuptial-knot-3575293",
+      "takeaway": "13-year-old Chitradurga girl resists forced marriage to uncle through physical struggle, escapes child marriage fate in 2025"
+    },
+    {
+      "title": "Over 400 child marriages stopped during pandemic in Karnataka",
+      "outlet": "thenewsminute.com",
+      "date": "2020-12-06",
+      "url": "https://www.thenewsminute.com/karnataka/over-400-child-marriages-stopped-during-pandemic-karnataka-139113",
+      "takeaway": "Alcoholism in rural Chitradurga perpetuates child marriages alongside illiteracy and poverty, over 400 stopped statewide during pandemic"
+    }
+  ],
+  "responses": [
+    {
+      "text": "District Child Protection Officer intervened in 2025 child marriage case; girl placed in Bala Mandir for safety and schooling.",
+      "sources": [
+        5
+      ]
+    },
+    {
+      "text": "Local volunteers in Chitradurga counsel parents on building parent-child bonds and spending time with children to empower them emotionally.",
+      "sources": [
+        4
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://coastaldigest.com/4-8-lakh-young-children-in-karnataka-severely-stunted-despite-nutrition-push/",
+      "title": "4.8 Lakh Young Children in Karnataka Severely Stunted Despite Nutrition Push",
+      "outlet": "coastaldigest.com",
+      "date": "2026-02-15",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://www.deccanherald.com/amp/story/india/karnataka/karnataka-reports-48-lakh-severely-stunted-children-despite-nutrition-schemes-3899157",
+      "title": "Karnataka reports 4.8 lakh severely stunted children despite nutrition schemes",
+      "outlet": "Deccan Herald",
+      "date": "2026-02-15",
+      "type": "news"
+    },
+    {
+      "id": 3,
+      "url": "https://www.thenewsminute.com/karnataka/over-400-child-marriages-stopped-during-pandemic-karnataka-139113",
+      "title": "Over 400 child marriages stopped during pandemic in Karnataka",
+      "outlet": "thenewsminute.com",
+      "date": "2020-12-06",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "https://thesouthfirst.com/health/ground-report-how-teen-pregnancies-still-slip-through-the-cracks-in-karnataka/",
+      "title": "Ground report: How teen pregnancies still slip through the cracks in Karnataka",
+      "outlet": "The South First",
+      "date": "2026-04-10",
+      "type": "news"
+    },
+    {
+      "id": 5,
+      "url": "https://www.deccanherald.com/india/karnataka/gritty-13-yr-old-girl-fights-to-evade-nuptial-knot-3575293",
+      "title": "Gritty 13-yr-old girl fights to evade nuptial knot in Karnataka's Chitradurga",
+      "outlet": "Deccan Herald",
+      "date": "2025-06-07",
+      "type": "news"
+    }
+  ],
+  "modelFactorWhy": [
+    {
+      "factor": "Mothers who took iron-folic acid for 180+ days in pregnancy",
+      "verdict": "partly",
+      "why": "Teen pregnancies are documented (nearly 2000 cases over three years), suggesting early childbearing that may compromise antenatal care adherence, but no direct local evidence on IFA supplementation practices exists.",
+      "mechanism": "Iron-folic acid supplementation during pregnancy prevents maternal anemia and supports fetal growth, reducing low birth weight and stunting risk in children.",
+      "proof": [
+        {
+          "claim": "Chitradurga reported nearly 2000 teen pregnancies over three years ending 2025",
+          "sources": [
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "Children age 3–6 recorded as school-going",
+      "verdict": "partly",
+      "why": "A 13-year-old Class 8 girl emphasized her keenness on studies and sports when resisting marriage, suggesting value placed on education. However, no data on 3-6 year preschool enrollment for Chitradurga specifically.",
+      "mechanism": "Early childhood education and preschool attendance expose children to nutrition programs, developmental stimulation, and health monitoring that support growth and reduce stunting.",
+      "proof": [
+        {
+          "claim": "Class 8 girl in Chitradurga was keen on studies and sports, resisting forced marriage",
+          "sources": [
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "Household members covered by health insurance",
+      "verdict": "no-evidence",
+      "why": "No pages discuss health insurance coverage, healthcare access barriers, or financial protection for health services specific to Chitradurga households.",
+      "mechanism": "Health insurance coverage reduces financial barriers to accessing preventive and curative health services, enabling timely treatment of childhood illnesses and consistent antenatal care that prevent stunting.",
+      "proof": []
+    }
+  ],
+  "coverage": "thin",
+  "gaps": "No district-specific data on anganwadi attendance, immunization rates, sanitation access, dietary practices, or household health insurance coverage found in sources.",
+  "verificationNotes": [
+    "dropped fact (number 3 not attributable to Chitradurga): Teen pregnancies (3 years to 2025) nearly 2000"
+  ],
+  "searched": 94,
+  "candidatePages": 8
+}

@@ -1,0 +1,38 @@
+{
+  "male": {
+    "districtId": "29-566",
+    "underFive": "No child under five in household; son is 16, daughter is 13.",
+    "changes": [
+      {
+        "factor": "Mothers who took iron-folic acid for 180+ days in pregnancy",
+        "effect": "If his wife conceives again or relatives become pregnant, taking iron-folic acid for the full 180 days would reduce anaemia and support healthier birth weight for the baby."
+      },
+      {
+        "factor": "Children age 3–6 recorded as school-going",
+        "effect": "If neighbours' young children attend pre-school regularly, they gain early learning and nutrition support through anganwadi meals, building a stronger foundation before primary school begins."
+      },
+      {
+        "factor": "Household members covered by health insurance",
+        "effect": "Though this family likely has some coverage, ensuring full enrolment would protect them from severe medical costs during illness, preserving income needed for nutritious food during bad crop years."
+      }
+    ]
+  },
+  "female": {
+    "districtId": "29-582",
+    "underFive": "No child under five in this household; children are 14 and 15 years old.",
+    "changes": [
+      {
+        "factor": "Children age 3–6 recorded as school-going",
+        "effect": "If a younger relative or neighbour's child were to live here, pre-school enrolment would help free her from childcare during silkworm rearing cycles and wage work in the fields."
+      },
+      {
+        "factor": "Mothers who took iron-folic acid for 180+ days in pregnancy",
+        "effect": "If she were to have another pregnancy now or if her daughter marries young, consistent iron-folic acid for the full duration would protect the baby from low birth weight during uncertain work seasons."
+      },
+      {
+        "factor": "Household members covered by health insurance",
+        "effect": "With health insurance, the family could seek timely care for the elderly mother-in-law or children without depleting savings, especially when her husband is away at brick kilns or construction sites."
+      }
+    ]
+  }
+}

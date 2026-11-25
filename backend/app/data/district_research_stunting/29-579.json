@@ -1,0 +1,264 @@
+{
+  "districtId": "29-579",
+  "name": "Kalaburagi",
+  "regionId": "kalyana-karnataka",
+  "topic": "stunting",
+  "researchedOn": "2026-11-25",
+  "method": "automated: web search + Claude compile + page verification (scripts/research_stunting_districts.py)",
+  "headline": "Kalaburagi faces high malnutrition, poverty, and child marriage, with government interventions showing limited local impact",
+  "summary": "Kalaburagi is identified as one of Karnataka's poorest districts with significant malnutrition concerns. The 2022 Human Development Report flagged Kalaburagi for both poverty and nutrition issues, recommending agricultural interventions to lift at least 20% of the population from poverty. In 2021, children in Kalaburagi, Raichur and Yadgir were specifically identified as suffering from malnutrition, prompting the Chief Minister to plan a special programme targeting children's health and education. Kalaburagi also faces high teenage pregnancy rates and child marriage, with 1648 teenage pregnancies reported in one year. District authorities have directed strict measures against child labour and child marriage.",
+  "reasons": [
+    {
+      "factor": "Poverty and low income",
+      "category": "economic",
+      "detail": "Kalaburagi flagged as one of Karnataka's poorest districts with poverty rates of 18.36 percent, limiting access to adequate nutrition and health services.",
+      "sources": [
+        3,
+        5
+      ],
+      "evidence": "strong"
+    },
+    {
+      "factor": "Maternal health complications",
+      "category": "maternal-health",
+      "detail": "High teenage pregnancy rates (1648 cases in one year) and child marriage prevalence indicate poor maternal health conditions affecting child outcomes.",
+      "sources": [
+        7,
+        6
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Agricultural underdevelopment",
+      "category": "economic",
+      "detail": "Low farm productivity identified; government report recommends agricultural interventions to improve incomes and reduce poverty-driven malnutrition.",
+      "sources": [
+        3
+      ],
+      "evidence": "moderate"
+    },
+    {
+      "factor": "Education barriers",
+      "category": "social-norms",
+      "detail": "Traditional mindsets hinder children's education; child marriage prevalent with 80 girls' marriages prevented in recent drives.",
+      "sources": [
+        5,
+        6
+      ],
+      "evidence": "moderate"
+    }
+  ],
+  "keyFacts": [
+    {
+      "label": "Poverty rate (2022)",
+      "value": "18.36 percent",
+      "sources": [
+        5
+      ]
+    },
+    {
+      "label": "Teenage pregnancies (2024-25)",
+      "value": "1648",
+      "sources": [
+        7
+      ]
+    },
+    {
+      "label": "Child marriages prevented",
+      "value": "80 girls and one boy",
+      "sources": [
+        6
+      ]
+    },
+    {
+      "label": "Child labourers rescued",
+      "value": "22",
+      "sources": [
+        6
+      ]
+    },
+    {
+      "label": "Statewide: Severely stunted children",
+      "value": "479931",
+      "sources": [
+        1
+      ]
+    }
+  ],
+  "headlines": [
+    {
+      "title": "Kalaburagi tightens measures to protect children",
+      "outlet": "ibcworldnews.com",
+      "date": "2026-08-08",
+      "url": "https://ibcworldnews.com/2026/08/08/kalaburagi-tightens-measures-to-protect-children/",
+      "takeaway": "District administration directed to adopt strict measures against child marriage, labour, and begging"
+    },
+    {
+      "title": "Rising Teen Pregnancies in KKR Worry Policy Makers | The New Indian Express Kalaburagi - newspaper",
+      "outlet": "magzter.com",
+      "date": "2025-06-10",
+      "url": "https://www.magzter.com/stories/newspaper/The-New-Indian-Express-Kalaburagi/RISING-TEEN-PREGNANCIES-IN-KKR-WORRY-POLICY-MAKERS",
+      "takeaway": "1648 teenage pregnancies reported in Kalaburagi in one year, indicating high child marriage prevalence"
+    },
+    {
+      "title": "Failing the future: What is holding back school education in Kalaburgi and Yadgir districts of Karnataka?",
+      "outlet": "The South First",
+      "date": "2025-05-10",
+      "url": "https://thesouthfirst.com/karnataka/failing-the-future-what-is-holding-back-school-education-in-kalaburgi-and-yadgir-districts-of-karnataka/",
+      "takeaway": "Traditional mindsets and child marriage hinder education and development in Kalaburagi and Yadgir"
+    },
+    {
+      "title": "Poverty, malnutrition Karnataka’s shame",
+      "outlet": "Deccan Herald",
+      "date": "2023-03-26",
+      "url": "https://www.deccanherald.com/opinion/editorial/poverty-malnutrition-karnataka-s-shame-1203841.html",
+      "takeaway": "Kalaburagi flagged for poverty and malnutrition; needs agricultural interventions to lift 20% from poverty"
+    },
+    {
+      "title": "Karnataka CM Basavaraj Bommai plans special programme to tackle malnutrition",
+      "outlet": "Deccan Herald",
+      "date": "2021-08-31",
+      "url": "https://www.deccanherald.com/india/karnataka/karnataka-cm-basavaraj-bommai-plans-special-programme-to-tackle-malnutrition-1025491.html",
+      "takeaway": "CM plans special programme for malnutrition in Kalaburagi, Raichur, Yadgir focusing on children's health and education"
+    }
+  ],
+  "responses": [
+    {
+      "text": "CM Bommai announced special programme for Kalaburagi, Raichur, Yadgir focusing on children's health and education in 2021",
+      "sources": [
+        4
+      ]
+    },
+    {
+      "text": "Deputy Commissioner directed strict enforcement against child marriage, labour, and POCSO offences with monthly inspections of children's homes",
+      "sources": [
+        6
+      ]
+    },
+    {
+      "text": "Officials prevented 80 girls' and one boy's child marriages; rescued 22 child labourers",
+      "sources": [
+        6
+      ]
+    },
+    {
+      "text": "Health officials mandated to register medico-legal cases when pregnancies involving minors detected",
+      "sources": [
+        6
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://coastaldigest.com/4-8-lakh-young-children-in-karnataka-severely-stunted-despite-nutrition-push/",
+      "title": "4.8 Lakh Young Children in Karnataka Severely Stunted Despite Nutrition Push",
+      "outlet": "coastaldigest.com",
+      "date": "2026-02-15",
+      "type": "news"
+    },
+    {
+      "id": 2,
+      "url": "https://www.ijrcog.org/index.php/ijrcog/article/view/3730",
+      "title": "Study of impact of anemia on pregnancy\n\t\t\t\t\t\t\t| International Journal of Reproduction, Contraception, Obstetrics and Gynecology",
+      "outlet": "ijrcog.org",
+      "date": "",
+      "type": "ngo"
+    },
+    {
+      "id": 3,
+      "url": "https://www.deccanherald.com/opinion/editorial/poverty-malnutrition-karnataka-s-shame-1203841.html",
+      "title": "Poverty, malnutrition Karnataka’s shame",
+      "outlet": "Deccan Herald",
+      "date": "2023-03-26",
+      "type": "news"
+    },
+    {
+      "id": 4,
+      "url": "https://www.deccanherald.com/india/karnataka/karnataka-cm-basavaraj-bommai-plans-special-programme-to-tackle-malnutrition-1025491.html",
+      "title": "Karnataka CM Basavaraj Bommai plans special programme to tackle malnutrition",
+      "outlet": "Deccan Herald",
+      "date": "2021-08-31",
+      "type": "news"
+    },
+    {
+      "id": 5,
+      "url": "https://thesouthfirst.com/karnataka/failing-the-future-what-is-holding-back-school-education-in-kalaburgi-and-yadgir-districts-of-karnataka/",
+      "title": "Failing the future: What is holding back school education in Kalaburgi and Yadgir districts of Karnataka?",
+      "outlet": "The South First",
+      "date": "2025-05-10",
+      "type": "news"
+    },
+    {
+      "id": 6,
+      "url": "https://ibcworldnews.com/2026/08/08/kalaburagi-tightens-measures-to-protect-children/",
+      "title": "Kalaburagi tightens measures to protect children",
+      "outlet": "ibcworldnews.com",
+      "date": "2026-08-08",
+      "type": "news"
+    },
+    {
+      "id": 7,
+      "url": "https://www.magzter.com/stories/newspaper/The-New-Indian-Express-Kalaburagi/RISING-TEEN-PREGNANCIES-IN-KKR-WORRY-POLICY-MAKERS",
+      "title": "Rising Teen Pregnancies in KKR Worry Policy Makers | The New Indian Express Kalaburagi - newspaper",
+      "outlet": "magzter.com",
+      "date": "2025-06-10",
+      "type": "news"
+    }
+  ],
+  "modelFactorWhy": [
+    {
+      "factor": "Children age 3–6 recorded as school-going",
+      "verdict": "partly",
+      "why": "Pages document poor educational outcomes and traditional mindsets preventing children's education in Kalaburagi. Child marriage remains prevalent, with 80 marriages prevented. However, no direct data on preschool enrollment for ages 3-6.",
+      "mechanism": "Early schooling supports cognitive development and may improve health knowledge and nutrition practices in families.",
+      "proof": [
+        {
+          "claim": "Traditional mindsets hinder children's education; child marriage prevalent with 80 girls' marriages prevented",
+          "sources": [
+            5,
+            6
+          ]
+        },
+        {
+          "claim": "Kalaburagi and Yadgir districts have consistently performed poorly in school education",
+          "sources": [
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "Mothers who took iron-folic acid for 180+ days in pregnancy",
+      "verdict": "partly",
+      "why": "High teenage pregnancy rates (1648 cases) indicate poor maternal health preparation. Study from Kalaburagi documents iron deficiency anemia as predominant during pregnancy. However, no specific data on 180+ day iron-folic acid compliance.",
+      "mechanism": "Iron-folic acid prevents maternal anemia, reduces preterm births and intrauterine growth restriction, improving birth outcomes.",
+      "proof": [
+        {
+          "claim": "Study from Kalaburagi states iron deficiency anemia is predominant during pregnancy with increased requirement of iron and folic acid",
+          "sources": [
+            2
+          ]
+        },
+        {
+          "claim": "1648 teenage pregnancies reported in Kalaburagi in one year from RCH portal data",
+          "sources": [
+            7
+          ]
+        }
+      ]
+    },
+    {
+      "factor": "Household members covered by health insurance",
+      "verdict": "no-evidence",
+      "why": "No pages contain information about health insurance coverage among households in Kalaburagi district. Poverty data suggests economic barriers to healthcare but insurance coverage is not documented.",
+      "mechanism": "Health insurance enables access to preventive and curative healthcare services, reducing out-of-pocket costs for treatment.",
+      "proof": []
+    }
+  ],
+  "coverage": "moderate",
+  "gaps": "No local data on anganwadi effectiveness, specific iron-folic acid compliance rates, health insurance coverage, or NFHS-6 district stunting figures",
+  "verificationNotes": [],
+  "searched": 93,
+  "candidatePages": 15
+}

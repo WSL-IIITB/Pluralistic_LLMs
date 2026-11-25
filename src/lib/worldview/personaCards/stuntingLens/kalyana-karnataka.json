@@ -1,0 +1,38 @@
+{
+  "male": {
+    "districtId": "29-579",
+    "underFive": "No child under five is shown on this card.",
+    "changes": [
+      {
+        "factor": "Children age 3–6 recorded as school-going",
+        "effect": "If this household has a future pregnancy or young relatives nearby, early pre-school attendance could build learning readiness and free the wife and mother for farm work during critical cotton-picking weeks."
+      },
+      {
+        "factor": "Mothers who took iron-folic acid for 180+ days in pregnancy",
+        "effect": "If the daughter later becomes pregnant, sustained iron-folic acid intake would protect her and the baby during lean months when farm income stops and nutrition suffers, reducing anaemia risk."
+      },
+      {
+        "factor": "Household members covered by health insurance",
+        "effect": "Health insurance could ease worry over distance to specialist care and prevent distress borrowing if the widowed mother or any family member falls ill during drought years when hired labour barely covers basics."
+      }
+    ]
+  },
+  "female": {
+    "districtId": "29-565",
+    "underFive": "No child under five listed",
+    "changes": [
+      {
+        "factor": "Children age 3–6 recorded as school-going",
+        "effect": "If a future pregnancy brings a toddler, local anganwadi enrolment would sharpen the child's readiness and growth tracking before primary school begins."
+      },
+      {
+        "factor": "Mothers who took iron-folic acid for 180+ days in pregnancy",
+        "effect": "If she conceives again, sustained iron-folic acid intake would protect both her health during pregnancy and the baby's early development against anaemia-linked stunting."
+      },
+      {
+        "factor": "Household members covered by health insurance",
+        "effect": "Uneven Ayushman coverage leaves gaps; reliable insurance would ease her worry over her husband's persistent cough and cover specialist care for the three children when needed."
+      }
+    ]
+  }
+}

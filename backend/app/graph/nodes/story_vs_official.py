@@ -29,6 +29,7 @@ import asyncio
 from ...connectors.base import LLMClient
 from ...karnataka import persona_regions
 from ...niti_factors import NitiFactor, niti_factors_for_region, niti_factors_statewide
+from ...stunting import is_stunting_query, stunting_factors_for_region, stunting_factors_statewide
 from ...schema import CollectionCounts, StatusEvent, StoryVsOfficialEvent
 from ..state import EmitFn, PipelineState
 from .persona_answers import reply_text
@@ -65,16 +66,20 @@ def _factor_payload(factors: list[NitiFactor]) -> list[dict]:
 
 async def compare_story_vs_official(state: PipelineState, emit: EmitFn, llm: LLMClient) -> PipelineState:
     state["phase"] = "synthesizing"
+    # A stunting question is compared with the NITI stunting model; anything else with the dropout workbooks.
+    stunting = is_stunting_query(state["query"])
+    for_region = stunting_factors_for_region if stunting else niti_factors_for_region
+    statewide = stunting_factors_statewide if stunting else niti_factors_statewide
     jobs: list[tuple[str | None, str, list[str], list[dict]]] = [
         (
             r["id"],
             r["short_name"],
             _story_points_for_region(state, r["id"]),
-            _factor_payload(niti_factors_for_region(r["id"])),
+            _factor_payload(for_region(r["id"])),
         )
         for r in persona_regions()
     ]
-    jobs.append((None, "Karnataka (statewide)", _story_points_statewide(state), _factor_payload(niti_factors_statewide())))
+    jobs.append((None, "Karnataka (statewide)", _story_points_statewide(state), _factor_payload(statewide())))
 
     semaphore = asyncio.Semaphore(_CONCURRENCY)
     done = 0

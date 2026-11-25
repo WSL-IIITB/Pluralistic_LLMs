@@ -1,0 +1,80 @@
+{
+  "districtId": "29-583",
+  "name": "Bengaluru Rural",
+  "regionId": "old-mysuru",
+  "topic": "stunting",
+  "researchedOn": "2026-11-25",
+  "method": "automated: web search + Claude compile + page verification (scripts/research_stunting_districts.py)",
+  "headline": "Bengaluru Rural ranks among top five districts for child rights, including nutrition outcomes",
+  "summary": "Bengaluru Rural district emerges as one of the best-performing districts in Karnataka for child rights protection, ranking in the top five. This assessment, based on the Child Rights Index of Karnataka 2023, evaluated six indicators including right to nutrition, alongside life, enabling environment, protection, education and participation. The district's strong performance contrasts sharply with neighbouring Bengaluru Urban, which ranked poorly on child protection measures.",
+  "reasons": [
+    {
+      "factor": "Strong child rights framework",
+      "category": "governance",
+      "detail": "District ranks among top five in Karnataka for child rights protection including nutrition rights per 2023 index",
+      "sources": [
+        1
+      ],
+      "evidence": "strong"
+    }
+  ],
+  "keyFacts": [],
+  "headlines": [
+    {
+      "title": "Bengaluru urban district most unsafe in state for kids, says Karnataka child rights index",
+      "outlet": "Deccan Herald",
+      "date": "2025-11-21",
+      "url": "https://www.deccanherald.com/amp/story/india%2Fkarnataka%2Fbengaluru%2Fbengaluru-urban-district-most-unsafe-in-state-for-kids-says-karnataka-child-rights-index-3805141",
+      "takeaway": "Bengaluru Rural among best performers on child rights index including nutrition"
+    }
+  ],
+  "responses": [
+    {
+      "text": "Karnataka State Commission for Protection of Child Rights conducted comprehensive Child Rights Index assessment covering nutrition",
+      "sources": [
+        1
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://www.deccanherald.com/amp/story/india%2Fkarnataka%2Fbengaluru%2Fbengaluru-urban-district-most-unsafe-in-state-for-kids-says-karnataka-child-rights-index-3805141",
+      "title": "Bengaluru urban district most unsafe in state for kids, says Karnataka child rights index",
+      "outlet": "Deccan Herald",
+      "date": "2025-11-21",
+      "type": "news"
+    }
+  ],
+  "modelFactorWhy": [
+    {
+      "factor": "Children age 3–6 recorded as school-going",
+      "verdict": "no-evidence",
+      "why": "The pages discuss education as one of six child rights indicators assessed, but provide no specific data on preschool enrollment rates or school-going status of children age 3-6 in Bengaluru Rural district.",
+      "mechanism": "Early education enrollment correlates with better cognitive development and potentially better nutritional awareness and access to supplementary feeding programmes",
+      "proof": []
+    },
+    {
+      "factor": "Mothers who took iron-folic acid for 180+ days in pregnancy",
+      "verdict": "no-evidence",
+      "why": "While the Child Rights Index includes maternal and child nutrition as assessment criteria under 'right to nutrition', the available pages contain no specific information about iron-folic acid supplementation rates or maternal health practices in Bengaluru Rural.",
+      "mechanism": "Adequate iron-folic acid intake during pregnancy prevents maternal anemia and supports fetal growth, reducing risk of low birth weight and subsequent stunting",
+      "proof": []
+    },
+    {
+      "factor": "Household members covered by health insurance",
+      "verdict": "no-evidence",
+      "why": "The pages make no mention of health insurance coverage rates in Bengaluru Rural district. The Child Rights Index assessment criteria do not appear to include health insurance as a measured indicator.",
+      "mechanism": "Health insurance coverage improves access to maternal and child healthcare services, enabling timely treatment of illnesses and regular health checkups that prevent growth faltering",
+      "proof": []
+    }
+  ],
+  "coverage": "thin",
+  "gaps": "No district-specific data on preschool enrollment, maternal nutrition practices, health insurance coverage, or specific stunting rates",
+  "verificationNotes": [
+    "dropped fact (number 5 not on cited page): Child rights rank (2023) Top 5 in Karnataka",
+    "dropped fact (no valid source): Stunting rate NFHS-6 20.3%"
+  ],
+  "searched": 91,
+  "candidatePages": 1
+}
