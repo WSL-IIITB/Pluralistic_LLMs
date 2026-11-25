@@ -1,5 +1,5 @@
 /**
- * Views for the stunting topic (the second study, beside dropout): NITI's PROVISIONAL prescriptive model for
+ * Views for the stunting topic (the second study, beside dropout): NITI's prescriptive model for
  * under-5 stunting -- a statewide overview, one district, and one region. All numbers come from
  * public/data/niti-stunting.json (or /api/stunting); nothing here is about any persona.
  */
@@ -24,6 +24,8 @@ import {
   type StuntingModel,
 } from "@/lib/worldview";
 
+import { StuntingKeyFindingsSummary } from "@/components/dashboard/KeyFindings";
+
 import { StuntingKeyFindings } from "./StuntingResearchViews";
 
 const pct = (v: number | null | undefined, d = 1) => (v == null ? "—" : `${v.toFixed(d)}%`);
@@ -32,17 +34,6 @@ function ordinal(n: number): string {
   const s = ["th", "st", "nd", "rd"];
   const v = n % 100;
   return `${n}${s[(v - 20) % 10] ?? s[v] ?? s[0]}`;
-}
-
-export function ProvisionalBadge() {
-  return (
-    <span
-      title="The authors label this model provisional"
-      className="rounded-full border border-amber-500/40 bg-amber-500/10 px-2 py-0.5 text-[10px] font-medium tracking-wide text-amber-700 uppercase dark:text-amber-300"
-    >
-      Provisional model
-    </span>
-  );
 }
 
 function useNames(): Record<string, string> {
@@ -217,9 +208,6 @@ function DistrictBody({
             <span className="font-medium text-foreground tabular-nums">{pct(target)}</span>
           </p>
         </div>
-        <span className="pb-1">
-          <ProvisionalBadge />
-        </span>
       </div>
 
       <StuntingControls buckets={[...new Set(d.factors.map((f) => f.bucket))]} />
@@ -296,9 +284,6 @@ export function StuntingRegionView({ regionId }: { regionId: string }) {
         <p className="mt-2 text-[11px] text-muted-foreground">
           Karnataka mean {pct(data.statewide.mean)} (NFHS-6)
         </p>
-        <div className="mt-2">
-          <ProvisionalBadge />
-        </div>
       </section>
       <section>
         <p className="label-micro">Districts — click to zoom in</p>
@@ -353,11 +338,10 @@ export function StuntingOverview() {
 
   return (
     <div className="space-y-7">
+      <StuntingKeyFindingsSummary />
+
       <section>
-        <div className="flex flex-wrap items-center gap-2">
-          <p className="label-micro">Under-5 stunting · Karnataka</p>
-          <ProvisionalBadge />
-        </div>
+        <p className="label-micro">Under-5 stunting · Karnataka</p>
         <div className="mt-3 grid grid-cols-2 gap-2 @xl:grid-cols-4">
           {[
             { v: pct(data.statewide.mean), l: "District mean" },

@@ -92,6 +92,27 @@ A man and a woman for every district, kept independent of the dropout study
 the persona — and shows how far they differ. Generating, saving and asking need the backend; the
 static site shows the library read-only (`public/data/persona-library.json`).
 
+## District profiles (outside context)
+
+Every district sheet, in both topics, has a **Profile** tab with that district's background from
+[District Mocha](https://district-mocha.netlify.app/india.html), an AI-assisted development dashboard by another team:
+baseline figures (population, per-capita income, GDDP, literacy, HDI, economy split), strengths, challenges,
+opportunities, goals, programmes, industries and role-based actions. Items that mention the active topic are marked.
+It is labelled as outside context: the figures have no per-figure sources and were not checked by this study.
+Vijayanagara's page is shown under Ballari, which shares its map polygon.
+
+- Data: `backend/app/data/district_mocha/karnataka.json` (`GET /api/district-mocha`, `public/data/district-mocha.json`
+  on the static site), built by `scripts/import_district_mocha.py` from a full scrape of the site (kept outside the
+  repo in `../district-mocha/`).
+- Chat: each district has a `DISTRICT CONTEXT` section, tagged (OUTSIDE) and cited to its District Mocha page. It is
+  sent only for background questions about a named district (economy, GDDP, HDI, population, industries, profile…)
+  and is the first section dropped when the context budget is tight. CAVEATS rule 11 and the chat rules make the
+  model attribute it and never use it as evidence for dropout or stunting causes.
+
+To refresh: re-run the scraper in `../district-mocha/scraper/`, then
+`python3 scripts/import_district_mocha.py ../district-mocha/district-mocha.json`, re-export the static snapshot and
+rebuild the knowledge pack (`python3 scripts/build_knowledge_pack.py`).
+
 ## Wiring it to real data — the three plug points
 
 Everything runs offline by default. There are exactly three seams to make it live:

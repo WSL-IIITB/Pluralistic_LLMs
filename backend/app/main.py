@@ -97,6 +97,19 @@ def stunting_research() -> dict:
     return out
 
 
+@app.get("/api/district-mocha")
+def district_mocha() -> dict:
+    """Background profiles of each Karnataka district from District Mocha (an outside, AI-assisted development
+    dashboard; see scripts/import_district_mocha.py), keyed by district id. Context only, not this study's research."""
+    import json
+    import os
+
+    from .config import DATA_DIR
+
+    with open(os.path.join(DATA_DIR, "district_mocha", "karnataka.json"), encoding="utf-8") as fh:
+        return json.load(fh)
+
+
 @app.get("/api/karnataka/districts-research")
 def karnataka_districts_research() -> dict:
     """Every district's research file, keyed by district id -- embedded into each

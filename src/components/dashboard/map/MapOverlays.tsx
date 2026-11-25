@@ -5,6 +5,7 @@
  */
 
 import { ArrowLeft, ChevronDown, ExternalLink, X } from "lucide-react";
+import { DistrictMochaProfile } from "@/components/district/DistrictMochaProfile";
 import { StuntingDistrictSheet } from "@/components/stunting/StuntingResearchViews";
 import { StuntingRegionView } from "@/components/stunting/StuntingViews";
 import { useMemo, useState } from "react";
@@ -548,6 +549,7 @@ const DISTRICT_TABS: { id: DistrictSheetTab; label: string }[] = [
   { id: "compare", label: "News vs data" },
   { id: "numbers", label: "Numbers" },
   { id: "media", label: "Media & sources" },
+  { id: "profile", label: "Profile" },
 ];
 
 function DistrictBody({
@@ -597,6 +599,8 @@ function DistrictBody({
             <DistrictPrescriptiveProfile districtId={districtId} />
           </section>
         </div>
+      ) : tab === "profile" ? (
+        <DistrictMochaProfile districtId={districtId} />
       ) : tab === "compare" ? (
         <DistrictNewsVsData districtId={districtId} name={name} />
       ) : (

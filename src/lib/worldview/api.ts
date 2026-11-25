@@ -35,6 +35,7 @@ const STATIC_FILES: Record<string, string> = {
   "/api/persona-library": "data/persona-library.json",
   "/api/stunting": "data/niti-stunting.json",
   "/api/stunting/research": "data/stunting-research.json",
+  "/api/district-mocha": "data/district-mocha.json",
 };
 
 /** URL to read an API resource from: the backend, or its snapshot in a static build. */

@@ -62,7 +62,8 @@ These rules always apply when you answer.
 7. PERSONAS AND SYNTHESES. The 12 personas are composites built from public data. Persona replies and "consolidated answers" are model-written, not evidence.
 8. Do not give policy advice or opinions beyond what the research states.
 9. NITI PRESCRIPTIVE MODEL. A second NITI analysis (UDISE 2023-24 and NFHS-5) fits one straight line per factor across Karnataka's districts and ranks each district's "top three changes": the factors whose 10% improvement the lines link most to lower dropout. It is a correlation, not proof that changing a factor would lower dropout. The dashboard shows the "feasible" ranking (percentages capped at 100%) first; NITI's own published ranking is dominated by factors already near 100% (toilets, libraries). Unlike the dominant-factor files in rule 5, these factor values ARE plain indicator values (for example 86% of classrooms in good condition) and may be quoted. The dropout rates in that file come from the NITI workbook, a different source from the casefile rate: never mix them.
-10. STUNTING. The stunting study has: NFHS-6 district stunting rates and the NITI team's PROVISIONAL stunting model (one linear model across Karnataka's districts; for a 20% cut it prescribes how far each of 11 factors would have to move), and media research collected by automated web search; every number in a claim was checked to be on its cited page and attributable to the district, but claims without numbers were not checked word by word. Mandya has no stunting figures. "No local evidence" means our search found none, not that the factor does not matter. NFHS-5 and NFHS-6 figures both appear in sources: always name which."""
+10. STUNTING. The stunting study has: NFHS-6 district stunting rates and the NITI team's PROVISIONAL stunting model (one linear model across Karnataka's districts; for a 20% cut it prescribes how far each of 11 factors would have to move), and media research collected by automated web search; every number in a claim was checked to be on its cited page and attributable to the district, but claims without numbers were not checked word by word. Mandya has no stunting figures. "No local evidence" means our search found none, not that the factor does not matter. NFHS-5 and NFHS-6 figures both appear in sources: always name which.
+11. DISTRICT CONTEXT (OUTSIDE). DISTRICT CONTEXT sections are background profiles of each district (economy, population, income, HDI, literacy, strengths, challenges, programmes, goals) from District Mocha, an outside AI-assisted development dashboard by another team. They are not this study's research: their figures have no per-figure sources and were not checked by us, and they may use different years from our sources. Always attribute them ("according to District Mocha, an outside dashboard"). Use them to describe a district's background, never as evidence for why students drop out or children are stunted, and never mix their figures with this study's figures as if they were one dataset."""
 
 
 def artefact_lines(pres: dict, info: dict) -> list[str]:
@@ -138,6 +139,7 @@ def input_files() -> list[str]:
             os.path.join(DATA, "niti-prescriptive.json"),
             os.path.join(DATA, "niti-stunting.json"),
             *glob.glob(os.path.join(DATA, "stunting-research.json")),
+            *glob.glob(os.path.join(DATA, "district-mocha.json")),
             os.path.join(ROOT, "backend", "app", "data", "karnataka_regions.json"),
             *glob.glob(os.path.join(ROOT, "src", "lib", "worldview", "personaCards", "*.json")),
             *glob.glob(os.path.join(ROOT, "src", "lib", "worldview", "personaCards", "studyLens", "*.json")),
@@ -560,6 +562,50 @@ def build() -> dict:
                     L.append(f"Gaps: {r['gaps']}")
             stunting_districts[did] = "\n".join(L)
 
+    # ---- District Mocha: outside background profile per district (CAVEATS rule 11) -----------------------
+    district_context: dict[str, str] = {}
+    mocha_path = os.path.join(DATA, "district-mocha.json")
+    if os.path.exists(mocha_path):
+        mocha = read(mocha_path)
+        stamp = mocha["source"].get("scrapedOn") or mocha["source"].get("importedOn", "")
+
+        def mocha_gid(prof: dict) -> str:
+            if prof["url"] not in gid_by_url:
+                gid = f"S{len(sources) + 1}"
+                gid_by_url[prof["url"]] = gid
+                sources.append({"id": gid, "title": f"District Mocha: {prof['name']} district profile", "outlet": "District Mocha (Public A.I.)",
+                                "date": stamp, "type": "outside-dashboard", "url": prof["url"]})
+            return gid_by_url[prof["url"]]
+
+        def mocha_lines(prof: dict) -> list[str]:
+            c = f" [{mocha_gid(prof)}]"
+            L = [f"District Mocha profile of {prof['name']} (OUTSIDE): {prof['tagline']}{c}"]
+            if prof["baseline"]:
+                L.append("Baseline (OUTSIDE): " + "; ".join(
+                    f"{b['label']} {b['value']}" + (f" ({b['year']}" + (f", {b['note']}" if b["note"] else "") + ")" if b["year"] else "")
+                    for b in prof["baseline"]) + c)
+            for key, label in (("challenges", "Challenge"), ("strengths", "Strength"), ("opportunities", "Opportunity")):
+                for x in prof[key]:
+                    L.append(f"- {label} (OUTSIDE): {x['title']}: {x['detail']}{c}")
+            for x in prof["goals"]:
+                L.append(f"- Goal (OUTSIDE): {x['target']}: {x['detail']}{c}")
+            for x in prof["programmes"]:
+                L.append(f"- Programme (OUTSIDE): {x['name']}: {x['status']}{c}")
+            for x in prof["industries"]:
+                L.append(f"- Industry (OUTSIDE): {x['name']} ({x['priority']} priority): {x['stats']}. {x['note']}{c}")
+            for x in prof["roles"]:
+                L.append(f"- Suggested action (OUTSIDE): {x['role']}: {x['action']}{c}")
+            return L
+
+        for did, prof in sorted(mocha["districts"].items()):
+            name = research.get(did, {}).get("name", prof["name"])
+            L = [f"DISTRICT CONTEXT · {name} (DISTRICT) -- outside background from District Mocha, not this study's research (CAVEATS rule 11)."]
+            L += mocha_lines(prof)
+            for extra in prof.get("also", []):
+                L.append(f"{extra['name']} shares this district's map area and has its own District Mocha page:")
+                L += mocha_lines(extra)
+            district_context[did] = "\n".join(L)
+
     # ---- router index --------------------------------------------------------------------------
     index = {
         "districts": [{"id": did, "name": d["name"], "regionId": d["regionId"], "aliases": ALIASES.get(d["name"], [d["name"].lower()])} for did, d in sorted(research.items())],
@@ -584,9 +630,10 @@ def build() -> dict:
         "personas": personas,
         "stunting": stunting_text,
         "stuntingDistricts": stunting_districts,
+        "districtContext": district_context,
     }
     sections = [CAVEATS, digest, uidai, news_vs_data, prescriptive, analysis, personas, *region_sections.values(), *districts.values(),
-                stunting_text, *stunting_districts.values()]
+                stunting_text, *stunting_districts.values(), *district_context.values()]
     known = {s["id"] for s in sources}
     dangling = sorted({m for t in sections for m in re.findall(r"\[(S\d+)\]", t)} - known)
     if dangling:
@@ -594,6 +641,7 @@ def build() -> dict:
     pack["tokenEstimate"] = {
         "alwaysSent": toks(CAVEATS) + toks(digest),
         "stunting": toks(stunting_text), "stuntingDistrictMax": max((toks(t) for t in stunting_districts.values()), default=0),
+        "districtContextMax": max((toks(t) for t in district_context.values()), default=0),
         "uidai": toks(uidai), "newsVsData": toks(news_vs_data), "prescriptive": toks(prescriptive), "analysis": toks(analysis), "personas": toks(personas),
         "regionMax": max(toks(t) for t in region_sections.values()),
         "districtMax": max(toks(t) for t in districts.values()),

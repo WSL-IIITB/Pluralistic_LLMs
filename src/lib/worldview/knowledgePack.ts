@@ -38,6 +38,8 @@ export interface KnowledgePack {
   stunting?: string;
   /** One stunting section per district id. */
   stuntingDistricts?: Record<string, string>;
+  /** Outside background profile per district (District Mocha), keyed by district id. CAVEATS rule 11. */
+  districtContext?: Record<string, string>;
   uidai: string;
   /** Why the news research and the UIDAI/NITI data name different main factors. */
   newsVsData: string;

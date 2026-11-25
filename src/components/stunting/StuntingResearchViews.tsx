@@ -20,6 +20,8 @@ import {
   type StuntingResearch,
 } from "@/lib/worldview";
 
+import { DistrictMochaProfile } from "@/components/district/DistrictMochaProfile";
+
 import { StuntingDistrictView } from "./StuntingViews";
 
 const VERDICT: Record<ModelFactorWhy["verdict"], { label: string; cls: string }> = {
@@ -310,6 +312,7 @@ const TABS = [
   { id: "compare", label: "News vs data" },
   { id: "numbers", label: "Numbers" },
   { id: "media", label: "Media & sources" },
+  { id: "profile", label: "Profile" },
 ] as const;
 
 /** The map's district sheet for the stunting topic. */
@@ -348,6 +351,8 @@ export function StuntingDistrictSheet({ districtId }: { districtId: string }) {
       </div>
       {tab === "numbers" ? (
         <StuntingDistrictView districtId={districtId} />
+      ) : tab === "profile" ? (
+        <DistrictMochaProfile districtId={districtId} />
       ) : !r ? (
         missing
       ) : tab === "compare" ? (
@@ -395,7 +400,7 @@ export function StuntingKeyFindings() {
   return (
     <div className="space-y-6">
       <section>
-        <p className="label-micro">Key findings from the media research</p>
+        <p className="label-micro">From the media research</p>
         <p className="mt-1 text-[11.5px] leading-snug text-muted-foreground">
           {n} districts researched from {sources} verified sources: {cov.rich} rich, {cov.moderate}{" "}
           moderate, {cov.thin} thin coverage. Collected by automated web search; every number in a

@@ -42,6 +42,7 @@ export {
 export * from "./personaLibrary";
 export * from "./stunting";
 export * from "./stuntingResearch";
+export * from "./districtMocha";
 export * from "./districtResearch";
 export * from "./nitiData";
 export * from "./newsVsData";

@@ -45,6 +45,9 @@ const PRESCRIPTIVE =
 // The second study: under-5 stunting and child nutrition.
 const STUNTING =
   /\b(stunt\w*|malnutri\w*|malnourish\w*|undernutri\w*|undernourish\w*|underweight|wasting|wasted|anaemi\w*|anemi\w*|nutrition\w*|anganwadi\w*|poshan|iron[- ]folic|ifa|low bmi|hepatitis|iodi[sz]ed|institutional deliver\w*|nfhs[- ]?6)\b/;
+// A district's background (District Mocha's outside profile): economy, income, development, programmes.
+const CONTEXT =
+  /\b(econom\w*|gddp|gdp|per[- ]capita|hdi|human development|population|industr\w*|tourism|airport|background|profile|overview|known for|strengths?|opportunit\w*|district mocha)\b/;
 const ANALYSIS =
   /\b(persona|personas|generic answer|similarity|divergen\w*|story mode|consolidated|region[- ]first|composite)\b/;
 const PERSONAS = /\b(persona|personas|composite|puttaswamy|manjula|character|characters)\b/;
@@ -164,6 +167,14 @@ export function routeContext(
     optional.push({ name: "NITI PRESCRIPTIVE", text: pack.prescriptive });
   if (ANALYSIS.test(lower)) optional.push({ name: "ANALYSIS", text: pack.analysis });
   if (PERSONAS.test(lower)) optional.push({ name: "PERSONAS", text: pack.personas });
+  // Outside background (CAVEATS rule 11), last so it is the first thing dropped when the budget is tight; only when
+  // the question asks about a named district's background (economy, HDI, industries, profile...).
+  if (pack.districtContext && CONTEXT.test(lower)) {
+    for (const id of districtIds.slice(0, 3)) {
+      const t = pack.districtContext[id];
+      if (t) optional.push({ name: `DISTRICT CONTEXT ${id}`, text: t });
+    }
+  }
 
   let used = parts.reduce((s, p) => s + tokens(p.text), 0);
   const kept: typeof optional = [];

@@ -7,6 +7,7 @@ Write the JSON snapshots the GitHub Pages build reads in place of the backend:
     public/data/persona-library.json      <- GET /api/persona-library?full=1 (curated + generated only)
     public/data/niti-stunting.json        <- GET /api/stunting (the stunting topic's NITI model)
     public/data/stunting-research.json    <- GET /api/stunting/research (page-verified stunting media research)
+    public/data/district-mocha.json       <- GET /api/district-mocha (outside district profiles, District Mocha)
     public/data/default-run-stunting.json <- the newest saved run on a stunting question
     (default-run.json also gets `personaSimilarityMap`, from scripts/build_persona_map.py)
     public/data/niti-factors.json         <- all-India UIDAI/NITI workbooks (scripts/export_niti_data.py)
@@ -91,6 +92,7 @@ def main() -> None:
     write_persona_library()
     write("niti-stunting.json", get("/api/stunting"))
     write("stunting-research.json", get("/api/stunting/research"))
+    write("district-mocha.json", get("/api/district-mocha"))
     write_stunting_run()
 
     chosen = None

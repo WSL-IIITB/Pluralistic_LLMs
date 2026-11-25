@@ -24,7 +24,7 @@ export const DASHBOARD_TABS = [
 export type DashboardTab = (typeof DASHBOARD_TABS)[number];
 
 /** The tabs of the district sheet on the map. */
-export type DistrictSheetTab = "reasons" | "compare" | "numbers" | "media";
+export type DistrictSheetTab = "reasons" | "compare" | "numbers" | "media" | "profile";
 
 export interface ExplorerState {
   tab: DashboardTab;

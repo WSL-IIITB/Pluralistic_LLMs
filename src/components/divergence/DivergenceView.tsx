@@ -182,7 +182,7 @@ export function DivergenceView() {
             Story Mode's answer for {query ? <>“{query}”</> : "this query"} — regional,
             persona-driven, grounded in social and web evidence — compared against{" "}
             {stunting
-              ? "the NITI team's provisional stunting model (each district's NFHS-6 stunting rate and the factors it prescribes most change for)"
+              ? "the NITI team's stunting model (each district's NFHS-6 stunting rate and the factors it prescribes most change for)"
               : "UIDAI/NITI's official district-level dominant-factor model"}
             , which has no region or persona of its own. Each area below gets one consolidated
             answer drawing on both, plus the comparison and the raw evidence behind it.

@@ -845,9 +845,8 @@ function StuntingDataSection({
             District data · under-5 stunting (separate from the persona)
           </span>
           <span className="mt-1 block text-[11.5px] leading-snug text-muted-foreground">
-            {districtName}&apos;s stunting figures and NITI&apos;s provisional model. The persona
-            knows none of this; it is the data side, and the Ask above hands it to both answers as
-            evidence.
+            {districtName}&apos;s stunting figures and NITI&apos;s model. The persona knows none of
+            this; it is the data side, and the Ask above hands it to both answers as evidence.
           </span>
         </span>
       </button>

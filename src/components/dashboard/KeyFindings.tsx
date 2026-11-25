@@ -1,18 +1,27 @@
 /**
- * "Key findings" — the study's headline results in plain language, at the top of the home view.
- * Wording comes from keyFindings.ts; every number is computed from the data.
+ * "Key findings" — the study's headline results in plain language, at the top of the home view, collapsed until
+ * opened. Wording comes from keyFindings.ts (dropout) and stuntingKeyFindings.ts (stunting); every number is
+ * computed from the data.
  */
 
 import { ChevronDown } from "lucide-react";
 import { useMemo, useState } from "react";
 
-import { useDistrictProfiles, useExplorerStore, useWorldviewStore } from "@/lib/worldview";
+import {
+  useAllStuntingResearch,
+  useDistrictProfiles,
+  useExplorerStore,
+  useStunting,
+  useStuntingSettings,
+  useWorldviewStore,
+} from "@/lib/worldview";
 import {
   summarisePersonaSimilarity,
   type ResearchAggregate,
   type ResearchMap,
 } from "@/lib/worldview/aggregate";
 import { buildKeyFindings, type KeyFinding } from "@/lib/worldview/keyFindings";
+import { buildStuntingKeyFindings } from "@/lib/worldview/stuntingKeyFindings";
 
 export function KeyFindings({
   agg,
@@ -23,12 +32,8 @@ export function KeyFindings({
   research: ResearchMap;
   regionRates: Record<string, { avg: number | null; n: number }>;
 }) {
-  const [open, setOpen] = useState(true);
   const personaSimilarity = useWorldviewStore((s) => s.personaSimilarity);
   const { byId } = useDistrictProfiles();
-  const focusRegion = useExplorerStore((s) => s.focusRegion);
-  const focusDistrict = useExplorerStore((s) => s.focusDistrict);
-  const setTab = useExplorerStore((s) => s.setTab);
 
   const findings = useMemo(
     () =>
@@ -41,6 +46,41 @@ export function KeyFindings({
       }),
     [agg, research, regionRates, personaSimilarity, byId],
   );
+
+  return <KeyFindingsCard findings={findings} />;
+}
+
+/** The stunting topic's key findings: model, media research and the saved stunting run. */
+export function StuntingKeyFindingsSummary() {
+  const model = useStunting();
+  const research = useAllStuntingResearch();
+  const reduceBy = useStuntingSettings((s) => s.reduceBy);
+  const priorityBucket = useStuntingSettings((s) => s.priorityBucket);
+  const priorityWeight = useStuntingSettings((s) => s.priorityWeight);
+  const personaSimilarity = useWorldviewStore((s) => s.personaSimilarity);
+
+  const findings = useMemo(
+    () =>
+      model && research
+        ? buildStuntingKeyFindings({
+            model,
+            research,
+            settings: { reduceBy, priorityBucket, priorityWeight },
+            persona: summarisePersonaSimilarity(personaSimilarity),
+          })
+        : null,
+    [model, research, reduceBy, priorityBucket, priorityWeight, personaSimilarity],
+  );
+  if (!findings) return null;
+  return <KeyFindingsCard findings={findings} />;
+}
+
+/** The collapsible card itself: closed by default, numbered findings when opened. */
+export function KeyFindingsCard({ findings }: { findings: KeyFinding[] }) {
+  const [open, setOpen] = useState(false);
+  const focusRegion = useExplorerStore((s) => s.focusRegion);
+  const focusDistrict = useExplorerStore((s) => s.focusDistrict);
+  const setTab = useExplorerStore((s) => s.setTab);
 
   const run = (a: NonNullable<KeyFinding["action"]>) => {
     if (a.kind === "region") focusRegion(a.regionId);
